@@ -1,8 +1,11 @@
 #include <iostream>
 #include <cassert>
 #include <any>
+#include <stdio.h>
 
-int main()
+#include "SDL.h"
+
+int main(int argc, char** argv)
 {
 
 	float monFloat = 14;
@@ -13,4 +16,6 @@ int main()
 	{
 		std::cout << "oui" << std::endl;
 	}
+
+	return 0;
 }
