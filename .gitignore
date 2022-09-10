@@ -1,0 +1,4 @@
+vendor/
+sandbox/x64
+bin/
+.vs
