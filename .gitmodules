@@ -1,0 +1,6 @@
+[submodule "sandbox/vendor/SDL"]
+	path = sandbox/vendor/SDL
+	url = https://github.com/libsdl-org/SDL
+[submodule "sandbox/vendor/SDL_image"]
+	path = sandbox/vendor/SDL_image
+	url = https://github.com/libsdl-org/SDL_image

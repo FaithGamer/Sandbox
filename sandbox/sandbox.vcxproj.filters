@@ -42,10 +42,10 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\precompiled_headers.cpp">
+    <ClCompile Include="src\pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\pch.cpp">
+    <ClCompile Include="src\WindowGLContext.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -83,10 +83,10 @@
     <ClInclude Include="src\SDL_training\std_macros.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\precompiled_headers.h">
+    <ClInclude Include="src\pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\pch.h">
+    <ClInclude Include="src\WindowGLContext.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

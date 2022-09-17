@@ -1,6 +1,4 @@
-vendor/
 sandbox/x64
-sandbox/vendor/
 bin/
 bin-int/
 *.dll
