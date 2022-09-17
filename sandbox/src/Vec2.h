@@ -1,7 +1,7 @@
 #pragma once 
 
 
-template<typename T>
+template<class T>
 class Vec2
 {
 public:
@@ -12,27 +12,14 @@ public:
 	T x;
 	T y;
 
-	template <typename T>
-	Vec2<T>& operator+(const Vec2<T>& right)
-	{
-		return Vec2<T>(x + right.x; y + right.y);
-	}
-
-	template <typename T>
-	Vec2<T>& operator-(const Vec2<T>& right)
-	{
-		return Vec2<T>(x + right.x; y + right.y);
-	}
-
-	template <typename T>
-	Vec2<T>& operator+(const Vec2<T>& right)
-	{
-		return Vec2<T>(x + right.x; y + right.y);
-	}
+	template <class U>
+	Vec2<T>& operator=(const Vec2<U>& vec);
+	Vec2<T>& operator+(const Vec2<T>& right);
+	Vec2<T>& operator-(const Vec2<T>& right);
 
 };
 
-
+#include "Vec2.tpp"
 
 typedef Vec2<double> Vec2d;
 typedef Vec2<int> Vec2i;
