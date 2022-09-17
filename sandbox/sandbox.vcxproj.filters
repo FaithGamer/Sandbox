@@ -93,5 +93,7 @@
   <ItemGroup>
     <None Include="src\Rect.tpp" />
     <None Include="src\Vec2.tpp" />
+    <None Include="src\shaders\fragment_shader.frag" />
+    <None Include="src\shaders\vertex_shader.vert" />
   </ItemGroup>
 </Project>

@@ -10,6 +10,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <glm.hpp>
+#include <fstream>
 
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/stdout_color_sinks.h>

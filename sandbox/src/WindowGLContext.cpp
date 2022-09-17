@@ -30,7 +30,7 @@ WindowGLContext::WindowGLContext(std::string name, Vec2i size)
 	ASSERT_LOG_ERROR(m_glContext, LogSDLError("WindowGLContext::WindowGLContext, Cannot create OpenGL Context"));
 
 	//Loading OpenGL Functions addresses
-	gladLoadGLLoader(SDL_GL_GetProcAddress);
+	ASSERT_LOG_ERROR((bool)(gladLoadGLLoader(SDL_GL_GetProcAddress)), "WindowGLContext::WindowGLContext, Couldn't initialize GLAD");
 
 	//Logging additional information
 	auto c = glGetString(GL_VENDOR);
@@ -47,7 +47,7 @@ WindowGLContext::WindowGLContext(std::string name, Vec2i size)
 
 void WindowGLContext::Clear()
 {
-	glClear(NULL);
+	glClear(GL_COLOR_BUFFER_BIT);
 }
 
 void WindowGLContext::Render()
