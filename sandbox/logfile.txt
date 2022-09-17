@@ -1,0 +1,41 @@
+[2022-09-17 16:48:48.205] [SANDBOX] [info] Hello
+[2022-09-17 16:48:48.206] [SANDBOX] [info] Hello
+[2022-09-17 16:48:48.206] [SANDBOX] [info] Hello
+[2022-09-17 16:48:48.206] [SANDBOX] [info] Hello
+[2022-09-17 16:48:48.206] [SANDBOX] [info] Hello
+[2022-09-17 16:48:55.609] [SANDBOX] [info] Hello
+[2022-09-17 16:48:55.609] [SANDBOX] [info] Hello
+[2022-09-17 16:48:55.609] [SANDBOX] [info] Hello
+[2022-09-17 16:48:55.609] [SANDBOX] [info] Hello
+[2022-09-17 16:48:55.609] [SANDBOX] [info] Hello
+[2022-09-17 16:50:57.694] [SANDBOX] [info] Hello
+[2022-09-17 16:50:57.694] [SANDBOX] [info] Hello
+[2022-09-17 16:50:57.695] [SANDBOX] [info] Hello
+[2022-09-17 16:50:57.695] [SANDBOX] [info] Hello
+[2022-09-17 16:50:57.695] [SANDBOX] [info] Hello
+[2022-09-17 17:18:03.768] [SANDBOX] [info] Hello
+[2022-09-17 17:18:03.769] [SANDBOX] [info] Hello
+[2022-09-17 17:18:03.769] [SANDBOX] [info] Hello
+[2022-09-17 17:18:03.769] [SANDBOX] [info] Hello
+[2022-09-17 17:18:03.769] [SANDBOX] [info] Hello
+[2022-09-17 17:19:39.930] [SANDBOX] [error] WindowGLContext already exist
+[2022-09-17 18:09:07.803] [SANDBOX] [info] Logger initialiazed
+[2022-09-17 18:09:08.238] [SANDBOX] [info] OpenGL Loaded.
+[2022-09-17 18:09:08.239] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
+[2022-09-17 18:09:08.239] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2022-09-17 18:09:08.239] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2022-09-17 18:11:24.495] [SANDBOX] [info] Logger initialiazed
+[2022-09-17 18:11:24.672] [SANDBOX] [info] OpenGL Loaded.
+[2022-09-17 18:11:24.672] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
+[2022-09-17 18:11:24.672] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2022-09-17 18:11:24.672] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2022-09-17 18:15:25.627] [SANDBOX] [info] Logger initialiazed
+[2022-09-17 18:15:25.834] [SANDBOX] [info] OpenGL Loaded.
+[2022-09-17 18:15:25.834] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
+[2022-09-17 18:15:25.834] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2022-09-17 18:15:25.835] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2022-09-17 18:15:47.841] [SANDBOX] [info] Logger initialiazed
+[2022-09-17 18:15:48.071] [SANDBOX] [info] OpenGL Loaded.
+[2022-09-17 18:15:48.071] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
+[2022-09-17 18:15:48.071] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2022-09-17 18:15:48.072] [SANDBOX] [info] Vendor: NVIDIA Corporation

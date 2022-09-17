@@ -1,19 +1,33 @@
 #include "pch.h"
-
 #include "WindowGLContext.h"
+#include "Log.h"
 
-void Init()
-{
 
-}
 
 int main(int argc, char* argv[])
 {
+	Log::Init();
+	LOG_INFO("Logger initialiazed");
 
-	WindowGLContext c("hello window", Vec2i(10, 10));
-	WindowGLContext b("hello window", Vec2i(10, 10));
+	WindowGLContext window("hello window", Vec2i(500, 500));
 
-	std::cout << "hello" << std::endl;
+
+	SDL_Event e;
+	bool run = true;
+	while (run)
+	{
+		while (SDL_PollEvent(&e) != 0)
+		{
+			if (e.type == SDL_QUIT)
+			{
+				run = false;
+			}
+		}
+
+		window.Clear();
+		window.Render();
+	}
+
 	
 	return 0;
 }

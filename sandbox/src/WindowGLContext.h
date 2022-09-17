@@ -2,15 +2,21 @@
 
 #include <glad/glad.h>
 #include <SDL.h>
+#include <SDL_opengl.h>
 
 #include "Vec2.h"
 
+/// <summary>
+/// Initialize SDL to work with OpenGL, create a unique window.
+/// </summary>
 class WindowGLContext
 {
 public:
-	WindowGLContext(std::string name, Vec2i resolution);
+	WindowGLContext(std::string name, Vec2i size);
+	void Clear();
+	void Render();
 	static bool windowExist;
-	SDL_Window* m_SDLwindow;
-	SDL_GLContext m_glcontext;
+	SDL_Window* m_window;
+	SDL_GLContext m_glContext;
 };
 

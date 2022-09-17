@@ -80,14 +80,14 @@
     <ClInclude Include="src\SDL_training\RenderViewSDL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\SDL_training\std_macros.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\WindowGLContext.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\std_macros.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

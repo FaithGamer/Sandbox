@@ -28,7 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\SDL_training\std_macros.h" />
+    <ClInclude Include="src\std_macros.h" />
     <ClInclude Include="src\SDL_training\RenderViewSDL.h" />
     <ClInclude Include="src\SDL_training\RenderStatesSDL.h" />
     <ClInclude Include="src\Rect.h" />
@@ -107,7 +107,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\glad\include;$(ProjectDir)vendor\SDL_image;$(ProjectDir)vendor\SDL\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\glad\include;$(ProjectDir)vendor\SDL_image;$(ProjectDir)vendor\SDL\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>

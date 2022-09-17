@@ -1,5 +1,34 @@
 #pragma once
 
 
-void LogSDLError(std::string str);
-void LogIMGError(std::string str);
+
+#include "std_macros.h"
+
+std::string LogSDLError(std::string str);
+std::string LogIMGError(std::string str);
+
+class Log
+{
+
+public:
+	static void Init();
+	static std::shared_ptr<spdlog::logger> GetLogger();
+private:
+	Log();
+
+	static std::shared_ptr<spdlog::logger> m_logger;
+};
+
+#ifdef _CONSOLE
+#define ASSERT_LOG_ERROR(condition, ...) if(!condition){Log::GetLogger()->error(__VA_ARGS__); exit(2);}
+
+#define LOG_ERROR(...) Log::GetLogger()->error(__VA_ARGS__)
+#define LOG_WARN(...) Log::GetLogger()->warn(__VA_ARGS__)
+#define LOG_INFO(...) Log::GetLogger()->info(__VA_ARGS__)
+#define LOG_TRACE(...) Log::GetLogger()->trace(__VA_ARGS__)
+#else
+#define LOG_ERROR(...) 
+#define LOG_WARN(...)
+#define LOG_INFO(...) 
+#define LOG_TRACE(...) 
+#endif
