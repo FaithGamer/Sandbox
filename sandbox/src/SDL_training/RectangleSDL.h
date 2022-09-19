@@ -3,8 +3,11 @@
 #include "SDL.h"
 
 #include "RenderWindowSDL.h"
-#include "Color.h"
-#include "Rect.h"
+#include "Render/Color.h"
+#include "Render/Rect.h"
+#include "Render/Vec2.h"
+
+using namespace sandbox;
 
 class RectangleSDL
 {

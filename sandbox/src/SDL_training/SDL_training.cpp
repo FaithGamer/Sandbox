@@ -3,9 +3,9 @@
 #include "glad/glad.h"
 #include "SDL_opengl.h"
 
-#include "Vec2.h"
+#include "Render/Vec2.h"
 #include "TextureSDL.h"
-#include "Color.h"
+#include "Render/Color.h"
 #include "RenderWindowSDL.h"
 #include "RectangleSDL.h"
 #include "SpriteSDL.h"
@@ -13,6 +13,7 @@
 
 #include "std_macros.h"
 
+using namespace sandbox;
 
 void InitPng()
 {

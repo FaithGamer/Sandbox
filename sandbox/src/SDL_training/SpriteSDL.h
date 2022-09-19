@@ -1,8 +1,10 @@
 #pragma once
 
 #include "SDL.h"
-#include "Vec2.h"
+#include "Render/Vec2.h"
 
+
+using namespace sandbox;
 class RenderWindowSDL;
 class TextureSDL;
 

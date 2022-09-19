@@ -1,9 +1,11 @@
 #pragma once
 
 #include "SDL.h"
-#include "Color.h"
-#include "Vec2.h"
+#include "Render/Color.h"
+#include "Render/Vec2.h"
 #include "RenderViewSDL.h"
+
+using namespace sandbox;
 
 class RenderWindowSDL
 {

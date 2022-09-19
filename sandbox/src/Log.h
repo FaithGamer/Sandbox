@@ -1,24 +1,25 @@
 #pragma once
 
 
-
+namespace sandbox
+{
 #include "std_macros.h"
 
-std::string LogSDLError(std::string str);
-std::string LogIMGError(std::string str);
+	std::string LogSDLError(std::string str);
+	std::string LogIMGError(std::string str);
 
-class Log
-{
+	class Log
+	{
 
-public:
-	static void Init();
-	static std::shared_ptr<spdlog::logger> GetLogger();
-private:
-	Log();
+	public:
+		static void Init();
+		static std::shared_ptr<spdlog::logger> GetLogger();
+	private:
+		Log();
 
-	static std::shared_ptr<spdlog::logger> m_logger;
-};
-
+		static std::shared_ptr<spdlog::logger> m_logger;
+	};
+}
 #ifdef _CONSOLE
 #define ASSERT_LOG_ERROR(condition, ...) if(!condition){Log::GetLogger()->error(__VA_ARGS__); exit(2);}
 
@@ -32,3 +33,4 @@ private:
 #define LOG_INFO(...) 
 #define LOG_TRACE(...) 
 #endif
+

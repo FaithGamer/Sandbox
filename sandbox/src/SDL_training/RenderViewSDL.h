@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Rect.h"
+#include "Render/Rect.h"
+using namespace sandbox;
 
 class RenderViewSDL
 {

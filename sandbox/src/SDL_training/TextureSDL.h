@@ -4,8 +4,10 @@
 #include "SDL_image.h"
 
 
-#include "Vec2.h"
+#include "Render/Vec2.h"
 #include "Log.h"
+
+using namespace sandbox;
 
 class TextureSDL
 {

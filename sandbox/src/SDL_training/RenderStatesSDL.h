@@ -1,7 +1,9 @@
 #pragma once
 
-#include "Vec2.h"
+#include "Render/Vec2.h"
 #include "RenderViewSDL.h"
+
+using namespace sandbox;
 
 class RenderStatesSDL
 {
