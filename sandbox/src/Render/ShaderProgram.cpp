@@ -1,6 +1,7 @@
 #include "pch.h"
+#include <glad/glad.h>
+
 #include "ShaderProgram.h"
-#include "glad/glad.h"
 #include "Log.h"
 #include "Tools/files.h"
 
@@ -17,6 +18,10 @@ else\
 
 namespace sandbox
 {
+	GLuint ShaderProgram::pouet()
+	{
+		return 1;
+	}
 	std::string loadShaderSourceFromFile(std::string path)
 	{
 		std::ifstream shaderFile;
@@ -28,7 +33,7 @@ namespace sandbox
 		return files::ifstreamToString(shaderFile);
 	}
 
-	void shaderCompilationError(unsigned int shader)
+	void shaderCompilationError(uint32_t shader)
 	{
 		GLint success;
 		glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
@@ -44,7 +49,7 @@ namespace sandbox
 		}
 	}
 
-	void programLinkageError(unsigned int program)
+	void programLinkageError(uint32_t program)
 	{
 		GLint success;
 		glGetProgramiv(program, GL_LINK_STATUS, &success);
@@ -101,59 +106,54 @@ namespace sandbox
 		glUseProgram(m_id);
 	}
 
-	void ShaderProgram::SetUniform(std::string name, float uniform)
+	void ShaderProgram::SetUniform(std::string name, GLfloat uniform)
 	{
 		SET_UNIFORM(glUniform1f(location, uniform));
 	}
 
 	void ShaderProgram::SetUniform(std::string name, glm::vec2 uniform)
 	{
-		SET_UNIFORM(glUniform2f(location, uniform.x, uniform.y));
+		SET_UNIFORM(glUniform2f(location, (GLfloat)uniform.x, (GLfloat)uniform.y));
 	}
 
 	void ShaderProgram::SetUniform(std::string name, glm::vec3 uniform)
 	{
-		SET_UNIFORM(glUniform3f(location, uniform.x, uniform.y, uniform.z));
+		SET_UNIFORM(glUniform3f(location, (GLfloat)uniform.x, (GLfloat)uniform.y, (GLfloat)uniform.z));
 	}
 
 	void ShaderProgram::SetUniform(std::string name, glm::vec4 uniform)
 	{
-		SET_UNIFORM(glUniform4f(location, uniform.x, uniform.y, uniform.z, uniform.w));
+		SET_UNIFORM(glUniform4f(location, (GLfloat)uniform.x, (GLfloat)uniform.y, (GLfloat)uniform.z, (GLfloat)uniform.w));
 	}
 
 	void ShaderProgram::SetUniform(std::string name, glm::mat3 uniform)
 	{
-		SET_UNIFORM(glUniformMatrix3fv(location, 1, GL_FALSE, (float*)&uniform));
+		SET_UNIFORM(glUniformMatrix3fv(location, 1, GL_FALSE, (const GLfloat*)&uniform));
 	}
 
 	void ShaderProgram::SetUniform(std::string name, glm::mat4 uniform)
 	{
-		SET_UNIFORM(glUniformMatrix4fv(location, 1, GL_FALSE, (float*)&uniform));
+		SET_UNIFORM(glUniformMatrix4fv(location, 1, GL_FALSE, (const GLfloat*)&uniform));
 	}
 
-	void ShaderProgram::SetUniform(std::string name, int uniform)
+	void ShaderProgram::SetUniform(std::string name, GLint uniform)
 	{
 		SET_UNIFORM(glUniform1i(location, uniform));
 	}
 
 	void ShaderProgram::SetUniform(std::string name, glm::i32vec2 uniform)
 	{
-		SET_UNIFORM(glUniform2i(location, uniform.x, uniform.y));
+		SET_UNIFORM(glUniform2i(location, (GLint)uniform.x, (GLint)uniform.y));
 	}
 
 	void ShaderProgram::SetUniform(std::string name, glm::i32vec3 uniform)
 	{
-		SET_UNIFORM(glUniform3i(location, uniform.x, uniform.y, uniform.z));
+		SET_UNIFORM(glUniform3i(location, (GLint)uniform.x, (GLint)uniform.y, (GLint)uniform.z));
 	}
 
 	void ShaderProgram::SetUniform(std::string name, glm::i32vec4 uniform)
 	{
-		SET_UNIFORM(glUniform4i(location, uniform.x, uniform.y, uniform.z, uniform.w));
-	}
-
-	void ShaderProgram::SetUniform(std::string name, bool uniform)
-	{
-		SET_UNIFORM(glUniform1i(location, uniform));
+		SET_UNIFORM(glUniform4i(location, (GLint)uniform.x, (GLint)uniform.y, (GLint)uniform.z, (GLint)uniform.w));
 	}
 
 }

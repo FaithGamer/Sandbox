@@ -1,10 +1,8 @@
 #pragma once
-
+#include "std_macros.h"
 
 namespace sandbox
 {
-#include "std_macros.h"
-
 	std::string LogSDLError(std::string str);
 	std::string LogIMGError(std::string str);
 
@@ -13,11 +11,11 @@ namespace sandbox
 
 	public:
 		static void Init();
-		static std::shared_ptr<spdlog::logger> GetLogger();
+		static sptr<spdlog::logger> GetLogger();
 	private:
 		Log();
 
-		static std::shared_ptr<spdlog::logger> m_logger;
+		static sptr<spdlog::logger> m_logger;
 	};
 }
 #ifdef _CONSOLE

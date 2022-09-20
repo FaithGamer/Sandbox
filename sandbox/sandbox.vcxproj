@@ -28,8 +28,8 @@
     <ClCompile Include="src\Render\ShaderProgram.cpp" />
     <ClCompile Include="src\Tools\files.cpp" />
     <ClCompile Include="src\Render\WindowGLContext.cpp" />
-    <ClCompile Include="src\Render\VertexBuffer.cpp" />
     <ClCompile Include="src\Render\Vertex.cpp" />
+    <ClCompile Include="src\Render\VertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Render\Buffer.h" />
@@ -48,8 +48,8 @@
     <ClInclude Include="src\Tools\files.h" />
     <ClInclude Include="src\Render\Vec2.h" />
     <ClInclude Include="src\Render\WindowGLContext.h" />
-    <ClInclude Include="src\Render\VertexBuffer.h" />
     <ClInclude Include="src\Render\Vertex.h" />
+    <ClInclude Include="src\Render\VertexArray.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Render\Rect.tpp" />

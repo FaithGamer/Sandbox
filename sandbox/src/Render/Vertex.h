@@ -2,6 +2,7 @@
 
 #include "Vec2.h"
 #include "Color.h"
+
 namespace sandbox
 {
 	struct Vertex

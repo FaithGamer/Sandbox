@@ -7,19 +7,7 @@
 
 
 using namespace sandbox;
-VertexBuffer createBuffer()
-{
-	float vertices[]{
-		 -0.5f, -0.5f, 0.0f, 0, 1, 0, 1, //bottom left
-		 0.5f, -0.5f, 0.0f, 1, 0.1, 0.4, 1, //bottom right
-		 0.5f, 0.5f, 0.0f, 1, 1, 0.1, 1,//top right
-		 -0.5f, 0.5f, 0.0f, 0, 1, 1, 1, }; //top left
-	unsigned int s = sizeof(vertices);
 
-
-	return VertexBuffer(vertices, s);
-
-}
 int main(int argc, char* argv[])
 {
 
@@ -37,7 +25,7 @@ int main(int argc, char* argv[])
 	//We need a Vertex Array Objet wich stores all the vertex data
 	//and attribute configuration we gonna set. It makes switch between states easier.
 	//VertexArray will store the state of the Vertex Array Buffer and Element Array Buffer
-	unsigned int VAO;
+	GLuint VAO;
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
 	//VertexBuffer vertexBuffer;
@@ -55,7 +43,7 @@ int main(int argc, char* argv[])
 
 	//Element array data that will tell in wich order to draw the vertex, and can also be used to generate more vertices out of our Vertex Array
 	//(in this case and draw a rectangle with triangles)
-	unsigned int indices[]{
+	uint32_t indices[]{
 		0,1,2,
 		2,3,0
 	};
@@ -77,7 +65,7 @@ int main(int argc, char* argv[])
 
 
 	//We need to tell OpenGL how to interpret the data in the Vertex Array Buffer
-	int layoutIndex = 0;
+	GLuint layoutIndex = 0;
 	const auto& layout = vertexBuffer.GetLayout();
 	for (const auto& element : layout)
 	{
@@ -87,7 +75,7 @@ int main(int argc, char* argv[])
 			ShaderDataTypeGLType(element.type),
 			element.normalized ? GL_TRUE : GL_FALSE,
 			layout.GetStride(),
-			(void*)element.offset);
+			(const void*)element.offset);
 
 		layoutIndex++;
 	}
