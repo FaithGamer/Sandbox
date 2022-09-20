@@ -41,8 +41,13 @@ namespace sandbox
 		LOG_INFO("Renderer: " + std::string((const char*)glGetString(GL_RENDERER)));
 		LOG_INFO("Vendor: " + std::string((const char*)glGetString(GL_VENDOR)));
 
+		int maxVertAttrib = 0;
+		glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &maxVertAttrib);
+
+		LOG_INFO("Max. Vertex attributes: " + std::to_string(maxVertAttrib));
+
 		glViewport(0, 0, size.x, size.y);
-		glClearColor(0.f, 1.f, 0.1f, 1.f);
+		glClearColor(0.1f, 0.1f, 0.1f, 1.f);
 
 		windowExist = true;
 	}

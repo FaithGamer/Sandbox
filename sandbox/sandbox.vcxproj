@@ -29,6 +29,7 @@
     <ClCompile Include="src\Tools\files.cpp" />
     <ClCompile Include="src\Render\WindowGLContext.cpp" />
     <ClCompile Include="src\Render\VertexBuffer.cpp" />
+    <ClCompile Include="src\Render\Vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Render\Buffer.h" />
@@ -48,6 +49,7 @@
     <ClInclude Include="src\Render\Vec2.h" />
     <ClInclude Include="src\Render\WindowGLContext.h" />
     <ClInclude Include="src\Render\VertexBuffer.h" />
+    <ClInclude Include="src\Render\Vertex.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Render\Rect.tpp" />
@@ -103,8 +105,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)bin\$(Platform)-$(Configuration)\$(ProjectName)\</OutDir>
-    <IntDir>$(SolutionDir)bin-int\$(Platform)-$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Platform)-$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin-int\$(ProjectName)\$(Platform)-$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)bin\$(Platform)-$(Configuration)\$(ProjectName)\</OutDir>

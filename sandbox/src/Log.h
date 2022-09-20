@@ -21,7 +21,7 @@ namespace sandbox
 	};
 }
 #ifdef _CONSOLE
-#define ASSERT_LOG_ERROR(condition, ...) if(!condition){Log::GetLogger()->error(__VA_ARGS__); exit(2);}
+#define ASSERT_LOG_ERROR(condition, ...) if(!condition){Log::GetLogger()->error(__VA_ARGS__); assert(condition);}
 
 #define LOG_ERROR(...) Log::GetLogger()->error(__VA_ARGS__)
 #define LOG_WARN(...) Log::GetLogger()->warn(__VA_ARGS__)

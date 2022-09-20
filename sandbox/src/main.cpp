@@ -2,14 +2,27 @@
 #include "Render/WindowGLContext.h"
 #include "Render/ShaderProgram.h"
 #include "Render/Buffer.h"
+#include "Render/Vertex.h"
 #include "Log.h"
 
 
 using namespace sandbox;
+VertexBuffer createBuffer()
+{
+	float vertices[]{
+		 -0.5f, -0.5f, 0.0f, 0, 1, 0, 1, //bottom left
+		 0.5f, -0.5f, 0.0f, 1, 0.1, 0.4, 1, //bottom right
+		 0.5f, 0.5f, 0.0f, 1, 1, 0.1, 1,//top right
+		 -0.5f, 0.5f, 0.0f, 0, 1, 1, 1, }; //top left
+	unsigned int s = sizeof(vertices);
 
+
+	return VertexBuffer(vertices, s);
+
+}
 int main(int argc, char* argv[])
 {
-	
+
 	Log::Init();
 	LOG_INFO("Logger initialiazed");
 
@@ -21,30 +34,24 @@ int main(int argc, char* argv[])
 
 	ShaderProgram shader("shaders/vertex_shader.vert", "shaders/fragment_shader.frag");
 
-
-	//Defining 4 vertices in normalized screen coordinates
-
-
 	//We need a Vertex Array Objet wich stores all the vertex data
 	//and attribute configuration we gonna set. It makes switch between states easier.
 	//VertexArray will store the state of the Vertex Array Buffer and Element Array Buffer
-
 	unsigned int VAO;
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
+	//VertexBuffer vertexBuffer;
+	//Creating our vertices in normalized screen coordinates
 
-	float vertices[]{
-	 -0.5f, -0.5f, 0.0f, //bottom left
-	 0.5f, -0.5f, 0.0f, //bottom right
-	 0.5f, 0.5f, 0.0f, //top right
-	 -0.5f, 0.5f, 0.0f }; //top left
+	std::vector<Vertex> vert{
+		{Vec2f(-0.5f, -0.5f), Color(100, 1, 1)},
+		{Vec2f(0.5f, -0.5f), Color(1, 155, 1)},
+		{Vec2f(0.5f, 0.5f), Color(1, 1, 1)},
+		{Vec2f(-0.5f, 0.5f), Color(150, 1, 1)}
+	};
 
-
-
-	unsigned int s = sizeof(vertices);
-
-	VertexBuffer vertexBuffer(vertices, sizeof(vertices));
-
+	//VertexBuffer vertexBuffer
+	VertexBuffer vertexBuffer(vert);
 
 	//Element array data that will tell in wich order to draw the vertex, and can also be used to generate more vertices out of our Vertex Array
 	//(in this case and draw a rectangle with triangles)
@@ -52,19 +59,39 @@ int main(int argc, char* argv[])
 		0,1,2,
 		2,3,0
 	};
-    ElementBuffer elementBuffer(indices, sizeof(indices));
+
+
+
+	IndexBuffer elementBuffer(indices, sizeof(indices));
+
+	//How the buffer data is laid out, this will help conveniently call glVertexAttribPointer how we need it.
+	{
+		AttributeLayout layout{
+			{ShaderDataType::Vec3f, "aPos"},
+			{ShaderDataType::Vec4f, "aColor"}
+		};
+
+
+		vertexBuffer.SetLayout(layout);
+	}
 
 
 	//We need to tell OpenGL how to interpret the data in the Vertex Array Buffer
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	int layoutIndex = 0;
+	const auto& layout = vertexBuffer.GetLayout();
+	for (const auto& element : layout)
+	{
+		glEnableVertexAttribArray(layoutIndex);
+		glVertexAttribPointer(layoutIndex,
+			ShaderDataTypeCount(element.type),
+			ShaderDataTypeGLType(element.type),
+			element.normalized ? GL_TRUE : GL_FALSE,
+			layout.GetStride(),
+			(void*)element.offset);
 
-	//Each vertex attribute takes its data from memory managed by a VBO and which
-	//VBO it takes its data from (you can have multiple VBOs) is determined
-	//by the VBO currently bound to GL_ARRAY_BUFFER when calling glVertexAttribPointer.
-	//Since the previously defined VBO is still bound before calling glVertexAttribPointer
-	//vertex attribute 0 is now associated with its vertex data.
-	//The next function will enable the vertex attribute, cause they are disabled by default.
-	glEnableVertexAttribArray(0);
+		layoutIndex++;
+	}
+
 
 	while (run)
 	{
@@ -76,17 +103,15 @@ int main(int argc, char* argv[])
 			}
 		}
 
-
 		window.Clear();
-		//Tell openGL to activate the shader program
-		//Every shader and rendering call after glUseProgram will use this program object
+
+		//Activate the shader program
 		shader.Bind();
 
 		glBindVertexArray(VAO);
-		//elementBuffer.Bind();
-		//Function drawing primitives using the currently active shader
-		//Primitive type, starting index of the vertex array, number of vertices.
-		glDrawElements(GL_TRIANGLES, vertexBuffer.GetCount(), GL_UNSIGNED_INT, 0);
+
+		//Function drawing primitives using the currently bound shader and VertexArray
+		glDrawElements(GL_TRIANGLES, elementBuffer.GetCount(), GL_UNSIGNED_INT, 0);
 		window.Render();
 	}
 

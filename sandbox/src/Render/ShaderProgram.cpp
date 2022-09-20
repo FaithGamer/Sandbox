@@ -4,6 +4,17 @@
 #include "Log.h"
 #include "Tools/files.h"
 
+#define SET_UNIFORM(c) int location = glGetUniformLocation(m_id, (const GLchar*)name.c_str());\
+if (location == -1)\
+{\
+	LOG_ERROR("The following uniform cannot be found: " + name);\
+}\
+else\
+{\
+	glUseProgram(m_id);\
+	c;\
+}\
+
 namespace sandbox
 {
 	std::string loadShaderSourceFromFile(std::string path)
@@ -80,13 +91,69 @@ namespace sandbox
 
 	}
 
+	ShaderProgram::~ShaderProgram()
+	{
+		glDeleteProgram(m_id);
+	}
+
 	void ShaderProgram::Bind() const
 	{
 		glUseProgram(m_id);
 	}
 
-	ShaderProgram::~ShaderProgram()
+	void ShaderProgram::SetUniform(std::string name, float uniform)
 	{
-		glDeleteProgram(m_id);
+		SET_UNIFORM(glUniform1f(location, uniform));
 	}
+
+	void ShaderProgram::SetUniform(std::string name, glm::vec2 uniform)
+	{
+		SET_UNIFORM(glUniform2f(location, uniform.x, uniform.y));
+	}
+
+	void ShaderProgram::SetUniform(std::string name, glm::vec3 uniform)
+	{
+		SET_UNIFORM(glUniform3f(location, uniform.x, uniform.y, uniform.z));
+	}
+
+	void ShaderProgram::SetUniform(std::string name, glm::vec4 uniform)
+	{
+		SET_UNIFORM(glUniform4f(location, uniform.x, uniform.y, uniform.z, uniform.w));
+	}
+
+	void ShaderProgram::SetUniform(std::string name, glm::mat3 uniform)
+	{
+		SET_UNIFORM(glUniformMatrix3fv(location, 1, GL_FALSE, (float*)&uniform));
+	}
+
+	void ShaderProgram::SetUniform(std::string name, glm::mat4 uniform)
+	{
+		SET_UNIFORM(glUniformMatrix4fv(location, 1, GL_FALSE, (float*)&uniform));
+	}
+
+	void ShaderProgram::SetUniform(std::string name, int uniform)
+	{
+		SET_UNIFORM(glUniform1i(location, uniform));
+	}
+
+	void ShaderProgram::SetUniform(std::string name, glm::i32vec2 uniform)
+	{
+		SET_UNIFORM(glUniform2i(location, uniform.x, uniform.y));
+	}
+
+	void ShaderProgram::SetUniform(std::string name, glm::i32vec3 uniform)
+	{
+		SET_UNIFORM(glUniform3i(location, uniform.x, uniform.y, uniform.z));
+	}
+
+	void ShaderProgram::SetUniform(std::string name, glm::i32vec4 uniform)
+	{
+		SET_UNIFORM(glUniform4i(location, uniform.x, uniform.y, uniform.z, uniform.w));
+	}
+
+	void ShaderProgram::SetUniform(std::string name, bool uniform)
+	{
+		SET_UNIFORM(glUniform1i(location, uniform));
+	}
+
 }
