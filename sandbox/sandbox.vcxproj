@@ -122,6 +122,8 @@
       <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\glad\include;$(ProjectDir)vendor\SDL_image;$(ProjectDir)vendor\SDL\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
