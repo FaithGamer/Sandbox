@@ -10,10 +10,17 @@ namespace sandbox
 		glGenVertexArrays(1, &m_id);
 	}
 
+	VertexArray::~VertexArray()
+	{
+		glDeleteVertexArrays(1, &m_id);
+	}
+
 	void VertexArray::AddVertexBuffer(const sptr<VertexBuffer>& buffer)
 	{
 		glBindVertexArray(m_id);
 		buffer->Bind();
+
+		ASSERT_LOG_ERROR(buffer->GetLayout().GetElements().size(), "VertexBuffer layout is empty");
 		//We need to tell OpenGL how to interpret the data in the Vertex Array Buffer
 		GLuint layoutIndex = 0;
 		const auto& layout = buffer->GetLayout();

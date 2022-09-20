@@ -50,6 +50,8 @@ int main(int argc, char* argv[])
 	SDL_Event e;
 	bool run = true;
 
+	shader.SetUniform("offset", 0.2f);
+
 	while (run)
 	{
 		while (SDL_PollEvent(&e) != 0)

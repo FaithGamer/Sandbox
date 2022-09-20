@@ -157,3 +157,28 @@
 [2022-09-20 15:01:18.904] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
 [2022-09-20 15:01:18.904] [SANDBOX] [info] Vendor: NVIDIA Corporation
 [2022-09-20 15:01:18.904] [SANDBOX] [info] Max. Vertex attributes: 16
+[2022-09-20 15:43:55.007] [SANDBOX] [info] Logger initialiazed
+[2022-09-20 15:43:55.236] [SANDBOX] [info] OpenGL Loaded.
+[2022-09-20 15:43:55.236] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
+[2022-09-20 15:43:55.236] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2022-09-20 15:43:55.236] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2022-09-20 15:43:55.237] [SANDBOX] [info] Max. Vertex attributes: 16
+[2022-09-20 16:17:42.259] [SANDBOX] [info] Logger initialiazed
+[2022-09-20 16:17:42.467] [SANDBOX] [info] OpenGL Loaded.
+[2022-09-20 16:17:42.467] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
+[2022-09-20 16:17:42.467] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2022-09-20 16:17:42.467] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2022-09-20 16:17:42.467] [SANDBOX] [info] Max. Vertex attributes: 16
+[2022-09-20 16:18:08.798] [SANDBOX] [info] Logger initialiazed
+[2022-09-20 16:18:09.003] [SANDBOX] [info] OpenGL Loaded.
+[2022-09-20 16:18:09.003] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
+[2022-09-20 16:18:09.003] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2022-09-20 16:18:09.003] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2022-09-20 16:18:09.004] [SANDBOX] [info] Max. Vertex attributes: 16
+[2022-09-20 16:18:09.008] [SANDBOX] [error] The following uniform cannot be found: offset
+[2022-09-20 16:21:29.967] [SANDBOX] [info] Logger initialiazed
+[2022-09-20 16:21:30.153] [SANDBOX] [info] OpenGL Loaded.
+[2022-09-20 16:21:30.153] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
+[2022-09-20 16:21:30.153] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2022-09-20 16:21:30.154] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2022-09-20 16:21:30.154] [SANDBOX] [info] Max. Vertex attributes: 16
