@@ -26,10 +26,12 @@
     <ClCompile Include="src\SDL_training\SpriteSDL.cpp" />
     <ClCompile Include="src\SDL_training\SDL_training.cpp" />
     <ClCompile Include="src\Render\ShaderProgram.cpp" />
+    <ClCompile Include="src\stb_impl.cpp" />
     <ClCompile Include="src\Tools\files.cpp" />
     <ClCompile Include="src\Render\WindowGLContext.cpp" />
     <ClCompile Include="src\Render\Vertex.cpp" />
     <ClCompile Include="src\Render\VertexArray.cpp" />
+    <ClCompile Include="src\Render\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Render\Buffer.h" />
@@ -50,6 +52,7 @@
     <ClInclude Include="src\Render\WindowGLContext.h" />
     <ClInclude Include="src\Render\Vertex.h" />
     <ClInclude Include="src\Render\VertexArray.h" />
+    <ClInclude Include="src\Render\Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Render\Rect.tpp" />
