@@ -20,10 +20,9 @@ namespace sandbox
 
 	};
 
-	typedef Vec2<double> Vec2d;
-	typedef Vec2<float> Vec2f;
-	typedef Vec2<int> Vec2i;
-	typedef Vec2<unsigned int> Vec2u;
+	typedef Vec2<double> Vec2f;
+	typedef Vec2<int32_t> Vec2i;
+	typedef Vec2<uint32_t> Vec2u;
 
 
 }

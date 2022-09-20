@@ -9,7 +9,6 @@
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
-#include <glm.hpp>
 #include <fstream>
 #include <initializer_list>
 #include <spdlog/spdlog.h>
