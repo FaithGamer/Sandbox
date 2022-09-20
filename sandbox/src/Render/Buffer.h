@@ -43,7 +43,7 @@ namespace sandbox
 	class AttributeLayout
 	{
 	public:
-		AttributeLayout() : m_stride(0) {};
+		AttributeLayout();
 		AttributeLayout(const std::initializer_list<AttributeElement>& elements);
 		const std::vector<AttributeElement>& GetElements() const;
 		const GLsizei GetStride() const;
@@ -66,8 +66,8 @@ namespace sandbox
 	{
 	public:
 		VertexBuffer() : m_id(0) {}
-		VertexBuffer(float* vertices, GLsizeiptr size);
-		VertexBuffer(const std::vector<Vertex>& vertices);
+		VertexBuffer(float* vertices, GLsizeiptr size, const AttributeLayout& layout = AttributeLayout());
+		VertexBuffer(const std::vector<Vertex>& vertices, const AttributeLayout& layout = AttributeLayout());
 		~VertexBuffer();
 
 		void SetLayout(const AttributeLayout& layout);

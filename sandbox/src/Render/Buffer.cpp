@@ -73,7 +73,15 @@ namespace sandbox
 
 	/// AttributeLayout /////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////
-	
+
+	AttributeLayout::AttributeLayout() : m_elements{
+		{ ShaderDataType::Vec3f, "aPos" },
+		{ ShaderDataType::Vec4f, "aColor" }
+	}
+	{
+		CalculateOffsetAndStride();
+	}
+
 	AttributeLayout::AttributeLayout(const std::initializer_list<AttributeElement>& elements)
 		: m_elements(elements)
 	{
@@ -115,7 +123,7 @@ namespace sandbox
 	/// Vertex Buffer ////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////
 
-	VertexBuffer::VertexBuffer(float* vertices, GLsizeiptr size)
+	VertexBuffer::VertexBuffer(float* vertices, GLsizeiptr size, const AttributeLayout& layout)
 	{
 		//Create one buffer
 		glGenBuffers(1, &m_id);
@@ -125,7 +133,7 @@ namespace sandbox
 		glBufferData(GL_ARRAY_BUFFER, size, (const void*)vertices, GL_STATIC_DRAW);
 	}
 
-	VertexBuffer::VertexBuffer(const std::vector<Vertex>& vertices)
+	VertexBuffer::VertexBuffer(const std::vector<Vertex>& vertices, const AttributeLayout& layout)
 	{
 		GLsizeiptr size = vertices.size() * sizeof(Vertex);
 		//Create one buffer
@@ -134,6 +142,8 @@ namespace sandbox
 		glBindBuffer(GL_ARRAY_BUFFER, m_id);
 		//Send the data in the buffer
 		glBufferData(GL_ARRAY_BUFFER, size, (const void*)&vertices[0], GL_STATIC_DRAW);
+
+		m_layout = layout;
 	}
 
 	VertexBuffer::~VertexBuffer()
