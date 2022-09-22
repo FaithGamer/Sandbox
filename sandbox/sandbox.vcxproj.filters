@@ -15,28 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\SDL_training\SDL_training.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SDL_training\SpriteSDL.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\SDL_training\RenderWindowSDL.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Render\Rect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SDL_training\RenderStatesSDL.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SDL_training\RenderViewSDL.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SDL_training\RectangleSDL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\main.cpp">
@@ -69,36 +51,24 @@
     <ClCompile Include="src\Render\Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Render\Transform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Render\Vec2.h">
+    <ClInclude Include="src\Vec.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Render\Color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\SDL_training\TextureSDL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\Log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\SDL_training\RenderWindowSDL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\SDL_training\RectangleSDL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\SDL_training\SpriteSDL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\Render\Rect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\SDL_training\RenderStatesSDL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\SDL_training\RenderViewSDL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h">
@@ -128,11 +98,22 @@
     <ClInclude Include="src\Render\Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Render\Transform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Render\Rect.tpp" />
-    <None Include="src\Render\Vec2.tpp" />
-    <None Include="shaders\fragment_shader.frag" />
-    <None Include="shaders\vertex_shader.vert" />
+    <None Include="src\Vec.tpp" />
+    <None Include="shaders\texture.frag" />
+    <None Include="shaders\position_color.vert" />
+    <None Include="shaders\color.frag" />
+    <None Include="shaders\position_texture.vert" />
+    <None Include="shaders\position_texture_transform.vert" />
+    <None Include="shaders\model_view_projection.vert" />
+    <None Include="shaders\2dSprite.vert" />
   </ItemGroup>
 </Project>

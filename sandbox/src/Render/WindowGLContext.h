@@ -4,7 +4,7 @@
 #include <SDL.h>
 #include <SDL_opengl.h>
 
-#include "Vec2.h"
+#include "Vec.h"
 
 namespace sandbox
 {
@@ -15,9 +15,11 @@ namespace sandbox
 	{
 	public:
 		WindowGLContext(std::string name, Vec2i size);
+		void SetSize(Vec2i size);
 		void Clear();
 		void Render();
 		static bool windowExist;
+	private:
 		SDL_Window* m_window;
 		SDL_GLContext m_glContext;
 	};

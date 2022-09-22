@@ -123,27 +123,43 @@ namespace sandbox
 	/// Vertex Buffer ////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////
 
+	/// <summary>
+	/// Manually set vertices and the according Attribute Layout
+	/// </summary>
+	/// <param name="vertices"></param>
 	VertexBuffer::VertexBuffer(float* vertices, GLsizeiptr size, const AttributeLayout& layout)
 	{
+		m_verticesCount = (unsigned int)(size / sizeof(float));
 		//Create one buffer
 		glGenBuffers(1, &m_id);
 		//Bind an array buffer to operate on in
 		glBindBuffer(GL_ARRAY_BUFFER, m_id);
 		//Send the data in the buffer
 		glBufferData(GL_ARRAY_BUFFER, size, (const void*)vertices, GL_STATIC_DRAW);
-	}
-
-	VertexBuffer::VertexBuffer(const std::vector<Vertex>& vertices, const AttributeLayout& layout)
-	{
-		GLsizeiptr size = vertices.size() * sizeof(Vertex);
-		//Create one buffer
-		glGenBuffers(1, &m_id);
-		//Bind an array buffer to operate on in
-		glBindBuffer(GL_ARRAY_BUFFER, m_id);
-		//Send the data in the buffer
-		glBufferData(GL_ARRAY_BUFFER, size, (const void*)&vertices[0], GL_STATIC_DRAW);
 
 		m_layout = layout;
+	}
+
+	/// <summary>
+	/// Return a pointer to the buffer data for direct reading/writing
+	/// Must call EndAccessBuffer before any other operation on this buffer
+	/// Use with care
+	/// </summary>
+	/// <param name="vertices"></param>
+	float* VertexBuffer::BeginAccessBuffer()
+	{
+		glBindBuffer(GL_ARRAY_BUFFER, m_id);
+		return static_cast<float*>(glMapBuffer(GL_ARRAY_BUFFER, GL_MAP_READ_BIT | GL_MAP_WRITE_BIT));
+	}
+
+	void VertexBuffer::EndAccessBuffer()
+	{
+		glUnmapBuffer(GL_ARRAY_BUFFER);
+	}
+
+	unsigned int VertexBuffer::GetVerticesCount()
+	{
+		return m_verticesCount;
 	}
 
 	VertexBuffer::~VertexBuffer()

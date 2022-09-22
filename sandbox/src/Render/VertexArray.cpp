@@ -10,6 +10,13 @@ namespace sandbox
 		glGenVertexArrays(1, &m_id);
 	}
 
+	VertexArray::VertexArray(const sptr<VertexBuffer>& vertexBuffer, const sptr<IndexBuffer>& indexBuffer)
+	{
+		glGenVertexArrays(1, &m_id);
+		AddVertexBuffer(vertexBuffer);
+		SetIndexBuffer(indexBuffer);
+	}
+
 	VertexArray::~VertexArray()
 	{
 		glDeleteVertexArrays(1, &m_id);
@@ -26,18 +33,21 @@ namespace sandbox
 		const auto& layout = buffer->GetLayout();
 		for (const auto& element : layout)
 		{
-			glEnableVertexAttribArray(layoutIndex);
 			glVertexAttribPointer(layoutIndex,
 				ShaderDataTypeCount(element.type),
 				ShaderDataTypeGLType(element.type),
 				element.normalized,
 				layout.GetStride(),
 				(const void*)element.offset);
+			glEnableVertexAttribArray(layoutIndex);
 
 			layoutIndex++;
 		}
-		m_vertexBuffers.push_back(buffer);
+
+		m_vertexBuffer.push_back(buffer);
 	}
+
+	
 
 	void VertexArray::SetIndexBuffer(const sptr<IndexBuffer>& buffer)
 	{
@@ -49,5 +59,10 @@ namespace sandbox
 	void VertexArray::Bind()
 	{
 		glBindVertexArray(m_id);
+	}
+
+	const sptr<IndexBuffer>& VertexArray::GetIndexBuffer() const
+	{
+		return m_indexBuffer;
 	}
 }

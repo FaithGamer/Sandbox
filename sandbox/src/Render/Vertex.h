@@ -1,17 +1,18 @@
 #pragma once
 
-#include "Vec2.h"
+#include "Vec.h"
 #include "Color.h"
 
 namespace sandbox
 {
-	struct Vertex
+	class Vertex
 	{
+	public:
 		Vertex(Vec2f Pos);
 		Vertex(Vec2f Pos, Color Color);
+		Vertex(Vec2f Pos, Color Color, Vec2f texCoords);
 
-		float data[7];
+	private:
+		std::vector<float> m_data;
 	};
-
-
 }

@@ -67,7 +67,9 @@ namespace sandbox
 	public:
 		VertexBuffer() : m_id(0) {}
 		VertexBuffer(float* vertices, GLsizeiptr size, const AttributeLayout& layout = AttributeLayout());
-		VertexBuffer(const std::vector<Vertex>& vertices, const AttributeLayout& layout = AttributeLayout());
+		float* BeginAccessBuffer();
+		void EndAccessBuffer();
+		unsigned int GetVerticesCount();
 		~VertexBuffer();
 
 		void SetLayout(const AttributeLayout& layout);
@@ -76,6 +78,7 @@ namespace sandbox
 		void Bind() const;
 
 	private:
+		unsigned int m_verticesCount;
 		AttributeLayout m_layout;
 		GLuint m_id;
 	};

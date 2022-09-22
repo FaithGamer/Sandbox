@@ -11,20 +11,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Render\Camera.cpp" />
     <ClCompile Include="src\Render\Buffer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\SDL_training\RectangleSDL.cpp" />
-    <ClCompile Include="src\SDL_training\RenderViewSDL.cpp" />
-    <ClCompile Include="src\SDL_training\RenderStatesSDL.cpp" />
     <ClCompile Include="src\Render\Rect.cpp" />
     <ClCompile Include="src\Log.cpp" />
-    <ClCompile Include="src\SDL_training\RenderWindowSDL.cpp" />
-    <ClCompile Include="src\SDL_training\SpriteSDL.cpp" />
-    <ClCompile Include="src\SDL_training\SDL_training.cpp" />
     <ClCompile Include="src\Render\ShaderProgram.cpp" />
     <ClCompile Include="src\stb_impl.cpp" />
     <ClCompile Include="src\Tools\files.cpp" />
@@ -32,33 +27,35 @@
     <ClCompile Include="src\Render\Vertex.cpp" />
     <ClCompile Include="src\Render\VertexArray.cpp" />
     <ClCompile Include="src\Render\Texture.cpp" />
+    <ClCompile Include="src\Render\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Render\Camera.h" />
     <ClInclude Include="src\Render\Buffer.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\Render\ShaderProgram.h" />
     <ClInclude Include="src\std_macros.h" />
-    <ClInclude Include="src\SDL_training\RenderViewSDL.h" />
-    <ClInclude Include="src\SDL_training\RenderStatesSDL.h" />
     <ClInclude Include="src\Render\Rect.h" />
-    <ClInclude Include="src\SDL_training\SpriteSDL.h" />
     <ClInclude Include="src\Render\Color.h" />
     <ClInclude Include="src\Log.h" />
-    <ClInclude Include="src\SDL_training\RectangleSDL.h" />
-    <ClInclude Include="src\SDL_training\RenderWindowSDL.h" />
-    <ClInclude Include="src\SDL_training\TextureSDL.h" />
     <ClInclude Include="src\Tools\files.h" />
-    <ClInclude Include="src\Render\Vec2.h" />
+    <ClInclude Include="src\Vec.h" />
     <ClInclude Include="src\Render\WindowGLContext.h" />
     <ClInclude Include="src\Render\Vertex.h" />
     <ClInclude Include="src\Render\VertexArray.h" />
     <ClInclude Include="src\Render\Texture.h" />
+    <ClInclude Include="src\Render\Transform.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="shaders\2dSprite.vert" />
+    <None Include="shaders\color.frag" />
+    <None Include="shaders\model_view_projection.vert" />
+    <None Include="shaders\position_texture.vert" />
+    <None Include="shaders\position_texture_transform.vert" />
     <None Include="src\Render\Rect.tpp" />
-    <None Include="shaders\fragment_shader.frag" />
-    <None Include="shaders\vertex_shader.vert" />
-    <None Include="src\Render\Vec2.tpp" />
+    <None Include="shaders\texture.frag" />
+    <None Include="shaders\position_color.vert" />
+    <None Include="src\Vec.tpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\glad\glad.vcxproj">
@@ -69,9 +66,6 @@
     </ProjectReference>
     <ProjectReference Include="vendor\SDL\VisualC\SDL\SDL.vcxproj">
       <Project>{81ce8daf-ebb2-4761-8e45-b71abcca8c68}</Project>
-    </ProjectReference>
-    <ProjectReference Include="vendor\SDL_image\VisualC\SDL_image.vcxproj">
-      <Project>{2bd5534e-00e2-4bea-ac96-d9a92ea24696}</Project>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -122,7 +116,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\glad\include;$(ProjectDir)vendor\SDL_image;$(ProjectDir)vendor\SDL\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\glad\include;$(ProjectDir)vendor\SDL_image;$(ProjectDir)vendor\SDL\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>

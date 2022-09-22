@@ -49,7 +49,15 @@ namespace sandbox
 		glViewport(0, 0, size.x, size.y);
 		glClearColor(0.1f, 0.1f, 0.1f, 1.f);
 
+		SDL_GL_SetSwapInterval(0);
+
 		windowExist = true;
+	}
+
+	void WindowGLContext::SetSize(Vec2i size)
+	{
+		SDL_SetWindowSize(m_window, size.x, size.y);
+		glViewport(0, 0, size.x, size.y);
 	}
 
 	void WindowGLContext::Clear()
