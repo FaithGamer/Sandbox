@@ -25,14 +25,20 @@ int main(int argc, char* argv[])
 	WindowGLContext window("hello window", Vec2i(500, 500));
 
 	sptr<ShaderProgram> shader = makesptr<ShaderProgram>("shaders/model_view_projection.vert", "shaders/texture.frag");
+	sptr<ShaderProgram> shaderBillboard = makesptr<ShaderProgram>("shaders/billboardY.vert", "shaders/texture.frag");
 
 	sptr<Texture> texture = makesptr<Texture>("image.png");
 
 	Transform transform;
-	transform.SetTranslation({0, 0, 0});
-	//transform.SetOrigin({ 0, 0, 0 });
+	transform.Rotate(90);
+	transform.SetTranslation({ 0, 0, 0 });
 	transform.SetScale(Vec3f(0.5, 0.5, 0.5));
-	
+
+	Transform transform2;
+	transform2.SetTranslation({ 0, 0, 0 });
+	transform2.SetOrigin({ 0, -0.5, 0 });
+	transform2.SetScale(Vec3f(0.25, 0.25, 0.25));
+
 
 	/*Mat4 view = glm::translate(Mat4(1.f), glm::vec3(0, 0, -10));
 	Mat4 perspective = glm::perspective(glm::radians(45.f), (float)500 / 500, 0.1f, 100.f);
@@ -40,7 +46,7 @@ int main(int argc, char* argv[])
 
 	Camera cam;
 
-	cam.SetPosition(Vec3f( 1, 0, 1 ));
+	cam.SetPosition(Vec3f(1.12, -1.4, 1.3));
 
 	shader->SetUniform("model", transform.GetTransformMatrix());
 	shader->SetUniform("view", cam.GetViewMatrix());
@@ -53,7 +59,7 @@ int main(int argc, char* argv[])
 		 0.5f,  0.5f, 0,  1.0f, 0.0f,
 		 -0.5f,  0.5f, 0,  0.0f, 0.0f,
 	};
-	
+
 
 	AttributeLayout layout{
 		{ ShaderDataType::Vec3f, "aPos" },
@@ -62,17 +68,15 @@ int main(int argc, char* argv[])
 
 	//VertexBuffer store all the data about the vertices and the attribute layout
 	sptr<VertexBuffer> vertexBuffer = makesptr<VertexBuffer>(vertices, sizeof(vertices), layout);
-	
+
 
 	//Element array data that will tell in wich order to draw the vertex, and can also be used to generate more vertices out of our Vertex Array
 	//(in this case and draw a rectangle with triangles)
 	uint32_t indices[]{
 		0,1,2,
 		2,3,0,
-		
-	};
 
-	window.SetSize({ 900, 300 });
+	};
 
 	//IndexBuffer
 	sptr<IndexBuffer> indexBuffer = makesptr<IndexBuffer>(indices, sizeof(indices));
@@ -82,12 +86,17 @@ int main(int argc, char* argv[])
 	vertexArray->SetIndexBuffer(indexBuffer);
 	vertexArray->AddVertexBuffer(vertexBuffer);
 
+	Vec3f o = Vec3f(0, 0, 0);
+
+	LOG_INFO(o.x);
 
 	SDL_Event e;
 	bool run = true;
 
 	//shader.SetUniform("offset", 0.2f);
-	
+	cam.Pitch(0);
+	cam.Yaw(-90);
+	cam.SetPosition({ 0, 0, 1 });
 	while (run)
 	{
 		while (SDL_PollEvent(&e) != 0)
@@ -96,14 +105,40 @@ int main(int argc, char* argv[])
 			{
 				run = false;
 			}
+			if (e.type == SDL_KEYDOWN)
+			{
+				float offset = 0.1f;
+				switch (e.key.keysym.sym)
+				{
+				case SDLK_z:
+					cam.MoveLocalZ(offset);
+					break;
+				case SDLK_q:
+					cam.MoveLocalX(-offset);
+					break;
+				case SDLK_s:
+					cam.MoveLocalZ(-offset);
+					break;
+				case SDLK_d:
+					cam.MoveLocalX(offset);
+					break;
+				case SDLK_UP:
+					cam.Pitch(-offset * 50);
+					break;
+				case SDLK_LEFT:
+					cam.Yaw(-offset * 50);
+					break;
+				case SDLK_DOWN:
+					cam.Pitch(offset * 50);
+					break;
+				case SDLK_RIGHT:
+					cam.Yaw(offset * 50);
+					break;
+				}
+			}
 		}
 
-		float x = std::sin((float)SDL_GetTicks()/1000);
-		float z = std::cos((float)SDL_GetTicks()/1000);
 
-		cam.SetPosition(Vec3f(x, 0, 1));
-		shader->SetUniform("view", cam.GetViewMatrix());
-		shader->SetUniform("projection", cam.GetProjectionMatrix());
 
 		window.Clear();
 
@@ -112,8 +147,23 @@ int main(int argc, char* argv[])
 		shader->Bind();
 		texture->Bind();
 
+	
+		float x = std::sin((float)SDL_GetTicks() / 1000);
+		float z = std::cos((float)SDL_GetTicks() / 1000);
+
+		//cam.SetPosition({ x, 1, z });
+		shader->SetUniform("view", cam.GetViewMatrix());
+		shader->SetUniform("projection", cam.GetProjectionMatrix());
+
 		//Function drawing primitives using the currently bound shader and VertexArray
-		
+
+		glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
+		shaderBillboard->Bind();
+		shaderBillboard->SetUniform("model", transform2.GetTransformMatrix());
+		shaderBillboard->SetUniform("view", cam.GetViewMatrix());
+		shaderBillboard->SetUniform("projection", cam.GetProjectionMatrix());
+		//Function drawing primitives using the currently bound shader and VertexArray
+
 		glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
 
 		window.Render();

@@ -22,6 +22,7 @@
     <ClCompile Include="src\Log.cpp" />
     <ClCompile Include="src\Render\ShaderProgram.cpp" />
     <ClCompile Include="src\stb_impl.cpp" />
+    <ClCompile Include="src\Tools\print.cpp" />
     <ClCompile Include="src\Tools\files.cpp" />
     <ClCompile Include="src\Render\WindowGLContext.cpp" />
     <ClCompile Include="src\Render\Vertex.cpp" />
@@ -38,6 +39,7 @@
     <ClInclude Include="src\Render\Rect.h" />
     <ClInclude Include="src\Render\Color.h" />
     <ClInclude Include="src\Log.h" />
+    <ClInclude Include="src\Tools\print.h" />
     <ClInclude Include="src\Tools\files.h" />
     <ClInclude Include="src\Vec.h" />
     <ClInclude Include="src\Render\WindowGLContext.h" />
@@ -47,7 +49,8 @@
     <ClInclude Include="src\Render\Transform.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\2dSprite.vert" />
+    <None Include="shaders\billboardXY.vert" />
+    <None Include="shaders\billboardY.vert" />
     <None Include="shaders\color.frag" />
     <None Include="shaders\model_view_projection.vert" />
     <None Include="shaders\position_texture.vert" />

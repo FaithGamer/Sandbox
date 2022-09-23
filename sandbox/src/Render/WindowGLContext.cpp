@@ -48,6 +48,7 @@ namespace sandbox
 
 		glViewport(0, 0, size.x, size.y);
 		glClearColor(0.1f, 0.1f, 0.1f, 1.f);
+		glEnable(GL_DEPTH_TEST);
 
 		SDL_GL_SetSwapInterval(0);
 
@@ -62,7 +63,7 @@ namespace sandbox
 
 	void WindowGLContext::Clear()
 	{
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 
 	void WindowGLContext::Render()
