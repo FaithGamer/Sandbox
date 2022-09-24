@@ -65,7 +65,7 @@ namespace sandbox
 	class VertexBuffer
 	{
 	public:
-		VertexBuffer() : m_id(0) {}
+		VertexBuffer() : m_id(0), m_verticesCount(0) {}
 		VertexBuffer(float* vertices, GLsizeiptr size, const AttributeLayout& layout = AttributeLayout());
 		float* BeginAccessBuffer();
 		void EndAccessBuffer();

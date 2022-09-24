@@ -14,18 +14,14 @@ void main()
 {
     vTexCoords = aTexCoords;
 
-    vec4 camRightInv = vec4(view[0][0], view[1][0], view[2][0], 0);
-    vec4 camUpInv = vec4(view[0][1], view[1][1], view[2][1], 0);
-    
-
     //Negate the component of the view matrix responsible for the rotation
     //So the mesh rotation is only affected my the model matrix
-    mat4 billboardView = mat4(1);
+    mat4 billboardView = mat4(1.0);
     for(int i = 0; i < 3; i ++)
     {
         //We keep only the 3rd column containing the camera's position
         billboardView[3][i] = view[3][i];
     }
 
-    gl_Position = projection * billboardView * model * vec4(aPos, 1);
+    gl_Position = projection * billboardView * model * vec4(aPos, 1.0);
 }

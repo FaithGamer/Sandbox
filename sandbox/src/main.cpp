@@ -13,13 +13,24 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "Timing.h"
 
 using namespace sandbox;
+
+
 
 int main(int argc, char* argv[])
 {
 	Log::Init();
 	LOG_INFO("Logger initialiazed");
+
+
+	Time t(3.12f);
+
+	auto d = t + t;
+	auto ms = d.GetDuration<std::chrono::milliseconds>();
+
+	LOG_INFO(ms.count());
 
 	//Create a window and an opengl context with SDL
 	WindowGLContext window("hello window", Vec2i(500, 500));
@@ -155,14 +166,12 @@ int main(int argc, char* argv[])
 		shader->SetUniform("view", cam.GetViewMatrix());
 		shader->SetUniform("projection", cam.GetProjectionMatrix());
 
-		//Function drawing primitives using the currently bound shader and VertexArray
-
 		glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
+
 		shaderBillboard->Bind();
 		shaderBillboard->SetUniform("model", transform2.GetTransformMatrix());
 		shaderBillboard->SetUniform("view", cam.GetViewMatrix());
 		shaderBillboard->SetUniform("projection", cam.GetProjectionMatrix());
-		//Function drawing primitives using the currently bound shader and VertexArray
 
 		glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
 

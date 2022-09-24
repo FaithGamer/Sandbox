@@ -60,6 +60,9 @@
     <ClCompile Include="src\Tools\print.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Timing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Vec.h">
@@ -110,6 +113,9 @@
     <ClInclude Include="src\Tools\print.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Timing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Render\Rect.tpp" />
@@ -122,5 +128,7 @@
     <None Include="shaders\model_view_projection.vert" />
     <None Include="shaders\billboardXY.vert" />
     <None Include="shaders\billboardY.vert" />
+    <None Include="src\Timing.tpp" />
+    <None Include="src\Render\Transform.tpp" />
   </ItemGroup>
 </Project>

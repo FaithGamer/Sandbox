@@ -22,6 +22,7 @@
     <ClCompile Include="src\Log.cpp" />
     <ClCompile Include="src\Render\ShaderProgram.cpp" />
     <ClCompile Include="src\stb_impl.cpp" />
+    <ClCompile Include="src\Timing.cpp" />
     <ClCompile Include="src\Tools\print.cpp" />
     <ClCompile Include="src\Tools\files.cpp" />
     <ClCompile Include="src\Render\WindowGLContext.cpp" />
@@ -39,6 +40,7 @@
     <ClInclude Include="src\Render\Rect.h" />
     <ClInclude Include="src\Render\Color.h" />
     <ClInclude Include="src\Log.h" />
+    <ClInclude Include="src\Timing.h" />
     <ClInclude Include="src\Tools\print.h" />
     <ClInclude Include="src\Tools\files.h" />
     <ClInclude Include="src\Vec.h" />
@@ -59,6 +61,8 @@
     <None Include="shaders\texture.frag" />
     <None Include="shaders\position_color.vert" />
     <None Include="src\Vec.tpp" />
+    <None Include="src\Timing.tpp" />
+    <None Include="src\Render\Transform.tpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\glad\glad.vcxproj">

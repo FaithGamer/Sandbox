@@ -8,30 +8,30 @@ namespace sandbox
 	class Transform
 	{
 	public:
-		Transform();
-		Transform(Vec3f translation, Vec3f scale, float angle, Vec3f origin);
+		constexpr Transform();
+		constexpr Transform(Vec3f translation, Vec3f scale, float angle, Vec3f origin);
 
-		void SetTranslation(Vec3f translation);
-		void SetScale(Vec3f scale);
-		void SetRotation(float angle);
-		void SetOrigin(Vec3f origin);
+		constexpr void SetTranslation(Vec3f translation);
+		constexpr void SetScale(Vec3f scale);
+		constexpr void SetRotation(float angle);
+		constexpr void SetOrigin(Vec3f origin);
 
-		void Translate(Vec3f translation);
-		void Scale(Vec3f scale);
-		void Rotate(float angle);
+		constexpr void Translate(Vec3f translation);
+		constexpr void Scale(Vec3f scale);
+		constexpr void Rotate(float angle);
 
-		void Reset();
+		constexpr void Reset();
 
-		Transform& operator+(const Transform& trans);
-		Transform& operator+=(const Transform& trans);
-		Transform& operator=(const Transform& trans);
+		constexpr Transform operator+(const Transform& trans);
+		constexpr Transform& operator+=(const Transform& trans);
+		constexpr Transform& operator=(const Transform& trans);
 
-		Vec3f GetPosition() const;
-		Vec3f GetScale() const;
-		float GetRotation() const;
-		Vec3f GetOrigin() const;
+		constexpr Vec3f GetTranslation() const;
+		constexpr Vec3f GetScale() const;
+		constexpr float GetRotation() const;
+		constexpr Vec3f GetOrigin() const;
 
-		Mat4 GetTransformMatrix() const;
+		constexpr Mat4 GetTransformMatrix() const;
 	private:
 		void ComputeMatrix() const;
 		
@@ -45,3 +45,5 @@ namespace sandbox
 	};
 
 }
+
+#include "Transform.tpp"

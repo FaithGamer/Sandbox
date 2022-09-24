@@ -152,6 +152,9 @@ namespace sandbox
 		// normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
 		m_localBack = glm::normalize(back);
 		m_localRight = glm::normalize(glm::cross(m_localBack, m_worldUp));
+		/*Vec3f rightWithRoll = m_localRight;
+		rightWithRoll.x += cos(glm::radians(m_roll));
+		rightWithRoll.y -= sin(glm::radians(m_roll));*/
 		m_localUp = glm::normalize(glm::cross(m_localRight, m_localBack));
 	}
 
