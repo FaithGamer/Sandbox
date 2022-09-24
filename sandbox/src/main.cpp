@@ -17,20 +17,16 @@
 
 using namespace sandbox;
 
-
-
 int main(int argc, char* argv[])
 {
 	Log::Init();
 	LOG_INFO("Logger initialiazed");
 
+	Clock c;
 
-	Time t(3.12f);
+	std::this_thread::sleep_for(Time(1.6).GetDuration());
 
-	auto d = t + t;
-	auto ms = d.GetDuration<std::chrono::milliseconds>();
-
-	LOG_INFO(ms.count());
+	LOG_INFO(c.GetElapsed());
 
 	//Create a window and an opengl context with SDL
 	WindowGLContext window("hello window", Vec2i(500, 500));

@@ -19,10 +19,14 @@ namespace sandbox
         template <typename chrono_duration = std::chrono::microseconds>
         constexpr chrono_duration GetDuration() const;
 
+        constexpr operator float() const;
+
     private:
 
         std::chrono::microseconds m_microseconds;
     };
+
+    
 
     constexpr Time& operator+=(Time& l, const Time& r);
     constexpr Time& operator-=(Time& l, const Time& r);
@@ -37,7 +41,7 @@ namespace sandbox
     constexpr Time operator%(const Time& l, const Time& r);
 
     /// <summary>
-    /// Wrapper around a std::chrono::highresolution clock to measure time elapsing
+    /// Wrapper around a std::chrono::high_resolution_clock to measure time elapsing
     /// </summary>
     class Clock
     {

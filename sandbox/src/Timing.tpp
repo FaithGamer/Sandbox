@@ -26,6 +26,12 @@ namespace sandbox
 		return std::chrono::duration_cast<chrono_duration>(m_microseconds);
 	}
 
+	constexpr Time::operator float() const
+	{
+		return (float)m_microseconds.count()/1000000;
+	}
+
+
 	constexpr Time& operator+=(Time& l, const Time& r)
 	{
 		return l = Time(l.GetDuration() + r.GetDuration());
