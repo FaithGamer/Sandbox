@@ -8,6 +8,7 @@
 #include "Render/Transform.h"
 #include "Render/Camera.h"
 #include "Log.h"
+#include "Input/Input.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -17,16 +18,21 @@
 
 using namespace sandbox;
 
+
 int main(int argc, char* argv[])
 {
+	
+
+
 	Log::Init();
 	LOG_INFO("Logger initialiazed");
 
-	Clock c;
 
-	std::this_thread::sleep_for(Time(1.6).GetDuration());
+	//InputType input;
+	//input.directional.direction = Vec2f(4, 5);
 
-	LOG_INFO(c.GetElapsed());
+
+
 
 	//Create a window and an opengl context with SDL
 	WindowGLContext window("hello window", Vec2i(500, 500));
@@ -142,6 +148,10 @@ int main(int argc, char* argv[])
 					cam.Yaw(offset * 50);
 					break;
 				}
+			}
+			if (e.type == SDL_TEXTINPUT)
+			{
+				LOG_INFO("OUI");
 			}
 		}
 

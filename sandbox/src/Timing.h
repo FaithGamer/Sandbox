@@ -26,8 +26,6 @@ namespace sandbox
         std::chrono::microseconds m_microseconds;
     };
 
-    
-
     constexpr Time& operator+=(Time& l, const Time& r);
     constexpr Time& operator-=(Time& l, const Time& r);
     constexpr Time& operator*=(Time& l, const Time& r);

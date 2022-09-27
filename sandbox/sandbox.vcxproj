@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Input\Input.cpp" />
     <ClCompile Include="src\Render\Camera.cpp" />
     <ClCompile Include="src\Render\Buffer.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -32,6 +33,8 @@
     <ClCompile Include="src\Render\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Input\Input.h" />
+    <ClInclude Include="src\Input\Trigger.h" />
     <ClInclude Include="src\Render\Camera.h" />
     <ClInclude Include="src\Render\Buffer.h" />
     <ClInclude Include="src\pch.h" />
