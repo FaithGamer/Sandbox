@@ -5,6 +5,7 @@ namespace sandbox
 {
     /// <summary>
     /// Wrapper around a std::chrono::microseconds to represent time duration
+    /// Can be implicitly converted to float to represent seconds
     /// </summary>
     class Time
     {

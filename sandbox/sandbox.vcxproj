@@ -11,7 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\ECS\Scene.cpp" />
+    <ClCompile Include="src\ECS\Entity.cpp" />
     <ClCompile Include="src\Input\Input.cpp" />
+    <ClCompile Include="src\Input\Trigger.cpp" />
     <ClCompile Include="src\Render\Camera.cpp" />
     <ClCompile Include="src\Render\Buffer.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -22,6 +25,8 @@
     <ClCompile Include="src\Render\Rect.cpp" />
     <ClCompile Include="src\Log.cpp" />
     <ClCompile Include="src\Render\ShaderProgram.cpp" />
+    <ClCompile Include="src\Signals.cpp" />
+    <ClCompile Include="src\TypeId.cpp" />
     <ClCompile Include="src\stb_impl.cpp" />
     <ClCompile Include="src\Timing.cpp" />
     <ClCompile Include="src\Tools\print.cpp" />
@@ -31,8 +36,14 @@
     <ClCompile Include="src\Render\VertexArray.cpp" />
     <ClCompile Include="src\Render\Texture.cpp" />
     <ClCompile Include="src\Render\Transform.cpp" />
+    <ClCompile Include="src\ECS\System.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\entt_macros.h" />
+    <ClInclude Include="src\ECS\Scene.h" />
+    <ClInclude Include="src\ECS\Entity.h" />
+    <ClInclude Include="src\Signals.h" />
+    <ClInclude Include="src\TypeId.h" />
     <ClInclude Include="src\Input\Input.h" />
     <ClInclude Include="src\Input\Trigger.h" />
     <ClInclude Include="src\Render\Camera.h" />
@@ -52,6 +63,7 @@
     <ClInclude Include="src\Render\VertexArray.h" />
     <ClInclude Include="src\Render\Texture.h" />
     <ClInclude Include="src\Render\Transform.h" />
+    <ClInclude Include="src\ECS\System.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\billboardXY.vert" />
@@ -63,6 +75,7 @@
     <None Include="src\Render\Rect.tpp" />
     <None Include="shaders\texture.frag" />
     <None Include="shaders\position_color.vert" />
+    <None Include="src\Signals.tpp" />
     <None Include="src\Vec.tpp" />
     <None Include="src\Timing.tpp" />
     <None Include="src\Render\Transform.tpp" />
@@ -126,12 +139,14 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\glad\include;$(ProjectDir)vendor\SDL_image;$(ProjectDir)vendor\SDL\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\entt\src;$(ProjectDir)vendor\;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\glad\include;$(ProjectDir)vendor\SDL_image;$(ProjectDir)vendor\SDL\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
       <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,9 +163,11 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\glad\include;$(ProjectDir)vendor\SDL_image;$(ProjectDir)vendor\SDL\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\entt\src;$(ProjectDir)vendor\;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\glad\include;$(ProjectDir)vendor\SDL_image;$(ProjectDir)vendor\SDL\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

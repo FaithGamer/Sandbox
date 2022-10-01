@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <vector>
 #include <SDL.h>
@@ -11,8 +11,24 @@ namespace sandbox
 		button = 0,
 		pointing,
 		directional,
-		wheel
+		wheel,
+		textual
 	};
+
+	static std::string TriggerTypeName(TriggerType type)
+	{
+		switch (type)
+		{
+		case TriggerType::button:		return "Button";		break;
+		case TriggerType::pointing:		return "Pointing";		break;
+		case TriggerType::directional:	return "Directional";	break;
+		case TriggerType::wheel:		return "Wheel";			break;
+		case TriggerType::textual:		return "Textual";		break;
+		default:
+			LOG_ERROR("Incorrect TriggerType");
+			break;
+		}
+	}
 
 	struct ControllerStick
 	{
@@ -23,26 +39,36 @@ namespace sandbox
 		float deadzone = 0;
 	};
 
+	/// <summary>
+	/// Interface for different triggers type.
+	/// A trigger reflect one action the player can perform with either it's mouse/keyboard or controller.
+	/// ( pressing a button/key, pointing with the mouse or the stick, entering text... )
+	/// It records the last state of the performed action ( button pressed/released, pointer position and offset ...)
+	/// </summary>
 	class Trigger
 	{
 	public:
 		virtual ~Trigger() {};
 		virtual TriggerType GetType() const = 0;
-		virtual std::string GetName() const = 0;
 	};
 
 	class ButtonTrigger : public Trigger
 	{
 	public:
 		TriggerType GetType() const { return TriggerType::button; }
-		std::string GetName() const { return "ButtonTrigger"; }
 
-		bool activateOnRelease = false;
+		//State
 		bool pressed = false;
+
+		//Action
 		Uint8 mouseButton;
 		SDL_Scancode key;// scancode is a physical position on the keyboard
 						 // to retreive it's Keycode on the current layout, use the macro SDL_SCANCODE_TO_KEYCODE
 		SDL_GameControllerButton controllerButton;
+
+		/// Parameters
+		bool dispatchEventOnPress = true;
+		bool dispatchEventOnRelease = false;
 	};
 
 	//Pointing with either a stick or the mouse
@@ -50,10 +76,12 @@ namespace sandbox
 	{
 	public:
 		TriggerType GetType() const { return TriggerType::pointing; }
-		std::string GetName() const { return "PointingTrigger"; }
 
-		Vec2f position;
-		Vec2f offset;
+		/// State
+		Vec2f position = Vec2f(0, 0);
+		Vec2f offset = Vec2f(0, 0);
+
+		/// Action
 		ControllerStick stick;
 		bool mouse = true;
 	};
@@ -69,9 +97,11 @@ namespace sandbox
 		};
 	public:
 		TriggerType GetType() const { return TriggerType::directional; }
-		std::string GetName() const { return "DirectionalTrigger"; }
 
+		/// State
 		Vec2f direction;
+
+		/// Action
 		std::vector<DirectionalButton> keys;
 		ControllerStick stick;
 	};
@@ -80,7 +110,19 @@ namespace sandbox
 	{
 	public:
 		TriggerType GetType() const { return TriggerType::wheel; }
-		std::string GetName() const { return "WheelTrigger"; }
+
+		/// State
 		bool up;
+
+		//Action is always considered to be the mouse wheel atm
+	};
+	
+	class TextualTrigger : public Trigger
+	{
+	public:
+		TriggerType GetType() const { return TriggerType::textual;  }
+		
+		/// State
+		char text[SDL_TEXTINPUTEVENT_TEXT_SIZE];
 	};
 }
