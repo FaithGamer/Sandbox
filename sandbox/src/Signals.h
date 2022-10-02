@@ -95,12 +95,16 @@ namespace sandbox
 	class SignalSender
 	{
 	public:
-		template <typename SignalData>
+		/*template <typename SignalData>
 		void Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener);
 		template <typename SignalData>
-		void Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener, SignalPriority priority);
+		void Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener, SignalPriority priority);*/
 		template <typename SignalData>
-		void Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener, SignalPriority priority, std::any data);
+		void Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener, 
+			SignalPriority priority = SignalPriority::medium, std::any data = std::any());
+		template <typename SignalData>
+		void Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener,
+			std::any data = std::any(), SignalPriority priority = SignalPriority::medium);
 
 		void RemoveListener(void* listener);
 		template <typename SignalData>

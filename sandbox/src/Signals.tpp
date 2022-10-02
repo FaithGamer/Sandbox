@@ -74,7 +74,7 @@ namespace sandbox
 	/// SignalSender
 	//////////////////////////////////
 
-	template <typename SignalData>
+	/*template <typename SignalData>
 	void SignalSender::Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener)
 	{
 		m_dispatcher.Push(listener, SignalDelegate<SignalData>(callback), SignalPriority::medium);
@@ -84,13 +84,21 @@ namespace sandbox
 	void SignalSender::Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener, SignalPriority priority)
 	{
 		m_dispatcher.Push(listener, SignalDelegate<SignalData>(callback) , priority);
-	}
+	}*/
 
 	template <typename SignalData>
 	void SignalSender::Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener, SignalPriority priority, std::any data)
 	{
 		m_dispatcher.Push(listener, SignalDelegate<SignalData>(callback, data), priority);
 	}
+
+	template <typename SignalData>
+	void SignalSender::Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener,
+		std::any data, SignalPriority priority)
+	{
+		m_dispatcher.Push(listener, SignalDelegate<SignalData>(callback, data), priority);
+	}
+
 	template <typename SignalData>
 	void SignalSender::RemoveListenerFrom(void * listener)
 	{

@@ -47,26 +47,43 @@ struct SignalD
 	int pouet = 10;
 };
 
-
+struct SignalA
+{
+	float pouet = 10;
+};
 class SomeListener
 {
 public:
-	void ReceiveCall(const SignalD& message)
+
+	void OnA(const SignalA& message)
 	{
 		std::cout << "received " << message.pouet << std::endl;
 	}
-	static void ReceiveCallStatic(const SignalD& message, void* const listener, const std::any& data)
+	static void ReceiveA(const SignalA& message, void* const listener, const std::any& data)
 	{
-		static_cast<SomeListener*>(listener)->ReceiveCall(message);
+		static_cast<SomeListener*>(listener)->OnA(message);
+	}
+
+	void OnD(const SignalD& message, const std::any& data)
+	{
+		std::cout << "received " << message.pouet << " "<< std::any_cast<int>(data) << std::endl;
+	}
+	static void ReceiveD(const SignalD& message, void* const listener, const std::any& data)
+	{
+		static_cast<SomeListener*>(listener)->OnD(message, data);
 	}
 };
 
 class SomeSystem : public SignalSender
 {
 public:
-	void FunCall()
+	void DCall()
 	{
 		SendSignal(SignalD(42));
+	}
+	void ACall()
+	{
+		SendSignal(SignalA(75.5));
 	}
 };
 
@@ -76,12 +93,16 @@ void teachEntt()
 
 
 	SomeListener Li;
+	SomeListener Lu;
 	SomeSystem Bu;
 
-	Bu.Listen<SignalD>(&SomeListener::ReceiveCallStatic, &Li);
-	Bu.FunCall();
+	Bu.Listen(&SomeListener::ReceiveD, &Li, SignalPriority::low, 61);
+	Bu.Listen(&SomeListener::ReceiveD, &Lu, SignalPriority::medium, 33);
+	Bu.ACall();
+	Bu.DCall();
 	Bu.RemoveListenerFrom<SignalD>(&Li);
-	Bu.FunCall();
+	Bu.ACall();
+	Bu.DCall();
 	//SignalSender::listen<SignalD>(&foo::signal_receiver, F);
 
 	std::vector<entt::entity> entities;
