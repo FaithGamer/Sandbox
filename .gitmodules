@@ -13,3 +13,6 @@
 [submodule "sandbox/vendor/entt"]
 	path = sandbox/vendor/entt
 	url = https://github.com/skypjack/entt
+[submodule "sandbox/vendor/json"]
+	path = sandbox/vendor/json
+	url = https://github.com/nlohmann/json
