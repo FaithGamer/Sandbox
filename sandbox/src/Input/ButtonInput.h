@@ -32,7 +32,7 @@ namespace Sandbox
 		void BindMouse(Uint8 mouseButton, int version = 0);
 		void BindController(SDL_GameControllerButton controllerButton, int version = 0);
 
-		static struct State
+		struct State
 		{
 			bool pressed = false;
 		};

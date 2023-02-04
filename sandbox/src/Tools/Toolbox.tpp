@@ -8,8 +8,8 @@ namespace Sandbox
 		template <typename T>
 		T ScaleOnRange(T value, T newMin, T newMax, T oldMin, T oldMax)
 		{
-			int oldRange = (oldMax - oldMin);
-			int newRange = (newMax - newMin);
+			T oldRange = (oldMax - oldMin);
+			T newRange = (newMax - newMin);
 			return (((value - oldMin) * newRange) / oldRange) + newMin;
 		}
 
@@ -17,8 +17,8 @@ namespace Sandbox
 		int VectorRemove(T toRemove, std::vector<T>& container)
 		{
 			int removedCount = 0;
-			int i = 0;
-			std::vector<int> is;
+			size_t i = 0;
+			std::vector<size_t> is;
 			for (auto& element : container)
 			{
 				if (element == toRemove)
@@ -28,15 +28,15 @@ namespace Sandbox
 				i++;
 			}
 
-			for (int j : is)
+			for (size_t j : is)
 			{
-				if ((size_t)j >= container.size())
+				if (j >= container.size())
 				{
 					break;
 				}
 				//find the first value that differs from the one removed.
 				//pop_back as long has a different value is not found.
-				for (int r = container.size() - 1; r >= 0; r--)
+				for (size_t r = container.size() - 1; r >= 0; r--)
 				{
 					if (j >= container.size())
 					{
