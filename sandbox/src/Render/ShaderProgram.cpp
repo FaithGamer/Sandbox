@@ -6,7 +6,7 @@
 
 #include <glm/gtc/type_ptr.hpp>
 #include "Log.h"
-#include "Tools/files.h"
+#include "Tools/Files.h"
 
 #define SET_UNIFORM(c) GLint location = glGetUniformLocation(m_id, (const GLchar*)name.c_str());\
 if (location == -1)\
@@ -19,7 +19,7 @@ else\
 	c;\
 }\
 
-namespace sandbox
+namespace Sandbox
 {
 	std::string loadShaderSourceFromFile(std::string path)
 	{
@@ -29,7 +29,7 @@ namespace sandbox
 		{
 			LOG_ERROR("Unable to open the shader: " + path);
 		}
-		return files::ifstreamToString(shaderFile);
+		return Files::ifstreamToString(shaderFile);
 	}
 
 	void shaderCompilationError(uint32_t shader)

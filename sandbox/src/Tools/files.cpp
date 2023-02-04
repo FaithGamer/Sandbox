@@ -1,9 +1,9 @@
 #include "pch.h"
 #include "Tools/files.h"
 
-namespace sandbox
+namespace Sandbox
 {
-    namespace files
+    namespace Files
     {
         std::string ifstreamToString(std::ifstream& file)
         {

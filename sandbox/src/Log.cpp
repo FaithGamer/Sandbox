@@ -2,7 +2,7 @@
 #include <SDL.h>
 #include "Log.h"
 
-namespace sandbox
+namespace Sandbox
 {
 	std::string LogSDLError(std::string str)
 	{

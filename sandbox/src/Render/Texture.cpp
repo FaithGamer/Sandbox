@@ -8,7 +8,7 @@
 
 #include <stb/stb_image.h>
 
-namespace sandbox
+namespace Sandbox
 {
 	TextureImportSettings::TextureImportSettings(GLint Filtering, GLint Wrapping, bool UseMipmaps, bool KeepData) 
 		: filtering(Filtering), wrapping(Wrapping), useMipmaps(UseMipmaps), keepData(KeepData)

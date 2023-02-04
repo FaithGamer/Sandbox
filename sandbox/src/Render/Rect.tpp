@@ -1,6 +1,6 @@
 #pragma once
 #include "Rect.h"
-namespace sandbox
+namespace Sandbox
 {
 	template <class T> template <class U>
 	Rect<T>& Rect<T>::operator=(const Rect<U>& rect)

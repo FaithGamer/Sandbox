@@ -1,6 +1,6 @@
 #pragma once
 
-namespace sandbox
+namespace Sandbox
 {
 	class Color
 	{

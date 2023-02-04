@@ -3,7 +3,7 @@
 #include "SDL.h"
 
 /// simple RectangleSDL class with positionand size
-namespace sandbox
+namespace Sandbox
 {
 	template <class T>
 	class Rect

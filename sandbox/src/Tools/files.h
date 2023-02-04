@@ -1,9 +1,9 @@
 #pragma once
 #include "pch.h"
 
-namespace sandbox
+namespace Sandbox
 {
-	namespace files
+	namespace Files
 	{
 		std::string ifstreamToString(std::ifstream& file);
 	};

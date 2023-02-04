@@ -3,7 +3,7 @@
 
 #include <glad/glad.h>
 
-namespace sandbox
+namespace Sandbox
 {
 	VertexArray::VertexArray()
 	{

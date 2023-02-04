@@ -4,7 +4,7 @@
 #include "Log.h"
 #include "Vertex.h"
 
-namespace sandbox
+namespace Sandbox
 {
 	enum class ShaderDataType
 	{
@@ -67,6 +67,9 @@ namespace sandbox
 	public:
 		VertexBuffer() : m_id(0), m_verticesCount(0) {}
 		VertexBuffer(float* vertices, GLsizeiptr size, const AttributeLayout& layout = AttributeLayout());
+		VertexBuffer(GLsizeiptr size, const AttributeLayout& layout);
+		VertexBuffer(GLsizeiptr size);
+
 		float* BeginAccessBuffer();
 		void EndAccessBuffer();
 		unsigned int GetVerticesCount();

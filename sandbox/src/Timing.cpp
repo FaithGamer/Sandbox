@@ -2,7 +2,7 @@
 #include "Timing.h"
 
 
-namespace sandbox
+namespace Sandbox
 {
 
 	////////////////////////////

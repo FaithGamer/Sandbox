@@ -2,11 +2,11 @@
 #include "pch.h"
 
 
-#include "Tools/print.h"
+#include "Tools/Print.h"
 
-namespace sandbox
+namespace Sandbox
 {
-	namespace print
+	namespace Print
 	{
 		void mat4(Mat4 mat)
 		{

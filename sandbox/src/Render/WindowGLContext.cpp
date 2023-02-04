@@ -3,7 +3,7 @@
 
 #include "Log.h"
 
-namespace sandbox
+namespace Sandbox
 {
 	bool WindowGLContext::windowExist = false;
 
@@ -14,7 +14,7 @@ namespace sandbox
 
 		//Initializing SDL
 		ASSERT_LOG_ERROR((SDL_Init(SDL_INIT_VIDEO) == 0),
-			LogSDLError("WindowGLContext::WindowGLContext, Couldn't initialize SDL"));
+			LogSDLError("Couldn't initialize SDL"));
 
 		//Load default OpenGL library
 		SDL_GL_LoadLibrary(NULL);
@@ -24,15 +24,15 @@ namespace sandbox
 
 		//Creating SDL Window
 		m_window = SDL_CreateWindow(name.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, size.x, size.y, SDL_WINDOW_OPENGL);
-		ASSERT_LOG_ERROR(m_window, LogSDLError("WindowGLContext::WindowGLContext, Cannot create SDL window"));
+		ASSERT_LOG_ERROR(m_window, LogSDLError("Cannot create SDL window"));
 
 
 		//Creating OpenGL Context with SDL
 		m_glContext = SDL_GL_CreateContext(m_window);
-		ASSERT_LOG_ERROR(m_glContext, LogSDLError("WindowGLContext::WindowGLContext, Cannot create OpenGL Context"));
+		ASSERT_LOG_ERROR(m_glContext, LogSDLError("Cannot create OpenGL Context"));
 
 		//Loading OpenGL Functions addresses
-		ASSERT_LOG_ERROR((bool)(gladLoadGLLoader(SDL_GL_GetProcAddress)), "WindowGLContext::WindowGLContext, Couldn't initialize GLAD");
+		ASSERT_LOG_ERROR((bool)(gladLoadGLLoader(SDL_GL_GetProcAddress)), "Couldn't initialize GLAD");
 
 		//Logging additional information
 		auto c = glGetString(GL_VENDOR);
@@ -46,9 +46,19 @@ namespace sandbox
 
 		LOG_INFO("Max. Vertex attributes: " + std::to_string(maxVertAttrib));
 
+		//Viewport size and clear color
 		glViewport(0, 0, size.x, size.y);
 		glClearColor(0.1f, 0.1f, 0.1f, 1.f);
+
+		//Enabling blending
+		glEnable(GL_BLEND);
+
+		//Enabling depth test
 		glEnable(GL_DEPTH_TEST);
+
+		//Standard blending parameters for most case uses
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ZERO);
 
 		SDL_GL_SetSwapInterval(0);
 

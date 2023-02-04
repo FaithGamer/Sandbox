@@ -6,7 +6,7 @@
 
 #include "Vec.h"
 
-namespace sandbox
+namespace Sandbox
 {
 	/// <summary>
 	/// Initialize SDL to work with OpenGL, create a unique window.

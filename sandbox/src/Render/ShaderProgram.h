@@ -3,7 +3,7 @@
 
 #include <glm/glm.hpp>
 
-namespace sandbox
+namespace Sandbox
 {
 	class ShaderProgram
 	{

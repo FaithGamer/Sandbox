@@ -1,15 +1,12 @@
 #pragma once
 #include "std_macros.h"
 
-namespace sandbox
+namespace Sandbox
 {
 	class System
 	{
 	public:
-		~System()
-		{
-
-		}
+		virtual ~System(){}
 	private:
 
 

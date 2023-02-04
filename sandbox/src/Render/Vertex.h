@@ -3,7 +3,7 @@
 #include "Vec.h"
 #include "Color.h"
 
-namespace sandbox
+namespace Sandbox
 {
 	class Vertex
 	{

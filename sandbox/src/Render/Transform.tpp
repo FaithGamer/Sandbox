@@ -1,5 +1,5 @@
 
-namespace sandbox
+namespace Sandbox
 {
 	constexpr Transform::Transform() :
 		m_translation(0.f, 0.f, 0.f), m_scale(1.f, 1.f, 1.f), m_rotation(0.f), m_origin(0.f, 0.f, 0.f), m_transformMatrix(1.f), m_needCompute(true)

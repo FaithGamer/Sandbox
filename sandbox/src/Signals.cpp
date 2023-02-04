@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Signals.h"
 
-namespace sandbox
+namespace Sandbox
 {
 	//////////////////////////////////
 	/// SignalDispatcher

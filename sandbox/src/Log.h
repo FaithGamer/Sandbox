@@ -1,10 +1,12 @@
 #pragma once
+#include <string>
+#include <spdlog/spdlog.h>
 #include "std_macros.h"
 
-namespace sandbox
+
+namespace Sandbox
 {
 	std::string LogSDLError(std::string str);
-	std::string LogIMGError(std::string str);
 
 	class Log
 	{

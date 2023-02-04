@@ -2,9 +2,9 @@
 #include <glm/glm.hpp>
 #include "Vec.h"
 
-namespace sandbox
+namespace Sandbox
 {
-	namespace print
+	namespace Print
 	{
 		void mat4(Mat4 mat);
 	}

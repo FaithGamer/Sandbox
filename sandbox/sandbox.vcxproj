@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -11,10 +11,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Render\BatchRenderer.cpp" />
+    <ClCompile Include="src\Input\InputMap.cpp" />
+    <ClCompile Include="src\Input\InputHelpers.cpp" />
+    <ClCompile Include="src\Input\ButtonInput.cpp" />
     <ClCompile Include="src\ECS\Scene.cpp" />
     <ClCompile Include="src\ECS\Entity.cpp" />
-    <ClCompile Include="src\Input\Input.cpp" />
-    <ClCompile Include="src\Input\Trigger.cpp" />
+    <ClCompile Include="src\Input\DirectionalInput.cpp" />
+    <ClCompile Include="src\Input\iInput.cpp" />
+    <ClCompile Include="src\Input\PointingInput.cpp" />
     <ClCompile Include="src\Render\Camera.cpp" />
     <ClCompile Include="src\Render\Buffer.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -26,26 +31,35 @@
     <ClCompile Include="src\Log.cpp" />
     <ClCompile Include="src\Render\ShaderProgram.cpp" />
     <ClCompile Include="src\Signals.cpp" />
+    <ClCompile Include="src\Tools\Toolbox.cpp" />
     <ClCompile Include="src\TypeId.cpp" />
     <ClCompile Include="src\stb_impl.cpp" />
     <ClCompile Include="src\Timing.cpp" />
-    <ClCompile Include="src\Tools\print.cpp" />
-    <ClCompile Include="src\Tools\files.cpp" />
+    <ClCompile Include="src\Tools\Print.cpp" />
+    <ClCompile Include="src\Tools\Files.cpp" />
     <ClCompile Include="src\Render\WindowGLContext.cpp" />
     <ClCompile Include="src\Render\Vertex.cpp" />
     <ClCompile Include="src\Render\VertexArray.cpp" />
     <ClCompile Include="src\Render\Texture.cpp" />
     <ClCompile Include="src\Render\Transform.cpp" />
     <ClCompile Include="src\ECS\System.cpp" />
+    <ClCompile Include="src\Input\TextualInput.cpp" />
+    <ClCompile Include="src\Input\WheelInput.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Render\BatchRenderer.h" />
+    <ClInclude Include="src\Input\InputMap.h" />
+    <ClInclude Include="src\Input\DirectionalInput.h" />
+    <ClInclude Include="src\Input\InputHelpers.h" />
+    <ClInclude Include="src\Input\PointingInput.h" />
     <ClInclude Include="src\entt_macros.h" />
     <ClInclude Include="src\ECS\Scene.h" />
     <ClInclude Include="src\ECS\Entity.h" />
     <ClInclude Include="src\Signals.h" />
+    <ClInclude Include="src\Tools\Toolbox.h" />
     <ClInclude Include="src\TypeId.h" />
-    <ClInclude Include="src\Input\Input.h" />
-    <ClInclude Include="src\Input\Trigger.h" />
+    <ClInclude Include="src\Input\iInput.h" />
+    <ClInclude Include="src\Input\ButtonInput.h" />
     <ClInclude Include="src\Render\Camera.h" />
     <ClInclude Include="src\Render\Buffer.h" />
     <ClInclude Include="src\pch.h" />
@@ -55,8 +69,8 @@
     <ClInclude Include="src\Render\Color.h" />
     <ClInclude Include="src\Log.h" />
     <ClInclude Include="src\Timing.h" />
-    <ClInclude Include="src\Tools\print.h" />
-    <ClInclude Include="src\Tools\files.h" />
+    <ClInclude Include="src\Tools\Print.h" />
+    <ClInclude Include="src\Tools\Files.h" />
     <ClInclude Include="src\Vec.h" />
     <ClInclude Include="src\Render\WindowGLContext.h" />
     <ClInclude Include="src\Render\Vertex.h" />
@@ -64,6 +78,8 @@
     <ClInclude Include="src\Render\Texture.h" />
     <ClInclude Include="src\Render\Transform.h" />
     <ClInclude Include="src\ECS\System.h" />
+    <ClInclude Include="src\Input\TextualInput.h" />
+    <ClInclude Include="src\Input\WheelInput.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\billboardXY.vert" />
@@ -72,6 +88,7 @@
     <None Include="shaders\model_view_projection.vert" />
     <None Include="shaders\position_texture.vert" />
     <None Include="shaders\position_texture_transform.vert" />
+    <None Include="src\Tools\Toolbox.tpp" />
     <None Include="src\Render\Rect.tpp" />
     <None Include="shaders\texture.frag" />
     <None Include="shaders\position_color.vert" />
@@ -97,6 +114,7 @@
     <ProjectGuid>{2bf5f329-9550-470d-ac5b-1e0253c2bc20}</ProjectGuid>
     <RootNamespace>sandbox</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Sandbox</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -139,7 +157,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\entt\src;$(ProjectDir)vendor\;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\glad\include;$(ProjectDir)vendor\SDL_image;$(ProjectDir)vendor\SDL\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\entt\src;$(ProjectDir)vendor\json\single_include;$(ProjectDir)vendor\;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\glad\include;$(ProjectDir)vendor\SDL_image;$(ProjectDir)vendor\SDL\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
@@ -163,7 +181,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\entt\src;$(ProjectDir)vendor\;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\glad\include;$(ProjectDir)vendor\SDL_image;$(ProjectDir)vendor\SDL\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\entt\src;$(ProjectDir)vendor\json\single_include;$(ProjectDir)vendor\;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\glad\include;$(ProjectDir)vendor\SDL_image;$(ProjectDir)vendor\SDL\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <UndefinePreprocessorDefinitions>

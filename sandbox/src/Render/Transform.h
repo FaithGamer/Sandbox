@@ -3,7 +3,7 @@
 #include <glm/glm.hpp>
 #include "Vec.h"
 
-namespace sandbox
+namespace Sandbox
 {
 	class Transform
 	{

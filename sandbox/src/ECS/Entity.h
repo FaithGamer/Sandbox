@@ -1,6 +1,6 @@
 #pragma 
 
-namespace sandbox
+namespace Sandbox
 {
 	/// <summary>
 	/// Hold access to a bunch of component.

@@ -7,9 +7,10 @@
 #include "Render/Texture.h"
 #include "Render/Transform.h"
 #include "Render/Camera.h"
+#include "Input/ButtonInput.h"
+#include "Input/InputMap.h"
 #include "Log.h"
 #include "TypeId.h"
-#include "Input/Input.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -19,10 +20,13 @@
 #include "Timing.h"
 
 #include <entt/entt.hpp>
+#include "entt_macros.h"
+
+#include "Tools/Toolbox.h"
 
 #include "Signals.h"
 
-using namespace sandbox;
+using namespace Sandbox;
 
 
 struct move
@@ -74,6 +78,11 @@ public:
 	}
 };
 
+void OnPressButton(const ButtonInput::State& btnState, void* const listener, const std::any& data)
+{
+	LOG_INFO("the button has been pressed, state: " + std::to_string(btnState.pressed));
+}
+
 class SomeSystem : public SignalSender
 {
 public:
@@ -96,8 +105,8 @@ void teachEntt()
 	SomeListener Lu;
 	SomeSystem Bu;
 
-	Bu.Listen(&SomeListener::ReceiveD, &Li, SignalPriority::low, 61);
-	Bu.Listen(&SomeListener::ReceiveD, &Lu, SignalPriority::medium, 33);
+	Bu.AddListener(&SomeListener::ReceiveD, &Li, SignalPriority::low, 61);
+	Bu.AddListener(&SomeListener::ReceiveD, &Lu, SignalPriority::medium, 33);
 	Bu.ACall();
 	Bu.DCall();
 	Bu.RemoveListenerFrom<SignalD>(&Li);
@@ -109,6 +118,13 @@ void teachEntt()
 
 	Clock c;
 
+	std::vector<int> VV{1, 1,1,1,1,16, 5,1,1,1,1, 4, 1,1,1,1,1, 1, 7, 4, 1,1 , 1,1,1,1,1};
+	int K = Toolbox::VectorRemove(1, VV);
+	LOG_INFO(K);
+	for (auto j : VV)
+	{
+		std::cout << j << std::endl;
+	}
 
 	for (int i = 0; i < 100000; i++)
 	{
@@ -152,12 +168,9 @@ void teachEntt()
 int main(int argc, char* argv[])
 {
 
+	
 	Log::Init();
 	LOG_INFO("Logger initialiazed");
-
-	teachEntt();
-	const int value = 42;
-
 
 	//Create a window and an opengl context with SDL
 	WindowGLContext window("hello window", Vec2i(500, 500));
@@ -166,10 +179,10 @@ int main(int argc, char* argv[])
 	sptr<ShaderProgram> shaderBillboard = makesptr<ShaderProgram>("shaders/billboardY.vert", "shaders/texture.frag");
 
 	sptr<Texture> texture = makesptr<Texture>("image.png");
-
+	teachEntt();
 	Transform transform;
 	transform.Rotate(90);
-	transform.SetTranslation({ 0, 0, 0 });
+	transform.SetTranslation({ 0, 0, 0 });		
 	transform.SetScale(Vec3f(0.5, 0.5, 0.5));
 
 	Transform transform2;
@@ -221,6 +234,18 @@ int main(int argc, char* argv[])
 	vertexArray->SetIndexBuffer(indexBuffer);
 	vertexArray->AddVertexBuffer(vertexBuffer);
 
+	InputMap inputs("InputsMap");
+
+	auto button = makesptr<ButtonInput>("ButtonTest");
+
+	button->BindKey(SDL_SCANCODE_W);
+
+	inputs.AddInput(button);
+
+	auto btn = inputs.GetInput("ButtonTest");
+
+	btn->AddListener(&OnPressButton, nullptr);
+
 	Vec3f o = Vec3f(0, 0, 0);
 
 	LOG_INFO(o.x);
@@ -236,6 +261,7 @@ int main(int argc, char* argv[])
 	{
 		while (SDL_PollEvent(&e) != 0)
 		{
+			inputs.Update(e);
 			if (e.type == SDL_QUIT)
 			{
 				run = false;
@@ -288,18 +314,21 @@ int main(int argc, char* argv[])
 		float x = std::sin((float)SDL_GetTicks() / 1000);
 		float z = std::cos((float)SDL_GetTicks() / 1000);
 
-		//cam.SetPosition({ x, 1, z });
-		shader->SetUniform("view", cam.GetViewMatrix());
-		shader->SetUniform("projection", cam.GetProjectionMatrix());
-
-		glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
-
 		shaderBillboard->Bind();
 		shaderBillboard->SetUniform("model", transform2.GetTransformMatrix());
 		shaderBillboard->SetUniform("view", cam.GetViewMatrix());
 		shaderBillboard->SetUniform("projection", cam.GetProjectionMatrix());
 
 		glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
+
+		//cam.SetPosition({ x, 1, z });
+		shader->SetUniform("view", cam.GetViewMatrix());
+		shader->SetUniform("projection", cam.GetProjectionMatrix());
+
+		glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
+
+		
+		
 
 		window.Render();
 

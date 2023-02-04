@@ -1,10 +1,11 @@
 #pragma once
 
 #include <unordered_set>
+#include <any>
 #include "std_macros.h"
 
 
-namespace sandbox
+namespace Sandbox
 {
 
 	enum class SignalPriority : int
@@ -25,17 +26,20 @@ namespace sandbox
 	/// Will call the function with additional data as first argument, and the stored void* as second argument
 	/// </summary>
 	/// <typeparam name="D">Type of data used by the callback</typeparam>
-	template<typename SignalData>
+	template<typename MessageType>
 	class SignalDelegate
 	{
 
 	public:
-		SignalDelegate(void (*callback)(const SignalData&, void* const, const std::any&));
-		SignalDelegate(void (*callback)(const SignalData&, void* const, const std::any&), std::any data);
-		void operator()(void* const listener, const SignalData& data);
+		SignalDelegate(void (*callback)(const MessageType&));
+		SignalDelegate(void (*callback)(const MessageType&, void* const, const std::any&));
+		SignalDelegate(void (*callback)(const MessageType&, void* const, const std::any&), std::any data);
+		void operator()(void* const listener, const MessageType& message);
+		void operator()(const MessageType& message);
 	private:
 		std::any m_additionalData;
-		void (*m_callback)(const SignalData&, void* const, const std::any&);
+		void (*m_callback)(const MessageType&, void* const, const std::any&);
+		void (*m_callbackNoData)(const MessageType&);
 
 	};
 
@@ -57,19 +61,21 @@ namespace sandbox
 
 
 	/// <summary>
-	/// Holds a collection of SignalDelegates mapped with their TypeId (SignalData) and sorted by priority
+	/// Holds a collection of SignalDelegates mapped with their TypeId (MessageType) and sorted by priority
 	/// </summary>
 	class SignalDispatcher
 	{
 	public:
 
-		template<typename SignalData>
-		void Push(void* const listener, SignalDelegate<SignalData> signal, SignalPriority priority);
-		template<typename SignalData>
+		template<typename MessageType>
+		void Push(SignalDelegate<MessageType> signal, SignalPriority priority);
+		template<typename MessageType>
+		void Push(void* const listener, SignalDelegate<MessageType> signal, SignalPriority priority);
+		template<typename MessageType>
 		void RemoveListenerFrom(void* listener);
 		void RemoveListener(void* listener);
-		template <typename SignalData>
-		void Dispatch(const SignalData& signalData);
+		template <typename MessageType>
+		void Dispatch(const MessageType& signalData);
 
 	private:
 		struct compare
@@ -80,6 +86,7 @@ namespace sandbox
 			}
 		};
 		std::unordered_map<int, std::multiset<ListenerSignalPriority, compare>> m_delegates;
+		std::unordered_map<int, std::multiset<ListenerSignalPriority, compare>> m_delegatesNoData;
 
 	};
 
@@ -95,23 +102,21 @@ namespace sandbox
 	class SignalSender
 	{
 	public:
-		/*template <typename SignalData>
-		void Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener);
-		template <typename SignalData>
-		void Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener, SignalPriority priority);*/
-		template <typename SignalData>
-		void Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener, 
+		virtual ~SignalSender(){};
+
+		template <typename MessageType>
+		void AddListener(void (*callback)(const MessageType&), SignalPriority priority = SignalPriority::medium);
+
+		template <typename MessageType>
+		void AddListener(void (*callback)(const MessageType&, void* const, const std::any&), void* const listener, 
 			SignalPriority priority = SignalPriority::medium, std::any data = std::any());
-		template <typename SignalData>
-		void Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener,
-			std::any data = std::any(), SignalPriority priority = SignalPriority::medium);
 
 		void RemoveListener(void* listener);
-		template <typename SignalData>
+		template <typename MessageType>
 		void RemoveListenerFrom(void* listener);
 	protected:
-		template<typename SignalData>
-		void SendSignal(const SignalData& signalData);
+		template<typename MessageType>
+		void SendSignal(const MessageType& signalData);
 	private:
 		SignalDispatcher m_dispatcher;
 

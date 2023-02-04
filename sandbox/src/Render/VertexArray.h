@@ -2,7 +2,7 @@
 
 #include "Buffer.h"
 
-namespace sandbox
+namespace Sandbox
 {
 	class VertexArray
 	{

@@ -2,7 +2,7 @@
 
 #include "Vertex.h"
 
-namespace sandbox
+namespace Sandbox
 {
 	Vertex::Vertex(Vec2f Pos)
 	{

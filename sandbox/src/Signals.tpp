@@ -1,45 +1,64 @@
 #include "TypeId.h"
 
-namespace sandbox
+namespace Sandbox
 {
 	//////////////////////////////////
 	/// Signal
 	//////////////////////////////////
 
-	template <typename SignalData>
-	SignalDelegate<SignalData>::SignalDelegate(void (*callback)(const SignalData&, void*, const std::any&))
+	template <typename MessageType>
+	SignalDelegate<MessageType>::SignalDelegate(void (*callback)(const MessageType&))
+		: m_callbackNoData(callback)
+	{
+
+	}
+
+	template <typename MessageType>
+	SignalDelegate<MessageType>::SignalDelegate(void (*callback)(const MessageType&, void*, const std::any&))
 		: m_callback(callback)
 	{
 
 	}
 
-	template <typename SignalData>
-	SignalDelegate<SignalData>::SignalDelegate(void (*callback)(const SignalData&, void*, const std::any&), std::any data)
+	template <typename MessageType>
+	SignalDelegate<MessageType>::SignalDelegate(void (*callback)(const MessageType&, void*, const std::any&), std::any data)
 		: m_callback(callback), m_additionalData(data)
 	{
 
 	}
 
-	template <typename SignalData>
-	void SignalDelegate<SignalData>::operator()(void * const listener, const SignalData& data)
+	template <typename MessageType>
+	void SignalDelegate<MessageType>::operator()(void* const listener, const MessageType& message)
 	{
-		std::invoke(m_callback, data, listener, m_additionalData);
+		std::invoke(m_callback, message, listener, m_additionalData);
+	}
+
+	template <typename MessageType>
+	void SignalDelegate<MessageType>::operator()(const MessageType& message)
+	{
+		std::invoke(m_callbackNoData, message);
 	}
 
 	//////////////////////////////////
 	/// SignalDispatcher
 	//////////////////////////////////
 
-	template<typename SignalData>
-	void SignalDispatcher::Push(void* listener, SignalDelegate<SignalData> signal, SignalPriority priority)
+	template<typename MessageType>
+	void SignalDispatcher::Push(SignalDelegate<MessageType> signal, SignalPriority priority)
 	{
-		m_delegates[TypeId::GetId<SignalData>()].insert(ListenerSignalPriority(listener, signal, priority));
+		m_delegatesNoData[TypeId::GetId<MessageType>()].insert(ListenerSignalPriority(nullptr, signal, priority));
 	}
 
-	template<typename SignalData>
+	template<typename MessageType>
+	void SignalDispatcher::Push(void* listener, SignalDelegate<MessageType> signal, SignalPriority priority)
+	{
+		m_delegates[TypeId::GetId<MessageType>()].insert(ListenerSignalPriority(listener, signal, priority));
+	}
+
+	template<typename MessageType>
 	void SignalDispatcher::RemoveListenerFrom(void* listener)
 	{
-		auto delegates_it = m_delegates.find(TypeId::GetId<SignalData>());
+		auto delegates_it = m_delegates.find(TypeId::GetId<MessageType>());
 		if (delegates_it != m_delegates.end())
 		{
 			auto& listeners = delegates_it->second;
@@ -57,15 +76,26 @@ namespace sandbox
 		}
 	}
 
-	template <typename SignalData>
-	void SignalDispatcher::Dispatch(const SignalData& signalData)
+	template <typename MessageType>
+	void SignalDispatcher::Dispatch(const MessageType& signalData)
 	{
-		auto it_signals = m_delegates.find(TypeId::GetId<SignalData>());
-		if (it_signals != m_delegates.end())
+		{
+			auto it_signals = m_delegates.find(TypeId::GetId<MessageType>());
+			if (it_signals != m_delegates.end())
+			{
+				for (auto& signalPriority : it_signals->second)
+				{
+					std::any_cast<SignalDelegate<MessageType>>(signalPriority.signal)(signalPriority.listener, signalData);
+				}
+			}
+		}
+
+		auto it_signals = m_delegatesNoData.find(TypeId::GetId<MessageType>());
+		if (it_signals != m_delegatesNoData.end())
 		{
 			for (auto& signalPriority : it_signals->second)
 			{
-				std::any_cast<SignalDelegate<SignalData>>(signalPriority.signal)(signalPriority.listener, signalData);
+				std::any_cast<SignalDelegate<MessageType>>(signalPriority.signal)(signalData);
 			}
 		}
 	}
@@ -74,39 +104,26 @@ namespace sandbox
 	/// SignalSender
 	//////////////////////////////////
 
-	/*template <typename SignalData>
-	void SignalSender::Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener)
+	template <typename MessageType>
+	void SignalSender::AddListener(void (*callback)(const MessageType&), SignalPriority priority)
 	{
-		m_dispatcher.Push(listener, SignalDelegate<SignalData>(callback), SignalPriority::medium);
+		m_dispatcher.Push(SignalDelegate<MessageType>(callback), priority);
 	}
 
-	template <typename SignalData>
-	void SignalSender::Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener, SignalPriority priority)
+	template <typename MessageType>
+	void SignalSender::AddListener(void (*callback)(const MessageType&, void* const, const std::any&), void* const listener, SignalPriority priority, std::any data)
 	{
-		m_dispatcher.Push(listener, SignalDelegate<SignalData>(callback) , priority);
-	}*/
-
-	template <typename SignalData>
-	void SignalSender::Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener, SignalPriority priority, std::any data)
-	{
-		m_dispatcher.Push(listener, SignalDelegate<SignalData>(callback, data), priority);
+		m_dispatcher.Push(listener, SignalDelegate<MessageType>(callback, data), priority);
 	}
 
-	template <typename SignalData>
-	void SignalSender::Listen(void (*callback)(const SignalData&, void* const, const std::any&), void* const listener,
-		std::any data, SignalPriority priority)
+	template <typename MessageType>
+	void SignalSender::RemoveListenerFrom(void* listener)
 	{
-		m_dispatcher.Push(listener, SignalDelegate<SignalData>(callback, data), priority);
+		m_dispatcher.RemoveListenerFrom<MessageType>(listener);
 	}
 
-	template <typename SignalData>
-	void SignalSender::RemoveListenerFrom(void * listener)
-	{
-		m_dispatcher.RemoveListenerFrom<SignalData>(listener);
-	}
-
-	template<typename SignalData>
-	void SignalSender::SendSignal(const SignalData& signalData)
+	template<typename MessageType>
+	void SignalSender::SendSignal(const MessageType& signalData)
 	{
 		m_dispatcher.Dispatch(signalData);
 	}

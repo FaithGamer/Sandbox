@@ -2,7 +2,7 @@
 
 #include <glm/glm.hpp>
 
-namespace sandbox
+namespace Sandbox
 {
 	template<class T>
 	class Vec3;

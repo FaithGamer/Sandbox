@@ -7,7 +7,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/functions.hpp>
 
-namespace sandbox
+namespace Sandbox
 {
 	Camera::Camera()
 		:m_position(0, 1, -1), m_target(0, 0, 0), m_worldUp(0, 1, 0), m_localBack(0, 0, 1), m_localRight(1, 0, 0), m_localUp(0, 1, 0),

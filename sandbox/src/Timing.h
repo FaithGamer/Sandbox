@@ -1,7 +1,7 @@
 #pragma once
 #include <chrono>
 
-namespace sandbox
+namespace Sandbox
 {
     /// <summary>
     /// Wrapper around a std::chrono::microseconds to represent time duration

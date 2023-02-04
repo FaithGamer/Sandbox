@@ -5,7 +5,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 
-namespace sandbox
+namespace Sandbox
 {
 	void Transform::ComputeMatrix() const
 	{

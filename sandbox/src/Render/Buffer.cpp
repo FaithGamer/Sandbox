@@ -5,7 +5,7 @@
 #include "Buffer.h"
 #include "Log.h"
 
-namespace sandbox
+namespace Sandbox
 {
 
 	GLint ShaderDataTypeSize(ShaderDataType type)
@@ -140,6 +140,30 @@ namespace sandbox
 		m_layout = layout;
 	}
 
+	VertexBuffer::VertexBuffer(GLsizeiptr size, const AttributeLayout& layout)
+	{
+		m_verticesCount = (unsigned int)(size / sizeof(float));
+		//Create one buffer
+		glGenBuffers(1, &m_id);
+		//Bind an array buffer to operate on in
+		glBindBuffer(GL_ARRAY_BUFFER, m_id);
+		//Send the data in the buffer
+		glBufferData(GL_ARRAY_BUFFER, size, nullptr, GL_STATIC_DRAW);
+
+		m_layout = layout;
+	}
+
+	VertexBuffer::VertexBuffer(GLsizeiptr size)
+	{
+		m_verticesCount = (unsigned int)(size / sizeof(float));
+		//Create one buffer
+		glGenBuffers(1, &m_id);
+		//Bind an array buffer to operate on in
+		glBindBuffer(GL_ARRAY_BUFFER, m_id);
+		//Send the data in the buffer
+		glBufferData(GL_ARRAY_BUFFER, size, nullptr, GL_STATIC_DRAW);
+	}
+
 	/// <summary>
 	/// Return a pointer to the buffer data for direct reading/writing
 	/// Must call EndAccessBuffer before any other operation on this buffer
@@ -148,6 +172,7 @@ namespace sandbox
 	/// <param name="vertices"></param>
 	float* VertexBuffer::BeginAccessBuffer()
 	{
+		//todo compare performance with glBufferSubData
 		glBindBuffer(GL_ARRAY_BUFFER, m_id);
 		return static_cast<float*>(glMapBuffer(GL_ARRAY_BUFFER, GL_MAP_READ_BIT | GL_MAP_WRITE_BIT));
 	}
