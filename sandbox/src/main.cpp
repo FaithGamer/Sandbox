@@ -19,158 +19,33 @@
 
 #include "Timing.h"
 
-#include <entt/entt.hpp>
+
 #include "entt_macros.h"
 
 #include "Tools/Toolbox.h"
 
 #include "Signals.h"
 
+#include "Tests/SignalTest.h"
+#include "Tests/EnttTest.h"
+#include "Tests/ToolboxTest.h"
+
 using namespace Sandbox;
 
-
-struct move
-{
-	PointableComponent
-	Vec2f direction;
-
-};
-struct position
-{
-	Vec2f pos;
-};
-struct control
-{
-	char dummy;
-};
-
-entt::registry reg;
-
-struct SignalD
-{
-	int pouet = 10;
-};
-
-struct SignalA
-{
-	float pouet = 10;
-};
-class SomeListener
-{
-public:
-
-	void OnA(const SignalA& message)
-	{
-		std::cout << "received " << message.pouet << std::endl;
-	}
-	static void ReceiveA(const SignalA& message, void* const listener, const std::any& data)
-	{
-		static_cast<SomeListener*>(listener)->OnA(message);
-	}
-
-	void OnD(const SignalD& message, const std::any& data)
-	{
-		std::cout << "received " << message.pouet << " "<< std::any_cast<int>(data) << std::endl;
-	}
-	static void ReceiveD(const SignalD& message, void* const listener, const std::any& data)
-	{
-		static_cast<SomeListener*>(listener)->OnD(message, data);
-	}
-};
-
-void OnPressButton(const ButtonInput::State& btnState, void* const listener, const std::any& data)
+void OnPressButton(const ButtonInput::State& btnState, void* const listener)
 {
 	LOG_INFO("the button has been pressed, state: " + std::to_string(btnState.pressed));
-}
-
-class SomeSystem : public SignalSender
-{
-public:
-	void DCall()
-	{
-		SendSignal(SignalD(42));
-	}
-	void ACall()
-	{
-		SendSignal(SignalA(75.5));
-	}
-};
-
-
-void teachEntt()
-{
-
-
-	SomeListener Li;
-	SomeListener Lu;
-	SomeSystem Bu;
-
-	Bu.AddListener(&SomeListener::ReceiveD, &Li, SignalPriority::low, 61);
-	Bu.AddListener(&SomeListener::ReceiveD, &Lu, SignalPriority::medium, 33);
-	Bu.ACall();
-	Bu.DCall();
-	Bu.RemoveListenerFrom<SignalD>(&Li);
-	Bu.ACall();
-	Bu.DCall();
-	//SignalSender::listen<SignalD>(&foo::signal_receiver, F);
-
-	std::vector<entt::entity> entities;
-
-	Clock c;
-
-	std::vector<int> VV{1, 1,1,1,1,16, 5,1,1,1,1, 4, 1,1,1,1,1, 1, 7, 4, 1,1 , 1,1,1,1,1};
-	int K = Toolbox::VectorRemove(1, VV);
-	LOG_INFO(K);
-	for (auto j : VV)
-	{
-		std::cout << j << std::endl;
-	}
-
-	for (int i = 0; i < 100000; i++)
-	{
-		entities.emplace_back(reg.create());
-		if (i % 2)
-		{
-			reg.emplace<control>(entities.back());
-		}
-		if (i % 3)
-		{
-			reg.emplace<position>(entities.back());
-		}
-		reg.emplace<move>(entities.back());
-	}
-
-	LOG_INFO("Created entities in: " + std::to_string(c.GetElapsed()) + "s");
-
-	int destroyed = 0;
-
-	reg.view<move, control>().each([&destroyed](auto id, move& m, control& c) {
-		reg.destroy(id);
-
-		destroyed++;
-		});
-
-
-
-	Clock b;
-
-	reg.view<move>().each([](auto entity, move& m)
-		{
-			m.direction.x = 5;
-		});
-
-	LOG_INFO("Acted upon move component in:" + std::to_string(b.GetElapsed()) + "s");
-
-
-
 }
 
 int main(int argc, char* argv[])
 {
 
-	
 	Log::Init();
 	LOG_INFO("Logger initialiazed");
+
+	TestSignal();
+	TestEntt();
+	TestToolbox();
 
 	//Create a window and an opengl context with SDL
 	WindowGLContext window("hello window", Vec2i(500, 500));
@@ -179,7 +54,7 @@ int main(int argc, char* argv[])
 	sptr<ShaderProgram> shaderBillboard = makesptr<ShaderProgram>("shaders/billboardY.vert", "shaders/texture.frag");
 
 	sptr<Texture> texture = makesptr<Texture>("image.png");
-	teachEntt();
+
 	Transform transform;
 	transform.Rotate(90);
 	transform.SetTranslation({ 0, 0, 0 });		

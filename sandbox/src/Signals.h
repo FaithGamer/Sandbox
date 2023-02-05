@@ -32,14 +32,15 @@ namespace Sandbox
 
 	public:
 		SignalDelegate(void (*callback)(const MessageType&));
-		SignalDelegate(void (*callback)(const MessageType&, void* const, const std::any&));
+		SignalDelegate(void (*callback)(const MessageType&, void* const));
 		SignalDelegate(void (*callback)(const MessageType&, void* const, const std::any&), std::any data);
 		void operator()(void* const listener, const MessageType& message);
 		void operator()(const MessageType& message);
 	private:
 		std::any m_additionalData;
 		void (*m_callback)(const MessageType&, void* const, const std::any&);
-		void (*m_callbackNoData)(const MessageType&);
+		void (*m_callbackNoData)(const MessageType&, void* const);
+		void (*m_callbackNoListenerNoData)(const MessageType&);
 
 	};
 
@@ -86,7 +87,7 @@ namespace Sandbox
 			}
 		};
 		std::unordered_map<int, std::multiset<ListenerSignalPriority, compare>> m_delegates;
-		std::unordered_map<int, std::multiset<ListenerSignalPriority, compare>> m_delegatesNoData;
+		std::unordered_map<int, std::multiset<ListenerSignalPriority, compare>> m_delegatesNoListener;
 
 	};
 
@@ -95,7 +96,7 @@ namespace Sandbox
 	//////////////////////////////////
 
 	/// <summary>
-	/// Base class for signal sender like Inputs or Systems
+	/// Base class for signal sender (like Inputs or Systems)
 	/// Give the ability to call callbacks with any custom data type, to any type of listener.
 	/// Internally hold a collection of Signals, wich are callbacks bound a listener.
 	/// </summary>
@@ -108,8 +109,12 @@ namespace Sandbox
 		void AddListener(void (*callback)(const MessageType&), SignalPriority priority = SignalPriority::medium);
 
 		template <typename MessageType>
-		void AddListener(void (*callback)(const MessageType&, void* const, const std::any&), void* const listener, 
-			SignalPriority priority = SignalPriority::medium, std::any data = std::any());
+		void AddListener(void (*callback)(const MessageType&, void* const), void* const listener, 
+			SignalPriority priority = SignalPriority::medium);
+
+		template <typename MessageType>
+		void AddListener(void (*callback)(const MessageType&, void* const, const std::any&), void* const listener, std::any data,
+			SignalPriority priority = SignalPriority::medium);
 
 		void RemoveListener(void* listener);
 		template <typename MessageType>

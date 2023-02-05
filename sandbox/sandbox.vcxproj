@@ -31,6 +31,9 @@
     <ClCompile Include="src\Log.cpp" />
     <ClCompile Include="src\Render\ShaderProgram.cpp" />
     <ClCompile Include="src\Signals.cpp" />
+    <ClCompile Include="src\Tests\EnttTest.cpp" />
+    <ClCompile Include="src\Tests\SignalTest.cpp" />
+    <ClCompile Include="src\Tests\ToolboxTest.cpp" />
     <ClCompile Include="src\Tools\Toolbox.cpp" />
     <ClCompile Include="src\TypeId.cpp" />
     <ClCompile Include="src\stb_impl.cpp" />
@@ -56,6 +59,9 @@
     <ClInclude Include="src\ECS\Scene.h" />
     <ClInclude Include="src\ECS\Entity.h" />
     <ClInclude Include="src\Signals.h" />
+    <ClInclude Include="src\Tests\EnttTest.h" />
+    <ClInclude Include="src\Tests\SignalTest.h" />
+    <ClInclude Include="src\Tests\ToolboxTest.h" />
     <ClInclude Include="src\Tools\Toolbox.h" />
     <ClInclude Include="src\TypeId.h" />
     <ClInclude Include="src\Input\iInput.h" />
