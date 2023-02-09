@@ -202,12 +202,7 @@ int main(int argc, char* argv[])
 
 		glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
 
-		
-		
-
 		window.Render();
-
-
 	}
 	return 0;
 }
