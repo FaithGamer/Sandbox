@@ -117,6 +117,18 @@
     <ClCompile Include="src\Tests\ToolboxTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Tests\UniformBlockTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tests\BillboardTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tests\BatchRendererTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tests\TextureUnitTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Vec.h">
@@ -227,21 +239,46 @@
     <ClInclude Include="src\Tests\ToolboxTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Tests\UniformBlockTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tests\BillboardTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tests\BatchRendererTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tests\TextureUnitTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Render\Rect.tpp" />
     <None Include="src\Vec.tpp" />
-    <None Include="shaders\texture.frag" />
-    <None Include="shaders\position_color.vert" />
-    <None Include="shaders\color.frag" />
-    <None Include="shaders\position_texture.vert" />
-    <None Include="shaders\position_texture_transform.vert" />
-    <None Include="shaders\model_view_projection.vert" />
-    <None Include="shaders\billboardXY.vert" />
-    <None Include="shaders\billboardY.vert" />
+    <None Include="assets\shaders\texture.frag" />
+    <None Include="assets\shaders\position_color.vert" />
+    <None Include="assets\shaders\color.frag" />
+    <None Include="assets\shaders\position_texture.vert" />
+    <None Include="assets\shaders\position_texture_transform.vert" />
+    <None Include="assets\shaders\model_view_projection.vert" />
+    <None Include="assets\shaders\billboard.vert" />
     <None Include="src\Timing.tpp" />
     <None Include="src\Render\Transform.tpp" />
     <None Include="src\Signals.tpp" />
     <None Include="src\Tools\Toolbox.tpp" />
+    <None Include="assets\shaders\batch_renderer.vert" />
+    <None Include="assets\shaders\batch_renderer.frag" />
+    <None Include="assets\shaders\uniform_buffer_test.vert" />
+    <None Include="assets\shaders\uniform_buffer_test.frag" />
+    <None Include="assets\shaders\ubt.vert" />
+    <None Include="assets\shaders\ubt.frag" />
+    <None Include="assets\shaders\texture_unit.vert" />
+    <None Include="assets\shaders\texture_unit.frag" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="known_issues.txt" />
   </ItemGroup>
 </Project>

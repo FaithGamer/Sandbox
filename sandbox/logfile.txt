@@ -1,222 +1,140 @@
-[2023-02-04 21:20:12.235] [SANDBOX] [info] Logger initialiazed
-[2023-02-04 21:20:12.444] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-04 21:20:12.444] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-04 21:20:12.444] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-04 21:20:12.445] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-04 21:20:12.445] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-04 21:20:12.456] [SANDBOX] [info] 22
-[2023-02-04 21:20:13.086] [SANDBOX] [info] Created entities in: 0.629502s
-[2023-02-04 21:20:13.469] [SANDBOX] [info] Acted upon move component in:0.034376s
-[2023-02-04 21:20:13.470] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-04 21:20:13.470] [SANDBOX] [info] 0
-[2023-02-04 21:24:36.036] [SANDBOX] [info] Logger initialiazed
-[2023-02-04 21:24:36.242] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-04 21:24:36.243] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-04 21:24:36.243] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-04 21:24:36.243] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-04 21:24:36.243] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-04 21:24:36.254] [SANDBOX] [info] 22
-[2023-02-04 21:24:36.881] [SANDBOX] [info] Created entities in: 0.627272s
-[2023-02-04 21:24:37.222] [SANDBOX] [info] Acted upon move component in:0.023295s
-[2023-02-04 21:24:37.223] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-04 21:24:37.223] [SANDBOX] [info] 0
-[2023-02-04 21:25:18.217] [SANDBOX] [info] Logger initialiazed
-[2023-02-04 21:25:18.407] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-04 21:25:18.407] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-04 21:25:18.408] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-04 21:25:18.408] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-04 21:25:18.408] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-04 21:25:18.418] [SANDBOX] [info] 22
-[2023-02-04 21:25:19.053] [SANDBOX] [info] Created entities in: 0.634737s
-[2023-02-04 21:25:19.391] [SANDBOX] [info] Acted upon move component in:0.024220s
-[2023-02-04 21:25:19.392] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-04 21:25:19.392] [SANDBOX] [info] 0
-[2023-02-04 21:27:08.485] [SANDBOX] [info] Logger initialiazed
-[2023-02-04 21:27:08.724] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-04 21:27:08.724] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-04 21:27:08.724] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-04 21:27:08.724] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-04 21:27:08.724] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-04 21:27:08.735] [SANDBOX] [info] 22
-[2023-02-04 21:27:09.358] [SANDBOX] [info] Created entities in: 0.622980s
-[2023-02-04 21:27:09.698] [SANDBOX] [info] Acted upon move component in:0.023629s
-[2023-02-04 21:27:09.700] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-04 21:27:09.700] [SANDBOX] [info] 0
-[2023-02-05 10:39:27.185] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 10:39:27.678] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 10:39:27.678] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 10:39:27.679] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 10:39:27.679] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 10:39:27.679] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 10:39:27.714] [SANDBOX] [info] 22
-[2023-02-05 10:39:28.329] [SANDBOX] [info] Created entities in: 0.609096s
-[2023-02-05 10:39:28.661] [SANDBOX] [info] Acted upon move component in:0.023767s
-[2023-02-05 10:39:28.662] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 10:39:28.662] [SANDBOX] [info] 0
-[2023-02-05 10:41:20.543] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 10:41:20.725] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 10:41:20.725] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 10:41:20.726] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 10:41:20.726] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 10:41:20.726] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 10:41:20.738] [SANDBOX] [info] 22
-[2023-02-05 10:41:21.372] [SANDBOX] [info] Created entities in: 0.634219s
-[2023-02-05 10:41:21.707] [SANDBOX] [info] Acted upon move component in:0.023950s
-[2023-02-05 10:41:21.708] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 10:41:21.708] [SANDBOX] [info] 0
-[2023-02-05 11:35:42.270] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 11:35:42.505] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 11:35:42.505] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 11:35:42.505] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 11:35:42.505] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 11:35:42.505] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 11:35:42.539] [SANDBOX] [info] 22
-[2023-02-05 11:35:43.161] [SANDBOX] [info] Created entities in: 0.622819s
-[2023-02-05 11:35:43.498] [SANDBOX] [info] Acted upon move component in:0.027216s
-[2023-02-05 11:35:43.499] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 11:35:43.500] [SANDBOX] [info] 0
-[2023-02-05 12:50:33.078] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 12:50:33.264] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 12:50:33.265] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 12:50:33.265] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 12:50:33.265] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 12:50:33.265] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 12:50:33.276] [SANDBOX] [info] 22
-[2023-02-05 12:50:33.920] [SANDBOX] [info] Created entities in: 0.643656s
-[2023-02-05 12:50:34.245] [SANDBOX] [info] Acted upon move component in:0.023452s
-[2023-02-05 12:50:34.246] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 12:50:34.247] [SANDBOX] [info] 0
-[2023-02-05 13:12:02.558] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 13:12:02.776] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 13:12:02.777] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 13:12:02.777] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 13:12:02.777] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 13:12:02.777] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 13:12:02.788] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 13:12:02.788] [SANDBOX] [info] 0
-[2023-02-05 13:14:36.908] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 13:14:37.086] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 13:14:37.087] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 13:14:37.087] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 13:14:37.087] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 13:14:37.087] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 13:14:37.097] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 13:14:37.097] [SANDBOX] [info] 0
-[2023-02-05 13:17:19.290] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 13:17:19.470] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 13:17:19.470] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 13:17:19.470] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 13:17:19.470] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 13:17:19.470] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 13:17:19.480] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 13:17:19.480] [SANDBOX] [info] 0
-[2023-02-05 13:17:53.763] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 13:17:53.934] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 13:17:53.935] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 13:17:53.935] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 13:17:53.935] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 13:17:53.935] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 13:17:53.946] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 13:17:53.946] [SANDBOX] [info] 0
-[2023-02-05 13:19:11.078] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 13:19:11.256] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 13:19:11.256] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 13:19:11.256] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 13:19:11.256] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 13:19:11.257] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 13:19:11.266] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 13:19:11.267] [SANDBOX] [info] 0
-[2023-02-05 13:19:28.416] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 13:19:28.571] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 13:19:28.572] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 13:19:28.572] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 13:19:28.572] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 13:19:28.572] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 13:19:28.581] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 13:19:28.581] [SANDBOX] [info] 0
-[2023-02-05 14:18:38.039] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 14:18:38.043] [SANDBOX] [info] 22
-[2023-02-05 14:18:38.680] [SANDBOX] [info] Created entities in: 0.637671s
-[2023-02-05 14:18:39.017] [SANDBOX] [info] Acted upon move component in:0.025345s
-[2023-02-05 14:18:39.177] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 14:18:39.177] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 14:18:39.177] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 14:18:39.177] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 14:18:39.178] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 14:18:39.189] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 14:18:39.189] [SANDBOX] [info] 0
-[2023-02-05 14:22:41.766] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 14:22:41.769] [SANDBOX] [info] Test Entt
-[2023-02-05 14:22:42.383] [SANDBOX] [info] Created entities in: 0.614033s
-[2023-02-05 14:22:42.722] [SANDBOX] [info] Acted upon move component in:0.022575s
-[2023-02-05 14:22:42.723] [SANDBOX] [info] Test Toolbox
-[2023-02-05 14:22:42.889] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 14:22:42.889] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 14:22:42.889] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 14:22:42.890] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 14:22:42.890] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 14:22:42.901] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 14:22:42.901] [SANDBOX] [info] 0
-[2023-02-05 14:25:56.385] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 14:25:56.389] [SANDBOX] [info] Test Entt
-[2023-02-05 14:25:57.002] [SANDBOX] [info] Created entities in: 0.613083s
-[2023-02-05 14:25:57.328] [SANDBOX] [info] Acted upon move component in:0.022178s
-[2023-02-05 14:25:57.328] [SANDBOX] [info] Test Toolbox
-[2023-02-05 14:25:57.500] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 14:25:57.501] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 14:25:57.501] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 14:25:57.502] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 14:25:57.502] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 14:25:57.512] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 14:25:57.513] [SANDBOX] [info] 0
-[2023-02-05 14:27:38.194] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 14:27:38.198] [SANDBOX] [info] Test Entt
-[2023-02-05 14:27:39.134] [SANDBOX] [info] Test Toolbox
-[2023-02-05 14:27:39.310] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 14:27:39.311] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 14:27:39.311] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 14:27:39.312] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 14:27:39.312] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 14:27:39.322] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 14:27:39.323] [SANDBOX] [info] 0
-[2023-02-05 14:36:06.708] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 14:36:06.712] [SANDBOX] [info] Test Entt
-[2023-02-05 14:36:07.650] [SANDBOX] [info] Test Toolbox
-[2023-02-05 14:36:07.811] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 14:36:07.811] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 14:36:07.812] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 14:36:07.812] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 14:36:07.813] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 14:36:07.824] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 14:36:07.824] [SANDBOX] [info] 0
-[2023-02-05 14:37:48.379] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 14:37:48.382] [SANDBOX] [info] Test Entt
-[2023-02-05 14:37:49.334] [SANDBOX] [info] Test Toolbox
-[2023-02-05 14:37:49.524] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 14:37:49.525] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 14:37:49.525] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 14:37:49.526] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 14:37:49.526] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 14:37:49.537] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 14:37:49.537] [SANDBOX] [info] 0
-[2023-02-05 14:40:07.243] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 14:40:07.246] [SANDBOX] [info] Test Entt
-[2023-02-05 14:40:08.277] [SANDBOX] [info] Test Toolbox
-[2023-02-05 14:40:08.456] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 14:40:08.456] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 14:40:08.456] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 14:40:08.457] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 14:40:08.457] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 14:40:08.467] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 14:40:08.467] [SANDBOX] [info] 0
-[2023-02-05 14:56:26.144] [SANDBOX] [info] Logger initialiazed
-[2023-02-05 14:56:26.145] [SANDBOX] [info] Test Signal
-[2023-02-05 14:56:26.147] [SANDBOX] [info] Test Entt
-[2023-02-05 14:56:27.138] [SANDBOX] [info] Test Toolbox
-[2023-02-05 14:56:27.384] [SANDBOX] [info] OpenGL Loaded.
-[2023-02-05 14:56:27.384] [SANDBOX] [info] Version: 3.3.0 NVIDIA 511.09
-[2023-02-05 14:56:27.385] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-02-05 14:56:27.386] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-02-05 14:56:27.387] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-02-05 14:56:27.401] [SANDBOX] [warning] Input has no InputMap, Input: ButtonTest. Can be ignored if you add this input into an InputMap after
-[2023-02-05 14:56:27.401] [SANDBOX] [info] 0
+[2023-02-14 18:15:09.335] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:15:09.338] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:15:28.123] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:15:28.306] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:15:28.307] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:15:28.307] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:15:28.307] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:15:28.307] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:15:59.155] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:15:59.326] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:15:59.326] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:15:59.326] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:15:59.326] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:15:59.327] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:16:19.760] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:16:19.934] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:16:19.934] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:16:19.934] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:16:19.934] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:16:19.935] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:17:15.590] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:17:15.769] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:17:15.769] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:17:15.769] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:17:15.769] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:17:15.769] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:17:44.807] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:17:44.979] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:17:44.979] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:17:44.979] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:17:44.979] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:17:44.979] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:20:11.409] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:20:11.595] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:20:11.595] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:20:11.595] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:20:11.595] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:20:11.595] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:20:22.626] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:20:22.815] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:20:22.816] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:20:22.816] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:20:22.816] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:20:22.816] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:20:34.108] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:20:34.287] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:20:34.287] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:20:34.287] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:20:34.287] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:20:34.288] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:22:08.138] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:22:08.321] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:22:08.321] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:22:08.321] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:22:08.321] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:22:08.321] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:24:49.717] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:24:49.911] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:24:49.912] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:24:49.912] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:24:49.912] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:24:49.912] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:28:06.807] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:28:06.996] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:28:06.997] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:28:06.997] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:28:06.997] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:28:06.997] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:29:35.330] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:29:35.528] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:29:35.528] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:29:35.528] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:29:35.528] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:29:35.529] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:31:00.480] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:31:00.674] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:31:00.675] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:31:00.675] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:31:00.675] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:31:00.675] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:31:22.167] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:31:22.350] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:31:22.350] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:31:22.350] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:31:22.351] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:31:22.351] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:31:57.359] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:31:57.548] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:31:57.549] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:31:57.549] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:31:57.549] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:31:57.549] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:32:38.444] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:32:38.629] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:32:38.629] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:32:38.629] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:32:38.629] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:32:38.629] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:32:57.321] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:32:57.496] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:32:57.497] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:32:57.497] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:32:57.497] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:32:57.497] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:33:14.837] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:33:15.022] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:33:15.022] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:33:15.022] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:33:15.022] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:33:15.022] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:33:27.652] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:33:27.837] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:33:27.837] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:33:27.837] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:33:27.837] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:33:27.838] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:33:41.406] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:33:41.585] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:33:41.585] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:33:41.585] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:33:41.585] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:33:41.585] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:34:05.022] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:34:05.194] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:34:05.195] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:34:05.195] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:34:05.195] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:34:05.195] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:34:25.594] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:34:25.780] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:34:25.780] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:34:25.781] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:34:25.781] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:34:25.781] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 18:34:47.028] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 18:34:47.209] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 18:34:47.209] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 18:34:47.210] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 18:34:47.210] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 18:34:47.210] [SANDBOX] [info] Max. Vertex attributes: 16

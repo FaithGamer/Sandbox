@@ -8,7 +8,7 @@ namespace Sandbox
 	{
 	public:
 		VertexArray();
-		VertexArray(const sptr<VertexBuffer>& vertexVuffer, const sptr<IndexBuffer>& indexBuffer);
+		VertexArray(const sptr<VertexBuffer>& vertexBuffer, const sptr<IndexBuffer>& indexBuffer);
 		~VertexArray();
 		void AddVertexBuffer(const sptr<VertexBuffer>& buffer);
 		void SetIndexBuffer(const sptr<IndexBuffer>& buffer);

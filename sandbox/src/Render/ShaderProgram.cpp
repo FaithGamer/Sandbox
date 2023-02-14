@@ -155,9 +155,32 @@ namespace Sandbox
 		SET_UNIFORM(glUniform4i(location, (GLint)uniform.x, (GLint)uniform.y, (GLint)uniform.z, (GLint)uniform.w));
 	}
 
+	void ShaderProgram::SetUniformArray(std::string name, const int* uniform, GLsizei count)
+	{
+		SET_UNIFORM(glUniform1iv(location, count, uniform));
+	}
+
+	void ShaderProgram::BindUniformBlock(std::string uniformName, GLint bindingPoint)
+	{
+		GLuint location = glGetUniformBlockIndex(m_id, (const GLchar*)uniformName.c_str());
+		if (location == -1)
+		{
+			LOG_ERROR("The following uniform block cannot be found: " + uniformName);
+		}
+		else
+		{
+			glUniformBlockBinding(m_id, location, bindingPoint);
+		}
+	}
+
 	GLint ShaderProgram::GetUniformLocation(std::string name)
 	{
 		return glGetUniformLocation(m_id, (const GLchar*)name.c_str());
+	}
+
+	GLuint ShaderProgram::GetID()
+	{
+		return m_id;
 	}
 
 }

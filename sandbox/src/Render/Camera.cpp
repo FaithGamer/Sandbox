@@ -93,6 +93,27 @@ namespace Sandbox
 		m_needComputeViewMatrix = true;
 	}
 
+	void Camera::SetYaw(float yaw)
+	{
+		m_yaw = yaw;
+		ComputeDirection();
+		m_needComputeViewMatrix = true;
+	}
+
+	void Camera::SetPitch(float pitch)
+	{
+		m_pitch = pitch;
+		ComputeDirection();
+		m_needComputeViewMatrix = true;
+	}
+
+	void Camera::SetRoll(float roll)
+	{
+		m_roll = roll;
+		ComputeDirection();
+		m_needComputeViewMatrix = true;
+	}
+
 	Mat4 Camera::GetViewMatrix() const
 	{
 		if (m_needComputeViewMatrix)
@@ -145,9 +166,9 @@ namespace Sandbox
 	{
 		//Calculate view direction (in fact the opposite this is why it's called back here)
 		glm::vec3 back;
-		back.x = cos(glm::radians(m_yaw)) * cos(glm::radians(m_pitch));
+		back.x = cos(glm::radians(m_yaw-90.0f)) * cos(glm::radians(m_pitch));
 		back.y = sin(glm::radians(m_pitch));
-		back.z = sin(glm::radians(m_yaw)) * cos(glm::radians(m_pitch));
+		back.z = sin(glm::radians(m_yaw-90.0f)) * cos(glm::radians(m_pitch));
 
 		// normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
 		m_localBack = glm::normalize(back);

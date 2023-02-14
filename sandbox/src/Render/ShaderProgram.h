@@ -1,6 +1,6 @@
 #pragma once
 
-
+#include <glad/glad.h>
 #include <glm/glm.hpp>
 
 namespace Sandbox
@@ -13,6 +13,7 @@ namespace Sandbox
 
 		void Bind() const;
 		
+		//TO DO: add uniform arrays
 		void SetUniform(std::string name, const GLfloat& uniform);
 		void SetUniform(std::string name, const glm::vec2& uniform);
 		void SetUniform(std::string name, const glm::vec3& uniform);
@@ -35,8 +36,12 @@ namespace Sandbox
 		void SetUniform(GLint location, const glm::i32vec3& uniform);
 		void SetUniform(GLint location, const glm::i32vec4& uniform);
 
+		void SetUniformArray(std::string name, const int* uniform, GLsizei count);
+
 		GLint GetUniformLocation(std::string name);
-		
+		void BindUniformBlock(std::string uniformName, GLint bindingPoint);
+
+		GLuint GetID();
 
 	private:
 		GLuint m_id;

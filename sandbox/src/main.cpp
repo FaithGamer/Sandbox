@@ -7,6 +7,7 @@
 #include "Render/Texture.h"
 #include "Render/Transform.h"
 #include "Render/Camera.h"
+#include "Render/BatchRenderer.h"
 #include "Input/ButtonInput.h"
 #include "Input/InputMap.h"
 #include "Log.h"
@@ -29,13 +30,13 @@
 #include "Tests/SignalTest.h"
 #include "Tests/EnttTest.h"
 #include "Tests/ToolboxTest.h"
+#include "Tests/UniformBlockTest.h"
+#include "Tests/BillboardTest.h"
+#include "Tests/BatchRendererTest.h"
+#include "Tests/TextureUnitTest.h"
 
 using namespace Sandbox;
 
-void OnPressButton(const ButtonInput::State& btnState, void* const listener)
-{
-	LOG_INFO("the button has been pressed, state: " + std::to_string(btnState.pressed));
-}
 
 int main(int argc, char* argv[])
 {
@@ -43,166 +44,12 @@ int main(int argc, char* argv[])
 	Log::Init();
 	LOG_INFO("Logger initialiazed");
 
-	TestSignal();
-	TestEntt();
-	TestToolbox();
-
-	//Create a window and an opengl context with SDL
-	WindowGLContext window("hello window", Vec2i(500, 500));
-
-	sptr<ShaderProgram> shader = makesptr<ShaderProgram>("shaders/model_view_projection.vert", "shaders/texture.frag");
-	sptr<ShaderProgram> shaderBillboard = makesptr<ShaderProgram>("shaders/billboardY.vert", "shaders/texture.frag");
-
-	sptr<Texture> texture = makesptr<Texture>("image.png");
-
-	Transform transform;
-	transform.Rotate(90);
-	transform.SetTranslation({ 0, 0, 0 });		
-	transform.SetScale(Vec3f(0.5, 0.5, 0.5));
-
-	Transform transform2;
-	transform2.SetTranslation({ 0, 0, 0 });
-	transform2.SetOrigin({ 0, -0.5, 0 });
-	transform2.SetScale(Vec3f(0.25, 0.25, 0.25));
-
-	/*Mat4 view = glm::translate(Mat4(1.f), glm::vec3(0, 0, -10));
-	Mat4 perspective = glm::perspective(glm::radians(45.f), (float)500 / 500, 0.1f, 100.f);
-	Mat4 orthographic = glm::ortho(0.f, 500.f, 0.f, 500.f, -1.f, 1.f);*/
-
-	Camera cam;
-
-	cam.SetPosition(Vec3f(1.12, -1.4, 1.3));
-
-	shader->SetUniform("model", transform.GetTransformMatrix());
-	shader->SetUniform("view", cam.GetViewMatrix());
-	shader->SetUniform("projection", cam.GetProjectionMatrix());
-
-	float vertices[]
-	{
-		-0.5f, -0.5f, 0,  0.0f, 1.0f,
-		 0.5f, -0.5f, 0,  1.0f, 1.0f,
-		 0.5f,  0.5f, 0,  1.0f, 0.0f,
-		 -0.5f,  0.5f, 0,  0.0f, 0.0f,
-	};
-
-	AttributeLayout layout{
-		{ ShaderDataType::Vec3f, "aPos" },
-		{ ShaderDataType::Vec2f, "aTexCoords" }
-	};
-
-	//VertexBuffer store all the data about the vertices and the attribute layout
-	sptr<VertexBuffer> vertexBuffer = makesptr<VertexBuffer>(vertices, sizeof(vertices), layout);
-
-	//Element array data that will tell in wich order to draw the vertex, and can also be used to generate more vertices out of our Vertex Array
-	//(in this case and draw a rectangle with triangles)
-	uint32_t indices[]{
-		0,1,2,
-		2,3,0,
-
-	};
-
-	//IndexBuffer
-	sptr<IndexBuffer> indexBuffer = makesptr<IndexBuffer>(indices, sizeof(indices));
-
-	//VertexArray will store the state of the Vertex Array Buffer and Element Array Buffer
-	sptr<VertexArray> vertexArray = makesptr<VertexArray>();
-	vertexArray->SetIndexBuffer(indexBuffer);
-	vertexArray->AddVertexBuffer(vertexBuffer);
-
-	InputMap inputs("InputsMap");
-
-	auto button = makesptr<ButtonInput>("ButtonTest");
-
-	button->BindKey(SDL_SCANCODE_W);
-
-	inputs.AddInput(button);
-
-	auto btn = inputs.GetInput("ButtonTest");
-
-	btn->AddListener(&OnPressButton, nullptr);
-
-	Vec3f o = Vec3f(0, 0, 0);
-
-	LOG_INFO(o.x);
-
-	SDL_Event e;
-	bool run = true;
-
-	//shader.SetUniform("offset", 0.2f);
-	cam.Pitch(0);
-	cam.Yaw(-90);
-	cam.SetPosition({ 0, 0, 1 });
-	while (run)
-	{
-		while (SDL_PollEvent(&e) != 0)
-		{
-			inputs.Update(e);
-			if (e.type == SDL_QUIT)
-			{
-				run = false;
-			}
-			if (e.type == SDL_KEYDOWN)
-			{
-				float offset = 0.1f;
-				switch (e.key.keysym.sym)
-				{
-				case SDLK_z:
-					cam.MoveLocalZ(offset);
-					break;
-				case SDLK_q:
-					cam.MoveLocalX(-offset);
-					break;
-				case SDLK_s:
-					cam.MoveLocalZ(-offset);
-					break;
-				case SDLK_d:
-					cam.MoveLocalX(offset);
-					break;
-				case SDLK_UP:
-					cam.Pitch(-offset * 50);
-					break;
-				case SDLK_LEFT:
-					cam.Yaw(-offset * 50);
-					break;
-				case SDLK_DOWN:
-					cam.Pitch(offset * 50);
-					break;
-				case SDLK_RIGHT:
-					cam.Yaw(offset * 50);
-					break;
-				}
-			}
-			if (e.type == SDL_TEXTINPUT)
-			{
-
-			}
-		}
-
-		window.Clear();
-
-		//Activate the shader program
-		vertexArray->Bind();
-		shader->Bind();
-		texture->Bind();
-
-
-		float x = std::sin((float)SDL_GetTicks() / 1000);
-		float z = std::cos((float)SDL_GetTicks() / 1000);
-
-		shaderBillboard->Bind();
-		shaderBillboard->SetUniform("model", transform2.GetTransformMatrix());
-		shaderBillboard->SetUniform("view", cam.GetViewMatrix());
-		shaderBillboard->SetUniform("projection", cam.GetProjectionMatrix());
-
-		glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
-
-		//cam.SetPosition({ x, 1, z });
-		shader->SetUniform("view", cam.GetViewMatrix());
-		shader->SetUniform("projection", cam.GetProjectionMatrix());
-
-		glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
-
-		window.Render();
-	}
+	//TestSignal();
+	//TestEntt();
+	//TestToolbox();
+	//UniformBlockTest();
+	BatchRendererTest();
+	//TextureUnitTest();
 	return 0;
+
 }

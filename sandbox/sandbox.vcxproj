@@ -31,9 +31,13 @@
     <ClCompile Include="src\Log.cpp" />
     <ClCompile Include="src\Render\ShaderProgram.cpp" />
     <ClCompile Include="src\Signals.cpp" />
+    <ClCompile Include="src\Tests\BatchRendererTest.cpp" />
+    <ClCompile Include="src\Tests\BillboardTest.cpp" />
     <ClCompile Include="src\Tests\EnttTest.cpp" />
     <ClCompile Include="src\Tests\SignalTest.cpp" />
+    <ClCompile Include="src\Tests\TextureUnitTest.cpp" />
     <ClCompile Include="src\Tests\ToolboxTest.cpp" />
+    <ClCompile Include="src\Tests\UniformBlockTest.cpp" />
     <ClCompile Include="src\Tools\Toolbox.cpp" />
     <ClCompile Include="src\TypeId.cpp" />
     <ClCompile Include="src\stb_impl.cpp" />
@@ -50,6 +54,7 @@
     <ClCompile Include="src\Input\WheelInput.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Render.h" />
     <ClInclude Include="src\Render\BatchRenderer.h" />
     <ClInclude Include="src\Input\InputMap.h" />
     <ClInclude Include="src\Input\DirectionalInput.h" />
@@ -59,7 +64,11 @@
     <ClInclude Include="src\ECS\Scene.h" />
     <ClInclude Include="src\ECS\Entity.h" />
     <ClInclude Include="src\Signals.h" />
+    <ClInclude Include="src\Tests\BatchRendererTest.h" />
+    <ClInclude Include="src\Tests\BillboardTest.h" />
     <ClInclude Include="src\Tests\EnttTest.h" />
+    <ClInclude Include="src\Tests\TextureUnitTest.h" />
+    <ClInclude Include="src\Tests\UniformBlockTest.h" />
     <ClInclude Include="src\Tests\SignalTest.h" />
     <ClInclude Include="src\Tests\ToolboxTest.h" />
     <ClInclude Include="src\Tools\Toolbox.h" />
@@ -88,20 +97,27 @@
     <ClInclude Include="src\Input\WheelInput.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\billboardXY.vert" />
-    <None Include="shaders\billboardY.vert" />
-    <None Include="shaders\color.frag" />
-    <None Include="shaders\model_view_projection.vert" />
-    <None Include="shaders\position_texture.vert" />
-    <None Include="shaders\position_texture_transform.vert" />
+    <None Include="assets\shaders\batch_renderer.frag" />
+    <None Include="assets\shaders\batch_renderer.vert" />
+    <None Include="assets\shaders\billboard.vert" />
+    <None Include="assets\shaders\color.frag" />
+    <None Include="assets\shaders\model_view_projection.vert" />
+    <None Include="assets\shaders\position_texture.vert" />
+    <None Include="assets\shaders\position_texture_transform.vert" />
+    <None Include="assets\shaders\ubt.frag" />
+    <None Include="assets\shaders\ubt.vert" />
+    <None Include="assets\shaders\uniform_buffer_test.frag" />
+    <None Include="assets\shaders\texture_unit.frag" />
+    <None Include="assets\shaders\texture_unit.vert" />
     <None Include="src\Tools\Toolbox.tpp" />
     <None Include="src\Render\Rect.tpp" />
-    <None Include="shaders\texture.frag" />
-    <None Include="shaders\position_color.vert" />
+    <None Include="assets\shaders\texture.frag" />
+    <None Include="assets\shaders\position_color.vert" />
     <None Include="src\Signals.tpp" />
     <None Include="src\Vec.tpp" />
     <None Include="src\Timing.tpp" />
     <None Include="src\Render\Transform.tpp" />
+    <None Include="assets\shaders\uniform_buffer_test.vert" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\glad\glad.vcxproj">
@@ -113,6 +129,9 @@
     <ProjectReference Include="vendor\SDL\VisualC\SDL\SDL.vcxproj">
       <Project>{81ce8daf-ebb2-4761-8e45-b71abcca8c68}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="known_issues.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

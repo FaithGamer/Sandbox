@@ -1,0 +1,222 @@
+[2023-02-14 13:15:25.003] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.005] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.006] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.006] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.007] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.007] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.008] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.008] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.009] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.009] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.010] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.012] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.013] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.013] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.014] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.014] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.015] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.016] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.019] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.019] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.020] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.020] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.022] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.022] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.023] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.023] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.024] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.024] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.025] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.025] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.026] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.028] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.031] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.031] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.032] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.033] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.034] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.034] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.035] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.035] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.036] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.036] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.037] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.037] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.038] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.038] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.039] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.039] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.040] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.040] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.041] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.041] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.042] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.044] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.045] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.046] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.047] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.047] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.054] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.054] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.055] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.055] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.056] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.057] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.057] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.058] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.058] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.059] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.060] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.060] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.061] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.061] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.062] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.062] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.063] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.063] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.063] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.064] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.064] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.065] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.065] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.065] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.066] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.066] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.067] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.067] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.067] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.068] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.068] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.068] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.069] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.069] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.069] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.070] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.070] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.070] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.071] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.071] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.072] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.072] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.072] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.073] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.073] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.073] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.074] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.074] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.077] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.077] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.078] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.078] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.079] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.079] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.079] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.080] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.080] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.080] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.081] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.081] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.081] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.081] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.082] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.082] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.083] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.083] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.083] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.083] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.084] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.084] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.085] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.085] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.085] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.085] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.086] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.086] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.086] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.087] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.087] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.087] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.088] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.088] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.088] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.088] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.088] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.089] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.089] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.089] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.089] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.090] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.090] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.092] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.093] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.093] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.093] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.093] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.094] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.094] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.094] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.094] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.095] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.095] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.095] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.095] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.096] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.096] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.096] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.096] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.097] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.097] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.097] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.097] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.098] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.098] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.098] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.098] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.099] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.099] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.100] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.100] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.100] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.100] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.101] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.101] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.101] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.101] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.102] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.102] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.102] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:25.102] [SANDBOX] [error] The following uniform cannot be found: texIndex
+[2023-02-14 13:15:27.725] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 13:15:27.914] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 13:15:27.914] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 13:15:27.914] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 13:15:27.915] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 13:15:27.915] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 13:15:53.013] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 13:15:53.193] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 13:15:53.194] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 13:15:53.194] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 13:15:53.194] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 13:15:53.194] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 13:15:53.226] [SANDBOX] [error] The following uniform cannot be found: texture1
+[2023-02-14 13:15:53.227] [SANDBOX] [error] The following uniform cannot be found: texture2
+[2023-02-14 13:16:08.377] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 13:16:08.557] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 13:16:08.558] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 13:16:08.558] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 13:16:08.558] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 13:16:08.558] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 13:16:23.785] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 13:16:23.958] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 13:16:23.958] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 13:16:23.959] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 13:16:23.959] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 13:16:23.959] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 13:16:43.473] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 13:16:43.645] [SANDBOX] [info] OpenGL Loaded.
+[2023-02-14 13:16:43.645] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-02-14 13:16:43.645] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-02-14 13:16:43.646] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-02-14 13:16:43.646] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-02-14 13:16:53.911] [SANDBOX] [info] Logger initialiazed
+[2023-02-14 13:16:54.092] [SANDBOX] [info] OpenGL Loaded.

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "SDL.h"
-
+//TO DO: delete this
 /// simple RectangleSDL class with positionand size
 namespace Sandbox
 {

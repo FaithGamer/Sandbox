@@ -3,6 +3,8 @@
 #include "Vec.h"
 #include "Color.h"
 
+//TO DO: delete
+
 namespace Sandbox
 {
 	class Vertex

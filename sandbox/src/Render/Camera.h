@@ -19,6 +19,9 @@ namespace Sandbox
 		void Yaw(float yaw);
 		void Pitch(float pitch);
 		void Roll(float roll);
+		void SetYaw(float yaw);
+		void SetPitch(float pitch);
+		void SetRoll(float roll);
 		
 		Mat4 GetViewMatrix() const;
 		Mat4 GetProjectionMatrix() const;

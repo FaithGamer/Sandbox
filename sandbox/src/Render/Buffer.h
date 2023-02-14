@@ -24,7 +24,7 @@ namespace Sandbox
 		std::string name;
 		ShaderDataType type;
 		GLsizei size;
-		unsigned int offset;
+		uint32_t offset;
 		GLboolean normalized;
 
 		AttributeElement(ShaderDataType Type, const std::string& Name, GLboolean Normalized = GL_FALSE)
@@ -65,14 +65,16 @@ namespace Sandbox
 	class VertexBuffer
 	{
 	public:
-		VertexBuffer() : m_id(0), m_verticesCount(0) {}
+		//TO DO: add an option for making it dynamic or static
+		VertexBuffer() : m_id(0), m_verticesCount(0) {} 
 		VertexBuffer(float* vertices, GLsizeiptr size, const AttributeLayout& layout = AttributeLayout());
 		VertexBuffer(GLsizeiptr size, const AttributeLayout& layout);
 		VertexBuffer(GLsizeiptr size);
 
+		void SetData(const void* data, GLuint size);
 		float* BeginAccessBuffer();
 		void EndAccessBuffer();
-		unsigned int GetVerticesCount();
+		uint32_t GetVerticesCount();
 		~VertexBuffer();
 
 		void SetLayout(const AttributeLayout& layout);
@@ -81,7 +83,7 @@ namespace Sandbox
 		void Bind() const;
 
 	private:
-		unsigned int m_verticesCount;
+		uint32_t m_verticesCount;
 		AttributeLayout m_layout;
 		GLuint m_id;
 	};
@@ -95,7 +97,7 @@ namespace Sandbox
 	class IndexBuffer
 	{
 	public:
-		IndexBuffer(uint32_t* indices, GLsizeiptr size);
+		IndexBuffer(uint32_t* indices, uint32_t count);
 		~IndexBuffer();
 
 		void Bind();
@@ -103,6 +105,21 @@ namespace Sandbox
 	private:
 		GLuint m_id;
 		GLsizei m_count;
+	};
+
+
+	/// Uniform	Buffer ////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////
+
+	class UniformBuffer
+	{
+	public:
+		//TO DO: something to calculate size based on the uniform buffer content
+		UniformBuffer(GLsizeiptr size, GLuint binding);
+		~UniformBuffer();
+		void SetData(const void* data, GLsizeiptr size, GLuint offset);
+	private:
+		GLuint m_id;
 	};
 
 }
