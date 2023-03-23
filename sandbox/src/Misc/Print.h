@@ -1,6 +1,6 @@
 #pragma once
 #include <glm/glm.hpp>
-#include "Vec.h"
+#include "Render/Vec.h"
 
 namespace Sandbox
 {

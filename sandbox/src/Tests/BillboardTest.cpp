@@ -6,7 +6,6 @@
 #include "Render/WindowGLContext.h"
 #include "Render/ShaderProgram.h"
 #include "Render/Buffer.h"
-#include "Render/Vertex.h"
 #include "Render/VertexArray.h"
 #include "Render/Texture.h"
 #include "Render/Transform.h"
@@ -14,22 +13,22 @@
 #include "Render/BatchRenderer.h"
 #include "Input/ButtonInput.h"
 #include "Input/InputMap.h"
-#include "Log.h"
-#include "TypeId.h"
+#include "Core/Log.h"
+#include "Core/TypeId.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <entt/src/entt/entt.hpp>
 
-#include "Timing.h"
+#include "Core/Time.h"
 
 
-#include "entt_macros.h"
+#include "ECS/entt_macros.h"
 
-#include "Tools/Toolbox.h"
+#include "Containers/Vector.h"
 
-#include "Signals.h"
+#include "Core/Signals.h"
 
 #include "Tests/SignalTest.h"
 #include "Tests/EnttTest.h"
@@ -56,12 +55,12 @@ void Sandbox::BillboardTest()
 	sptr<Texture> texture = makesptr<Texture>("assets/textures/image.png");
 
 	Transform transform;
-	transform.Rotate(90);
-	transform.SetTranslation({ 0, 0, 0 });
+	transform.RotateZAxis(90);
+	transform.SetPosition({ 0, 0, 0 });
 	transform.SetScale(Vec3f(0.5, 0.5, 0.5));
 
 	Transform transform2;
-	transform2.SetTranslation({ 0, 0, 0 });
+	transform2.SetPosition({ 0, 0, 0 });
 	transform2.SetOrigin({ 0, -0.5, 0 });
 	transform2.SetScale(Vec3f(0.25, 0.25, 0.25));
 

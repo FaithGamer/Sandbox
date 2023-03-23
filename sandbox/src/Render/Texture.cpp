@@ -4,7 +4,7 @@
 #include <string>
 #include "Vec.h"
 #include "Texture.h"
-#include "Log.h"
+#include "Core/Log.h"
 
 #include <stb/stb_image.h>
 

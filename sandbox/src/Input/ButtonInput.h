@@ -1,8 +1,14 @@
 ﻿#pragma once
 
 #include "iInput.h"
-#include "Vec.h"
+#include "Render/Vec.h"
 
+/**
+ * \file ButtonInput.h
+ * 
+ * Button Input like a key or controller button.
+ * Can be either pressed or released
+ */
 namespace Sandbox
 {
 	class ButtonInput : public iInput
@@ -10,7 +16,7 @@ namespace Sandbox
 	public:
 		ButtonInput(std::string name);
 
-		//From iInput
+		//iInput
 		virtual void KeyPressed(const SDL_Event& e);
 		virtual void KeyReleased(const SDL_Event& e);
 		virtual void MouseButtonPressed(const SDL_Event& e);
@@ -25,9 +31,20 @@ namespace Sandbox
 		virtual std::string GetName() const;
 		virtual InputType GetType() const;
 
-		//Proper to ButtonInput
+		//ButtonInput
+
+	
+		/// @brief Set wether or not the input is triggered when the button is pressed
+		/// @param triggerOnPress true = yes, false = no
 		void SetTriggerOnPress(bool triggerOnPress);
+		
+		/// @brief Set wether or not the input is triggered when the button is released
+		/// @param triggerOnRelease true = yes, false = no
 		void SetTriggerOnRelease(bool triggerOnRelease);
+
+		/// @brief Bind a Key from the keyboard
+		/// @param keyButton The scancode of the key
+		/// @param version There can be multiple key for the same Input.
 		void BindKey(SDL_Scancode keyButton, int version = 0);
 		void BindMouse(Uint8 mouseButton, int version = 0);
 		void BindController(SDL_GameControllerButton controllerButton, int version = 0);

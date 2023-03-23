@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Buffer.h"
+#include "std_macros.h"
 
 namespace Sandbox
 {

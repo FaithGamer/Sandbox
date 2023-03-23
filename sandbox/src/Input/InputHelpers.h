@@ -2,7 +2,7 @@
 
 #include <string>
 #include <SDL.h>
-#include "Log.h"
+#include "Core/Log.h"
 #include <nlohmann/json.hpp>
 
 namespace Sandbox

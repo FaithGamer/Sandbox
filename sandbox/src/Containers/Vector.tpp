@@ -1,20 +1,12 @@
-#include "Toolbox.h"
-#include "Log.h"
+#include "Vector.h"
+#include "Core/Log.h"
 
 namespace Sandbox
 {
-	namespace Toolbox
+	namespace Vector
 	{
 		template <typename T>
-		T ScaleOnRange(T value, T newMin, T newMax, T oldMin, T oldMax)
-		{
-			T oldRange = (oldMax - oldMin);
-			T newRange = (newMax - newMin);
-			return (((value - oldMin) * newRange) / oldRange) + newMin;
-		}
-
-		template <typename T>
-		int VectorRemove(T toRemove, std::vector<T>& container)
+		int Remove(T toRemove, std::vector<T>& container)
 		{
 			int removedCount = 0;
 			size_t i = 0;
@@ -58,7 +50,7 @@ namespace Sandbox
 		}
 
 		template <typename T>
-		bool VectorPushIfDoesntContains(const T& value, std::vector<T>& container)
+		bool PushIfDoesntContains(const T& value, std::vector<T>& container)
 		{
 			auto container_it = std::find(container.begin(), container.end(), value);
 			if (container_it == container.end())
@@ -68,7 +60,7 @@ namespace Sandbox
 		}
 
 		template <typename T>
-		bool VectorContains(const T& value, std::vector<T>& container)
+		bool Contains(const T& value, std::vector<T>& container)
 		{
 			auto container_it = std::find(container.begin(), container.end(), value);
 			if (container_it != container.end())

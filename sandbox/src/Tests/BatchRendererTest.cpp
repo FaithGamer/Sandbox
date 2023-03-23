@@ -3,7 +3,8 @@
 #include "BatchRendererTest.h"
 #include "Render/WindowGLContext.h"
 #include "Render/BatchRenderer.h"
-#include "Timing.h"
+#include "Core/Time.h"
+#include "std_macros.h"
 
 using namespace Sandbox;
 
@@ -43,7 +44,7 @@ void Sandbox::BatchRendererTest()
 		}
 
 		float yaw = std::sin(clock.GetElapsed()) * maxYaw;
-		float zoom = 1.1 + std::sin(clock.GetElapsed()) * 1;
+		float zoom = 0.6 + std::sin(clock.GetElapsed()) * 0.5;
 		//cam.SetYaw(yaw);
 		cam.SetPosition({ 0, 0, zoom });
 
@@ -57,11 +58,14 @@ void Sandbox::BatchRendererTest()
 			{
 				float y = i / 100.0f;
 				float x = j / 100.0f;
-
+				Transform transform;
+				transform.SetPosition(x, y, 0.0f);
+				transform.SetScale(0.01f, 0.01f, 1.0f);
+				transform.SetRotationZAxis((float)clock.GetElapsed()*40);
 				if (count % 2)
-					renderer.DrawTexturedQuad(Vec3f(x, y, 0.0f), Vec2f(0.01, 0.01), texture1, texCoords);
+					renderer.DrawTexturedQuad(transform, texture1, texCoords);
 				else
-					renderer.DrawTexturedQuad(Vec3f(x, y, 0.0f), Vec2f(0.01, 0.01), texture2, texCoords);
+					renderer.DrawTexturedQuad(transform, texture2, texCoords);
 				count++;
 			}
 		}

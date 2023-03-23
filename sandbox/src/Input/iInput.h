@@ -1,9 +1,9 @@
 #pragma once
 
 #include <SDL.h>
-#include "Log.h"
+#include "Core/Log.h"
 #include "entt/entt.hpp"
-#include "Signals.h"
+#include "Core/Signals.h"
 #include "InputHelpers.h"
 #include <nlohmann/json.hpp>
 

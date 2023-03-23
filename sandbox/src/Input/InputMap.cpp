@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "InputMap.h"
-#include "Tools/Toolbox.h"
+#include "Containers/Vector.h"
 
 namespace Sandbox
 {
@@ -15,43 +15,43 @@ namespace Sandbox
 		switch (e.type)
 		{
 		case SDL_KEYDOWN:
-			for (auto& input : m_byEvents[EventType::key])
+			for (auto& input : m_byEvents[EventType::Key])
 			{
 				input->KeyPressed(e);
 			}
 			break;
 		case SDL_KEYUP:
-			for (auto& input : m_byEvents[EventType::key])
+			for (auto& input : m_byEvents[EventType::Key])
 			{
 				input->KeyReleased(e);
 			}
 			break;
 		case SDL_MOUSEBUTTONDOWN:
-			for (auto& input : m_byEvents[EventType::mouseBtn])
+			for (auto& input : m_byEvents[EventType::MouseBtn])
 			{
 				input->MouseButtonPressed(e);
 			}
 			break;
 		case SDL_MOUSEBUTTONUP:
-			for (auto& input : m_byEvents[EventType::mouseBtn])
+			for (auto& input : m_byEvents[EventType::MouseBtn])
 			{
 				input->MouseButtonPressed(e);
 			}
 			break;
 		case SDL_MOUSEMOTION:
-			for (auto& input : m_byEvents[EventType::mouseMove])
+			for (auto& input : m_byEvents[EventType::MouseMove])
 			{
 				input->MouseMoved(e);
 			}
 			break;
 		case SDL_CONTROLLERBUTTONDOWN:
-			for (auto& input : m_byEvents[EventType::controllerBtn])
+			for (auto& input : m_byEvents[EventType::ControllerBtn])
 			{
 				input->ControllerButtonPressed(e);
 			}
 			break;
 		case SDL_CONTROLLERBUTTONUP:
-			for (auto& input : m_byEvents[EventType::controllerBtn])
+			for (auto& input : m_byEvents[EventType::ControllerBtn])
 			{
 				input->ControllerButtonReleased(e);
 			}
@@ -63,14 +63,14 @@ namespace Sandbox
 				|| e.caxis.axis == SDL_CONTROLLER_AXIS_RIGHTX
 				|| e.caxis.axis == SDL_CONTROLLER_AXIS_RIGHTY)
 			{
-				for (auto& input : m_byEvents[EventType::controllerStick])
+				for (auto& input : m_byEvents[EventType::ControllerStick])
 				{
 					input->ControllerStickMoved(e);
 				}
 			}
 			else
 			{
-				for (auto& input : m_byEvents[EventType::controllerStick])
+				for (auto& input : m_byEvents[EventType::ControllerStick])
 				{
 					input->ControllerTriggerMoved(e);
 				}
@@ -130,67 +130,67 @@ namespace Sandbox
 			const InputEvent& events = input->m_eventsListened;
 			const std::string& name = input->GetName();
 
-			if (events.keyButton && !Toolbox::VectorContains(input, m_byEvents[EventType::key]))
+			if (events.keyButton && !Vector::Contains(input, m_byEvents[EventType::key]))
 			{
 				m_byEvents[EventType::key].push_back(input);
 			}
 			else if(!events.keyButton)
 			{
-				Toolbox::VectorRemove(input, m_byEvents[EventType::key]);
+				Vector::Remove(input, m_byEvents[EventType::key]);
 			}
 
-			if (events.keyText && !Toolbox::VectorContains(input, m_byEvents[EventType::text]))
+			if (events.keyText && !Vector::Contains(input, m_byEvents[EventType::text]))
 			{
 				m_byEvents[EventType::text].push_back(input);
 			}
 			else if(!events.keyText)
 			{
-				Toolbox::VectorRemove(input, m_byEvents[EventType::text]);
+				Vector::Remove(input, m_byEvents[EventType::text]);
 			}
 
-			if (events.mouseButton && !Toolbox::VectorContains(input, m_byEvents[EventType::mouseBtn]))
+			if (events.mouseButton && !Vector::Contains(input, m_byEvents[EventType::mouseBtn]))
 			{
 				m_byEvents[EventType::mouseBtn].push_back(input);
 			}
 			else if(!events.mouseButton)
 			{
-				Toolbox::VectorRemove(input, m_byEvents[EventType::mouseBtn]);
+				Vector::Remove(input, m_byEvents[EventType::mouseBtn]);
 			}
 
-			if (events.mouseMovement && !Toolbox::VectorContains(input, m_byEvents[EventType::mouseMove]))
+			if (events.mouseMovement && !Vector::Contains(input, m_byEvents[EventType::mouseMove]))
 			{
 				m_byEvents[EventType::mouseMove].push_back(input);
 			}
 			else if(!events.mouseMovement)
 			{
-				Toolbox::VectorRemove(input, m_byEvents[EventType::mouseMove]);
+				Vector::Remove(input, m_byEvents[EventType::mouseMove]);
 			}
 
-			if (events.controllerButton && !Toolbox::VectorContains(input, m_byEvents[EventType::controllerBtn]))
+			if (events.controllerButton && !Vector::Contains(input, m_byEvents[EventType::controllerBtn]))
 			{
 				m_byEvents[EventType::controllerBtn].push_back(input);
 			}
 			else if(!events.controllerButton)
 			{
-				Toolbox::VectorRemove(input, m_byEvents[EventType::controllerBtn]);
+				Vector::Remove(input, m_byEvents[EventType::controllerBtn]);
 			}
 
-			if (events.controllerStick && !Toolbox::VectorContains(input, m_byEvents[EventType::controllerStick]))
+			if (events.controllerStick && !Vector::Contains(input, m_byEvents[EventType::controllerStick]))
 			{
 				m_byEvents[EventType::controllerStick].push_back(input);
 			}
 			else if(!events.controllerStick)
 			{
-				Toolbox::VectorRemove(input, m_byEvents[EventType::controllerStick]);
+				Vector::Remove(input, m_byEvents[EventType::controllerStick]);
 			}
 
-			if (events.controllerTrigger && !Toolbox::VectorContains(input, m_byEvents[EventType::controllerTrigger]))
+			if (events.controllerTrigger && !Vector::Contains(input, m_byEvents[EventType::controllerTrigger]))
 			{
 				m_byEvents[EventType::controllerTrigger].push_back(input);
 			}
 			else if(!events.controllerTrigger)
 			{
-				Toolbox::VectorRemove(input, m_byEvents[EventType::controllerTrigger]);
+				Vector::Remove(input, m_byEvents[EventType::controllerTrigger]);
 			}
 		}
 		m_updated.clear();

@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "ButtonInput.h"
-#include "Tools/Toolbox.h"
+#include "Math/Math.h"
 
 namespace Sandbox
 {
@@ -64,7 +64,7 @@ namespace Sandbox
 		if (e.caxis.axis == (Uint8)m_button.trigger)
 		{
 			//Scale trigger axis value to 0 to 1
-			double value = Toolbox::ScaleOnRange((float)e.caxis.value, 0.f, 1.f, 0.f, 32767.f);
+			double value = Math::ScaleRangeTo((float)e.caxis.value, 0.f, 1.f, 0.f, 32767.f);
 			
 			if (value > 1.f - m_triggerSensitivity)
 			{

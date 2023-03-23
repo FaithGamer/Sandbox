@@ -3,7 +3,6 @@
 #include "Render/WindowGLContext.h"
 #include "Render/ShaderProgram.h"
 #include "Render/Buffer.h"
-#include "Render/Vertex.h"
 #include "Render/VertexArray.h"
 #include "Render/Texture.h"
 #include "Render/Transform.h"
@@ -11,15 +10,15 @@
 #include "Render/BatchRenderer.h"
 #include "Input/ButtonInput.h"
 #include "Input/InputMap.h"
-#include "Log.h"
-#include "TypeId.h"
+#include "Core/Log.h"
+#include "Core/TypeId.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <entt/src/entt/entt.hpp>
 
-#include "Timing.h"
+#include "Core/Time.h"
 using namespace Sandbox;
 
 void Sandbox::UniformBlockTest()

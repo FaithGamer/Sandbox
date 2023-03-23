@@ -2,6 +2,7 @@
 #include "VertexArray.h"
 
 #include <glad/glad.h>
+#include "Core/Log.h"
 
 namespace Sandbox
 {

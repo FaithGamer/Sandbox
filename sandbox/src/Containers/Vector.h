@@ -3,14 +3,9 @@
 
 namespace Sandbox
 {
-    namespace Toolbox
+    namespace Vector
     {
-        /// <summary>
-        /// Scale a value ranged in between two number, to another range in between two other numbers.
-        /// </summary>
-        /// <returns>The value scaled to the new range</returns>
-        template <typename T>
-        T ScaleOnRange(T value, T newMin, T newMax, T oldMin, T oldMax);
+        
         
         /// <summary>
         /// Remove all occurence of value from a std::vector
@@ -19,21 +14,21 @@ namespace Sandbox
         /// </summary>
         /// <returns>Count of value removed</returns>
         template <typename T>
-        int VectorRemove(T value, std::vector<T>& container);
+        int Remove(T value, std::vector<T>& container);
 
         /// <summary>
         /// Push a value in the std::vector only if it is not already present
         /// </summary>
         /// <returns>True if value hase been pushed</returns>
         template <typename T>
-        bool VectorPushIfDoesntContains(const T& value, std::vector<T>& container);
+        bool PushIfDoesntContains(const T& value, std::vector<T>& container);
 
 
         /// <returns>True if value has been found</returns>
         template <typename T>
-        bool VectorContains(const T& value, std::vector<T>& container);
+        bool Contains(const T& value, std::vector<T>& container);
        
     }
 }
 
-#include "Toolbox.tpp"
+#include "Vector.tpp"

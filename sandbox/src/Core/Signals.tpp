@@ -1,4 +1,5 @@
-#include "TypeId.h"
+#include "Core/TypeId.h"
+#include "Core/Signals.h"
 
 namespace Sandbox
 {

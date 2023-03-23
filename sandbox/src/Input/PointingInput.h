@@ -1,6 +1,6 @@
 #pragma once
 #include "iInput.h"
-#include "Vec.h"
+#include "Render/Vec.h"
 
 //Pointing with either a stick or the mouse
 namespace Sandbox

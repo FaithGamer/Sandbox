@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "TextureUnitTest.h"
-#include "Render.h"
+#include "Include/Render.h"
 
 using namespace Sandbox;
 
@@ -19,9 +19,9 @@ void Sandbox::TextureUnitTest()
 	Transform trans1;
 	Transform trans2;
 
-	trans1.SetTranslation({ -0.55f, 0, 0
+	trans1.SetPosition({ -0.55f, 0, 0
 		});
-	trans2.SetTranslation({ 0.55f, 0, 0
+	trans2.SetPosition({ 0.55f, 0, 0
 		});
 
 

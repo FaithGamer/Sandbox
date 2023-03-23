@@ -1,4 +1,5 @@
 #pragma once
+#include "Vec.h"
 
 namespace Sandbox
 {
@@ -10,10 +11,14 @@ namespace Sandbox
 		void SetPosition(Vec3f position);
 		void SetRotation(Vec3f eulerAngles);
 		void SetTarget(Vec3f target);
+		void SetPosition(float x, float y, float z);
+		void SetRotation(float x, float y, float z);
+		void SetTarget(float x, float y, float z);
 		void SetFieldOfView(float fieldOfView);
 		void SetAspectRatio(float aspectRatio);
 
 		void MoveWorld(Vec3f offset);
+		void MoveWorld(float x, float y, float z);
 		void MoveLocalX(float offset);
 		void MoveLocalZ(float offset);
 		void Yaw(float yaw);

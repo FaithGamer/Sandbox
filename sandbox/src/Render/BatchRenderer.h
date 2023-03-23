@@ -1,16 +1,12 @@
 #pragma once
 
 #include "Vec.h"
-
-
 #include "ShaderProgram.h"
 #include "Buffer.h"
 #include "VertexArray.h"
-#include "Vec.h"
 #include "Camera.h"
 #include "Texture.h"
 #include "Transform.h"
-#include "Log.h"
 
 namespace Sandbox
 {
@@ -67,9 +63,9 @@ namespace Sandbox
 		void EndScene();
 		void Flush();
 
-		void DrawQuad(const Vec3f& position, const Vec2f& size, const Vec4f& color = Vec4f(1));
+		void DrawQuad(const Vec3f& position, const Vec2f& scale, const Vec4f& color = Vec4f(1));
 		void DrawQuad(const Transform& transform, const Vec4f& color = Vec4f(1));
-		void DrawTexturedQuad(const Vec3f& position, const Vec2f& size, const sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1));
+		void DrawTexturedQuad(const Vec3f& position, const Vec2f& scale, const sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1));
 		void DrawTexturedQuad(const Transform& transform, const sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1));
 
 		Statistics GetStats();

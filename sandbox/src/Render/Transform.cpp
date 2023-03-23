@@ -12,7 +12,8 @@ namespace Sandbox
 		Mat4 transform(1.f);
 
 		transform = glm::translate(transform, m_translation);
-		transform = glm::rotate(transform, glm::radians(-m_rotation), glm::vec3(1, 0, 0));
+		//TO DO: rotation from quaternion
+		transform = glm::rotate(transform, glm::radians(-m_rotation.z), glm::vec3(0, 0, 1));
 		transform = glm::scale(transform, m_scale);
 		transform = glm::translate(transform, -m_origin);
 

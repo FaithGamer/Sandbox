@@ -11,6 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Containers\Vector.cpp" />
+    <ClCompile Include="src\IO\Files.cpp" />
+    <ClCompile Include="src\Math\Math.cpp" />
     <ClCompile Include="src\Render\BatchRenderer.cpp" />
     <ClCompile Include="src\Input\InputMap.cpp" />
     <ClCompile Include="src\Input\InputHelpers.cpp" />
@@ -22,15 +25,14 @@
     <ClCompile Include="src\Input\PointingInput.cpp" />
     <ClCompile Include="src\Render\Camera.cpp" />
     <ClCompile Include="src\Render\Buffer.cpp" />
-    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Core\EntryPoint.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Render\Rect.cpp" />
-    <ClCompile Include="src\Log.cpp" />
+    <ClCompile Include="src\Core\Log.cpp" />
     <ClCompile Include="src\Render\ShaderProgram.cpp" />
-    <ClCompile Include="src\Signals.cpp" />
+    <ClCompile Include="src\Core\Signals.cpp" />
     <ClCompile Include="src\Tests\BatchRendererTest.cpp" />
     <ClCompile Include="src\Tests\BillboardTest.cpp" />
     <ClCompile Include="src\Tests\EnttTest.cpp" />
@@ -38,14 +40,11 @@
     <ClCompile Include="src\Tests\TextureUnitTest.cpp" />
     <ClCompile Include="src\Tests\ToolboxTest.cpp" />
     <ClCompile Include="src\Tests\UniformBlockTest.cpp" />
-    <ClCompile Include="src\Tools\Toolbox.cpp" />
-    <ClCompile Include="src\TypeId.cpp" />
+    <ClCompile Include="src\Core\TypeId.cpp" />
     <ClCompile Include="src\stb_impl.cpp" />
-    <ClCompile Include="src\Timing.cpp" />
-    <ClCompile Include="src\Tools\Print.cpp" />
-    <ClCompile Include="src\Tools\Files.cpp" />
+    <ClCompile Include="src\Core\Time.cpp" />
+    <ClCompile Include="src\Misc\Print.cpp" />
     <ClCompile Include="src\Render\WindowGLContext.cpp" />
-    <ClCompile Include="src\Render\Vertex.cpp" />
     <ClCompile Include="src\Render\VertexArray.cpp" />
     <ClCompile Include="src\Render\Texture.cpp" />
     <ClCompile Include="src\Render\Transform.cpp" />
@@ -54,16 +53,21 @@
     <ClCompile Include="src\Input\WheelInput.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Render.h" />
+    <ClInclude Include="src\Containers\Vector.h" />
+    <ClInclude Include="src\IO\Files.h" />
+    <ClInclude Include="src\Math\Math.h" />
+    <ClInclude Include="src\Core\PlatformDetection.h" />
+    <ClInclude Include="src\Include\Render.h" />
     <ClInclude Include="src\Render\BatchRenderer.h" />
     <ClInclude Include="src\Input\InputMap.h" />
     <ClInclude Include="src\Input\DirectionalInput.h" />
     <ClInclude Include="src\Input\InputHelpers.h" />
     <ClInclude Include="src\Input\PointingInput.h" />
-    <ClInclude Include="src\entt_macros.h" />
+    <ClInclude Include="src\ECS\entt_macros.h" />
     <ClInclude Include="src\ECS\Scene.h" />
     <ClInclude Include="src\ECS\Entity.h" />
-    <ClInclude Include="src\Signals.h" />
+    <ClInclude Include="src\Render\Vec.h" />
+    <ClInclude Include="src\Core\Signals.h" />
     <ClInclude Include="src\Tests\BatchRendererTest.h" />
     <ClInclude Include="src\Tests\BillboardTest.h" />
     <ClInclude Include="src\Tests\EnttTest.h" />
@@ -72,7 +76,7 @@
     <ClInclude Include="src\Tests\SignalTest.h" />
     <ClInclude Include="src\Tests\ToolboxTest.h" />
     <ClInclude Include="src\Tools\Toolbox.h" />
-    <ClInclude Include="src\TypeId.h" />
+    <ClInclude Include="src\Core\TypeId.h" />
     <ClInclude Include="src\Input\iInput.h" />
     <ClInclude Include="src\Input\ButtonInput.h" />
     <ClInclude Include="src\Render\Camera.h" />
@@ -80,15 +84,11 @@
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\Render\ShaderProgram.h" />
     <ClInclude Include="src\std_macros.h" />
-    <ClInclude Include="src\Render\Rect.h" />
-    <ClInclude Include="src\Render\Color.h" />
-    <ClInclude Include="src\Log.h" />
-    <ClInclude Include="src\Timing.h" />
-    <ClInclude Include="src\Tools\Print.h" />
+    <ClInclude Include="src\Core\Log.h" />
+    <ClInclude Include="src\Core\Time.h" />
+    <ClInclude Include="src\Misc\Print.h" />
     <ClInclude Include="src\Tools\Files.h" />
-    <ClInclude Include="src\Vec.h" />
     <ClInclude Include="src\Render\WindowGLContext.h" />
-    <ClInclude Include="src\Render\Vertex.h" />
     <ClInclude Include="src\Render\VertexArray.h" />
     <ClInclude Include="src\Render\Texture.h" />
     <ClInclude Include="src\Render\Transform.h" />
@@ -109,13 +109,13 @@
     <None Include="assets\shaders\uniform_buffer_test.frag" />
     <None Include="assets\shaders\texture_unit.frag" />
     <None Include="assets\shaders\texture_unit.vert" />
+    <None Include="src\Containers\Vector.tpp" />
+    <None Include="src\Math\Math.tpp" />
     <None Include="src\Tools\Toolbox.tpp" />
-    <None Include="src\Render\Rect.tpp" />
     <None Include="assets\shaders\texture.frag" />
     <None Include="assets\shaders\position_color.vert" />
-    <None Include="src\Signals.tpp" />
-    <None Include="src\Vec.tpp" />
-    <None Include="src\Timing.tpp" />
+    <None Include="src\Core\Signals.tpp" />
+    <None Include="src\Core\Timing.tpp" />
     <None Include="src\Render\Transform.tpp" />
     <None Include="assets\shaders\uniform_buffer_test.vert" />
   </ItemGroup>
@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="known_issues.txt" />
+    <Text Include="todos.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "BatchRenderer.h"
+#include "Core/Log.h"
 
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -127,11 +128,11 @@ namespace Sandbox
 		}
 	}
 
-	void BatchRenderer::DrawQuad(const Vec3f& position, const Vec2f& size, const Vec4f& color)
+	void BatchRenderer::DrawQuad(const Vec3f& position, const Vec2f& scale, const Vec4f& color)
 	{
 		Transform transform;
-		transform.SetTranslation(position);
-		transform.Scale({ size.x, size.y, 1.0f });
+		transform.SetPosition(position);
+		transform.Scale({ scale.x, scale.y, 1.0f });
 		DrawQuad(transform, color);
 	}
 
@@ -160,11 +161,11 @@ namespace Sandbox
 		m_data.stats.quadCount++;
 	}
 
-	void BatchRenderer::DrawTexturedQuad(const Vec3f& position, const Vec2f& size, const sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color)
+	void BatchRenderer::DrawTexturedQuad(const Vec3f& position, const Vec2f& scale, const sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color)
 	{
 		Transform transform;
-		transform.SetTranslation(position);
-		transform.Scale({ size.x, size.y, 1.0f });
+		transform.SetPosition(position);
+		transform.Scale({ scale.x, scale.y, 1.0f });
 		DrawTexturedQuad(transform, texture, texCoords, color);
 	}
 

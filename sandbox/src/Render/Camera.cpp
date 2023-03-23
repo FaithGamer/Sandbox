@@ -1,8 +1,7 @@
 #include "pch.h"
-#include "Vec.h"
-#include <glm/glm.hpp>
-#include "Camera.h"
 
+#include "Vec.h"
+#include "Camera.h"
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/functions.hpp>
@@ -38,6 +37,27 @@ namespace Sandbox
 		m_needComputeViewMatrix = true;
 	}
 
+	void Camera::SetPosition(float x, float y, float z)
+	{
+		m_position = Vec3f(x, y, z);
+		m_needComputeViewMatrix = true;
+	}
+
+	void Camera::SetRotation(float x, float y, float z)
+	{
+		m_yaw = x;
+		m_pitch = y;
+		m_roll = z;
+		ComputeDirection();
+		m_needComputeViewMatrix = true;
+	}
+
+	void Camera::SetTarget(float x, float y, float z)
+	{
+		m_target = Vec3f(x, y, z);
+		m_needComputeViewMatrix = true;
+	}
+
 	void Camera::SetFieldOfView(float fieldOfView)
 	{
 		m_fieldOfView = fieldOfView;
@@ -54,6 +74,12 @@ namespace Sandbox
 	{
 		m_position += offset;
 		m_needComputeViewMatrix = true;
+	}
+
+	void Camera::MoveWorld(float x, float y, float z)
+	{
+		m_position += Vec3f(x, y, z);
+		m_needComputeProjectionMatrix = true;
 	}
 
 	void Camera::MoveLocalX(float offset)

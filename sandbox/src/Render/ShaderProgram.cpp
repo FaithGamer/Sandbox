@@ -5,8 +5,8 @@
 #include "ShaderProgram.h"
 
 #include <glm/gtc/type_ptr.hpp>
-#include "Log.h"
-#include "Tools/Files.h"
+#include "Core/Log.h"
+#include "IO/Files.h"
 
 #define SET_UNIFORM(c) GLint location = glGetUniformLocation(m_id, (const GLchar*)name.c_str());\
 if (location == -1)\
@@ -29,7 +29,7 @@ namespace Sandbox
 		{
 			LOG_ERROR("Unable to open the shader: " + path);
 		}
-		return Files::ifstreamToString(shaderFile);
+		return IO::ifstreamToString(shaderFile);
 	}
 
 	void shaderCompilationError(uint32_t shader)

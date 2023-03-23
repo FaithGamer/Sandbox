@@ -3,7 +3,7 @@
 #include <glad/glad.h>
 
 #include "Buffer.h"
-#include "Log.h"
+#include "Core/Log.h"
 
 namespace Sandbox
 {

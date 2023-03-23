@@ -4,15 +4,16 @@
 
 namespace Sandbox
 {
+	//Todo: make my own macros for scancode and controller button/trigger/axis
 	enum EventType : int
 	{
-		key = 0,
-		text,
-		mouseBtn,
-		mouseMove,
-		controllerBtn,
-		controllerStick,
-		controllerTrigger,
+		Key = 0,
+		Text,
+		MouseBtn,
+		MouseMove,
+		ControllerBtn,
+		ControllerStick,
+		ControllerTrigger,
 		EventTypeCount
 	};
 

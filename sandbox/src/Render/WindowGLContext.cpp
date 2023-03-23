@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "WindowGLContext.h"
 
-#include "Log.h"
+#include "Core/Log.h"
 
 namespace Sandbox
 {

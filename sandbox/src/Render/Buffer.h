@@ -1,8 +1,6 @@
 #pragma once
 
 #include <glad/glad.h>
-#include "Log.h"
-#include "Vertex.h"
 
 namespace Sandbox
 {

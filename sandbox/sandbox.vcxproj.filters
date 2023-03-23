@@ -15,13 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Log.cpp">
+    <ClCompile Include="src\Core\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Render\Rect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main.cpp">
+    <ClCompile Include="src\Core\EntryPoint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp">
@@ -39,9 +36,6 @@
     <ClCompile Include="src\Render\Buffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Render\Vertex.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Render\VertexArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -57,10 +51,10 @@
     <ClCompile Include="src\Render\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Tools\Print.cpp">
+    <ClCompile Include="src\Misc\Print.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Timing.cpp">
+    <ClCompile Include="src\Core\Time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ECS\Entity.cpp">
@@ -72,10 +66,10 @@
     <ClCompile Include="src\ECS\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\TypeId.cpp">
+    <ClCompile Include="src\Core\TypeId.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Signals.cpp">
+    <ClCompile Include="src\Core\Signals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Input\ButtonInput.cpp">
@@ -129,18 +123,18 @@
     <ClCompile Include="src\Tests\TextureUnitTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\IO\Files.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Containers\Vector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Math\Math.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Vec.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Render\Color.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Log.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Render\Rect.h">
+    <ClInclude Include="src\Core\Log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h">
@@ -161,9 +155,6 @@
     <ClInclude Include="src\Render\Buffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\Vertex.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\Render\VertexArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -176,10 +167,10 @@
     <ClInclude Include="src\Render\Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Tools\Print.h">
+    <ClInclude Include="src\Misc\Print.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Timing.h">
+    <ClInclude Include="src\Core\Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\ECS\Entity.h">
@@ -191,13 +182,13 @@
     <ClInclude Include="src\ECS\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\TypeId.h">
+    <ClInclude Include="src\Core\TypeId.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\entt_macros.h">
+    <ClInclude Include="src\ECS\entt_macros.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Signals.h">
+    <ClInclude Include="src\Core\Signals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Input\DirectionalInput.h">
@@ -251,13 +242,26 @@
     <ClInclude Include="src\Tests\TextureUnitTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render.h">
+    <ClInclude Include="src\Include\Render.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\Vec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\PlatformDetection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IO\Files.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Containers\Vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Math\Math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\Render\Rect.tpp" />
-    <None Include="src\Vec.tpp" />
     <None Include="assets\shaders\texture.frag" />
     <None Include="assets\shaders\position_color.vert" />
     <None Include="assets\shaders\color.frag" />
@@ -265,9 +269,9 @@
     <None Include="assets\shaders\position_texture_transform.vert" />
     <None Include="assets\shaders\model_view_projection.vert" />
     <None Include="assets\shaders\billboard.vert" />
-    <None Include="src\Timing.tpp" />
+    <None Include="src\Core\Timing.tpp" />
     <None Include="src\Render\Transform.tpp" />
-    <None Include="src\Signals.tpp" />
+    <None Include="src\Core\Signals.tpp" />
     <None Include="src\Tools\Toolbox.tpp" />
     <None Include="assets\shaders\batch_renderer.vert" />
     <None Include="assets\shaders\batch_renderer.frag" />
@@ -277,8 +281,11 @@
     <None Include="assets\shaders\ubt.frag" />
     <None Include="assets\shaders\texture_unit.vert" />
     <None Include="assets\shaders\texture_unit.frag" />
+    <None Include="src\Containers\Vector.tpp" />
+    <None Include="src\Math\Math.tpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="known_issues.txt" />
+    <Text Include="todos.txt" />
   </ItemGroup>
 </Project>

@@ -1,17 +1,17 @@
 #include "pch.h"
 #include "EnttTest.h"
-#include "entt_macros.h"
-#include "Vec.h"
-#include "Signals.h"
-#include "Timing.h"
-#include "Tools/Toolbox.h"
+#include "ECS/entt_macros.h"
+#include "Render/Vec.h"
+#include "Core/Signals.h"
+#include "Core/Time.h"
+#include "Core/Log.h"
 
 using namespace Sandbox;
 
 struct move
 {
 	//we can create reliable pointers on theses components
-	//but iterating theses components is gonna be much slower
+	//but iterating theses components is gonna be slower
 	PointableComponent 
 	Vec2f direction;
 };

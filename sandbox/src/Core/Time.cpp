@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Timing.h"
+#include "Core/Time.h"
 
 
 namespace Sandbox

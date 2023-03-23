@@ -10,15 +10,23 @@ namespace Sandbox
 	public:
 		constexpr Transform();
 		constexpr Transform(Vec3f translation, Vec3f scale, float angle, Vec3f origin);
+		constexpr Transform(Vec3f translation, Vec3f scale, Vec3f angles, Vec3f origin);
 
-		constexpr void SetTranslation(Vec3f translation);
+		constexpr void SetPosition(Vec3f translation);
+		constexpr void SetPosition(float x, float y, float z);
 		constexpr void SetScale(Vec3f scale);
-		constexpr void SetRotation(float angle);
+		constexpr void SetScale(float x, float y, float z);
 		constexpr void SetOrigin(Vec3f origin);
-
-		constexpr void Translate(Vec3f translation);
+		constexpr void SetOrigin(float x, float y, float z);
+		constexpr void SetRotation(Vec3f angles);
+		constexpr void SetRotationZAxis(float angle);
+		
+		constexpr void Move(Vec3f translation);
+		constexpr void Move(float x, float y, float z);
 		constexpr void Scale(Vec3f scale);
-		constexpr void Rotate(float angle);
+		constexpr void Scale(float x, float y, float z);
+		constexpr void Rotate(Vec3f angles);
+		constexpr void RotateZAxis(float angle);
 
 		constexpr void Reset();
 
@@ -26,9 +34,10 @@ namespace Sandbox
 		constexpr Transform& operator+=(const Transform& trans);
 		constexpr Transform& operator=(const Transform& trans);
 
-		constexpr Vec3f GetTranslation() const;
+		constexpr Vec3f GetPosition() const;
 		constexpr Vec3f GetScale() const;
-		constexpr float GetRotation() const;
+		constexpr Vec3f GetRotation() const;
+		constexpr float GetRotationZAxis() const;
 		constexpr Vec3f GetOrigin() const;
 
 		constexpr Mat4 GetTransformMatrix() const;
@@ -37,7 +46,7 @@ namespace Sandbox
 		
 		Vec3f m_translation;
 		Vec3f m_scale;
-		float m_rotation;
+		Vec3f m_rotation;
 		Vec3f m_origin;
 
 		mutable bool m_needCompute;
