@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "ButtonInput.h"
 #include "Math/Math.h"
+#include "Bindings.h"
 
 namespace Sandbox
 {
@@ -29,7 +30,7 @@ namespace Sandbox
 
 	void ButtonInput::MouseButtonPressed(const SDL_Event& e)
 	{
-		if (e.button.button == m_button.mouse)
+		if (e.button.button == (Uint8)m_button.mouse)
 		{
 			PressButton();
 		}
@@ -37,7 +38,7 @@ namespace Sandbox
 
 	void ButtonInput::MouseButtonReleased(const SDL_Event& e)
 	{
-		if (e.button.button == m_button.mouse)
+		if (e.button.button == (Uint8)m_button.mouse)
 		{
 			ReleaseButton();
 		}
@@ -45,7 +46,7 @@ namespace Sandbox
 
 	void ButtonInput::ControllerButtonPressed(const SDL_Event& e)
 	{
-		if ((SDL_GameControllerButton)e.cbutton.button == m_button.controller)
+		if ((SDL_GameControllerButton)e.cbutton.button == (SDL_GameControllerButton)m_button.controller)
 		{
 			PressButton();
 		}
@@ -53,7 +54,7 @@ namespace Sandbox
 
 	void ButtonInput::ControllerButtonReleased(const SDL_Event& e)
 	{
-		if ((SDL_GameControllerButton)e.cbutton.button == m_button.controller)
+		if ((SDL_GameControllerButton)e.cbutton.button == (SDL_GameControllerButton)m_button.controller)
 		{
 			ReleaseButton();
 		}
@@ -114,15 +115,15 @@ namespace Sandbox
 
 	InputType ButtonInput::GetType() const
 	{
-		return InputType::button;
+		return InputType::Button;
 	}
 	
-	void ButtonInput::SetTriggerOnPress(bool triggerOnPress)
+	void ButtonInput::SendSignalOnPress(bool triggerOnPress)
 	{
 		m_sendSignalOnPress = triggerOnPress;
 	}
 
-	void ButtonInput::SetTriggerOnRelease(bool triggerOnRelease)
+	void ButtonInput::SendSignalOnRelease(bool triggerOnRelease)
 	{
 		m_sendSignalOnRelease = triggerOnRelease;
 	}
@@ -133,7 +134,7 @@ namespace Sandbox
 		UpdateEventListened();
 	}
 
-	void ButtonInput::BindMouse(Uint8 mouseButton, int version)
+	void ButtonInput::BindMouse(MouseButton mouseButton, int version)
 	{
 		m_button.mouse = mouseButton;
 		UpdateEventListened();
@@ -158,7 +159,7 @@ namespace Sandbox
 		else
 			newEvents.keyButton = false;
 
-		if (m_button.mouse != 0)
+		if (m_button.mouse != MouseButton::Invalid)
 			newEvents.mouseButton = true;
 		else
 			newEvents.mouseButton = false;

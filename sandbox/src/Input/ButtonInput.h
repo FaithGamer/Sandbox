@@ -1,22 +1,46 @@
 ﻿#pragma once
 
-#include "iInput.h"
+#include "Input.h"
+#include "Controller.h"
+#include "Mouse.h"
 #include "Render/Vec.h"
 
-/**
- * \file ButtonInput.h
- * 
- * Button Input like a key or controller button.
- * Can be either pressed or released
- */
 namespace Sandbox
 {
-	class ButtonInput : public iInput
+	class Bindings;
+
+	/// @brief Binding for a button with keyboard/mouse/controller
+	struct Button
+	{
+		MouseButton mouse = MouseButton::Invalid;
+		SDL_Scancode key = SDL_SCANCODE_UNKNOWN;// scancode is a physical position on the keyboard.
+		// to retreive it's Keycode on the current layout, use the macro SDL_SCANCODE_TO_KEYCODE
+		SDL_GameControllerButton controller = SDL_CONTROLLER_BUTTON_INVALID;
+		ControllerTrigger trigger = ControllerTrigger::Undefined;
+	};
+
+	enum class DirectionalButton : int
+	{
+		None = 0,
+		Left,
+		Top,
+		Right,
+		Bottom
+	};
+
+	class ButtonInput : public Input
 	{
 	public:
 		ButtonInput(std::string name);
 
-		//iInput
+
+		virtual void ListenEventAndBindTrigger(const SDL_Event& e, int version = 0);
+		virtual void SetBindings(const Bindings& bondings, int version = 0);
+
+		virtual std::string GetName() const;
+		virtual InputType GetType() const;
+
+	protected:
 		virtual void KeyPressed(const SDL_Event& e);
 		virtual void KeyReleased(const SDL_Event& e);
 		virtual void MouseButtonPressed(const SDL_Event& e);
@@ -25,28 +49,26 @@ namespace Sandbox
 		virtual void ControllerButtonReleased(const SDL_Event& e);
 		virtual void ControllerTriggerMoved(const SDL_Event& e);
 
-		virtual void ListenEventAndBindTrigger(const SDL_Event& e, int version = 0);
-		virtual void SetBindings(const Bindings& bondings, int version = 0);
-
-		virtual std::string GetName() const;
-		virtual InputType GetType() const;
-
-		//ButtonInput
-
-	
+	public:
 		/// @brief Set wether or not the input is triggered when the button is pressed
 		/// @param triggerOnPress true = yes, false = no
-		void SetTriggerOnPress(bool triggerOnPress);
+		void SendSignalOnPress(bool triggerOnPress);
 		
 		/// @brief Set wether or not the input is triggered when the button is released
 		/// @param triggerOnRelease true = yes, false = no
-		void SetTriggerOnRelease(bool triggerOnRelease);
+		void SendSignalOnRelease(bool triggerOnRelease);
 
 		/// @brief Bind a Key from the keyboard
 		/// @param keyButton The scancode of the key
 		/// @param version There can be multiple key for the same Input.
 		void BindKey(SDL_Scancode keyButton, int version = 0);
-		void BindMouse(Uint8 mouseButton, int version = 0);
+		/// @brief Bind a mouse button 
+		/// @param mouseButton The mouse button
+		/// @param version There can be multiple mouse button for the same Input.
+		void BindMouse(MouseButton mouseButton, int version = 0);
+		/// @brief Bind to a controller button
+		/// @param controllerButton the controller button
+		/// @param version There can be multiple controller buttons for the same Input.
 		void BindController(SDL_GameControllerButton controllerButton, int version = 0);
 
 		struct State
@@ -55,11 +77,9 @@ namespace Sandbox
 		};
 
 	protected:
-		//From iInput
 		virtual void UpdateEventListened();
 
 	private:
-		//Proper tu ButtonInput
 		void ReleaseButton();
 		void PressButton();
 

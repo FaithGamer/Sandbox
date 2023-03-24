@@ -8,7 +8,6 @@
 #include "Tests/BillboardTest.h"
 #include "Tests/BatchRendererTest.h"
 #include "Tests/TextureUnitTest.h"
-
 using namespace Sandbox;
 
 
@@ -17,12 +16,11 @@ int main(int argc, char* argv[])
 
 	Log::Init();
 	LOG_INFO("Logger initialiazed");
-
 	//TestSignal();
 	//TestEntt();
 	//TestToolbox();
 	//UniformBlockTest();
-	BatchRendererTest();
+	//BatchRendererTest();
 	//TextureUnitTest();
 	return 0;
 

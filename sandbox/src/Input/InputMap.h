@@ -1,11 +1,11 @@
 #pragma once
 
-#include "iInput.h"
+#include "Input.h"
 
 namespace Sandbox
 {
 	//Todo: make my own macros for scancode and controller button/trigger/axis
-	enum EventType : int
+	enum class EventType : int
 	{
 		Key = 0,
 		Text,
@@ -22,23 +22,23 @@ namespace Sandbox
 	public:
 		InputMap(std::string name);
 		void Update(const SDL_Event& e);
-		void UpdateInputEvent(sptr<iInput> input);
-		void AddInput(sptr<iInput> input);
-		void RemoveInput(sptr<iInput> input);
-		sptr<iInput> GetInput(std::string name);
+		void UpdateInputEvent(sptr<Input> input);
+		void AddInput(sptr<Input> input);
+		void RemoveInput(sptr<Input> input);
+		sptr<Input> GetInput(std::string name);
 		std::string GetName();
 
 	private:
-		void Update();
+		void UpdateInputEvent();
 
 		//Inputs sorted by the events they listen to.
-		std::vector<std::vector<sptr<iInput>>> m_byEvents;
+		std::vector<std::vector<sptr<Input>>> m_byEvents;
 
 		//Inputs sorted by their names
-		std::unordered_map<std::string, sptr<iInput>> m_byNames;
+		std::unordered_map<std::string, sptr<Input>> m_byNames;
 
 		//Update listening 
-		std::vector<sptr<iInput>> m_updated;
+		std::vector<sptr<Input>> m_updated;
 
 		std::string m_name;
 	};

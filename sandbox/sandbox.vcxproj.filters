@@ -30,9 +30,6 @@
     <ClCompile Include="src\Render\ShaderProgram.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Tools\Files.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Render\Buffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -78,7 +75,7 @@
     <ClCompile Include="src\Input\PointingInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Input\WheelInput.cpp">
+    <ClCompile Include="src\Input\ScrollInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Input\TextualInput.cpp">
@@ -87,10 +84,7 @@
     <ClCompile Include="src\Input\DirectionalInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Input\iInput.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Tools\Toolbox.cpp">
+    <ClCompile Include="src\Input\Input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Input\InputHelpers.cpp">
@@ -130,6 +124,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Math\Math.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\Bindings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input\Controller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input\Mouse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input\Keyboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -197,13 +203,13 @@
     <ClInclude Include="src\Input\PointingInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Input\iInput.h">
+    <ClInclude Include="src\Input\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Input\ButtonInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Input\WheelInput.h">
+    <ClInclude Include="src\Input\ScrollInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Input\TextualInput.h">
@@ -260,6 +266,18 @@
     <ClInclude Include="src\Math\Math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Input\Controller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input\Mouse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input\Keyboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input\Bindings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\texture.frag" />
@@ -287,5 +305,6 @@
   <ItemGroup>
     <Text Include="known_issues.txt" />
     <Text Include="todos.txt" />
+    <Text Include="journal.txt" />
   </ItemGroup>
 </Project>

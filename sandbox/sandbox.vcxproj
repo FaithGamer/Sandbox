@@ -11,6 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Input\Controller.cpp" />
+    <ClCompile Include="src\Input\Keyboard.cpp" />
+    <ClCompile Include="src\Input\Mouse.cpp" />
+    <ClCompile Include="src\Render\Bindings.cpp" />
     <ClCompile Include="src\Containers\Vector.cpp" />
     <ClCompile Include="src\IO\Files.cpp" />
     <ClCompile Include="src\Math\Math.cpp" />
@@ -21,7 +25,7 @@
     <ClCompile Include="src\ECS\Scene.cpp" />
     <ClCompile Include="src\ECS\Entity.cpp" />
     <ClCompile Include="src\Input\DirectionalInput.cpp" />
-    <ClCompile Include="src\Input\iInput.cpp" />
+    <ClCompile Include="src\Input\Input.cpp" />
     <ClCompile Include="src\Input\PointingInput.cpp" />
     <ClCompile Include="src\Render\Camera.cpp" />
     <ClCompile Include="src\Render\Buffer.cpp" />
@@ -50,10 +54,14 @@
     <ClCompile Include="src\Render\Transform.cpp" />
     <ClCompile Include="src\ECS\System.cpp" />
     <ClCompile Include="src\Input\TextualInput.cpp" />
-    <ClCompile Include="src\Input\WheelInput.cpp" />
+    <ClCompile Include="src\Input\ScrollInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Containers\Vector.h" />
+    <ClInclude Include="src\Input\Bindings.h" />
+    <ClInclude Include="src\Input\Controller.h" />
+    <ClInclude Include="src\Input\Keyboard.h" />
+    <ClInclude Include="src\Input\Mouse.h" />
     <ClInclude Include="src\IO\Files.h" />
     <ClInclude Include="src\Math\Math.h" />
     <ClInclude Include="src\Core\PlatformDetection.h" />
@@ -77,7 +85,7 @@
     <ClInclude Include="src\Tests\ToolboxTest.h" />
     <ClInclude Include="src\Tools\Toolbox.h" />
     <ClInclude Include="src\Core\TypeId.h" />
-    <ClInclude Include="src\Input\iInput.h" />
+    <ClInclude Include="src\Input\Input.h" />
     <ClInclude Include="src\Input\ButtonInput.h" />
     <ClInclude Include="src\Render\Camera.h" />
     <ClInclude Include="src\Render\Buffer.h" />
@@ -94,7 +102,7 @@
     <ClInclude Include="src\Render\Transform.h" />
     <ClInclude Include="src\ECS\System.h" />
     <ClInclude Include="src\Input\TextualInput.h" />
-    <ClInclude Include="src\Input\WheelInput.h" />
+    <ClInclude Include="src\Input\ScrollInput.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\batch_renderer.frag" />
@@ -131,6 +139,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="journal.txt" />
     <Text Include="known_issues.txt" />
     <Text Include="todos.txt" />
   </ItemGroup>

@@ -1,6 +1,7 @@
 #pragma once
-#include "iInput.h"
+#include "Input.h"
 #include "Render/Vec.h"
+#include "ButtonInput.h"
 
 namespace Sandbox
 {
@@ -9,19 +10,16 @@ namespace Sandbox
 	{
 
 	public:
-		InputType GetType() const { return InputType::directional; }
+		InputType GetType() const { return InputType::Directional; }
 
-		//Map a button with a direction
 		struct DirectionalButton
 		{
 			Button button;
-			Vec2f direction;
+			Vec3f direction;
 		};
 
-		/// State
-		Vec2f direction;
+		Vec3f direction;
 
-		/// Action
 		std::vector<DirectionalButton> keys;
 		ControllerStick stick;
 
