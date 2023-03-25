@@ -230,3 +230,10 @@
 [2023-03-24 22:29:28.372] [SANDBOX] [info] Max. Vertex attributes: 16
 [2023-03-24 22:36:45.293] [SANDBOX] [info] Logger initialiazed
 [2023-03-24 22:36:45.294] [SANDBOX] [error] Key name unknown, SDL error:  Parameter 'name' is invalid
+[2023-03-25 16:47:43.525] [SANDBOX] [info] Logger initialiazed
+[2023-03-25 16:48:02.185] [SANDBOX] [info] Logger initialiazed
+[2023-03-25 16:49:03.882] [SANDBOX] [info] Logger initialiazed
+[2023-03-25 18:23:47.968] [SANDBOX] [info] Logger initialiazed
+[2023-03-25 18:23:58.491] [SANDBOX] [info] Logger initialiazed
+[2023-03-25 18:52:38.035] [SANDBOX] [info] Logger initialiazed
+[2023-03-25 19:31:24.203] [SANDBOX] [info] Logger initialiazed

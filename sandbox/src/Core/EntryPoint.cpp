@@ -8,6 +8,7 @@
 #include "Tests/BillboardTest.h"
 #include "Tests/BatchRendererTest.h"
 #include "Tests/TextureUnitTest.h"
+#include "Tests/ThreadTest.h"
 using namespace Sandbox;
 
 
@@ -16,6 +17,8 @@ int main(int argc, char* argv[])
 
 	Log::Init();
 	LOG_INFO("Logger initialiazed");
+
+	ThreadTest();
 	//TestSignal();
 	//TestEntt();
 	//TestToolbox();

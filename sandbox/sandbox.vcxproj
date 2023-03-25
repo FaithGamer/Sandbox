@@ -20,7 +20,6 @@
     <ClCompile Include="src\Math\Math.cpp" />
     <ClCompile Include="src\Render\BatchRenderer.cpp" />
     <ClCompile Include="src\Input\InputMap.cpp" />
-    <ClCompile Include="src\Input\InputHelpers.cpp" />
     <ClCompile Include="src\Input\ButtonInput.cpp" />
     <ClCompile Include="src\ECS\Scene.cpp" />
     <ClCompile Include="src\ECS\Entity.cpp" />
@@ -42,6 +41,7 @@
     <ClCompile Include="src\Tests\EnttTest.cpp" />
     <ClCompile Include="src\Tests\SignalTest.cpp" />
     <ClCompile Include="src\Tests\TextureUnitTest.cpp" />
+    <ClCompile Include="src\Tests\ThreadTest.cpp" />
     <ClCompile Include="src\Tests\ToolboxTest.cpp" />
     <ClCompile Include="src\Tests\UniformBlockTest.cpp" />
     <ClCompile Include="src\Core\TypeId.cpp" />
@@ -55,6 +55,7 @@
     <ClCompile Include="src\ECS\System.cpp" />
     <ClCompile Include="src\Input\TextualInput.cpp" />
     <ClCompile Include="src\Input\ScrollInput.cpp" />
+    <ClCompile Include="src\Thread\Thread.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Containers\Vector.h" />
@@ -69,7 +70,6 @@
     <ClInclude Include="src\Render\BatchRenderer.h" />
     <ClInclude Include="src\Input\InputMap.h" />
     <ClInclude Include="src\Input\DirectionalInput.h" />
-    <ClInclude Include="src\Input\InputHelpers.h" />
     <ClInclude Include="src\Input\PointingInput.h" />
     <ClInclude Include="src\ECS\entt_macros.h" />
     <ClInclude Include="src\ECS\Scene.h" />
@@ -80,9 +80,11 @@
     <ClInclude Include="src\Tests\BillboardTest.h" />
     <ClInclude Include="src\Tests\EnttTest.h" />
     <ClInclude Include="src\Tests\TextureUnitTest.h" />
+    <ClInclude Include="src\Tests\ThreadTest.h" />
     <ClInclude Include="src\Tests\UniformBlockTest.h" />
     <ClInclude Include="src\Tests\SignalTest.h" />
     <ClInclude Include="src\Tests\ToolboxTest.h" />
+    <ClInclude Include="src\Thread\Thread.h" />
     <ClInclude Include="src\Tools\Toolbox.h" />
     <ClInclude Include="src\Core\TypeId.h" />
     <ClInclude Include="src\Input\Input.h" />
