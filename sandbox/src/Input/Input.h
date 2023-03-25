@@ -3,7 +3,7 @@
 #include <SDL.h>
 #include "Core/Log.h"
 #include "entt/entt.hpp"
-#include "Core/Signals.h"
+#include "Core/Signal.h"
 #include <nlohmann/json.hpp>
 
 
@@ -38,6 +38,11 @@ namespace Sandbox
 		bool operator!=(const InputEvent& other);
 	};
 
+	struct InputSignal
+	{
+
+	};
+
 	/// @brief Gives a string representation of an InputType
 	std::string InputTypeName(InputType type);
 
@@ -45,7 +50,7 @@ namespace Sandbox
 	std::string DirectionalButtonName(DirectionalButton type);
 
 	/// @brief Interface for an input, send signal when it's binding is triggered
-	class Input : public SignalSender, public std::enable_shared_from_this<Input>
+	class Input : public std::enable_shared_from_this<Input>
 	{
 	public:
 		virtual ~Input() {};
@@ -55,6 +60,8 @@ namespace Sandbox
 
 		virtual std::string GetName() const = 0;
 		virtual InputType GetType() const = 0;
+
+		SignalSender<InputSignal> inputSignal;
 
 	protected:
 		friend class InputMap;

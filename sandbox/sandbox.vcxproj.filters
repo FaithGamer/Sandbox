@@ -66,7 +66,7 @@
     <ClCompile Include="src\Core\TypeId.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\Signals.cpp">
+    <ClCompile Include="src\Core\Signal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Input\ButtonInput.cpp">
@@ -197,7 +197,7 @@
     <ClInclude Include="src\ECS\entt_macros.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\Signals.h">
+    <ClInclude Include="src\Core\Signal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Input\DirectionalInput.h">
@@ -295,7 +295,7 @@
     <None Include="assets\shaders\billboard.vert" />
     <None Include="src\Core\Timing.tpp" />
     <None Include="src\Render\Transform.tpp" />
-    <None Include="src\Core\Signals.tpp" />
+    <None Include="src\Core\Signal.tpp" />
     <None Include="src\Tools\Toolbox.tpp" />
     <None Include="assets\shaders\batch_renderer.vert" />
     <None Include="assets\shaders\batch_renderer.frag" />

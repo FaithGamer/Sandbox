@@ -2,7 +2,7 @@
 #include "EnttTest.h"
 #include "ECS/entt_macros.h"
 #include "Render/Vec.h"
-#include "Core/Signals.h"
+#include "Core/Signal.h"
 #include "Core/Time.h"
 #include "Core/Log.h"
 

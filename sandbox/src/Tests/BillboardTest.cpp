@@ -28,7 +28,7 @@
 
 #include "Containers/Vector.h"
 
-#include "Core/Signals.h"
+#include "Core/Signal.h"
 
 #include "Tests/SignalTest.h"
 #include "Tests/EnttTest.h"

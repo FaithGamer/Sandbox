@@ -35,7 +35,7 @@
     </ClCompile>
     <ClCompile Include="src\Core\Log.cpp" />
     <ClCompile Include="src\Render\ShaderProgram.cpp" />
-    <ClCompile Include="src\Core\Signals.cpp" />
+    <ClCompile Include="src\Core\Signal.cpp" />
     <ClCompile Include="src\Tests\BatchRendererTest.cpp" />
     <ClCompile Include="src\Tests\BillboardTest.cpp" />
     <ClCompile Include="src\Tests\EnttTest.cpp" />
@@ -75,7 +75,7 @@
     <ClInclude Include="src\ECS\Scene.h" />
     <ClInclude Include="src\ECS\Entity.h" />
     <ClInclude Include="src\Render\Vec.h" />
-    <ClInclude Include="src\Core\Signals.h" />
+    <ClInclude Include="src\Core\Signal.h" />
     <ClInclude Include="src\Tests\BatchRendererTest.h" />
     <ClInclude Include="src\Tests\BillboardTest.h" />
     <ClInclude Include="src\Tests\EnttTest.h" />
@@ -124,7 +124,7 @@
     <None Include="src\Tools\Toolbox.tpp" />
     <None Include="assets\shaders\texture.frag" />
     <None Include="assets\shaders\position_color.vert" />
-    <None Include="src\Core\Signals.tpp" />
+    <None Include="src\Core\Signal.tpp" />
     <None Include="src\Core\Timing.tpp" />
     <None Include="src\Render\Transform.tpp" />
     <None Include="assets\shaders\uniform_buffer_test.vert" />

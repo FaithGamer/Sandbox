@@ -1,5 +1,5 @@
 #pragma once
-#include "Core/Signals.h"
+#include "Core/Signal.h"
 
 namespace Sandbox
 {
