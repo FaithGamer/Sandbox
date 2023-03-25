@@ -60,7 +60,7 @@ public:
 		static_cast<FooListener*>(listener)->OnFoo3(message, data);
 	}
 
-private:
+
 
 	//The methods that will actually process the data within the receiving object:
 
@@ -159,8 +159,10 @@ namespace Sandbox
 			foobar.push_back(FooBarListener());
 		}
 
+		sender.AddListener(&FooListener::OnFoo2, &foo[0]);
+
 		//Add listener for the Foo message (deduced by the argument of ReceiveFooMessageMethod)
-		sender.AddListener(&FooListener::ReceiveFooMessage, &foo[0]);
+		/*sender.AddListener(&FooListener::ReceiveFooMessage, &foo[0]);
 
 		//With additional data (that is gonna remain the same on every call)
 		sender.AddListener(&FooListener::ReceiveFooMessage, &foo[1], std::any((int)42));
@@ -174,7 +176,7 @@ namespace Sandbox
 
 		//Listening on foo AND bar
 		sender.AddListener(&FooBarListener::ReceiveFooMessage, &foobar[2]);
-		sender.AddListener(&FooBarListener::ReceiveBarMessage, &foobar[2]);
+		sender.AddListener(&FooBarListener::ReceiveBarMessage, &foobar[2]);*/
 
 		std::cout << std::endl;
 

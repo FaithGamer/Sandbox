@@ -115,7 +115,7 @@ void Sandbox::BillboardTest()
 
 	auto btn = inputs.GetInput("ButtonTest");
 
-	btn->AddListener(&OnPressButton, nullptr);
+	//btn->AddListener(&OnPressButton, nullptr);
 
 	Vec3f o = Vec3f(0, 0, 0);
 

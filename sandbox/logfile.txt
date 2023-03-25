@@ -237,3 +237,6 @@
 [2023-03-25 18:23:58.491] [SANDBOX] [info] Logger initialiazed
 [2023-03-25 18:52:38.035] [SANDBOX] [info] Logger initialiazed
 [2023-03-25 19:31:24.203] [SANDBOX] [info] Logger initialiazed
+[2023-03-25 20:14:28.321] [SANDBOX] [info] Logger initialiazed
+[2023-03-25 20:31:30.480] [SANDBOX] [info] Logger initialiazed
+[2023-03-25 20:31:30.481] [SANDBOX] [info] Test Signal

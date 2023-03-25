@@ -18,8 +18,8 @@ int main(int argc, char* argv[])
 	Log::Init();
 	LOG_INFO("Logger initialiazed");
 
-	ThreadTest();
-	//TestSignal();
+	//ThreadTest();
+	TestSignal();
 	//TestEntt();
 	//TestToolbox();
 	//UniformBlockTest();

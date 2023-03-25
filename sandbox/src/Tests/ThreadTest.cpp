@@ -45,10 +45,6 @@ namespace Sandbox
 
 
 
-		MyClass object;
-		std::function<void(int)> fun = std::bind(&MyClass::add, &object, 4, std::placeholders::_2);
-		fun(4);
-
 
 
 	}

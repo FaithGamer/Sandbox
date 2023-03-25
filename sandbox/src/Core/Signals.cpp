@@ -7,24 +7,23 @@ namespace Sandbox
 	/// SignalDispatcher
 	//////////////////////////////////
 
-	void SignalDispatcher::RemoveListener(void* const listener)
+	void SignalDispatcher::RemoveListenerFromAll (void* const listener)
 	{
 
-		for (auto& signal : m_delegates)
+		for (auto& signal : m_callbacks)
 		{
 			auto& listeners = signal.second;
-			for (auto listenerSignalPriority = listeners.begin(); listenerSignalPriority != listeners.end();)
+			for (auto functionPriority = listeners.begin(); functionPriority != listeners.end();)
 			{
-				if (listenerSignalPriority->listener == listener)
+				if (functionPriority->listener == listener)
 				{
-					listeners.erase(listenerSignalPriority++);
+					listeners.erase(functionPriority++);
 				}
 				else
 				{
-					listenerSignalPriority++;
+					functionPriority++;
 				}
 			}
-
 		}
 	}
 
