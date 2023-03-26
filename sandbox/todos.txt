@@ -1,3 +1,4 @@
+- worker thread
 - threaded BatchRendering
 - bindins serialization (include cereal in project)
 - Option to set a RenderTarget when using the batchrenderer (for rendering to framebuffer)

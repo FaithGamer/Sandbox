@@ -5,17 +5,17 @@ namespace Sandbox
 {
 	template <typename SignalType>
 	template <typename ListenerType>
-	void SignalSender<SignalType>::AddListener(void (ListenerType::* callback)(const SignalType&), ListenerType* const listener, SignalPriority priority)
+	void SignalSender<SignalType>::AddListener(void (ListenerType::* callback)(SignalType), ListenerType* const listener, SignalPriority priority)
 	{
-		std::function<void(SignalType)> function = std::bind(callback, listener, std::placeholders::_1);
-		m_listeners.insert(SignalCallback<SignalType>(function, listener, priority));
+		Delegate<void, SignalType> delegate(callback, listener);
+		m_listeners.insert(SignalCallback<SignalType>(delegate, listener, priority));
 	}
 
 	template <typename SignalType>
-	void SignalSender<SignalType>::AddListener(void (*callback)(const SignalType&), SignalPriority priority)
+	void SignalSender<SignalType>::AddListener(void (*callback)(SignalType), SignalPriority priority)
 	{
-		std::function<void(SignalType)> function = std::bind(callback, std::placeholders::_1);
-		m_listenersFreeFunction.insert(SignalCallbackFreeFunction<SignalType>(callback, priority));
+		Delegate delegate(callback);
+		m_listeners.insert(SignalCallback<SignalType>(delegate, nullptr, priority));
 	}
 
 	template <typename SignalType>
@@ -35,21 +35,36 @@ namespace Sandbox
 	}
 
 	template <typename SignalType>
-	void SignalSender<SignalType>::RemoveListener(void (*callback)(const SignalType&))
+	void SignalSender<SignalType>::RemoveListener(void (*function)(SignalType))
 	{
-		//to do
+		for (auto callback = m_listeners.begin(); callback != m_listeners.end();)
+		{
+			if (callback->delegate.IsSameFunction(function))
+			{
+				m_listeners.erase(callback++);
+			}
+			else
+			{
+				callback++;
+			}
+		}
+
 	}
 
 	template<typename SignalType>
-	void SignalSender<SignalType>::SendSignal(const SignalType& signal)
+	void SignalSender<SignalType>::SendSignal(SignalType& signal)
 	{
-		for (const SignalCallback<SignalType>& listener : m_listeners)
+		for (SignalCallback<SignalType> listener : m_listeners)
 		{
-			listener.callback(signal);
+			listener.delegate.Call(std::forward<SignalType>(signal));
 		}
-		for (const SignalCallbackFreeFunction<SignalType>& listener : m_listenersFreeFunction)
+	}
+	template<typename SignalType>
+	void SignalSender<SignalType>::SendSignal(SignalType&& signal)
+	{
+		for (SignalCallback<SignalType> listener : m_listeners)
 		{
-			listener.callback(signal);
+			listener.delegate.Call(std::forward<SignalType>(signal));
 		}
 	}
 }

@@ -1,3 +1,19 @@
 24 mars
 
 - Learned how to comment in order to generate Doxygen documentation.
+
+25 mars
+
+- Spent the day reworking the signal system. 
+I discovered that std::function can wrap a call to a member function along with the object to call the function upon.
+I learned a bit more about variadic function, and how one can store an undefined amount of arguments with tuple, then call this function
+by "opening" the tuple with the help of std::index_sequence
+-Started working on worker thread, to send tasks to various thread.
+
+26 mars
+
+- Implemented my own delegate, based on function pointers that can take free function or member function thanks to type-erasing
+I spent a lot of time trying to have multiple variadic template class with the goal to give the ability to my delegate to fill only a couple of the requiered
+parameters but in vain.
+Nevertheless the delegate can now call function either with arguments provided with the delegate constructor, or at the time of the call.
+- So now signals use the Delegate instead of std::function, but I still need to find how to make the signals be able to send reference or pointers as SignalType

@@ -1,6 +1,9 @@
 #include "pch.h"
-#include "Thread\Thread.h"
+#include "Thread/Thread.h"
 #include "ThreadTest.h"
+
+#include "Core/Signal.h"
+#include "Core/Delegate.h"
 
 using namespace Sandbox;
 
@@ -26,10 +29,51 @@ void bar(const char* c, double d) {
 }
 class MyClass {
 public:
-	void add(int x, int y) { std::cout << x + y << std::endl; }
+	static void add(int x, int y) { std::cout << x + y << std::endl; }
+	void remove(int x, int y)
+	{
+		std::cout << x - y << std::endl;
+	}
 };
-namespace Sandbox
+
+struct pouet
 {
+	int i = 8;
+};
+
+class Listener
+{
+public:
+	void OnSignal(const pouet& data)
+	{
+		std::cout << data.i << std::endl;
+	}
+	void Callback(int a, float b)
+	{
+		std::cout << a << " " << b << std::endl;
+	}
+};
+
+void Callback(int a, int* b)
+{
+	std::cout << a << " " << b << std::endl;
+}
+
+
+
+template<typename T>
+class O
+{
+public:
+	O(T* ptr) : p(ptr) {}
+	T* p;
+};
+
+namespace Sandbox
+
+{
+
+
 	void ThreadTest()
 	{
 		/*WorkerThread worker;
@@ -43,8 +87,15 @@ namespace Sandbox
 			std::cout << "main thread" << std::endl;
 		}*/
 
+		//sptr O ptr = makesptr<O>(nullptr);
 
+		Listener list;
 
+		Delegate delegate(&Callback);
+
+		Delegate other(delegate);
+
+		other.Call();
 
 
 	}

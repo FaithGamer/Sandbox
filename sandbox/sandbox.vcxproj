@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Core\Delegate.cpp" />
     <ClCompile Include="src\Input\Controller.cpp" />
     <ClCompile Include="src\Input\Keyboard.cpp" />
     <ClCompile Include="src\Input\Mouse.cpp" />
@@ -59,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Containers\Vector.h" />
+    <ClInclude Include="src\Core\Delegate.h" />
     <ClInclude Include="src\Input\Bindings.h" />
     <ClInclude Include="src\Input\Controller.h" />
     <ClInclude Include="src\Input\Keyboard.h" />

@@ -6,6 +6,7 @@
 #include <any>
 #include <functional>
 #include "std_macros.h"
+#include "Core/Delegate.h"
 
 
 namespace Sandbox
@@ -21,43 +22,33 @@ namespace Sandbox
 	template<typename SignalType>
 	struct SignalCallback
 	{
-		SignalCallback(std::function<void(const SignalType&)> Callback, void* const Listener, SignalPriority Priority)
-			: callback(Callback), listener(Listener), priority(Priority)
+		SignalCallback(Delegate<void, SignalType>& Delegate, void* const Listener, SignalPriority Priority)
+			: delegate(Delegate), listener(Listener), priority(Priority)
 		{
 
 		}
 		void* const listener;
-		std::function<void(const SignalType&)> callback;
+		Delegate<void, SignalType> delegate;
 		SignalPriority priority;
 	};
 
-	template<typename SignalType>
-	struct SignalCallbackFreeFunction
-	{
-		SignalCallbackFreeFunction(std::function<void(const SignalType&)> Callback, SignalPriority Priority)
-			: callback(Callback), priority(Priority)
-		{
-
-		}
-		std::function<void(const SignalType&)> callback;
-		SignalPriority priority;
-	};
-
-	/// @brief Holds a collection of listeners and their callbacks
+	/// @brief Send signals to a collection of listeners using Delegate.
+	/// This is an implementation of the observer pattern
 	template<typename SignalType>
 	class SignalSender
 	{
 	public:
 
 		template <typename ListenerType>
-		void AddListener(void (ListenerType::* callback)(const SignalType&), ListenerType* const listener, SignalPriority priority = SignalPriority::medium);
-		void AddListener(void (*callback)(const SignalType&), SignalPriority priority = SignalPriority::medium);
+		void AddListener(void (ListenerType::* callback)(SignalType), ListenerType* const listener, SignalPriority priority = SignalPriority::medium);
+		void AddListener(void (*callback)(SignalType), SignalPriority priority = SignalPriority::medium);
 
 
-		void RemoveListener(void (*callback)(const SignalType&));
+		void RemoveListener(void (*callback)(SignalType));
 		void RemoveListener(void* const listener);
 
-		void SendSignal(const SignalType& signalData);
+		void SendSignal(SignalType& signalData);
+		void SendSignal(SignalType&& signalData);
 	private:
 		template<typename SignalType>
 		struct CompareCallback
@@ -68,17 +59,7 @@ namespace Sandbox
 				return l.priority < r.priority;
 			}
 		};
-		template<typename SignalType>
-		struct CompareCallbackFree
-		{
-	
-			bool operator()(const SignalCallbackFreeFunction<SignalType>& l, const SignalCallbackFreeFunction<SignalType>& r) const
-			{
-				return l.priority < r.priority;
-			}
-		};
 		std::multiset<SignalCallback<SignalType>, CompareCallback<SignalType>> m_listeners;
-		std::multiset<SignalCallbackFreeFunction<SignalType>, CompareCallbackFree<SignalType>> m_listenersFreeFunction;
 
 	};
 }
