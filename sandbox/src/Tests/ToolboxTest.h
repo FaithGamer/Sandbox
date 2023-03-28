@@ -1,4 +1,0 @@
-namespace Sandbox
-{
-	void TestToolbox();
-}

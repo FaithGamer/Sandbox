@@ -1,24 +1,7 @@
 #pragma once
 
-template<int N>
-struct my_placeholder { static my_placeholder ph; };
-
-template<int N>
-my_placeholder<N> my_placeholder<N>::ph;
-
-namespace std {
-	template<int N>
-	struct is_placeholder<::my_placeholder<N>> : std::integral_constant<int, N> { };
-}
-
-template<class R, class T, class...Types, class U, int... indices>
-std::function<R(Types...)> bind_first(std::function<R(T, Types...)> f, U val, std::integer_sequence<int, indices...> /*seq*/) {
-	return std::bind(f, val, my_placeholder<indices + 1>::ph...);
-}
-template<class R, class T, class...Types, class U>
-std::function<R(Types...)> bind_first(std::function<R(T, Types...)> f, U val) {
-	return bind_first(f, val, std::make_integer_sequence<int, sizeof...(Types)>());
-}
+#include <memory>
+#include "std_macros.h"
 
 namespace Sandbox
 {
@@ -54,6 +37,14 @@ namespace Sandbox
 			m_callable = makesptr<MemberFunction<Obj>>(function, object);
 		}
 
+		template<typename Obj, typename... Ts>
+		Delegate(Ret(Obj::* function)(Args...), Obj* object, Ts&&... args)
+			: m_args(std::forward<Ts>(args)...)
+		{
+			m_callable = makesptr<MemberFunction<Obj>>(function, object);
+		}
+	
+
 
 		/// @brief Call the function with arguments provided in the delegate's constructor.
 		/// If the delegate function is a member function, the function will be called upon the object provided in constructor
@@ -73,6 +64,7 @@ namespace Sandbox
 		/// If the delegate function is a member function, the function will be called upon the object provided in constructor
 		/// @param ...args arguments
 		/// @return return of the function
+		template<typename... Args>
 		Ret Call(Args&&... args)
 		{
 			return m_callable->Call(std::forward<Args>(args)...);
@@ -91,6 +83,7 @@ namespace Sandbox
 		/// The behaviour is undefined if no arguments were provided in the delegate's constructor
 		/// @param object object to call the member function upon
 		/// @return return of the function
+		template<typename... Args>
 		Ret Call(void* const object)
 		{
 			return[this] <std::size_t... I>

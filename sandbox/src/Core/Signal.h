@@ -8,10 +8,8 @@
 #include "std_macros.h"
 #include "Core/Delegate.h"
 
-
 namespace Sandbox
 {
-
 	enum class SignalPriority : int
 	{
 		high = 0,
@@ -46,6 +44,7 @@ namespace Sandbox
 
 		void RemoveListener(void (*callback)(SignalType));
 		void RemoveListener(void* const listener);
+		//to do add removeListener for object specific function
 
 		void SendSignal(SignalType& signalData);
 		void SendSignal(SignalType&& signalData);
@@ -53,7 +52,6 @@ namespace Sandbox
 		template<typename SignalType>
 		struct CompareCallback
 		{
-		
 			bool operator()(const SignalCallback<SignalType>& l, const SignalCallback<SignalType>& r) const
 			{
 				return l.priority < r.priority;

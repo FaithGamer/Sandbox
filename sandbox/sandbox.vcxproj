@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Delegate.cpp" />
+    <ClCompile Include="src\Core\Sandbox.cpp" />
     <ClCompile Include="src\Input\Controller.cpp" />
     <ClCompile Include="src\Input\Keyboard.cpp" />
     <ClCompile Include="src\Input\Mouse.cpp" />
@@ -29,22 +30,12 @@
     <ClCompile Include="src\Input\PointingInput.cpp" />
     <ClCompile Include="src\Render\Camera.cpp" />
     <ClCompile Include="src\Render\Buffer.cpp" />
-    <ClCompile Include="src\Core\EntryPoint.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Core\Log.cpp" />
     <ClCompile Include="src\Render\ShaderProgram.cpp" />
-    <ClCompile Include="src\Core\Signal.cpp" />
-    <ClCompile Include="src\Tests\BatchRendererTest.cpp" />
-    <ClCompile Include="src\Tests\BillboardTest.cpp" />
-    <ClCompile Include="src\Tests\EnttTest.cpp" />
-    <ClCompile Include="src\Tests\SignalTest.cpp" />
-    <ClCompile Include="src\Tests\TextureUnitTest.cpp" />
-    <ClCompile Include="src\Tests\ThreadTest.cpp" />
-    <ClCompile Include="src\Tests\ToolboxTest.cpp" />
-    <ClCompile Include="src\Tests\UniformBlockTest.cpp" />
     <ClCompile Include="src\Core\TypeId.cpp" />
     <ClCompile Include="src\stb_impl.cpp" />
     <ClCompile Include="src\Core\Time.cpp" />
@@ -56,11 +47,16 @@
     <ClCompile Include="src\ECS\System.cpp" />
     <ClCompile Include="src\Input\TextualInput.cpp" />
     <ClCompile Include="src\Input\ScrollInput.cpp" />
-    <ClCompile Include="src\Thread\Thread.cpp" />
+    <ClCompile Include="src\Thread\Task.cpp" />
+    <ClCompile Include="src\Thread\Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Containers\Vector.h" />
     <ClInclude Include="src\Core\Delegate.h" />
+    <ClInclude Include="src\Core\DelegateNew.h" />
+    <ClInclude Include="src\Core\Sandbox.h" />
+    <ClInclude Include="src\Core\Singleton.h" />
+    <ClInclude Include="src\Core\Systems.h" />
     <ClInclude Include="src\Input\Bindings.h" />
     <ClInclude Include="src\Input\Controller.h" />
     <ClInclude Include="src\Input\Keyboard.h" />
@@ -78,15 +74,7 @@
     <ClInclude Include="src\ECS\Entity.h" />
     <ClInclude Include="src\Render\Vec.h" />
     <ClInclude Include="src\Core\Signal.h" />
-    <ClInclude Include="src\Tests\BatchRendererTest.h" />
-    <ClInclude Include="src\Tests\BillboardTest.h" />
-    <ClInclude Include="src\Tests\EnttTest.h" />
-    <ClInclude Include="src\Tests\TextureUnitTest.h" />
-    <ClInclude Include="src\Tests\ThreadTest.h" />
-    <ClInclude Include="src\Tests\UniformBlockTest.h" />
-    <ClInclude Include="src\Tests\SignalTest.h" />
-    <ClInclude Include="src\Tests\ToolboxTest.h" />
-    <ClInclude Include="src\Thread\Thread.h" />
+    <ClInclude Include="src\Thread\Worker.h" />
     <ClInclude Include="src\Tools\Toolbox.h" />
     <ClInclude Include="src\Core\TypeId.h" />
     <ClInclude Include="src\Input\Input.h" />
@@ -107,6 +95,7 @@
     <ClInclude Include="src\ECS\System.h" />
     <ClInclude Include="src\Input\TextualInput.h" />
     <ClInclude Include="src\Input\ScrollInput.h" />
+    <ClInclude Include="src\Thread\Task.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\batch_renderer.frag" />
@@ -157,13 +146,13 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -182,12 +171,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Platform)-$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin-int\$(ProjectName)\$(Platform)-$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(ProjectDir)bin\$(Platform)-$(Configuration)</OutDir>
+    <IntDir>$(ProjectDir)bin-int\$(Platform)-$(Configuration)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)bin\$(Platform)-$(Configuration)\$(ProjectName)\</OutDir>
-    <IntDir>$(SolutionDir)bin-int\$(Platform)-$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(ProjectDir)bin\$(Platform)-$(Configuration)</OutDir>
+    <IntDir>$(ProjectDir)bin-int\$(Platform)-$(Configuration)</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

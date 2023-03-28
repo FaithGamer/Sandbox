@@ -1,6 +1,10 @@
-sandbox/x64
-sandbox/vendor/
+Sandbox/bin
+Sandbox/bin-int
+Sandbox/vendor/
+Application/bin
+Application/bin-int
 bin/
 bin-int/
 *.dll
+*.lib
 .vs

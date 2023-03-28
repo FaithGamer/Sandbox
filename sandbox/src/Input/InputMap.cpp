@@ -9,7 +9,7 @@ namespace Sandbox
 		m_byEvents.resize((int)EventType::EventTypeCount);
 	}
 
-	void InputMap::Update(const SDL_Event& e)
+	void InputMap::OnEvent(const SDL_Event& e)
 	{
 		UpdateInputEvent();
 		switch (e.type)

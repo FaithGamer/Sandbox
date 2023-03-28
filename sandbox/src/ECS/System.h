@@ -1,6 +1,7 @@
 #pragma once
 #include "std_macros.h"
 #include "Core/Time.h"
+#include <SDL.h>
 
 namespace Sandbox
 {
@@ -8,13 +9,14 @@ namespace Sandbox
 	{
 	public:
 		virtual ~System() {};
-
-
-		virtual void Update(Time t){};
+		virtual void Update(Time time) = 0;
 		virtual void FixedUpdate() {};
+	};
 
-	private:
-
-
+	class EventSystem : public System
+	{
+	public:
+		virtual ~EventSystem() {};
+		virtual void OnEvent(SDL_Event& event) = 0;
 	};
 }

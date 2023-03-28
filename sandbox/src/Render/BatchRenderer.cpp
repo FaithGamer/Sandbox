@@ -104,6 +104,7 @@ namespace Sandbox
 
 	void BatchRenderer::EndScene()
 	{
+		//Wait for worker to have no more job
 		Flush();
 	}
 

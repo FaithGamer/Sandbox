@@ -21,7 +21,7 @@ namespace Sandbox
 	{
 	public:
 		InputMap(std::string name);
-		void Update(const SDL_Event& e);
+		void OnEvent(const SDL_Event& e);
 		void UpdateInputEvent(sptr<Input> input);
 		void AddInput(sptr<Input> input);
 		void RemoveInput(sptr<Input> input);

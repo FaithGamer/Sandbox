@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <spdlog/spdlog.h>
+
 #include "std_macros.h"
 
 
@@ -28,6 +29,7 @@ namespace Sandbox
 #define LOG_INFO(...) Log::GetLogger()->info(__VA_ARGS__)
 #define LOG_TRACE(...) Log::GetLogger()->trace(__VA_ARGS__)
 #else
+#define ASSERT_LOG_ERROR(...)
 #define LOG_ERROR(...) 
 #define LOG_WARN(...)
 #define LOG_INFO(...) 
