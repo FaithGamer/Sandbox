@@ -13,7 +13,7 @@ namespace Sandbox
 			Systems::Get()->Update();
 		}
 
-		Systems::Get()->Kill;
+		Systems::Get()->Kill();
 	}
 
 	void Stop()

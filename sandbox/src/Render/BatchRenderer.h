@@ -1,5 +1,6 @@
 #pragma once
 
+#include "std_macros.h"
 #include "Vec.h"
 #include "ShaderProgram.h"
 #include "Buffer.h"

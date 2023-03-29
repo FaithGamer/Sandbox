@@ -1,5 +1,8 @@
 #pragma once
 
+#include "Vec.h"
+#include <glad/glad.h>
+
 namespace Sandbox
 {
 	struct TextureImportSettings

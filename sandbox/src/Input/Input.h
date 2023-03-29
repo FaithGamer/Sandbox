@@ -4,8 +4,6 @@
 #include "Core/Log.h"
 #include "entt/entt.hpp"
 #include "Core/Signal.h"
-#include <nlohmann/json.hpp>
-
 
 namespace Sandbox
 {

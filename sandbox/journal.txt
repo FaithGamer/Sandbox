@@ -17,3 +17,11 @@ I spent a lot of time trying to have multiple variadic template class with the g
 parameters but in vain.
 Nevertheless the delegate can now call function either with arguments provided with the delegate constructor, or at the time of the call.
 - So now signals use the Delegate instead of std::function, but I still need to find how to make the signals be able to send reference or pointers as SignalType
+
+28 mars
+
+- Started working on the core structure of the engine with both Singletons and Systems.
+- Sandbox is now a library, added the Application project to make the testing.
+- Wonder if Sandbox should be linked dynamically or statically. A dynamic library with sdl static within would be convenient.
+- The goal is to make it as easy as possible to launch a project using the engine.
+- I'd like to figure out a way to automatically include all the vendor includes in one folder so the Application just need to have one include folder

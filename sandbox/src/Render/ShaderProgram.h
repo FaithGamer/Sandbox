@@ -1,7 +1,7 @@
 #pragma once
 
-#include <glad/glad.h>
-#include <glm/glm.hpp>
+#include <vendor/glad/include/glad/glad.h>
+#include <vendor/glm/glm/glm.hpp>
 
 namespace Sandbox
 {
@@ -12,8 +12,8 @@ namespace Sandbox
 		~ShaderProgram();
 
 		void Bind() const;
-		
-		//TO DO: add uniform arrays
+
+		//To do: convert glm vec to sanbox vec
 		void SetUniform(std::string name, const GLfloat& uniform);
 		void SetUniform(std::string name, const glm::vec2& uniform);
 		void SetUniform(std::string name, const glm::vec3& uniform);

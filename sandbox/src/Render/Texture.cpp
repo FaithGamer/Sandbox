@@ -1,9 +1,7 @@
 #include "pch.h"
-
-#include <glad/glad.h>
-#include <string>
-#include "Vec.h"
 #include "Texture.h"
+
+#include "Vec.h"
 #include "Core/Log.h"
 
 #include <stb/stb_image.h>
@@ -21,7 +19,7 @@ namespace Sandbox
 		//generate 1x1 white texture
 		glGenTextures(1, &m_id);
 		glBindTexture(GL_TEXTURE_2D, m_id);
-		m_pixels = new unsigned char(0xd111);
+		m_pixels = new unsigned char(0xd);
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)1, (GLsizei)1, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_pixels);
 
 		//Texture Wrapping

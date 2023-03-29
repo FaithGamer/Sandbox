@@ -57,7 +57,7 @@ namespace Sandbox
 
 	void ThreadTest()
 	{
-		Bunny b;
+
 
 
 		WorkerThread worker;
