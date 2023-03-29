@@ -146,6 +146,7 @@
     <ClCompile Include="src\Tests\BillboardTest.cpp" />
     <ClCompile Include="src\Tests\EnttTest.cpp" />
     <ClCompile Include="src\Tests\SignalTest.cpp" />
+    <ClCompile Include="src\Tests\SystemTest.cpp" />
     <ClCompile Include="src\Tests\TextureUnitTest.cpp" />
     <ClCompile Include="src\Tests\ThreadTest.cpp" />
     <ClCompile Include="src\Tests\ToolboxTest.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="src\Tests\ThreadTest.h" />
     <ClInclude Include="src\Tests\ToolboxTest.h" />
     <ClInclude Include="src\Tests\UniformBlockTest.h" />
+    <ClInclude Include="src\Tests\SystemTest.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sandbox\sandbox.vcxproj">

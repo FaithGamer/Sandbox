@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="src\Core\Delegate.cpp" />
     <ClCompile Include="src\Core\Sandbox.cpp" />
+    <ClCompile Include="src\Core\Systems.cpp" />
     <ClCompile Include="src\Input\Controller.cpp" />
     <ClCompile Include="src\Input\Keyboard.cpp" />
     <ClCompile Include="src\Input\Mouse.cpp" />

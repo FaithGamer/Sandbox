@@ -11,6 +11,8 @@ namespace Sandbox
 		friend void Singleton<Systems>::Kill();
 
 	public:
+		Systems();
+
 		template <typename T>
 		void PushSystem()
 		{
@@ -22,24 +24,16 @@ namespace Sandbox
 			m_eventSystems.push_back(makeuptr<T>());
 		}
 
-	private:
-		friend void Sandbox::Start();
-		void Update()
-		{
-			SDL_Event event;
-			while (SDL_PollEvent(&event) != 0)
-			{
-				for (auto& eventSystem : m_eventSystems)
-				{
-					eventSystem->OnEvent(event);
-				}
-			}
-			for (auto& system : m_systems)
-			{
-				system->Update(0);
-			}
-		}
+		float GetFixedUpdateTime() const;
 
+	private:
+		friend void Launch();
+		void Update();
+
+		Clock m_updateClock;
+		Clock m_fixedUpdateClock;
+		Time m_fixedUpdateTimeRemainder;
+		Time m_fixedUpdateTime;
 		std::vector<uptr<System>> m_systems;
 		std::vector<uptr<EventSystem>> m_eventSystems;
 	};

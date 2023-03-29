@@ -2,6 +2,6 @@
 
 namespace Sandbox
 {
-	void Start();
+	void Launch();
 	void Stop();
 };

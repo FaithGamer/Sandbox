@@ -34,10 +34,7 @@ namespace Sandbox
 	}
 
 
-	constexpr Time& operator+=(Time& l, const Time& r)
-	{
-		return l = Time(l.GetDuration() + r.GetDuration());
-	}
+
 
 	constexpr Time& operator-=(Time& l, const Time& r)
 	{
@@ -56,10 +53,7 @@ namespace Sandbox
 		return l = Time(l.GetDuration() % r.GetDuration());
 	}
 
-	constexpr Time operator+(const Time& l, const Time& r)
-	{
-		return Time(l.GetDuration() + r.GetDuration());
-	}
+
 	constexpr Time operator-(const Time& l, const Time& r)
 	{
 		return Time(l.GetDuration() - r.GetDuration());

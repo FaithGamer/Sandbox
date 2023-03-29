@@ -5,7 +5,7 @@
 namespace Sandbox
 {
 	bool play = false;
-	void Start()
+	void Launch()
 	{
 		play = true;
 		while (play)

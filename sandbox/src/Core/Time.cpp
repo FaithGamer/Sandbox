@@ -4,6 +4,17 @@
 
 namespace Sandbox
 {
+	Time Time::operator+(const Time& other)
+	{
+		Time time = *this;
+		time.m_microseconds += other.m_microseconds;
+		return time;
+	}
+	Time& Time::operator+=(const Time& other)
+	{
+		m_microseconds += other.m_microseconds;
+		return *this;
+	}
 
 	////////////////////////////
 	/// Clock //////////////////

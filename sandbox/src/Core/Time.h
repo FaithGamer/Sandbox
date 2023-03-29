@@ -20,20 +20,23 @@ namespace Sandbox
         template <typename chrono_duration = std::chrono::microseconds>
         constexpr chrono_duration GetDuration() const;
 
-        constexpr operator float() const;
+        constexpr operator float() const;   
+
+        Time operator+(const Time& other);
+        Time& operator+=(const Time& other);
 
     private:
 
         std::chrono::microseconds m_microseconds;
     };
 
-    constexpr Time& operator+=(Time& l, const Time& r);
+    //Time& operator+=(Time& l, const Time& r);
     constexpr Time& operator-=(Time& l, const Time& r);
     constexpr Time& operator*=(Time& l, const Time& r);
     constexpr Time& operator/=(Time& l, const Time& r);
     constexpr Time& operator%=(Time& l, const Time& r);
 
-    constexpr Time operator+(const Time& l, const Time& r);
+    //Time operator+(const Time& l, const Time& r);
     constexpr Time operator-(const Time& l, const Time& r);
     constexpr Time operator*(const Time& l, const Time& r);
     constexpr Time operator/(const Time& l, const Time& r);
