@@ -1,5 +1,5 @@
 #include "pch.h"
-#include <SDL.h>
+#include <SDL/SDL.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
 #include <spdlog/sinks/rotating_file_sink.h>
 #include "Core/Log.h"

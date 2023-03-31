@@ -1,7 +1,7 @@
 #pragma once
 #include "std_macros.h"
 #include "Core/Time.h"
-#include <SDL.h>
+#include <SDL/SDL.h>
 
 namespace Sandbox
 {

@@ -1,7 +1,7 @@
 #pragma once
 
-#include <vendor/glad/include/glad/glad.h>
-#include <vendor/glm/glm/glm.hpp>
+#include <glad/glad.h>
+#include <glm/glm.hpp>
 
 namespace Sandbox
 {

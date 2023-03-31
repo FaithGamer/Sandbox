@@ -16,7 +16,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include <entt/src/entt/entt.hpp>
+#include <entt/entt.hpp>
 
 #include "Core/Time.h"
 using namespace Sandbox;

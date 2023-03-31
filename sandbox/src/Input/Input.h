@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL.h>
+#include <SDL/SDL.h>
 #include "Core/Log.h"
 #include "entt/entt.hpp"
 #include "Core/Signal.h"

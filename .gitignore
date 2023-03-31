@@ -1,7 +1,3 @@
-Sandbox/bin
-Sandbox/bin-int
-Application/bin
-Application/bin-int
 bin/
 bin-int/
 *.dll
