@@ -9,7 +9,7 @@ namespace Sandbox
 	{
 	public:
 		virtual ~System() {};
-		virtual void Update(Time time) = 0;
+		virtual void Update(Time time) {};
 		virtual void FixedUpdate() {};
 	};
 

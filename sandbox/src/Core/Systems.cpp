@@ -19,12 +19,19 @@ namespace Sandbox
 		}
 
 		m_fixedUpdateTimeRemainder += m_fixedUpdateClock.Restart();
-		if (m_fixedUpdateTimeRemainder >= m_fixedUpdateTime)
+		int i = 0;
+		while (m_fixedUpdateTimeRemainder >= m_fixedUpdateTime)
 		{
 			m_fixedUpdateTimeRemainder -= m_fixedUpdateTime;
 			for (auto& system : m_systems)
 			{
 				system->FixedUpdate();
+			}
+			if (++i > m_maxFixedUpdate)
+			{
+				//To do: decide behaviour
+				//breaking here would not make the simulation perfeclty reproductible.
+				//Not breaking could lead to crash the application in case of overload
 			}
 		}
 

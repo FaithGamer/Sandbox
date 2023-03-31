@@ -16,3 +16,6 @@
 [submodule "sandbox/vendor/json"]
 	path = sandbox/vendor/json
 	url = https://github.com/nlohmann/json
+[submodule "Sandbox/vendor/box2d"]
+	path = Sandbox/vendor/box2d
+	url = https://github.com/erincatto/box2d.git

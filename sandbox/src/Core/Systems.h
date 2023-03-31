@@ -2,6 +2,7 @@
 
 #include "ECS/System.h"
 #include "Core/Singleton.h"
+#include "Containers/Vector.h"
 
 namespace Sandbox
 {
@@ -21,6 +22,7 @@ namespace Sandbox
 		template <typename T>
 		void PushEventSystem()
 		{
+			m_systems.push_back(makeuptr<T>());
 			m_eventSystems.push_back(makeuptr<T>());
 		}
 
@@ -34,6 +36,7 @@ namespace Sandbox
 		Clock m_fixedUpdateClock;
 		Time m_fixedUpdateTimeRemainder;
 		Time m_fixedUpdateTime;
+		int m_maxFixedUpdate;
 		std::vector<uptr<System>> m_systems;
 		std::vector<uptr<EventSystem>> m_eventSystems;
 	};

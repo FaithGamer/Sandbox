@@ -115,7 +115,6 @@
     <None Include="assets\shaders\texture.frag" />
     <None Include="assets\shaders\position_color.vert" />
     <None Include="src\Core\Signal.tpp" />
-    <None Include="src\Core\Timing.tpp" />
     <None Include="src\Render\Transform.tpp" />
     <None Include="assets\shaders\uniform_buffer_test.vert" />
   </ItemGroup>

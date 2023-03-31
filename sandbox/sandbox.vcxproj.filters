@@ -263,7 +263,6 @@
     <None Include="assets\shaders\position_texture_transform.vert" />
     <None Include="assets\shaders\model_view_projection.vert" />
     <None Include="assets\shaders\billboard.vert" />
-    <None Include="src\Core\Timing.tpp" />
     <None Include="src\Render\Transform.tpp" />
     <None Include="src\Core\Signal.tpp" />
     <None Include="src\Tools\Toolbox.tpp" />

@@ -25,3 +25,11 @@ Nevertheless the delegate can now call function either with arguments provided w
 - Wonder if Sandbox should be linked dynamically or statically. A dynamic library with sdl static within would be convenient.
 - The goal is to make it as easy as possible to launch a project using the engine.
 - I'd like to figure out a way to automatically include all the vendor includes in one folder so the Application just need to have one include folder
+
+29 mars
+
+- The core structure is taking shape through the singleton Systems.
+- I decided to go with static linking, I spent time wondering about wich is the best option for convinience of the end user.
+It seems that the end user will have to link Sandbox plus additionnals libs that are requiered from SDL due to it's static linkage
+but not SDL itself wich is linked in Sandbox.. The most annoying things is the various includes needed, and I haven't found a satisfying workaround yet.
+- Push system, and fixed update working
