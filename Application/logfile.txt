@@ -1,0 +1,29 @@
+[2023-03-31 23:08:32.980] [SANDBOX] [info] OpenGL Loaded.
+[2023-03-31 23:08:32.983] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-03-31 23:08:32.983] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-03-31 23:08:32.983] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-03-31 23:08:32.984] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-03-31 23:08:32.989] [SANDBOX] [error] Unable to open the shader: assets/shaders/batch_renderer.vert
+[2023-03-31 23:08:32.990] [SANDBOX] [error] Unable to open the shader: assets/shaders/batch_renderer.frag
+[2023-03-31 23:08:33.093] [SANDBOX] [error] Shader program linkage failed Vertex info
+-----------
+(0) : error C5145: must write to gl_Position
+
+[2023-03-31 23:08:33.094] [SANDBOX] [error] The following uniform cannot be found: uTextures
+[2023-03-31 23:08:33.094] [SANDBOX] [error] The following uniform block cannot be found: camera
+[2023-03-31 23:08:33.097] [SANDBOX] [error] Failed to load texture: assets/textures/trollface.png
+[2023-03-31 23:09:34.006] [SANDBOX] [info] OpenGL Loaded.
+[2023-03-31 23:09:34.007] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-03-31 23:09:34.007] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-03-31 23:09:34.007] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-03-31 23:09:34.007] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-03-31 23:10:20.774] [SANDBOX] [info] OpenGL Loaded.
+[2023-03-31 23:10:20.775] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-03-31 23:10:20.775] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-03-31 23:10:20.776] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-03-31 23:10:20.776] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-03-31 23:19:35.174] [SANDBOX] [info] OpenGL Loaded.
+[2023-03-31 23:19:35.175] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-03-31 23:19:35.175] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-03-31 23:19:35.175] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-03-31 23:19:35.175] [SANDBOX] [info] Max. Vertex attributes: 16

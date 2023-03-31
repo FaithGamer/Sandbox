@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Tests\SignalTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -43,6 +40,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Tests\SystemTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tests\ImGuiTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,5 +77,25 @@
     <ClInclude Include="src\Tests\SystemTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Tests\ImGuiTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\shaders\batch_renderer.frag" />
+    <None Include="assets\shaders\batch_renderer.vert" />
+    <None Include="assets\shaders\billboard.vert" />
+    <None Include="assets\shaders\color.frag" />
+    <None Include="assets\shaders\model_view_projection.vert" />
+    <None Include="assets\shaders\position_color.vert" />
+    <None Include="assets\shaders\position_texture.vert" />
+    <None Include="assets\shaders\position_texture_transform.vert" />
+    <None Include="assets\shaders\texture.frag" />
+    <None Include="assets\shaders\texture_unit.frag" />
+    <None Include="assets\shaders\texture_unit.vert" />
+    <None Include="assets\shaders\ubt.frag" />
+    <None Include="assets\shaders\ubt.vert" />
+    <None Include="assets\shaders\uniform_buffer_test.frag" />
+    <None Include="assets\shaders\uniform_buffer_test.vert" />
   </ItemGroup>
 </Project>

@@ -6,6 +6,17 @@
 
 namespace Sandbox
 {
+	struct SystemId
+	{
+		int32_t typeId;
+		uptr<System> system;
+	};
+	struct EventSystemId
+	{
+		int32_t typeId;
+		uptr<EventSystem> system;
+	};
+
 	class Systems : public Singleton<Systems>
 	{
 		friend sptr<Systems> Singleton<Systems>::Get();
@@ -15,16 +26,12 @@ namespace Sandbox
 		Systems();
 
 		template <typename T>
-		void PushSystem()
+		static void PushSystem()
 		{
-			m_systems.push_back(makeuptr<T>());
+
+			Systems::Get()->m_systems.push_back(makeuptr<T>());
 		}
-		template <typename T>
-		void PushEventSystem()
-		{
-			m_systems.push_back(makeuptr<T>());
-			m_eventSystems.push_back(makeuptr<T>());
-		}
+
 
 		float GetFixedUpdateTime() const;
 

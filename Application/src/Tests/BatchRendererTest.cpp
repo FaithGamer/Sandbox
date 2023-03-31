@@ -36,7 +36,7 @@ void BatchRendererTest()
 
 	WorkerThread renderingThread;
 	renderingThread.StartThread();
-	bool threadRendering = true;
+	bool threadRendering = false;
 
 	while (run)
 	{

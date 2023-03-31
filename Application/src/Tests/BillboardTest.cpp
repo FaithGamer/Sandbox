@@ -22,12 +22,8 @@
 #include <entt/entt.hpp>
 
 #include "Core/Time.h"
-
-
 #include "ECS/entt_macros.h"
-
 #include "Containers/Vector.h"
-
 #include "Core/Signal.h"
 
 
