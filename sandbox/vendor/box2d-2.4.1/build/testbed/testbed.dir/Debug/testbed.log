@@ -1,0 +1,32 @@
+﻿Build started 31-Mar-23 13:03:33.
+Logging verbosity is set to: Normal.     1>Project "C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\build\testbed\testbed.vcxproj" on node 4 (Build target(s)).
+     1>InitializeBuildStatus:
+         Creating "testbed.dir\Debug\testbed.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         All outputs are up-to-date.
+       ClCompile:
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+         testbed.vcxproj -> C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\build\bin\Debug\testbed.exe
+       PostBuildEvent:
+         setlocal
+         "C:\Program Files\CMake\bin\cmake.exe" -E copy_directory C:/dev/Sandbox/Sandbox/vendor/box2d-2.4.1/testbed/data/ C:/dev/Sandbox/Sandbox/vendor/box2d-2.4.1/build/testbed/data/
+         if %errorlevel% neq 0 goto :cmEnd
+         :cmEnd
+         endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+         :cmErrorLevel
+         exit /b %1
+         :cmDone
+         if %errorlevel% neq 0 goto :VCEnd
+         :VCEnd
+       FinalizeBuildStatus:
+         Deleting file "testbed.dir\Debug\testbed.tlog\unsuccessfulbuild".
+         Touching "testbed.dir\Debug\testbed.tlog\testbed.lastbuildstate".
+     1>Done Building Project "C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\build\testbed\testbed.vcxproj" (Build target(s)).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.16

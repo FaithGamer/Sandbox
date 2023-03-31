@@ -1,0 +1,10 @@
+^C:\DEV\SANDBOX\SANDBOX\VENDOR\BOX2D-2.4.1\BUILD\CMAKEFILES\1E2156FFFA2E31A3767DC50988C4E057\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/dev/Sandbox/Sandbox/vendor/box2d-2.4.1 -BC:/dev/Sandbox/Sandbox/vendor/box2d-2.4.1/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/dev/Sandbox/Sandbox/vendor/box2d-2.4.1/build/box2d.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

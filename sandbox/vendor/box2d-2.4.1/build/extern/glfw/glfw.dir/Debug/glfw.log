@@ -1,0 +1,21 @@
+﻿Build started 31-Mar-23 13:03:32.
+Logging verbosity is set to: Normal.     1>Project "C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\build\extern\glfw\glfw.vcxproj" on node 4 (Build target(s)).
+     1>InitializeBuildStatus:
+         Creating "glfw.dir\Debug\glfw.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         All outputs are up-to-date.
+       ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         glfw.vcxproj -> C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\build\bin\Debug\glfw.lib
+       FinalizeBuildStatus:
+         Deleting file "glfw.dir\Debug\glfw.tlog\unsuccessfulbuild".
+         Touching "glfw.dir\Debug\glfw.tlog\glfw.lastbuildstate".
+     1>Done Building Project "C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\build\extern\glfw\glfw.vcxproj" (Build target(s)).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.15
