@@ -12,6 +12,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Delegate.cpp" />
+    <ClCompile Include="src\Core\Inputs.cpp" />
+    <ClCompile Include="src\Core\Parameters.cpp" />
     <ClCompile Include="src\Core\Sandbox.cpp" />
     <ClCompile Include="src\Core\Systems.cpp" />
     <ClCompile Include="src\Input\Controller.cpp" />
@@ -41,7 +43,7 @@
     <ClCompile Include="src\stb_impl.cpp" />
     <ClCompile Include="src\Core\Time.cpp" />
     <ClCompile Include="src\Misc\Print.cpp" />
-    <ClCompile Include="src\Render\WindowGLContext.cpp" />
+    <ClCompile Include="src\Core\Window.cpp" />
     <ClCompile Include="src\Render\VertexArray.cpp" />
     <ClCompile Include="src\Render\Texture.cpp" />
     <ClCompile Include="src\Render\Transform.cpp" />
@@ -52,6 +54,8 @@
     <ClCompile Include="src\Thread\Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Core\Inputs.h" />
+    <ClInclude Include="src\Core\Parameters.h" />
     <ClInclude Include="src\Containers\Vector.h" />
     <ClInclude Include="src\Core\Delegate.h" />
     <ClInclude Include="src\Core\DelegateNew.h" />
@@ -73,7 +77,7 @@
     <ClInclude Include="src\ECS\entt_macros.h" />
     <ClInclude Include="src\ECS\Scene.h" />
     <ClInclude Include="src\ECS\Entity.h" />
-    <ClInclude Include="src\Render\Vec.h" />
+    <ClInclude Include="src\Core\Vec.h" />
     <ClInclude Include="src\Core\Signal.h" />
     <ClInclude Include="src\Thread\Worker.h" />
     <ClInclude Include="src\Core\TypeId.h" />
@@ -87,7 +91,7 @@
     <ClInclude Include="src\Core\Log.h" />
     <ClInclude Include="src\Core\Time.h" />
     <ClInclude Include="src\Misc\Print.h" />
-    <ClInclude Include="src\Render\WindowGLContext.h" />
+    <ClInclude Include="src\Core\Window.h" />
     <ClInclude Include="src\Render\VertexArray.h" />
     <ClInclude Include="src\Render\Texture.h" />
     <ClInclude Include="src\Render\Transform.h" />

@@ -9,23 +9,26 @@ namespace Sandbox
 	}
 	void Systems::Update()
 	{
-		SDL_Event event;
-		while (SDL_PollEvent(&event) != 0)
+		IntegratePending();
+		while (SDL_PollEvent(&m_events) != 0)
 		{
 			for (auto& eventSystem : m_eventSystems)
 			{
-				eventSystem->OnEvent(event);
+				if (eventSystem.system->OnEvent(m_events))
+				{
+					break;
+				}
 			}
 		}
 
-		m_fixedUpdateTimeRemainder += m_fixedUpdateClock.Restart();
+		m_fixedUpdateAccumulator += m_fixedUpdateClock.Restart();
 		int i = 0;
-		while (m_fixedUpdateTimeRemainder >= m_fixedUpdateTime)
+		while (m_fixedUpdateAccumulator >= m_fixedUpdateTime)
 		{
-			m_fixedUpdateTimeRemainder -= m_fixedUpdateTime;
-			for (auto& system : m_systems)
+			m_fixedUpdateAccumulator -= m_fixedUpdateTime;
+			for (auto& system : m_fixedUpdateSystem)
 			{
-				system->FixedUpdate();
+				system.system->OnFixedUpdate();
 			}
 			if (++i > m_maxFixedUpdate)
 			{
@@ -41,13 +44,12 @@ namespace Sandbox
 			return;
 		}
 
-		for (auto& system : m_systems)
+		for (auto& system : m_updateSystems)
 		{
 			//If less than one microseconds elapse between two call
 			//the m_updateClock.Restart increment doesn't accurately describe time passing by.
 			system->Update(m_updateClock.Restart());
 		}
-
 	}
 
 	float Systems::GetFixedUpdateTime() const

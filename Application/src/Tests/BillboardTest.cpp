@@ -3,7 +3,7 @@
 
 #include "BillboardTest.h"
 
-#include "Render/WindowGLContext.h"
+#include "Render/Window.h"
 #include "Render/ShaderProgram.h"
 #include "Render/Buffer.h"
 #include "Render/VertexArray.h"
@@ -39,7 +39,7 @@ void BillboardTest()
 
 
 	//Create a window and an opengl context with SDL
-	WindowGLContext window("hello window", Vec2i(500, 500));
+	Window window("hello window", Vec2i(500, 500));
 
 	sptr<ShaderProgram> shader = makesptr<ShaderProgram>("assets/shaders/model_view_projection.vert", "assets/shaders/texture.frag");
 	sptr<ShaderProgram> shaderBillboard = makesptr<ShaderProgram>("assets/shaders/billboard.vert", "assets/shaders/texture.frag");

@@ -33,3 +33,9 @@ Nevertheless the delegate can now call function either with arguments provided w
 It seems that the end user will have to link Sandbox plus additionnals libs that are requiered from SDL due to it's static linkage
 but not SDL itself wich is linked in Sandbox.. The most annoying things is the various includes needed, and I haven't found a satisfying workaround yet.
 - Push system, and fixed update working
+
+31 mars
+
+- I removed the submodules for the sake of simplicity, i just included stable version of all my dependency in my vendor folder
+then i copied all the relevant include in a single folder.
+I added box2D and Imgui to the project.

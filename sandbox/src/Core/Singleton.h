@@ -1,28 +1,33 @@
 #pragma once
+#include "std_macros.h"
 
-template <typename T>
-class Singleton
+namespace Sandbox
 {
-public:
+	class EngineParameters;
 
-	static sptr<T> Get()
+	template <typename T>
+	class Singleton
 	{
-		if (m_instance == nullptr)
+	public:
+		T& operator= (const T&) = delete;
+
+	protected:
+		friend void Launch(const EngineParameters& parameters);
+		static sptr<T> Get()
 		{
-			m_instance.reset(new T);
+			if (m_instance == nullptr)
+			{
+				m_instance.reset(new T);
+			}
+			return m_instance;
 		}
-		return m_instance;
-	}
+		static void Kill()
+		{
+			m_instance.reset();
+		}
+	
+		Singleton() {}
+		inline static sptr<T> m_instance = nullptr;
 
-	T& operator= (const T&) = delete;
-
-	static void Kill()
-	{
-		m_instance.reset();
-	}
-
-protected:
-	Singleton() {}
-	inline static sptr<T> m_instance = nullptr;
-
-};
+	};
+}

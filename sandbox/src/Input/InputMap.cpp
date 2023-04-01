@@ -11,7 +11,7 @@ namespace Sandbox
 
 	void InputMap::OnEvent(const SDL_Event& e)
 	{
-		UpdateInputEvent();
+		UpdateInputsEvents();
 		switch (e.type)
 		{
 		case SDL_KEYDOWN:
@@ -84,9 +84,9 @@ namespace Sandbox
 		}
 	}
 
-	void InputMap::UpdateInputEvent(sptr<Input> input)
+	void InputMap::OnInputEventModified(sptr<Input> input)
 	{
-		m_updated.emplace_back(input);
+		m_modifiedInputs.emplace_back(input);
 	}
 
 	void InputMap::AddInput(sptr<Input> input)
@@ -96,7 +96,7 @@ namespace Sandbox
 		auto input_it = m_byNames.find(name);
 		if (input_it == m_byNames.end())
 		{
-			m_updated.push_back(input);
+			m_modifiedInputs.push_back(input);
 			m_byNames.insert(std::make_pair(name, input));
 			input->m_inputMap = this;
 		}
@@ -123,14 +123,14 @@ namespace Sandbox
 		return input_it->second;
 	}
 
-	std::string InputMap::GetName()
+	std::string InputMap::GetName() const
 	{
 		return m_name;
 	}
 
-	void InputMap::UpdateInputEvent()
+	void InputMap::UpdateInputsEvents()
 	{
-		for (auto& input : m_updated)
+		for (auto& input : m_modifiedInputs)
 		{
 			const InputEvent& events = input->m_eventsListened;
 			const std::string& name = input->GetName();
@@ -198,6 +198,6 @@ namespace Sandbox
 				Vector::Remove(input, m_byEvents[(int)EventType::ControllerTrigger]);
 			}
 		}
-		m_updated.clear();
+		m_modifiedInputs.clear();
 	}
 }

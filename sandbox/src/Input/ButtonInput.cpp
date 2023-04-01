@@ -177,7 +177,7 @@ namespace Sandbox
 		if (m_eventsListened != newEvents)
 		{
 			m_eventsListened = newEvents;
-			NotifyUpdateEvent();
+			NotifyEventListenedModified();
 		}
 	}
 

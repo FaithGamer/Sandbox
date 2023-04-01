@@ -7,4 +7,4 @@
 #include "Render/Texture.h"
 #include "Render/Transform.h"
 #include "Render/VertexArray.h"
-#include "Render/WindowGLContext.h"
+#include "Render/Window.h"

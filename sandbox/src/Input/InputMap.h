@@ -22,14 +22,14 @@ namespace Sandbox
 	public:
 		InputMap(std::string name);
 		void OnEvent(const SDL_Event& e);
-		void UpdateInputEvent(sptr<Input> input);
+		void OnInputEventModified(sptr<Input> input);
 		void AddInput(sptr<Input> input);
 		void RemoveInput(sptr<Input> input);
 		sptr<Input> GetInput(std::string name);
-		std::string GetName();
+		std::string GetName() const;
 
 	private:
-		void UpdateInputEvent();
+		void UpdateInputsEvents();
 
 		//Inputs sorted by the events they listen to.
 		std::vector<std::vector<sptr<Input>>> m_byEvents;
@@ -38,7 +38,7 @@ namespace Sandbox
 		std::unordered_map<std::string, sptr<Input>> m_byNames;
 
 		//Update listening 
-		std::vector<sptr<Input>> m_updated;
+		std::vector<sptr<Input>> m_modifiedInputs;
 
 		std::string m_name;
 	};

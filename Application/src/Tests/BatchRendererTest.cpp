@@ -1,7 +1,7 @@
 #include "pch.h"
 
 #include "BatchRendererTest.h"
-#include "Render/WindowGLContext.h"
+#include "Render/Window.h"
 #include "Render/BatchRenderer.h"
 #include "Core/Time.h"
 #include "Core/Delegate.h"
@@ -13,7 +13,7 @@ using namespace Sandbox;
 
 void BatchRendererTest()
 {
-	WindowGLContext window("hello window", Vec2i(500, 500));
+	Window window("hello window", Vec2i(500, 500));
 	BatchRenderer renderer;
 
 	Camera cam;
@@ -57,7 +57,7 @@ void BatchRendererTest()
 
 		if (threadRendering)
 		{
-			Delegate clear(&WindowGLContext::Clear, &window);
+			Delegate clear(&Window::Clear, &window);
 			auto clearTask = makesptr<Task<void>>(clear);
 			renderingThread.QueueTask(clearTask);
 
@@ -125,7 +125,7 @@ void BatchRendererTest()
 		if (threadRendering)
 		{
 			Delegate<void> endScene(&BatchRenderer::EndScene, &renderer);
-			Delegate<void> render(&WindowGLContext::Render, &window);
+			Delegate<void> render(&Window::Render, &window);
 
 			sptr<Task<void>> endSceneTask = makesptr <Task<void>>(endScene);
 			sptr<Task<void>> renderTask = makesptr <Task<void>>(render);

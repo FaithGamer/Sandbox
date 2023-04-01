@@ -75,7 +75,7 @@ namespace Sandbox
 		virtual void ControllerTriggerMoved(const SDL_Event& e) {};
 
 		virtual void UpdateEventListened() = 0;
-		void NotifyUpdateEvent();
+		void NotifyEventListenedModified();
 		InputEvent m_eventsListened;
 
 	private:

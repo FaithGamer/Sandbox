@@ -58,8 +58,8 @@ namespace Sandbox
 		case DirectionalButton::None:		return "None";			break;
 		case DirectionalButton::Left:		return "Left";			break;
 		case DirectionalButton::Top:		return "Top";			break;
-		case DirectionalButton::Right:	return "Right";			break;
-		case DirectionalButton::Bottom:	return "Bottom";		break;
+		case DirectionalButton::Right:		return "Right";			break;
+		case DirectionalButton::Bottom:		return "Bottom";		break;
 		default:
 			LOG_WARN("Trying to get the name of an incorrect DirectionalButton");
 			return "TypeError";
@@ -69,7 +69,7 @@ namespace Sandbox
 
 	/* ____ Input ____ */
 
-	void Input::NotifyUpdateEvent()
+	void Input::NotifyEventListenedModified()
 	{
 		if (m_inputMap == nullptr)
 		{
@@ -77,7 +77,7 @@ namespace Sandbox
 		}
 		else
 		{
-			m_inputMap->UpdateInputEvent(shared_from_this());
+			m_inputMap->OnInputEventModified(shared_from_this());
 		}
 
 	}

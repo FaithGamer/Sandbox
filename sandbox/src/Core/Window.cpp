@@ -1,17 +1,12 @@
 #include "pch.h"
-#include "WindowGLContext.h"
+#include "Window.h"
 
 #include "Core/Log.h"
 
 namespace Sandbox
 {
-	bool WindowGLContext::windowExist = false;
-
-	WindowGLContext::WindowGLContext(std::string name, Vec2i size)
+	void Load(std::string name, Vec2i size)
 	{
-		//Make sure there is only one window existing at all time (could make this a Singleton)
-		ASSERT_LOG_ERROR(!windowExist, "WindowGLContext already exist");
-
 		//Initializing SDL
 		ASSERT_LOG_ERROR((SDL_Init(SDL_INIT_VIDEO) == 0),
 			LogSDLError("Couldn't initialize SDL"));
@@ -62,23 +57,21 @@ namespace Sandbox
 		glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ZERO);
 
 		SDL_GL_SetSwapInterval(0);
-
-		windowExist = true;
 	}
 
-	void WindowGLContext::SetSize(Vec2i size)
+	void Window::SetSize(Vec2i size)
 	{
-		SDL_SetWindowSize(m_window, size.x, size.y);
+		SDL_SetWindowSize(Window::Get()->m_window, size.x, size.y);
 		glViewport(0, 0, size.x, size.y);
 	}
 
-	void WindowGLContext::Clear()
+	void Window::Clear()
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 
-	void WindowGLContext::Render()
+	void Window::Render()
 	{
-		SDL_GL_SwapWindow(m_window);
+		SDL_GL_SwapWindow(Window::Get()->m_window);
 	}
 }

@@ -6,7 +6,7 @@ using namespace Sandbox;
 
 void TextureUnitTest()
 {
-	WindowGLContext window("window", { 500, 500 });
+	Window window("window", { 500, 500 });
 
 	SDL_Event e;
 	bool run = true;

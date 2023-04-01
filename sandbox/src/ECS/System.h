@@ -9,14 +9,14 @@ namespace Sandbox
 	{
 	public:
 		virtual ~System() {};
-		virtual void Update(Time time) {};
-		virtual void FixedUpdate() {};
-	};
+		virtual void OnStart() {};
+		virtual void OnUpdate(Time time) {};
+		virtual void OnFixedUpdate() {};
+		virtual void OnImGui() {};
+		virtual bool OnEvent(SDL_Event& event) {};
+		virtual void OnDestroy() {};
+		
+		virtual int GetPriority() { return 0; }
 
-	class EventSystem : public System
-	{
-	public:
-		virtual ~EventSystem() {};
-		virtual void OnEvent(SDL_Event& event) = 0;
 	};
 }

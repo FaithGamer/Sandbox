@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "UniformBlockTest.h"
-#include "Render/WindowGLContext.h"
+#include "Render/Window.h"
 #include "Render/ShaderProgram.h"
 #include "Render/Buffer.h"
 #include "Render/VertexArray.h"
@@ -23,7 +23,7 @@ using namespace Sandbox;
 
 void UniformBlockTest()
 {
-    WindowGLContext window("hello window", Vec2i(500, 500));
+    Window window("hello window", Vec2i(500, 500));
 
     ShaderProgram shaderRed("assets/shaders/ubt.vert", "assets/shaders/ubt.frag");
 
