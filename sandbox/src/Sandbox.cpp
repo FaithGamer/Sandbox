@@ -5,6 +5,7 @@
 #include "Sandbox/Parameters.h"
 #include "Sandbox/Input/Inputs.h"
 #include "Sandbox/ImGuiLoader.h"
+#include "Sandbox/System/InputSystem.h"
 
 namespace Sandbox
 {
@@ -21,6 +22,11 @@ namespace Sandbox
 		Log::Init();
 		Window::Get()->Load(parameters.appName, parameters.startupWindowResolution);
 		LoadImGui(Window::GetSDLWindow(), Window::GetSDL_GLContext());
+
+		if (parameters.useEngineSystems)
+		{
+			Systems::Push<InputSystem>();
+		}
 	
 		//Main loop
 		play = true;
