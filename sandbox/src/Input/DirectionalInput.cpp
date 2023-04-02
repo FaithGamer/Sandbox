@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "DirectionalInput.h"
+#include "Sandbox/Input/DirectionalInput.h"
 
 namespace Sandbox
 {

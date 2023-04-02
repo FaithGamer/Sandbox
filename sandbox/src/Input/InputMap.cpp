@@ -1,6 +1,6 @@
 #include "pch.h"
-#include "InputMap.h"
-#include "Containers/Vector.h"
+#include "Sandbox/Input/InputMap.h"
+#include "Sandbox/Vector.h"
 
 namespace Sandbox
 {
@@ -9,51 +9,59 @@ namespace Sandbox
 		m_byEvents.resize((int)EventType::EventTypeCount);
 	}
 
-	void InputMap::OnEvent(const SDL_Event& e)
+	bool InputMap::OnEvent(const SDL_Event& e)
 	{
 		UpdateInputsEvents();
+		bool eventHandled = false;
 		switch (e.type)
 		{
 		case SDL_KEYDOWN:
 			for (auto& input : m_byEvents[(int)EventType::Key])
 			{
-				input->KeyPressed(e);
+				if (input->KeyPressed(e))
+					eventHandled = true;
 			}
 			break;
 		case SDL_KEYUP:
 			for (auto& input : m_byEvents[(int)EventType::Key])
 			{
-				input->KeyReleased(e);
+				if (input->KeyReleased(e))
+					eventHandled = true;
 			}
 			break;
 		case SDL_MOUSEBUTTONDOWN:
 			for (auto& input : m_byEvents[(int)EventType::MouseBtn])
 			{
-				input->MouseButtonPressed(e);
+				if (input->MouseButtonPressed(e))
+					eventHandled = true;
 			}
 			break;
 		case SDL_MOUSEBUTTONUP:
 			for (auto& input : m_byEvents[(int)EventType::MouseBtn])
 			{
-				input->MouseButtonPressed(e);
+				if(input->MouseButtonPressed(e))
+					eventHandled = true;
 			}
 			break;
 		case SDL_MOUSEMOTION:
 			for (auto& input : m_byEvents[(int)EventType::MouseMove])
 			{
-				input->MouseMoved(e);
+				if(input->MouseMoved(e))
+					eventHandled = true;
 			}
 			break;
 		case SDL_CONTROLLERBUTTONDOWN:
 			for (auto& input : m_byEvents[(int)EventType::ControllerBtn])
 			{
-				input->ControllerButtonPressed(e);
+				if(input->ControllerButtonPressed(e))
+					eventHandled = true;
 			}
 			break;
 		case SDL_CONTROLLERBUTTONUP:
 			for (auto& input : m_byEvents[(int)EventType::ControllerBtn])
 			{
-				input->ControllerButtonReleased(e);
+				if(input->ControllerButtonReleased(e))
+					eventHandled = true;
 			}
 			break;
 		case SDL_CONTROLLERAXISMOTION:
@@ -65,14 +73,16 @@ namespace Sandbox
 			{
 				for (auto& input : m_byEvents[(int)EventType::ControllerStick])
 				{
-					input->ControllerStickMoved(e);
+					if(input->ControllerStickMoved(e))
+						eventHandled = true;
 				}
 			}
 			else
 			{
 				for (auto& input : m_byEvents[(int)EventType::ControllerStick])
 				{
-					input->ControllerTriggerMoved(e);
+					if(input->ControllerTriggerMoved(e))
+						eventHandled = true;
 				}
 			}
 			break;
@@ -82,6 +92,7 @@ namespace Sandbox
 		case SDL_TEXTEDITING:
 			break;
 		}
+		return eventHandled;
 	}
 
 	void InputMap::OnInputEventModified(sptr<Input> input)
@@ -139,7 +150,7 @@ namespace Sandbox
 			{
 				m_byEvents[(int)EventType::Key].push_back(input);
 			}
-			else if(!events.keyButton)
+			else if (!events.keyButton)
 			{
 				Vector::Remove(m_byEvents[(int)EventType::Key], input);
 			}
@@ -148,7 +159,7 @@ namespace Sandbox
 			{
 				m_byEvents[(int)EventType::Text].push_back(input);
 			}
-			else if(!events.keyText)
+			else if (!events.keyText)
 			{
 				Vector::Remove(m_byEvents[(int)EventType::Text], input);
 			}
@@ -157,7 +168,7 @@ namespace Sandbox
 			{
 				m_byEvents[(int)EventType::MouseBtn].push_back(input);
 			}
-			else if(!events.mouseButton)
+			else if (!events.mouseButton)
 			{
 				Vector::Remove(m_byEvents[(int)EventType::MouseBtn], input);
 			}
@@ -166,7 +177,7 @@ namespace Sandbox
 			{
 				m_byEvents[(int)EventType::MouseMove].push_back(input);
 			}
-			else if(!events.mouseMovement)
+			else if (!events.mouseMovement)
 			{
 				Vector::Remove(m_byEvents[(int)EventType::MouseMove], input);
 			}
@@ -175,7 +186,7 @@ namespace Sandbox
 			{
 				m_byEvents[(int)EventType::ControllerBtn].push_back(input);
 			}
-			else if(!events.controllerButton)
+			else if (!events.controllerButton)
 			{
 				Vector::Remove(m_byEvents[(int)EventType::ControllerBtn], input);
 			}
@@ -184,7 +195,7 @@ namespace Sandbox
 			{
 				m_byEvents[(int)EventType::ControllerStick].push_back(input);
 			}
-			else if(!events.controllerStick)
+			else if (!events.controllerStick)
 			{
 				Vector::Remove(m_byEvents[(int)EventType::ControllerStick], input);
 			}
@@ -193,7 +204,7 @@ namespace Sandbox
 			{
 				m_byEvents[(int)EventType::ControllerTrigger].push_back(input);
 			}
-			else if(!events.controllerTrigger)
+			else if (!events.controllerTrigger)
 			{
 				Vector::Remove(m_byEvents[(int)EventType::ControllerTrigger], input);
 			}

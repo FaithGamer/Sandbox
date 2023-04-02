@@ -1,29 +1,28 @@
 #include "pch.h"
 #include "UniformBlockTest.h"
-#include "Render/Window.h"
-#include "Render/ShaderProgram.h"
-#include "Render/Buffer.h"
-#include "Render/VertexArray.h"
-#include "Render/Texture.h"
-#include "Render/Transform.h"
-#include "Render/Camera.h"
-#include "Render/BatchRenderer.h"
-#include "Input/ButtonInput.h"
-#include "Input/InputMap.h"
-#include "Core/Log.h"
-#include "Core/TypeId.h"
+#include "Sandbox/Render/Window.h"
+#include "Sandbox/Render/ShaderProgram.h"
+#include "Sandbox/Render/Buffer.h"
+#include "Sandbox/Render/VertexArray.h"
+#include "Sandbox/Render/Texture.h"
+#include "Sandbox/Render/Transform.h"
+#include "Sandbox/Render/Camera.h"
+#include "Sandbox/Render/BatchRenderer.h"
+#include "Sandbox/Input/ButtonInput.h"
+#include "Sandbox/Input/InputMap.h"
+#include "Sandbox/Log.h"
+#include "Sandbox/TypeId.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <entt/entt.hpp>
 
-#include "Core/Time.h"
+#include "Sandbox/Time.h"
 using namespace Sandbox;
 
 void UniformBlockTest()
 {
-    Window window("hello window", Vec2i(500, 500));
 
     ShaderProgram shaderRed("assets/shaders/ubt.vert", "assets/shaders/ubt.frag");
 
@@ -96,9 +95,9 @@ void UniformBlockTest()
         }
         // render
         // ------
-        window.Clear();
+        Window::Clear();
 
-        // set the view and projection matrix in the uniform block - we only have to do this once per loop iteration.
+        // set the view and projection matrix in the uniform block - we only have to do this once per draw call
         glm::mat4 view = cam.GetViewMatrix();
         glBindBuffer(GL_UNIFORM_BUFFER, uboMatrices);
         glBufferSubData(GL_UNIFORM_BUFFER, sizeof(glm::mat4), sizeof(glm::mat4), glm::value_ptr(view));
@@ -113,6 +112,6 @@ void UniformBlockTest()
         shaderRed.SetUniform("model", model);
         glDrawElements(GL_TRIANGLES, vao.GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
 
-        window.Render();
+        Window::Render();
     }
 }

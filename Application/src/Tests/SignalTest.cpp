@@ -13,8 +13,9 @@
 #include <fstream>
 #include <initializer_list>
 
-#include "Core/Log.h"
-#include "Core/Delegate.h"
+#include "Sandbox/Log.h"
+#include "Sandbox/Delegate.h"
+#include "Sandbox/Signal.h"
 #include "SignalTest.h"
 
 using namespace Sandbox;

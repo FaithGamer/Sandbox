@@ -1,8 +1,8 @@
 #include "pch.h"
 
-#include "BatchRenderer.h"
-#include "Core/Log.h"
 #include <glm/gtc/matrix_transform.hpp>
+#include "Sandbox/Render/BatchRenderer.h"
+#include "Sandbox/Log.h"
 
 namespace Sandbox
 {

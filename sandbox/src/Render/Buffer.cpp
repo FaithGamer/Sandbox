@@ -2,8 +2,8 @@
 
 #include <glad/glad.h>
 
-#include "Buffer.h"
-#include "Core/Log.h"
+#include "Sandbox/Render/Buffer.h"
+#include "Sandbox/Log.h"
 
 namespace Sandbox
 {

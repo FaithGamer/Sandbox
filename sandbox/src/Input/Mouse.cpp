@@ -1,6 +1,6 @@
 #include "pch.h"
-#include "Core/Log.h"
-#include "Mouse.h"
+#include "Sandbox/Log.h"
+#include "Sandbox/Input/Mouse.h"
 
 namespace Sandbox
 {

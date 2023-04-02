@@ -1,8 +1,9 @@
 #include "pch.h"
-#include "VertexArray.h"
-
 #include <glad/glad.h>
-#include "Core/Log.h"
+
+#include "Sandbox/Log.h"
+#include "Sandbox/Render/VertexArray.h"
+
 
 namespace Sandbox
 {

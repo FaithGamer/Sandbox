@@ -1,10 +1,9 @@
 #include "pch.h"
-#include "Thread/Worker.h"
+#include "Sandbox/Worker.h"
 #include "ThreadTest.h"
 
-#include "Core/Signal.h"
-#include "Core/Delegate.h"
-#include "Core/DelegateNew.h"
+#include "Sandbox/Signal.h"
+#include "Sandbox/Delegate.h"
 
 using namespace Sandbox;
 

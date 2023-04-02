@@ -1,6 +1,6 @@
 #include "pch.h"
-#include "Keyboard.h"
-#include "Core/Log.h"
+#include "Sandbox/Input/Keyboard.h"
+#include "Sandbox/Log.h"
 
 namespace Sandbox
 {

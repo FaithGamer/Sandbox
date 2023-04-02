@@ -1,10 +1,12 @@
 #include "pch.h"
 
-#include "Vec.h"
-#include "Camera.h"
-
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/functions.hpp>
+
+#include "Sandbox/Vec.h"
+#include "Sandbox/Render/Camera.h"
+
+
 
 namespace Sandbox
 {

@@ -1,7 +1,7 @@
 #include "pch.h"
-#include "Input.h"
-#include "InputMap.h"
-#include "ButtonInput.h"
+#include "Sandbox/Input/Input.h"
+#include "Sandbox/Input/InputMap.h"
+#include "Sandbox/Input/ButtonInput.h"
 
 namespace Sandbox
 {

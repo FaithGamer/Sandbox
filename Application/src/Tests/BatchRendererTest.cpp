@@ -1,19 +1,18 @@
 #include "pch.h"
 
 #include "BatchRendererTest.h"
-#include "Render/Window.h"
-#include "Render/BatchRenderer.h"
-#include "Core/Time.h"
-#include "Core/Delegate.h"
-#include "Thread/Task.h"
-#include "Thread/Worker.h"
-#include "std_macros.h"
+#include "Sandbox/Render/Window.h"
+#include "Sandbox/Render/BatchRenderer.h"
+#include "Sandbox/Time.h"
+#include "Sandbox/Delegate.h"
+#include "Sandbox/Task.h"
+#include "Sandbox/Worker.h"
+#include "Sandbox/std_macros.h"
 
 using namespace Sandbox;
 
 void BatchRendererTest()
 {
-	Window window("hello window", Vec2i(500, 500));
 	BatchRenderer renderer;
 
 	Camera cam;
@@ -42,12 +41,10 @@ void BatchRendererTest()
 	{
 		while (SDL_PollEvent(&e) != 0)
 		{
-
 			if (e.type == SDL_QUIT)
 			{
 				run = false;
 			}
-
 		}
 
 		float yaw = std::sin(clock.GetElapsed()) * maxYaw;
@@ -57,7 +54,7 @@ void BatchRendererTest()
 
 		if (threadRendering)
 		{
-			Delegate clear(&Window::Clear, &window);
+			Delegate clear(&Window::Clear);
 			auto clearTask = makesptr<Task<void>>(clear);
 			renderingThread.QueueTask(clearTask);
 
@@ -67,7 +64,7 @@ void BatchRendererTest()
 		}
 		else
 		{
-			window.Clear();
+			Window::Clear();
 			renderer.BeginScene(cam);
 		}
 
@@ -125,7 +122,7 @@ void BatchRendererTest()
 		if (threadRendering)
 		{
 			Delegate<void> endScene(&BatchRenderer::EndScene, &renderer);
-			Delegate<void> render(&Window::Render, &window);
+			Delegate<void> render(&Window::Render);
 
 			sptr<Task<void>> endSceneTask = makesptr <Task<void>>(endScene);
 			sptr<Task<void>> renderTask = makesptr <Task<void>>(render);
@@ -137,7 +134,7 @@ void BatchRendererTest()
 		else
 		{
 			renderer.EndScene();
-			window.Render();
+			Window::Render();
 		}
 	}
 }

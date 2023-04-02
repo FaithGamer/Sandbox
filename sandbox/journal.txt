@@ -44,3 +44,9 @@ I added box2D and Imgui to the project.
 
 - I am making progress on the core architecture. Made the window a singleton. Input singleton created.
 Worflow will be pushing system then launching the engine, eventually with paramters
+
+02 april
+
+- My systems workflow seems to be working, I can now create system that can override OnImGui.
+Next Step will be to decide the Entity/Scene workflow, and to add various core Systems: Inputs, 2DRender, Physics...
+Also I need to enhance batchrenderer (make it singleton ?) so it can render on target and batch with materials

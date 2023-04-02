@@ -3,28 +3,28 @@
 
 #include "BillboardTest.h"
 
-#include "Render/Window.h"
-#include "Render/ShaderProgram.h"
-#include "Render/Buffer.h"
-#include "Render/VertexArray.h"
-#include "Render/Texture.h"
-#include "Render/Transform.h"
-#include "Render/Camera.h"
-#include "Render/BatchRenderer.h"
-#include "Input/ButtonInput.h"
-#include "Input/InputMap.h"
-#include "Core/Log.h"
-#include "Core/TypeId.h"
+#include "Sandbox/Render/Window.h"
+#include "Sandbox/Render/ShaderProgram.h"
+#include "Sandbox/Render/Buffer.h"
+#include "Sandbox/Render/VertexArray.h"
+#include "Sandbox/Render/Texture.h"
+#include "Sandbox/Render/Transform.h"
+#include "Sandbox/Render/Camera.h"
+#include "Sandbox/Render/BatchRenderer.h"
+#include "Sandbox/Input/ButtonInput.h"
+#include "Sandbox/Input/InputMap.h"
+#include "Sandbox/Log.h"
+#include "Sandbox/TypeId.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <entt/entt.hpp>
 
-#include "Core/Time.h"
-#include "ECS/entt_macros.h"
-#include "Containers/Vector.h"
-#include "Core/Signal.h"
+#include "Sandbox/Time.h"
+#include "Sandbox/entt_macros.h"
+#include "Sandbox/Vector.h"
+#include "Sandbox/Signal.h"
 
 
 using namespace Sandbox;
@@ -36,10 +36,6 @@ void OnPressButton(const ButtonInput::State& btnState, void* const listener)
 
 void BillboardTest()
 {
-
-
-	//Create a window and an opengl context with SDL
-	Window window("hello window", Vec2i(500, 500));
 
 	sptr<ShaderProgram> shader = makesptr<ShaderProgram>("assets/shaders/model_view_projection.vert", "assets/shaders/texture.frag");
 	sptr<ShaderProgram> shaderBillboard = makesptr<ShaderProgram>("assets/shaders/billboard.vert", "assets/shaders/texture.frag");
@@ -172,7 +168,7 @@ void BillboardTest()
 		}
 
 
-		window.Clear();
+		Window::Clear();
 
 		//Activate the shader program
 		vertexArray->Bind();
@@ -192,6 +188,6 @@ void BillboardTest()
 		glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
 
 
-		window.Render();
+		Window::Render();
 	}
 }

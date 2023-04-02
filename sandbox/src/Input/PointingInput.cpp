@@ -1,6 +1,6 @@
 #pragma once
 #include "pch.h"
-#include "PointingInput.h"
+#include "Sandbox/Input/PointingInput.h"
 
 namespace Sandbox
 {

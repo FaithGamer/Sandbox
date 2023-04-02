@@ -15,13 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Core\Log.cpp">
+    <ClCompile Include="src\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\Window.cpp">
+    <ClCompile Include="src\Render\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Render\ShaderProgram.cpp">
@@ -45,22 +45,22 @@
     <ClCompile Include="src\Render\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Misc\Print.cpp">
+    <ClCompile Include="src\Utils\PrintMat4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\Time.cpp">
+    <ClCompile Include="src\Time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ECS\Entity.cpp">
+    <ClCompile Include="src\Entity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ECS\System.cpp">
+    <ClCompile Include="src\System\System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ECS\Scene.cpp">
+    <ClCompile Include="src\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\TypeId.cpp">
+    <ClCompile Include="src\TypeId.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Input\ButtonInput.cpp">
@@ -87,13 +87,13 @@
     <ClCompile Include="src\Render\BatchRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\IO\Files.cpp">
+    <ClCompile Include="src\Files.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Containers\Vector.cpp">
+    <ClCompile Include="src\Vector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Math\Math.cpp">
+    <ClCompile Include="src\Math.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Render\Bindings.cpp">
@@ -108,162 +108,171 @@
     <ClCompile Include="src\Input\Keyboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thread\Worker.cpp">
+    <ClCompile Include="src\Worker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\Delegate.cpp">
+    <ClCompile Include="src\Delegate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Thread\Task.cpp">
+    <ClCompile Include="src\Task.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\Sandbox.cpp">
+    <ClCompile Include="src\Sandbox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\Systems.cpp">
+    <ClCompile Include="src\System\Systems.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\Parameters.cpp">
+    <ClCompile Include="src\Parameters.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\Inputs.cpp">
+    <ClCompile Include="src\Input\Inputs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImGuiLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\System\InputSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Core\Log.h">
+    <ClInclude Include="include\Sandbox\Log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\Window.h">
+    <ClInclude Include="include\Sandbox\Render\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\std_macros.h">
+    <ClInclude Include="include\Sandbox\std_macros.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\ShaderProgram.h">
+    <ClInclude Include="include\Sandbox\Render\ShaderProgram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\Buffer.h">
+    <ClInclude Include="include\Sandbox\Render\Buffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\VertexArray.h">
+    <ClInclude Include="include\Sandbox\Render\VertexArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\Texture.h">
+    <ClInclude Include="include\Sandbox\Render\Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\Transform.h">
+    <ClInclude Include="include\Sandbox\Render\Transform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\Camera.h">
+    <ClInclude Include="include\Sandbox\Render\Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Misc\Print.h">
+    <ClInclude Include="include\Sandbox\Utils\PrintMat4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\Time.h">
+    <ClInclude Include="include\Sandbox\Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ECS\Entity.h">
+    <ClInclude Include="include\Sandbox\Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ECS\System.h">
+    <ClInclude Include="include\Sandbox\System\System.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ECS\Scene.h">
+    <ClInclude Include="include\Sandbox\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\TypeId.h">
+    <ClInclude Include="include\Sandbox\TypeId.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ECS\entt_macros.h">
+    <ClInclude Include="include\Sandbox\entt_macros.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\Signal.h">
+    <ClInclude Include="include\Sandbox\Signal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Input\DirectionalInput.h">
+    <ClInclude Include="include\Sandbox\Input\DirectionalInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Input\PointingInput.h">
+    <ClInclude Include="include\Sandbox\Input\PointingInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Input\Input.h">
+    <ClInclude Include="include\Sandbox\Input\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Input\ButtonInput.h">
+    <ClInclude Include="include\Sandbox\Input\ButtonInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Input\ScrollInput.h">
+    <ClInclude Include="include\Sandbox\Input\ScrollInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Input\TextualInput.h">
+    <ClInclude Include="include\Sandbox\Input\TextualInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Input\InputMap.h">
+    <ClInclude Include="include\Sandbox\Input\InputMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Render\BatchRenderer.h">
+    <ClInclude Include="include\Sandbox\Render\BatchRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Include\Render.h">
+    <ClInclude Include="include\Sandbox\Render.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\Vec.h">
+    <ClInclude Include="include\Sandbox\Vec.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\PlatformDetection.h">
+    <ClInclude Include="include\Sandbox\PlatformDetection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\IO\Files.h">
+    <ClInclude Include="include\Sandbox\Files.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Containers\Vector.h">
+    <ClInclude Include="include\Sandbox\Vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Math\Math.h">
+    <ClInclude Include="include\Sandbox\Math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Input\Controller.h">
+    <ClInclude Include="include\Sandbox\Input\Controller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Input\Mouse.h">
+    <ClInclude Include="include\Sandbox\Input\Mouse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Input\Keyboard.h">
+    <ClInclude Include="include\Sandbox\Input\Keyboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Input\Bindings.h">
+    <ClInclude Include="include\Sandbox\Input\Bindings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thread\Worker.h">
+    <ClInclude Include="include\Sandbox\Worker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\Delegate.h">
+    <ClInclude Include="include\Sandbox\Delegate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Thread\Task.h">
+    <ClInclude Include="include\Sandbox\Task.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\DelegateNew.h">
+    <ClInclude Include="include\Sandbox\System\Systems.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\Systems.h">
+    <ClInclude Include="include\Sandbox\Sandbox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\Sandbox.h">
+    <ClInclude Include="include\Sandbox\Singleton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\Singleton.h">
+    <ClInclude Include="include\Sandbox\Parameters.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\Parameters.h">
+    <ClInclude Include="include\Sandbox\Input\Inputs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\Inputs.h">
+    <ClInclude Include="include\Sandbox\System\InputSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Sandbox\ImGuiLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -275,8 +284,7 @@
     <None Include="assets\shaders\position_texture_transform.vert" />
     <None Include="assets\shaders\model_view_projection.vert" />
     <None Include="assets\shaders\billboard.vert" />
-    <None Include="src\Render\Transform.tpp" />
-    <None Include="src\Core\Signal.tpp" />
+    <None Include="include\Sandbox\Signal.tpp" />
     <None Include="src\Tools\Toolbox.tpp" />
     <None Include="assets\shaders\batch_renderer.vert" />
     <None Include="assets\shaders\batch_renderer.frag" />
@@ -286,8 +294,8 @@
     <None Include="assets\shaders\ubt.frag" />
     <None Include="assets\shaders\texture_unit.vert" />
     <None Include="assets\shaders\texture_unit.frag" />
-    <None Include="src\Containers\Vector.tpp" />
-    <None Include="src\Math\Math.tpp" />
+    <None Include="include\Sandbox\Vector.tpp" />
+    <None Include="include\Sandbox\Math.tpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="known_issues.txt" />

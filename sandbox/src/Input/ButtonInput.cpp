@@ -1,7 +1,7 @@
 #include "pch.h"
-#include "ButtonInput.h"
-#include "Math/Math.h"
-#include "Bindings.h"
+#include "Sandbox/Math.h"
+#include "Sandbox/Input/ButtonInput.h"
+#include "Sandbox/Input/Bindings.h"
 
 namespace Sandbox
 {
@@ -12,55 +12,62 @@ namespace Sandbox
 
 	}
 
-	void ButtonInput::KeyPressed(const SDL_Event& e)
+	bool ButtonInput::KeyPressed(const SDL_Event& e)
 	{
 		if (e.key.keysym.scancode == m_button.key)
 		{
 			PressButton();
+			return true;
 		}
+		return false;
 	}
 
-	void ButtonInput::KeyReleased(const SDL_Event& e)
+	bool ButtonInput::KeyReleased(const SDL_Event& e)
 	{
 		if (e.key.keysym.scancode == m_button.key)
 		{
-			ReleaseButton();
+			return ReleaseButton();
 		}
+		return false;
 	}
 
-	void ButtonInput::MouseButtonPressed(const SDL_Event& e)
+	bool ButtonInput::MouseButtonPressed(const SDL_Event& e)
 	{
 		if (e.button.button == (Uint8)m_button.mouse)
 		{
-			PressButton();
+			return PressButton();
 		}
+		return false;
 	}
 
-	void ButtonInput::MouseButtonReleased(const SDL_Event& e)
+	bool ButtonInput::MouseButtonReleased(const SDL_Event& e)
 	{
 		if (e.button.button == (Uint8)m_button.mouse)
 		{
-			ReleaseButton();
+			return ReleaseButton();
 		}
+		return false;
 	}
 
-	void ButtonInput::ControllerButtonPressed(const SDL_Event& e)
+	bool ButtonInput::ControllerButtonPressed(const SDL_Event& e)
 	{
 		if ((SDL_GameControllerButton)e.cbutton.button == (SDL_GameControllerButton)m_button.controller)
 		{
-			PressButton();
+			return PressButton();
 		}
+		return false;
 	}
 
-	void ButtonInput::ControllerButtonReleased(const SDL_Event& e)
+	bool ButtonInput::ControllerButtonReleased(const SDL_Event& e)
 	{
 		if ((SDL_GameControllerButton)e.cbutton.button == (SDL_GameControllerButton)m_button.controller)
 		{
-			ReleaseButton();
+			return ReleaseButton();
 		}
+		return false;
 	}
 
-	void ButtonInput::ControllerTriggerMoved(const SDL_Event& e)
+	bool ButtonInput::ControllerTriggerMoved(const SDL_Event& e)
 	{
 		if (e.caxis.axis == (Uint8)m_button.trigger)
 		{
@@ -72,7 +79,7 @@ namespace Sandbox
 				//trigger pressed
 				if (!m_state.pressed)
 				{
-					PressButton();
+					return PressButton();
 				}
 			}
 			else
@@ -80,12 +87,12 @@ namespace Sandbox
 				//trigger released
 				if (m_state.pressed)
 				{
-					ReleaseButton();
+					return ReleaseButton();
 				}
 			}
 		}
+		return false;
 	}
-
 
 	void ButtonInput::ListenEventAndBindTrigger(const SDL_Event& e, int version)
 	{
@@ -181,7 +188,7 @@ namespace Sandbox
 		}
 	}
 
-	void ButtonInput::PressButton()
+	bool ButtonInput::PressButton()
 	{
 		if (!m_state.pressed)
 		{
@@ -189,11 +196,13 @@ namespace Sandbox
 			if (m_sendSignalOnPress)
 			{
 				inputSignal.SendSignal(InputSignal());
+				return true;
 			}
 		}
+		return false;
 	}
 
-	void ButtonInput::ReleaseButton()
+	bool ButtonInput::ReleaseButton()
 	{
 		if (m_state.pressed)
 		{
@@ -201,8 +210,10 @@ namespace Sandbox
 			if (m_sendSignalOnRelease)
 			{
 				inputSignal.SendSignal(InputSignal());
+				return true;
 			}
 		} 
+		return false;
 	}
 
 }

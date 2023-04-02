@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Input/Bindings.h"
+#include "Sandbox/Input/Bindings.h"
 
 namespace Sandbox
 {

@@ -1,9 +1,8 @@
 #include "pch.h"
-#include "Core/Systems.h"
-#include "ECS/System.h"
-#include "Core/Time.h"
-#include "Core/Sandbox.h"
-#include "Core/Time.h"
+#include "Sandbox/System/Systems.h"
+#include "Sandbox/System/System.h"
+#include "Sandbox/Time.h"
+#include "Sandbox/Sandbox.h"
 
 class MySytem : public Sandbox::System
 {
@@ -39,7 +38,7 @@ private:
 void SystemTest()
 {
 
-	Sandbox::Systems::Get()->PushSystem<MySytem>();
+	Sandbox::Systems::Push<MySytem>();
 	Sandbox::Clock t;
 
 	Sandbox::Launch();

@@ -1,12 +1,12 @@
 ﻿#include "pch.h"
 #include <string>
+#include <glm/gtc/type_ptr.hpp>
 #include <glad/glad.h>
 
-#include "ShaderProgram.h"
+#include "Sandbox/Files.h"
+#include "Sandbox/Log.h"
+#include "Sandbox/Render/ShaderProgram.h"
 
-#include <glm/gtc/type_ptr.hpp>
-#include "Core/Log.h"
-#include "IO/Files.h"
 
 #define SET_UNIFORM(c) GLint location = glGetUniformLocation(m_id, (const GLchar*)name.c_str());\
 if (location == -1)\

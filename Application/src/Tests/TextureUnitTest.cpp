@@ -1,12 +1,11 @@
 #include "pch.h"
 #include "TextureUnitTest.h"
-#include "Include/Render.h"
+#include "Sandbox/Render.h"
 
 using namespace Sandbox;
 
 void TextureUnitTest()
 {
-	Window window("window", { 500, 500 });
 
 	SDL_Event e;
 	bool run = true;
@@ -77,7 +76,7 @@ void TextureUnitTest()
 			}
 		}
 
-		window.Clear();
+		Window::Clear();
 
 		//Bind texture to appropriate unit
 		vao.Bind();
@@ -91,6 +90,6 @@ void TextureUnitTest()
 		
 		glDrawElements(GL_TRIANGLES, vao.GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
 
-		window.Render();
+		Window::Render();
 	}
 }

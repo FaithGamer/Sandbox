@@ -1,6 +1,7 @@
 #include "pch.h"
-#include "Controller.h"
-#include "Core/Log.h"
+#include "Sandbox/Log.h"
+#include "Sandbox/Input/Controller.h"
+
 
 namespace Sandbox
 {
