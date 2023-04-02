@@ -13,8 +13,8 @@ namespace Sandbox
         /// with the first value at the end of the container wich differs from the one being removed
         /// </summary>
         /// <returns>Count of value removed</returns>
-        template <typename T>
-        int Remove(T value, std::vector<T>& container);
+        template <typename T, typename V>
+        int Remove(std::vector<T>& container, V value);
 
         /// <summary>
         /// Push a value in the std::vector only if it is not already present
@@ -25,8 +25,8 @@ namespace Sandbox
 
 
         /// <returns>True if value has been found</returns>
-        template <typename T>
-        bool Contains(const T& value, std::vector<T>& container);
+        template <typename T, typename V>
+        bool Contains(std::vector<T>& container, const V& value);
        
     }
 }

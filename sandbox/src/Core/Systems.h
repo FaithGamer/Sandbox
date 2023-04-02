@@ -12,20 +12,23 @@ namespace Sandbox
 		System* system;
 		int32_t typeId;
 		int priority;
+
+		bool operator==(const SystemIdPriority& other)
+		{
+			return typeId == other.typeId;
+		}
+		bool operator==(const int32_t other)
+		{
+			return typeId == other;
+		}
 	};
 
-	bool CompareSystem(const SystemIdPriority& l, const SystemIdPriority& r)
+	struct CompareSystem
 	{
-		return l.priority < r.priority;
-	}
-
-	struct PendingSystem
-	{
-		SystemIdPriority system;
-		bool useOnUpdate = false;
-		bool useOnFixedUpdate = false;
-		bool useOnEvent = false;
-		bool useOnImGui = false;
+		bool operator()(const SystemIdPriority& l, const SystemIdPriority& r)
+		{
+			return l.priority < r.priority;
+		}
 	};
 
 	class Systems : public Singleton<Systems>
@@ -39,22 +42,22 @@ namespace Sandbox
 
 		//To do: ths Push interface is quite messy, find something better
 		template <typename T>
-		static void Push(bool useOnUpdate = true, bool useOnFixedUpdate = false, bool useOnEvent = false, bool useOnImGui = false) 
+		static void Push()
 		{
 			System* system = new T;
-			Systems::Get()->m_pendingSystemIn.push_back(
-				PendingSystem(
-					SystemIdPriority(system, TypeId::GetId<T>(), system->GetPriority()),
-					useOnUpdate,
-					useOnFixedUpdate,
-					useOnEvent,
-					useOnImGui));
+			Systems::Get()->m_pendingSystemIn.push_back(PendingSystem(SystemIdPriority(system, TypeId::GetId<T>(), system->GetPriority())));
 		}
 
 		template <typename T>
 		static void Remove()
 		{
 			m_pendingSystemOut.push_back(TypeId::Get<T>());
+		}
+
+		template <typename T>
+		static bool HasSystem()
+		{
+			return Systems::Get()->HasSystem(TypeId::Get<T>());
 		}
 
 		static Time GetFixedUpdateTime()
@@ -66,6 +69,8 @@ namespace Sandbox
 		friend void Launch(const EngineParameters& parameters);
 		void Update();
 		void IntegratePending();
+		void RemovePending();
+		bool HasSystem(int32_t typeId);
 
 		Clock m_updateClock;
 		Clock m_fixedUpdateClock;
@@ -77,6 +82,7 @@ namespace Sandbox
 		std::vector<SystemIdPriority> m_fixedUpdateSystems;
 		std::vector<SystemIdPriority> m_updateSystems;
 		std::vector<SystemIdPriority> m_imGuiSystems;
+
 		std::vector<SystemIdPriority> m_pendingSystemIn;
 		std::vector<int32_t> m_pendingSystemOut;
 

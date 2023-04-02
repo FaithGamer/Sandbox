@@ -18,6 +18,7 @@ namespace Sandbox
 	{
 		//Initialization
 		Window::Get()->Load(parameters.appName, parameters.startupWindowResolution);
+		//add imgui singleton loading
 
 		//Main loop
 		play = true;

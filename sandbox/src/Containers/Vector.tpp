@@ -5,8 +5,8 @@ namespace Sandbox
 {
 	namespace Vector
 	{
-		template <typename T>
-		int Remove(T toRemove, std::vector<T>& container)
+		template <typename T, typename V>
+		int Remove(std::vector<T>& container, V toRemove)
 		{
 			int removedCount = 0;
 			size_t i = 0;
@@ -59,8 +59,8 @@ namespace Sandbox
 			}
 		}
 
-		template <typename T>
-		bool Contains(const T& value, std::vector<T>& container)
+		template <typename T, typename V>
+		bool Contains(std::vector<T>& container, const V& value)
 		{
 			auto container_it = std::find(container.begin(), container.end(), value);
 			if (container_it != container.end())

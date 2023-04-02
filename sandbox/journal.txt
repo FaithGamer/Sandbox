@@ -39,3 +39,8 @@ but not SDL itself wich is linked in Sandbox.. The most annoying things is the v
 - I removed the submodules for the sake of simplicity, i just included stable version of all my dependency in my vendor folder
 then i copied all the relevant include in a single folder.
 I added box2D and Imgui to the project.
+
+01 april
+
+- I am making progress on the core architecture. Made the window a singleton. Input singleton created.
+Worflow will be pushing system then launching the engine, eventually with paramters
