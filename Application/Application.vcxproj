@@ -152,6 +152,7 @@
   <ItemGroup>
     <ClCompile Include="src\ImGuiSystemTest.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Tests\EnttSpeedTest.cpp" />
     <ClCompile Include="src\Tests\ImGuiTest.cpp" />
     <ClCompile Include="src\Tests\BatchRendererTest.cpp" />
     <ClCompile Include="src\Tests\BillboardTest.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="src\ImGuiSystemTest.h" />
     <ClInclude Include="src\Tests\BatchRendererTest.h" />
     <ClInclude Include="src\Tests\BillboardTest.h" />
+    <ClInclude Include="src\Tests\EnttSpeedTest.h" />
     <ClInclude Include="src\Tests\EnttTest.h" />
     <ClInclude Include="src\Tests\ImGuiTest.h" />
     <ClInclude Include="src\Tests\SignalTest.h" />

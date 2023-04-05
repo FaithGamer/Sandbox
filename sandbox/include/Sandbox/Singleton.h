@@ -1,9 +1,10 @@
 #pragma once
 #include "Sandbox/std_macros.h"
 
+
 namespace Sandbox
 {
-	class EngineParameters;
+	class Engine;
 
 	template <typename T>
 	class Singleton
@@ -12,7 +13,7 @@ namespace Sandbox
 		T& operator= (const T&) = delete;
 
 	protected:
-		friend void Launch(const EngineParameters& parameters);
+		friend Engine;
 		static sptr<T> Get()
 		{
 			if (m_instance == nullptr)

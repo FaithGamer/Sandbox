@@ -12,10 +12,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Delegate.cpp" />
+    <ClCompile Include="src\GameWorld.cpp" />
     <ClCompile Include="src\ImGuiLoader.cpp" />
     <ClCompile Include="src\Input\Inputs.cpp" />
     <ClCompile Include="src\Parameters.cpp" />
-    <ClCompile Include="src\Sandbox.cpp" />
+    <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\System\InputSystem.cpp" />
     <ClCompile Include="src\System\Systems.cpp" />
     <ClCompile Include="src\Input\Controller.cpp" />
@@ -57,12 +58,13 @@
     <ClCompile Include="src\Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Sandbox\GameWorld.h" />
     <ClInclude Include="include\Sandbox\ImGuiLoader.h" />
     <ClInclude Include="include\Sandbox\Input\Inputs.h" />
     <ClInclude Include="include\Sandbox\Parameters.h" />
     <ClInclude Include="include\Sandbox\Vector.h" />
     <ClInclude Include="include\Sandbox\Delegate.h" />
-    <ClInclude Include="include\Sandbox\Sandbox.h" />
+    <ClInclude Include="include\Sandbox\Engine.h" />
     <ClInclude Include="include\Sandbox\Singleton.h" />
     <ClInclude Include="include\Sandbox\System\Systems.h" />
     <ClInclude Include="include\Sandbox\System\InputSystem.h" />

@@ -4,7 +4,7 @@
 #include "Sandbox/System/Systems.h"
 #include "Sandbox/Render/Window.h"
 #include "Sandbox/ImGuiLoader.h"
-#include "Sandbox/Sandbox.h"
+#include "Sandbox/Engine.h"
 
 namespace Sandbox
 {
@@ -63,7 +63,7 @@ namespace Sandbox
 		{
 			if (m_events.type == SDL_QUIT)
 			{
-				Sandbox::Stop();
+				Engine::Stop();
 				return;
 			}
 

@@ -18,7 +18,7 @@ namespace Sandbox
 		static std::vector<std::string> GetInputMapNameList();
 
 	private:
-
+		friend Engine;
 		std::unordered_map<std::string, InputMap> m_inputsMap;
 		InputMap* m_current;
 	};

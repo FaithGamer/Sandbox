@@ -51,6 +51,9 @@
     <ClCompile Include="src\ImGuiSystemTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Tests\EnttSpeedTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Tests\SignalTest.h">
@@ -84,6 +87,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\ImGuiSystemTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tests\EnttSpeedTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -117,7 +117,7 @@
     <ClCompile Include="src\Task.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Sandbox.cpp">
+    <ClCompile Include="src\Engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\System\Systems.cpp">
@@ -133,6 +133,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\System\InputSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameWorld.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -257,7 +260,7 @@
     <ClInclude Include="include\Sandbox\System\Systems.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Sandbox.h">
+    <ClInclude Include="include\Sandbox\Engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Singleton.h">
@@ -273,6 +276,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\ImGuiLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Sandbox\GameWorld.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

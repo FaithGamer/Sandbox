@@ -7,7 +7,7 @@ class TypeId
 {
 public:
 	template <typename T>
-	static int GetId()
+	static int32_t GetId()
 	{
 		static const int32_t id = currentTypeId++;
 		return id;

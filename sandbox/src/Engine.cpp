@@ -1,5 +1,6 @@
 #include "pch.h"
-#include "Sandbox/Sandbox.h"
+
+#include "Sandbox/Engine.h"
 #include "Sandbox/System/Systems.h"
 #include "Sandbox/Render/Window.h"
 #include "Sandbox/Parameters.h"
@@ -7,16 +8,19 @@
 #include "Sandbox/ImGuiLoader.h"
 #include "Sandbox/System/InputSystem.h"
 
+
+
 namespace Sandbox
 {
-	bool play = false;
+	bool Engine::play = true;
 
-	void Launch()
+	void Engine::Init()
 	{
-		Launch(EngineParameters());
+		EngineParameters params;
+		Engine::Init(params);
 	}
 
-	void Launch(const EngineParameters& parameters)
+	void Engine::Init(const EngineParameters& parameters)
 	{
 		//Initialization
 		Log::Init();
@@ -27,7 +31,10 @@ namespace Sandbox
 		{
 			Systems::Push<InputSystem>();
 		}
-	
+	}
+
+	void Engine::Launch()
+	{
 		//Main loop
 		play = true;
 		while (play)
@@ -43,9 +50,10 @@ namespace Sandbox
 		Window::Kill();
 	}
 
-	void Stop()
+	void Engine::Stop()
 	{
 		play = false;
 	}
+
 }
 

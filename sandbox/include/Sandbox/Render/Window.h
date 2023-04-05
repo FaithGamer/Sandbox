@@ -7,8 +7,6 @@
 #include "Sandbox/Singleton.h"
 #include "Sandbox/Vec.h"
 
-struct EngineParameters;
-
 namespace Sandbox
 {
 	/// @brief The SDL window and OpenGL context
@@ -22,7 +20,7 @@ namespace Sandbox
 		static SDL_GLContext GetSDL_GLContext();
 		static SDL_Window* GetSDLWindow();
 	private:
-		friend void Launch(const EngineParameters& parameters);
+		friend Engine;
 		
 		void Load(std::string name, Vec2u size);
 		SDL_Window* m_window;

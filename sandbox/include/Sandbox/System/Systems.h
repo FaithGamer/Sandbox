@@ -44,6 +44,7 @@ namespace Sandbox
 
 	class Systems : public Singleton<Systems>
 	{
+
 		friend sptr<Systems> Singleton<Systems>::Get();
 		friend void Singleton<Systems>::Kill();
 
@@ -77,9 +78,11 @@ namespace Sandbox
 		static Time GetFixedUpdateTime();
 
 	private:
+		friend Engine;
 		Systems();
 
-		friend void Launch(const EngineParameters& parameters);
+	
+
 		void Update();
 		void IntegratePending();
 		void RemovePending();
