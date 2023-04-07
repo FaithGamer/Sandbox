@@ -64,9 +64,9 @@ namespace Sandbox
 
 	void Window::SetSize(Vec2u size)
 	{
-		SDL_SetWindowSize(Window::Get()->m_window, size.x, size.y);
+		SDL_SetWindowSize(Window::Instance()->m_window, size.x, size.y);
 		glViewport(0, 0, size.x, size.y);
-		Window::Get()->m_size = size;
+		Window::Instance()->m_size = size;
 	}
 
 	void Window::Clear()
@@ -76,21 +76,21 @@ namespace Sandbox
 
 	void Window::Render()
 	{
-		SDL_GL_SwapWindow(Window::Get()->m_window);
+		SDL_GL_SwapWindow(Window::Instance()->m_window);
 	}
 
 	Vec2u Window::GetSize()
 	{
-		return Window::Get()->m_size;
+		return Window::Instance()->m_size;
 	}
 
 	SDL_GLContext Window::GetSDL_GLContext()
 	{
-		return Window::Get()->m_glContext;
+		return Window::Instance()->m_glContext;
 	}
 
 	SDL_Window* Window::GetSDLWindow()
 	{
-		return Window::Get()->m_window;
+		return Window::Instance()->m_window;
 	}
 }

@@ -281,6 +281,9 @@
     <ClInclude Include="include\Sandbox\GameWorld.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Sandbox\Random.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\texture.frag" />
@@ -307,5 +310,6 @@
     <Text Include="known_issues.txt" />
     <Text Include="todos.txt" />
     <Text Include="journal.txt" />
+    <Text Include="done.txt" />
   </ItemGroup>
 </Project>

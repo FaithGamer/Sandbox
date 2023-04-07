@@ -3,45 +3,41 @@
 #include "entt/entt.hpp"
 #include "Sandbox/GameWorld.h"
 
-typedef uint64_t UID;
-class GameWorld;
-
 namespace Sandbox
 {
 	class Entity
 	{
 	public:
+		~Entity();
 		
-		template <typename T>
-		T& AddComponent()
+		template <typename ComponentType>
+		ComponentType& AddComponent()
 		{
-			return m_world->m_registry.emplace<T>();
+			return m_world->m_registry.emplace<ComponentType>(m_id);
 		}
-		template <typename T>
+		template <typename ComponentType>
 		void RemoveComponent()
 		{
-			m_world->m_registry.remove<T>(m_enttId);
+			m_world->m_registry.remove<ComponentType>(m_id);
 		}
-		template <typename T>
-		T* GetComponent()
+		template <typename ComponentType>
+		ComponentType* GetComponent()
 		{
-			return m_world->m_registry.try_get<T>();
+			return m_world->m_registry.try_get<ComponentType>(m_id);
 		}
-		template <typename T>
-		T& GetComponentUnsafe()
+		template <typename ComponentType>
+		ComponentType& GetComponentUnsafe()
 		{
-			return m_world->m_registry.get<T>();
+			return m_world->m_registry.get<ComponentType>(m_id);
 		}
 
-		//entt::entity GetEnttId() const;
-
-		UID GetUID();
+		EntityId GetId() const;
 	private:
 		friend GameWorld;
 		Entity(GameWorld* world);
-		~Entity();
+		
 
-		entt::entity m_enttId;
+		EntityId m_id;
 		GameWorld* m_world;
 	};
 }

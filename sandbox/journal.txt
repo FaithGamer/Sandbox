@@ -50,3 +50,13 @@ Worflow will be pushing system then launching the engine, eventually with paramt
 - My systems workflow seems to be working, I can now create system that can override OnImGui.
 Next Step will be to decide the Entity/Scene workflow, and to add various core Systems: Inputs, 2DRender, Physics...
 Also I need to enhance batchrenderer (make it singleton ?) so it can render on target and batch with materials
+
+6 april
+
+- Empty component are never instanciated... I made great progress on the GameWorld/Entity system, I start wrapping a lot of the entt capabilities
+
+7 april
+
+- learned about std::tie to make tuple with reference
+- ECS is really taking shape, multiple game world can be added to Systems singleton. Game world is a wrapper around entt:registry
+Entities can be iterated with method from withtin the system thanks to the ForEachComponent method

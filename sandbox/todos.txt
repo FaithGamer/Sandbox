@@ -1,6 +1,8 @@
-- worker thread
+- push game world: do not push instantly, queue the push
 - threaded BatchRendering
-- bindins serialization (include cereal in project)
+- bindings serialization (include cereal in project)
+- Scene
+- Game World / entity serialization
 - Option to set a RenderTarget when using the batchrenderer (for rendering to framebuffer)
 - Write a RenderSystem, making use of the batchrenderer, and with option to use shader on individual sprite
 this will be related to SpriteComponent

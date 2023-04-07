@@ -34,21 +34,6 @@ void task3(int j)
 	}
 }
 
-class Bunny
-{
-public:
-	void manger()
-	{
-
-	}
-};
-
-
-void Peter(const sptr<Bunny>& constref, std::vector<int> vec)
-{
-	std::cout << constref << std::endl;
-}
-
 
 namespace Sandbox
 
@@ -56,8 +41,6 @@ namespace Sandbox
 
 	void ThreadTest()
 	{
-
-
 
 		WorkerThread worker;
 		worker.StartThread();
@@ -70,11 +53,10 @@ namespace Sandbox
 		auto t1 = makesptr<Task<void, int>>(d1);
 		auto t2 = makesptr<Task<void, int>>(d2);
 		auto t3 = makesptr<Task<void, int>>(d3);
+
 		worker.QueueTask(t1);
 		worker.QueueTask(t2);
 		worker.QueueTask(t3);
-
-
 
 	}
 

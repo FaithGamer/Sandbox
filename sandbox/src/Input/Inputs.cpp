@@ -12,7 +12,7 @@ namespace Sandbox
 
 	void Inputs::AddInputMap(const InputMap& inputMap)
 	{
-		auto instance = Inputs::Get();
+		auto instance = Inputs::Instance();
 		if (!instance->m_inputsMap.insert(std::make_pair(inputMap.GetName(), inputMap)).second)
 		{
 			LOG_WARN("There is already an input map with the name: " + inputMap.GetName() + ". No input map has been inserted.");
@@ -25,7 +25,7 @@ namespace Sandbox
 
 	void Inputs::RemoveInputMap(std::string name)
 	{
-		auto instance = Inputs::Get();
+		auto instance = Inputs::Instance();
 		if (instance->m_inputsMap.erase(name) < 1)
 		{
 			LOG_WARN("No input map with the name: " + name + " exists. No input map has been removed.");
@@ -34,7 +34,7 @@ namespace Sandbox
 
 	void Inputs::SetCurrentInputMap(std::string name)
 	{
-		auto instance = Inputs::Get();
+		auto instance = Inputs::Instance();
 		auto found = instance->m_inputsMap.find(name);
 		if (found == instance->m_inputsMap.end())
 		{
@@ -48,19 +48,19 @@ namespace Sandbox
 
 	std::string Inputs::GetCurrentInputMapName()
 	{
-		auto instance = Inputs::Get();
+		auto instance = Inputs::Instance();
 		return instance->m_current->GetName();
 	}
 
 	InputMap* Inputs::GetCurrentInputMap()
 	{
-		auto instance = Inputs::Get();
+		auto instance = Inputs::Instance();
 		return instance->m_current;
 	}
 
 	InputMap* Inputs::GetInputMap(std::string name)
 	{
-		auto instance = Inputs::Get();
+		auto instance = Inputs::Instance();
 		auto found = instance->m_inputsMap.find(name);
 		if (found == instance->m_inputsMap.end())
 		{
@@ -72,7 +72,7 @@ namespace Sandbox
 
 	std::vector<std::string> Inputs::GetInputMapNameList()
 	{
-		auto instance = Inputs::Get();
+		auto instance = Inputs::Instance();
 
 		std::vector<std::string> names;
 		for (auto kvp : instance->m_inputsMap)

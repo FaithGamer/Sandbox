@@ -63,6 +63,13 @@ void TestEntt()
 			m.direction.x = 5;
 		});
 
+	auto vi = reg.view<move>();
+
+	for (auto&& [enti, m] : vi.each())
+	{
+
+	}
+
 	std::cout << "Acted upon move component in : " << c.GetElapsed() << "s" << std::endl;
 
 	c.Restart();

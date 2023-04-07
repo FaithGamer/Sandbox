@@ -150,7 +150,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\ImGuiSystemTest.cpp" />
+    <ClCompile Include="src\Tests\ImGuiSystemTest.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Tests\EnttSpeedTest.cpp" />
     <ClCompile Include="src\Tests\ImGuiTest.cpp" />
@@ -165,7 +165,7 @@
     <ClCompile Include="src\Tests\UniformBlockTest.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\ImGuiSystemTest.h" />
+    <ClInclude Include="src\Tests\ImGuiSystemTest.h" />
     <ClInclude Include="src\Tests\BatchRendererTest.h" />
     <ClInclude Include="src\Tests\BillboardTest.h" />
     <ClInclude Include="src\Tests\EnttSpeedTest.h" />

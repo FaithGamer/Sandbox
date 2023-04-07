@@ -14,7 +14,7 @@ namespace Sandbox
 
 	protected:
 		friend Engine;
-		static sptr<T> Get()
+		static sptr<T> Instance()
 		{
 			if (m_instance == nullptr)
 			{
@@ -28,6 +28,9 @@ namespace Sandbox
 		}
 	
 		Singleton() {}
+		virtual ~Singleton() {}
+
+	private:
 		inline static sptr<T> m_instance = nullptr;
 
 	};

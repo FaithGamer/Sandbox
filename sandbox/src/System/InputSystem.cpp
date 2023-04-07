@@ -9,9 +9,13 @@ namespace Sandbox
 	{
 		SetPriority(-10000);
 	}
+
 	bool InputSystem::OnEvent(SDL_Event& event)
 	{
-		return Inputs::GetCurrentInputMap()->OnEvent(event);
+		InputMap* inputs = Inputs::GetCurrentInputMap();
+		if (inputs == nullptr)
+			return false;
+		return inputs->OnEvent(event);
 	}
 
 	int InputSystem::GetUsedMethod()

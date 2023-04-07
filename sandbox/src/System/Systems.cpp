@@ -5,6 +5,7 @@
 #include "Sandbox/Render/Window.h"
 #include "Sandbox/ImGuiLoader.h"
 #include "Sandbox/Engine.h"
+#include "Sandbox/GameWorld.h"
 
 namespace Sandbox
 {
@@ -149,7 +150,7 @@ namespace Sandbox
 					m_imGuiSystems.push_back(system);
 					std::sort(m_imGuiSystems.begin(), m_imGuiSystems.end(), CompareSystemPriority());
 				}
-
+				m_allSystems.insert(std::make_pair(system.typeId, system.system));
 				mustCallOnStart.insert(system);
 			}
 			else
@@ -170,7 +171,7 @@ namespace Sandbox
 
 	void Systems::RemovePending(std::vector<SystemIdPriority>& systems, int32_t system, std::set<SystemIdPriority, CompareSystemId>& toDelete)
 	{
-		int index = Vector::FindIndex(systems, system);
+		int64_t index = Vector::FindIndex(systems, system);
 		if (index != -1)
 		{
 			toDelete.insert(systems[index]);
@@ -183,14 +184,15 @@ namespace Sandbox
 	{
 		std::set<SystemIdPriority, CompareSystemId> toDelete;
 
-		for (auto system : m_pendingSystemOut)
+		for (auto typeId : m_pendingSystemOut)
 		{
-			if (HasSystem(system))
+			if (HasSystem(typeId))
 			{
-				RemovePending(m_updateSystems, system, toDelete);
-				RemovePending(m_fixedUpdateSystems, system, toDelete);
-				RemovePending(m_eventSystems, system, toDelete);
-				RemovePending(m_imGuiSystems, system, toDelete);
+				RemovePending(m_updateSystems, typeId, toDelete);
+				RemovePending(m_fixedUpdateSystems, typeId, toDelete);
+				RemovePending(m_eventSystems, typeId, toDelete);
+				RemovePending(m_imGuiSystems, typeId, toDelete);
+				m_allSystems.erase(typeId);
 			}
 			else
 			{
@@ -227,7 +229,60 @@ namespace Sandbox
 
 	Time Systems::GetFixedUpdateTime()
 	{
-		return Systems::Get()->m_fixedUpdateTime;
+		return Systems::Instance()->m_fixedUpdateTime;
 	}
+
+	GameWorld* Systems::CreateGameWorld()
+	{
+		return CreateGameWorld("World_" + std::to_string(Instance()->m_worlds.pointers.size()));
+	}
+
+	GameWorld* Systems::CreateGameWorld(std::string name)
+	{
+		//To do error message if twice same name
+		GameWorld* world = new GameWorld(name);
+		Systems::Instance()->m_worlds.Push(world);
+		return world;
+	}
+
+	void Systems::DestroyGameWorld(std::string name)
+	{
+		Systems::Instance()->m_worlds.Destroy(name);
+	}
+
+	GameWorld* Systems::GetGameWorld(std::string name)
+	{
+		return Systems::Instance()->m_worlds.Get(name);
+	}
+
+	std::vector<GameWorld*>& Systems::GetGameWorlds()
+	{
+		return Systems::Instance()->m_worlds.pointers;
+	}
+
+	//////////////
+	/// Worlds ///
+	//////////////
+
+	void Systems::Worlds::Push(GameWorld* world)
+	{
+		pointers.emplace_back(world);
+		names.emplace_back(world->GetName());
+	}
+
+	void Systems::Worlds::Destroy(std::string name)
+	{
+		int64_t index = Vector::FindIndex(names, name);
+		Vector::RemoveAt(names, index);
+		delete pointers[index];
+		Vector::RemoveAt(pointers, index);
+	}
+
+	GameWorld* Systems::Worlds::Get(std::string name)
+	{
+		int64_t index = Vector::FindIndex(names, name);
+		return pointers[index];
+	}
+
 }
 

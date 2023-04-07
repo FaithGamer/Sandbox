@@ -1,19 +1,20 @@
 #include "pch.h"
 #include "Sandbox/Entity.h"
+#include "Sandbox/GameWorld.h"
 
 namespace Sandbox
 {
 	Entity::Entity(GameWorld* world)
 	{
+		m_id = world->m_registry.create();
 		m_world = world;
-		m_enttId = world->m_registry.create();
 	}
 	Entity::~Entity()
 	{
-		m_world->m_registry.release(m_enttId);
+		m_world->m_registry.destroy(m_id);
 	}
-	/*entt::entity GetEnttId() const
+	EntityId Entity::GetId() const
 	{
-
-	}*/
+		return m_id;
+	}
 }

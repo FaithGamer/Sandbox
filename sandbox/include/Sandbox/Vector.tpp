@@ -83,7 +83,7 @@ namespace Sandbox
 		}
 
 		template <typename T, typename V>
-		int FindIndex(std::vector<T>& container, const V& value)
+		int64_t FindIndex(std::vector<T>& container, const V& value)
 		{
 			auto container_it = std::find(container.begin(), container.end(), value);
 			if (container_it != container.end())

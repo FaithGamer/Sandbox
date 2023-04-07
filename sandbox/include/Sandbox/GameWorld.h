@@ -4,74 +4,97 @@
 #include "TypeId.h"
 #include "Sandbox/Signal.h"
 
+
+typedef entt::entity EntityId;
+
 namespace Sandbox
 {
 	class Entity;
+	class System;
+	class Systems;
 
 	struct ComponentSignal
 	{
-		sptr<Entity> entity;
+		Entity* entity;
 	};
-
-
-	/// @brief usually there is one game world.
+	/// @brief Contains all the entities, usually there is one game world.
 	class GameWorld
 	{
 	public:
-		GameWorld();
+	
 		
-		sptr<Entity> AddEntity();
-		void RemoveEntity(sptr<Entity> entity);
+		/// @brief Create an entity
+		/// @return the entity created.
+		Entity& CreateEntity();
 
-		//To do: add free fuction
-		template <typename ComponentType, typename ListenerType>
+		/// @brief Destroy an entity
+		/// @param entity The entity id to destroy
+		void DestroyEntity(EntityId id);
+
+		Entity* GetEntity(EntityId id);
+
+		std::string GetName();
+		
+		/// @brief Bind a callback for when a component is added to an entity
+		/// @param callback Method to call when the component is added
+		/// @param listener Object to call the method upon
+		/// @param priority Higher priority will receive message first.
+		template <typename ComponentType, typename ListenerType> 	//To do: add free fuction
 		void ListenOnAddComponent(
-			void (ListenerType::* callback)(ComponentSignal), ListenerType* const listener, SignalPriority priority = SignalPriority::medium)
+			void (ListenerType::* callback)(ComponentSignal&), ListenerType* const listener, SignalPriority priority = SignalPriority::medium)
 		{
-			int typeId = TypeId::GetId<T>();
+			int typeId = TypeId::GetId<ComponentType>();
 
 			auto findId = m_onAddComponent.find(typeId);
 			if (findId == m_onAddComponent.end())
 			{
 				m_onAddComponent.insert(std::make_pair(typeId, SignalSink(this)));
-				m_registry.on_construct<T>().connect<&SignalSink::Send>(m_onAddComponent[typeId]);
+				m_registry.on_construct<ComponentType>().connect<&SignalSink::Send>(m_onAddComponent[typeId]);
 			}
-			m_onAddComponent[typeId].AddListener(callback, listener, priority);
+			m_onAddComponent[typeId].sender.AddListener(callback, listener, priority);
 		}
 
-		//To do: add free fuction
-		template <typename ComponentType, typename ListenerType>
+		/// @brief Bind a callback for when a component is removed from an entity
+		/// @param callback Method to call when the component is removed
+		/// @param listener Object to call the method upon
+		/// @param priority Higher priority will receive message first.
+		template <typename ComponentType, typename ListenerType>	//To do: add free fuction
 		void ListenOnRemoveComponent(
-			void (ListenerType::* callback)(ComponentSignal), ListenerType* const listener, SignalPriority priority = SignalPriority::medium)
+			void (ListenerType::* callback)(ComponentSignal&), ListenerType* const listener, SignalPriority priority = SignalPriority::medium)
 		{
-			int typeId = TypeId::GetId<T>();
+			int typeId = TypeId::GetId<ComponentType>();
 
 			auto findId = m_onRemoveComponent.find(typeId);
 			if (findId == m_onRemoveComponent.end())
 			{
 				m_onRemoveComponent.insert(std::make_pair(typeId, SignalSink(this)));
-				m_registry.on_construct<T>().connect<&SignalSink::Send>(m_onRemoveComponent[typeId]);
+				m_registry.on_construct<ComponentType>().connect<&SignalSink::Send>(m_onRemoveComponent[typeId]);
 			}
-			m_onRemoveComponent[typeId].AddListener(callback, listener, priority);
+			m_onRemoveComponent[typeId].sender.AddListener(callback, listener, priority);
 		}
 
 		entt::registry m_registry;
 	private:
-
+		GameWorld(std::string name);
+		friend Entity;
+		friend System;
+		friend Systems;
 		struct SignalSink
 		{
 		public:
 			SignalSink(GameWorld* w) : world(w)
 			{}
 			GameWorld* world;
-			SignalSender<ComponentSignal> m_sender;
+			SignalSender<ComponentSignal> sender;
 			void Send(entt::registry& registry, entt::entity enttId);
 		};
 
-		std::vector<sptr<Entity>> m_enttIdToEntity;
+		std::vector<Entity*> m_entities;
 
 		std::unordered_map<int32_t, SignalSink> m_onAddComponent;
 		std::unordered_map<int32_t, SignalSink> m_onRemoveComponent;
+
+		std::string m_name;
 
 		//To do: make theses variable changeable
 		uint64_t m_entityPreallocationSize;

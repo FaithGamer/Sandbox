@@ -24,7 +24,9 @@ namespace Sandbox
 	{
 		//Initialization
 		Log::Init();
-		Window::Get()->Load(parameters.appName, parameters.startupWindowResolution);
+
+		//To do, call instance of every singleton allocate memory first
+		Window::Instance()->Load(parameters.appName, parameters.startupWindowResolution);
 		LoadImGui(Window::GetSDLWindow(), Window::GetSDL_GLContext());
 
 		if (parameters.useEngineSystems)
@@ -40,7 +42,7 @@ namespace Sandbox
 		while (play)
 		{
 			Window::Clear();
-			Systems::Get()->Update();
+			Systems::Instance()->Update();
 			Window::Render();
 		}
 

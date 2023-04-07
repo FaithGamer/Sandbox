@@ -2,10 +2,12 @@
 #include "Sandbox/std_macros.h"
 #include "Sandbox/Time.h"
 #include <SDL/SDL.h>
+#include "Sandbox/GameWorld.h"
+
 
 namespace Sandbox
 {
-
+	class Entity;
 
 	class System
 	{
@@ -61,6 +63,48 @@ namespace Sandbox
 		virtual std::string DebugName() { return "System"; }
 
 	protected:
+
+
+
+		template <typename SystemType, typename... ComponentType>
+		void ForEachComponent(void(SystemType::* function)(ComponentType&...), GameWorld* world)
+		{
+			auto view = world->m_registry.view<ComponentType...>();
+			for (auto entityId : view)
+			{
+				[&] <std::size_t... I>(std::index_sequence<I...>)
+				{
+					(static_cast<SystemType*>(this)->*function)(std::get<I>(view.get(entityId))...);
+				}(std::make_index_sequence<sizeof...(ComponentType)>());
+			}
+		};
+
+		template <typename SystemType, typename... ComponentType>
+		void ForEachComponent(void(SystemType::* function)(Entity&, ComponentType&...), GameWorld* world)
+		{
+			auto view = world->m_registry.view<ComponentType...>();
+			for (auto entityId : view)
+			{
+				[&] <std::size_t... I>(std::index_sequence<I...>)
+				{
+					Entity* entity = world->GetEntity(entityId);
+					(static_cast<SystemType*>(this)->*function)(*entity, std::get<I>(view.get(entityId))...);
+				}(std::make_index_sequence<sizeof...(ComponentType)>());
+			}
+		};
+
+		template <typename SystemType, typename... ComponentType>
+		void ForEachComponent(void(SystemType::* function)(EntityId, ComponentType&...), GameWorld* world)
+		{
+			auto view = world->m_registry.view<ComponentType...>();
+			for (auto entityId : view)
+			{
+				[&] <std::size_t... I>(std::index_sequence<I...>)
+				{
+					(static_cast<SystemType*>(this)->*function)(entityId, std::get<I>(view.get(entityId))...);
+				}(std::make_index_sequence<sizeof...(ComponentType)>());
+			}
+		};
 
 	private:
 

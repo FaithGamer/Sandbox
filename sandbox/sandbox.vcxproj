@@ -62,6 +62,7 @@
     <ClInclude Include="include\Sandbox\ImGuiLoader.h" />
     <ClInclude Include="include\Sandbox\Input\Inputs.h" />
     <ClInclude Include="include\Sandbox\Parameters.h" />
+    <ClInclude Include="include\Sandbox\Random.h" />
     <ClInclude Include="include\Sandbox\Vector.h" />
     <ClInclude Include="include\Sandbox\Delegate.h" />
     <ClInclude Include="include\Sandbox\Engine.h" />
@@ -148,6 +149,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="done.txt" />
     <Text Include="journal.txt" />
     <Text Include="known_issues.txt" />
     <Text Include="todos.txt" />

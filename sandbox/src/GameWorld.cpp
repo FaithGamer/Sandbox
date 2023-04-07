@@ -2,38 +2,70 @@
 
 #include "Sandbox/GameWorld.h"
 #include "Sandbox/Entity.h"
+#include "Sandbox/Log.h"
 
 namespace Sandbox
 {
-	GameWorld::GameWorld() :
+	GameWorld::GameWorld(std::string name) :
+		m_name(name),
 		m_entityPreallocationSize(10000),
 		m_entityReallocationSize(100)
 	{
-		m_enttIdToEntity.reserve(m_entityPreallocationSize);
+		m_entities.reserve(m_entityPreallocationSize);
 	}
 
-	sptr<Entity> GameWorld::AddEntity()
+	Entity& GameWorld::CreateEntity()
 	{
-		auto entity = makesptr<Entity>(this);
-		entt::entity enttId = entity->m_enttId;
-		while (m_enttIdToEntity.capacity() < (size_t)enttId)
+		Entity* entity = new Entity(this);
+		EntityId id = entity->m_id;
+
+		//To do: free the reserved memory when capacity() is way over entt number
+		if (m_entities.capacity() < (size_t)id)
 		{
-			m_enttIdToEntity.reserve(m_enttIdToEntity.capacity() + m_entityReallocationSize);
+			m_entities.reserve(m_entities.capacity() + m_entityReallocationSize);
 		}
-		//To do: clear the unsued value when size() > entt number
-		m_enttIdToEntity[(size_t)enttId] = entity;
-		return entity;
+		while (m_entities.size() < (size_t)id + 1)
+		{
+			m_entities.emplace_back(nullptr);
+		}
+		
+		m_entities[(size_t)id] = entity;
+		return *entity;
 	}
 
-	void GameWorld::RemoveEntity(sptr<Entity> entity)
+	void GameWorld::DestroyEntity(EntityId id)
 	{
-		m_registry.destroy(entity->m_enttId);
-		m_enttIdToEntity[(size_t)entity->m_enttId].reset();
+		if (m_entities.size() <= (size_t)id || m_entities[(size_t)id] == nullptr)
+		{
+			LOG_WARN("Trying to destroy an entity that doesn't exists.");
+		}
+		else
+		{
+			delete m_entities[(size_t)id];
+			m_entities[(size_t)id] = nullptr;
+		}
+	}
+
+	Entity* GameWorld::GetEntity(EntityId id)
+	{
+		if (m_entities.size() <= (size_t)id || m_entities[(size_t)id] == nullptr)
+		{
+			LOG_WARN("Trying to get an entity that doesn't exists.");
+			return nullptr;
+		}
+		else
+		{
+			return m_entities[(size_t)id];
+		}
+	}
+
+	std::string GameWorld::GetName()
+	{
+		return m_name;
 	}
 
 	void GameWorld::SignalSink::Send(entt::registry& registry, entt::entity enttId)
 	{
-		sptr<Entity> entity = world->m_enttIdToEntity[(size_t)enttId];
-		m_sender.SendSignal(ComponentSignal(entity));
+		sender.SendSignal(ComponentSignal(world->m_entities[(size_t)enttId]));
 	}
 }

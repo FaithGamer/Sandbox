@@ -2,7 +2,7 @@
 #include "Sandbox/System/Systems.h"
 #include "Sandbox/System/System.h"
 #include "Sandbox/Time.h"
-#include "Sandbox/Sandbox.h"
+#include "Sandbox/Engine.h"
 
 class MySytem : public Sandbox::System
 {
@@ -16,7 +16,7 @@ public:
 		m_timer += time;
 		if (m_timer >= 1.f)
 		{
-			Sandbox::Stop();
+			Sandbox::Engine::Stop();
 			std::cout << "Average: " << m_sum / (float)m_count << std::endl;
 		}
 		
@@ -41,7 +41,7 @@ void SystemTest()
 	Sandbox::Systems::Push<MySytem>();
 	Sandbox::Clock t;
 
-	Sandbox::Launch();
+	Sandbox::Engine::Launch();
 	std::cout << t.GetElapsed() << std::endl;
 
 }

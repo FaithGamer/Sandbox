@@ -32,7 +32,7 @@ namespace Sandbox
         /// @brief Find the index of the given value if contained.
         /// @return Index of the value, -1 if vector doesn't contain the value.
         template <typename T, typename V>
-        int FindIndex(std::vector<T>& container, const V& value);
+        int64_t FindIndex(std::vector<T>& container, const V& value);
        
     }
 }
