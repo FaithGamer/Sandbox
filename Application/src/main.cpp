@@ -36,7 +36,6 @@ public:
 
 	void OnUpdate(Time time) override
 	{
-		std::cout << "oui" << std::endl;
 		ForEachComponent(&WorldTest::MyFunction, m_world);
 		ForEachComponent(&WorldTest::MyFunctionEntity, m_world);
 	}
@@ -48,7 +47,7 @@ public:
 
 	void MyFunctionEntity(Entity& entity, compa& a, compb& b)
 	{
-		std::cout << "MyFunctionEntity: "<< (int)entity.GetId() << std::endl;
+		std::cout << "MyFunctionEntity: "<< (int)entity.GetId() << "compa: "<< a.b++ << std::endl;
 	}
 
 	GameWorld* m_world;
