@@ -150,6 +150,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Tests\ECSTest.cpp" />
+    <ClCompile Include="src\Tests\ECSTest.h" />
     <ClCompile Include="src\Tests\ImGuiSystemTest.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Tests\EnttSpeedTest.cpp" />

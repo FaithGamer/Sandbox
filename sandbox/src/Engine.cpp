@@ -1,12 +1,12 @@
 #include "pch.h"
 
 #include "Sandbox/Engine.h"
-#include "Sandbox/System/Systems.h"
+#include "Sandbox/ECS/Systems.h"
 #include "Sandbox/Render/Window.h"
 #include "Sandbox/Parameters.h"
 #include "Sandbox/Input/Inputs.h"
 #include "Sandbox/ImGuiLoader.h"
-#include "Sandbox/System/InputSystem.h"
+#include "Sandbox/ECS/InputSystem.h"
 
 
 

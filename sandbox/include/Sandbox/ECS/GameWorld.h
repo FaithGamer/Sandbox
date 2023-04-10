@@ -1,7 +1,7 @@
 #pragma once
 
 #include "entt/entt.hpp"
-#include "TypeId.h"
+#include "Sandbox/TypeId.h"
 #include "Sandbox/Signal.h"
 
 
@@ -21,8 +21,6 @@ namespace Sandbox
 	class GameWorld
 	{
 	public:
-	
-		
 		/// @brief Create an entity
 		/// @return the entity created.
 		Entity& CreateEntity();
@@ -41,14 +39,14 @@ namespace Sandbox
 		/// @param priority Higher priority will receive message first.
 		template <typename ComponentType, typename ListenerType> 	//To do: add free fuction
 		void ListenOnAddComponent(
-			void (ListenerType::* callback)(ComponentSignal&), ListenerType* const listener, SignalPriority priority = SignalPriority::medium)
+			void (ListenerType::* callback)(ComponentSignal), ListenerType* const listener, SignalPriority priority = SignalPriority::medium)
 		{
 			int typeId = TypeId::GetId<ComponentType>();
 
 			auto findId = m_onAddComponent.find(typeId);
 			if (findId == m_onAddComponent.end())
 			{
-				m_onAddComponent.insert(std::make_pair(typeId, SignalSink(this)));
+				m_onAddComponent.insert(std::make_pair((int32_t)typeId, SignalSink(this)));
 				m_registry.on_construct<ComponentType>().connect<&SignalSink::Send>(m_onAddComponent[typeId]);
 			}
 			m_onAddComponent[typeId].sender.AddListener(callback, listener, priority);
@@ -60,7 +58,7 @@ namespace Sandbox
 		/// @param priority Higher priority will receive message first.
 		template <typename ComponentType, typename ListenerType>	//To do: add free fuction
 		void ListenOnRemoveComponent(
-			void (ListenerType::* callback)(ComponentSignal&), ListenerType* const listener, SignalPriority priority = SignalPriority::medium)
+			void (ListenerType::* callback)(ComponentSignal), ListenerType* const listener, SignalPriority priority = SignalPriority::medium)
 		{
 			int typeId = TypeId::GetId<ComponentType>();
 
@@ -70,7 +68,7 @@ namespace Sandbox
 				m_onRemoveComponent.insert(std::make_pair(typeId, SignalSink(this)));
 				m_registry.on_construct<ComponentType>().connect<&SignalSink::Send>(m_onRemoveComponent[typeId]);
 			}
-			m_onRemoveComponent[typeId].sender.AddListener(callback, listener, priority);
+			m_onRemoveComponent[typeId].sender.AddListener<ListenerType>(callback, listener, priority);
 		}
 
 		entt::registry m_registry;
@@ -82,6 +80,8 @@ namespace Sandbox
 		struct SignalSink
 		{
 		public:
+			SignalSink() : world(nullptr)
+			{}
 			SignalSink(GameWorld* w) : world(w)
 			{}
 			GameWorld* world;

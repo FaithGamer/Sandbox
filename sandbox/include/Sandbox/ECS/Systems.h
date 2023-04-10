@@ -2,7 +2,7 @@
 
 #include <set>
 
-#include "Sandbox/System/System.h"
+#include "Sandbox/ECS/System.h"
 #include "Sandbox/Singleton.h"
 #include "Sandbox/Vector.h"
 #include "Sandbox/TypeId.h"
@@ -98,10 +98,27 @@ namespace Sandbox
 
 		static Time GetFixedUpdateTime();
 
+		/// @brief Create and store a GameWorld, usually you will have only one GameWorld
+		/// Default GameWorld name will be World_0, 1, 2, 3....
+		/// @return The GameWorld created
 		static GameWorld* CreateGameWorld();
+		/// @brief Create and store a GameWorld, usually you will have only one GameWorld
+		/// @param name, Give the game world a name.
+		/// @return The GameWorld created
 		static GameWorld* CreateGameWorld(std::string name);
 		static void DestroyGameWorld(std::string name);
+
+		/// @brief The first GameWorld ever created.
+		/// @return GameWorld pointer.
+		static GameWorld* GetGameWorld();
+
+		/// @brief Get a GameWorld from it's name.
+		/// @param GameWorld's name 
+		/// @return The game world, nullptr if doesn't exists.
 		static GameWorld* GetGameWorld(std::string name);
+		
+		/// @brief Access all the game worlds
+		/// @return Reference to the GameWorlds vector.
 		static std::vector<GameWorld*>& GetGameWorlds();
 	private:
 

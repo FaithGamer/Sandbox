@@ -3,6 +3,7 @@
 #include "Sandbox/Input/ButtonInput.h"
 #include "Sandbox/Input/Bindings.h"
 
+
 namespace Sandbox
 {
 
@@ -14,7 +15,7 @@ namespace Sandbox
 
 	bool ButtonInput::KeyPressed(const SDL_Event& e)
 	{
-		if (e.key.keysym.scancode == m_button.key)
+		if (e.key.keysym.scancode == (SDL_Scancode)m_button.key)
 		{
 			PressButton();
 			return true;
@@ -24,7 +25,7 @@ namespace Sandbox
 
 	bool ButtonInput::KeyReleased(const SDL_Event& e)
 	{
-		if (e.key.keysym.scancode == m_button.key)
+		if (e.key.keysym.scancode == (SDL_Scancode)m_button.key)
 		{
 			return ReleaseButton();
 		}
@@ -99,12 +100,12 @@ namespace Sandbox
 		//Keyboard
 		if (e.type == SDL_KEYUP)
 		{
-			m_button.key = e.key.keysym.scancode;
+			m_button.key = (KeyScancode)e.key.keysym.scancode;
 		}
 		//Controller
 		else if (e.type == SDL_CONTROLLERBUTTONUP)
 		{
-			m_button.controller = (SDL_GameControllerButton)e.cbutton.button;
+			m_button.controller = (ControllerButton)e.cbutton.button;
 		}
 	}
 
@@ -135,7 +136,7 @@ namespace Sandbox
 		m_sendSignalOnRelease = triggerOnRelease;
 	}
 
-	void ButtonInput::BindKey(SDL_Scancode keyButton, int version)
+	void ButtonInput::BindKey(KeyScancode keyButton, int version)
 	{
 		m_button.key = keyButton;
 		UpdateEventListened();
@@ -147,7 +148,7 @@ namespace Sandbox
 		UpdateEventListened();
 	}
 
-	void ButtonInput::BindController(SDL_GameControllerButton controllerButton, int version)
+	void ButtonInput::BindController(ControllerButton controllerButton, int version)
 	{
 		m_button.controller = controllerButton;
 		UpdateEventListened();
@@ -161,7 +162,7 @@ namespace Sandbox
 		newEvents.keyText = false;
 		newEvents.mouseMovement = false;
 
-		if (m_button.key != SDL_SCANCODE_UNKNOWN)
+		if (m_button.key != KeyScancode::Unknown)
 			newEvents.keyButton = true;
 		else
 			newEvents.keyButton = false;
@@ -171,12 +172,12 @@ namespace Sandbox
 		else
 			newEvents.mouseButton = false;
 
-		if (m_button.controller != SDL_CONTROLLER_BUTTON_INVALID)
+		if (m_button.controller != ControllerButton::Invalid)
 			newEvents.controllerButton = true;
 		else
 			newEvents.controllerButton = false;
 
-		if ((SDL_GameControllerAxis)m_button.trigger != SDL_CONTROLLER_AXIS_INVALID)
+		if (m_button.trigger != ControllerTrigger::Undefined)
 			newEvents.controllerTrigger = true;
 		else
 			newEvents.controllerTrigger = false;

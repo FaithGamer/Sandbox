@@ -1,11 +1,11 @@
 #include "pch.h"
 
 #include "imgui/imgui_impl_sdl2.h"
-#include "Sandbox/System/Systems.h"
+#include "Sandbox/ECS/Systems.h"
 #include "Sandbox/Render/Window.h"
 #include "Sandbox/ImGuiLoader.h"
 #include "Sandbox/Engine.h"
-#include "Sandbox/GameWorld.h"
+#include "Sandbox/ECS/GameWorld.h"
 
 namespace Sandbox
 {
@@ -22,23 +22,23 @@ namespace Sandbox
 	{
 		std::set<SystemIdPriority, CompareSystemId> toDelete;
 
-		for (auto system : m_eventSystems)
+		for (auto& system : m_eventSystems)
 		{
 			toDelete.insert(system);
 		}
-		for (auto system : m_fixedUpdateSystems)
+		for (auto& system : m_fixedUpdateSystems)
 		{
 			toDelete.insert(system);
 		}
-		for (auto system : m_updateSystems)
+		for (auto& system : m_updateSystems)
 		{
 			toDelete.insert(system);
 		}
-		for (auto system : m_imGuiSystems)
+		for (auto& system : m_imGuiSystems)
 		{
 			toDelete.insert(system);
 		}
-		for (auto system : m_pendingSystemIn)
+		for (auto& system : m_pendingSystemIn)
 		{
 			toDelete.insert(system);
 		}
@@ -71,7 +71,10 @@ namespace Sandbox
 			bool ImGuiEventHandled = ImGui_ImplSDL2_ProcessEvent(&m_events);
 			if (ImGuiEventHandled)
 			{
-				continue;
+				if(ImGui::GetIO().WantCaptureKeyboard)
+					continue;
+				if (ImGui::GetIO().WantCaptureMouse)
+					continue;
 			}
 
 			for (auto& eventSystem : m_eventSystems)
@@ -90,7 +93,7 @@ namespace Sandbox
 			m_fixedUpdateAccumulator -= m_fixedUpdateTime;
 			for (auto& system : m_fixedUpdateSystems)
 			{
-				system.system->OnFixedUpdate();
+				system.system->OnFixedUpdate(m_fixedUpdateTime);
 			}
 			if (++i > m_maxFixedUpdate)
 			{
@@ -125,7 +128,7 @@ namespace Sandbox
 	{
 		std::set<SystemIdPriority, CompareSystemPriority> mustCallOnStart;
 
-		for (auto system : m_pendingSystemIn)
+		for (auto& system : m_pendingSystemIn)
 		{
 			if (!HasSystem(system.typeId))
 			{
@@ -253,6 +256,11 @@ namespace Sandbox
 	GameWorld* Systems::GetGameWorld(std::string name)
 	{
 		return Systems::Instance()->m_worlds.Get(name);
+	}
+
+	GameWorld* Systems::GetGameWorld()
+	{
+		return Systems::Instance()->m_worlds.pointers[0];
 	}
 
 	std::vector<GameWorld*>& Systems::GetGameWorlds()

@@ -1,7 +1,7 @@
 #include "pch.h"
 
 #include "Sandbox/Input/Inputs.h"
-#include "Sandbox/System/InputSystem.h"
+#include "Sandbox/ECS/InputSystem.h"
 
 namespace Sandbox
 {

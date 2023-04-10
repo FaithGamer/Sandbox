@@ -97,7 +97,7 @@ void BillboardTest()
 
 	auto button = makesptr<ButtonInput>("ButtonTest");
 
-	button->BindKey(SDL_SCANCODE_W);
+	button->BindKey(KeyScancode::A);
 
 	inputs.AddInput(button);
 

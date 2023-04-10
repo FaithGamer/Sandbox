@@ -6,12 +6,11 @@ namespace Sandbox
 {
 
 	/// @brief Holds function pointer to either free function of member function
-	/// @tparam ...Args 
-	/// @tparam Ret 
+	/// do not support function with pointer or reference as argument yet
 	template<typename Ret, typename... Args>
 	class Delegate
 	{
-
+		//To do: fynd a way to support reference/pointer as arguments ( the tuple default constructor is the problem here)
 	public:
 		Delegate(Ret(*function)(Args...))
 		{

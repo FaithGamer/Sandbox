@@ -12,13 +12,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Delegate.cpp" />
-    <ClCompile Include="src\GameWorld.cpp" />
+    <ClCompile Include="src\ECS\GameWorld.cpp" />
     <ClCompile Include="src\ImGuiLoader.cpp" />
     <ClCompile Include="src\Input\Inputs.cpp" />
     <ClCompile Include="src\Parameters.cpp" />
     <ClCompile Include="src\Engine.cpp" />
-    <ClCompile Include="src\System\InputSystem.cpp" />
-    <ClCompile Include="src\System\Systems.cpp" />
+    <ClCompile Include="src\ECS\InputSystem.cpp" />
+    <ClCompile Include="src\ECS\Systems.cpp" />
     <ClCompile Include="src\Input\Controller.cpp" />
     <ClCompile Include="src\Input\Keyboard.cpp" />
     <ClCompile Include="src\Input\Mouse.cpp" />
@@ -29,8 +29,8 @@
     <ClCompile Include="src\Render\BatchRenderer.cpp" />
     <ClCompile Include="src\Input\InputMap.cpp" />
     <ClCompile Include="src\Input\ButtonInput.cpp" />
-    <ClCompile Include="src\Scene.cpp" />
-    <ClCompile Include="src\Entity.cpp" />
+    <ClCompile Include="src\ECS\Scene.cpp" />
+    <ClCompile Include="src\ECS\Entity.cpp" />
     <ClCompile Include="src\Input\DirectionalInput.cpp" />
     <ClCompile Include="src\Input\Input.cpp" />
     <ClCompile Include="src\Input\PointingInput.cpp" />
@@ -51,14 +51,15 @@
     <ClCompile Include="src\Render\VertexArray.cpp" />
     <ClCompile Include="src\Render\Texture.cpp" />
     <ClCompile Include="src\Render\Transform.cpp" />
-    <ClCompile Include="src\System\System.cpp" />
+    <ClCompile Include="src\ECS\System.cpp" />
     <ClCompile Include="src\Input\TextualInput.cpp" />
     <ClCompile Include="src\Input\ScrollInput.cpp" />
     <ClCompile Include="src\Task.cpp" />
     <ClCompile Include="src\Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Sandbox\GameWorld.h" />
+    <ClInclude Include="include\Sandbox\ECS.h" />
+    <ClInclude Include="include\Sandbox\ECS\GameWorld.h" />
     <ClInclude Include="include\Sandbox\ImGuiLoader.h" />
     <ClInclude Include="include\Sandbox\Input\Inputs.h" />
     <ClInclude Include="include\Sandbox\Parameters.h" />
@@ -67,8 +68,8 @@
     <ClInclude Include="include\Sandbox\Delegate.h" />
     <ClInclude Include="include\Sandbox\Engine.h" />
     <ClInclude Include="include\Sandbox\Singleton.h" />
-    <ClInclude Include="include\Sandbox\System\Systems.h" />
-    <ClInclude Include="include\Sandbox\System\InputSystem.h" />
+    <ClInclude Include="include\Sandbox\ECS\Systems.h" />
+    <ClInclude Include="include\Sandbox\ECS\InputSystem.h" />
     <ClInclude Include="include\Sandbox\Input\Bindings.h" />
     <ClInclude Include="include\Sandbox\Input\Controller.h" />
     <ClInclude Include="include\Sandbox\Input\Keyboard.h" />
@@ -82,8 +83,8 @@
     <ClInclude Include="include\Sandbox\Input\DirectionalInput.h" />
     <ClInclude Include="include\Sandbox\Input\PointingInput.h" />
     <ClInclude Include="include\Sandbox\entt_macros.h" />
-    <ClInclude Include="include\Sandbox\Scene.h" />
-    <ClInclude Include="include\Sandbox\Entity.h" />
+    <ClInclude Include="include\Sandbox\ECS\Scene.h" />
+    <ClInclude Include="include\Sandbox\ECS\Entity.h" />
     <ClInclude Include="include\Sandbox\Vec.h" />
     <ClInclude Include="include\Sandbox\Signal.h" />
     <ClInclude Include="include\Sandbox\Worker.h" />
@@ -102,7 +103,7 @@
     <ClInclude Include="include\Sandbox\Render\VertexArray.h" />
     <ClInclude Include="include\Sandbox\Render\Texture.h" />
     <ClInclude Include="include\Sandbox\Render\Transform.h" />
-    <ClInclude Include="include\Sandbox\System\System.h" />
+    <ClInclude Include="include\Sandbox\ECS\System.h" />
     <ClInclude Include="include\Sandbox\Input\TextualInput.h" />
     <ClInclude Include="include\Sandbox\Input\ScrollInput.h" />
     <ClInclude Include="include\Sandbox\Task.h" />

@@ -2,7 +2,7 @@
 #include "Sandbox/std_macros.h"
 #include "Sandbox/Time.h"
 #include <SDL/SDL.h>
-#include "Sandbox/GameWorld.h"
+#include "Sandbox/ECS/GameWorld.h"
 
 
 namespace Sandbox
@@ -27,12 +27,11 @@ namespace Sandbox
 		virtual void OnStart() {}
 
 		/// @brief Called as often as possible.
-		/// @param time Time elapsed since last call.
-		virtual void OnUpdate(Time time) {}
+		/// @param deltaTime Time elapsed since last call.
+		virtual void OnUpdate(Time deltaTime) {}
 
 		/// @brief Called on a fixed timestep.
-		/// The timestep can be accessed through Systems::GetFixedTimeStep()
-		virtual void OnFixedUpdate() {}
+		virtual void OnFixedUpdate(Time fixedDeltaTime) {}
 
 		/// @brief This is where you can create ImGui elements
 		virtual void OnImGui() {}
@@ -65,7 +64,7 @@ namespace Sandbox
 	protected:
 
 
-
+		//To do: For Each without gameWorld and get default gameworld
 		template <typename SystemType, typename... ComponentType>
 		void ForEachComponent(void(SystemType::* function)(ComponentType&...), GameWorld* world)
 		{

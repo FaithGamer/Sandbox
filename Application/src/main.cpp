@@ -1,74 +1,93 @@
 #include "pch.h"
 #include "Sandbox/Engine.h"
-#include "Sandbox/System/Systems.h"
+
 #include "Tests/ImGuiSystemTest.h"
+#include "Tests/ECSTest.h"
 #include "entt/entt.hpp"
 #include "Sandbox/Time.h"
+#include "Sandbox/ECS.h"
+#include "Sandbox/Input/Inputs.h"
+#include "Sandbox/Input/Input.h"
+#include "Sandbox/Input/InputMap.h"
+#include "Sandbox/Input/ButtonInput.h"
+
+
+#include "Sandbox/std_macros.h"
 
 #include <random>
 #include <iostream>
 
-#include "Sandbox/System/System.h"
-#include "Sandbox/Entity.h"
+namespace sb = Sandbox;
 
-
-struct compa
+struct PlayerControl
 {
-	int b;
+	bool jump = false;
 };
 
-struct compb
+class Main : public sb::System
 {
-	int a;
+	void OnStart() override
+	{
+		sb::Entity& player = sb::Systems::GetGameWorld()->CreateEntity();
+		player.AddComponent<PlayerControl>();
+	}
 };
 
-using namespace Sandbox;
-
-
-
-class WorldTest : public System
+class Controller : public sb::System
 {
-public:
-	WorldTest(GameWorld* world)
+	void OnStart() override
 	{
-		m_world = world;
+		//Initialize an input map
+
+		sb::InputMap map("InputMap");
+		auto jump = makesptr<sb::ButtonInput>("Jump");
+		jump->BindKey(sb::KeyScancode::Space);
+		map.AddInput(jump);
+		sb::Inputs::AddInputMap(map);
+
+		jump->inputSignal.AddListener(&Controller::OnJump, this);
 	}
 
-	void OnUpdate(Time time) override
+	void OnJump(sb::InputSignal signal)
 	{
-		ForEachComponent(&WorldTest::MyFunction, m_world);
-		ForEachComponent(&WorldTest::MyFunctionEntity, m_world);
+		std::cout << " oui" << std::endl;
+		auto world = sb::Systems::GetGameWorld();
+		ForEachComponent(&Controller::Jump, world);
 	}
 
-	void MyFunction(compa& a, compb& b)
+	void Jump(sb::Entity& entity, PlayerControl& component)
 	{
-
+		component.jump = true;
 	}
+};
 
-	void MyFunctionEntity(Entity& entity, compa& a, compb& b)
+class Physics : public sb::System
+{
+	void OnUpdate(sb::Time time) override
 	{
-		std::cout << "MyFunctionEntity: "<< (int)entity.GetId() << "compa: "<< a.b++ << std::endl;
+		ForEachComponent(&Physics::Jump, sb::Systems::GetGameWorld());
 	}
-
-	GameWorld* m_world;
+	void Jump(PlayerControl& control)
+	{
+		if (control.jump)
+		{
+			std::cout << "Jump" << std::endl;
+			control.jump = false;
+		}
+	}
 };
 
 int main(int argc, char** argv)
 {
-	Sandbox::Engine::Init();
+	sb::Engine::Init();
+	sb::Systems::CreateGameWorld();
 
-	auto world = Sandbox::Systems::CreateGameWorld("MyWorld");
+	sb::Systems::Push<ImGuiSystemTest>();
+	sb::Systems::Push<Controller>();
+	sb::Systems::Push<Physics>();
+	sb::Systems::Push<Main>();
 
-	Sandbox::Systems::Push<ImGuiSystemTest>();
-	Sandbox::Systems::Push<WorldTest>(world);
-	
-	Entity& entity = world->CreateEntity();
-	entity.AddComponent<compa>();
-	entity.AddComponent<compb>();
-	//can we create entity and add component when iterating view ?
-	
-
-	Sandbox::Engine::Launch();
+	sb::Engine::Launch();
 
 	return 0;
 }

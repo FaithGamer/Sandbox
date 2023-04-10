@@ -1,3 +1,4 @@
+- to create an input, only go through an input map, same for InputMap, create it from Inputs
 - push game world: do not push instantly, queue the push
 - threaded BatchRendering
 - bindings serialization (include cereal in project)

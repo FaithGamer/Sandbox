@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Sandbox/System/System.h"
+#include "Sandbox/ECS/System.h"
 
 namespace Sandbox
 {

@@ -1,7 +1,7 @@
 #include "pch.h"
 
-#include "Sandbox/GameWorld.h"
-#include "Sandbox/Entity.h"
+#include "Sandbox/ECS/GameWorld.h"
+#include "Sandbox/ECS/Entity.h"
 #include "Sandbox/Log.h"
 
 namespace Sandbox

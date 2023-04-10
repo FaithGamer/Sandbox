@@ -1,9 +1,11 @@
 ﻿#pragma once
 
 #include "Sandbox/Input/Input.h"
+#include "Sandbox/Input/Keyboard.h"
 #include "Sandbox/Input/Controller.h"
 #include "Sandbox/Input/Mouse.h"
 #include "Sandbox/Vec.h"
+
 
 namespace Sandbox
 {
@@ -13,9 +15,9 @@ namespace Sandbox
 	struct Button
 	{
 		MouseButton mouse = MouseButton::Invalid;
-		SDL_Scancode key = SDL_SCANCODE_UNKNOWN;// scancode is a physical position on the keyboard.
+		KeyScancode key = KeyScancode::Unknown;// scancode is a physical position on the keyboard.
 		// to retreive it's Keycode on the current layout, use the macro SDL_SCANCODE_TO_KEYCODE
-		SDL_GameControllerButton controller = SDL_CONTROLLER_BUTTON_INVALID;
+		ControllerButton controller = ControllerButton::Invalid;
 		ControllerTrigger trigger = ControllerTrigger::Undefined;
 	};
 
@@ -61,7 +63,7 @@ namespace Sandbox
 		/// @brief Bind a Key from the keyboard
 		/// @param keyButton The scancode of the key
 		/// @param version There can be multiple key for the same Input.
-		void BindKey(SDL_Scancode keyButton, int version = 0);
+		void BindKey(KeyScancode keyButton, int version = 0);
 		/// @brief Bind a mouse button 
 		/// @param mouseButton The mouse button
 		/// @param version There can be multiple mouse button for the same Input.
@@ -69,7 +71,7 @@ namespace Sandbox
 		/// @brief Bind to a controller button
 		/// @param controllerButton the controller button
 		/// @param version There can be multiple controller buttons for the same Input.
-		void BindController(SDL_GameControllerButton controllerButton, int version = 0);
+		void BindController(ControllerButton controllerButton, int version = 0);
 
 		struct State
 		{
