@@ -4,6 +4,7 @@
 #include "Tests/ImGuiSystemTest.h"
 #include "Tests/ECSTest.h"
 #include "entt/entt.hpp"
+#include "Sandbox/Vec.h"
 #include "Sandbox/Time.h"
 #include "Sandbox/ECS.h"
 #include "Sandbox/Input/Inputs.h"
@@ -22,23 +23,9 @@ struct PlayerControlled
 	bool jump = false;
 };
 
-template <typename... Args, typename F>
-void foo(F f, Args... args)
+struct Body
 {
-	f(args...);
-}
-
-void bar(int b)
-{
-	std::cout << b << std::endl;
-}
-class Driver
-{
-public:
-	Driver()
-	{
-		foo([](int b, int c){std::cout << b << " " << c << std::endl; }, 23, 32);
-	}
+	sb::Vec2f velocity;
 };
 
 class Controller : public sb::System
@@ -51,28 +38,38 @@ class Controller : public sb::System
 
 	void OnJump(sb::InputSignal signal)
 	{
-		ForEachComponent<PlayerControlled>(
-			[](PlayerControlled& component) 
+		ForEachComponent<PlayerControlled, Body>(
+			[](PlayerControlled& component, Body& body)
 			{
-				component.jump = true; 
+				body.velocity.y += 10;
 			});
 	}
 };
 
-class Physics : public sb::System
+class PhysicsSystem : public sb::System
 {
-	void OnUpdate(sb::Time time) override
+public:
+	int GetUsedMethod() override
 	{
-		ForEachComponent(&Physics::Jump);
+		return System::Method::FixedUpdate;
 	}
-	void Jump(PlayerControlled& control)
+protected:
+	void OnFixedUpdate(sb::Time time) override
 	{
-		if (control.jump)
-		{
-			std::cout << "Jump" << std::endl;
-			control.jump = false;
-		}
+		ForEachComponent(&PhysicsSystem::Gravity);
 	}
+
+	void Gravity(Body& body)
+	{
+		body.velocity.y -= 0.1f;
+		std::cout << body.velocity.y << std::endl;
+	}
+
+};
+
+class RenderSystem 
+{
+
 };
 
 void InitInputs()
@@ -84,20 +81,20 @@ void InitInputs()
 
 int main(int argc, char** argv)
 {
-	Driver driver;
 	sb::Engine::Init();
 	sb::Systems::CreateGameWorld();
-	
+
 	sb::Inputs::CreateInputMap();
 
 	InitInputs();
 	sb::Entity& player = sb::Systems::GetMainGameWorld()->CreateEntity();
 	player.AddComponent<PlayerControlled>();
+	player.AddComponent<Body>();
 
 	sb::Systems::Push<ImGuiSystemTest>();
 	sb::Systems::Push<Controller>();
-	sb::Systems::Push<Physics>();
-	
+	sb::Systems::Push<PhysicsSystem>();
+
 
 	sb::Engine::Launch();
 
