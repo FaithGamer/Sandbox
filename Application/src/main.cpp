@@ -10,8 +10,6 @@
 #include "Sandbox/Input/Input.h"
 #include "Sandbox/Input/InputMap.h"
 #include "Sandbox/Input/ButtonInput.h"
-
-
 #include "Sandbox/std_macros.h"
 
 #include <random>
@@ -19,17 +17,27 @@
 
 namespace sb = Sandbox;
 
-struct PlayerControl
+struct PlayerControlled
 {
 	bool jump = false;
 };
 
-class Main : public sb::System
+template <typename... Args, typename F>
+void foo(F f, Args... args)
 {
-	void OnStart() override
+	f(args...);
+}
+
+void bar(int b)
+{
+	std::cout << b << std::endl;
+}
+class Driver
+{
+public:
+	Driver()
 	{
-		sb::Entity& player = sb::Systems::GetGameWorld()->CreateEntity();
-		player.AddComponent<PlayerControl>();
+		foo([](int b, int c){std::cout << b << " " << c << std::endl; }, 23, 32);
 	}
 };
 
@@ -37,27 +45,17 @@ class Controller : public sb::System
 {
 	void OnStart() override
 	{
-		//Initialize an input map
-
-		sb::InputMap map("InputMap");
-		auto jump = makesptr<sb::ButtonInput>("Jump");
-		jump->BindKey(sb::KeyScancode::Space);
-		map.AddInput(jump);
-		sb::Inputs::AddInputMap(map);
-
-		jump->inputSignal.AddListener(&Controller::OnJump, this);
+		sb::Input* jump = sb::Inputs::GetInputMap()->GetInput("Jump");
+		jump->signal.AddListener(&Controller::OnJump, this);
 	}
 
 	void OnJump(sb::InputSignal signal)
 	{
-		std::cout << " oui" << std::endl;
-		auto world = sb::Systems::GetGameWorld();
-		ForEachComponent(&Controller::Jump, world);
-	}
-
-	void Jump(sb::Entity& entity, PlayerControl& component)
-	{
-		component.jump = true;
+		ForEachComponent<PlayerControlled>(
+			[](PlayerControlled& component) 
+			{
+				component.jump = true; 
+			});
 	}
 };
 
@@ -65,9 +63,9 @@ class Physics : public sb::System
 {
 	void OnUpdate(sb::Time time) override
 	{
-		ForEachComponent(&Physics::Jump, sb::Systems::GetGameWorld());
+		ForEachComponent(&Physics::Jump);
 	}
-	void Jump(PlayerControl& control)
+	void Jump(PlayerControlled& control)
 	{
 		if (control.jump)
 		{
@@ -77,15 +75,29 @@ class Physics : public sb::System
 	}
 };
 
+void InitInputs()
+{
+	sb::InputMap& inputs = sb::Inputs::GetCurrentInputMap();
+	sb::ButtonInput* jump = inputs.CreateButtonInput("Jump");
+	jump->BindKey(sb::KeyScancode::Space);
+}
+
 int main(int argc, char** argv)
 {
+	Driver driver;
 	sb::Engine::Init();
 	sb::Systems::CreateGameWorld();
+	
+	sb::Inputs::CreateInputMap();
+
+	InitInputs();
+	sb::Entity& player = sb::Systems::GetMainGameWorld()->CreateEntity();
+	player.AddComponent<PlayerControlled>();
 
 	sb::Systems::Push<ImGuiSystemTest>();
 	sb::Systems::Push<Controller>();
 	sb::Systems::Push<Physics>();
-	sb::Systems::Push<Main>();
+	
 
 	sb::Engine::Launch();
 

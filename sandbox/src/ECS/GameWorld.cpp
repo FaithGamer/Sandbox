@@ -1,8 +1,10 @@
 #include "pch.h"
 
 #include "Sandbox/ECS/GameWorld.h"
+#include "Sandbox/ECS/Systems.h"
 #include "Sandbox/ECS/Entity.h"
 #include "Sandbox/Log.h"
+
 
 namespace Sandbox
 {
@@ -67,5 +69,10 @@ namespace Sandbox
 	void GameWorld::SignalSink::Send(entt::registry& registry, entt::entity enttId)
 	{
 		sender.SendSignal(ComponentSignal(world->m_entities[(size_t)enttId]));
+	}
+
+	GameWorld* GameWorld::GetMain()
+	{
+		return Systems::GetMainGameWorld();
 	}
 }

@@ -40,8 +40,8 @@ public:
 
 	void OnUpdate(Time time) override
 	{
-		ForEachComponent(&EcsTest::MyFunction, m_world);
-		ForEachComponent(&EcsTest::MyFunctionEntity, m_world);
+		ForEachComponent(m_world, &EcsTest::MyFunction);
+		ForEachComponent(m_world, &EcsTest::MyFunctionEntity);
 	}
 
 	void MyFunction(compa& a, compb& b)

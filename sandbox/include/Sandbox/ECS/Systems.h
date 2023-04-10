@@ -110,7 +110,7 @@ namespace Sandbox
 
 		/// @brief The first GameWorld ever created.
 		/// @return GameWorld pointer.
-		static GameWorld* GetGameWorld();
+		static GameWorld* GetMainGameWorld();
 
 		/// @brief Get a GameWorld from it's name.
 		/// @param GameWorld's name 

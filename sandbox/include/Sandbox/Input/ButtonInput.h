@@ -33,8 +33,7 @@ namespace Sandbox
 	class ButtonInput : public Input
 	{
 	public:
-		ButtonInput(std::string name);
-
+		
 
 		virtual void ListenEventAndBindTrigger(const SDL_Event& e, int version = 0);
 		virtual void SetBindings(const Bindings& bondings, int version = 0);
@@ -82,6 +81,9 @@ namespace Sandbox
 		virtual void UpdateEventListened();
 
 	private:
+		friend InputMap;
+		ButtonInput(std::string name);
+
 		bool ReleaseButton();
 		bool PressButton();
 

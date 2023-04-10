@@ -258,8 +258,9 @@ namespace Sandbox
 		return Systems::Instance()->m_worlds.Get(name);
 	}
 
-	GameWorld* Systems::GetGameWorld()
+	GameWorld* Systems::GetMainGameWorld()
 	{
+		//To do, error handling
 		return Systems::Instance()->m_worlds.pointers[0];
 	}
 

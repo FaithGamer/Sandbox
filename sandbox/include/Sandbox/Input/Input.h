@@ -51,7 +51,7 @@ namespace Sandbox
 	std::string DirectionalButtonName(DirectionalButton type);
 
 	/// @brief Interface for an input, send signal when it's binding is triggered
-	class Input : public std::enable_shared_from_this<Input>
+	class Input
 	{
 	public:
 		virtual ~Input() {};
@@ -62,9 +62,10 @@ namespace Sandbox
 		virtual std::string GetName() const = 0;
 		virtual InputType GetType() const = 0;
 
-		SignalSender<InputSignal> inputSignal;
+		SignalSender<InputSignal> signal;
 
 	protected:
+		Input() {};
 		friend class InputMap;
 
 		virtual bool KeyPressed(const SDL_Event& e) { return false; }

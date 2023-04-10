@@ -137,3 +137,54 @@
 [2023-04-10 08:13:41.904] [SANDBOX] [info] Vendor: NVIDIA Corporation
 [2023-04-10 08:13:41.905] [SANDBOX] [info] Max. Vertex attributes: 16
 [2023-04-10 08:13:41.906] [SANDBOX] [warning] Input has no InputMap, Input: Jump. Can be ignored if you add this input into an InputMap after
+[2023-04-10 08:40:02.441] [SANDBOX] [info] OpenGL Loaded.
+[2023-04-10 08:40:02.442] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-04-10 08:40:02.442] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-04-10 08:40:02.442] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-04-10 08:40:02.442] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-04-10 08:40:02.443] [SANDBOX] [warning] Input has no InputMap, Input: Jump. Can be ignored if you add this input into an InputMap after
+[2023-04-10 17:45:32.798] [SANDBOX] [info] OpenGL Loaded.
+[2023-04-10 17:45:32.799] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-04-10 17:45:32.799] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-04-10 17:45:32.799] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-04-10 17:45:32.799] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-04-10 17:48:09.516] [SANDBOX] [info] OpenGL Loaded.
+[2023-04-10 17:48:09.517] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-04-10 17:48:09.517] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-04-10 17:48:09.517] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-04-10 17:48:09.518] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-04-10 17:48:57.406] [SANDBOX] [info] OpenGL Loaded.
+[2023-04-10 17:48:57.407] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-04-10 17:48:57.407] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-04-10 17:48:57.408] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-04-10 17:48:57.408] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-04-10 17:54:54.889] [SANDBOX] [info] OpenGL Loaded.
+[2023-04-10 17:54:54.889] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-04-10 17:54:54.890] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-04-10 17:54:54.890] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-04-10 17:54:54.890] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-04-10 17:57:04.391] [SANDBOX] [info] OpenGL Loaded.
+[2023-04-10 17:57:04.392] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-04-10 17:57:04.392] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-04-10 17:57:04.392] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-04-10 17:57:04.392] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-04-10 18:08:31.561] [SANDBOX] [info] OpenGL Loaded.
+[2023-04-10 18:08:31.562] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-04-10 18:08:31.562] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-04-10 18:08:31.562] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-04-10 18:08:31.562] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-04-10 18:26:05.657] [SANDBOX] [info] OpenGL Loaded.
+[2023-04-10 18:26:05.657] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-04-10 18:26:05.657] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-04-10 18:26:05.658] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-04-10 18:26:05.658] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-04-10 18:54:06.310] [SANDBOX] [info] OpenGL Loaded.
+[2023-04-10 18:54:06.311] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-04-10 18:54:06.311] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-04-10 18:54:06.311] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-04-10 18:54:06.311] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-04-10 19:04:24.987] [SANDBOX] [info] OpenGL Loaded.
+[2023-04-10 19:04:24.988] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-04-10 19:04:24.988] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-04-10 19:04:24.989] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-04-10 19:04:24.989] [SANDBOX] [info] Max. Vertex attributes: 16

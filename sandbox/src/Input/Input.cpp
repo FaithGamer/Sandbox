@@ -73,11 +73,11 @@ namespace Sandbox
 	{
 		if (m_inputMap == nullptr)
 		{
-			LOG_WARN("Input has no InputMap, Input: " + GetName() + ". Can be ignored if you add this input into an InputMap after");
+			LOG_ERROR("Input has no InputMap, Input: " + GetName());
 		}
 		else
 		{
-			m_inputMap->OnInputEventModified(shared_from_this());
+			m_inputMap->OnInputEventModified(this);
 		}
 
 	}

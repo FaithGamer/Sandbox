@@ -71,6 +71,7 @@ namespace Sandbox
 			m_onRemoveComponent[typeId].sender.AddListener<ListenerType>(callback, listener, priority);
 		}
 
+		static GameWorld* GetMain();
 		entt::registry m_registry;
 	private:
 		GameWorld(std::string name);

@@ -12,10 +12,12 @@ namespace Sandbox
 
 	bool InputSystem::OnEvent(SDL_Event& event)
 	{
-		InputMap* inputs = Inputs::GetCurrentInputMap();
-		if (inputs == nullptr)
-			return false;
-		return inputs->OnEvent(event);
+		if (Inputs::HasInputMap())
+		{
+			InputMap& inputs = Inputs::GetCurrentInputMap();
+			return inputs.OnEvent(event);
+		}
+		return false;
 	}
 
 	int InputSystem::GetUsedMethod()

@@ -93,15 +93,15 @@ void BillboardTest()
 	vertexArray->AddVertexBuffer(vertexBuffer);
 
 	//Inputs
-	InputMap inputs("InputsMap");
+//InputMap inputs("InputsMap");
 
-	auto button = makesptr<ButtonInput>("ButtonTest");
+	//auto button = makesptr<ButtonInput>("ButtonTest");
 
-	button->BindKey(KeyScancode::A);
+	//button->BindKey(KeyScancode::A);
 
-	inputs.AddInput(button);
+	//inputs.AddInput(button);
 
-	auto btn = inputs.GetInput("ButtonTest");
+	//auto btn = inputs.GetInput("ButtonTest");
 
 	//btn->AddListener(&OnPressButton, nullptr);
 
@@ -125,7 +125,7 @@ void BillboardTest()
 	{
 		while (SDL_PollEvent(&e) != 0)
 		{
-			inputs.OnEvent(e);
+			//inputs.OnEvent(e);
 			if (e.type == SDL_QUIT)
 			{
 				run = false;

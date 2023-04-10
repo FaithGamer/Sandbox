@@ -9,13 +9,16 @@ namespace Sandbox
 	{
 	public:
 		Inputs();
-		static void AddInputMap(const InputMap& inputMap);
-		static void RemoveInputMap(std::string name);
+		static InputMap& CreateInputMap();
+		static InputMap& CreateInputMap(std::string name);
+		static void DestroyInputMap(std::string name);
 		static void SetCurrentInputMap(std::string name);
 		static std::string GetCurrentInputMapName();
-		static InputMap* GetCurrentInputMap();
+		static InputMap& GetCurrentInputMap();
+		static InputMap* GetInputMap();
 		static InputMap* GetInputMap(std::string name);
 		static std::vector<std::string> GetInputMapNameList();
+		static bool HasInputMap();
 
 	private:
 		friend Engine;

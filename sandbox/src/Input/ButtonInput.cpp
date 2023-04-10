@@ -196,7 +196,7 @@ namespace Sandbox
 			m_state.pressed = true;
 			if (m_sendSignalOnPress)
 			{
-				inputSignal.SendSignal(InputSignal());
+				signal.SendSignal(InputSignal());
 				return true;
 			}
 		}
@@ -210,7 +210,7 @@ namespace Sandbox
 			m_state.pressed = false;
 			if (m_sendSignalOnRelease)
 			{
-				inputSignal.SendSignal(InputSignal());
+				signal.SendSignal(InputSignal());
 				return true;
 			}
 		} 

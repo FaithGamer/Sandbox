@@ -1,17 +1,65 @@
 #include "pch.h"
 #include "Sandbox/Input/InputMap.h"
 #include "Sandbox/Vector.h"
+#include "Sandbox/Input/ButtonInput.h"
 
 namespace Sandbox
 {
-	InputMap::InputMap(std::string name) : m_name(name)
+	InputMap::InputMap(std::string name) : m_name(name), m_mustUpdate(false)
 	{
 		m_byEvents.resize((int)EventType::EventTypeCount);
 	}
 
+	InputMap::~InputMap()
+	{
+		//Free memory
+		for (auto& input : m_byNames)
+		{
+			delete input.second;
+		}
+	}
+
+	ButtonInput* InputMap::CreateButtonInput(std::string name)
+	{
+		auto input_it = m_byNames.find(name);
+		if (input_it == m_byNames.end())
+		{
+			ButtonInput* button = new ButtonInput(name);
+			m_modified.push_back(button);
+			m_byNames.insert(std::make_pair(name, button));
+			button->m_inputMap = this;
+			
+			m_mustUpdate = true;
+			return button;
+		}
+		else
+		{
+			LOG_WARN("Trying to add Input with already existing name \"" + name + "\" already exist in the InputMap \"" + GetName()
+				+ "\". No input has been added.");
+			return nullptr;
+		}
+	}
+
+	void InputMap::DestroyInput(std::string name)
+	{
+		auto input = m_byNames.find(name);
+		if (input == m_byNames.end())
+		{
+			LOG_WARN("Cannot destroy input \"" + name + "\", because it doesn't exists.");
+		}
+		else
+		{
+			Vector::Remove(m_modified, input->second);
+			m_toDelete.emplace_back(input->second);
+			m_mustUpdate = true;
+		}
+	}
+
 	bool InputMap::OnEvent(const SDL_Event& e)
 	{
-		UpdateInputsEvents();
+		if(m_mustUpdate)
+			UpdateInputsEvents();
+
 		bool eventHandled = false;
 		switch (e.type)
 		{
@@ -95,43 +143,26 @@ namespace Sandbox
 		return eventHandled;
 	}
 
-	void InputMap::OnInputEventModified(sptr<Input> input)
+	void InputMap::OnInputEventModified(Input* input)
 	{
-		m_modifiedInputs.emplace_back(input);
+		m_modified.emplace_back(input);
+		m_mustUpdate = true;
 	}
 
-	void InputMap::AddInput(sptr<Input> input)
-	{
-		//Add to collection
-		std::string name = input->GetName();
-		auto input_it = m_byNames.find(name);
-		if (input_it == m_byNames.end())
-		{
-			m_modifiedInputs.push_back(input);
-			m_byNames.insert(std::make_pair(name, input));
-			input->m_inputMap = this;
-		}
-		else
-		{
-			LOG_WARN("Trying to add Input with already existing name \"" + input->GetName() + "\" already exist in the InputMap \"" + GetName()
-				+ "\". No input has been added.");
-		}
-	}
-
-	void InputMap::RemoveInput(sptr<Input> input)
-	{
-		LOG_ERROR("Cannot remove Input :o)");
-	}
-
-	sptr<Input> InputMap::GetInput(std::string name)
+	Input* InputMap::GetInput(std::string name)
 	{
 		auto input_it = m_byNames.find(name);
 		if (input_it == m_byNames.end())
 		{
-			LOG_ERROR("Can't find the input \"" + name + "\" in the InputMap \"" + GetName() + "\"");
+			LOG_WARN("Cannot find the input \"" + name + "\" in the InputMap \"" + GetName() + "\"");
 			return nullptr;
 		}
 		return input_it->second;
+	}
+
+	std::unordered_map<std::string, Input*> InputMap::GetInputs()
+	{
+		return std::unordered_map<std::string, Input*>();
 	}
 
 	std::string InputMap::GetName() const
@@ -141,7 +172,17 @@ namespace Sandbox
 
 	void InputMap::UpdateInputsEvents()
 	{
-		for (auto& input : m_modifiedInputs)
+		for (auto& input : m_toDelete)
+		{
+			for (auto& inputs : m_byEvents)
+			{
+				Vector::Remove(inputs, input);
+			}
+			m_byNames.erase(input->GetName());
+			delete input;
+		}
+		m_toDelete.clear();
+		for (auto& input : m_modified)
 		{
 			const InputEvent& events = input->m_eventsListened;
 			const std::string& name = input->GetName();
@@ -209,6 +250,7 @@ namespace Sandbox
 				Vector::Remove(m_byEvents[(int)EventType::ControllerTrigger], input);
 			}
 		}
-		m_modifiedInputs.clear();
+		m_modified.clear();
+		m_mustUpdate = false;
 	}
 }

@@ -63,10 +63,65 @@ namespace Sandbox
 
 	protected:
 
+		//To do: documentation
 
-		//To do: For Each without gameWorld and get default gameworld
-		template <typename SystemType, typename... ComponentType>
-		void ForEachComponent(void(SystemType::* function)(ComponentType&...), GameWorld* world)
+		template <typename... ComponentType, typename Functor>
+		void ForEachComponent(Functor function)
+		{
+			auto view = GameWorld::GetMain()->m_registry.view<ComponentType...>();
+			for (auto entityId : view)
+			{
+				[&] <std::size_t... I>(std::index_sequence<I...>)
+				{
+					function(std::get<I>(view.get(entityId))...);
+				}(std::make_index_sequence<sizeof...(ComponentType)>());
+			}
+		};
+
+		template <typename... ComponentType, typename Functor>
+		void ForEachEntity(Functor function)
+		{
+			GameWorld* world = GameWorld::GetMain();
+			auto view = world->m_registry.view<ComponentType...>();
+			for (auto entityId : view)
+			{
+				[&] <std::size_t... I>(std::index_sequence<I...>)
+				{
+					Entity* entity = world->GetEntity(entityId);
+					function(*entity, std::get<I>(view.get(entityId))...);
+				}(std::make_index_sequence<sizeof...(ComponentType)>());
+			}
+		};
+
+		template <typename... ComponentType, typename Functor>
+		void ForEachComponent(GameWorld* world, Functor function)
+		{
+			auto view = world->m_registry.view<ComponentType...>();
+			for (auto entityId : view)
+			{
+				[&] <std::size_t... I>(std::index_sequence<I...>)
+				{
+					function(std::get<I>(view.get(entityId))...);
+				}(std::make_index_sequence<sizeof...(ComponentType)>());
+			}
+		};
+
+		template <typename... ComponentType, typename Functor>
+		void ForEachEntity(GameWorld* world, Functor function)
+		{
+			auto view = world->m_registry.view<ComponentType...>();
+			for (auto entityId : view)
+			{
+				[&] <std::size_t... I>(std::index_sequence<I...>)
+				{
+					Entity* entity = world->GetEntity(entityId);
+					function(*entity, std::get<I>(view.get(entityId))...);
+				}(std::make_index_sequence<sizeof...(ComponentType)>());
+			}
+		};
+
+		template <typename... ComponentType, typename SystemType>
+		void ForEachComponent(GameWorld* world, void(SystemType::* function)(ComponentType&...))
 		{
 			auto view = world->m_registry.view<ComponentType...>();
 			for (auto entityId : view)
@@ -78,8 +133,8 @@ namespace Sandbox
 			}
 		};
 
-		template <typename SystemType, typename... ComponentType>
-		void ForEachComponent(void(SystemType::* function)(Entity&, ComponentType&...), GameWorld* world)
+		template <typename... ComponentType, typename SystemType>
+		void ForEachEntity(GameWorld* world, void(SystemType::* function)(Entity&, ComponentType&...))
 		{
 			auto view = world->m_registry.view<ComponentType...>();
 			for (auto entityId : view)
@@ -92,18 +147,35 @@ namespace Sandbox
 			}
 		};
 
-		template <typename SystemType, typename... ComponentType>
-		void ForEachComponent(void(SystemType::* function)(EntityId, ComponentType&...), GameWorld* world)
+		template <typename... ComponentType, typename SystemType>
+		void ForEachComponent(void(SystemType::* function)(ComponentType&...))
 		{
+			GameWorld* world = GameWorld::GetMain();
 			auto view = world->m_registry.view<ComponentType...>();
 			for (auto entityId : view)
 			{
 				[&] <std::size_t... I>(std::index_sequence<I...>)
 				{
-					(static_cast<SystemType*>(this)->*function)(entityId, std::get<I>(view.get(entityId))...);
+					(static_cast<SystemType*>(this)->*function)(std::get<I>(view.get(entityId))...);
 				}(std::make_index_sequence<sizeof...(ComponentType)>());
 			}
 		};
+
+		template <typename... ComponentType, typename SystemType>
+		void ForEachEntity(void(SystemType::* function)(Entity&, ComponentType&...))
+		{
+			GameWorld* world = GameWorld::GetMain();
+			auto view = world->m_registry.view<ComponentType...>();
+			for (auto entityId : view)
+			{
+				[&] <std::size_t... I>(std::index_sequence<I...>)
+				{
+					Entity* entity = world->GetEntity(entityId);
+					(static_cast<SystemType*>(this)->*function)(*entity, std::get<I>(view.get(entityId))...);
+				}(std::make_index_sequence<sizeof...(ComponentType)>());
+			}
+		};
+
 
 	private:
 

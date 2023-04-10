@@ -4,6 +4,9 @@
 
 namespace Sandbox
 {
+	class Inputs;
+	class ButtonInput;
+
 	enum class EventType : int
 	{
 		Key = 0,
@@ -20,25 +23,26 @@ namespace Sandbox
 	class InputMap
 	{
 	public:
-		InputMap(std::string name);
+		~InputMap();
+		ButtonInput* CreateButtonInput(std::string name);
+		void DestroyInput(std::string name);
 		bool OnEvent(const SDL_Event& e);
-		void OnInputEventModified(sptr<Input> input);
-		void AddInput(sptr<Input> input);
-		void RemoveInput(sptr<Input> input);
-		sptr<Input> GetInput(std::string name);
+		void OnInputEventModified(Input* input);
+		Input* GetInput(std::string name);
+		std::unordered_map<std::string, Input*> GetInputs();
 		std::string GetName() const;
 
 	private:
+		friend Inputs;
+		InputMap(std::string name);
 		void UpdateInputsEvents();
 
-		//Inputs sorted by the events they listen to.
-		std::vector<std::vector<sptr<Input>>> m_byEvents;
+		std::vector<std::vector<Input*>> m_byEvents;
+		std::unordered_map<std::string, Input*> m_byNames;
+		std::vector<Input*> m_modified;
+		std::vector<Input*> m_toDelete;
 
-		//Inputs sorted by their names
-		std::unordered_map<std::string, sptr<Input>> m_byNames;
-
-		//Update listening 
-		std::vector<sptr<Input>> m_modifiedInputs;
+		bool m_mustUpdate;
 
 		std::string m_name;
 	};
