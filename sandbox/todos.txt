@@ -8,3 +8,11 @@
 - Write a RenderSystem, making use of the batchrenderer, and with option to use shader on individual sprite
 this will be related to SpriteComponent
 - batching together sprites using the same material
+
+
+-Render:
+
+-signal on resize window
+-create render texture that scale on window size
+-create render buffer / frame buffer
+- render target

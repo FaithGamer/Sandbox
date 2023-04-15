@@ -51,7 +51,7 @@ namespace Sandbox
 
 
 		//Shaders
-		m_data.quadShader = makesptr<ShaderProgram>(
+		m_data.quadShader = makesptr<Shader>(
 			"assets/shaders/batch_renderer.vert",
 			"assets/shaders/batch_renderer.frag");
 

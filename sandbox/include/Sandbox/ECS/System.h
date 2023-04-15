@@ -64,6 +64,7 @@ namespace Sandbox
 	protected:
 
 		//To do: documentation
+		//To do: add custom parameters
 
 		template <typename... ComponentType, typename Functor>
 		void ForEachComponent(Functor function)

@@ -5,11 +5,11 @@
 
 namespace Sandbox
 {
-	class ShaderProgram
+	class Shader
 	{
 	public:
-		ShaderProgram(std::string vertexSourcePath, std::string fragmentSourcePath);
-		~ShaderProgram();
+		Shader(std::string vertexSourcePath, std::string fragmentSourcePath);
+		~Shader();
 
 		void Bind() const;
 

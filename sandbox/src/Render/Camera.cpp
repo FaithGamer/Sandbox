@@ -170,7 +170,6 @@ namespace Sandbox
 
 	void Camera::ComputeViewMatrix() const
 	{
-
 		m_viewMatrix = glm::lookAt(m_position, m_position + m_localBack, m_localUp);
 
 		//view matrix will be composed like this

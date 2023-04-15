@@ -24,7 +24,7 @@
     <ClCompile Include="src\Render\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Render\ShaderProgram.cpp">
+    <ClCompile Include="src\Render\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Render\Buffer.cpp">
@@ -152,7 +152,7 @@
     <ClInclude Include="include\Sandbox\std_macros.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Render\ShaderProgram.h">
+    <ClInclude Include="include\Sandbox\Render\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Render\Buffer.h">

@@ -3,7 +3,7 @@
 
 #include "Sandbox/std_macros.h"
 #include "Sandbox/Vec.h"
-#include "Sandbox/Render/ShaderProgram.h"
+#include "Sandbox/Render/Shader.h"
 #include "Sandbox/Render/Buffer.h"
 #include "Sandbox/Render/VertexArray.h"
 #include "Sandbox/Render/Camera.h"
@@ -12,6 +12,8 @@
 
 namespace Sandbox
 {
+	class RenderTarget;
+	class Material;
 
 	struct QuadVertex
 	{
@@ -33,7 +35,7 @@ namespace Sandbox
 		{
 			sptr<VertexArray> quadVertexArray;
 			sptr<VertexBuffer> quadVertexBuffer;
-			sptr<ShaderProgram> quadShader;
+			sptr<Shader> quadShader;
 			sptr<Texture> whiteTexture;
 
 			uint32_t quadIndexCount = 0;
@@ -69,6 +71,9 @@ namespace Sandbox
 		void DrawQuad(const Transform& transform, const Vec4f& color = Vec4f(1));
 		void DrawTexturedQuad(const Vec3f& position, const Vec2f& scale, const sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1));
 		void DrawTexturedQuad(const Transform& transform, const sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1));
+
+		void DrawTexturedQuad(const Transform& transform, const Texture& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1),
+			const RenderTarget& target, const Material& material);
 
 		Statistics GetStats();
 	private:
