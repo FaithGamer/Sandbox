@@ -107,7 +107,7 @@ namespace Sandbox
 		uint32_t GetLayerId(std::string name);
 
 		void PreallocateQuadPipeline(int count);
-		uint32_t AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader>& shader, sptr<StencilMode>& stencil);
+		uint32_t AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader, sptr<StencilMode> stencil);
 		void RemoveQuadPipelineUser(uint32_t pipeline);
 
 		void BeginScene(const Camera& camera);
@@ -126,6 +126,7 @@ namespace Sandbox
 		void StartBatch(uint32_t pipelineIndex);
 		void NextBatch(uint32_t pipelineIndex);
 		void CreateQuadPipeline(QuadBatch& batch, sptr<RenderTarget> layer, sptr<Shader> shader, sptr<StencilMode> stencil);
+		uint64_t GenerateId(uint32_t a, uint32_t b, uint32_t c);
 		bool m_mustGeneratePipelines;
 
 

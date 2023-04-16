@@ -44,7 +44,7 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="src\Log.cpp" />
-    <ClCompile Include="src\Render\ShaderProgram.cpp" />
+    <ClCompile Include="src\Render\Shader.cpp" />
     <ClCompile Include="src\TypeId.cpp" />
     <ClCompile Include="src\stb_impl.cpp" />
     <ClCompile Include="src\Time.cpp" />

@@ -8,12 +8,15 @@
 #include "Sandbox/Task.h"
 #include "Sandbox/Worker.h"
 #include "Sandbox/std_macros.h"
+#include "Sandbox/Render/Shader.h"
+
+#include "Sandbox/Engine.h"
 
 using namespace Sandbox;
 
 void BatchRendererTest()
 {
-	Window::Instance();
+	Engine::Init();
 	BatchRenderer renderer;
 
 	Camera cam;
@@ -21,12 +24,13 @@ void BatchRendererTest()
 	cam.Yaw(0);
 	cam.SetPosition({ 0, 0, 2 });
 
-
+	sptr<Shader> otherShader = makesptr<Shader>("assets/shaders/batch_renderer.vert", "assets/shaders/batch_renderer2.frag");
 	sptr<Texture> texture1 = makesptr<Texture>("assets/textures/trollface.png");
 	sptr<Texture> texture2 = makesptr<Texture>("assets/textures/image.png");
 	std::vector<Vec2f> texCoords{ { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f }
 	};
 
+	uint32_t pipeline = renderer.AddQuadPipelineUser(0, otherShader, nullptr);
 	bool run = true;
 	SDL_Event e;
 
@@ -95,7 +99,7 @@ void BatchRendererTest()
 					}
 					else
 					{
-						renderer.DrawTexturedQuad(transform, texture1, texCoords, white, 0);
+						renderer.DrawTexturedQuad(transform, texture1, texCoords, white, pipeline);
 					}
 
 				}
@@ -111,7 +115,7 @@ void BatchRendererTest()
 					}
 					else
 					{
-						renderer.DrawTexturedQuad(transform, texture2, texCoords);
+						renderer.DrawTexturedQuad(transform, texture2, texCoords, white, 0);
 					}
 				}
 				count++;

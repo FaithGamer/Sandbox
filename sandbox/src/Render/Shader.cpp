@@ -8,19 +8,21 @@
 #include "Sandbox/Render/Shader.h"
 
 
-#define SET_UNIFORM(c) GLint location = glGetUniformLocation(m_id, (const GLchar*)name.c_str());\
+#define SET_UNIFORM(c) GLint location = glGetUniformLocation(m_glid, (const GLchar*)name.c_str());\
 if (location == -1)\
 {\
 	LOG_ERROR("The following uniform cannot be found: " + name);\
 }\
 else\
 {\
-	glUseProgram(m_id);\
+	glUseProgram(m_glid);\
 	c;\
 }\
 
 namespace Sandbox
 {
+	uint32_t Shader::m_currentId = 0;
+
 	std::string loadShaderSourceFromFile(std::string path)
 	{
 		std::ifstream shaderFile;
@@ -67,6 +69,7 @@ namespace Sandbox
 
 	Shader::Shader(std::string vertexSourcePath, std::string fragmentSourcePath)
 	{
+		m_id = m_currentId++;
 		//Load shader source files
 		std::string vertStr = loadShaderSourceFromFile(vertexSourcePath);
 		const GLchar* vertexSource = (const GLchar*)vertStr.c_str();
@@ -84,11 +87,11 @@ namespace Sandbox
 		glCompileShader(fragmentShader);
 		shaderCompilationError(fragmentShader);
 
-		m_id = glCreateProgram();
-		glAttachShader(m_id, vertexShader);
-		glAttachShader(m_id, fragmentShader);
-		glLinkProgram(m_id);
-		programLinkageError(m_id);
+		m_glid = glCreateProgram();
+		glAttachShader(m_glid, vertexShader);
+		glAttachShader(m_glid, fragmentShader);
+		glLinkProgram(m_glid);
+		programLinkageError(m_glid);
 
 		glDeleteShader(vertexShader);
 		glDeleteShader(fragmentShader);
@@ -97,12 +100,12 @@ namespace Sandbox
 
 	Shader::~Shader()
 	{
-		glDeleteProgram(m_id);
+		glDeleteProgram(m_glid);
 	}
 
 	void Shader::Bind() const
 	{
-		glUseProgram(m_id);
+		glUseProgram(m_glid);
 	}
 
 	void Shader::SetUniform(std::string name, const GLfloat& uniform)
@@ -162,25 +165,31 @@ namespace Sandbox
 
 	void Shader::BindUniformBlock(std::string uniformName, GLint bindingPoint)
 	{
-		GLuint location = glGetUniformBlockIndex(m_id, (const GLchar*)uniformName.c_str());
+		GLuint location = glGetUniformBlockIndex(m_glid, (const GLchar*)uniformName.c_str());
 		if (location == -1)
 		{
 			LOG_ERROR("The following uniform block cannot be found: " + uniformName);
 		}
 		else
 		{
-			glUniformBlockBinding(m_id, location, bindingPoint);
+			glUniformBlockBinding(m_glid, location, bindingPoint);
 		}
 	}
 
 	GLint Shader::GetUniformLocation(std::string name)
 	{
-		return glGetUniformLocation(m_id, (const GLchar*)name.c_str());
+		return glGetUniformLocation(m_glid, (const GLchar*)name.c_str());
 	}
 
-	GLuint Shader::GetID()
+	GLuint Shader::GetGLID()
+	{
+		return m_glid;
+	}
+
+	uint32_t Shader::GetID()
 	{
 		return m_id;
 	}
+
 
 }

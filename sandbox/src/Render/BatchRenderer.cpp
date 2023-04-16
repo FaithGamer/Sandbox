@@ -10,12 +10,7 @@
 
 namespace Sandbox
 {
-	uint64_t GenerateId(uint32_t a, uint32_t b, uint32_t c)
-	{
-		//To do:!
 
-		return 0;
-	}
 
 	BatchRenderer::BatchRenderer()
 	{
@@ -130,6 +125,13 @@ namespace Sandbox
 		batch.stencil = stencil;
 	}
 
+	uint64_t BatchRenderer::GenerateId(uint32_t a, uint32_t b, uint32_t c)
+	{
+		b = (b+1) * 10000;
+		a = (a+1) * 100000000;
+		return a + b + c;
+	}
+
 	uint32_t BatchRenderer::AddLayer(std::string name)
 	{
 		//To do:
@@ -157,7 +159,7 @@ namespace Sandbox
 		//To do:
 	}
 
-	uint32_t BatchRenderer::AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader>& shader, sptr<StencilMode>& stencil)
+	uint32_t BatchRenderer::AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader, sptr<StencilMode> stencil)
 	{
 		
 		uint32_t shaderId = 0;

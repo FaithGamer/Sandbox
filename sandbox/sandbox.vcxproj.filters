@@ -135,7 +135,7 @@
     <ClCompile Include="src\ECS\GameWorld.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Render\ShaderProgram.cpp">
+    <ClCompile Include="src\Render\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Render\RenderTexture.cpp">
