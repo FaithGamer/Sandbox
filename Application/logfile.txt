@@ -223,3 +223,23 @@
 [2023-04-10 21:21:48.251] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
 [2023-04-10 21:21:48.251] [SANDBOX] [info] Vendor: NVIDIA Corporation
 [2023-04-10 21:21:48.251] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-04-16 18:08:11.964] [SANDBOX] [info] OpenGL Loaded.
+[2023-04-16 18:08:11.965] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-04-16 18:08:11.965] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-04-16 18:08:11.965] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-04-16 18:08:11.965] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-04-16 18:08:42.536] [SANDBOX] [info] OpenGL Loaded.
+[2023-04-16 18:08:42.537] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-04-16 18:08:42.537] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-04-16 18:08:42.538] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-04-16 18:08:42.538] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-04-16 18:09:07.931] [SANDBOX] [info] OpenGL Loaded.
+[2023-04-16 18:09:07.933] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-04-16 18:09:07.933] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-04-16 18:09:07.933] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-04-16 18:09:07.933] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-04-16 18:09:21.737] [SANDBOX] [info] OpenGL Loaded.
+[2023-04-16 18:09:21.738] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-04-16 18:09:21.738] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-04-16 18:09:21.738] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-04-16 18:09:21.738] [SANDBOX] [info] Max. Vertex attributes: 16
