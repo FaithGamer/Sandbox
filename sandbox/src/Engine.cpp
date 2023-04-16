@@ -41,9 +41,9 @@ namespace Sandbox
 		play = true;
 		while (play)
 		{
-			Window::Clear();
+			Window::ClearWindow();
 			Systems::Instance()->Update();
-			Window::Render();
+			Window::RenderWindow();
 		}
 
 		//Deallocation

@@ -62,19 +62,17 @@ namespace Sandbox
 		SDL_GL_SetSwapInterval(0);
 	}
 
-	void Window::SetSize(Vec2u size)
+	void Window::SetWindowSize(Vec2u size)
 	{
-		SDL_SetWindowSize(Window::Instance()->m_window, size.x, size.y);
-		glViewport(0, 0, size.x, size.y);
-		Window::Instance()->m_size = size;
+		Window::Instance()->SetSize(size);
 	}
 
-	void Window::Clear()
+	void Window::ClearWindow()
 	{
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		Window::Instance()->Clear();
 	}
 
-	void Window::Render()
+	void Window::RenderWindow()
 	{
 		SDL_GL_SwapWindow(Window::Instance()->m_window);
 	}
@@ -92,5 +90,21 @@ namespace Sandbox
 	SDL_Window* Window::GetSDLWindow()
 	{
 		return Window::Instance()->m_window;
+	}
+
+	void Window::Clear()
+	{
+		Bind();
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+	}
+	void Window::SetSize(Vec2u size)
+	{
+		SDL_SetWindowSize(m_window, size.x, size.y);
+		glViewport(0, 0, size.x, size.y);
+		m_size = size;
+	}
+	void Window::Bind()
+	{
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	}
 }

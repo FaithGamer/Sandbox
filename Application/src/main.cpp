@@ -13,6 +13,8 @@
 #include "Sandbox/Input/ButtonInput.h"
 #include "Sandbox/std_macros.h"
 
+#include "Tests/BatchRendererTest.h"
+
 #include <random>
 #include <iostream>
 
@@ -81,7 +83,7 @@ void InitInputs()
 
 int main(int argc, char** argv)
 {
-	sb::Engine::Init();
+	/*sb::Engine::Init();
 	sb::Systems::CreateGameWorld();
 
 	sb::Inputs::CreateInputMap();
@@ -96,7 +98,9 @@ int main(int argc, char** argv)
 	sb::Systems::Push<PhysicsSystem>();
 
 
-	sb::Engine::Launch();
+	sb::Engine::Launch();*/
+
+	BatchRendererTest();
 
 	return 0;
 }

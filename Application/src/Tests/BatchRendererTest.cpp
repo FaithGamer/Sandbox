@@ -13,6 +13,7 @@ using namespace Sandbox;
 
 void BatchRendererTest()
 {
+	Window::Instance();
 	BatchRenderer renderer;
 
 	Camera cam;
@@ -64,7 +65,7 @@ void BatchRendererTest()
 		}
 		else
 		{
-			Window::Clear();
+			Window::ClearWindow();
 			renderer.BeginScene(cam);
 		}
 
@@ -86,15 +87,15 @@ void BatchRendererTest()
 				{
 					if (threadRendering)
 					{
-						Delegate<void, const Transform&, const sptr<Texture>&, const std::vector<Vec2f>&, const Vec4f&>
-							drawQuad(&BatchRenderer::DrawTexturedQuad, &renderer, transform, texture1, texCoords, white);
+						Delegate<void, const Transform&, sptr<Texture>&, const std::vector<Vec2f>&, const Vec4f&, uint32_t>
+							drawQuad(&BatchRenderer::DrawTexturedQuad, &renderer, transform, texture1, texCoords, white, 0);
 
-						auto drawTask = makesptr <Task<void, const Transform&, const sptr<Texture>&, const std::vector<Vec2f>&, const Vec4f&>>(drawQuad);
+						auto drawTask = makesptr <Task<void, const Transform&, sptr<Texture>&, const std::vector<Vec2f>&, const Vec4f&, uint32_t>>(drawQuad);
 						renderingThread.QueueTask(drawTask);
 					}
 					else
 					{
-						renderer.DrawTexturedQuad(transform, texture1, texCoords);
+						renderer.DrawTexturedQuad(transform, texture1, texCoords, white, 0);
 					}
 
 				}
@@ -102,10 +103,10 @@ void BatchRendererTest()
 				{
 					if (threadRendering)
 					{
-						Delegate<void, const Transform&, const sptr<Texture>&, const std::vector<Vec2f>&, const Vec4f&>
-							drawQuad(&BatchRenderer::DrawTexturedQuad, &renderer, transform, texture2, texCoords, white);
+						Delegate<void, const Transform&, sptr<Texture>&, const std::vector<Vec2f>&, const Vec4f&, uint32_t>
+							drawQuad(&BatchRenderer::DrawTexturedQuad, &renderer, transform, texture2, texCoords, white, 0);
 
-						auto drawTask = makesptr <Task<void, const Transform&, const sptr<Texture>&, const std::vector<Vec2f>&, const Vec4f&>>(drawQuad);
+						auto drawTask = makesptr <Task<void, const Transform&, sptr<Texture>&, const std::vector<Vec2f>&, const Vec4f&, uint32_t>>(drawQuad);
 						renderingThread.QueueTask(drawTask);
 					}
 					else
@@ -122,7 +123,7 @@ void BatchRendererTest()
 		if (threadRendering)
 		{
 			Delegate<void> endScene(&BatchRenderer::EndScene, &renderer);
-			Delegate<void> render(&Window::Render);
+			Delegate<void> render(&Window::RenderWindow);
 
 			sptr<Task<void>> endSceneTask = makesptr <Task<void>>(endScene);
 			sptr<Task<void>> renderTask = makesptr <Task<void>>(render);
@@ -134,7 +135,7 @@ void BatchRendererTest()
 		else
 		{
 			renderer.EndScene();
-			Window::Render();
+			Window::RenderWindow();
 		}
 	}
 }

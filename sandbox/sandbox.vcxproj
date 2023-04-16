@@ -11,6 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="include\Sandbox\Render\StencilMode.cpp" />
+    <ClCompile Include="src\Render\RenderTexture.cpp" />
     <ClCompile Include="src\Delegate.cpp" />
     <ClCompile Include="src\ECS\GameWorld.cpp" />
     <ClCompile Include="src\ImGuiLoader.cpp" />
@@ -64,6 +66,9 @@
     <ClInclude Include="include\Sandbox\Input\Inputs.h" />
     <ClInclude Include="include\Sandbox\Parameters.h" />
     <ClInclude Include="include\Sandbox\Random.h" />
+    <ClInclude Include="include\Sandbox\Render\RenderTarget.h" />
+    <ClInclude Include="include\Sandbox\Render\RenderTexture.h" />
+    <ClInclude Include="include\Sandbox\Render\StencilMode.h" />
     <ClInclude Include="include\Sandbox\Vector.h" />
     <ClInclude Include="include\Sandbox\Delegate.h" />
     <ClInclude Include="include\Sandbox\Engine.h" />
@@ -94,7 +99,7 @@
     <ClInclude Include="include\Sandbox\Render\Camera.h" />
     <ClInclude Include="include\Sandbox\Render\Buffer.h" />
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="include\Sandbox\Render\ShaderProgram.h" />
+    <ClInclude Include="include\Sandbox\Render\Shader.h" />
     <ClInclude Include="include\Sandbox\std_macros.h" />
     <ClInclude Include="include\Sandbox\Log.h" />
     <ClInclude Include="include\Sandbox\Time.h" />

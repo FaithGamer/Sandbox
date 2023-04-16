@@ -25,7 +25,7 @@ void TextureUnitTest()
 
 
 	//Shader
-	ShaderProgram shader("assets/shaders/texture_unit.vert", "assets/shaders/texture_unit.frag");
+	Shader shader("assets/shaders/texture_unit.vert", "assets/shaders/texture_unit.frag");
 
 	//Bind texture unit to appropriate uniform sampled2D
 	shader.SetUniform("texture1", 0);
@@ -76,7 +76,7 @@ void TextureUnitTest()
 			}
 		}
 
-		Window::Clear();
+		Window::ClearWindow();
 
 		//Bind texture to appropriate unit
 		vao.Bind();
@@ -90,6 +90,6 @@ void TextureUnitTest()
 		
 		glDrawElements(GL_TRIANGLES, vao.GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
 
-		Window::Render();
+		Window::RenderWindow();
 	}
 }

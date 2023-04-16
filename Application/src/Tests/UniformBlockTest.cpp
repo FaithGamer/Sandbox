@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "UniformBlockTest.h"
 #include "Sandbox/Render/Window.h"
-#include "Sandbox/Render/ShaderProgram.h"
+#include "Sandbox/Render/Shader.h"
 #include "Sandbox/Render/Buffer.h"
 #include "Sandbox/Render/VertexArray.h"
 #include "Sandbox/Render/Texture.h"
@@ -24,7 +24,7 @@ using namespace Sandbox;
 void UniformBlockTest()
 {
 
-    ShaderProgram shaderRed("assets/shaders/ubt.vert", "assets/shaders/ubt.frag");
+    Shader shaderRed("assets/shaders/ubt.vert", "assets/shaders/ubt.frag");
 
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
@@ -95,7 +95,7 @@ void UniformBlockTest()
         }
         // render
         // ------
-        Window::Clear();
+        Window::ClearWindow();
 
         // set the view and projection matrix in the uniform block - we only have to do this once per draw call
         glm::mat4 view = cam.GetViewMatrix();
@@ -112,6 +112,6 @@ void UniformBlockTest()
         shaderRed.SetUniform("model", model);
         glDrawElements(GL_TRIANGLES, vao.GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
 
-        Window::Render();
+        Window::RenderWindow();
     }
 }

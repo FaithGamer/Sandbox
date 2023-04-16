@@ -24,9 +24,6 @@
     <ClCompile Include="src\Render\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Render\Shader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Render\Buffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -138,6 +135,15 @@
     <ClCompile Include="src\ECS\GameWorld.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Render\ShaderProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\RenderTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\Sandbox\Render\StencilMode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Sandbox\Log.h">
@@ -151,9 +157,6 @@
     </ClInclude>
     <ClInclude Include="include\Sandbox\std_macros.h">
       <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Sandbox\Render\Shader.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Render\Buffer.h">
       <Filter>Header Files</Filter>
@@ -285,6 +288,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\ECS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Sandbox\Render\Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Sandbox\Render\RenderTarget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Sandbox\Render\RenderTexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Sandbox\Render\StencilMode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

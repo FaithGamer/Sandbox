@@ -11,9 +11,6 @@ namespace Sandbox
 	{
 	public:
 		T& operator= (const T&) = delete;
-
-	protected:
-		friend Engine;
 		static sptr<T> Instance()
 		{
 			if (m_instance == nullptr)
@@ -22,6 +19,9 @@ namespace Sandbox
 			}
 			return m_instance;
 		}
+	protected:
+		friend Engine;
+		
 		static void Kill()
 		{
 			m_instance.reset();

@@ -5,9 +5,9 @@ namespace Sandbox
 	class RenderTarget
 	{
 	public:
-		virtual ~RenderTarget();
+		virtual ~RenderTarget() {};
+		virtual void SetSize(Vec2u size) = 0;
 		virtual void Bind() = 0;
 		virtual void Clear() = 0;
-		virtual uint32_t GetId();
 	};
 }

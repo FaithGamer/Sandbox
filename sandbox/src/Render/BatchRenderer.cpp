@@ -6,13 +6,14 @@
 #include "Sandbox/Render/RenderTarget.h"
 #include "Sandbox/Render/Shader.h"
 #include "Sandbox/Render/StencilMode.h"
+#include "Sandbox/Render/Window.h"
 
 namespace Sandbox
 {
 	uint64_t GenerateId(uint32_t a, uint32_t b, uint32_t c)
 	{
 		//To do:!
-		
+
 		return 0;
 	}
 
@@ -46,9 +47,24 @@ namespace Sandbox
 		//Camera uniform buffer
 		m_cameraUniformBuffer = makesptr<UniformBuffer>(sizeof(Mat4), 0);
 
-		m_whiteTexture = makesptr<Texture>(Vec2i(1, 1));
+		m_whiteTexture = makesptr<Texture>();
 
-		m_defaultShader = makestpr<Shader>("")
+		m_defaultShader = makesptr<Shader>(
+			"assets/shaders/batch_renderer.vert",
+			"assets/shaders/batch_renderer.frag");
+
+		m_defaultStencilMode = makesptr<StencilMode>();
+		m_defaultRenderTarget = Window::Instance();
+		if (m_defaultRenderTarget == nullptr)
+		{
+			LOG_ERROR("BatchRenderer cannot be initialized before window.");
+		}
+
+		//Create the default pipeline
+		m_quadPipelines.push_back(QuadBatch());
+		CreateQuadPipeline(m_quadPipelines.back(), nullptr, nullptr, nullptr);
+
+		m_layers.push_back(m_defaultRenderTarget);
 
 	}
 
@@ -58,9 +74,15 @@ namespace Sandbox
 
 	}
 
-	void BatchRenderer::CreateQuadPipeline(QuadBatch& batch, sptr<RenderTarget>& layer, sptr<Shader>& shader, sptr<StencilMode>& stencil)
+	void BatchRenderer::CreateQuadPipeline(QuadBatch& batch, sptr<RenderTarget> layer, sptr<Shader> shader, sptr<StencilMode> stencil)
 	{
-	
+		if (shader == nullptr)
+			shader = m_defaultShader;
+		if (layer == nullptr)
+			layer = m_defaultRenderTarget;
+		if (stencil == nullptr)
+			stencil = m_defaultStencilMode;
+
 		//Vertex buffer (quads)
 		batch.quadVertexBuffer = makesptr<VertexBuffer>(m_maxVertices * sizeof(QuadVertex));
 		batch.quadVertexBuffer->SetLayout({
@@ -108,14 +130,75 @@ namespace Sandbox
 		batch.stencil = stencil;
 	}
 
-	uint32_t BatchRenderer::AddPipelineUser(uint32_t layerIndex, sptr<Shader>& shader, sptr<StencilMode>& stencil)
+	uint32_t BatchRenderer::AddLayer(std::string name)
 	{
-		uint64_t id = GenerateId(layerIndex, shader->GetID(), stencil->GetID());
-		auto pipeline = m_quadPipelinesId.find(id);
-		if (pipeline == m_quadPipelinesId.end())
+		//To do:
+		return 0;
+	}
+
+	void BatchRenderer::DeleteLayer(std::string name)
+	{
+		//To do:
+	}
+
+	void BatchRenderer::DeleteLayer(uint32_t layerId)
+	{
+		//To do:
+	}
+
+	uint32_t BatchRenderer::GetLayerId(std::string name)
+	{
+		//To do:
+		return 0;
+	}
+
+	void BatchRenderer::PreallocateQuadPipeline(int count)
+	{
+		//To do:
+	}
+
+	uint32_t BatchRenderer::AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader>& shader, sptr<StencilMode>& stencil)
+	{
+		
+		uint32_t shaderId = 0;
+		uint32_t stencilId = 0;
+		if (shader != nullptr)
+			shaderId = shader->GetID();
+		if (stencil != nullptr)
+			stencilId = stencil->GetID();
+
+		uint64_t id = GenerateId(layerIndex, shaderId, stencilId);
+
+		auto pipeline = m_quadPipelineFinder.find(id);
+		if (pipeline == m_quadPipelineFinder.end())
 		{
+			//Create pipeline if doesn't exists
 			m_quadPipelines.push_back(QuadBatch());
+
+			//To do: search for recyclable slot
 			CreateQuadPipeline(m_quadPipelines.back(), m_layers[layerIndex], shader, stencil);
+
+			uint32_t index = (uint32_t)m_quadPipelines.size() - 1;
+			m_quadPipelines.back().index = index;
+			m_quadPipelines.back().userCount = 1;
+
+			m_quadPipelineFinder.insert(std::make_pair(id, index));
+			return index;
+		}
+		else
+		{
+			uint32_t index = pipeline->second;
+			m_quadPipelines[index].userCount++;
+			return index;
+		}
+	}
+
+	void BatchRenderer::RemoveQuadPipelineUser(uint32_t pipeline)
+	{
+		m_quadPipelines[pipeline].userCount--;
+		if (m_quadPipelines[pipeline].userCount <= 0)
+		{
+			//To do: delete quadPipeline by adding recyclable slot
 		}
 	}
 
@@ -146,9 +229,8 @@ namespace Sandbox
 
 	void BatchRenderer::EndScene()
 	{
-		//Wait for worker to have no more job
-		for(auto& pipeline : m_activePipelines)
-			Flush(pipeline);
+		for (auto& pipeline : m_quadPipelines)
+			Flush(pipeline.index);
 	}
 
 	void BatchRenderer::Flush(uint32_t pipelineIndex)
@@ -177,40 +259,47 @@ namespace Sandbox
 		}
 	}
 
-	void BatchRenderer::DrawQuad(const Vec3f& position, const Vec2f& scale, const Vec4f& color)
+	void BatchRenderer::DrawQuad(const Vec3f& position, const Vec2f& scale, const Vec4f& color, uint32_t pipelineIndex)
 	{
 		Transform transform;
 		transform.SetPosition(position);
 		transform.Scale({ scale.x, scale.y, 1.0f });
-		DrawQuad(transform, color);
+		DrawQuad(transform, color, pipelineIndex);
 	}
 
-	void BatchRenderer::DrawQuad(const Transform& transform, const Vec4f& color)
+	void BatchRenderer::DrawQuad(const Transform& transform, const Vec4f& color, uint32_t pipelineIndex)
 	{
 		constexpr size_t quadVertexCount = 4;
 		constexpr Vec2f texCoords[4]{ { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f } };
+		auto& pipeline = m_quadPipelines[pipelineIndex];
 		//Check if we still have space in the batch for more indices
-		if (m_data.quadIndexCount >= m_maxIndices)
-			NextBatch();
+		if (pipeline.quadIndexCount >= m_maxIndices)
+			NextBatch(pipelineIndex);
 
 
 		//Input the vertex data to CPU within the quad vertex array
 		for (size_t i = 0; i < quadVertexCount; i++)
 		{
-			m_data.quadVertexPtr->position = transform.GetTransformMatrix() * m_data.quadVertexPosition[i];
-			m_data.quadVertexPtr->texCoords = texCoords[i];
-			m_data.quadVertexPtr->texIndex = 0;
-			m_data.quadVertexPtr->color = color;
+			pipeline.quadVertexPtr->position = transform.GetTransformMatrix() * pipeline.quadVertexPosition[i];
+			pipeline.quadVertexPtr->texCoords = texCoords[i];
+			pipeline.quadVertexPtr->texIndex = 0;
+			pipeline.quadVertexPtr->color = color;
 
 			//Incrementing the pointed value of the quad vertex array
-			m_data.quadVertexPtr++;
+			pipeline.quadVertexPtr++;
 		}
 
-		m_data.quadIndexCount += 6;
+		pipeline.quadIndexCount += 6;
 		m_stats.quadCount++;
 	}
 
-	void BatchRenderer::DrawTexturedQuad(const Vec3f& position, const Vec2f& scale, const sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color)
+	void BatchRenderer::DrawTexturedQuad(
+		const Vec3f& position,
+		const Vec2f& scale,
+		sptr<Texture>& texture,
+		const std::vector<Vec2f>& texCoords,
+		const Vec4f& color,
+		uint32_t pipelineIndex)
 	{
 		Transform transform;
 		transform.SetPosition(position);
@@ -218,7 +307,11 @@ namespace Sandbox
 		DrawTexturedQuad(transform, texture, texCoords, color, 0);
 	}
 
-	void BatchRenderer::DrawTexturedQuad(const Transform& transform, sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color,
+	void BatchRenderer::DrawTexturedQuad(
+		const Transform& transform,
+		sptr<Texture>& texture,
+		const std::vector<Vec2f>& texCoords,
+		const Vec4f& color,
 		uint32_t pipelineIndex)
 	{
 		constexpr size_t quadVertexCount = 4;
@@ -228,7 +321,7 @@ namespace Sandbox
 
 		//Check if we still have space in the batch for more indices
 		if (pipeline.quadIndexCount >= m_maxIndices)
-			NextBatch();
+			NextBatch(pipelineIndex);
 
 		float textureIndex = 0.0f;
 
@@ -246,7 +339,7 @@ namespace Sandbox
 		{
 			//Check if there is still space for a texture
 			if (pipeline.textureSlotIndex >= m_maxTextureSlots)
-				NextBatch();
+				NextBatch(pipelineIndex);
 
 			//Set the current texture index
 			textureIndex = (float)pipeline.textureSlotIndex;

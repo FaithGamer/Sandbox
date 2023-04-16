@@ -48,7 +48,8 @@ namespace Sandbox
 
 	struct QuadBatch
 	{
-		uint32_t index;
+		uint32_t index = 0;
+		uint32_t userCount = 0;
 
 		sptr<VertexArray> quadVertexArray;
 		sptr<VertexBuffer> quadVertexBuffer;
@@ -104,19 +105,19 @@ namespace Sandbox
 		void DeleteLayer(std::string name);
 		void DeleteLayer(uint32_t layerId);
 		uint32_t GetLayerId(std::string name);
-		uint32_t GetDefaultLayerId();
 
-		uint32_t AddPipelineUser(uint32_t layerIndex, sptr<Shader>& shader, sptr<StencilMode>& stencil);
+		void PreallocateQuadPipeline(int count);
+		uint32_t AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader>& shader, sptr<StencilMode>& stencil);
+		void RemoveQuadPipelineUser(uint32_t pipeline);
 
 		void BeginScene(const Camera& camera);
 		void EndScene();
 		void Flush(uint32_t pipelineIndex);
 
-		void DrawQuad(const Vec3f& position, const Vec2f& scale, const Vec4f& color = Vec4f(1));
-		void DrawQuad(const Transform& transform, const Vec4f& color = Vec4f(1));
-		void DrawTexturedQuad(const Vec3f& position, const Vec2f& scale, sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1));
-		void DrawTexturedQuad(const Transform& transform, sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1));
-
+		void DrawQuad(const Vec3f& position, const Vec2f& scale, const Vec4f& color = Vec4f(1), uint32_t pipelineIndex = 0);
+		void DrawQuad(const Transform& transform, const Vec4f& color = Vec4f(1), uint32_t pipelineIndex = 0);
+		void DrawTexturedQuad(const Vec3f& position, const Vec2f& scale, sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1),
+			uint32_t pipelineIndex = 0);
 		void DrawTexturedQuad(const Transform& transform, sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1),
 			uint32_t pipelineIndex = 0);
 
@@ -124,12 +125,12 @@ namespace Sandbox
 	private:
 		void StartBatch(uint32_t pipelineIndex);
 		void NextBatch(uint32_t pipelineIndex);
-		void CreateQuadPipeline(QuadBatch& batch, sptr<RenderTarget>& layer, sptr<Shader>& shader, sptr<StencilMode>& stencil);
+		void CreateQuadPipeline(QuadBatch& batch, sptr<RenderTarget> layer, sptr<Shader> shader, sptr<StencilMode> stencil);
 		bool m_mustGeneratePipelines;
 
 
 
-		std::unordered_map<uint64_t, QuadBatch*> m_quadPipelinesId;
+		std::unordered_map<uint64_t, uint32_t> m_quadPipelineFinder;
 		std::vector<QuadBatch> m_quadPipelines;
 		std::vector<uint32_t> m_activePipelines;
 
@@ -142,6 +143,8 @@ namespace Sandbox
 		uint32_t m_maxTextureSlots;
 
 		sptr<Shader> m_defaultShader;
+		sptr<RenderTarget> m_defaultRenderTarget;
+		sptr<StencilMode> m_defaultStencilMode;
 		sptr<Texture> m_whiteTexture;
 		Mat4 m_camera = Mat4(1.0f);
 		sptr<UniformBuffer> m_cameraUniformBuffer;

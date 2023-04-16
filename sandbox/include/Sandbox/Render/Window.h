@@ -6,19 +6,24 @@
 #include <SDL/SDL_opengl.h>
 #include "Sandbox/Singleton.h"
 #include "Sandbox/Vec.h"
+#include "RenderTarget.h"
 
 namespace Sandbox
 {
 	/// @brief The SDL window and OpenGL context
-	class Window : public Singleton<Window>
+	class Window : public Singleton<Window>, public RenderTarget
 	{
 	public:
-		static void SetSize(Vec2u size);
-		static void Clear();
-		static void Render();
+		static void SetWindowSize(Vec2u size);
+		static void ClearWindow();
+		static void RenderWindow();
 		static Vec2u GetSize();
 		static SDL_GLContext GetSDL_GLContext();
 		static SDL_Window* GetSDLWindow();
+
+		void Clear() override;
+		void SetSize(Vec2u size) override;
+		void Bind() override;
 	private:
 		friend Engine;
 		
