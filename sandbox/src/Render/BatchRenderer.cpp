@@ -3,10 +3,57 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include "Sandbox/Render/BatchRenderer.h"
 #include "Sandbox/Log.h"
-
+#include "Sandbox/Render/RenderTarget.h"
 namespace Sandbox
 {
 
+	BatchRenderer::Batch::Batch()
+	{
+		//Vertex buffer (quads)
+		quadVertexBuffer = makesptr<VertexBuffer>(m_maxVertices * sizeof(QuadVertex));
+		quadVertexBuffer->SetLayout({
+			{ShaderDataType::Vec3f, "aPosition"},
+			{ShaderDataType::Vec4f, "aColor"},
+			{ShaderDataType::Vec2f, "aTexCoords"},
+			{ShaderDataType::Float, "aTexIndex"}
+			});
+
+		//Vertex Array
+		quadVertexArray = makesptr<VertexArray>(quadVertexBuffer, quadIndexBuffer);
+
+		//Vertex data on CPU
+		quadVertexBase = new QuadVertex[m_maxVertices];
+
+
+		//Shaders
+		quadShader = makesptr<Shader>(
+			"assets/shaders/batch_renderer.vert",
+			"assets/shaders/batch_renderer.frag");
+
+		//Assign relevant texture unit to the sampler2D[] uniform uTextures
+		std::vector<int> sampler;
+		for (uint32_t i = 0; i < m_maxTextureSlots; i++)
+		{
+			sampler.emplace_back(i);
+		}
+		quadShader->SetUniformArray("uTextures", &sampler[0], (GLsizei)sampler.size());
+
+		//Bind shader to the camera uniform buffer
+		quadShader->BindUniformBlock("camera", 0);
+
+
+		//Initialize texture slots size
+		textureSlots.resize(m_maxTextureSlots);
+		//White texture in slot 0
+		whiteTexture = makesptr<Texture>();
+		textureSlots[0] = whiteTexture;
+
+		//Vertices quad position before any transformation
+		quadVertexPosition[0] = Vec4f(-0.5f, -0.5f, 0.0f, 1.0f);
+		quadVertexPosition[1] = Vec4f(0.5f, -0.5f, 0.0f, 1.0f);
+		quadVertexPosition[2] = Vec4f(0.5f, 0.5f, 0.0f, 1.0f);
+		quadVertexPosition[3] = Vec4f(-0.5f, 0.5f, 0.0f, 1.0f);
+	}
 	BatchRenderer::BatchRenderer()
 	{
 		//Limitations
@@ -15,14 +62,7 @@ namespace Sandbox
 		m_maxIndices = m_maxQuads * 6;
 		m_maxTextureSlots = 16;
 
-		//Vertex buffer (quads)
-		m_data.quadVertexBuffer = makesptr<VertexBuffer>(m_maxVertices * sizeof(QuadVertex));
-		m_data.quadVertexBuffer->SetLayout({
-			{ShaderDataType::Vec3f, "aPosition"},
-			{ShaderDataType::Vec4f, "aColor"},
-			{ShaderDataType::Vec2f, "aTexCoords"},
-			{ShaderDataType::Float, "aTexIndex"}
-			});
+
 
 		//IndexBuffer (quads)
 		uint32_t* quadIndices = new uint32_t[m_maxIndices];
@@ -40,65 +80,28 @@ namespace Sandbox
 			offset += 4;
 		}
 
-		sptr<IndexBuffer> quadIndexBuffer = makesptr<IndexBuffer>(quadIndices, m_maxIndices);
+		m_quadIndexBuffer = makesptr<IndexBuffer>(quadIndices, m_maxIndices);
 		delete[] quadIndices;
 
-		//Vertex Array
-		m_data.quadVertexArray = makesptr<VertexArray>(m_data.quadVertexBuffer, quadIndexBuffer);
-
-		//Vertex data on CPU
-		m_data.quadVertexBase = new QuadVertex[m_maxVertices];
-
-
-		//Shaders
-		m_data.quadShader = makesptr<Shader>(
-			"assets/shaders/batch_renderer.vert",
-			"assets/shaders/batch_renderer.frag");
-
-		//Assign relevant texture unit to the sampler2D[] uniform uTextures
-		std::vector<int> sampler;
-		for (uint32_t i = 0; i < m_maxTextureSlots; i++)
-		{
-			sampler.emplace_back(i);
-		}
-		m_data.quadShader->SetUniformArray("uTextures", &sampler[0], (GLsizei)sampler.size());
-
-		//Bind shader to the camera uniform buffer
-		m_data.quadShader->BindUniformBlock("camera", 0);
-
-		//Uniform buffer for the camera
-		m_data.cameraUniformBuffer = makesptr<UniformBuffer>(sizeof(Mat4), 0);
-
-		//Initialize texture slots size
-		m_data.textureSlots.resize(m_maxTextureSlots);
-		//White texture in slot 0
-		m_data.whiteTexture = makesptr<Texture>();
-		m_data.textureSlots[0] = m_data.whiteTexture;
-
-		//Vertices quad position before any transformation
-		m_data.quadVertexPosition[0] = Vec4f(-0.5f, -0.5f, 0.0f, 1.0f);
-		m_data.quadVertexPosition[1] = Vec4f(0.5f, -0.5f, 0.0f, 1.0f);
-		m_data.quadVertexPosition[2] = Vec4f(0.5f, 0.5f, 0.0f, 1.0f);
-		m_data.quadVertexPosition[3] = Vec4f(-0.5f, 0.5f, 0.0f, 1.0f);
-
-		
 	}
 
 	BatchRenderer::~BatchRenderer()
 	{
-		delete[] m_data.quadVertexBase;
+		//To do
 	}
 
 	void BatchRenderer::BeginScene(const Camera& camera)
 	{
 		//Set the camera matrices into the uniform buffer
-		m_data.camera = camera.GetProjectionMatrix() * camera.GetViewMatrix();
-		m_data.cameraUniformBuffer->SetData(&m_data.camera, sizeof(Mat4), 0);
+
+		//To do: check if camera orthographic
+		m_camera = camera.GetProjectionMatrix() * camera.GetViewMatrix();
+		m_cameraUniformBuffer->SetData(&m_camera, sizeof(Mat4), 0);
 
 		//ResetStats
-		m_data.stats.drawCalls = 0;
-		m_data.stats.quadCount = 0;
-		
+		m_stats.drawCalls = 0;
+		m_stats.quadCount = 0;
+
 		StartBatch();
 	}
 
@@ -108,24 +111,29 @@ namespace Sandbox
 		Flush();
 	}
 
-	void BatchRenderer::Flush()
+	void BatchRenderer::Flush(uint32_t layerId, uint32_t materialId, uint32_t stencilStateId)
 	{
-		if (m_data.quadIndexCount)
-		{
-			//Send the vertex data from CPU to GPU
-			uint32_t dataSize = (uint32_t)((uint8_t*)m_data.quadVertexPtr - (uint8_t*)m_data.quadVertexBase);
-			m_data.quadVertexBuffer->SetData(m_data.quadVertexBase, dataSize);
 
-			for (uint32_t i = 0; i < m_data.textureSlotIndex; i++)
+		Batch& batch = m_pipelines[layerId].batches[materialId][stencilStateId];
+		if (batch.quadIndexCount)
+		{
+			RenderTarget* layer = m_pipelines[layerId].layer;
+
+			layer->Bind();
+			//Send the vertex data from CPU to GPU
+			uint32_t dataSize = (uint32_t)((uint8_t*)batch.quadVertexPtr - (uint8_t*)batch.quadVertexBase);
+			batch.quadVertexBuffer->SetData(batch.quadVertexBase, dataSize);
+
+			for (uint32_t i = 0; i < batch.textureSlotIndex; i++)
 			{
-				m_data.textureSlots[i]->Bind(i);
+				batch.textureSlots[i]->Bind(i);
 			}
 
-			m_data.quadVertexArray->Bind();
-			m_data.quadShader->Bind();
-			glDrawElements(GL_TRIANGLES, m_data.quadIndexCount, GL_UNSIGNED_INT, nullptr);
+			batch.quadVertexArray->Bind();
+			batch.shader->Bind();
+			glDrawElements(GL_TRIANGLES, batch.quadIndexCount, GL_UNSIGNED_INT, nullptr);
 
-			m_data.stats.drawCalls++;
+			m_stats.drawCalls++;
 		}
 	}
 
@@ -159,7 +167,7 @@ namespace Sandbox
 		}
 
 		m_data.quadIndexCount += 6;
-		m_data.stats.quadCount++;
+		m_stats.quadCount++;
 	}
 
 	void BatchRenderer::DrawTexturedQuad(const Vec3f& position, const Vec2f& scale, const sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color)
@@ -170,7 +178,8 @@ namespace Sandbox
 		DrawTexturedQuad(transform, texture, texCoords, color);
 	}
 
-	void BatchRenderer::DrawTexturedQuad(const Transform& transform, const sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color)
+	void DrawTexturedQuad(const Transform& transform, const Texture& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1),
+		uint32_t layerId = 0, uint32_t materialId = 0, uint32_t stencilStateId = 0)
 	{
 		constexpr size_t quadVertexCount = 4;
 		ASSERT_LOG_ERROR(texCoords.size() >= 4, "texCoords size is too low.");
@@ -237,7 +246,7 @@ namespace Sandbox
 
 		//Reset texture slot index
 		m_data.textureSlotIndex = 1;
-		
+
 	}
 
 	void BatchRenderer::NextBatch()

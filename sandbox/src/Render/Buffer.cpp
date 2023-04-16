@@ -71,8 +71,9 @@ namespace Sandbox
 		return 0;
 	}
 
-	/// AttributeLayout /////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////
+	///////////////////////////
+	/// AttributeLayout ///////
+	///////////////////////////
 
 	AttributeLayout::AttributeLayout() : m_elements{
 		{ ShaderDataType::Vec3f, "aPos" },
@@ -120,13 +121,12 @@ namespace Sandbox
 		}
 	}
 
-	/// Vertex Buffer ////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////
+	/////////////////////////
+	/// Vertex Buffer ///////
+	/////////////////////////
 
-	/// <summary>
-	/// Manually set vertices and the according Attribute Layout
+	/// @brief Manually set vertices and the according Attribute Layout
 	/// This will make the buffer GL_STATIC_DRAW
-	/// </summary>
 	VertexBuffer::VertexBuffer(float* vertices, GLsizeiptr size, const AttributeLayout& layout)
 	{
 		m_verticesCount = (uint32_t)(size / sizeof(float));
@@ -140,9 +140,7 @@ namespace Sandbox
 		m_layout = layout;
 	}
 
-	/// <summary>
-	/// This will make the buffer GL_DYNAMIC_DRAW
-	/// </summary>
+	/// @brief This will make the buffer GL_DYNAMIC_DRAW
 	VertexBuffer::VertexBuffer(GLsizeiptr size, const AttributeLayout& layout)
 	{
 		m_verticesCount = (uint32_t)(size / sizeof(float));
@@ -156,10 +154,8 @@ namespace Sandbox
 		m_layout = layout;
 	}
 
-	/// <summary>
-	/// Manually set vertices and the according Attribute Layout
-	/// This will make the buffer GL_DYNAMIC_DRAW
-	/// </summary>
+
+	/// @brief This will make the buffer GL_DYNAMIC_DRAW
 	VertexBuffer::VertexBuffer(GLsizeiptr size)
 	{
 		m_verticesCount = (uint32_t)(size / sizeof(float));
@@ -177,11 +173,9 @@ namespace Sandbox
 		glBufferSubData(GL_ARRAY_BUFFER, 0, size, data);
 	}
 
-	/// <summary>
-	/// Return a pointer to the buffer data for direct reading/writing
+	/// @brief Return a pointer to the buffer data for direct reading/writing
 	/// Must call EndAccessBuffer before any other operation on this buffer
 	/// Use with care
-	/// </summary>
 	float* VertexBuffer::BeginAccessBuffer()
 	{
 		//todo compare performance with glBufferSubData
@@ -220,8 +214,9 @@ namespace Sandbox
 	}
 
 
-	/// Element Buffer ////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////
+	/////////////////////////
+	/// Element Buffer //////
+	/////////////////////////
 
 	IndexBuffer::IndexBuffer(uint32_t* indices, uint32_t count)
 	{
@@ -246,8 +241,9 @@ namespace Sandbox
 		return m_count;
 	}
 
-	/// Uniform	Buffer ////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////
+	/////////////////////////
+	/// Uniform	Buffer //////
+	/////////////////////////
 
 	UniformBuffer::UniformBuffer(GLsizeiptr size, GLuint binding)
 	{

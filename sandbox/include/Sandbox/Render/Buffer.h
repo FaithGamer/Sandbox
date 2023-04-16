@@ -11,12 +11,12 @@ namespace Sandbox
 	GLint ShaderDataTypeSize(ShaderDataType type);
 	GLint ShaderDataTypeCount(ShaderDataType type);
 	GLenum ShaderDataTypeGLType(ShaderDataType type);
-	/// Buffer Element ////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////
 
-	/// <summary>
-	/// Basically a uniform with it's type, size, and offset within a Vertex Array
-	/// </summary>
+	/////////////////////////
+	/// Buffer Element //////
+	/////////////////////////
+
+	/// @brief Basically a uniform with it's type, size, and offset within a Vertex Array
 	struct AttributeElement
 	{
 		std::string name;
@@ -32,12 +32,11 @@ namespace Sandbox
 		}
 	};
 
-	/// Buffer Layout ////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////
+	/////////////////////////
+	/// Buffer Layout ///////
+	/////////////////////////
 
-	/// <summary>
-	/// Helper to call glVertexAttribPointer depending on the attributes layout
-	/// </summary>
+	/// @brief Helper to call glVertexAttribPointer depending on the attributes layout
 	class AttributeLayout
 	{
 	public:
@@ -54,16 +53,15 @@ namespace Sandbox
 
 	};
 
-	/// Vertex Buffer ////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////
-	
-	/// <summary>
-	/// Wrapper around OpenGL Vertex Buffer
-	/// </summary>
+	/////////////////////////
+	/// Vertex Buffer ///////
+	/////////////////////////
+
+	/// @brief Wrapper around OpenGL Vertex Buffer
 	class VertexBuffer
 	{
 	public:
-		//TO DO: add an option for making it dynamic or static
+		//To do: add an option for making it dynamic or static
 		VertexBuffer() : m_id(0), m_verticesCount(0) {} 
 		VertexBuffer(float* vertices, GLsizeiptr size, const AttributeLayout& layout = AttributeLayout());
 		VertexBuffer(GLsizeiptr size, const AttributeLayout& layout);
@@ -86,12 +84,11 @@ namespace Sandbox
 		GLuint m_id;
 	};
 
-	/// Element Buffer ////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////
+	/////////////////////////
+	/// Element Buffer //////
+	/////////////////////////
 
-	/// <summary>
-	/// Wrapper around OpenGL Element Array Buffer
-	/// </summary>
+	/// @brief Wrapper around OpenGL Element Array Buffer
 	class IndexBuffer
 	{
 	public:
@@ -106,13 +103,14 @@ namespace Sandbox
 	};
 
 
-	/// Uniform	Buffer ////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////
+	/////////////////////////
+	/// Uniform	Buffer //////
+	/////////////////////////
 
 	class UniformBuffer
 	{
 	public:
-		//TO DO: something to calculate size based on the uniform buffer content
+		//To do: something to calculate size based on the uniform buffer content
 		UniformBuffer(GLsizeiptr size, GLuint binding);
 		~UniformBuffer();
 		void SetData(const void* data, GLsizeiptr size, GLuint offset);
