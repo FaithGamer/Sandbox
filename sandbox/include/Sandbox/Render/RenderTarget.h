@@ -8,5 +8,6 @@ namespace Sandbox
 		virtual ~RenderTarget();
 		virtual void Bind() = 0;
 		virtual void Clear() = 0;
+		virtual uint32_t GetId();
 	};
 }

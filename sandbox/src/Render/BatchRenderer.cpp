@@ -4,14 +4,21 @@
 #include "Sandbox/Render/BatchRenderer.h"
 #include "Sandbox/Log.h"
 #include "Sandbox/Render/RenderTarget.h"
+#include "Sandbox/Render/Shader.h"
+
 namespace Sandbox
 {
-
-	BatchRenderer::Batch::Batch()
+	uint64_t GenerateId(uint32_t a, uint32_t b, uint32_t c)
+	{
+		//To do:!
+		
+		return 0;
+	}
+	void BatchRenderer::CreateQuadPipeline(QuadBatch& batch, sptr<RenderTarget> layer, sptr<Shader> shader, sptr<StencilMode> stencil)
 	{
 		//Vertex buffer (quads)
-		quadVertexBuffer = makesptr<VertexBuffer>(m_maxVertices * sizeof(QuadVertex));
-		quadVertexBuffer->SetLayout({
+		batch.quadVertexBuffer = makesptr<VertexBuffer>(m_maxVertices * sizeof(QuadVertex));
+		batch.quadVertexBuffer->SetLayout({
 			{ShaderDataType::Vec3f, "aPosition"},
 			{ShaderDataType::Vec4f, "aColor"},
 			{ShaderDataType::Vec2f, "aTexCoords"},
@@ -19,16 +26,14 @@ namespace Sandbox
 			});
 
 		//Vertex Array
-		quadVertexArray = makesptr<VertexArray>(quadVertexBuffer, quadIndexBuffer);
+		batch.quadVertexArray = makesptr<VertexArray>(batch.quadVertexBuffer, m_quadIndexBuffer);
 
 		//Vertex data on CPU
-		quadVertexBase = new QuadVertex[m_maxVertices];
+		batch.quadVertexBase = new QuadVertex[m_maxVertices];
 
 
 		//Shaders
-		quadShader = makesptr<Shader>(
-			"assets/shaders/batch_renderer.vert",
-			"assets/shaders/batch_renderer.frag");
+		batch.shader = shader;
 
 		//Assign relevant texture unit to the sampler2D[] uniform uTextures
 		std::vector<int> sampler;
@@ -36,24 +41,25 @@ namespace Sandbox
 		{
 			sampler.emplace_back(i);
 		}
-		quadShader->SetUniformArray("uTextures", &sampler[0], (GLsizei)sampler.size());
+		batch.shader->SetUniformArray("uTextures", &sampler[0], (GLsizei)sampler.size());
 
 		//Bind shader to the camera uniform buffer
-		quadShader->BindUniformBlock("camera", 0);
+		batch.shader->BindUniformBlock("camera", 0);
 
 
 		//Initialize texture slots size
-		textureSlots.resize(m_maxTextureSlots);
+		batch.textureSlots.resize(m_maxTextureSlots);
 		//White texture in slot 0
-		whiteTexture = makesptr<Texture>();
-		textureSlots[0] = whiteTexture;
+
+		batch.textureSlots[0] = m_whiteTexture;
 
 		//Vertices quad position before any transformation
-		quadVertexPosition[0] = Vec4f(-0.5f, -0.5f, 0.0f, 1.0f);
-		quadVertexPosition[1] = Vec4f(0.5f, -0.5f, 0.0f, 1.0f);
-		quadVertexPosition[2] = Vec4f(0.5f, 0.5f, 0.0f, 1.0f);
-		quadVertexPosition[3] = Vec4f(-0.5f, 0.5f, 0.0f, 1.0f);
+		batch.quadVertexPosition[0] = Vec4f(-0.5f, -0.5f, 0.0f, 1.0f);
+		batch.quadVertexPosition[1] = Vec4f(0.5f, -0.5f, 0.0f, 1.0f);
+		batch.quadVertexPosition[2] = Vec4f(0.5f, 0.5f, 0.0f, 1.0f);
+		batch.quadVertexPosition[3] = Vec4f(-0.5f, 0.5f, 0.0f, 1.0f);
 	}
+
 	BatchRenderer::BatchRenderer()
 	{
 		//Limitations
@@ -61,8 +67,6 @@ namespace Sandbox
 		m_maxVertices = m_maxQuads * 4;
 		m_maxIndices = m_maxQuads * 6;
 		m_maxTextureSlots = 16;
-
-
 
 		//IndexBuffer (quads)
 		uint32_t* quadIndices = new uint32_t[m_maxIndices];
@@ -83,11 +87,22 @@ namespace Sandbox
 		m_quadIndexBuffer = makesptr<IndexBuffer>(quadIndices, m_maxIndices);
 		delete[] quadIndices;
 
+		//Camera uniform buffer
+		m_cameraUniformBuffer = makesptr<UniformBuffer>(sizeof(Mat4), 0);
+
+		m_whiteTexture = makesptr<Texture>(Vec2i(1, 1));
+
 	}
 
 	BatchRenderer::~BatchRenderer()
 	{
 		//To do
+
+	}
+
+	uint32_t BatchRenderer::GetPipeline(uint32_t layerId, uint32_t shaderId, uint32_t stencilStateId)
+	{
+		uint64_t id = GenerateId(layerId, shaderId, stencilStateId);
 	}
 
 	void BatchRenderer::BeginScene(const Camera& camera)
@@ -111,27 +126,26 @@ namespace Sandbox
 		Flush();
 	}
 
-	void BatchRenderer::Flush(uint32_t layerId, uint32_t materialId, uint32_t stencilStateId)
+	void BatchRenderer::Flush(size_t pipelineIndex)
 	{
 
-		Batch& batch = m_pipelines[layerId].batches[materialId][stencilStateId];
-		if (batch.quadIndexCount)
+		Pipeline& pipeline = m_pipelines[pipelineIndex];
+		if (pipeline.batch.quadIndexCount)
 		{
-			RenderTarget* layer = m_pipelines[layerId].layer;
+			pipeline.layer->Bind();
 
-			layer->Bind();
 			//Send the vertex data from CPU to GPU
-			uint32_t dataSize = (uint32_t)((uint8_t*)batch.quadVertexPtr - (uint8_t*)batch.quadVertexBase);
-			batch.quadVertexBuffer->SetData(batch.quadVertexBase, dataSize);
+			uint32_t dataSize = (uint32_t)((uint8_t*)pipeline.batch.quadVertexPtr - (uint8_t*)pipeline.batch.quadVertexBase);
+			pipeline.batch.quadVertexBuffer->SetData(pipeline.batch.quadVertexBase, dataSize);
 
-			for (uint32_t i = 0; i < batch.textureSlotIndex; i++)
+			for (uint32_t i = 0; i < pipeline.batch.textureSlotIndex; i++)
 			{
-				batch.textureSlots[i]->Bind(i);
+				pipeline.batch.textureSlots[i]->Bind(i);
 			}
 
-			batch.quadVertexArray->Bind();
-			batch.shader->Bind();
-			glDrawElements(GL_TRIANGLES, batch.quadIndexCount, GL_UNSIGNED_INT, nullptr);
+			pipeline.batch.quadVertexArray->Bind();
+			pipeline.shader->Bind();
+			glDrawElements(GL_TRIANGLES, pipeline.batch.quadIndexCount, GL_UNSIGNED_INT, nullptr);
 
 			m_stats.drawCalls++;
 		}
