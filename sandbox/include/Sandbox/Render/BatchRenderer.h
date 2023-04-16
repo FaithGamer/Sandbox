@@ -14,11 +14,23 @@ namespace Sandbox
 {
 	struct Sprite2D
 	{
-		uint32_t pipeline;
+		
+		Texture* texture;
+		std::vector<Vec2f> texCoords;
+		Vec4f color;
+		
+	};
+
+	struct RenderOptions
+	{
 		void SetLayer(uint32_t layer);
 		void SetStencilMode(uint32_t stencil);
 		void SetShader(uint32_t shader);
 
+		uint32_t pipeline = 0;
+		uint32_t layer = 0;
+		uint32_t stencil = 0;
+		uint32_t shader = 0;
 	};
 
 	class RenderTarget;
@@ -86,15 +98,15 @@ namespace Sandbox
 		uint32_t RegisterStencilMode(StencilMode* stencil);
 		void DeleteStencilMode(uint32_t stencilId);
 		uint32_t GetStencilModeId(StencilMode* stencil);
-		uint32_t GetDefaultStencilModeId();
+		uint32_t GetDefaultStencilModeId();*/
 
 		uint32_t AddLayer(std::string name);
 		void DeleteLayer(std::string name);
 		void DeleteLayer(uint32_t layerId);
 		uint32_t GetLayerId(std::string name);
-		uint32_t GetDefaultLayerId();*/
+		uint32_t GetDefaultLayerId();
 
-		uint32_t GetPipeline(uint32_t layerId = 0, uint32_t shaderId = 0, uint32_t stencilStateId = 0);
+		uint32_t AddPipelineUser(uint32_t layerIndex, sptr<Shader>& shader, sptr<StencilMode>& stencil);
 
 		void BeginScene(const Camera& camera);
 		void EndScene();
@@ -102,25 +114,26 @@ namespace Sandbox
 
 		void DrawQuad(const Vec3f& position, const Vec2f& scale, const Vec4f& color = Vec4f(1));
 		void DrawQuad(const Transform& transform, const Vec4f& color = Vec4f(1));
-		void DrawTexturedQuad(const Vec3f& position, const Vec2f& scale, const Texture& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1));
-		void DrawTexturedQuad(const Transform& transform, const Texture& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1));
+		void DrawTexturedQuad(const Vec3f& position, const Vec2f& scale, sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1));
+		void DrawTexturedQuad(const Transform& transform, sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1));
 
-		void DrawTexturedQuad(const Transform& transform, const Texture& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1),
-			uint32_t pipeline = 0);
+		void DrawTexturedQuad(const Transform& transform, sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1),
+			uint32_t pipelineIndex = 0);
 
 		Statistics GetStats();
 	private:
-		void StartBatch();
-		void NextBatch();
-		void CreateQuadPipeline(QuadBatch& batch, sptr<RenderTarget> layer, sptr<Shader> shader, sptr<StencilMode> stencil);
+		void StartBatch(uint32_t pipelineIndex);
+		void NextBatch(uint32_t pipelineIndex);
+		void CreateQuadPipeline(QuadBatch& batch, sptr<RenderTarget>& layer, sptr<Shader>& shader, sptr<StencilMode>& stencil);
 		bool m_mustGeneratePipelines;
 
 
 
 		std::unordered_map<uint64_t, QuadBatch*> m_quadPipelinesId;
 		std::vector<QuadBatch> m_quadPipelines;
+		std::vector<uint32_t> m_activePipelines;
 
-		std::vector<RenderTarget*> m_layers;
+		std::vector<sptr<RenderTarget>> m_layers;
 
 
 		uint32_t m_maxQuads;
