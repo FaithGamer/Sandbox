@@ -76,9 +76,9 @@ void BatchRendererTest()
 		int count = 0;
 		auto white = Vec4f(1, 1, 1, 1);
 
-		for (float i = -5; i < 5; i += 1.0f)
+		for (float i = -25; i < 25; i += 1.0f)
 		{
-			for (float j = -5; j < 5; j += 1.0f)
+			for (float j = -25; j < 25; j += 1.0f)
 			{
 				float y = i / 100.0f;
 				float x = j / 100.0f;

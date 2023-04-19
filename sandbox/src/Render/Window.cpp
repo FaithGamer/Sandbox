@@ -47,7 +47,7 @@ namespace Sandbox
 
 		//Viewport size and clear color
 		glViewport(0, 0, size.x, size.y);
-		glClearColor(0.1f, 0.1f, 0.1f, 1.f);
+	
 
 		//Enabling blending
 		glEnable(GL_BLEND);
@@ -95,6 +95,7 @@ namespace Sandbox
 	void Window::Clear()
 	{
 		Bind();
+		glClearColor(0.1f, 0.1f, 0.1f, 1.f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 	}
 	void Window::SetSize(Vec2u size)
@@ -102,6 +103,7 @@ namespace Sandbox
 		SDL_SetWindowSize(m_window, size.x, size.y);
 		glViewport(0, 0, size.x, size.y);
 		m_size = size;
+		resizeSignal.SendSignal(m_size);
 	}
 	void Window::Bind()
 	{

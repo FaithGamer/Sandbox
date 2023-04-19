@@ -5,3 +5,6 @@ April
 - Fixed ImGui processing event with io.WanCaptureMouse/Keyboard
 - Inputs creation is now only accessible through InputMap, and InputMap creation only through Inputs
 - ForEachComponent improved with lambda/free function, and default gameworld
+
+16
+-Improved the batch renderer to take custom shader/render target/stencil mode, with pipeline generated on purpose.

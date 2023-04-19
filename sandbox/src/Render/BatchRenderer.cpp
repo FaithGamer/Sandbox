@@ -4,9 +4,11 @@
 #include "Sandbox/Render/BatchRenderer.h"
 #include "Sandbox/Log.h"
 #include "Sandbox/Render/RenderTarget.h"
+#include "Sandbox/Render/RenderTexture.h"
 #include "Sandbox/Render/Shader.h"
 #include "Sandbox/Render/StencilMode.h"
 #include "Sandbox/Render/Window.h"
+#include "Sandbox/Vector.h"
 
 namespace Sandbox
 {
@@ -55,11 +57,12 @@ namespace Sandbox
 			LOG_ERROR("BatchRenderer cannot be initialized before window.");
 		}
 
-		//Create the default pipeline
-		m_quadPipelines.push_back(QuadBatch());
-		CreateQuadPipeline(m_quadPipelines.back(), nullptr, nullptr, nullptr);
+		m_camera = Mat4(1);
 
-		m_layers.push_back(m_defaultRenderTarget);
+		//Create the default pipeline
+		CreateQuadPipeline(nullptr, nullptr, nullptr);
+
+		m_layers.push_back(Layer("Window", m_defaultRenderTarget));
 
 	}
 
@@ -69,63 +72,7 @@ namespace Sandbox
 
 	}
 
-	void BatchRenderer::CreateQuadPipeline(QuadBatch& batch, sptr<RenderTarget> layer, sptr<Shader> shader, sptr<StencilMode> stencil)
-	{
-		if (shader == nullptr)
-			shader = m_defaultShader;
-		if (layer == nullptr)
-			layer = m_defaultRenderTarget;
-		if (stencil == nullptr)
-			stencil = m_defaultStencilMode;
-
-		//Vertex buffer (quads)
-		batch.quadVertexBuffer = makesptr<VertexBuffer>(m_maxVertices * sizeof(QuadVertex));
-		batch.quadVertexBuffer->SetLayout({
-			{ShaderDataType::Vec3f, "aPosition"},
-			{ShaderDataType::Vec4f, "aColor"},
-			{ShaderDataType::Vec2f, "aTexCoords"},
-			{ShaderDataType::Float, "aTexIndex"}
-			});
-
-		//Vertex Array
-		batch.quadVertexArray = makesptr<VertexArray>(batch.quadVertexBuffer, m_quadIndexBuffer);
-
-		//Vertex data on CPU
-		batch.quadVertexBase = new QuadVertex[m_maxVertices];
-
-
-		//Shaders
-		batch.shader = shader;
-
-		//Assign relevant texture unit to the sampler2D[] uniform uTextures
-		std::vector<int> sampler;
-		for (uint32_t i = 0; i < m_maxTextureSlots; i++)
-		{
-			sampler.emplace_back(i);
-		}
-		batch.shader->SetUniformArray("uTextures", &sampler[0], (GLsizei)sampler.size());
-
-		//Bind shader to the camera uniform buffer
-		batch.shader->BindUniformBlock("camera", 0);
-
-
-		//Initialize texture slots size
-		batch.textureSlots.resize(m_maxTextureSlots);
-		//White texture in slot 0
-
-		batch.textureSlots[0] = m_whiteTexture;
-
-		//Vertices quad position before any transformation
-		batch.quadVertexPosition[0] = Vec4f(-0.5f, -0.5f, 0.0f, 1.0f);
-		batch.quadVertexPosition[1] = Vec4f(0.5f, -0.5f, 0.0f, 1.0f);
-		batch.quadVertexPosition[2] = Vec4f(0.5f, 0.5f, 0.0f, 1.0f);
-		batch.quadVertexPosition[3] = Vec4f(-0.5f, 0.5f, 0.0f, 1.0f);
-
-		batch.layer = layer;
-		batch.stencil = stencil;
-	}
-
-	uint64_t BatchRenderer::GenerateId(uint32_t a, uint32_t b, uint32_t c)
+	uint64_t BatchRenderer::GeneratePipelineId(uint32_t a, uint32_t b, uint32_t c)
 	{
 		b = (b+1) * 10000;
 		a = (a+1) * 100000000;
@@ -134,29 +81,33 @@ namespace Sandbox
 
 	uint32_t BatchRenderer::AddLayer(std::string name)
 	{
-		//To do:
-		return 0;
-	}
+		sptr<RenderTexture> layer = makesptr<RenderTexture>(Window::GetSize());
+		m_layers.push_back(Layer(name, layer));
 
-	void BatchRenderer::DeleteLayer(std::string name)
-	{
-		//To do:
-	}
-
-	void BatchRenderer::DeleteLayer(uint32_t layerId)
-	{
-		//To do:
+		return m_layers.size() - 1;
 	}
 
 	uint32_t BatchRenderer::GetLayerId(std::string name)
 	{
-		//To do:
+		uint32_t i = 0;
+		for (auto& layer : m_layers)
+		{
+			if (layer.name == name)
+			{
+				return i;
+			}
+		}
+		LOG_WARN("No render layer with the name: " + name + " default layer returned.");
 		return 0;
 	}
 
 	void BatchRenderer::PreallocateQuadPipeline(int count)
 	{
-		//To do:
+		for (int i = 0; i < count; i++)
+		{
+			m_quadPipelines.push_back(QuadBatch());
+			m_freeQuadPipelines.push_back(m_quadPipelines.size() - 1);
+		}
 	}
 
 	uint32_t BatchRenderer::AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader, sptr<StencilMode> stencil)
@@ -169,16 +120,13 @@ namespace Sandbox
 		if (stencil != nullptr)
 			stencilId = stencil->GetID();
 
-		uint64_t id = GenerateId(layerIndex, shaderId, stencilId);
+		uint64_t id = GeneratePipelineId(layerIndex, shaderId, stencilId);
 
 		auto pipeline = m_quadPipelineFinder.find(id);
 		if (pipeline == m_quadPipelineFinder.end())
 		{
 			//Create pipeline if doesn't exists
-			m_quadPipelines.push_back(QuadBatch());
-
-			//To do: search for recyclable slot
-			CreateQuadPipeline(m_quadPipelines.back(), m_layers[layerIndex], shader, stencil);
+			CreateQuadPipeline(m_layers[layerIndex].target, shader, stencil);
 
 			uint32_t index = (uint32_t)m_quadPipelines.size() - 1;
 			m_quadPipelines.back().index = index;
@@ -195,13 +143,95 @@ namespace Sandbox
 		}
 	}
 
+	void BatchRenderer::CreateQuadPipeline(sptr<RenderTarget> layer, sptr<Shader> shader, sptr<StencilMode> stencil)
+	{
+		size_t index = 0;
+		if (!m_freeQuadPipelines.empty())
+		{
+			//Recycle a free pipeline
+			index = m_freeQuadPipelines[0];
+			Vector::RemoveAt(m_freeQuadPipelines, 0);
+		}
+		else
+		{
+			//Allocate a new pipeline
+			m_quadPipelines.push_back(QuadBatch());
+			AllocateQuadPipeline(m_quadPipelines.back());
+			index = m_quadPipelines.size() - 1;
+		}
+
+		SetupQuadPipeline(m_quadPipelines[index], layer, shader, stencil);
+		
+	}
+
+	void BatchRenderer::SetupQuadPipeline(QuadBatch& batch, sptr<RenderTarget> layer, sptr<Shader> shader, sptr<StencilMode> stencil)
+	{
+		if (shader == nullptr)
+			shader = m_defaultShader;
+		if (layer == nullptr)
+			layer = m_defaultRenderTarget;
+		if (stencil == nullptr)
+			stencil = m_defaultStencilMode;
+
+		batch.shader = shader;
+		batch.layer = layer;
+		batch.stencil = stencil;
+
+		//Assign relevant texture unit to the sampler2D[] uniform uTextures
+		std::vector<int> sampler;
+		for (uint32_t i = 0; i < m_maxTextureSlots; i++)
+		{
+			sampler.emplace_back(i);
+		}
+		batch.shader->SetUniformArray("uTextures", &sampler[0], (GLsizei)sampler.size());
+
+		//Bind shader to the camera uniform buffer
+		batch.shader->BindUniformBlock("camera", 0);
+
+	}
+	void BatchRenderer::AllocateQuadPipeline(QuadBatch& batch)
+	{
+		//Vertex buffer (quads)
+		batch.quadVertexBuffer = makesptr<VertexBuffer>(m_maxVertices * sizeof(QuadVertex));
+		batch.quadVertexBuffer->SetLayout({
+			{ShaderDataType::Vec3f, "aPosition"},
+			{ShaderDataType::Vec4f, "aColor"},
+			{ShaderDataType::Vec2f, "aTexCoords"},
+			{ShaderDataType::Float, "aTexIndex"}
+			});
+
+		//Vertex Array
+		batch.quadVertexArray = makesptr<VertexArray>(batch.quadVertexBuffer, m_quadIndexBuffer);
+
+		//Vertex data on CPU
+		batch.quadVertexBase = new QuadVertex[m_maxVertices];
+
+		//Initialize texture slots size
+		batch.textureSlots.resize(m_maxTextureSlots);
+
+		//White texture in slot 0
+		batch.textureSlots[0] = m_whiteTexture;
+
+		//Vertices quad position before any transformation
+		batch.quadVertexPosition[0] = Vec4f(-0.5f, -0.5f, 0.0f, 1.0f);
+		batch.quadVertexPosition[1] = Vec4f(0.5f, -0.5f, 0.0f, 1.0f);
+		batch.quadVertexPosition[2] = Vec4f(0.5f, 0.5f, 0.0f, 1.0f);
+		batch.quadVertexPosition[3] = Vec4f(-0.5f, 0.5f, 0.0f, 1.0f);
+
+	}
+
 	void BatchRenderer::RemoveQuadPipelineUser(uint32_t pipeline)
 	{
 		m_quadPipelines[pipeline].userCount--;
 		if (m_quadPipelines[pipeline].userCount <= 0)
 		{
-			//To do: delete quadPipeline by adding recyclable slot
+			FreeQuadPipeline(pipeline);
 		}
+	}
+
+	void BatchRenderer::FreeQuadPipeline(uint32_t pipeline)
+	{
+		m_freeQuadPipelines.push_back(pipeline);
 	}
 
 	void BatchRenderer::BeginScene(const Camera& camera)
@@ -215,7 +245,7 @@ namespace Sandbox
 		//Clear layers
 		for (auto& layer : m_layers)
 		{
-			layer->Clear();
+			layer.target->Clear();
 		}
 
 		//ResetStats
@@ -233,7 +263,13 @@ namespace Sandbox
 	{
 		for (auto& pipeline : m_quadPipelines)
 			Flush(pipeline.index);
+		//RenderLayers();
 	}
+
+	/*void BatchRenderer::RenderLayer(uint32_t layerIndex, )
+	{
+		//To do: we wanna render layer with render options...
+	}*/
 
 	void BatchRenderer::Flush(uint32_t pipelineIndex)
 	{

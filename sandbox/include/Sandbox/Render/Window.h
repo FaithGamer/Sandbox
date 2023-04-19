@@ -7,6 +7,7 @@
 #include "Sandbox/Singleton.h"
 #include "Sandbox/Vec.h"
 #include "RenderTarget.h"
+#include "Sandbox/Signal.h"
 
 namespace Sandbox
 {
@@ -24,6 +25,8 @@ namespace Sandbox
 		void Clear() override;
 		void SetSize(Vec2u size) override;
 		void Bind() override;
+
+		SignalSender<Vec2u> resizeSignal;
 	private:
 		friend Engine;
 		

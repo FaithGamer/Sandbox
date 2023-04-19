@@ -14,11 +14,9 @@ namespace Sandbox
 {
 	struct Sprite2D
 	{
-		
 		Texture* texture;
 		std::vector<Vec2f> texCoords;
 		Vec4f color;
-		
 	};
 
 	struct RenderOptions
@@ -71,7 +69,6 @@ namespace Sandbox
 			{-0.5f, 0.5f, 0.0f, 1.0f}
 		};
 
-	
 		sptr<RenderTarget> layer;
 		sptr<StencilMode> stencil;
 		sptr<Shader> shader;
@@ -91,24 +88,17 @@ namespace Sandbox
 		BatchRenderer();
 		~BatchRenderer();
 
-		/*uint32_t RegisterShader(Shader* shader);
-		void DeleteShader(uint32_t shaderId);
-		uint32_t GetShaderId(Shader* shader);
-		uint32_t GetDefaultShaderId();
-
-		uint32_t RegisterStencilMode(StencilMode* stencil);
-		void DeleteStencilMode(uint32_t stencilId);
-		uint32_t GetStencilModeId(StencilMode* stencil);
-		uint32_t GetDefaultStencilModeId();*/
-
 		uint32_t AddLayer(std::string name);
-		void DeleteLayer(std::string name);
-		void DeleteLayer(uint32_t layerId);
 		uint32_t GetLayerId(std::string name);
+		void SetLayerShader(uint32_t layer, sptr<Shader> shader);
+		void SetLayerStencilMode(uint32_t layer, sptr<StencilMode> stencil);
+		void SetLayerTextureUnit(uint32_t layer, uint32_t textureUnit);
+		void SetLayerAsTexture
 
 		void PreallocateQuadPipeline(int count);
 		uint32_t AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader, sptr<StencilMode> stencil);
 		void RemoveQuadPipelineUser(uint32_t pipeline);
+		
 
 		void BeginScene(const Camera& camera);
 		void EndScene();
@@ -125,18 +115,25 @@ namespace Sandbox
 	private:
 		void StartBatch(uint32_t pipelineIndex);
 		void NextBatch(uint32_t pipelineIndex);
-		void CreateQuadPipeline(QuadBatch& batch, sptr<RenderTarget> layer, sptr<Shader> shader, sptr<StencilMode> stencil);
-		uint64_t GenerateId(uint32_t a, uint32_t b, uint32_t c);
+		
+		void FreeQuadPipeline(uint32_t pipeline);
+		void SetupQuadPipeline(QuadBatch& batch, sptr<RenderTarget> layer, sptr<Shader> shader, sptr<StencilMode> stencil);
+		void AllocateQuadPipeline(QuadBatch& batch);
+		void CreateQuadPipeline(sptr<RenderTarget> layer, sptr<Shader> shader, sptr<StencilMode> stencil);
+		uint64_t GeneratePipelineId(uint32_t a, uint32_t b, uint32_t c);
 		bool m_mustGeneratePipelines;
-
-
 
 		std::unordered_map<uint64_t, uint32_t> m_quadPipelineFinder;
 		std::vector<QuadBatch> m_quadPipelines;
-		std::vector<uint32_t> m_activePipelines;
+		std::vector<size_t> m_freeQuadPipelines;
 
-		std::vector<sptr<RenderTarget>> m_layers;
+		struct Layer
+		{
+			std::string name;
+			sptr<RenderTarget> target;
+		};
 
+		std::vector<Layer> m_layers;
 
 		uint32_t m_maxQuads;
 		uint32_t m_maxVertices;
@@ -146,12 +143,15 @@ namespace Sandbox
 		sptr<Shader> m_defaultShader;
 		sptr<RenderTarget> m_defaultRenderTarget;
 		sptr<StencilMode> m_defaultStencilMode;
+
 		sptr<Texture> m_whiteTexture;
-		Mat4 m_camera = Mat4(1.0f);
+
 		sptr<UniformBuffer> m_cameraUniformBuffer;
 		sptr<IndexBuffer> m_quadIndexBuffer;
 
+
+		Mat4 m_camera;
+
 		Statistics m_stats;
 	};
-
 }

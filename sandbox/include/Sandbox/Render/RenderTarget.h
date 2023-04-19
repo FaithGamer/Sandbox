@@ -1,7 +1,9 @@
 #pragma once
+#include "Sandbox/Vec.h"
 
 namespace Sandbox
 {
+	/// @brief Interface for anything that can be drawed in
 	class RenderTarget
 	{
 	public:

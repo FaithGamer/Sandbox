@@ -9,10 +9,13 @@
 this will be related to SpriteComponent
 - batching together sprites using the same material
 
+-tween system
 
 -Render:
 
+-draw layers
+-SetLayerRenderOption
 -signal on resize window
 -create render texture that scale on window size
--create render buffer / frame buffer
-- render target
+-check if generateId works as intended
+-implement stencilmode
