@@ -62,9 +62,13 @@ namespace Sandbox
 	{
 	public:
 		//To do: add an option for making it dynamic or static
-		VertexBuffer() : m_id(0), m_verticesCount(0) {} 
+		VertexBuffer() : m_id(0), m_verticesCount(0) {}
+		/// @brief Manually set vertices and the according Attribute Layout
+		/// This will make the buffer GL_STATIC_DRAW
 		VertexBuffer(float* vertices, GLsizeiptr size, const AttributeLayout& layout = AttributeLayout());
+		/// @brief This will make the buffer GL_DYNAMIC_DRAW
 		VertexBuffer(GLsizeiptr size, const AttributeLayout& layout);
+		/// @brief This will make the buffer GL_DYNAMIC_DRAW
 		VertexBuffer(GLsizeiptr size);
 
 		void SetData(const void* data, GLuint size);
@@ -92,7 +96,11 @@ namespace Sandbox
 	class IndexBuffer
 	{
 	public:
+		/// @brief Make an index buffer with dynamic_draw
+		/// @param indices
+		/// @param count indices count
 		IndexBuffer(uint32_t* indices, uint32_t count);
+		IndexBuffer(uint32_t* indices, uint32_t count, GLenum type);
 		~IndexBuffer();
 
 		void Bind();

@@ -14,7 +14,6 @@ this will be related to SpriteComponent
 -Render:
 
 -draw layers
--SetLayerRenderOption
 -signal on resize window
 -create render texture that scale on window size
 -check if generateId works as intended

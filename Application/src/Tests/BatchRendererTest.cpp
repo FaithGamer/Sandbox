@@ -2,7 +2,7 @@
 
 #include "BatchRendererTest.h"
 #include "Sandbox/Render/Window.h"
-#include "Sandbox/Render/BatchRenderer.h"
+#include "Sandbox/Render/Renderer2D.h"
 #include "Sandbox/Time.h"
 #include "Sandbox/Delegate.h"
 #include "Sandbox/Task.h"
@@ -17,7 +17,7 @@ using namespace Sandbox;
 void BatchRendererTest()
 {
 	Engine::Init();
-	BatchRenderer renderer;
+	Renderer2D renderer;
 
 	Camera cam;
 	cam.Pitch(0);
@@ -63,7 +63,7 @@ void BatchRendererTest()
 			auto clearTask = makesptr<Task<void>>(clear);
 			renderingThread.QueueTask(clearTask);
 
-			Delegate beginScene(&BatchRenderer::BeginScene, &renderer, cam);
+			Delegate beginScene(&Renderer2D::BeginScene, &renderer, cam);
 			sptr < Task<void, const Camera&>> beginSceneTask = makesptr <Task<void, const Camera&>>(beginScene);
 			renderingThread.QueueTask(beginSceneTask);
 		}
@@ -92,7 +92,7 @@ void BatchRendererTest()
 					if (threadRendering)
 					{
 						Delegate<void, const Transform&, sptr<Texture>&, const std::vector<Vec2f>&, const Vec4f&, uint32_t>
-							drawQuad(&BatchRenderer::DrawTexturedQuad, &renderer, transform, texture1, texCoords, white, 0);
+							drawQuad(&Renderer2D::DrawTexturedQuad, &renderer, transform, texture1, texCoords, white, 0);
 
 						auto drawTask = makesptr <Task<void, const Transform&, sptr<Texture>&, const std::vector<Vec2f>&, const Vec4f&, uint32_t>>(drawQuad);
 						renderingThread.QueueTask(drawTask);
@@ -108,7 +108,7 @@ void BatchRendererTest()
 					if (threadRendering)
 					{
 						Delegate<void, const Transform&, sptr<Texture>&, const std::vector<Vec2f>&, const Vec4f&, uint32_t>
-							drawQuad(&BatchRenderer::DrawTexturedQuad, &renderer, transform, texture2, texCoords, white, 0);
+							drawQuad(&Renderer2D::DrawTexturedQuad, &renderer, transform, texture2, texCoords, white, 0);
 
 						auto drawTask = makesptr <Task<void, const Transform&, sptr<Texture>&, const std::vector<Vec2f>&, const Vec4f&, uint32_t>>(drawQuad);
 						renderingThread.QueueTask(drawTask);
@@ -126,7 +126,7 @@ void BatchRendererTest()
 		
 		if (threadRendering)
 		{
-			Delegate<void> endScene(&BatchRenderer::EndScene, &renderer);
+			Delegate<void> endScene(&Renderer2D::EndScene, &renderer);
 			Delegate<void> render(&Window::RenderWindow);
 
 			sptr<Task<void>> endSceneTask = makesptr <Task<void>>(endScene);

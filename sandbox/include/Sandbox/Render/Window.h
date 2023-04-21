@@ -18,6 +18,7 @@ namespace Sandbox
 		static void SetWindowSize(Vec2u size);
 		static void ClearWindow();
 		static void RenderWindow();
+		static bool IsInitialized();
 		static Vec2u GetSize();
 		static SDL_GLContext GetSDL_GLContext();
 		static SDL_Window* GetSDLWindow();
@@ -25,12 +26,14 @@ namespace Sandbox
 		void Clear() override;
 		void SetSize(Vec2u size) override;
 		void Bind() override;
-
+		
 		SignalSender<Vec2u> resizeSignal;
 	private:
 		friend Engine;
-		
-		void Load(std::string name, Vec2u size);
+		friend Singleton<Window>;
+		Window();
+		void Init(std::string name, Vec2u size);
+		bool m_initialized;
 		SDL_Window* m_window;
 		SDL_GLContext m_glContext;
 

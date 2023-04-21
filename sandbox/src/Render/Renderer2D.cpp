@@ -1,7 +1,7 @@
 #include "pch.h"
 
 #include <glm/gtc/matrix_transform.hpp>
-#include "Sandbox/Render/BatchRenderer.h"
+#include "Sandbox/Render/Renderer2D.h"
 #include "Sandbox/Log.h"
 #include "Sandbox/Render/RenderTarget.h"
 #include "Sandbox/Render/RenderTexture.h"
@@ -12,15 +12,17 @@
 
 namespace Sandbox
 {
-
-
-	BatchRenderer::BatchRenderer()
+	Renderer2D::Renderer2D()
 	{
+		ASSERT_LOG_ERROR(Window::IsInitialized(), "Cannot create Renderer2D before Window is initialized.");
+
 		//Limitations
 		m_maxQuads = 1000;
 		m_maxVertices = m_maxQuads * 4;
 		m_maxIndices = m_maxQuads * 6;
 		m_maxTextureSlots = 16;
+		m_maxOffscreenLayers = 15;
+
 
 		//IndexBuffer (quads)
 		uint32_t* quadIndices = new uint32_t[m_maxIndices];
@@ -51,43 +53,92 @@ namespace Sandbox
 			"assets/shaders/batch_renderer.frag");
 
 		m_defaultStencilMode = makesptr<StencilMode>();
-		m_defaultRenderTarget = Window::Instance();
-		if (m_defaultRenderTarget == nullptr)
-		{
-			LOG_ERROR("BatchRenderer cannot be initialized before window.");
-		}
+		auto window = Window::Instance();
 
 		m_camera = Mat4(1);
 
-		//Create the default pipeline
-		CreateQuadPipeline(nullptr, nullptr, nullptr);
+		//Screen layer
+		m_layers.push_back(RenderLayer("Window", 0, window, m_defaultLayerShader, m_defaultStencilMode));
+		CreateQuadPipeline(m_layers[0], nullptr, nullptr);
 
-		m_layers.push_back(Layer("Window", m_defaultRenderTarget));
+		//Layer default shader
+		m_defaultLayerShader = makesptr<Shader>(
+			"assets/shaders/default_layer.vert",
+			"assets/shaders/default_layer.frag");
 
+		//Vertex Array for layer drawing
+
+		float layerVertices[]
+		{
+		-1.f, -1.f, 0,  0.f, 1.f,
+		 1.f, -1.f, 0,  1.f, 1.f,
+		 1.f,  1.f, 0,  1.f, 0.f,
+		 -1.f,  1.f, 0,  0.f, 0.f,
+		};
+
+		AttributeLayout layout({ { ShaderDataType::Vec3f, "aPosition" } });
+		sptr<VertexBuffer> layerVertexBuffer = makesptr<VertexBuffer>(layerVertices, 4 * sizeof(Vec3f), layout);
+
+		uint32_t layerIndices[]
+		{
+			0, 1, 2,
+			2, 3, 0
+		};
+
+		sptr<IndexBuffer> layerIndexBuffer = makesptr<IndexBuffer>(layerIndices, 6, GL_STATIC_DRAW);
+
+		m_layerVertexArray = makesptr<VertexArray>(layerVertexBuffer, layerIndexBuffer);
+
+		SetShaderUniformSampler(m_defaultLayerShader, m_maxOffscreenLayers + 1);
 	}
 
-	BatchRenderer::~BatchRenderer()
+	Renderer2D::~Renderer2D()
 	{
 		//To do
 
 	}
 
-	uint64_t BatchRenderer::GeneratePipelineId(uint32_t a, uint32_t b, uint32_t c)
+	void Renderer2D::SetShaderUniformSampler(sptr<Shader> shader, uint32_t count)
 	{
-		b = (b+1) * 10000;
-		a = (a+1) * 100000000;
+		std::vector<int> sampler;
+		for (uint32_t i = 0; i < count; i++)
+		{
+			sampler.emplace_back(i);
+		}
+		shader->SetUniformArray("uTextures", &sampler[0], (GLsizei)sampler.size());
+	}
+
+	uint64_t Renderer2D::GeneratePipelineId(uint64_t a, uint64_t b, uint64_t c)
+	{
+		b = (b + 1) * 10000;
+		a = (a + 1) * 100000000;
 		return a + b + c;
 	}
 
-	uint32_t BatchRenderer::AddLayer(std::string name)
+	uint32_t Renderer2D::AddLayer(std::string name)
 	{
 		sptr<RenderTexture> layer = makesptr<RenderTexture>(Window::GetSize());
-		m_layers.push_back(Layer(name, layer));
+		m_layers.push_back(RenderLayer(name, (uint32_t)m_layers.size(), layer, m_defaultLayerShader, m_defaultStencilMode, false, false));
 
-		return m_layers.size() - 1;
+		return (uint32_t)m_layers.size() - 1;
 	}
 
-	uint32_t BatchRenderer::GetLayerId(std::string name)
+	uint32_t Renderer2D::AddOffscreenLayer(std::string name, uint32_t sampler2DIndex)
+	{
+		ASSERT_LOG_ERROR(bool(sampler2DIndex > 0 && sampler2DIndex < 16), "sampler2DIndex must be comprised between 1 and 15");
+		ASSERT_LOG_ERROR(bool(m_offscreenLayers.size() < 15), "Number of Offscreen layers exceeded (max 15)");
+
+		//To do: check if sampler2DIndex hasn't been used already.
+
+		sptr<RenderTexture> layer = makesptr<RenderTexture>(Window::GetSize());
+		uint32_t index = (uint32_t)m_layers.size();
+		m_layers.push_back(RenderLayer(name, index, layer, m_defaultLayerShader, m_defaultStencilMode, false, true));
+		m_offscreenLayers.push_back(OffscreenRenderLayer(layer, sampler2DIndex, index));
+
+		return (uint32_t)m_layers.size() - 1;
+	}
+
+	uint32_t Renderer2D::GetLayerId(std::string name)
 	{
 		uint32_t i = 0;
 		for (auto& layer : m_layers)
@@ -101,7 +152,18 @@ namespace Sandbox
 		return 0;
 	}
 
-	void BatchRenderer::PreallocateQuadPipeline(int count)
+	void Renderer2D::SetLayerShader(uint32_t layer, sptr<Shader> shader)
+	{
+		SetShaderUniformSampler(shader, m_maxOffscreenLayers + 1);
+		m_layers[layer].shader = shader;
+	}
+
+	void Renderer2D::SetLayerStencilMode(uint32_t layer, sptr<StencilMode> stencil)
+	{
+		m_layers[layer].stencil = stencil;
+	}
+
+	void Renderer2D::PreallocateQuadPipeline(int count)
 	{
 		for (int i = 0; i < count; i++)
 		{
@@ -110,9 +172,8 @@ namespace Sandbox
 		}
 	}
 
-	uint32_t BatchRenderer::AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader, sptr<StencilMode> stencil)
+	uint32_t Renderer2D::AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader, sptr<StencilMode> stencil)
 	{
-		
 		uint32_t shaderId = 0;
 		uint32_t stencilId = 0;
 		if (shader != nullptr)
@@ -126,7 +187,7 @@ namespace Sandbox
 		if (pipeline == m_quadPipelineFinder.end())
 		{
 			//Create pipeline if doesn't exists
-			CreateQuadPipeline(m_layers[layerIndex].target, shader, stencil);
+			CreateQuadPipeline(m_layers[layerIndex], shader, stencil);
 
 			uint32_t index = (uint32_t)m_quadPipelines.size() - 1;
 			m_quadPipelines.back().index = index;
@@ -143,7 +204,7 @@ namespace Sandbox
 		}
 	}
 
-	void BatchRenderer::CreateQuadPipeline(sptr<RenderTarget> layer, sptr<Shader> shader, sptr<StencilMode> stencil)
+	void Renderer2D::CreateQuadPipeline(RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil)
 	{
 		size_t index = 0;
 		if (!m_freeQuadPipelines.empty())
@@ -161,15 +222,13 @@ namespace Sandbox
 		}
 
 		SetupQuadPipeline(m_quadPipelines[index], layer, shader, stencil);
-		
+
 	}
 
-	void BatchRenderer::SetupQuadPipeline(QuadBatch& batch, sptr<RenderTarget> layer, sptr<Shader> shader, sptr<StencilMode> stencil)
+	void Renderer2D::SetupQuadPipeline(QuadBatch& batch, RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil)
 	{
 		if (shader == nullptr)
 			shader = m_defaultShader;
-		if (layer == nullptr)
-			layer = m_defaultRenderTarget;
 		if (stencil == nullptr)
 			stencil = m_defaultStencilMode;
 
@@ -189,7 +248,8 @@ namespace Sandbox
 		batch.shader->BindUniformBlock("camera", 0);
 
 	}
-	void BatchRenderer::AllocateQuadPipeline(QuadBatch& batch)
+
+	void Renderer2D::AllocateQuadPipeline(QuadBatch& batch)
 	{
 		//Vertex buffer (quads)
 		batch.quadVertexBuffer = makesptr<VertexBuffer>(m_maxVertices * sizeof(QuadVertex));
@@ -220,7 +280,7 @@ namespace Sandbox
 
 	}
 
-	void BatchRenderer::RemoveQuadPipelineUser(uint32_t pipeline)
+	void Renderer2D::RemoveQuadPipelineUser(uint32_t pipeline)
 	{
 		m_quadPipelines[pipeline].userCount--;
 		if (m_quadPipelines[pipeline].userCount <= 0)
@@ -229,13 +289,17 @@ namespace Sandbox
 		}
 	}
 
-	void BatchRenderer::FreeQuadPipeline(uint32_t pipeline)
+	void Renderer2D::FreeQuadPipeline(uint32_t pipeline)
 	{
 		m_freeQuadPipelines.push_back(pipeline);
 	}
 
-	void BatchRenderer::BeginScene(const Camera& camera)
+	void Renderer2D::BeginScene(const Camera& camera)
 	{
+		for (auto& layer : m_layers)
+		{
+			layer.active = false;
+		}
 		//Set the camera matrices into the uniform buffer
 
 		//To do: check if camera orthographic
@@ -259,21 +323,41 @@ namespace Sandbox
 
 	}
 
-	void BatchRenderer::EndScene()
+	void Renderer2D::EndScene()
 	{
 		for (auto& pipeline : m_quadPipelines)
 			Flush(pipeline.index);
-		//RenderLayers();
+		RenderLayers();
 	}
 
-	/*void BatchRenderer::RenderLayer(uint32_t layerIndex, )
+	void Renderer2D::RenderLayers()
 	{
-		//To do: we wanna render layer with render options...
-	}*/
+		//Bind screen framebuffer
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-	void BatchRenderer::Flush(uint32_t pipelineIndex)
+		//Put offscreen layer in according texture slots
+		for (auto& offscreenLayer : m_offscreenLayers)
+		{
+			offscreenLayer.target->BindTexture(offscreenLayer.textureUnit);
+		}
+
+		//Draw every layers except screen
+		for (auto layer = m_layers.rbegin(); layer != m_layers.rend(); layer++)
+		{
+			if (layer->offscreen || !layer->active || layer->index == 0)
+				continue;
+
+			std::static_pointer_cast<RenderTexture>(layer->target)->BindTexture(0);
+			layer->shader->Bind();
+			layer->stencil->Bind();
+			m_layerVertexArray->Bind();
+			GLuint indicesCount = m_layerVertexArray->GetIndexBuffer()->GetCount();
+			glDrawElements(GL_TRIANGLES, indicesCount, GL_UNSIGNED_INT, nullptr);
+		}
+	}
+
+	void Renderer2D::Flush(uint32_t pipelineIndex)
 	{
-
 		QuadBatch& pipeline = m_quadPipelines[(size_t)pipelineIndex];
 		if (pipeline.quadIndexCount)
 		{
@@ -287,17 +371,18 @@ namespace Sandbox
 			}
 
 			//Issue the draw call after binding adequat context
-			pipeline.layer->Bind();
+			pipeline.layer.target->Bind();
 			pipeline.quadVertexArray->Bind();
 			pipeline.shader->Bind();
 			pipeline.stencil->Bind();
 			glDrawElements(GL_TRIANGLES, pipeline.quadIndexCount, GL_UNSIGNED_INT, nullptr);
 
 			m_stats.drawCalls++;
+			m_layers[pipeline.layer.index].active = true;
 		}
 	}
 
-	void BatchRenderer::DrawQuad(const Vec3f& position, const Vec2f& scale, const Vec4f& color, uint32_t pipelineIndex)
+	void Renderer2D::DrawQuad(const Vec3f& position, const Vec2f& scale, const Vec4f& color, uint32_t pipelineIndex)
 	{
 		Transform transform;
 		transform.SetPosition(position);
@@ -305,7 +390,7 @@ namespace Sandbox
 		DrawQuad(transform, color, pipelineIndex);
 	}
 
-	void BatchRenderer::DrawQuad(const Transform& transform, const Vec4f& color, uint32_t pipelineIndex)
+	void Renderer2D::DrawQuad(const Transform& transform, const Vec4f& color, uint32_t pipelineIndex)
 	{
 		constexpr size_t quadVertexCount = 4;
 		constexpr Vec2f texCoords[4]{ { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f } };
@@ -331,7 +416,7 @@ namespace Sandbox
 		m_stats.quadCount++;
 	}
 
-	void BatchRenderer::DrawTexturedQuad(
+	void Renderer2D::DrawTexturedQuad(
 		const Vec3f& position,
 		const Vec2f& scale,
 		sptr<Texture>& texture,
@@ -345,7 +430,7 @@ namespace Sandbox
 		DrawTexturedQuad(transform, texture, texCoords, color, 0);
 	}
 
-	void BatchRenderer::DrawTexturedQuad(
+	void Renderer2D::DrawTexturedQuad(
 		const Transform& transform,
 		sptr<Texture>& texture,
 		const std::vector<Vec2f>& texCoords,
@@ -353,7 +438,7 @@ namespace Sandbox
 		uint32_t pipelineIndex)
 	{
 		constexpr size_t quadVertexCount = 4;
-		ASSERT_LOG_ERROR(texCoords.size() >= 4, "texCoords size is too low.");
+		ASSERT_LOG_ERROR(bool(texCoords.size() >= 4), "texCoords size is too low.");
 
 		auto& pipeline = m_quadPipelines[pipelineIndex];
 
@@ -403,12 +488,12 @@ namespace Sandbox
 		m_stats.quadCount++;
 	}
 
-	BatchRenderer::Statistics BatchRenderer::GetStats()
+	Renderer2D::Statistics Renderer2D::GetStats()
 	{
 		return m_stats;
 	}
 
-	void BatchRenderer::StartBatch(uint32_t pipelineIndex)
+	void Renderer2D::StartBatch(uint32_t pipelineIndex)
 	{
 		//Reset vertex array data
 		m_quadPipelines[pipelineIndex].quadVertexPtr = m_quadPipelines[pipelineIndex].quadVertexBase;
@@ -421,7 +506,7 @@ namespace Sandbox
 
 	}
 
-	void BatchRenderer::NextBatch(uint32_t pipelineIndex)
+	void Renderer2D::NextBatch(uint32_t pipelineIndex)
 	{
 		Flush(pipelineIndex);
 		StartBatch(pipelineIndex);

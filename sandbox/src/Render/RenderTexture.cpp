@@ -27,7 +27,7 @@ namespace Sandbox
 	void RenderTexture::BindTexture(uint32_t textureUnit)
 	{
 		glActiveTexture(GL_TEXTURE0 + textureUnit);
-		glBindTexture(m_textureId);
+		glBindTexture(GL_TEXTURE_2D, m_textureId);
 	}
 
 	void RenderTexture::Bind()

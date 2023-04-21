@@ -6,7 +6,11 @@
 
 namespace Sandbox
 {
-	void Window::Load(std::string name, Vec2u size)
+	Window::Window() : m_initialized(false)
+	{
+
+	}
+	void Window::Init(std::string name, Vec2u size)
 	{
 		//Initializing SDL
 		ASSERT_LOG_ERROR((SDL_Init(SDL_INIT_VIDEO) == 0),
@@ -47,7 +51,7 @@ namespace Sandbox
 
 		//Viewport size and clear color
 		glViewport(0, 0, size.x, size.y);
-	
+
 
 		//Enabling blending
 		glEnable(GL_BLEND);
@@ -60,6 +64,7 @@ namespace Sandbox
 		glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ZERO);
 
 		SDL_GL_SetSwapInterval(0);
+		m_initialized = true;
 	}
 
 	void Window::SetWindowSize(Vec2u size)
@@ -75,6 +80,11 @@ namespace Sandbox
 	void Window::RenderWindow()
 	{
 		SDL_GL_SwapWindow(Window::Instance()->m_window);
+	}
+
+	bool Window::IsInitialized()
+	{
+		return Window::Instance()->m_initialized;
 	}
 
 	Vec2u Window::GetSize()

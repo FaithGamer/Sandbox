@@ -116,5 +116,7 @@
     <None Include="assets\shaders\uniform_buffer_test.frag" />
     <None Include="assets\shaders\uniform_buffer_test.vert" />
     <None Include="assets\shaders\batch_renderer2.frag" />
+    <None Include="assets\shaders\default_layer.frag" />
+    <None Include="assets\shaders\default_layer.vert" />
   </ItemGroup>
 </Project>

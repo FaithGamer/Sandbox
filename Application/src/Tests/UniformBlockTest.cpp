@@ -7,7 +7,7 @@
 #include "Sandbox/Render/Texture.h"
 #include "Sandbox/Render/Transform.h"
 #include "Sandbox/Render/Camera.h"
-#include "Sandbox/Render/BatchRenderer.h"
+#include "Sandbox/Render/Renderer2D.h"
 #include "Sandbox/Input/ButtonInput.h"
 #include "Sandbox/Input/InputMap.h"
 #include "Sandbox/Log.h"

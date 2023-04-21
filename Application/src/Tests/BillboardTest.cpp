@@ -10,7 +10,7 @@
 #include "Sandbox/Render/Texture.h"
 #include "Sandbox/Render/Transform.h"
 #include "Sandbox/Render/Camera.h"
-#include "Sandbox/Render/BatchRenderer.h"
+#include "Sandbox/Render/Renderer2D.h"
 #include "Sandbox/Input/ButtonInput.h"
 #include "Sandbox/Input/InputMap.h"
 #include "Sandbox/Log.h"
@@ -116,7 +116,7 @@ void BillboardTest()
 
 	cam.SetPosition({ 0, 0, 1 });
 
-	BatchRenderer renderer;
+	Renderer2D renderer;
 	std::vector<Vec2f> texCoords{ { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f }
 	};
 

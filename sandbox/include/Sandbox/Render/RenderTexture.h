@@ -11,7 +11,7 @@ namespace Sandbox
 	{
 	public:
 		RenderTexture(Vec2u size);
-		void BindTexture();
+		void BindTexture(uint32_t);
 		void Bind() override;
 		void Clear() override;
 		void SetSize(Vec2u size) override;

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Sandbox/Render/BatchRenderer.h"
+#include "Sandbox/Render/Renderer2D.h"
 #include "Sandbox/Render/Buffer.h"
 #include "Sandbox/Render/Camera.h"
 #include "Sandbox/Render/Shader.h"

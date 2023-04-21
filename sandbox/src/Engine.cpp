@@ -26,7 +26,7 @@ namespace Sandbox
 		Log::Init();
 
 		//To do, call instance of every singleton allocate memory first
-		Window::Instance()->Load(parameters.appName, parameters.startupWindowResolution);
+		Window::Instance()->Init(parameters.appName, parameters.startupWindowResolution);
 		LoadImGui(Window::GetSDLWindow(), Window::GetSDL_GLContext());
 
 		if (parameters.useEngineSystems)

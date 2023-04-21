@@ -125,8 +125,7 @@ namespace Sandbox
 	/// Vertex Buffer ///////
 	/////////////////////////
 
-	/// @brief Manually set vertices and the according Attribute Layout
-	/// This will make the buffer GL_STATIC_DRAW
+	
 	VertexBuffer::VertexBuffer(float* vertices, GLsizeiptr size, const AttributeLayout& layout)
 	{
 		m_verticesCount = (uint32_t)(size / sizeof(float));
@@ -140,7 +139,7 @@ namespace Sandbox
 		m_layout = layout;
 	}
 
-	/// @brief This will make the buffer GL_DYNAMIC_DRAW
+	
 	VertexBuffer::VertexBuffer(GLsizeiptr size, const AttributeLayout& layout)
 	{
 		m_verticesCount = (uint32_t)(size / sizeof(float));
@@ -155,7 +154,7 @@ namespace Sandbox
 	}
 
 
-	/// @brief This will make the buffer GL_DYNAMIC_DRAW
+	
 	VertexBuffer::VertexBuffer(GLsizeiptr size)
 	{
 		m_verticesCount = (uint32_t)(size / sizeof(float));
@@ -224,6 +223,14 @@ namespace Sandbox
 		glGenBuffers(1, &m_id);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(uint32_t), (const void*)indices, GL_DYNAMIC_DRAW);
+	}
+
+	IndexBuffer::IndexBuffer(uint32_t* indices, uint32_t count, GLenum type)
+	{
+		m_count = count;
+		glGenBuffers(1, &m_id);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(uint32_t), (const void*)indices, type);
 	}
 
 	IndexBuffer::~IndexBuffer()

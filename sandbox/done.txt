@@ -8,3 +8,8 @@ April
 
 16
 -Improved the batch renderer to take custom shader/render target/stencil mode, with pipeline generated on purpose.
+
+20
+
+-Render layers and Offscreen render layers almost implemented.
+Every layer will be drawn if he has been used during a batch. left to do: every offscreen layer should be bound in the appropriate uniform location

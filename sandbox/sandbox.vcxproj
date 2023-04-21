@@ -28,7 +28,7 @@
     <ClCompile Include="src\Vector.cpp" />
     <ClCompile Include="src\Files.cpp" />
     <ClCompile Include="src\Math.cpp" />
-    <ClCompile Include="src\Render\BatchRenderer.cpp" />
+    <ClCompile Include="src\Render\Renderer2D.cpp" />
     <ClCompile Include="src\Input\InputMap.cpp" />
     <ClCompile Include="src\Input\ButtonInput.cpp" />
     <ClCompile Include="src\ECS\Scene.cpp" />
@@ -83,7 +83,7 @@
     <ClInclude Include="include\Sandbox\Math.h" />
     <ClInclude Include="include\Sandbox\PlatformDetection.h" />
     <ClInclude Include="include\Sandbox\Render.h" />
-    <ClInclude Include="include\Sandbox\Render\BatchRenderer.h" />
+    <ClInclude Include="include\Sandbox\Render\Renderer2D.h" />
     <ClInclude Include="include\Sandbox\Input\InputMap.h" />
     <ClInclude Include="include\Sandbox\Input\DirectionalInput.h" />
     <ClInclude Include="include\Sandbox\Input\PointingInput.h" />

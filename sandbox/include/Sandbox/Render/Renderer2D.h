@@ -9,6 +9,7 @@
 #include "Sandbox/Render/Texture.h"
 #include "Sandbox/Render/Transform.h"
 #include "Sandbox/Render/RenderTarget.h"
+#include "Sandbox/Singleton.h"
 
 namespace Sandbox
 {
@@ -32,6 +33,7 @@ namespace Sandbox
 	};
 
 	class RenderTarget;
+	class RenderTexture;
 	class Shader;
 	class StencilMode;
 	
@@ -42,6 +44,25 @@ namespace Sandbox
 		Vec4f color;
 		Vec2f texCoords;
 		float texIndex;
+	};
+
+
+	struct RenderLayer 
+	{
+		std::string name = "RenderLayerDefault";
+		uint32_t index = 0;
+		sptr<RenderTarget> target = nullptr;
+		sptr<Shader> shader = nullptr;
+		sptr<StencilMode> stencil = nullptr;
+		bool active = false;
+		bool offscreen = false;
+	};
+
+	struct OffscreenRenderLayer
+	{
+		sptr<RenderTexture> target = nullptr;
+		uint32_t textureUnit = 1;
+		uint32_t index = 1;
 	};
 
 	struct QuadBatch
@@ -69,13 +90,13 @@ namespace Sandbox
 			{-0.5f, 0.5f, 0.0f, 1.0f}
 		};
 
-		sptr<RenderTarget> layer;
+		RenderLayer layer;
 		sptr<StencilMode> stencil;
 		sptr<Shader> shader;
 	
 	};
 
-	class BatchRenderer
+	class Renderer2D 
 	{
 	public:
 		struct Statistics
@@ -85,15 +106,22 @@ namespace Sandbox
 		};
 
 
-		BatchRenderer();
-		~BatchRenderer();
+		Renderer2D();
+		~Renderer2D();
 
+		/// @brief Add a layer on the bottom of the render queue.
+		/// The order cannot be changed ever again, and the layers cannot be removed.
+		/// @param name A friendly identifier.
+		/// @return The identifier to use when refering to this layer.
 		uint32_t AddLayer(std::string name);
+		/// @brief Add a layer that won't display but can be used in the shader of other layers.
+		/// Usage example: normal map.
+		/// @param sampler2DIndex Wich index the texture will be available in the sampler2D uniform.
+		/// Must be comprised in between 1 and 15.
+		uint32_t AddOffscreenLayer(std::string name, uint32_t sampler2DIndex);
 		uint32_t GetLayerId(std::string name);
 		void SetLayerShader(uint32_t layer, sptr<Shader> shader);
 		void SetLayerStencilMode(uint32_t layer, sptr<StencilMode> stencil);
-		void SetLayerTextureUnit(uint32_t layer, uint32_t textureUnit);
-		void SetLayerAsTexture
 
 		void PreallocateQuadPipeline(int count);
 		uint32_t AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader, sptr<StencilMode> stencil);
@@ -113,44 +141,44 @@ namespace Sandbox
 
 		Statistics GetStats();
 	private:
+		friend Engine;
+
 		void StartBatch(uint32_t pipelineIndex);
 		void NextBatch(uint32_t pipelineIndex);
 		
 		void FreeQuadPipeline(uint32_t pipeline);
-		void SetupQuadPipeline(QuadBatch& batch, sptr<RenderTarget> layer, sptr<Shader> shader, sptr<StencilMode> stencil);
+		void SetupQuadPipeline(QuadBatch& batch, RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil);
 		void AllocateQuadPipeline(QuadBatch& batch);
-		void CreateQuadPipeline(sptr<RenderTarget> layer, sptr<Shader> shader, sptr<StencilMode> stencil);
-		uint64_t GeneratePipelineId(uint32_t a, uint32_t b, uint32_t c);
-		bool m_mustGeneratePipelines;
+		void CreateQuadPipeline(RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil);
+		uint64_t GeneratePipelineId(uint64_t a, uint64_t b, uint64_t c);
+		void RenderLayers();
+		void SetShaderUniformSampler(sptr<Shader> shader, uint32_t count);
+		// Batched Quads
 
 		std::unordered_map<uint64_t, uint32_t> m_quadPipelineFinder;
 		std::vector<QuadBatch> m_quadPipelines;
 		std::vector<size_t> m_freeQuadPipelines;
 
-		struct Layer
-		{
-			std::string name;
-			sptr<RenderTarget> target;
-		};
-
-		std::vector<Layer> m_layers;
-
 		uint32_t m_maxQuads;
 		uint32_t m_maxVertices;
 		uint32_t m_maxIndices;
 		uint32_t m_maxTextureSlots;
+		uint32_t m_maxOffscreenLayers;
 
 		sptr<Shader> m_defaultShader;
-		sptr<RenderTarget> m_defaultRenderTarget;
 		sptr<StencilMode> m_defaultStencilMode;
-
 		sptr<Texture> m_whiteTexture;
-
 		sptr<UniformBuffer> m_cameraUniformBuffer;
 		sptr<IndexBuffer> m_quadIndexBuffer;
 
-
 		Mat4 m_camera;
+
+		//Layers
+
+		std::vector<RenderLayer> m_layers;
+		std::vector<OffscreenRenderLayer> m_offscreenLayers;
+		sptr<VertexArray> m_layerVertexArray;
+		sptr<Shader> m_defaultLayerShader;
 
 		Statistics m_stats;
 	};

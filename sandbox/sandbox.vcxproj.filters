@@ -81,7 +81,7 @@
     <ClCompile Include="src\Input\InputMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Render\BatchRenderer.cpp">
+    <ClCompile Include="src\Render\Renderer2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Files.cpp">
@@ -218,7 +218,7 @@
     <ClInclude Include="include\Sandbox\Input\InputMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Render\BatchRenderer.h">
+    <ClInclude Include="include\Sandbox\Render\Renderer2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Render.h">
