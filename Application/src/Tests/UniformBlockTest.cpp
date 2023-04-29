@@ -48,6 +48,9 @@ void UniformBlockTest()
     };
 
     sptr<IndexBuffer> ibo = makesptr<IndexBuffer>(indices, 6);
+    
+    VertexArray vao(vbo, ibo);
+
     {
         uint32_t layerIndices[]
         {
@@ -58,9 +61,6 @@ void UniformBlockTest()
 
         sptr<IndexBuffer> layerIndexBuffer = makesptr<IndexBuffer>(layerIndices, 6, GL_STATIC_DRAW);
     }
-    VertexArray vao(vbo, ibo);
-
-
     // configure a uniform buffer object
     // ---------------------------------
     // first. We get the relevant block indices

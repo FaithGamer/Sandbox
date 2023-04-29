@@ -23,7 +23,7 @@ namespace Sandbox
 	public:
 		/// @brief Create an entity
 		/// @return the entity created.
-		Entity& CreateEntity();
+		Entity* CreateEntity();
 
 		/// @brief Destroy an entity
 		/// @param entity The entity id to destroy

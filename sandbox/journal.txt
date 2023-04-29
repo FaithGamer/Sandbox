@@ -60,3 +60,8 @@ Also I need to enhance batchrenderer (make it singleton ?) so it can render on t
 - learned about std::tie to make tuple with reference
 - ECS is really taking shape, multiple game world can be added to Systems singleton. Game world is a wrapper around entt:registry
 Entities can be iterated with method from withtin the system thanks to the ForEachComponent method
+
+29 april
+
+- I successfully debugged somtheing that had let me clueless for a good while ( not to say I was desperate ). Found out I forgot to unbind the vertex array object
+after binding buffer, that made any subsequent call to index buffer binding effectively bind with the vertex array.

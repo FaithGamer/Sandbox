@@ -1,0 +1,180 @@
+#include "pch.h"
+
+#include "RendererTest.h"
+
+#include "Sandbox/Engine.h"
+#include "Sandbox/ECS/Entity.h"
+#include "Sandbox/ECS/InputSystem.h"
+#include "Sandbox/ECS/Systems.h"
+#include "Sandbox/ECS/GameWorld.h"
+#include "Sandbox/Input/Inputs.h"
+#include "Sandbox/Input/ButtonInput.h"
+
+#include "Sandbox/Render/Shader.h"
+#include "Sandbox/Render/Camera.h"
+#include "Sandbox/Render/Renderer2D.h"
+#include "Sandbox/Render/Window.h"
+
+
+using namespace Sandbox;
+
+class CameraMovementSystem : public System
+{
+
+public:
+	void OnStart() override
+	{
+		auto inputs = Inputs::CreateInputMap();
+		auto button = inputs->CreateButtonInput("MoveCamFront");
+		button->BindKey(KeyScancode::W);
+		button->SendSignalOnRelease(true);
+		button->signal.AddListener(&CameraMovementSystem::OnMoveFront, this);
+
+		button = inputs->CreateButtonInput("MoveCamBack");
+		button->BindKey(KeyScancode::S);
+		button->SendSignalOnRelease(true);
+		button->signal.AddListener(&CameraMovementSystem::OnMoveBack, this);
+
+		button = inputs->CreateButtonInput("MoveCamLeft");
+		button->BindKey(KeyScancode::A);
+		button->SendSignalOnRelease(true);
+		button->signal.AddListener(&CameraMovementSystem::OnMoveLeft, this);
+
+		button = inputs->CreateButtonInput("MoveCamRight");
+		button->BindKey(KeyScancode::D);
+		button->SendSignalOnRelease(true);
+		button->signal.AddListener(&CameraMovementSystem::OnMoveRight, this);
+	}
+	void OnUpdate(Time delta) override
+	{
+		ForEachComponent(&CameraMovementSystem::MoveCamera, delta);
+	}
+	void MoveCamera(Time delta, Camera& camera)
+	{
+		float speed = 30;
+		if (m_right)
+		{
+			camera.MoveWorld(Vec3f(speed*(float)delta, 0, 0));
+		}
+		if (m_front)
+		{
+			camera.MoveWorld(Vec3f(0, 0, speed*(float)delta));
+		}
+		if (m_left)
+		{
+			camera.MoveWorld(Vec3f(-speed*(float)delta, 0, 0));
+		}
+		if (m_back)
+		{
+			camera.MoveWorld(Vec3f(0, 0, -speed*(float)delta));
+		}
+	}
+	void OnMoveFront(InputSignal input)
+	{
+		m_front = !m_front;
+	}
+	void OnMoveBack(InputSignal input)
+	{
+		m_back = !m_back;
+	}
+	void OnMoveLeft(InputSignal input)
+	{
+		m_left = !m_left;
+	}
+	void OnMoveRight(InputSignal input)
+	{
+		m_right = !m_right;
+	}
+private:
+	bool m_left = false;
+	bool m_front = false;
+	bool m_back = false;
+	bool m_right = false;
+
+};
+
+class RenderSys : public System
+{
+public:
+	void OnStart()
+	{
+		auto world = GameWorld::GetMain();
+
+		auto camera = world->CreateEntity();
+		camera->AddComponent<Camera>();
+
+		auto cam = camera->GetComponent<Camera>();
+		cam->Pitch(0);
+		cam->Yaw(0);
+		cam->SetPosition({ 0, 0, 2 });
+
+		m_camera = world->GetEntity(camera->GetId());
+
+		m_otherShader = makesptr<Shader>("assets/shaders/batch_renderer.vert", "assets/shaders/batch_renderer2.frag");
+		m_texture1 = makesptr<Texture>("assets/textures/trollface.png");
+		m_texture2 = makesptr<Texture>("assets/textures/image.png");
+
+		m_layerid = m_renderer.AddLayer("MyCustomLayer");
+		m_pipeline = m_renderer.AddQuadPipelineUser(m_layerid, nullptr, nullptr);
+	}
+	void OnUpdate(Time delta) override
+	{
+
+		std::vector<Vec2f> texCoords{ { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f }
+		};
+
+		//Window::ClearWindow();
+		m_renderer.BeginScene(*m_camera->GetComponent<Camera>());
+
+
+		int count = 0;
+		auto white = Vec4f(1, 1, 1, 1);
+
+		for (float i = -20; i < 20; i += 1.0f)
+		{
+			for (float j = -20; j < 20; j += 1.0f)
+			{
+				float y = i / 100.0f;
+				float x = j / 100.0f;
+				Transform transform;
+				transform.SetPosition(x, y, 0.0f);
+				transform.SetScale(0.1f, 0.1f, 1.0f);
+				//transform.SetRotationZAxis((float)clock.GetElapsed() * 40);
+
+				if (count % 2)
+				{
+					m_renderer.DrawTexturedQuad(transform, m_texture1, texCoords, white, m_pipeline);
+				}
+				else
+				{
+					m_renderer.DrawTexturedQuad(transform, m_texture2, texCoords, white, 0);
+				}
+				count++;
+			}
+		}
+
+		m_renderer.EndScene();
+		//Window::RenderWindow();
+
+	}
+private:
+	sptr<Shader> m_otherShader;
+	sptr<Texture> m_texture1;
+	sptr<Texture> m_texture2;
+
+	uint32_t m_layerid;
+	uint32_t m_pipeline;
+
+	Renderer2D m_renderer;
+	Entity* m_camera;
+};
+
+void RendererTest()
+{
+	Engine::Init();
+	Systems::CreateGameWorld();
+	Systems::Push<CameraMovementSystem>();
+	Systems::Push<RenderSys>();
+	Engine::Launch();
+
+}

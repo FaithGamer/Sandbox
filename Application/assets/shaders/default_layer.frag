@@ -8,7 +8,5 @@ uniform sampler2D uTextures[16];
 void main()
 {
 	vec4 color = texture(uTextures[0], vTexCoords);
-	if(color.a <0.01)
-		discard;
 	oColor = color;
 }

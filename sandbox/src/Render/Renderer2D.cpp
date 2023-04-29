@@ -76,8 +76,10 @@ namespace Sandbox
 		 -1.f,  1.f, 0,  0.f, 0.f,
 		};
 
-		AttributeLayout layout({ { ShaderDataType::Vec3f, "aPosition" } });
-		sptr<VertexBuffer> layerVertexBuffer = makesptr<VertexBuffer>(layerVertices, 4 * sizeof(Vec3f), layout);
+		AttributeLayout layout({ 
+			{ ShaderDataType::Vec3f, "aPosition" },
+			{ ShaderDataType::Vec2f, "aTexCoords" } });
+		sptr<VertexBuffer> layerVertexBuffer = makesptr<VertexBuffer>(layerVertices, sizeof(layerVertices), layout);
 
 		uint32_t layerIndices[]
 		{
@@ -85,12 +87,12 @@ namespace Sandbox
 			2, 3, 0
 		};
 
-		//something weird make everything crash when creating this index buffer
-		sptr<IndexBuffer> layerIndexBuffer = makesptr<IndexBuffer>(layerIndices, 6, GL_STATIC_DRAW);
-		//and when creating this vertex array, it dosent crash aymore but doesnt work either...
-		//m_layerVertexArray = makesptr<VertexArray>(layerVertexBuffer, layerIndexBuffer);
 
-		//SetShaderUniformSampler(m_defaultLayerShader, m_maxOffscreenLayers + 1);
+		sptr<IndexBuffer> layerIndexBuffer = makesptr<IndexBuffer>(layerIndices, 6, GL_STATIC_DRAW);
+
+		m_layerVertexArray = makesptr<VertexArray>(layerVertexBuffer, layerIndexBuffer);
+
+		SetShaderUniformSampler(m_defaultLayerShader, m_maxOffscreenLayers + 1);
 	}
 
 	Renderer2D::~Renderer2D()
@@ -173,7 +175,7 @@ namespace Sandbox
 		}
 	}
 
-	uint32_t Renderer2D::AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader, sptr<StencilMode> stencil)
+	uint32_t Renderer2D::AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader = nullptr, sptr<StencilMode> stencil = nullptr)
 	{
 		uint32_t shaderId = 0;
 		uint32_t stencilId = 0;
@@ -297,6 +299,8 @@ namespace Sandbox
 
 	void Renderer2D::BeginScene(const Camera& camera)
 	{
+		glEnable(GL_DEPTH_TEST);
+
 		for (auto& layer : m_layers)
 		{
 			layer.active = false;
@@ -335,6 +339,7 @@ namespace Sandbox
 	{
 		//Bind screen framebuffer
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		glDisable(GL_DEPTH_TEST);
 
 		//Put offscreen layer in according texture slots
 		for (auto& offscreenLayer : m_offscreenLayers)
@@ -343,15 +348,17 @@ namespace Sandbox
 		}
 
 		//Draw every layers except screen
+
+		//To do: add a container with no offscreen layer and no screen
 		for (auto layer = m_layers.rbegin(); layer != m_layers.rend(); layer++)
 		{
 			if (layer->offscreen || !layer->active || layer->index == 0)
 				continue;
 
 			std::static_pointer_cast<RenderTexture>(layer->target)->BindTexture(0);
+			m_layerVertexArray->Bind();
 			layer->shader->Bind();
 			layer->stencil->Bind();
-			m_layerVertexArray->Bind();
 			GLuint indicesCount = m_layerVertexArray->GetIndexBuffer()->GetCount();
 			glDrawElements(GL_TRIANGLES, indicesCount, GL_UNSIGNED_INT, 0);
 		}

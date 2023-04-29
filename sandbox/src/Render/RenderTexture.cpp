@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "Sandbox/Log.h"
 #include "Sandbox/Render/RenderTexture.h"
 
 namespace Sandbox
@@ -12,7 +13,7 @@ namespace Sandbox
 		//Texture buffer attachment
 		glGenTextures(1, &m_textureId);
 		glBindTexture(GL_TEXTURE_2D, m_textureId);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, size.x, size.y, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.x, size.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_textureId, 0);
@@ -22,6 +23,13 @@ namespace Sandbox
 		glBindRenderbuffer(GL_RENDERBUFFER, m_renderBufferId);
 		glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, size.x, size.y); // use a single renderbuffer object for both a depth AND stencil buffer.
 		glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, m_renderBufferId); // now actually attach it
+
+		if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+		{
+			LOG_ERROR("Frame Buffer incomplete");
+		}
+
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	}
 
 	void RenderTexture::BindTexture(uint32_t textureUnit)
@@ -38,7 +46,7 @@ namespace Sandbox
 	void RenderTexture::Clear()
 	{
 		glBindFramebuffer(GL_FRAMEBUFFER, m_frameBufferId);
-		glClearColor(0, 0, 0, 0);
+		glClearColor(0, 0, 1, 0.3f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 	}
 
@@ -50,7 +58,7 @@ namespace Sandbox
 
 		//Resizing the texture (should be fine for the texture)
 		glBindTexture(GL_TEXTURE_2D, m_textureId);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.x, size.y, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.x, size.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
 
 		//Regen frame/render buffer
 		glGenFramebuffers(1, &m_frameBufferId);

@@ -16,7 +16,7 @@
 #include "Tests/ECSTest.h"
 #include "Tests/BatchRendererTest.h"
 #include "Tests/UniformBlockTest.h"
-#include "Tests/RendererDebug.h"
+#include "Tests/RendererTest.h"
 
 #include <random>
 #include <iostream>
@@ -102,7 +102,8 @@ int main(int argc, char** argv)
 
 
 	sb::Engine::Launch();*/
-	RendererDebug();
+	//BatchRendererTest();
+	RendererTest();
 
 	return 0;
 }

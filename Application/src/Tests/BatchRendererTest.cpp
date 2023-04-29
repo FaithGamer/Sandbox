@@ -30,7 +30,9 @@ void BatchRendererTest()
 	std::vector<Vec2f> texCoords{ { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f }
 	};
 
-	uint32_t pipeline = renderer.AddQuadPipelineUser(0, otherShader, nullptr);
+	uint32_t layerid = renderer.AddLayer("MyCustomLayer");
+
+	uint32_t pipeline = renderer.AddQuadPipelineUser(layerid, nullptr, nullptr);
 	bool run = true;
 	SDL_Event e;
 
@@ -76,9 +78,9 @@ void BatchRendererTest()
 		int count = 0;
 		auto white = Vec4f(1, 1, 1, 1);
 
-		for (float i = -2; i < 2; i += 1.0f)
+		for (float i = -20; i < 20; i += 1.0f)
 		{
-			for (float j = -2; j < 2; j += 1.0f)
+			for (float j = -20; j < 20; j += 1.0f)
 			{
 				float y = i / 100.0f;
 				float x = j / 100.0f;

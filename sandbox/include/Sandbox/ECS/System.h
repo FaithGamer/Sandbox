@@ -162,6 +162,7 @@ namespace Sandbox
 			}
 		};
 
+
 		template <typename... ComponentType, typename SystemType>
 		void ForEachEntity(void(SystemType::* function)(Entity&, ComponentType&...))
 		{
@@ -173,6 +174,20 @@ namespace Sandbox
 				{
 					Entity* entity = world->GetEntity(entityId);
 					(static_cast<SystemType*>(this)->*function)(*entity, std::get<I>(view.get(entityId))...);
+				}(std::make_index_sequence<sizeof...(ComponentType)>());
+			}
+		};
+
+		template <typename... ComponentType, typename SystemType>
+		void ForEachComponent(void(SystemType::* function)(Time delta, ComponentType&...), Time delta)
+		{
+			GameWorld* world = GameWorld::GetMain();
+			auto view = world->m_registry.view<ComponentType...>();
+			for (auto entityId : view)
+			{
+				[&] <std::size_t... I>(std::index_sequence<I...>)
+				{
+					(static_cast<SystemType*>(this)->*function)(delta, std::get<I>(view.get(entityId))...);
 				}(std::make_index_sequence<sizeof...(ComponentType)>());
 			}
 		};

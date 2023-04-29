@@ -18,6 +18,11 @@ namespace Sandbox
 	{
 	}
 
+	Camera::~Camera()
+	{
+
+	}
+
 	void Camera::SetPosition(Vec3f position)
 	{
 		m_position = position;

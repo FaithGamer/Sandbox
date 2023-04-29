@@ -10,10 +10,10 @@ namespace Sandbox
 
 	}
 
-	InputMap& Inputs::CreateInputMap()
+	InputMap* Inputs::CreateInputMap()
 	{
 		auto instance = Inputs::Instance();
-		InputMap inputMap("InputMap_"+std::to_string(instance->m_inputsMap.size()));
+		InputMap inputMap("InputMap_" + std::to_string(instance->m_inputsMap.size()));
 		if (!instance->m_inputsMap.insert(std::make_pair(inputMap.GetName(), inputMap)).second)
 		{
 			LOG_ERROR("Couldn't insert InputMap");
@@ -23,10 +23,10 @@ namespace Sandbox
 			instance->m_current = &instance->m_inputsMap.at(inputMap.GetName());
 		}
 
-		return instance->m_inputsMap.at(inputMap.GetName());
+		return &instance->m_inputsMap.at(inputMap.GetName());
 	}
 
-	InputMap& Inputs::CreateInputMap(std::string name)
+	InputMap* Inputs::CreateInputMap(std::string name)
 	{
 		auto instance = Inputs::Instance();
 		InputMap inputMap(name);
@@ -41,7 +41,7 @@ namespace Sandbox
 		{
 			instance->m_current = &instance->m_inputsMap.at(inputMap.GetName());
 		}
-		return instance->m_inputsMap.at(inputMap.GetName());
+		return &instance->m_inputsMap.at(inputMap.GetName());
 	}
 
 	void Inputs::DestroyInputMap(std::string name)

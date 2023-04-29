@@ -11,6 +11,7 @@ this will be related to SpriteComponent
 
 -tween system
 
+-Entity::Addcompoennt: reference returned isn't an actual reference
 -Render:
 
 -draw layers

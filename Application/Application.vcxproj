@@ -150,7 +150,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Tests\RendererDebug.cpp" />
     <ClCompile Include="src\Tests\ECSTest.cpp" />
     <ClCompile Include="src\Tests\ECSTest.h" />
     <ClCompile Include="src\Tests\ImGuiSystemTest.cpp" />
@@ -160,6 +159,7 @@
     <ClCompile Include="src\Tests\BatchRendererTest.cpp" />
     <ClCompile Include="src\Tests\BillboardTest.cpp" />
     <ClCompile Include="src\Tests\EnttTest.cpp" />
+    <ClCompile Include="src\Tests\RendererTest.cpp" />
     <ClCompile Include="src\Tests\SignalTest.cpp" />
     <ClCompile Include="src\Tests\SystemTest.cpp" />
     <ClCompile Include="src\Tests\TextureUnitTest.cpp" />
@@ -175,6 +175,7 @@
     <ClInclude Include="src\Tests\EnttTest.h" />
     <ClInclude Include="src\Tests\ImGuiTest.h" />
     <ClInclude Include="src\Tests\RendererDebug.h" />
+    <ClInclude Include="src\Tests\RendererTest.h" />
     <ClInclude Include="src\Tests\SignalTest.h" />
     <ClInclude Include="src\Tests\TextureUnitTest.h" />
     <ClInclude Include="src\Tests\ThreadTest.h" />

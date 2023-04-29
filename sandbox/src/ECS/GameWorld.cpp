@@ -16,7 +16,7 @@ namespace Sandbox
 		m_entities.reserve(m_entityPreallocationSize);
 	}
 
-	Entity& GameWorld::CreateEntity()
+	Entity* GameWorld::CreateEntity()
 	{
 		Entity* entity = new Entity(this);
 		EntityId id = entity->m_id;
@@ -32,7 +32,7 @@ namespace Sandbox
 		}
 		
 		m_entities[(size_t)id] = entity;
-		return *entity;
+		return entity;
 	}
 
 	void GameWorld::DestroyEntity(EntityId id)

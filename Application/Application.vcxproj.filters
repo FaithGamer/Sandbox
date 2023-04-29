@@ -60,7 +60,7 @@
     <ClCompile Include="src\Tests\ECSTest.h">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Tests\RendererDebug.cpp">
+    <ClCompile Include="src\Tests\RendererTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -102,6 +102,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Tests\RendererDebug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tests\RendererTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

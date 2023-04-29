@@ -8,7 +8,7 @@ namespace Sandbox
 	{
 	public:
 		Camera();
-
+		~Camera();
 		void SetPosition(Vec3f position);
 		void SetRotation(Vec3f eulerAngles);
 		void SetTarget(Vec3f target);

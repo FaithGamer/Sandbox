@@ -47,6 +47,7 @@ namespace Sandbox
 		}
 
 		m_vertexBuffer.push_back(buffer);
+		glBindVertexArray(0);
 	}
 
 	
@@ -56,6 +57,7 @@ namespace Sandbox
 		glBindVertexArray(m_id);
 		buffer->Bind();
 		m_indexBuffer = buffer;
+		glBindVertexArray(0);
 	}
 
 	void VertexArray::Bind()
