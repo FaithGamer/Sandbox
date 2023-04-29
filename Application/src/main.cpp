@@ -1,8 +1,7 @@
 #include "pch.h"
 #include "Sandbox/Engine.h"
 
-#include "Tests/ImGuiSystemTest.h"
-#include "Tests/ECSTest.h"
+
 #include "entt/entt.hpp"
 #include "Sandbox/Vec.h"
 #include "Sandbox/Time.h"
@@ -13,7 +12,11 @@
 #include "Sandbox/Input/ButtonInput.h"
 #include "Sandbox/std_macros.h"
 
+#include "Tests/ImGuiSystemTest.h"
+#include "Tests/ECSTest.h"
 #include "Tests/BatchRendererTest.h"
+#include "Tests/UniformBlockTest.h"
+#include "Tests/RendererDebug.h"
 
 #include <random>
 #include <iostream>
@@ -99,8 +102,7 @@ int main(int argc, char** argv)
 
 
 	sb::Engine::Launch();*/
-
-	BatchRendererTest();
+	RendererDebug();
 
 	return 0;
 }

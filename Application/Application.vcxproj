@@ -150,6 +150,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Tests\RendererDebug.cpp" />
     <ClCompile Include="src\Tests\ECSTest.cpp" />
     <ClCompile Include="src\Tests\ECSTest.h" />
     <ClCompile Include="src\Tests\ImGuiSystemTest.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="src\Tests\EnttSpeedTest.h" />
     <ClInclude Include="src\Tests\EnttTest.h" />
     <ClInclude Include="src\Tests\ImGuiTest.h" />
+    <ClInclude Include="src\Tests\RendererDebug.h" />
     <ClInclude Include="src\Tests\SignalTest.h" />
     <ClInclude Include="src\Tests\TextureUnitTest.h" />
     <ClInclude Include="src\Tests\ThreadTest.h" />

@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="include\Sandbox\Render\StencilMode.cpp" />
+    <ClCompile Include="src\Render\Renderer2D2.cpp" />
     <ClCompile Include="src\Render\RenderTexture.cpp" />
     <ClCompile Include="src\Delegate.cpp" />
     <ClCompile Include="src\ECS\GameWorld.cpp" />
@@ -66,6 +67,7 @@
     <ClInclude Include="include\Sandbox\Input\Inputs.h" />
     <ClInclude Include="include\Sandbox\Parameters.h" />
     <ClInclude Include="include\Sandbox\Random.h" />
+    <ClInclude Include="include\Sandbox\Render\Renderer2D.h" />
     <ClInclude Include="include\Sandbox\Render\RenderTarget.h" />
     <ClInclude Include="include\Sandbox\Render\RenderTexture.h" />
     <ClInclude Include="include\Sandbox\Render\StencilMode.h" />
@@ -83,7 +85,7 @@
     <ClInclude Include="include\Sandbox\Math.h" />
     <ClInclude Include="include\Sandbox\PlatformDetection.h" />
     <ClInclude Include="include\Sandbox\Render.h" />
-    <ClInclude Include="include\Sandbox\Render\Renderer2D.h" />
+    <ClInclude Include="include\Sandbox\Render\Renderer2D2.h" />
     <ClInclude Include="include\Sandbox\Input\InputMap.h" />
     <ClInclude Include="include\Sandbox\Input\DirectionalInput.h" />
     <ClInclude Include="include\Sandbox\Input\PointingInput.h" />

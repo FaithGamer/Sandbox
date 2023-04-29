@@ -1,7 +1,7 @@
 #include "pch.h"
 
 #include <glm/gtc/matrix_transform.hpp>
-#include "Sandbox/Render/Renderer2D.h"
+#include "Sandbox/Render/Renderer2D2.h"
 #include "Sandbox/Log.h"
 #include "Sandbox/Render/RenderTarget.h"
 #include "Sandbox/Render/RenderTexture.h"
@@ -12,9 +12,9 @@
 
 namespace Sandbox
 {
-	Renderer2D::Renderer2D()
+	Renderer2D2::Renderer2D2()
 	{
-		ASSERT_LOG_ERROR(Window::IsInitialized(), "Cannot create Renderer2D before Window is initialized.");
+		ASSERT_LOG_ERROR(Window::IsInitialized(), "Cannot create Renderer2D2 before Window is initialized.");
 
 		//Limitations
 		m_maxQuads = 1000;
@@ -93,13 +93,13 @@ namespace Sandbox
 		//SetShaderUniformSampler(m_defaultLayerShader, m_maxOffscreenLayers + 1);
 	}
 
-	Renderer2D::~Renderer2D()
+	Renderer2D2::~Renderer2D2()
 	{
 		//To do
 
 	}
 
-	void Renderer2D::SetShaderUniformSampler(sptr<Shader> shader, uint32_t count)
+	void Renderer2D2::SetShaderUniformSampler(sptr<Shader> shader, uint32_t count)
 	{
 		std::vector<int> sampler;
 		for (uint32_t i = 0; i < count; i++)
@@ -109,14 +109,14 @@ namespace Sandbox
 		shader->SetUniformArray("uTextures", &sampler[0], (GLsizei)sampler.size());
 	}
 
-	uint64_t Renderer2D::GeneratePipelineId(uint64_t a, uint64_t b, uint64_t c)
+	uint64_t Renderer2D2::GeneratePipelineId(uint64_t a, uint64_t b, uint64_t c)
 	{
 		b = (b + 1) * 10000;
 		a = (a + 1) * 100000000;
 		return a + b + c;
 	}
 
-	uint32_t Renderer2D::AddLayer(std::string name)
+	uint32_t Renderer2D2::AddLayer(std::string name)
 	{
 		sptr<RenderTexture> layer = makesptr<RenderTexture>(Window::GetSize());
 		m_layers.push_back(RenderLayer(name, (uint32_t)m_layers.size(), layer, m_defaultLayerShader, m_defaultStencilMode, false, false));
@@ -124,7 +124,7 @@ namespace Sandbox
 		return (uint32_t)m_layers.size() - 1;
 	}
 
-	uint32_t Renderer2D::AddOffscreenLayer(std::string name, uint32_t sampler2DIndex)
+	uint32_t Renderer2D2::AddOffscreenLayer(std::string name, uint32_t sampler2DIndex)
 	{
 		ASSERT_LOG_ERROR(bool(sampler2DIndex > 0 && sampler2DIndex < 16), "sampler2DIndex must be comprised between 1 and 15");
 		ASSERT_LOG_ERROR(bool(m_offscreenLayers.size() < 15), "Number of Offscreen layers exceeded (max 15)");
@@ -139,7 +139,7 @@ namespace Sandbox
 		return (uint32_t)m_layers.size() - 1;
 	}
 
-	uint32_t Renderer2D::GetLayerId(std::string name)
+	uint32_t Renderer2D2::GetLayerId(std::string name)
 	{
 		uint32_t i = 0;
 		for (auto& layer : m_layers)
@@ -153,18 +153,18 @@ namespace Sandbox
 		return 0;
 	}
 
-	void Renderer2D::SetLayerShader(uint32_t layer, sptr<Shader> shader)
+	void Renderer2D2::SetLayerShader(uint32_t layer, sptr<Shader> shader)
 	{
 		SetShaderUniformSampler(shader, m_maxOffscreenLayers + 1);
 		m_layers[layer].shader = shader;
 	}
 
-	void Renderer2D::SetLayerStencilMode(uint32_t layer, sptr<StencilMode> stencil)
+	void Renderer2D2::SetLayerStencilMode(uint32_t layer, sptr<StencilMode> stencil)
 	{
 		m_layers[layer].stencil = stencil;
 	}
 
-	void Renderer2D::PreallocateQuadPipeline(int count)
+	void Renderer2D2::PreallocateQuadPipeline(int count)
 	{
 		for (int i = 0; i < count; i++)
 		{
@@ -173,7 +173,7 @@ namespace Sandbox
 		}
 	}
 
-	uint32_t Renderer2D::AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader, sptr<StencilMode> stencil)
+	uint32_t Renderer2D2::AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader, sptr<StencilMode> stencil)
 	{
 		uint32_t shaderId = 0;
 		uint32_t stencilId = 0;
@@ -205,7 +205,7 @@ namespace Sandbox
 		}
 	}
 
-	void Renderer2D::CreateQuadPipeline(RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil)
+	void Renderer2D2::CreateQuadPipeline(RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil)
 	{
 		size_t index = 0;
 		if (!m_freeQuadPipelines.empty())
@@ -226,7 +226,7 @@ namespace Sandbox
 
 	}
 
-	void Renderer2D::SetupQuadPipeline(QuadBatch& batch, RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil)
+	void Renderer2D2::SetupQuadPipeline(QuadBatch& batch, RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil)
 	{
 		if (shader == nullptr)
 			shader = m_defaultShader;
@@ -250,7 +250,7 @@ namespace Sandbox
 
 	}
 
-	void Renderer2D::AllocateQuadPipeline(QuadBatch& batch)
+	void Renderer2D2::AllocateQuadPipeline(QuadBatch& batch)
 	{
 		//Vertex buffer (quads)
 		batch.quadVertexBuffer = makesptr<VertexBuffer>(m_maxVertices * sizeof(QuadVertex));
@@ -281,7 +281,7 @@ namespace Sandbox
 
 	}
 
-	void Renderer2D::RemoveQuadPipelineUser(uint32_t pipeline)
+	void Renderer2D2::RemoveQuadPipelineUser(uint32_t pipeline)
 	{
 		m_quadPipelines[pipeline].userCount--;
 		if (m_quadPipelines[pipeline].userCount <= 0)
@@ -290,12 +290,12 @@ namespace Sandbox
 		}
 	}
 
-	void Renderer2D::FreeQuadPipeline(uint32_t pipeline)
+	void Renderer2D2::FreeQuadPipeline(uint32_t pipeline)
 	{
 		m_freeQuadPipelines.push_back(pipeline);
 	}
 
-	void Renderer2D::BeginScene(const Camera& camera)
+	void Renderer2D2::BeginScene(const Camera& camera)
 	{
 		for (auto& layer : m_layers)
 		{
@@ -324,14 +324,14 @@ namespace Sandbox
 
 	}
 
-	void Renderer2D::EndScene()
+	void Renderer2D2::EndScene()
 	{
 		for (auto& pipeline : m_quadPipelines)
 			Flush(pipeline.index);
 		RenderLayers();
 	}
 
-	void Renderer2D::RenderLayers()
+	void Renderer2D2::RenderLayers()
 	{
 		//Bind screen framebuffer
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -357,8 +357,9 @@ namespace Sandbox
 		}
 	}
 
-	void Renderer2D::Flush(uint32_t pipelineIndex)
+	void Renderer2D2::Flush(uint32_t pipelineIndex)
 	{
+		ASSERT_LOG_ERROR(pipelineIndex == 0, "bug");
 		QuadBatch& pipeline = m_quadPipelines[(size_t)pipelineIndex];
 		if (pipeline.quadIndexCount)
 		{
@@ -383,7 +384,7 @@ namespace Sandbox
 		}
 	}
 
-	void Renderer2D::DrawQuad(const Vec3f& position, const Vec2f& scale, const Vec4f& color, uint32_t pipelineIndex)
+	void Renderer2D2::DrawQuad(const Vec3f& position, const Vec2f& scale, const Vec4f& color, uint32_t pipelineIndex)
 	{
 		Transform transform;
 		transform.SetPosition(position);
@@ -391,7 +392,7 @@ namespace Sandbox
 		DrawQuad(transform, color, pipelineIndex);
 	}
 
-	void Renderer2D::DrawQuad(const Transform& transform, const Vec4f& color, uint32_t pipelineIndex)
+	void Renderer2D2::DrawQuad(const Transform& transform, const Vec4f& color, uint32_t pipelineIndex)
 	{
 		constexpr size_t quadVertexCount = 4;
 		constexpr Vec2f texCoords[4]{ { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f } };
@@ -417,7 +418,7 @@ namespace Sandbox
 		m_stats.quadCount++;
 	}
 
-	void Renderer2D::DrawTexturedQuad(
+	void Renderer2D2::DrawTexturedQuad(
 		const Vec3f& position,
 		const Vec2f& scale,
 		sptr<Texture>& texture,
@@ -431,7 +432,7 @@ namespace Sandbox
 		DrawTexturedQuad(transform, texture, texCoords, color, 0);
 	}
 
-	void Renderer2D::DrawTexturedQuad(
+	void Renderer2D2::DrawTexturedQuad(
 		const Transform& transform,
 		sptr<Texture>& texture,
 		const std::vector<Vec2f>& texCoords,
@@ -489,12 +490,12 @@ namespace Sandbox
 		m_stats.quadCount++;
 	}
 
-	Renderer2D::Statistics Renderer2D::GetStats()
+	Renderer2D2::Statistics Renderer2D2::GetStats()
 	{
 		return m_stats;
 	}
 
-	void Renderer2D::StartBatch(uint32_t pipelineIndex)
+	void Renderer2D2::StartBatch(uint32_t pipelineIndex)
 	{
 		//Reset vertex array data
 		m_quadPipelines[pipelineIndex].quadVertexPtr = m_quadPipelines[pipelineIndex].quadVertexBase;
@@ -507,7 +508,7 @@ namespace Sandbox
 
 	}
 
-	void Renderer2D::NextBatch(uint32_t pipelineIndex)
+	void Renderer2D2::NextBatch(uint32_t pipelineIndex)
 	{
 		Flush(pipelineIndex);
 		StartBatch(pipelineIndex);

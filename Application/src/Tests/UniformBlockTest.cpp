@@ -17,14 +17,14 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <entt/entt.hpp>
-
+#include "Sandbox/Engine.h"
 #include "Sandbox/Time.h"
 using namespace Sandbox;
 
 void UniformBlockTest()
 {
-
-    Shader shaderRed("assets/shaders/ubt.vert", "assets/shaders/ubt.frag");
+    Engine::Init();
+    std::shared_ptr<Shader> shaderRed = makesptr<Shader>("assets/shaders/ubt.vert", "assets/shaders/ubt.frag");
 
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
@@ -48,15 +48,25 @@ void UniformBlockTest()
     };
 
     sptr<IndexBuffer> ibo = makesptr<IndexBuffer>(indices, 6);
+    {
+        uint32_t layerIndices[]
+        {
+            0, 1, 2,
+            2, 3, 0
+        };
+
+
+        sptr<IndexBuffer> layerIndexBuffer = makesptr<IndexBuffer>(layerIndices, 6, GL_STATIC_DRAW);
+    }
     VertexArray vao(vbo, ibo);
 
 
     // configure a uniform buffer object
     // ---------------------------------
     // first. We get the relevant block indices
-    unsigned int uniformBlockIndexRed = glGetUniformBlockIndex(shaderRed.GetID(), "Matrices");
+    unsigned int uniformBlockIndexRed = glGetUniformBlockIndex(shaderRed->GetID(), "Matrices");
     // then we link each shader's uniform block to this uniform binding point
-    glUniformBlockBinding(shaderRed.GetID(), uniformBlockIndexRed, 0);
+    glUniformBlockBinding(shaderRed->GetID(), uniformBlockIndexRed, 0);
 
     // Now actually create the buffer
     unsigned int uboMatrices;
@@ -106,10 +116,10 @@ void UniformBlockTest()
         // draw 4 cubes 
         // RED
         vao.Bind();
-        shaderRed.Bind();
+        shaderRed->Bind();
         glm::mat4 model = glm::mat4(1.0f);
         //model = glm::translate(model, glm::vec3(-0.75f, 0.75f, 0.0f)); // move top-left
-        shaderRed.SetUniform("model", model);
+        shaderRed->SetUniform("model", model);
         glDrawElements(GL_TRIANGLES, vao.GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
 
         Window::RenderWindow();

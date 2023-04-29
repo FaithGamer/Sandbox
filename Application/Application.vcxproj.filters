@@ -60,6 +60,9 @@
     <ClCompile Include="src\Tests\ECSTest.h">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Tests\RendererDebug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Tests\SignalTest.h">
@@ -96,6 +99,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Tests\EnttSpeedTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tests\RendererDebug.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
