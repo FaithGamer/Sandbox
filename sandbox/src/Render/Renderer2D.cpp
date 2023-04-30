@@ -70,10 +70,10 @@ namespace Sandbox
 
 		float layerVertices[]
 		{
-		-1.f, -1.f, 0,  0.f, 1.f,
-		 1.f, -1.f, 0,  1.f, 1.f,
-		 1.f,  1.f, 0,  1.f, 0.f,
-		 -1.f,  1.f, 0,  0.f, 0.f,
+		-0.5, -0.5, 0,  0.f, 0.5,
+		 0.5, -0.5, 0,  0.5, 0.5,
+		 0.5,  0.5, 0,  0.5, 0.f,
+		 -0.5,  0.5f, 0,  0.f, 0.f,
 		};
 
 		AttributeLayout layout({ 
@@ -177,6 +177,8 @@ namespace Sandbox
 
 	uint32_t Renderer2D::AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader = nullptr, sptr<StencilMode> stencil = nullptr)
 	{
+		//To do: bake the pipelines based on assets
+
 		uint32_t shaderId = 0;
 		uint32_t stencilId = 0;
 		if (shader != nullptr)

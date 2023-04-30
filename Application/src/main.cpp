@@ -17,6 +17,7 @@
 #include "Tests/BatchRendererTest.h"
 #include "Tests/UniformBlockTest.h"
 #include "Tests/RendererTest.h"
+#include "Tests/FrameBufferTest.h"
 
 #include <random>
 #include <iostream>
@@ -108,26 +109,9 @@ int main(int argc, char** argv)
 	//BatchRendererTest();
 	//
 	
-	RendererTest();
+	//RendererTest();
+	FrameBufferTest();
 
-	std::vector<int> noptr;
-	std::vector<int*> ptr;
-
-	sb::Clock clock;
-
-	for (int i = 0; i < 100000; i++)
-	{
-		noptr.push_back(42);
-	}
-
-	std::cout << clock.Restart() << std::endl;
-
-	for (int i = 0; i < 100000; i++)
-	{
-		ptr.push_back(new int(42));
-	}
-
-	std::cout << clock.GetElapsed() << std::endl;
 
 	return 0;
 }

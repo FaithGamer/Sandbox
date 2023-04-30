@@ -152,6 +152,7 @@
   <ItemGroup>
     <ClCompile Include="src\Tests\ECSTest.cpp" />
     <ClCompile Include="src\Tests\ECSTest.h" />
+    <ClCompile Include="src\Tests\FrameBufferTest.cpp" />
     <ClCompile Include="src\Tests\ImGuiSystemTest.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Tests\EnttSpeedTest.cpp" />
@@ -168,6 +169,7 @@
     <ClCompile Include="src\Tests\UniformBlockTest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Tests\FrameBufferTest.h" />
     <ClInclude Include="src\Tests\ImGuiSystemTest.h" />
     <ClInclude Include="src\Tests\BatchRendererTest.h" />
     <ClInclude Include="src\Tests\BillboardTest.h" />

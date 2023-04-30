@@ -45,13 +45,15 @@ public:
 		button->SendSignalOnRelease(true);
 		button->signal.AddListener(&CameraMovementSystem::OnMoveRight, this);
 	}
+
 	void OnUpdate(Time delta) override
 	{
 		ForEachComponent(&CameraMovementSystem::MoveCamera, delta);
 	}
+
 	void MoveCamera(Time delta, Camera& camera)
 	{
-		float speed = 30;
+		float speed = 300;
 		if (m_right)
 		{
 			camera.MoveWorld(Vec3f(speed*(float)delta, 0, 0));
@@ -105,7 +107,7 @@ public:
 
 		cam->Pitch(0);
 		cam->Yaw(0);
-		cam->SetPosition({ 0, 0, 2 });
+		cam->SetPosition({ 0, 0, 20 });
 
 		m_camera = world->GetEntity(camera->GetId());
 
@@ -116,6 +118,7 @@ public:
 		m_layerid = m_renderer.AddLayer("MyCustomLayer");
 		m_pipeline = m_renderer.AddQuadPipelineUser(m_layerid, nullptr, nullptr);
 	}
+
 	void OnUpdate(Time delta) override
 	{
 
@@ -132,20 +135,20 @@ public:
 		{
 			for (float j = -20; j < 20; j += 1.0f)
 			{
-				float y = i / 100.0f;
-				float x = j / 100.0f;
+				float y = i / 1.0f;
+				float x = j / 1.0f;
 				Transform transform;
 				transform.SetPosition(x, y, 0.0f);
-				transform.SetScale(0.1f, 0.1f, 1.0f);
+				transform.SetScale(1.0f, 1.0f, 1.0f);
 				//transform.SetRotationZAxis((float)clock.GetElapsed() * 40);
 
 				if (count % 2)
 				{
-					m_renderer.DrawTexturedQuad(transform, m_texture1, texCoords, white, m_pipeline);
+					m_renderer.DrawTexturedQuad(transform, m_texture1, texCoords, white, 0);
 				}
 				else
 				{
-					m_renderer.DrawTexturedQuad(transform, m_texture2, texCoords, white, 0);
+					m_renderer.DrawTexturedQuad(transform, m_texture2, texCoords, white, m_pipeline);
 				}
 				count++;
 			}

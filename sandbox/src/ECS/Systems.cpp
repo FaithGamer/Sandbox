@@ -104,10 +104,10 @@ namespace Sandbox
 		}
 
 		//Making sure at least one microseconds has elapsed.
-		if (m_updateClock.GetElapsed() < 0.000001f)
+		/*if (m_updateClock.GetElapsed() < 0.000001f)
 		{
 			return;
-		}
+		}*/
 
 		for (auto& system : m_updateSystems)
 		{
