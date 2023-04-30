@@ -70,13 +70,13 @@ namespace Sandbox
 
 		float layerVertices[]
 		{
-		-0.5, -0.5, 0,  0.f, 0.5,
-		 0.5, -0.5, 0,  0.5, 0.5,
-		 0.5,  0.5, 0,  0.5, 0.f,
-		 -0.5,  0.5f, 0,  0.f, 0.f,
+		-1.0, -1.0, 0,  0.0, 0.0,
+		 1.0, -1.0, 0,  1.0, 0.0,
+		 1.0,  1.0, 0,  1.0, 1.0,
+		 -1.0, 1.0, 0,  0.0, 1.0,
 		};
 
-		AttributeLayout layout({ 
+		AttributeLayout layout({
 			{ ShaderDataType::Vec3f, "aPosition" },
 			{ ShaderDataType::Vec2f, "aTexCoords" } });
 		sptr<VertexBuffer> layerVertexBuffer = makesptr<VertexBuffer>(layerVertices, sizeof(layerVertices), layout);

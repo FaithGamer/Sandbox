@@ -109,8 +109,8 @@ int main(int argc, char** argv)
 	//BatchRendererTest();
 	//
 	
-	//RendererTest();
-	FrameBufferTest();
+	RendererTest();
+
 
 
 	return 0;
