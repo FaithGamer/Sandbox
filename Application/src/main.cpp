@@ -84,15 +84,18 @@ void InitInputs()
 	jump->BindKey(sb::KeyScancode::Space);
 }
 
+#include "Sandbox/ECS/Entity.h"
+#include "Sandbox/Log.h"
+
 int main(int argc, char** argv)
 {
 	/*sb::Engine::Init();
-	sb::Systems::CreateGameWorld();
+	sb::Systems::CreateWorld();
 
 	sb::Inputs::CreateInputMap();
 
 	InitInputs();
-	sb::Entity& player = sb::Systems::GetMainGameWorld()->CreateEntity();
+	sb::Entity& player = sb::Systems::GetMainWorld()->CreateEntity();
 	player.AddComponent<PlayerControlled>();
 	player.AddComponent<Body>();
 
@@ -103,7 +106,28 @@ int main(int argc, char** argv)
 
 	sb::Engine::Launch();*/
 	//BatchRendererTest();
+	//
+	
 	RendererTest();
+
+	std::vector<int> noptr;
+	std::vector<int*> ptr;
+
+	sb::Clock clock;
+
+	for (int i = 0; i < 100000; i++)
+	{
+		noptr.push_back(42);
+	}
+
+	std::cout << clock.Restart() << std::endl;
+
+	for (int i = 0; i < 100000; i++)
+	{
+		ptr.push_back(new int(42));
+	}
+
+	std::cout << clock.GetElapsed() << std::endl;
 
 	return 0;
 }

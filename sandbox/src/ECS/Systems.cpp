@@ -5,7 +5,7 @@
 #include "Sandbox/Render/Window.h"
 #include "Sandbox/ImGuiLoader.h"
 #include "Sandbox/Engine.h"
-#include "Sandbox/ECS/GameWorld.h"
+#include "Sandbox/ECS/World.h"
 
 namespace Sandbox
 {
@@ -164,7 +164,7 @@ namespace Sandbox
 		}
 
 		//Call OnStart with right priority order
-		for (auto system : mustCallOnStart)
+		for (auto& system : mustCallOnStart)
 		{
 			system.system->OnStart();
 		}
@@ -235,36 +235,36 @@ namespace Sandbox
 		return Systems::Instance()->m_fixedUpdateTime;
 	}
 
-	GameWorld* Systems::CreateGameWorld()
+	World* Systems::CreateWorld()
 	{
-		return CreateGameWorld("World_" + std::to_string(Instance()->m_worlds.pointers.size()));
+		return CreateWorld("World_" + std::to_string(Instance()->m_worlds.pointers.size()));
 	}
 
-	GameWorld* Systems::CreateGameWorld(std::string name)
+	World* Systems::CreateWorld(std::string name)
 	{
 		//To do error message if twice same name
-		GameWorld* world = new GameWorld(name);
+		World* world = new World(name);
 		Systems::Instance()->m_worlds.Push(world);
 		return world;
 	}
 
-	void Systems::DestroyGameWorld(std::string name)
+	void Systems::DestroyWorld(std::string name)
 	{
 		Systems::Instance()->m_worlds.Destroy(name);
 	}
 
-	GameWorld* Systems::GetGameWorld(std::string name)
+	World* Systems::GetWorld(std::string name)
 	{
 		return Systems::Instance()->m_worlds.Get(name);
 	}
 
-	GameWorld* Systems::GetMainGameWorld()
+	World* Systems::GetMainWorld()
 	{
 		//To do, error handling
 		return Systems::Instance()->m_worlds.pointers[0];
 	}
 
-	std::vector<GameWorld*>& Systems::GetGameWorlds()
+	std::vector<World*>& Systems::GetWorlds()
 	{
 		return Systems::Instance()->m_worlds.pointers;
 	}
@@ -273,7 +273,7 @@ namespace Sandbox
 	/// Worlds ///
 	//////////////
 
-	void Systems::Worlds::Push(GameWorld* world)
+	void Systems::Worlds::Push(World* world)
 	{
 		pointers.emplace_back(world);
 		names.emplace_back(world->GetName());
@@ -287,7 +287,7 @@ namespace Sandbox
 		Vector::RemoveAt(pointers, index);
 	}
 
-	GameWorld* Systems::Worlds::Get(std::string name)
+	World* Systems::Worlds::Get(std::string name)
 	{
 		int64_t index = Vector::FindIndex(names, name);
 		return pointers[index];

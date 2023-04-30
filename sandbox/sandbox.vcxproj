@@ -15,7 +15,7 @@
     <ClCompile Include="src\Render\IndexBuffer.cpp" />
     <ClCompile Include="src\Render\RenderTexture.cpp" />
     <ClCompile Include="src\Delegate.cpp" />
-    <ClCompile Include="src\ECS\GameWorld.cpp" />
+    <ClCompile Include="src\ECS\World.cpp" />
     <ClCompile Include="src\ImGuiLoader.cpp" />
     <ClCompile Include="src\Input\Inputs.cpp" />
     <ClCompile Include="src\Parameters.cpp" />
@@ -63,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Sandbox\ECS.h" />
-    <ClInclude Include="include\Sandbox\ECS\GameWorld.h" />
+    <ClInclude Include="include\Sandbox\ECS\World.h" />
     <ClInclude Include="include\Sandbox\ImGuiLoader.h" />
     <ClInclude Include="include\Sandbox\Input\Inputs.h" />
     <ClInclude Include="include\Sandbox\Parameters.h" />

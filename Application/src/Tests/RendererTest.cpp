@@ -6,7 +6,7 @@
 #include "Sandbox/ECS/Entity.h"
 #include "Sandbox/ECS/InputSystem.h"
 #include "Sandbox/ECS/Systems.h"
-#include "Sandbox/ECS/GameWorld.h"
+#include "Sandbox/ECS/World.h"
 #include "Sandbox/Input/Inputs.h"
 #include "Sandbox/Input/ButtonInput.h"
 
@@ -98,12 +98,11 @@ class RenderSys : public System
 public:
 	void OnStart()
 	{
-		auto world = GameWorld::GetMain();
+		auto world = World::GetMain();
 
 		auto camera = world->CreateEntity();
-		camera->AddComponent<Camera>();
+		auto cam = camera->AddComponent<Camera>();
 
-		auto cam = camera->GetComponent<Camera>();
 		cam->Pitch(0);
 		cam->Yaw(0);
 		cam->SetPosition({ 0, 0, 2 });
@@ -123,7 +122,6 @@ public:
 		std::vector<Vec2f> texCoords{ { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f }
 		};
 
-		//Window::ClearWindow();
 		m_renderer.BeginScene(*m_camera->GetComponent<Camera>());
 
 
@@ -152,10 +150,7 @@ public:
 				count++;
 			}
 		}
-
 		m_renderer.EndScene();
-		//Window::RenderWindow();
-
 	}
 private:
 	sptr<Shader> m_otherShader;
@@ -172,7 +167,7 @@ private:
 void RendererTest()
 {
 	Engine::Init();
-	Systems::CreateGameWorld();
+	Systems::CreateWorld();
 	Systems::Push<CameraMovementSystem>();
 	Systems::Push<RenderSys>();
 	Engine::Launch();

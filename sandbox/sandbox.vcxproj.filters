@@ -129,7 +129,7 @@
     <ClCompile Include="src\ECS\InputSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ECS\GameWorld.cpp">
+    <ClCompile Include="src\ECS\World.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Render\Shader.cpp">
@@ -284,7 +284,7 @@
     <ClInclude Include="include\Sandbox\ImGuiLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\ECS\GameWorld.h">
+    <ClInclude Include="include\Sandbox\ECS\World.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Random.h">

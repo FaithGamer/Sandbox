@@ -1,18 +1,34 @@
 #include "pch.h"
 #include "Sandbox/ECS/Entity.h"
-#include "Sandbox/ECS/GameWorld.h"
 
 namespace Sandbox
 {
-	Entity::Entity(GameWorld* world)
+	Entity::Entity() : m_free(true)
 	{
-		m_id = world->m_registry.create();
-		m_world = world;
+
 	}
+
+	Entity::Entity(entt::registry* registry, EntityId id) : m_registry(registry), m_id(id), m_free(false)
+	{
+
+	}
+	
 	Entity::~Entity()
 	{
-		m_world->m_registry.destroy(m_id);
+
 	}
+
+	void Entity::Free()
+	{
+		m_registry->destroy(m_id);
+		m_free = true;
+	}
+
+	bool Entity::IsFree() const
+	{
+		return m_free;
+	}
+
 	EntityId Entity::GetId() const
 	{
 		return m_id;

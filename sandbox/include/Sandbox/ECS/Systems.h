@@ -10,7 +10,7 @@
 
 namespace Sandbox
 {
-	class GameWorld;
+	class World;
 
 	struct SystemIdPriority
 	{
@@ -98,36 +98,36 @@ namespace Sandbox
 
 		static Time GetFixedUpdateTime();
 
-		/// @brief Create and store a GameWorld, usually you will have only one GameWorld
-		/// Default GameWorld name will be World_0, 1, 2, 3....
-		/// @return The GameWorld created
-		static GameWorld* CreateGameWorld();
-		/// @brief Create and store a GameWorld, usually you will have only one GameWorld
+		/// @brief Create and store a World, usually you will have only one World
+		/// Default World name will be World_0, 1, 2, 3....
+		/// @return The World created
+		static World* CreateWorld();
+		/// @brief Create and store a World, usually you will have only one World
 		/// @param name, Give the game world a name.
-		/// @return The GameWorld created
-		static GameWorld* CreateGameWorld(std::string name);
-		static void DestroyGameWorld(std::string name);
+		/// @return The World created
+		static World* CreateWorld(std::string name);
+		static void DestroyWorld(std::string name);
 
-		/// @brief The first GameWorld ever created.
-		/// @return GameWorld pointer.
-		static GameWorld* GetMainGameWorld();
+		/// @brief The first World ever created.
+		/// @return World pointer.
+		static World* GetMainWorld();
 
-		/// @brief Get a GameWorld from it's name.
-		/// @param GameWorld's name 
+		/// @brief Get a World from it's name.
+		/// @param World's name 
 		/// @return The game world, nullptr if doesn't exists.
-		static GameWorld* GetGameWorld(std::string name);
+		static World* GetWorld(std::string name);
 		
 		/// @brief Access all the game worlds
-		/// @return Reference to the GameWorlds vector.
-		static std::vector<GameWorld*>& GetGameWorlds();
+		/// @return Reference to the Worlds vector.
+		static std::vector<World*>& GetWorlds();
 	private:
 
 		struct Worlds
 		{
-			void Push(GameWorld* world);
+			void Push(World* world);
 			void Destroy(std::string name);
-			GameWorld* Get(std::string name);
-			std::vector<GameWorld*> pointers;
+			World* Get(std::string name);
+			std::vector<World*> pointers;
 			std::vector<std::string> names;
 		};
 		friend Engine;
@@ -147,7 +147,6 @@ namespace Sandbox
 
 		Worlds m_worlds;
 		std::unordered_map<int32_t, System*> m_allSystems;
-
 
 		std::vector<SystemIdPriority> m_eventSystems;
 		std::vector<SystemIdPriority> m_fixedUpdateSystems;

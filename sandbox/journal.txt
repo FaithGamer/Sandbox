@@ -53,7 +53,7 @@ Also I need to enhance batchrenderer (make it singleton ?) so it can render on t
 
 6 april
 
-- Empty component are never instanciated... I made great progress on the GameWorld/Entity system, I start wrapping a lot of the entt capabilities
+- Empty component are never instanciated... I made great progress on the World/Entity system, I start wrapping a lot of the entt capabilities
 
 7 april
 

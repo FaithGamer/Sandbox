@@ -2,7 +2,7 @@
 #include "Sandbox/std_macros.h"
 #include "Sandbox/Time.h"
 #include <SDL/SDL.h>
-#include "Sandbox/ECS/GameWorld.h"
+#include "Sandbox/ECS/World.h"
 
 
 namespace Sandbox
@@ -69,7 +69,7 @@ namespace Sandbox
 		template <typename... ComponentType, typename Functor>
 		void ForEachComponent(Functor function)
 		{
-			auto view = GameWorld::GetMain()->m_registry.view<ComponentType...>();
+			auto view = World::GetMain()->m_registry.view<ComponentType...>();
 			for (auto entityId : view)
 			{
 				[&] <std::size_t... I>(std::index_sequence<I...>)
@@ -82,7 +82,7 @@ namespace Sandbox
 		template <typename... ComponentType, typename Functor>
 		void ForEachEntity(Functor function)
 		{
-			GameWorld* world = GameWorld::GetMain();
+			World* world = World::GetMain();
 			auto view = world->m_registry.view<ComponentType...>();
 			for (auto entityId : view)
 			{
@@ -95,7 +95,7 @@ namespace Sandbox
 		};
 
 		template <typename... ComponentType, typename Functor>
-		void ForEachComponent(GameWorld* world, Functor function)
+		void ForEachComponent(World* world, Functor function)
 		{
 			auto view = world->m_registry.view<ComponentType...>();
 			for (auto entityId : view)
@@ -108,7 +108,7 @@ namespace Sandbox
 		};
 
 		template <typename... ComponentType, typename Functor>
-		void ForEachEntity(GameWorld* world, Functor function)
+		void ForEachEntity(World* world, Functor function)
 		{
 			auto view = world->m_registry.view<ComponentType...>();
 			for (auto entityId : view)
@@ -122,8 +122,9 @@ namespace Sandbox
 		};
 
 		template <typename... ComponentType, typename SystemType>
-		void ForEachComponent(GameWorld* world, void(SystemType::* function)(ComponentType&...))
+		void ForEachComponent(void(SystemType::* function)(ComponentType&...))
 		{
+			World* world = World::GetMain();
 			auto view = world->m_registry.view<ComponentType...>();
 			for (auto entityId : view)
 			{
@@ -135,8 +136,9 @@ namespace Sandbox
 		};
 
 		template <typename... ComponentType, typename SystemType>
-		void ForEachEntity(GameWorld* world, void(SystemType::* function)(Entity&, ComponentType&...))
+		void ForEachEntity(void(SystemType::* function)(Entity&, ComponentType&...))
 		{
+			World* world = World::GetMain();
 			auto view = world->m_registry.view<ComponentType...>();
 			for (auto entityId : view)
 			{
@@ -149,9 +151,8 @@ namespace Sandbox
 		};
 
 		template <typename... ComponentType, typename SystemType>
-		void ForEachComponent(void(SystemType::* function)(ComponentType&...))
+		void ForEachComponent(World* world, void(SystemType::* function)(ComponentType&...))
 		{
-			GameWorld* world = GameWorld::GetMain();
 			auto view = world->m_registry.view<ComponentType...>();
 			for (auto entityId : view)
 			{
@@ -162,11 +163,9 @@ namespace Sandbox
 			}
 		};
 
-
 		template <typename... ComponentType, typename SystemType>
-		void ForEachEntity(void(SystemType::* function)(Entity&, ComponentType&...))
+		void ForEachEntity(World* world, void(SystemType::* function)(Entity&, ComponentType&...))
 		{
-			GameWorld* world = GameWorld::GetMain();
 			auto view = world->m_registry.view<ComponentType...>();
 			for (auto entityId : view)
 			{
@@ -181,7 +180,20 @@ namespace Sandbox
 		template <typename... ComponentType, typename SystemType>
 		void ForEachComponent(void(SystemType::* function)(Time delta, ComponentType&...), Time delta)
 		{
-			GameWorld* world = GameWorld::GetMain();
+			auto view = World::GetMain()->m_registry.view<ComponentType...>();
+			for (auto entityId : view)
+			{
+				[&] <std::size_t... I>(std::index_sequence<I...>)
+				{
+					(static_cast<SystemType*>(this)->*function)(delta, std::get<I>(view.get(entityId))...);
+				}(std::make_index_sequence<sizeof...(ComponentType)>());
+			}
+		};
+
+		template <typename... ComponentType, typename SystemType>
+		void ForEachEntity(void(SystemType::* function)(Time delta, Entity& entity, ComponentType&...), Time delta)
+		{
+			World* world = World::GetMain();
 			auto view = world->m_registry.view<ComponentType...>();
 			for (auto entityId : view)
 			{
