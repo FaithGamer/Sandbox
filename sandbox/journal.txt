@@ -65,3 +65,7 @@ Entities can be iterated with method from withtin the system thanks to the ForEa
 
 - I successfully debugged somtheing that had let me clueless for a good while ( not to say I was desperate ). Found out I forgot to unbind the vertex array object
 after binding buffer, that made any subsequent call to index buffer binding effectively bind with the vertex array.
+
+30 april
+
+- The bug I spent all the week end on: I did put 0 instead of 1 on the w element of the gl_Position in the layer vert shader.

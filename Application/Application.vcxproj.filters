@@ -133,5 +133,6 @@
     <None Include="assets\shaders\batch_renderer2.frag" />
     <None Include="assets\shaders\default_layer.frag" />
     <None Include="assets\shaders\default_layer.vert" />
+    <None Include="assets\shaders\masked.frag" />
   </ItemGroup>
 </Project>

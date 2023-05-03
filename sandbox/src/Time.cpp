@@ -34,7 +34,7 @@ namespace Sandbox
 
 	Time::operator float() const
 	{
-		return (float)m_microseconds.count() / 1000000;
+		return (float)m_microseconds.count() / 1000000.f;
 	}
 
 	

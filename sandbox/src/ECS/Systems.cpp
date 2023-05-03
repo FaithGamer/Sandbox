@@ -55,6 +55,13 @@ namespace Sandbox
 
 	void Systems::Update()
 	{
+		Time delta = m_updateClock.Restart();
+		//Making sure at least one microseconds has elapsed.
+		if (delta < 0.000001f)
+		{
+			delta = 0.000001f;
+		}
+
 		if (!m_pendingSystemIn.empty())
 			IntegratePending();
 		if (!m_pendingSystemOut.empty())
@@ -103,19 +110,13 @@ namespace Sandbox
 			}
 		}
 
-		//Making sure at least one microseconds has elapsed.
-		/*if (m_updateClock.GetElapsed() < 0.000001f)
-		{
-			return;
-		}*/
-
 		for (auto& system : m_updateSystems)
 		{
 			//If less than one microseconds elapse between two call
 			//the m_updateClock.Restart increment doesn't accurately describe time passing by.
-			system.system->OnUpdate(m_updateClock.Restart());
+			system.system->OnUpdate(delta);
 		}
-
+		
 		BeginImGui();
 		for (auto& system : m_imGuiSystems)
 		{

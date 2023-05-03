@@ -108,7 +108,8 @@ int main(int argc, char** argv)
 	sb::Engine::Launch();*/
 	//BatchRendererTest();
 	//
-	
+
+
 	RendererTest();
 
 

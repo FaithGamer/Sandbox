@@ -53,22 +53,24 @@ public:
 
 	void MoveCamera(Time delta, Camera& camera)
 	{
-		float speed = 300;
+		float speed = 10;
+		float offset = (float)delta * speed;
+
 		if (m_right)
 		{
-			camera.MoveWorld(Vec3f(speed*(float)delta, 0, 0));
+			camera.MoveWorld(Vec3f(offset, 0, 0));
 		}
 		if (m_front)
 		{
-			camera.MoveWorld(Vec3f(0, 0, speed*(float)delta));
+			camera.MoveWorld(Vec3f(0, 0, offset));
 		}
 		if (m_left)
 		{
-			camera.MoveWorld(Vec3f(-speed*(float)delta, 0, 0));
+			camera.MoveWorld(Vec3f(-offset, 0, 0));
 		}
 		if (m_back)
 		{
-			camera.MoveWorld(Vec3f(0, 0, -speed*(float)delta));
+			camera.MoveWorld(Vec3f(0, 0, -offset));
 		}
 	}
 	void OnMoveFront(InputSignal input)
@@ -115,13 +117,21 @@ public:
 		m_texture1 = makesptr<Texture>("assets/textures/trollface.png");
 		m_texture2 = makesptr<Texture>("assets/textures/image.png");
 
-		m_layerid = m_renderer.AddLayer("MyCustomLayer");
-		m_pipeline = m_renderer.AddQuadPipelineUser(m_layerid, nullptr, nullptr);
+		m_maskedShader = makesptr<Shader>("assets/shaders/default_layer.vert", "assets/shaders/masked.frag");
+
+		uint32_t layerid = m_renderer.AddLayer("MyLayer");
+		uint32_t layeridmasked = m_renderer.AddLayer("maskedLayer", m_maskedShader, nullptr);
+		uint32_t maskLayer = m_renderer.AddOffscreenLayer("mask", 1);
+
+		m_maskPipeline = m_renderer.AddQuadPipelineUser(maskLayer, nullptr, nullptr);
+		m_pipeline = m_renderer.AddQuadPipelineUser(layerid, nullptr, nullptr);
+		m_pipelineMasked = m_renderer.AddQuadPipelineUser(layeridmasked, nullptr, nullptr);
+
 	}
 
 	void OnUpdate(Time delta) override
 	{
-
+	
 		std::vector<Vec2f> texCoords{ { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f }
 		};
 
@@ -140,11 +150,10 @@ public:
 				Transform transform;
 				transform.SetPosition(x, y, 0.0f);
 				transform.SetScale(1.0f, 1.0f, 1.0f);
-				//transform.SetRotationZAxis((float)clock.GetElapsed() * 40);
 
 				if (count % 2)
 				{
-					m_renderer.DrawTexturedQuad(transform, m_texture1, texCoords, white, 0);
+					m_renderer.DrawTexturedQuad(transform, m_texture1, texCoords, white, m_maskPipeline);
 				}
 				else
 				{
@@ -153,15 +162,21 @@ public:
 				count++;
 			}
 		}
+		Transform transform;
+		transform.SetScale(10, 10, 1);
+		m_renderer.DrawTexturedQuad(transform, m_texture1, texCoords, white, m_pipelineMasked);
 		m_renderer.EndScene();
 	}
 private:
 	sptr<Shader> m_otherShader;
 	sptr<Texture> m_texture1;
 	sptr<Texture> m_texture2;
+	sptr<Shader> m_maskedShader;
 
-	uint32_t m_layerid;
+	
 	uint32_t m_pipeline;
+	uint32_t m_pipelineMasked;
+	uint32_t m_maskPipeline;
 
 	Renderer2D m_renderer;
 	Entity* m_camera;

@@ -118,10 +118,17 @@ namespace Sandbox
 		return a + b + c;
 	}
 
-	uint32_t Renderer2D::AddLayer(std::string name)
+	uint32_t Renderer2D::AddLayer(std::string name, sptr<Shader> shader, sptr<StencilMode> stencil)
 	{
+		if (shader == nullptr)
+			shader = m_defaultLayerShader;
+		if (stencil == nullptr)
+			stencil = m_defaultStencilMode;
+
+		SetShaderUniformSampler(shader, m_maxOffscreenLayers + 1);
+
 		sptr<RenderTexture> layer = makesptr<RenderTexture>(Window::GetSize());
-		m_layers.push_back(RenderLayer(name, (uint32_t)m_layers.size(), layer, m_defaultLayerShader, m_defaultStencilMode, false, false));
+		m_layers.push_back(RenderLayer(name, (uint32_t)m_layers.size(), layer, shader, stencil, false, false));
 
 		return (uint32_t)m_layers.size() - 1;
 	}
@@ -175,7 +182,7 @@ namespace Sandbox
 		}
 	}
 
-	uint32_t Renderer2D::AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader = nullptr, sptr<StencilMode> stencil = nullptr)
+	uint32_t Renderer2D::AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader, sptr<StencilMode> stencil)
 	{
 		//To do: bake the pipelines based on assets
 

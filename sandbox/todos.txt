@@ -13,9 +13,9 @@ this will be related to SpriteComponent
 
 
 -Store world not as pointers ?
+
 -Render:
 
--draw layers
 -signal on resize window
 -create render texture that scale on window size
 -check if generateId works as intended

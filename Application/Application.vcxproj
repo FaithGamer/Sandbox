@@ -201,6 +201,7 @@
     <None Include="assets\shaders\color.frag" />
     <None Include="assets\shaders\default_layer.frag" />
     <None Include="assets\shaders\default_layer.vert" />
+    <None Include="assets\shaders\masked.frag" />
     <None Include="assets\shaders\model_view_projection.vert" />
     <None Include="assets\shaders\position_color.vert" />
     <None Include="assets\shaders\position_texture.vert" />

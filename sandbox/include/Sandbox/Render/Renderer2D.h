@@ -46,7 +46,6 @@ namespace Sandbox
 		float texIndex;
 	};
 
-
 	struct RenderLayer 
 	{
 		std::string name = "RenderLayerDefault";
@@ -113,7 +112,7 @@ namespace Sandbox
 		/// The order cannot be changed ever again, and the layers cannot be removed.
 		/// @param name A friendly identifier.
 		/// @return The identifier to use when refering to this layer.
-		uint32_t AddLayer(std::string name);
+		uint32_t AddLayer(std::string name, sptr<Shader> shader = nullptr, sptr<StencilMode> stencil = nullptr);
 		/// @brief Add a layer that won't display but can be used in the shader of other layers.
 		/// Usage example: normal map.
 		/// @param sampler2DIndex Wich index the texture will be available in the sampler2D uniform.
@@ -124,7 +123,7 @@ namespace Sandbox
 		void SetLayerStencilMode(uint32_t layer, sptr<StencilMode> stencil);
 
 		void PreallocateQuadPipeline(int count);
-		uint32_t AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader, sptr<StencilMode> stencil);
+		uint32_t AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader = nullptr, sptr<StencilMode> stencil = nullptr);
 		void RemoveQuadPipelineUser(uint32_t pipeline);
 		
 
