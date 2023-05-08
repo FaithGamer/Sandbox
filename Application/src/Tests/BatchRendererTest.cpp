@@ -32,7 +32,7 @@ void BatchRendererTest()
 
 	uint32_t layerid = renderer.AddLayer("MyCustomLayer");
 
-	uint32_t pipeline = renderer.AddQuadPipelineUser(layerid, nullptr, nullptr);
+	uint32_t pipeline = renderer.GetPipeline(layerid, nullptr, nullptr);
 	bool run = true;
 	SDL_Event e;
 

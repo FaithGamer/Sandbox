@@ -132,8 +132,9 @@ namespace Sandbox
 		};
 		friend Engine;
 		Systems();
-	
+		
 		void Update();
+		void HandleWindowEvents(SDL_Event& event);
 		void IntegratePending();
 		void RemovePending();
 		void RemovePending(std::vector<SystemIdPriority>& systems, int32_t system, std::set<SystemIdPriority, CompareSystemId>& toDelete);

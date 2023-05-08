@@ -21,15 +21,18 @@ namespace Sandbox
 	{
 	public:
 		Texture(TextureImportSettings importSettings = TextureImportSettings());
-		Texture(Vec2i size);
 		Texture(std::string path, TextureImportSettings importSettings = TextureImportSettings());
+		Texture(std::string path, uint32_t pixelPerUnit, TextureImportSettings importSettings = TextureImportSettings());
 		~Texture();
 
+		void SetPixelPerUnit(uint32_t pixelPerUnit);
 		void Bind(uint32_t textureUnit = 0);
-		void SetData(void* data, uint32_t size);
+
 		Vec2i GetSize();
+		uint32_t GetPixelPerUnit() const;
 
 	private:
+		uint32_t m_pixelPerUnit;
 		TextureImportSettings m_importSettings;
 		Vec2i m_size;
 		int m_nbChannels;

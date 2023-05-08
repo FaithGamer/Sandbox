@@ -69,11 +69,7 @@ namespace Sandbox
 
 		while (SDL_PollEvent(&m_events) != 0)
 		{
-			if (m_events.type == SDL_QUIT)
-			{
-				Engine::Stop();
-				return;
-			}
+			HandleWindowEvents(m_events);
 
 			bool ImGuiEventHandled = ImGui_ImplSDL2_ProcessEvent(&m_events);
 			if (ImGuiEventHandled)
@@ -123,6 +119,22 @@ namespace Sandbox
 			system.system->OnImGui();
 		}
 		EndImGui(Window::GetSize());
+	}
+
+	void Systems::HandleWindowEvents(SDL_Event& event)
+	{
+		if (event.type == SDL_QUIT)
+		{
+			Engine::Stop();
+			return;
+		}
+		else if (event.type == SDL_WINDOWEVENT)
+		{
+			if (event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED || event.window.event == SDL_WINDOWEVENT_RESIZED)
+			{
+				Window::SetSize(event.window.data1, event.window.data2);
+			}
+		}
 	}
 
 	void Systems::IntegratePending()

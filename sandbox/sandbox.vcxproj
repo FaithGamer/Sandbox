@@ -69,6 +69,7 @@
     <ClInclude Include="include\Sandbox\Parameters.h" />
     <ClInclude Include="include\Sandbox\Random.h" />
     <ClInclude Include="include\Sandbox\Render\IndexBuffer.h" />
+    <ClInclude Include="include\Sandbox\Render\Rect.h" />
     <ClInclude Include="include\Sandbox\Render\Renderer2D.h" />
     <ClInclude Include="include\Sandbox\Render\RenderTarget.h" />
     <ClInclude Include="include\Sandbox\Render\RenderTexture.h" />
@@ -103,6 +104,7 @@
     <ClInclude Include="include\Sandbox\Input\ButtonInput.h" />
     <ClInclude Include="include\Sandbox\Render\Camera.h" />
     <ClInclude Include="include\Sandbox\Render\Buffer.h" />
+    <ClInclude Include="Sprite.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="include\Sandbox\Render\Shader.h" />
     <ClInclude Include="include\Sandbox\std_macros.h" />

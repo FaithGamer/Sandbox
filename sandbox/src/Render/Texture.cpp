@@ -14,7 +14,8 @@ namespace Sandbox
 
 	}
 
-	Texture::Texture(TextureImportSettings importSettings) : m_size(1, 1), m_nbChannels(0), m_pixels(nullptr), m_id(0), m_importSettings(importSettings)
+	Texture::Texture(TextureImportSettings importSettings) 
+		: m_size(1, 1), m_nbChannels(0), m_pixels(nullptr), m_id(0), m_importSettings(importSettings), m_pixelPerUnit(100)
 	{
 		//generate 1x1 white texture
 		glGenTextures(1, &m_id);
@@ -43,28 +44,13 @@ namespace Sandbox
 		//Unbind since we are done configuring this texture
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
-	Texture::Texture(Vec2i size) : m_nbChannels(0), m_pixels(nullptr), m_id(0), m_size(size)
-	{
-		//TO DO: implement ways of setting data
-		glGenTextures(1, &m_id);
-		glBindTexture(GL_TEXTURE_2D, m_id);
-
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)m_size.x, (GLsizei)m_size.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
-
-		glTexParameteri(m_id, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(m_id, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-		glTexParameteri(m_id, GL_TEXTURE_WRAP_S, GL_REPEAT);
-		glTexParameteri(m_id, GL_TEXTURE_WRAP_T, GL_REPEAT);
-
-		glBindTexture(GL_TEXTURE_2D, 0);
-	}
 
 	Texture::Texture(std::string path, TextureImportSettings importSettings) 
-		: m_size(0, 0), m_nbChannels(0), m_pixels(nullptr), m_id(0), m_importSettings(importSettings)
+		: m_size(0, 0), m_nbChannels(0), m_pixels(nullptr), m_id(0), m_importSettings(importSettings), m_pixelPerUnit(100)
 	{
 		//Load image data
 		m_pixels = stbi_load(path.c_str(), &m_size.x, &m_size.y, &m_nbChannels, 4);
+		
 
 		ASSERT_LOG_ERROR(m_pixels, "Failed to load texture: " + path);
 
@@ -100,6 +86,12 @@ namespace Sandbox
 		glBindTexture(GL_TEXTURE_2D, 0);
 
 	}
+
+	Texture::Texture(std::string path, uint32_t pixelPerUnit, TextureImportSettings importSettings) : Texture(path, importSettings)
+	{
+		m_pixelPerUnit = pixelPerUnit;
+	}
+
 	Texture::~Texture()
 	{
 		glDeleteTextures(1, &m_id);
@@ -108,20 +100,26 @@ namespace Sandbox
 			stbi_image_free(m_pixels);
 		}
 	}
+
+	void Texture::SetPixelPerUnit(uint32_t pixelPerUnit)
+	{
+		m_pixelPerUnit = pixelPerUnit;
+	}
+
 	void Texture::Bind(uint32_t textureUnit)
 	{
 		glActiveTexture(GL_TEXTURE0 + textureUnit);
 		glBindTexture(GL_TEXTURE_2D, m_id);
 	}
 
-	void Texture::SetData(void* data, uint32_t size)
-	{
-
-	}
-
 	Vec2i Texture::GetSize()
 	{
 		return m_size;
+	}
+
+	uint32_t Texture::GetPixelPerUnit() const
+	{
+		return m_pixelPerUnit;
 	}
 	
 }

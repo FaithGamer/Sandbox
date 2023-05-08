@@ -100,12 +100,23 @@ private:
 class RenderSys : public System
 {
 public:
+	void OnResizeWindow(Vec2u size)
+	{
+		ForEachComponent<Camera>([size](Camera& camera) {
+			camera.SetAspectRatio(size);
+			});
+	}
 	void OnStart()
 	{
 		auto world = World::GetMain();
 
 		auto camera = world->CreateEntity();
 		auto cam = camera->AddComponent<Camera>();
+		cam->SetOrthographicZoom(4);
+		cam->SetOrthographic(true);
+		cam->SetAspectRatio(Window::GetAspectRatio());
+
+		Window::GetResizeSignal()->AddListener(&RenderSys::OnResizeWindow, this);
 
 		cam->Pitch(0);
 		cam->Yaw(0);
@@ -123,16 +134,16 @@ public:
 		uint32_t layeridmasked = m_renderer.AddLayer("maskedLayer", m_maskedShader, nullptr);
 		uint32_t maskLayer = m_renderer.AddOffscreenLayer("mask", 1);
 
-		m_maskPipeline = m_renderer.AddQuadPipelineUser(maskLayer, nullptr, nullptr);
-		m_pipeline = m_renderer.AddQuadPipelineUser(layerid, nullptr, nullptr);
-		m_pipelineMasked = m_renderer.AddQuadPipelineUser(layeridmasked, nullptr, nullptr);
+		m_maskPipeline = m_renderer.GetPipeline(maskLayer, nullptr, nullptr);
+		m_pipeline = m_renderer.GetPipeline(layerid, nullptr, nullptr);
+		m_pipelineMasked = m_renderer.GetPipeline(layeridmasked, nullptr, nullptr);
 
 	}
 
 	void OnUpdate(Time delta) override
 	{
 	
-		std::vector<Vec2f> texCoords{ { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f }
+		std::vector<Vec2f> texCoords{ { 0.0f, 1.0f }, { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }
 		};
 
 		m_renderer.BeginScene(*m_camera->GetComponent<Camera>());
@@ -166,6 +177,7 @@ public:
 		transform.SetScale(10, 10, 1);
 		m_renderer.DrawTexturedQuad(transform, m_texture1, texCoords, white, m_pipelineMasked);
 		m_renderer.EndScene();
+
 	}
 private:
 	sptr<Shader> m_otherShader;

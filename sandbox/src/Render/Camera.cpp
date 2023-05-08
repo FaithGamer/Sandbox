@@ -14,13 +14,25 @@ namespace Sandbox
 		:m_position(0, 1, -1), m_target(0, 0, 0), m_worldUp(0, 1, 0), m_localBack(0, 0, 1), m_localRight(1, 0, 0), m_localUp(0, 1, 0),
 		m_yaw(0), m_pitch(0), m_roll(0),
 		m_fieldOfView(45.f), m_aspectRatio(1), m_nearClippingPlane(0.1f), m_farClippingPlane(100.f),
-		m_needComputeProjectionMatrix(true), m_needComputeViewMatrix(true), m_projectionMatrix(1.f), m_viewMatrix(1.f)
+		m_needComputeProjectionMatrix(true), m_needComputeViewMatrix(true), m_projectionMatrix(1.f), m_viewMatrix(1.f), m_orthographic(false), m_orthographicZoom(1)
 	{
 	}
 
 	Camera::~Camera()
 	{
 
+	}
+
+	void Camera::SetOrthographic(bool orthographic)
+	{
+		m_orthographic = orthographic;
+		m_needComputeProjectionMatrix = true;
+	}
+
+	void Camera::SetOrthographicZoom(float zoom)
+	{
+		m_orthographicZoom = zoom;
+		m_needComputeProjectionMatrix = true;
 	}
 
 	void Camera::SetPosition(Vec3f position)
@@ -74,6 +86,24 @@ namespace Sandbox
 	void Camera::SetAspectRatio(float aspectRatio)
 	{
 		m_aspectRatio = aspectRatio;
+		m_needComputeProjectionMatrix = true;
+	}
+
+	void Camera::SetAspectRatio(Vec2u xOverY)
+	{
+		m_aspectRatio = (float)xOverY.x / (float)xOverY.y;
+		m_needComputeProjectionMatrix = true;
+	}
+
+	void Camera::SetNearClippingPlane(float nearClippingPlane)
+	{
+		m_nearClippingPlane = nearClippingPlane;
+		m_needComputeProjectionMatrix = true;
+	}
+
+	void Camera::SetFarClippingPlace(float farClippingPlane)
+	{
+		m_farClippingPlane = farClippingPlane;
 		m_needComputeProjectionMatrix = true;
 	}
 
@@ -157,7 +187,6 @@ namespace Sandbox
 		return m_viewMatrix;
 	}
 
-
 	Mat4 Camera::GetProjectionMatrix() const
 	{
 		if (m_needComputeProjectionMatrix)
@@ -198,9 +227,9 @@ namespace Sandbox
 	{
 		//Calculate view direction (in fact the opposite this is why it's called back here)
 		glm::vec3 back;
-		back.x = cos(glm::radians(m_yaw-90.0f)) * cos(glm::radians(m_pitch));
+		back.x = cos(glm::radians(m_yaw - 90.0f)) * cos(glm::radians(m_pitch));
 		back.y = sin(glm::radians(m_pitch));
-		back.z = sin(glm::radians(m_yaw-90.0f)) * cos(glm::radians(m_pitch));
+		back.z = sin(glm::radians(m_yaw - 90.0f)) * cos(glm::radians(m_pitch));
 
 		// normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
 		m_localBack = glm::normalize(back);
@@ -213,6 +242,27 @@ namespace Sandbox
 
 	void Camera::ComputeProjectionMatrix() const
 	{
-		m_projectionMatrix = glm::perspective(m_fieldOfView, m_aspectRatio, m_nearClippingPlane, m_farClippingPlane);
+		if (m_orthographic)
+		{
+			m_projectionMatrix = glm::ortho(
+				-m_aspectRatio * m_orthographicZoom,
+				m_aspectRatio * m_orthographicZoom,
+				-m_orthographicZoom,
+				m_orthographicZoom,
+				-100.f,
+				100.f);
+
+			/*m_projectionMatrix = glm::ortho(
+				 -m_orthographicZoom,
+				m_orthographicZoom,
+				1.f/ -m_aspectRatio * m_orthographicZoom,
+				1.f / m_aspectRatio *m_orthographicZoom,
+				-100.f,
+				100.f);*/
+		}
+		else
+		{
+			m_projectionMatrix = glm::perspective(m_fieldOfView, 1.f/ m_aspectRatio, m_nearClippingPlane, m_farClippingPlane);
+		}
 	}
 }

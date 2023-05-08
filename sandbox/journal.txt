@@ -69,3 +69,7 @@ after binding buffer, that made any subsequent call to index buffer binding effe
 30 april
 
 - The bug I spent all the week end on: I did put 0 instead of 1 on the w element of the gl_Position in the layer vert shader.
+
+05 may
+
+- I cannot find how to make glm::perspective aspect ratio to crop content in the Y axis rather than the X axis.

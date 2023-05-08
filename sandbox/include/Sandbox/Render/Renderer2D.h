@@ -20,18 +20,6 @@ namespace Sandbox
 		Vec4f color;
 	};
 
-	struct RenderOptions
-	{
-		void SetLayer(uint32_t layer);
-		void SetStencilMode(uint32_t stencil);
-		void SetShader(uint32_t shader);
-
-		uint32_t pipeline = 0;
-		uint32_t layer = 0;
-		uint32_t stencil = 0;
-		uint32_t shader = 0;
-	};
-
 	class RenderTarget;
 	class RenderTexture;
 	class Shader;
@@ -123,7 +111,7 @@ namespace Sandbox
 		void SetLayerStencilMode(uint32_t layer, sptr<StencilMode> stencil);
 
 		void PreallocateQuadPipeline(int count);
-		uint32_t AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader = nullptr, sptr<StencilMode> stencil = nullptr);
+		uint32_t GetPipeline(uint32_t layerIndex, sptr<Shader> shader = nullptr, sptr<StencilMode> stencil = nullptr);
 		void RemoveQuadPipelineUser(uint32_t pipeline);
 		
 
@@ -139,12 +127,14 @@ namespace Sandbox
 			uint32_t pipelineIndex = 0);
 
 		Statistics GetStats();
+
+		void OnWindowResize(Vec2u size);
 	private:
 		friend Engine;
 
 		void StartBatch(uint32_t pipelineIndex);
 		void NextBatch(uint32_t pipelineIndex);
-		
+
 		void FreeQuadPipeline(uint32_t pipeline);
 		void SetupQuadPipeline(QuadBatch& batch, RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil);
 		void AllocateQuadPipeline(QuadBatch& batch);
@@ -152,6 +142,9 @@ namespace Sandbox
 		uint64_t GeneratePipelineId(uint64_t a, uint64_t b, uint64_t c);
 		void RenderLayers();
 		void SetShaderUniformSampler(sptr<Shader> shader, uint32_t count);
+		Vec3f VertexPosition(const Vec4f& pos, const Transform& transform, const sptr<Texture>& texture, float width, float height);
+	private:
+		
 		// Batched Quads
 
 		std::unordered_map<uint64_t, uint32_t> m_quadPipelineFinder;
@@ -179,6 +172,9 @@ namespace Sandbox
 		sptr<VertexArray> m_layerVertexArray;
 		sptr<Shader> m_defaultLayerShader;
 
+		//Others
+
 		Statistics m_stats;
+		float m_worldToScreenRatio;
 	};
 }

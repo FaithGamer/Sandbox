@@ -7,8 +7,7 @@
 #include "Sandbox/Input/Inputs.h"
 #include "Sandbox/ImGuiLoader.h"
 #include "Sandbox/ECS/InputSystem.h"
-
-
+#include <stb/stb_image.h>
 
 namespace Sandbox
 {
@@ -28,7 +27,7 @@ namespace Sandbox
 		//To do, call instance of every singleton allocate memory first
 		Window::Instance()->Init(parameters.appName, parameters.startupWindowResolution);
 		LoadImGui(Window::GetSDLWindow(), Window::GetSDL_GLContext());
-
+		stbi_set_flip_vertically_on_load(true);
 		if (parameters.useEngineSystems)
 		{
 			Systems::Push<InputSystem>();

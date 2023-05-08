@@ -10,6 +10,7 @@ namespace Sandbox
 	{
 
 	}
+
 	void Window::Init(std::string name, Vec2u size)
 	{
 		//Initializing SDL
@@ -26,7 +27,8 @@ namespace Sandbox
 		SDL_GL_SetAttribute(SDL_GL_SHARE_WITH_CURRENT_CONTEXT, 1);
 
 		//Creating SDL Window
-		m_window = SDL_CreateWindow(name.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, size.x, size.y, SDL_WINDOW_OPENGL);
+		m_window = SDL_CreateWindow(name.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, size.x, size.y, 
+			SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
 		ASSERT_LOG_ERROR(m_window, LogSDLError("Cannot create SDL window"));
 
 
@@ -82,6 +84,11 @@ namespace Sandbox
 		SDL_GL_SwapWindow(Window::Instance()->m_window);
 	}
 
+	void Window::SetSize(float width, float height)
+	{
+		Window::Instance()->SetSize(Vec2u(width, height));
+	}
+
 	bool Window::IsInitialized()
 	{
 		return Window::Instance()->m_initialized;
@@ -90,6 +97,12 @@ namespace Sandbox
 	Vec2u Window::GetSize()
 	{
 		return Window::Instance()->m_size;
+	}
+
+	float Window::GetAspectRatio()
+	{
+		auto window = Window::Instance();
+		return (float)window->m_size.x / (float)window->m_size.y;
 	}
 
 	SDL_GLContext Window::GetSDL_GLContext()
@@ -102,12 +115,18 @@ namespace Sandbox
 		return Window::Instance()->m_window;
 	}
 
+	SignalSender<Vec2u>* Window::GetResizeSignal()
+	{
+		return &Window::Instance()->resizeSignal;
+	}
+
 	void Window::Clear()
 	{
 		Bind();
 		glClearColor(0.1f, 0.1f, 0.1f, 1.f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 	}
+
 	void Window::SetSize(Vec2u size)
 	{
 		SDL_SetWindowSize(m_window, size.x, size.y);
@@ -115,6 +134,7 @@ namespace Sandbox
 		m_size = size;
 		resizeSignal.SendSignal(m_size);
 	}
+
 	void Window::Bind()
 	{
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);

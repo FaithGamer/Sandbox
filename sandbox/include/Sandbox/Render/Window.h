@@ -18,10 +18,13 @@ namespace Sandbox
 		static void SetWindowSize(Vec2u size);
 		static void ClearWindow();
 		static void RenderWindow();
+		static void SetSize(float width, float height);
 		static bool IsInitialized();
 		static Vec2u GetSize();
+		static float GetAspectRatio();
 		static SDL_GLContext GetSDL_GLContext();
 		static SDL_Window* GetSDLWindow();
+		static SignalSender<Vec2u>* GetResizeSignal();
 
 		void Clear() override;
 		void SetSize(Vec2u size) override;

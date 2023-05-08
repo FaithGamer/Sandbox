@@ -16,6 +16,7 @@ namespace Sandbox
 	{
 		ASSERT_LOG_ERROR(Window::IsInitialized(), "Cannot create Renderer2D before Window is initialized.");
 
+		m_worldToScreenRatio = 0.01f;
 		//Limitations
 		m_maxQuads = 1000;
 		m_maxVertices = m_maxQuads * 4;
@@ -93,6 +94,10 @@ namespace Sandbox
 		m_layerVertexArray = makesptr<VertexArray>(layerVertexBuffer, layerIndexBuffer);
 
 		SetShaderUniformSampler(m_defaultLayerShader, m_maxOffscreenLayers + 1);
+
+		//Listen to window resize signal
+
+		Window::GetResizeSignal()->AddListener(&Renderer2D::OnWindowResize, this);
 	}
 
 	Renderer2D::~Renderer2D()
@@ -182,7 +187,7 @@ namespace Sandbox
 		}
 	}
 
-	uint32_t Renderer2D::AddQuadPipelineUser(uint32_t layerIndex, sptr<Shader> shader, sptr<StencilMode> stencil)
+	uint32_t Renderer2D::GetPipeline(uint32_t layerIndex, sptr<Shader> shader, sptr<StencilMode> stencil)
 	{
 		//To do: bake the pipelines based on assets
 
@@ -203,7 +208,7 @@ namespace Sandbox
 
 			uint32_t index = (uint32_t)m_quadPipelines.size() - 1;
 			m_quadPipelines.back().index = index;
-			m_quadPipelines.back().userCount = 1;
+			//m_quadPipelines.back().userCount = 1;
 
 			m_quadPipelineFinder.insert(std::make_pair(id, index));
 			return index;
@@ -211,7 +216,7 @@ namespace Sandbox
 		else
 		{
 			uint32_t index = pipeline->second;
-			m_quadPipelines[index].userCount++;
+			//m_quadPipelines[index].userCount++;
 			return index;
 		}
 	}
@@ -285,10 +290,10 @@ namespace Sandbox
 		batch.textureSlots[0] = m_whiteTexture;
 
 		//Vertices quad position before any transformation
-		batch.quadVertexPosition[0] = Vec4f(-0.5f, -0.5f, 0.0f, 1.0f);
-		batch.quadVertexPosition[1] = Vec4f(0.5f, -0.5f, 0.0f, 1.0f);
-		batch.quadVertexPosition[2] = Vec4f(0.5f, 0.5f, 0.0f, 1.0f);
-		batch.quadVertexPosition[3] = Vec4f(-0.5f, 0.5f, 0.0f, 1.0f);
+		batch.quadVertexPosition[0] = Vec4f(-0.5f, 0.5f, 0.0f, 1.0f);
+		batch.quadVertexPosition[1] = Vec4f(-0.5f, -0.5f, 0.0f, 1.0f);
+		batch.quadVertexPosition[2] = Vec4f(0.5f, -0.5f, 0.0f, 1.0f);
+		batch.quadVertexPosition[3] = Vec4f(0.5f, 0.5f, 0.0f, 1.0f);
 
 	}
 
@@ -316,7 +321,6 @@ namespace Sandbox
 		}
 		//Set the camera matrices into the uniform buffer
 
-		//To do: check if camera orthographic
 		m_camera = camera.GetProjectionMatrix() * camera.GetViewMatrix();
 		m_cameraUniformBuffer->SetData(&m_camera, sizeof(Mat4), 0);
 
@@ -489,10 +493,13 @@ namespace Sandbox
 			pipeline.textureSlotIndex++;
 		}
 
+		float texWidth = std::fabs(texCoords[1].x - texCoords[2].x);
+		float texHeight = std::fabs(texCoords[0].y - texCoords[1].y);
+
 		//Input the vertex data to CPU within the quad vertex array
 		for (size_t i = 0; i < quadVertexCount; i++)
 		{
-			pipeline.quadVertexPtr->position = transform.GetTransformMatrix() * pipeline.quadVertexPosition[i];
+			pipeline.quadVertexPtr->position = VertexPosition(pipeline.quadVertexPosition[i], transform, texture, texWidth, texHeight);
 			pipeline.quadVertexPtr->texCoords = texCoords[i];
 			pipeline.quadVertexPtr->texIndex = textureIndex;
 			pipeline.quadVertexPtr->color = color;
@@ -503,6 +510,16 @@ namespace Sandbox
 
 		pipeline.quadIndexCount += 6;
 		m_stats.quadCount++;
+	}
+
+	Vec3f Renderer2D::VertexPosition(const Vec4f& pos, const Transform& transform, const sptr<Texture>& texture, float width, float height)
+	{
+		Vec3f position = transform.GetTransformMatrix() * pos;
+		float ppu = texture->GetPixelPerUnit();
+		position.x = width * ppu * m_worldToScreenRatio;
+		position.y = height * ppu * m_worldToScreenRatio;
+
+		return position;
 	}
 
 	Renderer2D::Statistics Renderer2D::GetStats()
@@ -527,5 +544,15 @@ namespace Sandbox
 	{
 		Flush(pipelineIndex);
 		StartBatch(pipelineIndex);
+	}
+
+	void Renderer2D::OnWindowResize(Vec2u size)
+	{
+		for (auto& layer : m_layers)
+		{
+			if (layer.index == 0)
+				continue;
+			layer.target->SetSize(size);
+		}
 	}
 }
