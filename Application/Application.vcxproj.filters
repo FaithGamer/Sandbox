@@ -18,9 +18,6 @@
     <ClCompile Include="src\Tests\SignalTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Tests\BatchRendererTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Tests\BillboardTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -60,12 +57,21 @@
     <ClCompile Include="src\Tests\ECSTest.h">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Tests\RendererTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tests\FrameBufferTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tests\SpriteRenderTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tests\InputSystemTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Tests\SignalTest.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Tests\BatchRendererTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Tests\BillboardTest.h">
@@ -98,6 +104,18 @@
     <ClInclude Include="src\Tests\EnttSpeedTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Tests\RendererDebug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tests\RendererTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tests\FrameBufferTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tests\SpriteRenderTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\batch_renderer.frag" />
@@ -115,5 +133,9 @@
     <None Include="assets\shaders\ubt.vert" />
     <None Include="assets\shaders\uniform_buffer_test.frag" />
     <None Include="assets\shaders\uniform_buffer_test.vert" />
+    <None Include="assets\shaders\batch_renderer2.frag" />
+    <None Include="assets\shaders\default_layer.frag" />
+    <None Include="assets\shaders\default_layer.vert" />
+    <None Include="assets\shaders\masked.frag" />
   </ItemGroup>
 </Project>

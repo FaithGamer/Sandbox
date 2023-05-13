@@ -3,12 +3,13 @@
 #include "Sandbox/Engine.h"
 #include "Sandbox/ECS/Systems.h"
 #include "Sandbox/Render/Window.h"
-#include "Sandbox/Parameters.h"
+#include "Sandbox/EngineParameters.h"
 #include "Sandbox/Input/Inputs.h"
 #include "Sandbox/ImGuiLoader.h"
 #include "Sandbox/ECS/InputSystem.h"
-
-
+#include "Sandbox/Render/Renderer2D.h"
+#include "Sandbox/ECS/SpriteRenderSystem.h"
+#include <stb/stb_image.h>
 
 namespace Sandbox
 {
@@ -26,12 +27,15 @@ namespace Sandbox
 		Log::Init();
 
 		//To do, call instance of every singleton allocate memory first
-		Window::Instance()->Load(parameters.appName, parameters.startupWindowResolution);
-		LoadImGui(Window::GetSDLWindow(), Window::GetSDL_GLContext());
+		Window::Instance()->Init(parameters.appName, parameters.startupWindowResolution);
+		Renderer2D::Instance();
 
+		LoadImGui(Window::GetSDLWindow(), Window::GetSDL_GLContext());
+		stbi_set_flip_vertically_on_load(true);
 		if (parameters.useEngineSystems)
 		{
 			Systems::Push<InputSystem>();
+			Systems::Push<SpriteRenderSystem>();
 		}
 	}
 
@@ -41,9 +45,7 @@ namespace Sandbox
 		play = true;
 		while (play)
 		{
-			Window::Clear();
 			Systems::Instance()->Update();
-			Window::Render();
 		}
 
 		//Deallocation

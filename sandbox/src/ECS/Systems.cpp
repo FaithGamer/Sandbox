@@ -5,7 +5,10 @@
 #include "Sandbox/Render/Window.h"
 #include "Sandbox/ImGuiLoader.h"
 #include "Sandbox/Engine.h"
-#include "Sandbox/ECS/GameWorld.h"
+#include "Sandbox/ECS/World.h"
+#include "Sandbox/Render/Window.h"
+#include "Sandbox/Render/Renderer2D.h"
+#include "Sandbox/Render/Camera.h"
 
 namespace Sandbox
 {
@@ -42,6 +45,10 @@ namespace Sandbox
 		{
 			toDelete.insert(system);
 		}
+		for (auto& system : m_renderSystems)
+		{
+			toDelete.insert(system);
+		}
 
 		//Call delete only once per system
 
@@ -55,6 +62,13 @@ namespace Sandbox
 
 	void Systems::Update()
 	{
+		Time delta = m_updateClock.Restart();
+		//Making sure at least one microseconds has elapsed.
+		if (delta < 0.000001f)
+		{
+			delta = 0.000001f;
+		}
+
 		if (!m_pendingSystemIn.empty())
 			IntegratePending();
 		if (!m_pendingSystemOut.empty())
@@ -62,16 +76,12 @@ namespace Sandbox
 
 		while (SDL_PollEvent(&m_events) != 0)
 		{
-			if (m_events.type == SDL_QUIT)
-			{
-				Engine::Stop();
-				return;
-			}
+			HandleWindowEvents(m_events);
 
 			bool ImGuiEventHandled = ImGui_ImplSDL2_ProcessEvent(&m_events);
 			if (ImGuiEventHandled)
 			{
-				if(ImGui::GetIO().WantCaptureKeyboard)
+				if (ImGui::GetIO().WantCaptureKeyboard)
 					continue;
 				if (ImGui::GetIO().WantCaptureMouse)
 					continue;
@@ -103,17 +113,24 @@ namespace Sandbox
 			}
 		}
 
-		//Making sure at least one microseconds has elapsed.
-		if (m_updateClock.GetElapsed() < 0.000001f)
-		{
-			return;
-		}
-
 		for (auto& system : m_updateSystems)
 		{
 			//If less than one microseconds elapse between two call
 			//the m_updateClock.Restart increment doesn't accurately describe time passing by.
-			system.system->OnUpdate(m_updateClock.Restart());
+			system.system->OnUpdate(delta);
+		}
+	
+		if (m_mainCamera != nullptr)
+		{
+			Window::ClearWindow();
+			Renderer2D::Instance()->SetRenderTarget(Window::Instance());
+			Renderer2D::Instance()->Begin(*m_mainCamera);
+			for (auto& system : m_renderSystems)
+			{
+				system.system->OnRender();
+			}
+			Renderer2D::Instance()->End();
+			Window::RenderWindow();
 		}
 
 		BeginImGui();
@@ -122,6 +139,22 @@ namespace Sandbox
 			system.system->OnImGui();
 		}
 		EndImGui(Window::GetSize());
+	}
+
+	void Systems::HandleWindowEvents(SDL_Event& event)
+	{
+		if (event.type == SDL_QUIT)
+		{
+			Engine::Stop();
+			return;
+		}
+		else if (event.type == SDL_WINDOWEVENT)
+		{
+			if (event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED || event.window.event == SDL_WINDOWEVENT_RESIZED)
+			{
+				Window::SetSize(event.window.data1, event.window.data2);
+			}
+		}
 	}
 
 	void Systems::IntegratePending()
@@ -153,6 +186,11 @@ namespace Sandbox
 					m_imGuiSystems.push_back(system);
 					std::sort(m_imGuiSystems.begin(), m_imGuiSystems.end(), CompareSystemPriority());
 				}
+				if (usedMethodBitmask & System::Method::Render)
+				{
+					m_renderSystems.push_back(system);
+					std::sort(m_renderSystems.begin(), m_renderSystems.end(), CompareSystemPriority());
+				}
 				m_allSystems.insert(std::make_pair(system.typeId, system.system));
 				mustCallOnStart.insert(system);
 			}
@@ -164,7 +202,7 @@ namespace Sandbox
 		}
 
 		//Call OnStart with right priority order
-		for (auto system : mustCallOnStart)
+		for (auto& system : mustCallOnStart)
 		{
 			system.system->OnStart();
 		}
@@ -195,6 +233,7 @@ namespace Sandbox
 				RemovePending(m_fixedUpdateSystems, typeId, toDelete);
 				RemovePending(m_eventSystems, typeId, toDelete);
 				RemovePending(m_imGuiSystems, typeId, toDelete);
+				RemovePending(m_renderSystems, typeId, toDelete);
 				m_allSystems.erase(typeId);
 			}
 			else
@@ -224,7 +263,8 @@ namespace Sandbox
 		if (Vector::Contains(m_updateSystems, typeId) ||
 			Vector::Contains(m_fixedUpdateSystems, typeId) ||
 			Vector::Contains(m_eventSystems, typeId) ||
-			Vector::Contains(m_imGuiSystems, typeId))
+			Vector::Contains(m_imGuiSystems, typeId) ||
+			Vector::Contains(m_renderSystems, typeId))
 			return true;
 
 		return false;
@@ -235,36 +275,51 @@ namespace Sandbox
 		return Systems::Instance()->m_fixedUpdateTime;
 	}
 
-	GameWorld* Systems::CreateGameWorld()
+	World* Systems::CreateWorld()
 	{
-		return CreateGameWorld("World_" + std::to_string(Instance()->m_worlds.pointers.size()));
+		return CreateWorld("World_" + std::to_string(Instance()->m_worlds.pointers.size()));
 	}
 
-	GameWorld* Systems::CreateGameWorld(std::string name)
+	World* Systems::CreateWorld(std::string name)
 	{
 		//To do error message if twice same name
-		GameWorld* world = new GameWorld(name);
+		World* world = new World(name);
 		Systems::Instance()->m_worlds.Push(world);
 		return world;
 	}
 
-	void Systems::DestroyGameWorld(std::string name)
+	void Systems::DestroyWorld(std::string name)
 	{
 		Systems::Instance()->m_worlds.Destroy(name);
 	}
 
-	GameWorld* Systems::GetGameWorld(std::string name)
+	void Systems::SetMainCamera(Camera* camera)
+	{
+		auto instance = Instance();
+		for (auto& world : instance->m_worlds.pointers)
+		{
+			auto view = world->m_registry.view<Camera>();
+			for (auto& camera : view)
+			{
+				view.get<Camera>(camera).isMain = false;
+			}
+		}
+		camera->isMain = true;
+		instance->m_mainCamera = camera;
+	}
+
+	World* Systems::GetWorld(std::string name)
 	{
 		return Systems::Instance()->m_worlds.Get(name);
 	}
 
-	GameWorld* Systems::GetMainGameWorld()
+	World* Systems::GetMainWorld()
 	{
 		//To do, error handling
 		return Systems::Instance()->m_worlds.pointers[0];
 	}
 
-	std::vector<GameWorld*>& Systems::GetGameWorlds()
+	std::vector<World*>& Systems::GetWorlds()
 	{
 		return Systems::Instance()->m_worlds.pointers;
 	}
@@ -273,7 +328,7 @@ namespace Sandbox
 	/// Worlds ///
 	//////////////
 
-	void Systems::Worlds::Push(GameWorld* world)
+	void Systems::Worlds::Push(World* world)
 	{
 		pointers.emplace_back(world);
 		names.emplace_back(world->GetName());
@@ -287,7 +342,7 @@ namespace Sandbox
 		Vector::RemoveAt(pointers, index);
 	}
 
-	GameWorld* Systems::Worlds::Get(std::string name)
+	World* Systems::Worlds::Get(std::string name)
 	{
 		int64_t index = Vector::FindIndex(names, name);
 		return pointers[index];

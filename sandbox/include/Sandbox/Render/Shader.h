@@ -5,11 +5,11 @@
 
 namespace Sandbox
 {
-	class ShaderProgram
+	class Shader
 	{
 	public:
-		ShaderProgram(std::string vertexSourcePath, std::string fragmentSourcePath);
-		~ShaderProgram();
+		Shader(std::string vertexSourcePath, std::string fragmentSourcePath);
+		~Shader();
 
 		void Bind() const;
 
@@ -41,9 +41,11 @@ namespace Sandbox
 		GLint GetUniformLocation(std::string name);
 		void BindUniformBlock(std::string uniformName, GLint bindingPoint);
 
-		GLuint GetID();
-
+		GLuint GetGLID();
+		uint32_t GetID();
 	private:
-		GLuint m_id;
+		static uint32_t m_currentId;
+		GLuint m_glid;
+		uint32_t m_id;
 	};
 }

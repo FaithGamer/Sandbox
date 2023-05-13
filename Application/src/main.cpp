@@ -1,8 +1,7 @@
 #include "pch.h"
 #include "Sandbox/Engine.h"
 
-#include "Tests/ImGuiSystemTest.h"
-#include "Tests/ECSTest.h"
+
 #include "entt/entt.hpp"
 #include "Sandbox/Vec.h"
 #include "Sandbox/Time.h"
@@ -14,74 +13,24 @@
 #include "Sandbox/std_macros.h"
 #include "Tests/BatchRendererTest.h"
 
+#include "Tests/ImGuiSystemTest.h"
+#include "Tests/ECSTest.h"
+#include "Tests/UniformBlockTest.h"
+#include "Tests/RendererTest.h"
+#include "Tests/FrameBufferTest.h"
+#include "Tests/SpriteRenderTest.h"
+
 #include <random>
 #include <iostream>
 
 namespace sb = Sandbox;
 
-struct PlayerControlled
-{
-	bool jump = false;
-};
-
-struct Body
-{
-	sb::Vec2f velocity;
-};
-
-class Controller : public sb::System
-{
-	void OnStart() override
-	{
-		sb::Input* jump = sb::Inputs::GetInputMap()->GetInput("Jump");
-		jump->signal.AddListener(&Controller::OnJump, this);
-	}
-
-	void OnJump(sb::InputSignal signal)
-	{
-		ForEachComponent<PlayerControlled, Body>(
-			[](PlayerControlled& component, Body& body)
-			{
-				body.velocity.y += 10;
-			});
-	}
-};
-
-class PhysicsSystem : public sb::System
-{
-public:
-	int GetUsedMethod() override
-	{
-		return System::Method::FixedUpdate;
-	}
-protected:
-	void OnFixedUpdate(sb::Time time) override
-	{
-		ForEachComponent(&PhysicsSystem::Gravity);
-	}
-
-	void Gravity(Body& body)
-	{
-		body.velocity.y -= 0.1f;
-		std::cout << body.velocity.y << std::endl;
-	}
-
-};
-
-class RenderSystem 
-{
-
-};
-
-void InitInputs()
-{
-	sb::InputMap& inputs = sb::Inputs::GetCurrentInputMap();
-	sb::ButtonInput* jump = inputs.CreateButtonInput("Jump");
-	jump->BindKey(sb::KeyScancode::Space);
-}
+#include "Sandbox/ECS/Entity.h"
+#include "Sandbox/Log.h"
 
 int main(int argc, char** argv)
 {
+<<<<<<< HEAD
 	/*sb::Engine::Init();
 	sb::Systems::CreateGameWorld();
 
@@ -100,6 +49,15 @@ int main(int argc, char** argv)
 	sb::Engine::Launch();*/
 
 	BatchRendererTest();
+=======
+
+
+
+	SpriteRenderTest();
+	//RendererTest();
+
+
+>>>>>>> render
 
 	return 0;
 }

@@ -53,10 +53,23 @@ Also I need to enhance batchrenderer (make it singleton ?) so it can render on t
 
 6 april
 
-- Empty component are never instanciated... I made great progress on the GameWorld/Entity system, I start wrapping a lot of the entt capabilities
+- Empty component are never instanciated... I made great progress on the World/Entity system, I start wrapping a lot of the entt capabilities
 
 7 april
 
 - learned about std::tie to make tuple with reference
 - ECS is really taking shape, multiple game world can be added to Systems singleton. Game world is a wrapper around entt:registry
 Entities can be iterated with method from withtin the system thanks to the ForEachComponent method
+
+29 april
+
+- I successfully debugged somtheing that had let me clueless for a good while ( not to say I was desperate ). Found out I forgot to unbind the vertex array object
+after binding buffer, that made any subsequent call to index buffer binding effectively bind with the vertex array.
+
+30 april
+
+- The bug I spent all the week end on: I did put 0 instead of 1 on the w element of the gl_Position in the layer vert shader.
+
+05 may
+
+- I cannot find how to make glm::perspective aspect ratio to crop content in the Y axis rather than the X axis.

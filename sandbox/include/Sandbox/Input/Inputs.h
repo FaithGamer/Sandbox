@@ -9,8 +9,8 @@ namespace Sandbox
 	{
 	public:
 		Inputs();
-		static InputMap& CreateInputMap();
-		static InputMap& CreateInputMap(std::string name);
+		static InputMap* CreateInputMap();
+		static InputMap* CreateInputMap(std::string name);
 		static void DestroyInputMap(std::string name);
 		static void SetCurrentInputMap(std::string name);
 		static std::string GetCurrentInputMapName();

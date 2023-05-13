@@ -152,14 +152,17 @@
   <ItemGroup>
     <ClCompile Include="src\Tests\ECSTest.cpp" />
     <ClCompile Include="src\Tests\ECSTest.h" />
+    <ClCompile Include="src\Tests\FrameBufferTest.cpp" />
     <ClCompile Include="src\Tests\ImGuiSystemTest.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Tests\EnttSpeedTest.cpp" />
     <ClCompile Include="src\Tests\ImGuiTest.cpp" />
-    <ClCompile Include="src\Tests\BatchRendererTest.cpp" />
     <ClCompile Include="src\Tests\BillboardTest.cpp" />
     <ClCompile Include="src\Tests\EnttTest.cpp" />
+    <ClCompile Include="src\Tests\InputSystemTest.cpp" />
+    <ClCompile Include="src\Tests\RendererTest.cpp" />
     <ClCompile Include="src\Tests\SignalTest.cpp" />
+    <ClCompile Include="src\Tests\SpriteRenderTest.cpp" />
     <ClCompile Include="src\Tests\SystemTest.cpp" />
     <ClCompile Include="src\Tests\TextureUnitTest.cpp" />
     <ClCompile Include="src\Tests\ThreadTest.cpp" />
@@ -167,12 +170,15 @@
     <ClCompile Include="src\Tests\UniformBlockTest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Tests\SpriteRenderTest.h" />
+    <ClInclude Include="src\Tests\FrameBufferTest.h" />
     <ClInclude Include="src\Tests\ImGuiSystemTest.h" />
-    <ClInclude Include="src\Tests\BatchRendererTest.h" />
     <ClInclude Include="src\Tests\BillboardTest.h" />
     <ClInclude Include="src\Tests\EnttSpeedTest.h" />
     <ClInclude Include="src\Tests\EnttTest.h" />
     <ClInclude Include="src\Tests\ImGuiTest.h" />
+    <ClInclude Include="src\Tests\RendererDebug.h" />
+    <ClInclude Include="src\Tests\RendererTest.h" />
     <ClInclude Include="src\Tests\SignalTest.h" />
     <ClInclude Include="src\Tests\TextureUnitTest.h" />
     <ClInclude Include="src\Tests\ThreadTest.h" />
@@ -191,8 +197,12 @@
   <ItemGroup>
     <None Include="assets\shaders\batch_renderer.frag" />
     <None Include="assets\shaders\batch_renderer.vert" />
+    <None Include="assets\shaders\batch_renderer2.frag" />
     <None Include="assets\shaders\billboard.vert" />
     <None Include="assets\shaders\color.frag" />
+    <None Include="assets\shaders\default_layer.frag" />
+    <None Include="assets\shaders\default_layer.vert" />
+    <None Include="assets\shaders\masked.frag" />
     <None Include="assets\shaders\model_view_projection.vert" />
     <None Include="assets\shaders\position_color.vert" />
     <None Include="assets\shaders\position_texture.vert" />

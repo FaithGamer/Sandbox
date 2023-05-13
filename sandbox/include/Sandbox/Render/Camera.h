@@ -1,14 +1,21 @@
 #pragma once
 
 #include "Sandbox/Vec.h"
+#include "Sandbox/ECS/entt_macros.h"
 
 namespace Sandbox
 {
 	class Camera
 	{
 	public:
-		Camera();
+		PointableComponent;
 
+		Camera();
+		~Camera();
+		void SetOrthographic(bool orthographic);
+		/// @brief Set the zoom only in orthographic mode
+		/// @param zoom 0.5 = zoom x2, 2 = zoom x0.5
+		void SetOrthographicZoom(float zoom);
 		void SetPosition(Vec3f position);
 		void SetRotation(Vec3f eulerAngles);
 		void SetTarget(Vec3f target);
@@ -17,6 +24,9 @@ namespace Sandbox
 		void SetTarget(float x, float y, float z);
 		void SetFieldOfView(float fieldOfView);
 		void SetAspectRatio(float aspectRatio);
+		void SetAspectRatio(Vec2u xOverY);
+		void SetNearClippingPlane(float nearClippingPlane);
+		void SetFarClippingPlace(float farClippingPlane);
 
 		void MoveWorld(Vec3f offset);
 		void MoveWorld(float x, float y, float z);
@@ -32,6 +42,9 @@ namespace Sandbox
 		Mat4 GetViewMatrix() const;
 		Mat4 GetProjectionMatrix() const;
 		Mat4 GetTargetViewMatrix() const;
+
+		float worldToScreenRatio;
+		bool isMain;
 
 	private:
 		void ComputeViewMatrix() const;
@@ -54,11 +67,16 @@ namespace Sandbox
 		float m_aspectRatio;
 		float m_nearClippingPlane;
 		float m_farClippingPlane;
+		float m_orthographicZoom;
+
+	
 
 		mutable Mat4 m_projectionMatrix;
 		mutable Mat4 m_viewMatrix;
 		mutable bool m_needComputeViewMatrix;
 		mutable bool m_needComputeProjectionMatrix;
+
+		bool m_orthographic;
 	};
 
 }

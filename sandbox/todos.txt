@@ -8,3 +8,15 @@
 - Write a RenderSystem, making use of the batchrenderer, and with option to use shader on individual sprite
 this will be related to SpriteComponent
 - batching together sprites using the same material
+
+-tween system
+
+
+-Store world not as pointers ?
+
+-Render:
+
+-signal on resize window
+-create render texture that scale on window size
+-check if generateId works as intended
+-implement stencilmode

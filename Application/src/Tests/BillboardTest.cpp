@@ -4,13 +4,13 @@
 #include "BillboardTest.h"
 
 #include "Sandbox/Render/Window.h"
-#include "Sandbox/Render/ShaderProgram.h"
+#include "Sandbox/Render/Shader.h"
 #include "Sandbox/Render/Buffer.h"
 #include "Sandbox/Render/VertexArray.h"
 #include "Sandbox/Render/Texture.h"
 #include "Sandbox/Render/Transform.h"
 #include "Sandbox/Render/Camera.h"
-#include "Sandbox/Render/BatchRenderer.h"
+#include "Sandbox/Render/Renderer2D.h"
 #include "Sandbox/Input/ButtonInput.h"
 #include "Sandbox/Input/InputMap.h"
 #include "Sandbox/Log.h"
@@ -22,7 +22,7 @@
 #include <entt/entt.hpp>
 
 #include "Sandbox/Time.h"
-#include "Sandbox/entt_macros.h"
+#include "Sandbox/ECS/entt_macros.h"
 #include "Sandbox/Vector.h"
 #include "Sandbox/Signal.h"
 
@@ -37,8 +37,8 @@ void OnPressButton(const ButtonInput::State& btnState, void* const listener)
 void BillboardTest()
 {
 
-	sptr<ShaderProgram> shader = makesptr<ShaderProgram>("assets/shaders/model_view_projection.vert", "assets/shaders/texture.frag");
-	sptr<ShaderProgram> shaderBillboard = makesptr<ShaderProgram>("assets/shaders/billboard.vert", "assets/shaders/texture.frag");
+	sptr<Shader> shader = makesptr<Shader>("assets/shaders/model_view_projection.vert", "assets/shaders/texture.frag");
+	sptr<Shader> shaderBillboard = makesptr<Shader>("assets/shaders/billboard.vert", "assets/shaders/texture.frag");
 
 	sptr<Texture> texture = makesptr<Texture>("assets/textures/image.png");
 
@@ -116,7 +116,6 @@ void BillboardTest()
 
 	cam.SetPosition({ 0, 0, 1 });
 
-	BatchRenderer renderer;
 	std::vector<Vec2f> texCoords{ { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f }
 	};
 
@@ -168,7 +167,7 @@ void BillboardTest()
 		}
 
 
-		Window::Clear();
+		Window::ClearWindow();
 
 		//Activate the shader program
 		vertexArray->Bind();
@@ -188,6 +187,6 @@ void BillboardTest()
 		glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
 
 
-		Window::Render();
+		Window::RenderWindow();
 	}
 }

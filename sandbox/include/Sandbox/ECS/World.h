@@ -3,13 +3,11 @@
 #include "entt/entt.hpp"
 #include "Sandbox/TypeId.h"
 #include "Sandbox/Signal.h"
-
-
-typedef entt::entity EntityId;
+#include "Sandbox/ECS/Entity.h"
 
 namespace Sandbox
 {
-	class Entity;
+
 	class System;
 	class Systems;
 
@@ -18,17 +16,20 @@ namespace Sandbox
 		Entity* entity;
 	};
 	/// @brief Contains all the entities, usually there is one game world.
-	class GameWorld
+	class World
 	{
 	public:
 		/// @brief Create an entity
 		/// @return the entity created.
-		Entity& CreateEntity();
+		Entity* CreateEntity();
 
 		/// @brief Destroy an entity
 		/// @param entity The entity id to destroy
 		void DestroyEntity(EntityId id);
 
+		/// @brief Get an entity pointer.
+		/// Do not store the entity pointer, use id to store entity.
+		/// @return Entity
 		Entity* GetEntity(EntityId id);
 
 		std::string GetName();
@@ -71,10 +72,10 @@ namespace Sandbox
 			m_onRemoveComponent[typeId].sender.AddListener<ListenerType>(callback, listener, priority);
 		}
 
-		static GameWorld* GetMain();
+		static World* GetMain();
 		entt::registry m_registry;
 	private:
-		GameWorld(std::string name);
+		World(std::string name);
 		friend Entity;
 		friend System;
 		friend Systems;
@@ -83,14 +84,14 @@ namespace Sandbox
 		public:
 			SignalSink() : world(nullptr)
 			{}
-			SignalSink(GameWorld* w) : world(w)
+			SignalSink(World* w) : world(w)
 			{}
-			GameWorld* world;
+			World* world;
 			SignalSender<ComponentSignal> sender;
 			void Send(entt::registry& registry, entt::entity enttId);
 		};
 
-		std::vector<Entity*> m_entities;
+		std::vector<Entity> m_entities;
 
 		std::unordered_map<int32_t, SignalSink> m_onAddComponent;
 		std::unordered_map<int32_t, SignalSink> m_onRemoveComponent;

@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Sandbox/Engine.h"
-#include "Sandbox/ECS/GameWorld.h"
+#include "Sandbox/ECS/World.h"
 #include "Sandbox/ECS/Entity.h"
 #include "Sandbox/ECS/System.h"
 #include "Sandbox/ECS/Systems.h"
@@ -27,7 +27,7 @@ using namespace Sandbox;
 class EcsTest : public System
 {
 public:
-	EcsTest(GameWorld* world)
+	EcsTest(World* world)
 	{
 		m_world = world;
 	}
@@ -66,7 +66,7 @@ public:
 		entity.RemoveComponent<CompC>();
 	}
 
-	GameWorld* m_world;
+	World* m_world;
 };
 
 
@@ -74,14 +74,14 @@ void ECSTest()
 {
 	Sandbox::Engine::Init();
 
-	auto world = Sandbox::Systems::CreateGameWorld("MyWorld");
+	auto world = Sandbox::Systems::CreateWorld("MyWorld");
 
 	Sandbox::Systems::Push<EcsTest>(world);
 
 
-	Entity& entity = world->CreateEntity();
-	entity.AddComponent<compa>();
-	entity.AddComponent<compb>();
+	Entity* entity = world->CreateEntity();
+	entity->AddComponent<compa>();
+	entity->AddComponent<compb>();
 	//can we create entity and add component when iterating view ?
 
 

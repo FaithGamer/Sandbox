@@ -12,7 +12,7 @@ void main()
 {
 	vec4 color = texture(uTextures[int(round(vTexIndex))], vTexCoords) * vColor;
 
-	if(color.a <= 0.01)
+	if(color.a <0.01)
 		discard;
 
 	oColor = color;

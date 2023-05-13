@@ -5,22 +5,24 @@
 
 #include "Sandbox/Files.h"
 #include "Sandbox/Log.h"
-#include "Sandbox/Render/ShaderProgram.h"
+#include "Sandbox/Render/Shader.h"
 
 
-#define SET_UNIFORM(c) GLint location = glGetUniformLocation(m_id, (const GLchar*)name.c_str());\
+#define SET_UNIFORM(c) GLint location = glGetUniformLocation(m_glid, (const GLchar*)name.c_str());\
 if (location == -1)\
 {\
 	LOG_ERROR("The following uniform cannot be found: " + name);\
 }\
 else\
 {\
-	glUseProgram(m_id);\
+	glUseProgram(m_glid);\
 	c;\
 }\
 
 namespace Sandbox
 {
+	uint32_t Shader::m_currentId = 0;
+
 	std::string loadShaderSourceFromFile(std::string path)
 	{
 		std::ifstream shaderFile;
@@ -65,8 +67,9 @@ namespace Sandbox
 		}
 	}
 
-	ShaderProgram::ShaderProgram(std::string vertexSourcePath, std::string fragmentSourcePath)
+	Shader::Shader(std::string vertexSourcePath, std::string fragmentSourcePath)
 	{
+		m_id = m_currentId++;
 		//Load shader source files
 		std::string vertStr = loadShaderSourceFromFile(vertexSourcePath);
 		const GLchar* vertexSource = (const GLchar*)vertStr.c_str();
@@ -84,103 +87,109 @@ namespace Sandbox
 		glCompileShader(fragmentShader);
 		shaderCompilationError(fragmentShader);
 
-		m_id = glCreateProgram();
-		glAttachShader(m_id, vertexShader);
-		glAttachShader(m_id, fragmentShader);
-		glLinkProgram(m_id);
-		programLinkageError(m_id);
+		m_glid = glCreateProgram();
+		glAttachShader(m_glid, vertexShader);
+		glAttachShader(m_glid, fragmentShader);
+		glLinkProgram(m_glid);
+		programLinkageError(m_glid);
 
 		glDeleteShader(vertexShader);
 		glDeleteShader(fragmentShader);
 
 	}
 
-	ShaderProgram::~ShaderProgram()
+	Shader::~Shader()
 	{
-		glDeleteProgram(m_id);
+		glDeleteProgram(m_glid);
 	}
 
-	void ShaderProgram::Bind() const
+	void Shader::Bind() const
 	{
-		glUseProgram(m_id);
+		glUseProgram(m_glid);
 	}
 
-	void ShaderProgram::SetUniform(std::string name, const GLfloat& uniform)
+	void Shader::SetUniform(std::string name, const GLfloat& uniform)
 	{
 		SET_UNIFORM(glUniform1f(location, uniform));
 	}
 
-	void ShaderProgram::SetUniform(std::string name, const glm::vec2& uniform)
+	void Shader::SetUniform(std::string name, const glm::vec2& uniform)
 	{
 		SET_UNIFORM(glUniform2f(location, (GLfloat)uniform.x, (GLfloat)uniform.y));
 	}
 
-	void ShaderProgram::SetUniform(std::string name, const glm::vec3& uniform)
+	void Shader::SetUniform(std::string name, const glm::vec3& uniform)
 	{
 		SET_UNIFORM(glUniform3f(location, (GLfloat)uniform.x, (GLfloat)uniform.y, (GLfloat)uniform.z));
 	}
 
-	void ShaderProgram::SetUniform(std::string name, const glm::vec4& uniform)
+	void Shader::SetUniform(std::string name, const glm::vec4& uniform)
 	{
 		SET_UNIFORM(glUniform4f(location, (GLfloat)uniform.x, (GLfloat)uniform.y, (GLfloat)uniform.z, (GLfloat)uniform.w));
 	}
 
-	void ShaderProgram::SetUniform(std::string name, const glm::mat3& uniform)
+	void Shader::SetUniform(std::string name, const glm::mat3& uniform)
 	{
 		SET_UNIFORM(glUniformMatrix3fv(location, 1, GL_FALSE, glm::value_ptr(uniform)));
 	}
 
-	void ShaderProgram::SetUniform(std::string name, const glm::mat4& uniform)
+	void Shader::SetUniform(std::string name, const glm::mat4& uniform)
 	{
 		SET_UNIFORM(glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(uniform)));
 	}
 
-	void ShaderProgram::SetUniform(std::string name, const GLint& uniform)
+	void Shader::SetUniform(std::string name, const GLint& uniform)
 	{
 		SET_UNIFORM(glUniform1i(location, uniform));
 	}
 
-	void ShaderProgram::SetUniform(std::string name, const glm::i32vec2& uniform)
+	void Shader::SetUniform(std::string name, const glm::i32vec2& uniform)
 	{
 		SET_UNIFORM(glUniform2i(location, (GLint)uniform.x, (GLint)uniform.y));
 	}
 
-	void ShaderProgram::SetUniform(std::string name, const glm::i32vec3& uniform)
+	void Shader::SetUniform(std::string name, const glm::i32vec3& uniform)
 	{
 		SET_UNIFORM(glUniform3i(location, (GLint)uniform.x, (GLint)uniform.y, (GLint)uniform.z));
 	}
 
-	void ShaderProgram::SetUniform(std::string name, const glm::i32vec4& uniform)
+	void Shader::SetUniform(std::string name, const glm::i32vec4& uniform)
 	{
 		SET_UNIFORM(glUniform4i(location, (GLint)uniform.x, (GLint)uniform.y, (GLint)uniform.z, (GLint)uniform.w));
 	}
 
-	void ShaderProgram::SetUniformArray(std::string name, const int* uniform, GLsizei count)
+	void Shader::SetUniformArray(std::string name, const int* uniform, GLsizei count)
 	{
 		SET_UNIFORM(glUniform1iv(location, count, uniform));
 	}
 
-	void ShaderProgram::BindUniformBlock(std::string uniformName, GLint bindingPoint)
+	void Shader::BindUniformBlock(std::string uniformName, GLint bindingPoint)
 	{
-		GLuint location = glGetUniformBlockIndex(m_id, (const GLchar*)uniformName.c_str());
+		GLuint location = glGetUniformBlockIndex(m_glid, (const GLchar*)uniformName.c_str());
 		if (location == -1)
 		{
 			LOG_ERROR("The following uniform block cannot be found: " + uniformName);
 		}
 		else
 		{
-			glUniformBlockBinding(m_id, location, bindingPoint);
+			glUniformBlockBinding(m_glid, location, bindingPoint);
 		}
 	}
 
-	GLint ShaderProgram::GetUniformLocation(std::string name)
+	GLint Shader::GetUniformLocation(std::string name)
 	{
-		return glGetUniformLocation(m_id, (const GLchar*)name.c_str());
+		return glGetUniformLocation(m_glid, (const GLchar*)name.c_str());
 	}
 
-	GLuint ShaderProgram::GetID()
+	GLuint Shader::GetGLID()
+	{
+		return m_glid;
+	}
+
+	uint32_t Shader::GetID()
 	{
 		return m_id;
 	}
+
 
 }

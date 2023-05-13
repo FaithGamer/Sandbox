@@ -2,7 +2,7 @@
 
 #include <glad/glad.h>
 
-#include "Sandbox/Render/Buffer.h"
+#include "Sandbox/Render/VertexBuffer.h"
 #include "Sandbox/Log.h"
 
 namespace Sandbox
@@ -71,8 +71,9 @@ namespace Sandbox
 		return 0;
 	}
 
-	/// AttributeLayout /////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////
+	///////////////////////////
+	/// AttributeLayout ///////
+	///////////////////////////
 
 	AttributeLayout::AttributeLayout() : m_elements{
 		{ ShaderDataType::Vec3f, "aPos" },
@@ -120,13 +121,11 @@ namespace Sandbox
 		}
 	}
 
-	/// Vertex Buffer ////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////
+	/////////////////////////
+	/// Vertex Buffer ///////
+	/////////////////////////
 
-	/// <summary>
-	/// Manually set vertices and the according Attribute Layout
-	/// This will make the buffer GL_STATIC_DRAW
-	/// </summary>
+
 	VertexBuffer::VertexBuffer(float* vertices, GLsizeiptr size, const AttributeLayout& layout)
 	{
 		m_verticesCount = (uint32_t)(size / sizeof(float));
@@ -140,9 +139,7 @@ namespace Sandbox
 		m_layout = layout;
 	}
 
-	/// <summary>
-	/// This will make the buffer GL_DYNAMIC_DRAW
-	/// </summary>
+
 	VertexBuffer::VertexBuffer(GLsizeiptr size, const AttributeLayout& layout)
 	{
 		m_verticesCount = (uint32_t)(size / sizeof(float));
@@ -156,10 +153,8 @@ namespace Sandbox
 		m_layout = layout;
 	}
 
-	/// <summary>
-	/// Manually set vertices and the according Attribute Layout
-	/// This will make the buffer GL_DYNAMIC_DRAW
-	/// </summary>
+
+
 	VertexBuffer::VertexBuffer(GLsizeiptr size)
 	{
 		m_verticesCount = (uint32_t)(size / sizeof(float));
@@ -177,11 +172,9 @@ namespace Sandbox
 		glBufferSubData(GL_ARRAY_BUFFER, 0, size, data);
 	}
 
-	/// <summary>
-	/// Return a pointer to the buffer data for direct reading/writing
+	/// @brief Return a pointer to the buffer data for direct reading/writing
 	/// Must call EndAccessBuffer before any other operation on this buffer
 	/// Use with care
-	/// </summary>
 	float* VertexBuffer::BeginAccessBuffer()
 	{
 		//todo compare performance with glBufferSubData
@@ -218,56 +211,4 @@ namespace Sandbox
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, m_id);
 	}
-
-
-	/// Element Buffer ////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////
-
-	IndexBuffer::IndexBuffer(uint32_t* indices, uint32_t count)
-	{
-		m_count = count;
-		glGenBuffers(1, &m_id);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(uint32_t), (const void*)indices, GL_DYNAMIC_DRAW);
-	}
-
-	IndexBuffer::~IndexBuffer()
-	{
-		glDeleteBuffers(1, &m_id);
-	}
-
-	void IndexBuffer::Bind()
-	{
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);
-	}
-
-	GLsizei IndexBuffer::GetCount() const
-	{
-		return m_count;
-	}
-
-	/// Uniform	Buffer ////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////
-
-	UniformBuffer::UniformBuffer(GLsizeiptr size, GLuint binding)
-	{
-		glGenBuffers(1, &m_id);
-		glBindBuffer(GL_UNIFORM_BUFFER, m_id);
-		glBufferData(GL_UNIFORM_BUFFER, size, 0, GL_DYNAMIC_DRAW);
-		glBindBuffer(GL_UNIFORM_BUFFER, 0);
-		glBindBufferRange(GL_UNIFORM_BUFFER, binding, m_id, 0, size);
-	}
-
-	UniformBuffer::~UniformBuffer()
-	{
-		glDeleteBuffers(1, &m_id);
-	}
-
-	void UniformBuffer::SetData(const void* data, GLsizeiptr size, GLuint offset)
-	{
-		glBindBuffer(GL_UNIFORM_BUFFER, m_id);
-		glBufferSubData(GL_UNIFORM_BUFFER, offset, size, data);
-		glBindBuffer(GL_UNIFORM_BUFFER, 0);
-	}
-
 }
