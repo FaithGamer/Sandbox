@@ -8,14 +8,17 @@
 
 namespace Sandbox
 {
-	TextureImportSettings::TextureImportSettings(GLint Filtering, GLint Wrapping, bool UseMipmaps, bool KeepData) 
+	TextureImportSettings::TextureImportSettings(TextureFiltering Filtering, TextureWrapping Wrapping, bool UseMipmaps, bool KeepData) 
 		: filtering(Filtering), wrapping(Wrapping), useMipmaps(UseMipmaps), keepData(KeepData)
 	{
 
 	}
+	Texture::Texture(): m_id(0), m_pixelPerUnit(1.f), m_pixels(nullptr), m_nbChannels(0), m_importSettings(TextureImportSettings()), m_size(1, 1)
+	{
 
-	Texture::Texture(TextureImportSettings importSettings) 
-		: m_size(1, 1), m_nbChannels(0), m_pixels(nullptr), m_id(0), m_importSettings(importSettings), m_pixelPerUnit(100)
+	}
+	Texture::Texture(bool whiteTexture1x1) 
+		: m_size(1, 1), m_nbChannels(0), m_pixels(nullptr), m_id(0), m_importSettings(TextureImportSettings()), m_pixelPerUnit(1.f)
 	{
 		//generate 1x1 white texture
 		glGenTextures(1, &m_id);
@@ -25,16 +28,16 @@ namespace Sandbox
 
 		//Texture Wrapping
 		GLfloat borderColor[] = { 1.0f, 0.0f, 1.0f, 1.0f };
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, importSettings.wrapping);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, importSettings.wrapping);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, m_importSettings.wrapping);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, m_importSettings.wrapping);
 		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, borderColor);
 
 		//Texture filtering
-		GLint minFilter = importSettings.useMipmaps ? GL_LINEAR_MIPMAP_LINEAR : importSettings.filtering;
+		GLint minFilter = m_importSettings.useMipmaps ? GL_LINEAR_MIPMAP_LINEAR : m_importSettings.filtering;
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, minFilter);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, importSettings.filtering);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, m_importSettings.filtering);
 
-		if (importSettings.useMipmaps)
+		if (m_importSettings.useMipmaps)
 		{
 			//glGenerateMipmap(GL_TEXTURE_2D);
 		}
@@ -46,7 +49,7 @@ namespace Sandbox
 	}
 
 	Texture::Texture(std::string path, TextureImportSettings importSettings) 
-		: m_size(0, 0), m_nbChannels(0), m_pixels(nullptr), m_id(0), m_importSettings(importSettings), m_pixelPerUnit(100)
+		: m_size(0, 0), m_nbChannels(0), m_pixels(nullptr), m_id(0), m_importSettings(importSettings), m_pixelPerUnit(1.f)
 	{
 		//Load image data
 		m_pixels = stbi_load(path.c_str(), &m_size.x, &m_size.y, &m_nbChannels, 4);
@@ -103,7 +106,7 @@ namespace Sandbox
 
 	void Texture::SetPixelPerUnit(uint32_t pixelPerUnit)
 	{
-		m_pixelPerUnit = pixelPerUnit;
+		m_pixelPerUnit = 1.f/pixelPerUnit;
 	}
 
 	void Texture::Bind(uint32_t textureUnit)
@@ -117,7 +120,8 @@ namespace Sandbox
 		return m_size;
 	}
 
-	uint32_t Texture::GetPixelPerUnit() const
+
+	float Texture::GetPixelPerUnit() const
 	{
 		return m_pixelPerUnit;
 	}

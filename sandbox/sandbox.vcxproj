@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="include\Sandbox\Render\StencilMode.cpp" />
+    <ClCompile Include="src\ECS\SpriteRenderSystem.cpp" />
     <ClCompile Include="src\Render\IndexBuffer.cpp" />
     <ClCompile Include="src\Render\RenderTexture.cpp" />
     <ClCompile Include="src\Delegate.cpp" />
@@ -63,10 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Sandbox\ECS.h" />
+    <ClInclude Include="include\Sandbox\ECS\SpriteRenderSystem.h" />
     <ClInclude Include="include\Sandbox\ECS\World.h" />
     <ClInclude Include="include\Sandbox\ImGuiLoader.h" />
+    <ClInclude Include="include\Sandbox\Control.h" />
     <ClInclude Include="include\Sandbox\Input\Inputs.h" />
-    <ClInclude Include="include\Sandbox\Parameters.h" />
+    <ClInclude Include="include\Sandbox\EngineParameters.h" />
     <ClInclude Include="include\Sandbox\Random.h" />
     <ClInclude Include="include\Sandbox\Render\IndexBuffer.h" />
     <ClInclude Include="include\Sandbox\Render\Rect.h" />
@@ -76,6 +79,7 @@
     <ClInclude Include="include\Sandbox\Render\StencilMode.h" />
     <ClInclude Include="include\Sandbox\Render\UniformBuffer.h" />
     <ClInclude Include="include\Sandbox\Render\VertexBuffer.h" />
+    <ClInclude Include="include\Sandbox\Sandbox.h" />
     <ClInclude Include="include\Sandbox\Vector.h" />
     <ClInclude Include="include\Sandbox\Delegate.h" />
     <ClInclude Include="include\Sandbox\Engine.h" />
@@ -93,7 +97,7 @@
     <ClInclude Include="include\Sandbox\Input\InputMap.h" />
     <ClInclude Include="include\Sandbox\Input\DirectionalInput.h" />
     <ClInclude Include="include\Sandbox\Input\PointingInput.h" />
-    <ClInclude Include="include\Sandbox\entt_macros.h" />
+    <ClInclude Include="include\Sandbox\ECS\entt_macros.h" />
     <ClInclude Include="include\Sandbox\ECS\Scene.h" />
     <ClInclude Include="include\Sandbox\ECS\Entity.h" />
     <ClInclude Include="include\Sandbox\Vec.h" />
@@ -104,7 +108,7 @@
     <ClInclude Include="include\Sandbox\Input\ButtonInput.h" />
     <ClInclude Include="include\Sandbox\Render\Camera.h" />
     <ClInclude Include="include\Sandbox\Render\Buffer.h" />
-    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="include\Sandbox\Render\Sprite.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="include\Sandbox\Render\Shader.h" />
     <ClInclude Include="include\Sandbox\std_macros.h" />

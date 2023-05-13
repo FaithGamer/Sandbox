@@ -26,9 +26,9 @@ namespace Sandbox
 		static SDL_Window* GetSDLWindow();
 		static SignalSender<Vec2u>* GetResizeSignal();
 
-		void Clear() override;
 		void SetSize(Vec2u size) override;
 		void Bind() override;
+		void Clear() override;
 		
 		SignalSender<Vec2u> resizeSignal;
 	private:

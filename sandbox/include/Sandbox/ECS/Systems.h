@@ -11,6 +11,7 @@
 namespace Sandbox
 {
 	class World;
+	class Camera;
 
 	struct SystemIdPriority
 	{
@@ -108,6 +109,10 @@ namespace Sandbox
 		static World* CreateWorld(std::string name);
 		static void DestroyWorld(std::string name);
 
+		/// @brief Set the camera used for rendering into the window
+		/// @param camera Pointer to the camera, the Camera component is a PointableComponenent
+		static void SetMainCamera(Camera* camera);
+
 		/// @brief The first World ever created.
 		/// @return World pointer.
 		static World* GetMainWorld();
@@ -153,6 +158,9 @@ namespace Sandbox
 		std::vector<SystemIdPriority> m_fixedUpdateSystems;
 		std::vector<SystemIdPriority> m_updateSystems;
 		std::vector<SystemIdPriority> m_imGuiSystems;
+		std::vector<SystemIdPriority> m_renderSystems;
+
+		Camera* m_mainCamera;
 
 		std::vector<SystemIdPriority> m_pendingSystemIn;
 		std::vector<int32_t> m_pendingSystemOut;

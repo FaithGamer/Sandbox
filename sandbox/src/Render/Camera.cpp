@@ -11,10 +11,12 @@
 namespace Sandbox
 {
 	Camera::Camera()
-		:m_position(0, 1, -1), m_target(0, 0, 0), m_worldUp(0, 1, 0), m_localBack(0, 0, 1), m_localRight(1, 0, 0), m_localUp(0, 1, 0),
+		:m_position(0, 0, -1), m_target(0, 0, 0), m_worldUp(0, 1, 0), m_localBack(0, 0, 1), m_localRight(1, 0, 0), m_localUp(0, 1, 0),
 		m_yaw(0), m_pitch(0), m_roll(0),
 		m_fieldOfView(45.f), m_aspectRatio(1), m_nearClippingPlane(0.1f), m_farClippingPlane(100.f),
-		m_needComputeProjectionMatrix(true), m_needComputeViewMatrix(true), m_projectionMatrix(1.f), m_viewMatrix(1.f), m_orthographic(false), m_orthographicZoom(1)
+		m_needComputeProjectionMatrix(true), m_needComputeViewMatrix(true), m_projectionMatrix(1.f),
+		m_viewMatrix(1.f), m_orthographic(false), m_orthographicZoom(1),
+		worldToScreenRatio(0.01f), isMain(false)
 	{
 	}
 
@@ -262,7 +264,7 @@ namespace Sandbox
 		}
 		else
 		{
-			m_projectionMatrix = glm::perspective(m_fieldOfView, 1.f/ m_aspectRatio, m_nearClippingPlane, m_farClippingPlane);
+			m_projectionMatrix = glm::perspective(m_fieldOfView, m_aspectRatio, m_nearClippingPlane, m_farClippingPlane);
 		}
 	}
 }

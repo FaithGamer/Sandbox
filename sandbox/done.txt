@@ -13,3 +13,10 @@ April
 
 -Render layers and Offscreen render layers almost implemented.
 Every layer will be drawn if he has been used during a batch. left to do: every offscreen layer should be bound in the appropriate uniform location
+
+may
+
+13
+
+-Renderer2D can render on specific target
+-Render layers can take a specific screen space.

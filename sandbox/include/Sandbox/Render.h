@@ -8,3 +8,8 @@
 #include "Sandbox/Render/Transform.h"
 #include "Sandbox/Render/VertexArray.h"
 #include "Sandbox/Render/Window.h"
+#include "Sandbox/Render/Rect.h"
+#include "Sandbox/Render/IndexBuffer.h"
+#include "Sandbox/Render/Sprite.h"
+#include "Sandbox/Render/StencilMode.h"
+#include "Sandbox/Render/RenderTexture.h"

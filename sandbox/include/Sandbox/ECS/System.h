@@ -17,8 +17,9 @@ namespace Sandbox
 		{
 			Update = 1,
 			FixedUpdate = 2,
-			Event = 3,
-			ImGui = 4 //To do: add OnRender ?
+			Event = 4,
+			ImGui = 8,
+			Render = 16
 		}Method;
 
 		virtual ~System() {}
@@ -32,6 +33,9 @@ namespace Sandbox
 
 		/// @brief Called on a fixed timestep.
 		virtual void OnFixedUpdate(Time fixedDeltaTime) {}
+
+		/// @brief Make all your rendering here. Called in between Window::Clear and Window::Render
+		virtual void OnRender() {}
 
 		/// @brief This is where you can create ImGui elements
 		virtual void OnImGui() {}
@@ -53,7 +57,7 @@ namespace Sandbox
 
 		/// @brief bitmask telling Sandbox wich method are being used.
 		/// overriding this will help the engine save some amount of CPU power.
-		virtual int GetUsedMethod() { return Update | FixedUpdate | Event | ImGui; }
+		virtual int GetUsedMethod() { return Update | FixedUpdate | Event | ImGui | Render; }
 
 		/// @brief Higher priority will have it's methods called before lower priority
 		virtual int GetPriority() { return m_priority; }
@@ -64,7 +68,6 @@ namespace Sandbox
 	protected:
 
 		//To do: documentation
-		//To do: add custom parameters
 
 		template <typename... ComponentType, typename Functor>
 		void ForEachComponent(Functor function)

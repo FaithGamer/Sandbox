@@ -112,7 +112,7 @@ public:
 
 		auto camera = world->CreateEntity();
 		auto cam = camera->AddComponent<Camera>();
-		cam->SetOrthographicZoom(4);
+		cam->SetOrthographicZoom(1);
 		cam->SetOrthographic(true);
 		cam->SetAspectRatio(Window::GetAspectRatio());
 
@@ -130,23 +130,23 @@ public:
 
 		m_maskedShader = makesptr<Shader>("assets/shaders/default_layer.vert", "assets/shaders/masked.frag");
 
-		uint32_t layerid = m_renderer.AddLayer("MyLayer");
-		uint32_t layeridmasked = m_renderer.AddLayer("maskedLayer", m_maskedShader, nullptr);
-		uint32_t maskLayer = m_renderer.AddOffscreenLayer("mask", 1);
+		uint32_t layerid = Renderer2D::Instance()->AddLayer("MyLayer");
+		uint32_t layeridmasked = Renderer2D::Instance()->AddLayer("maskedLayer", m_maskedShader, nullptr);
+		uint32_t maskLayer = Renderer2D::Instance()->AddOffscreenLayer("mask", 1);
 
-		m_maskPipeline = m_renderer.GetPipeline(maskLayer, nullptr, nullptr);
-		m_pipeline = m_renderer.GetPipeline(layerid, nullptr, nullptr);
-		m_pipelineMasked = m_renderer.GetPipeline(layeridmasked, nullptr, nullptr);
+		m_maskPipeline = Renderer2D::Instance()->GetPipeline(maskLayer, nullptr, nullptr);
+		m_pipeline = Renderer2D::Instance()->GetPipeline(layerid, nullptr, nullptr);
+		m_pipelineMasked = Renderer2D::Instance()->GetPipeline(layeridmasked, nullptr, nullptr);
 
 	}
 
-	void OnUpdate(Time delta) override
+	void OnRender()
 	{
-	
+
 		std::vector<Vec2f> texCoords{ { 0.0f, 1.0f }, { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }
 		};
 
-		m_renderer.BeginScene(*m_camera->GetComponent<Camera>());
+		Renderer2D::Instance()->Begin(*m_camera->GetComponent<Camera>());
 
 
 		int count = 0;
@@ -164,19 +164,19 @@ public:
 
 				if (count % 2)
 				{
-					m_renderer.DrawTexturedQuad(transform, m_texture1, texCoords, white, m_maskPipeline);
+					Renderer2D::Instance()->DrawTexturedQuad(transform, m_texture1, texCoords, white, m_maskPipeline);
 				}
 				else
 				{
-					m_renderer.DrawTexturedQuad(transform, m_texture2, texCoords, white, m_pipeline);
+					Renderer2D::Instance()->DrawTexturedQuad(transform, m_texture2, texCoords, white, m_pipeline);
 				}
 				count++;
 			}
 		}
 		Transform transform;
 		transform.SetScale(10, 10, 1);
-		m_renderer.DrawTexturedQuad(transform, m_texture1, texCoords, white, m_pipelineMasked);
-		m_renderer.EndScene();
+		Renderer2D::Instance()->DrawTexturedQuad(transform, m_texture1, texCoords, white, m_pipelineMasked);
+		Renderer2D::Instance()->End();
 
 	}
 private:
@@ -190,7 +190,6 @@ private:
 	uint32_t m_pipelineMasked;
 	uint32_t m_maskPipeline;
 
-	Renderer2D m_renderer;
 	Entity* m_camera;
 };
 

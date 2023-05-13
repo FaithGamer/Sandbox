@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Parameters.h"
+#include "EngineParameters.h"
 
 namespace Sandbox
 {

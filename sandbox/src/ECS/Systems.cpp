@@ -6,6 +6,9 @@
 #include "Sandbox/ImGuiLoader.h"
 #include "Sandbox/Engine.h"
 #include "Sandbox/ECS/World.h"
+#include "Sandbox/Render/Window.h"
+#include "Sandbox/Render/Renderer2D.h"
+#include "Sandbox/Render/Camera.h"
 
 namespace Sandbox
 {
@@ -42,6 +45,10 @@ namespace Sandbox
 		{
 			toDelete.insert(system);
 		}
+		for (auto& system : m_renderSystems)
+		{
+			toDelete.insert(system);
+		}
 
 		//Call delete only once per system
 
@@ -74,7 +81,7 @@ namespace Sandbox
 			bool ImGuiEventHandled = ImGui_ImplSDL2_ProcessEvent(&m_events);
 			if (ImGuiEventHandled)
 			{
-				if(ImGui::GetIO().WantCaptureKeyboard)
+				if (ImGui::GetIO().WantCaptureKeyboard)
 					continue;
 				if (ImGui::GetIO().WantCaptureMouse)
 					continue;
@@ -112,7 +119,20 @@ namespace Sandbox
 			//the m_updateClock.Restart increment doesn't accurately describe time passing by.
 			system.system->OnUpdate(delta);
 		}
-		
+	
+		if (m_mainCamera != nullptr)
+		{
+			Window::ClearWindow();
+			Renderer2D::Instance()->SetRenderTarget(Window::Instance());
+			Renderer2D::Instance()->Begin(*m_mainCamera);
+			for (auto& system : m_renderSystems)
+			{
+				system.system->OnRender();
+			}
+			Renderer2D::Instance()->End();
+			Window::RenderWindow();
+		}
+
 		BeginImGui();
 		for (auto& system : m_imGuiSystems)
 		{
@@ -166,6 +186,11 @@ namespace Sandbox
 					m_imGuiSystems.push_back(system);
 					std::sort(m_imGuiSystems.begin(), m_imGuiSystems.end(), CompareSystemPriority());
 				}
+				if (usedMethodBitmask & System::Method::Render)
+				{
+					m_renderSystems.push_back(system);
+					std::sort(m_renderSystems.begin(), m_renderSystems.end(), CompareSystemPriority());
+				}
 				m_allSystems.insert(std::make_pair(system.typeId, system.system));
 				mustCallOnStart.insert(system);
 			}
@@ -208,6 +233,7 @@ namespace Sandbox
 				RemovePending(m_fixedUpdateSystems, typeId, toDelete);
 				RemovePending(m_eventSystems, typeId, toDelete);
 				RemovePending(m_imGuiSystems, typeId, toDelete);
+				RemovePending(m_renderSystems, typeId, toDelete);
 				m_allSystems.erase(typeId);
 			}
 			else
@@ -237,7 +263,8 @@ namespace Sandbox
 		if (Vector::Contains(m_updateSystems, typeId) ||
 			Vector::Contains(m_fixedUpdateSystems, typeId) ||
 			Vector::Contains(m_eventSystems, typeId) ||
-			Vector::Contains(m_imGuiSystems, typeId))
+			Vector::Contains(m_imGuiSystems, typeId) ||
+			Vector::Contains(m_renderSystems, typeId))
 			return true;
 
 		return false;
@@ -264,6 +291,21 @@ namespace Sandbox
 	void Systems::DestroyWorld(std::string name)
 	{
 		Systems::Instance()->m_worlds.Destroy(name);
+	}
+
+	void Systems::SetMainCamera(Camera* camera)
+	{
+		auto instance = Instance();
+		for (auto& world : instance->m_worlds.pointers)
+		{
+			auto view = world->m_registry.view<Camera>();
+			for (auto& camera : view)
+			{
+				view.get<Camera>(camera).isMain = false;
+			}
+		}
+		camera->isMain = true;
+		instance->m_mainCamera = camera;
 	}
 
 	World* Systems::GetWorld(std::string name)

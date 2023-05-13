@@ -22,7 +22,7 @@
 #include <entt/entt.hpp>
 
 #include "Sandbox/Time.h"
-#include "Sandbox/entt_macros.h"
+#include "Sandbox/ECS/entt_macros.h"
 #include "Sandbox/Vector.h"
 #include "Sandbox/Signal.h"
 
@@ -116,7 +116,6 @@ void BillboardTest()
 
 	cam.SetPosition({ 0, 0, 1 });
 
-	Renderer2D renderer;
 	std::vector<Vec2f> texCoords{ { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f }
 	};
 

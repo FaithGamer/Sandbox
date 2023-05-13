@@ -1,12 +1,15 @@
 #pragma once
 
 #include "Sandbox/Vec.h"
+#include "Sandbox/ECS/entt_macros.h"
 
 namespace Sandbox
 {
 	class Camera
 	{
 	public:
+		PointableComponent;
+
 		Camera();
 		~Camera();
 		void SetOrthographic(bool orthographic);
@@ -40,6 +43,9 @@ namespace Sandbox
 		Mat4 GetProjectionMatrix() const;
 		Mat4 GetTargetViewMatrix() const;
 
+		float worldToScreenRatio;
+		bool isMain;
+
 	private:
 		void ComputeViewMatrix() const;
 		void ComputeProjectionMatrix() const;
@@ -62,6 +68,8 @@ namespace Sandbox
 		float m_nearClippingPlane;
 		float m_farClippingPlane;
 		float m_orthographicZoom;
+
+	
 
 		mutable Mat4 m_projectionMatrix;
 		mutable Mat4 m_viewMatrix;

@@ -157,11 +157,12 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Tests\EnttSpeedTest.cpp" />
     <ClCompile Include="src\Tests\ImGuiTest.cpp" />
-    <ClCompile Include="src\Tests\BatchRendererTest.cpp" />
     <ClCompile Include="src\Tests\BillboardTest.cpp" />
     <ClCompile Include="src\Tests\EnttTest.cpp" />
+    <ClCompile Include="src\Tests\InputSystemTest.cpp" />
     <ClCompile Include="src\Tests\RendererTest.cpp" />
     <ClCompile Include="src\Tests\SignalTest.cpp" />
+    <ClCompile Include="src\Tests\SpriteRenderTest.cpp" />
     <ClCompile Include="src\Tests\SystemTest.cpp" />
     <ClCompile Include="src\Tests\TextureUnitTest.cpp" />
     <ClCompile Include="src\Tests\ThreadTest.cpp" />
@@ -169,9 +170,9 @@
     <ClCompile Include="src\Tests\UniformBlockTest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Tests\SpriteRenderTest.h" />
     <ClInclude Include="src\Tests\FrameBufferTest.h" />
     <ClInclude Include="src\Tests\ImGuiSystemTest.h" />
-    <ClInclude Include="src\Tests\BatchRendererTest.h" />
     <ClInclude Include="src\Tests\BillboardTest.h" />
     <ClInclude Include="src\Tests\EnttSpeedTest.h" />
     <ClInclude Include="src\Tests\EnttTest.h" />
