@@ -11,7 +11,6 @@
 #include "Sandbox/Input/InputMap.h"
 #include "Sandbox/Input/ButtonInput.h"
 #include "Sandbox/std_macros.h"
-#include "Tests/BatchRendererTest.h"
 
 #include "Tests/ImGuiSystemTest.h"
 #include "Tests/ECSTest.h"
@@ -30,34 +29,9 @@ namespace sb = Sandbox;
 
 int main(int argc, char** argv)
 {
-<<<<<<< HEAD
-	/*sb::Engine::Init();
-	sb::Systems::CreateGameWorld();
-
-	sb::Inputs::CreateInputMap();
-
-	InitInputs();
-	sb::Entity& player = sb::Systems::GetMainGameWorld()->CreateEntity();
-	player.AddComponent<PlayerControlled>();
-	player.AddComponent<Body>();
-
-	sb::Systems::Push<ImGuiSystemTest>();
-	sb::Systems::Push<Controller>();
-	sb::Systems::Push<PhysicsSystem>();
-
-
-	sb::Engine::Launch();*/
-
-	BatchRendererTest();
-=======
-
-
 
 	SpriteRenderTest();
 	//RendererTest();
-
-
->>>>>>> render
 
 	return 0;
 }
