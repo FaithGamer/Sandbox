@@ -4,98 +4,119 @@
 #include "Sandbox/Input/Keyboard.h"
 #include "Sandbox/Input/Controller.h"
 #include "Sandbox/Input/Mouse.h"
+#include "Sandbox/Input/Bindings.h"
 #include "Sandbox/Vec.h"
 
 
 namespace Sandbox
 {
-	class Bindings;
 
-	/// @brief Binding for a button with keyboard/mouse/controller
-	struct Button
-	{
-		MouseButton mouse = MouseButton::Invalid;
-		KeyScancode key = KeyScancode::Unknown;// scancode is a physical position on the keyboard.
-		// to retreive it's Keycode on the current layout, use the macro SDL_SCANCODE_TO_KEYCODE
-		ControllerButton controller = ControllerButton::Invalid;
-		ControllerTrigger trigger = ControllerTrigger::Undefined;
-	};
 
-	enum class DirectionalButton : int
+	/// @brief What state the input is currently in.
+	/// This is also the data sent by the broadcasted signal when the input is triggered.
+	class ButtonInputState : public InputSignal
 	{
-		None = 0,
-		Left,
-		Top,
-		Right,
-		Bottom
+
+	public:
+		bool GetBool() const override { return pressed; }
+		float GetFloat() const override { return pressedAmount; }
+		bool pressed = false;
+		float pressedAmount = 0.0f;
 	};
 
 	class ButtonInput : public Input
 	{
 	public:
-		
+		ButtonInput(std::string name);
 
-		virtual void ListenEventAndBindTrigger(const SDL_Event& e, int version = 0);
-		virtual void SetBindings(const Bindings& bondings, int version = 0);
+		virtual void ListenEventAndBind(const SDL_Event& e, int version = 0) override;
+		virtual void SetBindings(const ButtonBindings& bindings);
 
-		virtual std::string GetName() const;
-		virtual InputType GetType() const;
+		virtual std::string GetName() const override;
+		virtual InputType GetType() const override;
 
 	protected:
-		virtual bool KeyPressed(const SDL_Event& e);
-		virtual bool KeyReleased(const SDL_Event& e);
-		virtual bool MouseButtonPressed(const SDL_Event& e);
-		virtual bool MouseButtonReleased(const SDL_Event& e);
-		virtual bool ControllerButtonPressed(const SDL_Event& e);
-		virtual bool ControllerButtonReleased(const SDL_Event& e);
-		virtual bool ControllerTriggerMoved(const SDL_Event& e);
+		virtual bool KeyPressed(const SDL_Event& e) override;
+		virtual bool KeyReleased(const SDL_Event& e) override;
+		virtual bool MouseButtonPressed(const SDL_Event& e) override;
+		virtual bool MouseButtonReleased(const SDL_Event& e) override;
+		virtual bool ControllerButtonPressed(const SDL_Event& e) override;
+		virtual bool ControllerButtonReleased(const SDL_Event& e) override;
+		virtual bool ControllerTriggerMoved(const SDL_Event& e) override;
+		virtual void UpdateEventListened() override;
 
 	public:
-		/// @brief Set wether or not the input is triggered when the button is pressed
-		/// @param triggerOnPress true = yes, false = no
-		void SendSignalOnPress(bool triggerOnPress);
-		
-		/// @brief Set wether or not the input is triggered when the button is released
-		/// @param triggerOnRelease true = yes, false = no
-		void SendSignalOnRelease(bool triggerOnRelease);
 
 		/// @brief Bind a Key from the keyboard
 		/// @param keyButton The scancode of the key
-		/// @param version There can be multiple key for the same Input.
-		void BindKey(KeyScancode keyButton, int version = 0);
-		/// @brief Bind a mouse button 
+		void AddKey(KeyScancode keyButton);
+		/// @brief Add a mouse button 
 		/// @param mouseButton The mouse button
-		/// @param version There can be multiple mouse button for the same Input.
-		void BindMouse(MouseButton mouseButton, int version = 0);
-		/// @brief Bind to a controller button
+		void AddMouse(MouseButton mouseButton);
+		/// @brief Add to a controller button
 		/// @param controllerButton the controller button
-		/// @param version There can be multiple controller buttons for the same Input.
-		void BindController(ControllerButton controllerButton, int version = 0);
+		void AddControllerButton(ControllerButton controllerButton);
+		/// @brief Add to a controller trigger.
+		/// It will send signal every time the pressing amount changes.
+		/// @param trigger The controller trigger
+		void AddControllerTrigger(ControllerTrigger trigger);
+		/// @brief Set a specific binding key
+		/// @param version Wich binding version, you can get the count of versions with GetBindingsCount
+		/// @param keyButton The key to bind to
+		void SetKey(int version, KeyScancode keyButton);
+		/// @brief Set a mouse button to a specific binding 
+		/// @param version Wich binding version, you can get the count of versions with GetBindingsCount
+		/// @param keyButton The key to bind to
+		void SetMouse(int version, MouseButton mouseButton);
+		/// @brief Set a controller button to a specific binding 
+		/// @param version Wich binding version, you can get the count of versions with GetBindingsCount
+		/// @param mouseButton the mouse button to bind to
+		void SetControllerButton(int version, ControllerButton controllerButton);
+		/// @brief Set a controller trigger to a specific binding 
+		/// @param version Wich binding version, you can get the count of versions with GetBindingsCount
+		/// @param controllerButton the controller button to binds to
+		void SetControllerTrigger(int version, ControllerTrigger controllerTrigger);
+		/// @brief Remove a binding
+		void RemoveBinding(int version);
 
-		struct State
-		{
-			bool pressed = false;
-		};
+		/// @brief Set wether or not the signal is broadcasted when the button is pressed
+		/// By default yes
+		/// @param signalOnPress true = yes, false = no
+		void SetSendSignalOnPress(bool signalOnPress);
+		/// @brief Set wether or not the signal is broadcasted when the button is released
+		/// By default no
+		/// @param signalOnRelease true = yes, false = no
+		void SetSendSignalOnRelease(bool signalOnRelease);
+		/// @brief Set how much a trigger must be pressed to switch the butten pressed state
+		/// @param sensitivity ranging from 0.0 to 1.0. 1.0 = Highly sensitive 
+		/// @param controllerTrigger the controller trigger to binds to
+		void SetTriggerSensitivity(float sensitivity);
 
-	protected:
-		virtual void UpdateEventListened();
+		/// @brief Get the count of different bindings
+		int GetBindingsCount() const;
+		/// @brief Get the bindings
+		ButtonBindings& GetBindings();
+
+		bool HaveBinding(KeyScancode key);
+		bool HaveBinding(MouseButton mouse);
+		bool HaveBinding(ControllerButton button);
+		bool HaveBinding(ControllerTrigger trigger);
 
 	private:
-		friend InputMap;
-		ButtonInput(std::string name);
-
+		
 		bool ReleaseButton();
 		bool PressButton();
+		bool SetPressedAmount(float amount);
 
-		State m_state;
-
-		Button m_button;
+		ButtonBindings m_bindings;
 
 		bool m_sendSignalOnPress;
 		bool m_sendSignalOnRelease;
 		float m_triggerSensitivity;
 
 		double m_lastTriggerValue;
+
+		ButtonInputState m_state;
 
 		std::string m_name;
 	};

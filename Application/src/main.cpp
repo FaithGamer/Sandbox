@@ -26,11 +26,21 @@ namespace sb = Sandbox;
 
 #include "Sandbox/ECS/Entity.h"
 #include "Sandbox/Log.h"
+#include "Sandbox/Signal.h"
 
+void foo(int const* s)
+{
+	std::cout << *s << std::endl;
+}
 int main(int argc, char** argv)
 {
-
+	sb::SignalSender<int const*> signal;
+	signal.AddListener(&foo);
+	int* bar = new int(23);
+	signal.SendSignal(bar);
 	SpriteRenderTest();
+
+
 	//RendererTest();
 
 	return 0;

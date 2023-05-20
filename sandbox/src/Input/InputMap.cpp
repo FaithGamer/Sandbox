@@ -5,26 +5,22 @@
 
 namespace Sandbox
 {
-	InputMap::InputMap(std::string name) : m_name(name), m_mustUpdate(false)
+	InputMap::InputMap(std::string name) : m_name(name), m_mustUpdate(false), m_isActive(true)
 	{
 		m_byEvents.resize((int)EventType::EventTypeCount);
 	}
 
 	InputMap::~InputMap()
 	{
-		//Free memory
-		for (auto& input : m_byNames)
-		{
-			delete input.second;
-		}
+
 	}
 
-	ButtonInput* InputMap::CreateButtonInput(std::string name)
+	sptr<ButtonInput> InputMap::CreateButtonInput(std::string name)
 	{
 		auto input_it = m_byNames.find(name);
 		if (input_it == m_byNames.end())
 		{
-			ButtonInput* button = new ButtonInput(name);
+			auto button = makesptr<ButtonInput>(name);
 			m_modified.push_back(button);
 			m_byNames.insert(std::make_pair(name, button));
 			button->m_inputMap = this;
@@ -38,6 +34,11 @@ namespace Sandbox
 				+ "\". No input has been added.");
 			return nullptr;
 		}
+	}
+
+	void InputMap::SetActive(bool active)
+	{
+		m_isActive = active;
 	}
 
 	void InputMap::DestroyInput(std::string name)
@@ -135,6 +136,11 @@ namespace Sandbox
 			}
 			break;
 		case SDL_TEXTINPUT:
+			for (auto& input : m_byEvents[(int)EventType::Text])
+			{
+				if (input->TextEntered(e))
+					eventHandled = true;
+			}
 			break;
 
 		case SDL_TEXTEDITING:
@@ -143,13 +149,18 @@ namespace Sandbox
 		return eventHandled;
 	}
 
-	void InputMap::OnInputEventModified(Input* input)
+	void InputMap::OnInputEventModified(sptr<Input> input)
 	{
 		m_modified.emplace_back(input);
 		m_mustUpdate = true;
 	}
 
-	Input* InputMap::GetInput(std::string name)
+	bool InputMap::IsActive() const
+	{
+		return m_isActive;
+	}
+
+	sptr<Input> InputMap::GetInput(std::string name)
 	{
 		auto input_it = m_byNames.find(name);
 		if (input_it == m_byNames.end())
@@ -160,9 +171,9 @@ namespace Sandbox
 		return input_it->second;
 	}
 
-	std::unordered_map<std::string, Input*> InputMap::GetInputs()
+	std::unordered_map<std::string, sptr<Input>> InputMap::GetInputs()
 	{
-		return std::unordered_map<std::string, Input*>();
+		return m_byNames;
 	}
 
 	std::string InputMap::GetName() const
@@ -179,7 +190,6 @@ namespace Sandbox
 				Vector::Remove(inputs, input);
 			}
 			m_byNames.erase(input->GetName());
-			delete input;
 		}
 		m_toDelete.clear();
 		for (auto& input : m_modified)

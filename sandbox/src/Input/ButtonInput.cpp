@@ -2,12 +2,12 @@
 #include "Sandbox/Math.h"
 #include "Sandbox/Input/ButtonInput.h"
 #include "Sandbox/Input/Bindings.h"
-
+#include "Sandbox/Vector.h"
 
 namespace Sandbox
 {
 
-	ButtonInput::ButtonInput(std::string name) : 
+	ButtonInput::ButtonInput(std::string name) :
 		m_name(name), m_sendSignalOnPress(true), m_sendSignalOnRelease(false), m_triggerSensitivity(0.5f), m_lastTriggerValue(0.f)
 	{
 
@@ -15,106 +15,131 @@ namespace Sandbox
 
 	bool ButtonInput::KeyPressed(const SDL_Event& e)
 	{
-		if (e.key.keysym.scancode == (SDL_Scancode)m_button.key)
+		for (auto& button : m_bindings.buttons)
 		{
-			PressButton();
-			return true;
+			if (e.key.keysym.scancode == (SDL_Scancode)button.key)
+			{
+				PressButton();
+				return true;
+			}
 		}
 		return false;
 	}
 
 	bool ButtonInput::KeyReleased(const SDL_Event& e)
 	{
-		if (e.key.keysym.scancode == (SDL_Scancode)m_button.key)
+		for (auto& button : m_bindings.buttons)
 		{
-			return ReleaseButton();
+			if (e.key.keysym.scancode == (SDL_Scancode)button.key)
+			{
+				return ReleaseButton();
+			}
 		}
 		return false;
 	}
 
 	bool ButtonInput::MouseButtonPressed(const SDL_Event& e)
 	{
-		if (e.button.button == (Uint8)m_button.mouse)
+		for (auto& button : m_bindings.buttons)
 		{
-			return PressButton();
+			if (e.button.button == (Uint8)button.mouse)
+			{
+				return PressButton();
+			}
 		}
 		return false;
 	}
 
 	bool ButtonInput::MouseButtonReleased(const SDL_Event& e)
 	{
-		if (e.button.button == (Uint8)m_button.mouse)
+		for (auto& button : m_bindings.buttons)
 		{
-			return ReleaseButton();
+			if (e.button.button == (Uint8)button.mouse)
+			{
+				return ReleaseButton();
+			}
 		}
 		return false;
 	}
 
 	bool ButtonInput::ControllerButtonPressed(const SDL_Event& e)
 	{
-		if ((SDL_GameControllerButton)e.cbutton.button == (SDL_GameControllerButton)m_button.controller)
+		for (auto& button : m_bindings.buttons)
 		{
-			return PressButton();
+			if ((SDL_GameControllerButton)e.cbutton.button == (SDL_GameControllerButton)button.controller)
+			{
+				return PressButton();
+			}
 		}
 		return false;
 	}
 
 	bool ButtonInput::ControllerButtonReleased(const SDL_Event& e)
 	{
-		if ((SDL_GameControllerButton)e.cbutton.button == (SDL_GameControllerButton)m_button.controller)
+		for (auto& button : m_bindings.buttons)
 		{
-			return ReleaseButton();
+			if ((SDL_GameControllerButton)e.cbutton.button == (SDL_GameControllerButton)button.controller)
+			{
+				return ReleaseButton();
+			}
 		}
 		return false;
 	}
 
 	bool ButtonInput::ControllerTriggerMoved(const SDL_Event& e)
 	{
-		if (e.caxis.axis == (Uint8)m_button.trigger)
+		for (auto& button : m_bindings.buttons)
 		{
-			//Scale trigger axis value to 0 to 1
-			double value = Math::ScaleRangeTo((float)e.caxis.value, 0.f, 1.f, 0.f, 32767.f);
-			
-			if (value > 1.f - m_triggerSensitivity)
+			if (e.caxis.axis == (Uint8)button.trigger)
 			{
-				//trigger pressed
-				if (!m_state.pressed)
+				//Scale trigger axis value to 0 to 1
+				float value = Math::ScaleRangeTo((float)e.caxis.value, 0.f, 1.f, 0.f, 32767.f);
+
+				if (value > 1.f - m_triggerSensitivity)
 				{
-					return PressButton();
+					m_state.pressed = true;
 				}
-			}
-			else
-			{
-				//trigger released
-				if (m_state.pressed)
+				else
 				{
-					return ReleaseButton();
+					m_state.pressed = false;
 				}
+
+				return SetPressedAmount(value);
+
 			}
 		}
 		return false;
 	}
 
-	void ButtonInput::ListenEventAndBindTrigger(const SDL_Event& e, int version)
+	void ButtonInput::ListenEventAndBind(const SDL_Event& e, int version)
 	{
 		//Keyboard
+		if (version == -1)
+		{
+			version = m_bindings.buttons.size();
+			m_bindings.buttons.push_back(Button());
+		}
+		if (version >= m_bindings.buttons.size())
+		{
+			LOG_WARN("ButtonInput::ListenEventAndBind -> Button binding version does not exists.");
+			return;
+		}
 		if (e.type == SDL_KEYUP)
 		{
-			m_button.key = (KeyScancode)e.key.keysym.scancode;
+			m_bindings.buttons[version].key = (KeyScancode)e.key.keysym.scancode;
 		}
 		//Controller
 		else if (e.type == SDL_CONTROLLERBUTTONUP)
 		{
-			m_button.controller = (ControllerButton)e.cbutton.button;
+			m_bindings.buttons[version].controller = (ControllerButton)e.cbutton.button;
 		}
 	}
 
-	void ButtonInput::SetBindings(const Bindings& bindings, int version)
+	void ButtonInput::SetBindings(const ButtonBindings& bindings)
 	{
-		m_button = bindings.button;
+		m_bindings = bindings;
 		UpdateEventListened();
 	}
-
 
 	std::string ButtonInput::GetName() const
 	{
@@ -125,67 +150,201 @@ namespace Sandbox
 	{
 		return InputType::Button;
 	}
-	
-	void ButtonInput::SendSignalOnPress(bool triggerOnPress)
-	{
-		m_sendSignalOnPress = triggerOnPress;
-	}
 
-	void ButtonInput::SendSignalOnRelease(bool triggerOnRelease)
+	void ButtonInput::AddKey(KeyScancode keyButton)
 	{
-		m_sendSignalOnRelease = triggerOnRelease;
-	}
-
-	void ButtonInput::BindKey(KeyScancode keyButton, int version)
-	{
-		m_button.key = keyButton;
+		if (HaveBinding(keyButton))
+		{
+			LOG_WARN("ButtonInput::AddKey -> binding already exists, no binding added");
+			return;
+		}
+		int version = m_bindings.buttons.size();
+		m_bindings.buttons.push_back(Button());
+		m_bindings.buttons[version].key = keyButton;
 		UpdateEventListened();
 	}
 
-	void ButtonInput::BindMouse(MouseButton mouseButton, int version)
+	void ButtonInput::AddMouse(MouseButton mouseButton)
 	{
-		m_button.mouse = mouseButton;
+		if (HaveBinding(mouseButton))
+		{
+			LOG_WARN("ButtonInput::AddMouse -> binding already exists, no binding added");
+			return;
+		}
+		int version = m_bindings.buttons.size();
+		m_bindings.buttons.push_back(Button());
+		m_bindings.buttons[version].mouse = mouseButton;
 		UpdateEventListened();
 	}
 
-	void ButtonInput::BindController(ControllerButton controllerButton, int version)
+	void ButtonInput::AddControllerButton(ControllerButton controllerButton)
 	{
-		m_button.controller = controllerButton;
+		if (HaveBinding(controllerButton))
+		{
+			LOG_WARN("ButtonInput::AddControllerButton -> binding already exists, no binding added");
+			return;
+		}
+		int version = m_bindings.buttons.size();
+		m_bindings.buttons.push_back(Button());
+		m_bindings.buttons[version].controller = controllerButton;
 		UpdateEventListened();
+	}
+
+	void ButtonInput::AddControllerTrigger(ControllerTrigger trigger)
+	{
+		if (HaveBinding(trigger))
+		{
+			LOG_WARN("ButtonInput::AddControllerTrigger -> binding already exists, no binding added");
+			return;
+		}
+		int version = m_bindings.buttons.size();
+		m_bindings.buttons.push_back(Button());
+		m_bindings.buttons[version].trigger = trigger;
+		UpdateEventListened();
+	}
+
+	void ButtonInput::SetKey(int version, KeyScancode keyButton)
+	{
+		if (version >= m_bindings.buttons.size())
+		{
+			LOG_WARN("ButtonInput::SetKey -> Button binding version does not exists.");
+			return;
+		}
+		m_bindings.buttons[version].key = keyButton;
+		UpdateEventListened();
+	}
+
+	void ButtonInput::SetMouse(int version, MouseButton mouseButton)
+	{
+		if (version >= m_bindings.buttons.size())
+		{
+			LOG_WARN("ButtonInput::SetMouse -> Button binding version does not exists.");
+			return;
+		}
+		m_bindings.buttons[version].mouse = mouseButton;
+		UpdateEventListened();
+	}
+
+	void ButtonInput::SetControllerButton(int version, ControllerButton controllerButton)
+	{
+		if (version >= m_bindings.buttons.size())
+		{
+			LOG_WARN("ButtonInput::SetControllerButton -> Button binding version does not exists.");
+			return;
+		}
+		m_bindings.buttons[version].controller = controllerButton;
+		UpdateEventListened();
+	}
+
+	void ButtonInput::SetControllerTrigger(int version, ControllerTrigger controllerTrigger)
+	{
+		if (version >= m_bindings.buttons.size())
+		{
+			LOG_WARN("ButtonInput::SetControllerTrigger -> Button binding version does not exists.");
+			return;
+		}
+		m_bindings.buttons[version].trigger = controllerTrigger;
+		UpdateEventListened();
+	}
+
+	void ButtonInput::RemoveBinding(int version)
+	{
+		if (m_bindings.buttons.size() <= version)
+		{
+			LOG_WARN("ButtonInput::RemoveBinding -> bindings count is under version, no binding removed.");
+			return;
+		}
+		Vector::RemoveAt(m_bindings.buttons, version);
+	}
+
+	void ButtonInput::SetSendSignalOnPress(bool signalOnPress)
+	{
+		m_sendSignalOnPress = signalOnPress;
+	}
+
+	void ButtonInput::SetSendSignalOnRelease(bool signalOnRelease)
+	{
+		m_sendSignalOnRelease = signalOnRelease;
+	}
+
+	void ButtonInput::SetTriggerSensitivity(float sensitivity)
+	{
+		sensitivity = glm::clamp(sensitivity, 0.0f, 1.0f);
+		m_triggerSensitivity = sensitivity;
+	}
+
+	int ButtonInput::GetBindingsCount() const
+	{
+		return m_bindings.buttons.size();
+	}
+
+	ButtonBindings& ButtonInput::GetBindings()
+	{
+		return m_bindings;
+	}
+
+	bool ButtonInput::HaveBinding(KeyScancode key)
+	{
+		for (auto& button : m_bindings.buttons)
+		{
+			if (button.key == key)
+				return true;
+		}
+		return false;
+	}
+
+	bool ButtonInput::HaveBinding(MouseButton mouse)
+	{
+		for (auto& button : m_bindings.buttons)
+		{
+			if (button.mouse == mouse)
+				return true;
+		}
+		return false;
+	}
+
+	bool ButtonInput::HaveBinding(ControllerButton controllerButton)
+	{
+		for (auto& button : m_bindings.buttons)
+		{
+			if (button.controller == controllerButton)
+				return true;
+		}
+		return false;
+	}
+
+	bool ButtonInput::HaveBinding(ControllerTrigger trigger)
+	{
+		for (auto& button : m_bindings.buttons)
+		{
+			if (button.trigger == trigger)
+				return true;
+		}
+		return false;
 	}
 
 	void ButtonInput::UpdateEventListened()
 	{
-
 		InputEvent newEvents;
 
-		newEvents.keyText = false;
-		newEvents.mouseMovement = false;
+		for (auto& button : m_bindings.buttons)
+		{
+			if (button.key != KeyScancode::Unknown)
+				newEvents.keyButton = true;
 
-		if (m_button.key != KeyScancode::Unknown)
-			newEvents.keyButton = true;
-		else
-			newEvents.keyButton = false;
+			if (button.mouse != MouseButton::Invalid)
+				newEvents.mouseButton = true;
 
-		if (m_button.mouse != MouseButton::Invalid)
-			newEvents.mouseButton = true;
-		else
-			newEvents.mouseButton = false;
+			if (button.controller != ControllerButton::Invalid)
+				newEvents.controllerButton = true;
 
-		if (m_button.controller != ControllerButton::Invalid)
-			newEvents.controllerButton = true;
-		else
-			newEvents.controllerButton = false;
-
-		if (m_button.trigger != ControllerTrigger::Undefined)
-			newEvents.controllerTrigger = true;
-		else
-			newEvents.controllerTrigger = false;
-
+			if (button.trigger != ControllerTrigger::Undefined)
+				newEvents.controllerTrigger = true;
+		}
 		if (m_eventsListened != newEvents)
 		{
 			m_eventsListened = newEvents;
-			NotifyEventListenedModified();
+			OnEventListenedUpdated();
 		}
 	}
 
@@ -196,7 +355,7 @@ namespace Sandbox
 			m_state.pressed = true;
 			if (m_sendSignalOnPress)
 			{
-				signal.SendSignal(InputSignal());
+				signal.SendSignal(&m_state);
 				return true;
 			}
 		}
@@ -210,11 +369,22 @@ namespace Sandbox
 			m_state.pressed = false;
 			if (m_sendSignalOnRelease)
 			{
-				signal.SendSignal(InputSignal());
+				signal.SendSignal(&m_state);
 				return true;
 			}
-		} 
+		}
 		return false;
+	}
+
+	bool ButtonInput::SetPressedAmount(float amount)
+	{
+		if (amount == m_state.pressedAmount)
+			return false;
+
+		m_state.pressedAmount = amount;
+		signal.SendSignal(&m_state);
+
+		return true;
 	}
 
 }

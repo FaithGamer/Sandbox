@@ -51,25 +51,9 @@ namespace Sandbox
 		}
 	}
 
-	std::string DirectionalButtonName(DirectionalButton type)
-	{
-		switch (type)
-		{
-		case DirectionalButton::None:		return "None";			break;
-		case DirectionalButton::Left:		return "Left";			break;
-		case DirectionalButton::Top:		return "Top";			break;
-		case DirectionalButton::Right:		return "Right";			break;
-		case DirectionalButton::Bottom:		return "Bottom";		break;
-		default:
-			LOG_WARN("Trying to get the name of an incorrect DirectionalButton");
-			return "TypeError";
-			break;
-		}
-	}
-
 	/* ____ Input ____ */
 
-	void Input::NotifyEventListenedModified()
+	void Input::OnEventListenedUpdated()
 	{
 		if (m_inputMap == nullptr)
 		{
@@ -77,7 +61,7 @@ namespace Sandbox
 		}
 		else
 		{
-			m_inputMap->OnInputEventModified(this);
+			m_inputMap->OnInputEventModified(shared_from_this());
 		}
 
 	}

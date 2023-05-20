@@ -120,6 +120,7 @@ namespace Sandbox
 			{
 
 			}
+
 			Ret CallWithObject(void* const object, Args&&... args) override
 			{
 				return (static_cast<Obj*>(object)->*m_function)(std::forward<Args>(args)...);

@@ -5,14 +5,12 @@
 
 #include "Sandbox/Log.h"
 #include "Sandbox/Signal.h"
-
-
+#include "Sandbox/Vec.h"
 
 namespace Sandbox
 {
 	class InputMap;
-	class Bindings;
-	enum class DirectionalButton;
+
 
 	/// @brief Type of Input, each type may hold a different state or send different type of signal
 	enum class InputType : int
@@ -39,30 +37,49 @@ namespace Sandbox
 		bool operator!=(const InputEvent& other);
 	};
 
-	struct InputSignal
+	/// @brief Parent class for data sent by input when they are triggered.
+	class InputSignal
 	{
-
+	public:
+		virtual bool GetBool() const 
+		{
+			LOG_WARN("Input Signal GetBool not implemented, false returned.");
+			return false;
+		}
+		virtual Vec2f GetVec2f() const 
+		{ 
+			LOG_WARN("Input Signal GetVec2f not implemented, default value returned.");
+			return Vec2f();
+		}
+		virtual char* GetText() const 
+		{ 
+			LOG_WARN("Input Signal GetText not implemented, nullptr returned.");
+			return nullptr; 
+		}
+		virtual float GetFloat() const
+		{
+			LOG_WARN("Input Signal GetFloat not implemented, 0.0f returned.");
+			return 0.0f;
+		}
 	};
 
-	/// @brief Gives a string representation of an InputType
+	/// @brief The name of an InputType
 	std::string InputTypeName(InputType type);
 
-	/// @brief Gives a astring representation of a DirectionalButton
-	std::string DirectionalButtonName(DirectionalButton type);
-
 	/// @brief Interface for an input, send signal when it's binding is triggered
-	class Input
+	class Input : public std::enable_shared_from_this<Input>
 	{
 	public:
 		virtual ~Input() {};
 
-		virtual void ListenEventAndBindTrigger(const SDL_Event& e, int version = 0) = 0;
-		virtual void SetBindings(const Bindings& bindings, int version = 0) = 0;
+		virtual void ListenEventAndBind(const SDL_Event& e, int version = 0) = 0;
 
 		virtual std::string GetName() const = 0;
 		virtual InputType GetType() const = 0;
 
-		SignalSender<InputSignal> signal;
+		SignalSender<InputSignal*> signal;
+
+		//To do, add enable mouse and keyboard/controller
 
 	protected:
 		Input() {};
@@ -77,9 +94,10 @@ namespace Sandbox
 		virtual bool ControllerButtonReleased(const SDL_Event& e) { return false; }
 		virtual bool ControllerStickMoved(const SDL_Event& e) { return false; }
 		virtual bool ControllerTriggerMoved(const SDL_Event& e) { return false; }
+		virtual bool TextEntered(const SDL_Event& e) { return false; }
 
 		virtual void UpdateEventListened() = 0;
-		void NotifyEventListenedModified();
+		void OnEventListenedUpdated();
 		InputEvent m_eventsListened;
 
 	private:

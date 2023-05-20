@@ -29,10 +29,6 @@
 
 using namespace Sandbox;
 
-void OnPressButton(const ButtonInput::State& btnState, void* const listener)
-{
-	LOG_INFO("the button has been pressed, state: " + std::to_string(btnState.pressed));
-}
 
 void BillboardTest()
 {
@@ -92,18 +88,7 @@ void BillboardTest()
 	vertexArray->SetIndexBuffer(indexBuffer);
 	vertexArray->AddVertexBuffer(vertexBuffer);
 
-	//Inputs
-//InputMap inputs("InputsMap");
 
-	//auto button = makesptr<ButtonInput>("ButtonTest");
-
-	//button->BindKey(KeyScancode::A);
-
-	//inputs.AddInput(button);
-
-	//auto btn = inputs.GetInput("ButtonTest");
-
-	//btn->AddListener(&OnPressButton, nullptr);
 
 	Vec3f o = Vec3f(0, 0, 0);
 

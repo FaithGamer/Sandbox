@@ -73,19 +73,19 @@ public:
 			camera.MoveWorld(Vec3f(0, 0, -offset));
 		}
 	}
-	void OnMoveFront(InputSignal input)
+	void OnMoveFront(InputSignal* input)
 	{
 		m_front = !m_front;
 	}
-	void OnMoveBack(InputSignal input)
+	void OnMoveBack(InputSignal* input)
 	{
 		m_back = !m_back;
 	}
-	void OnMoveLeft(InputSignal input)
+	void OnMoveLeft(InputSignal* input)
 	{
 		m_left = !m_left;
 	}
-	void OnMoveRight(InputSignal input)
+	void OnMoveRight(InputSignal* input)
 	{
 		m_right = !m_right;
 	}

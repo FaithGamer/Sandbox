@@ -8,8 +8,8 @@ namespace Sandbox
         
         
         
-        /// @brief Remove all occurence of value from a std::vector, Does NOT maintain order.
-        /// it replaces the removed value with the first value at the end of the container wich differs from the one being removed.
+        /// @brief Remove all occurences of value from a std::vector, Does NOT guarantee to maintain vector's order.
+        /// it replaces the removed values with the back() value if any.
         /// @return the number of occurence removed
         template <typename T, typename V>
         int Remove(std::vector<T>& container, V value);

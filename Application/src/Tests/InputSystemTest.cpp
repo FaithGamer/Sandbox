@@ -26,13 +26,16 @@ class Controller : public System
 		jump->signal.AddListener(&Controller::OnJump, this);
 	}
 
-	void OnJump(InputSignal signal)
+	void OnJump(InputSignal* signal)
 	{
-		ForEachComponent<PlayerControlled, Body>(
-			[](PlayerControlled& component, Body& body)
-			{
-				body.velocity.y += 10;
-			});
+		if (signal->GetBool())
+		{
+			ForEachComponent<PlayerControlled, Body>(
+				[](PlayerControlled& component, Body& body)
+				{
+					body.velocity.y += 10;
+				});
+		}
 	}
 };
 
