@@ -7,6 +7,8 @@ namespace Sandbox
 {
 	/// @brief What state the input is currently in.
 	/// This is also the data sent by the broadcasted signal when the input is triggered.
+	/// the final state is the sum of all the pressed buttons
+	/// and sticks currentDirection vectors. The resulting vector's axis (x, y) are then clamped from 0 ot 1.
 	class DirectionalInputState : public InputSignal
 	{
 	public:
@@ -19,7 +21,12 @@ namespace Sandbox
 	{
 
 	public:
+		DirectionalInput(std::string name);
+
 		virtual void ListenEventAndBind(const SDL_Event& e, int version = 0) override;
+		/// @brief Set all the versions of the various keys, controller buttons, controller triggers, mouse buttons
+		/// and their corresponding directions, as well as the controller analog sticks, that are bound to this input.
+		/// @param bindings 
 		virtual void SetBindings(const DirectionalBindings& bindings);
 
 		virtual std::string GetName() const override;
@@ -28,10 +35,10 @@ namespace Sandbox
 		/// @brief Add binding to a stick
 		/// @param stick The controller stick
 		void AddStick(ControllerStick stick);
-		/// @brief Add binding to buttons, for example wqsd 
+		/// @brief Add binding to buttons, for example W, A, S, D
 		/// @param buttons Each value of the vector contains a button bound with a direction
-		/// When multiple buttons are being pressed at the same time, the final state is the sum of
-		/// all the pressed button's direction.
+		/// When multiple buttons are being pressed at the same time, the final state is the sum of all the pressed buttons
+	    /// and sticks direction vectors, where each axis (x, y) is clamped from 0 ot 1.
 		void AddButtons(std::vector<DirectionalButton> buttons);
 		/// @brief Set a specific binding's stick
 		/// @param version Binding version
@@ -49,11 +56,15 @@ namespace Sandbox
 		/// @param deadzone range from 0.0 to 1.0, where 1.0 = 100% deadzone
 		void SetTriggerDeadZone(float deadzone);
 
+		/// @brief Check if the stick is used in any of the bindings
+		/// @return true if yes
 		bool HaveBinding(ControllerStick stick);
-		/// @brief If any of the directional button in the vector matches any of the directional button in another binding, return true
-		/// @param buttons 
-		/// @return 
+		/// @brief Check if any of the directional button in the vector matches any of the directional button in another binding
+		/// @return true if yes
 		bool HaveBinding(std::vector<DirectionalButton> buttons);
+		/// @brief Check if the button is used in any of the bindings
+		/// @return true if yes
+		bool HaveBinding(Button button);
 		/// @brief Get the count of bindings
 		int GetBindingsCount() const;
 		/// @brief Get the bindings
@@ -73,8 +84,8 @@ namespace Sandbox
 
 	private:
 		friend InputMap;
+		void AxisMove(float value, bool x, Direction& direction);
 
-		DirectionalInput(std::string name);
 		void ComputeState();
 
 	private:

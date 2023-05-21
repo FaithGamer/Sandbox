@@ -5,6 +5,10 @@
 
 namespace Sandbox
 {
+	const ControllerStick ControllerStick::None = ControllerStick(ControllerAxis::Invalid, ControllerAxis::Invalid);
+	const ControllerStick ControllerStick::Left = ControllerStick(ControllerAxis::LeftX, ControllerAxis::LeftY);
+	const ControllerStick ControllerStick::Right = ControllerStick(ControllerAxis::RightX, ControllerAxis::LeftY);
+
 	ControllerStick::ControllerStick()
 		: xAxis(ControllerAxis::Invalid), yAxis(ControllerAxis::Invalid)
 	{
@@ -27,11 +31,11 @@ namespace Sandbox
 
 	std::string ControllerStickName(ControllerStick stick)
 	{
-		if (stick == ControllerStick::Left())
+		if (stick == ControllerStick::Left)
 		{
 			return "LeftStick";
 		}
-		else if (stick == ControllerStick::Right())
+		else if (stick == ControllerStick::Right)
 		{
 			return "RightStick";
 		}
@@ -70,11 +74,11 @@ namespace Sandbox
 	{
 		if (name == "LeftStick")
 		{
-			return ControllerStick::Left();
+			return ControllerStick::Left;
 		}
 		else if (name == "RightStick")
 		{
-			return ControllerStick::Right();
+			return ControllerStick::Right;
 		}
 		LOG_ERROR("Unknown Controller Stick name: " + name);
 		return ControllerStick();

@@ -116,6 +116,9 @@
     <ClInclude Include="src\Tests\SpriteRenderTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Tests\InputSystemTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\batch_renderer.frag" />

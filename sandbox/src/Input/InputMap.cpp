@@ -2,6 +2,7 @@
 #include "Sandbox/Input/InputMap.h"
 #include "Sandbox/Vector.h"
 #include "Sandbox/Input/ButtonInput.h"
+#include "Sandbox/Input/DirectionalInput.h"
 
 namespace Sandbox
 {
@@ -17,23 +18,24 @@ namespace Sandbox
 
 	sptr<ButtonInput> InputMap::CreateButtonInput(std::string name)
 	{
-		auto input_it = m_byNames.find(name);
-		if (input_it == m_byNames.end())
+		if (CheckHaveInputAndDisplayWarning(name))
 		{
-			auto button = makesptr<ButtonInput>(name);
-			m_modified.push_back(button);
-			m_byNames.insert(std::make_pair(name, button));
-			button->m_inputMap = this;
-			
-			m_mustUpdate = true;
-			return button;
-		}
-		else
-		{
-			LOG_WARN("Trying to add Input with already existing name \"" + name + "\" already exist in the InputMap \"" + GetName()
-				+ "\". No input has been added.");
 			return nullptr;
 		}
+		auto button = makesptr<ButtonInput>(name);
+		AddInput(button);
+		return button;
+	}
+
+	sptr<DirectionalInput> InputMap::CreateDirectionalInput(std::string name)
+	{
+		if (CheckHaveInputAndDisplayWarning(name))
+		{
+			return nullptr;
+		}
+		auto button = makesptr<DirectionalInput>(name);
+		AddInput(button);
+		return button;
 	}
 
 	void InputMap::SetActive(bool active)
@@ -50,7 +52,7 @@ namespace Sandbox
 		}
 		else
 		{
-			Vector::Remove(m_modified, input->second);
+			m_modified.erase(input->second);
 			m_toDelete.emplace_back(input->second);
 			m_mustUpdate = true;
 		}
@@ -58,7 +60,7 @@ namespace Sandbox
 
 	bool InputMap::OnEvent(const SDL_Event& e)
 	{
-		if(m_mustUpdate)
+		if (m_mustUpdate)
 			UpdateInputsEvents();
 
 		bool eventHandled = false;
@@ -88,28 +90,28 @@ namespace Sandbox
 		case SDL_MOUSEBUTTONUP:
 			for (auto& input : m_byEvents[(int)EventType::MouseBtn])
 			{
-				if(input->MouseButtonPressed(e))
+				if (input->MouseButtonPressed(e))
 					eventHandled = true;
 			}
 			break;
 		case SDL_MOUSEMOTION:
 			for (auto& input : m_byEvents[(int)EventType::MouseMove])
 			{
-				if(input->MouseMoved(e))
+				if (input->MouseMoved(e))
 					eventHandled = true;
 			}
 			break;
 		case SDL_CONTROLLERBUTTONDOWN:
 			for (auto& input : m_byEvents[(int)EventType::ControllerBtn])
 			{
-				if(input->ControllerButtonPressed(e))
+				if (input->ControllerButtonPressed(e))
 					eventHandled = true;
 			}
 			break;
 		case SDL_CONTROLLERBUTTONUP:
 			for (auto& input : m_byEvents[(int)EventType::ControllerBtn])
 			{
-				if(input->ControllerButtonReleased(e))
+				if (input->ControllerButtonReleased(e))
 					eventHandled = true;
 			}
 			break;
@@ -122,7 +124,7 @@ namespace Sandbox
 			{
 				for (auto& input : m_byEvents[(int)EventType::ControllerStick])
 				{
-					if(input->ControllerStickMoved(e))
+					if (input->ControllerStickMoved(e))
 						eventHandled = true;
 				}
 			}
@@ -130,7 +132,7 @@ namespace Sandbox
 			{
 				for (auto& input : m_byEvents[(int)EventType::ControllerStick])
 				{
-					if(input->ControllerTriggerMoved(e))
+					if (input->ControllerTriggerMoved(e))
 						eventHandled = true;
 				}
 			}
@@ -151,7 +153,7 @@ namespace Sandbox
 
 	void InputMap::OnInputEventModified(sptr<Input> input)
 	{
-		m_modified.emplace_back(input);
+		m_modified.insert(input);
 		m_mustUpdate = true;
 	}
 
@@ -179,6 +181,16 @@ namespace Sandbox
 	std::string InputMap::GetName() const
 	{
 		return m_name;
+	}
+
+	bool InputMap::HaveInput(std::string name) const
+	{
+		auto input_it = m_byNames.find(name);
+		if (input_it == m_byNames.end())
+		{
+			return false;
+		}
+		return true;
 	}
 
 	void InputMap::UpdateInputsEvents()
@@ -262,5 +274,25 @@ namespace Sandbox
 		}
 		m_modified.clear();
 		m_mustUpdate = false;
+	}
+
+	
+	bool InputMap::CheckHaveInputAndDisplayWarning(std::string name) const
+	{
+		if (HaveInput(name))
+		{
+			LOG_WARN("Trying to add Input with already existing name \"" + name + "\" already exist in the InputMap \"" + GetName()
+				+ "\". No input has been added.");
+			return true;
+		}
+		return false;
+	}
+
+	void InputMap::AddInput(sptr<Input> input)
+	{
+		m_modified.insert(input);
+		m_byNames.insert(std::make_pair(input->GetName(), input));
+		input->m_inputMap = this;
+		m_mustUpdate = true;
 	}
 }

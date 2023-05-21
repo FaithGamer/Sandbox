@@ -26,23 +26,23 @@ public:
 	{
 		auto inputs = Inputs::CreateInputMap();
 		auto button = inputs->CreateButtonInput("MoveCamFront");
-		button->BindKey(KeyScancode::W);
-		button->SendSignalOnRelease(true);
+		button->AddKey(KeyScancode::W);
+		button->SetSendSignalOnRelease(true);
 		button->signal.AddListener(&CameraMovementSystem::OnMoveFront, this);
 
 		button = inputs->CreateButtonInput("MoveCamBack");
-		button->BindKey(KeyScancode::S);
-		button->SendSignalOnRelease(true);
+		button->AddKey(KeyScancode::S);
+		button->SetSendSignalOnRelease(true);
 		button->signal.AddListener(&CameraMovementSystem::OnMoveBack, this);
 
 		button = inputs->CreateButtonInput("MoveCamLeft");
-		button->BindKey(KeyScancode::A);
-		button->SendSignalOnRelease(true);
+		button->AddKey(KeyScancode::A);
+		button->SetSendSignalOnRelease(true);
 		button->signal.AddListener(&CameraMovementSystem::OnMoveLeft, this);
 
 		button = inputs->CreateButtonInput("MoveCamRight");
-		button->BindKey(KeyScancode::D);
-		button->SendSignalOnRelease(true);
+		button->AddKey(KeyScancode::D);
+		button->SetSendSignalOnRelease(true);
 		button->signal.AddListener(&CameraMovementSystem::OnMoveRight, this);
 	}
 

@@ -57,25 +57,17 @@ namespace Sandbox
 		ControllerStick();
 		constexpr ControllerStick(ControllerAxis x, ControllerAxis y);
 
-		constexpr static ControllerStick Left()
-		{
-			return ControllerStick(ControllerAxis::LeftX, ControllerAxis::LeftY);
-		}
-		constexpr static ControllerStick Right()
-		{
-			return ControllerStick(ControllerAxis::RightX, ControllerAxis::RightY);
-		}
-		constexpr static ControllerStick None()
-		{
-			return ControllerStick(ControllerAxis::Invalid, ControllerAxis::Invalid);
-		}
-		constexpr bool operator==(const ControllerStick& other)
+		constexpr bool operator==(const ControllerStick& other) const
 		{
 			return xAxis == other.xAxis && yAxis == other.yAxis;
 		}
 
 		ControllerAxis xAxis;
 		ControllerAxis yAxis;
+
+		static const ControllerStick None;
+		static const ControllerStick Left;
+		static const ControllerStick Right;
 	};
 
 	std::string ControllerButtonName(SDL_GameControllerButton button);

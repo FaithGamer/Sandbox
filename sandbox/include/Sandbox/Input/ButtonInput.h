@@ -30,20 +30,12 @@ namespace Sandbox
 		ButtonInput(std::string name);
 
 		virtual void ListenEventAndBind(const SDL_Event& e, int version = 0) override;
+		/// @brief Set all the versions of the keys, controller buttons, controller triggers, mouse buttons, that are bound to this input.
+		/// @param bindings 
 		virtual void SetBindings(const ButtonBindings& bindings);
 
 		virtual std::string GetName() const override;
 		virtual InputType GetType() const override;
-
-	protected:
-		virtual bool KeyPressed(const SDL_Event& e) override;
-		virtual bool KeyReleased(const SDL_Event& e) override;
-		virtual bool MouseButtonPressed(const SDL_Event& e) override;
-		virtual bool MouseButtonReleased(const SDL_Event& e) override;
-		virtual bool ControllerButtonPressed(const SDL_Event& e) override;
-		virtual bool ControllerButtonReleased(const SDL_Event& e) override;
-		virtual bool ControllerTriggerMoved(const SDL_Event& e) override;
-		virtual void UpdateEventListened() override;
 
 	public:
 
@@ -87,10 +79,10 @@ namespace Sandbox
 		/// By default no
 		/// @param signalOnRelease true = yes, false = no
 		void SetSendSignalOnRelease(bool signalOnRelease);
-		/// @brief Set how much a trigger must be pressed to switch the butten pressed state
-		/// @param sensitivity ranging from 0.0 to 1.0. 1.0 = Highly sensitive 
+		/// @brief Set how much a trigger must be pressed to switch the pressed state
+		/// @param deadzone ranging from 0.0 to 1.0. 1.0 = 100% deadzone
 		/// @param controllerTrigger the controller trigger to binds to
-		void SetTriggerSensitivity(float sensitivity);
+		void SetTriggerDeadzone(float sensitivity);
 
 		/// @brief Get the count of different bindings
 		int GetBindingsCount() const;
@@ -102,17 +94,29 @@ namespace Sandbox
 		bool HaveBinding(ControllerButton button);
 		bool HaveBinding(ControllerTrigger trigger);
 
-	private:
-		
+
+	protected:
+
+		bool KeyPressed(const SDL_Event& e) override;
+		bool KeyReleased(const SDL_Event& e) override;
+		bool MouseButtonPressed(const SDL_Event& e) override;
+		bool MouseButtonReleased(const SDL_Event& e) override;
+		bool ControllerButtonPressed(const SDL_Event& e) override;
+		bool ControllerButtonReleased(const SDL_Event& e) override;
+		bool ControllerTriggerMoved(const SDL_Event& e) override;
+		void UpdateEventListened() override;
+
 		bool ReleaseButton();
 		bool PressButton();
 		bool SetPressedAmount(float amount);
+
+	private:
 
 		ButtonBindings m_bindings;
 
 		bool m_sendSignalOnPress;
 		bool m_sendSignalOnRelease;
-		float m_triggerSensitivity;
+		float m_triggerDeadzone;
 
 		double m_lastTriggerValue;
 

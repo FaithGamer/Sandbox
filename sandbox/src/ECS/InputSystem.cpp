@@ -12,12 +12,15 @@ namespace Sandbox
 
 	bool InputSystem::OnEvent(SDL_Event& event)
 	{
-		if (Inputs::HasInputMap())
+		bool eventConsumed = false;
+		for(auto& inputMap : Inputs::GetInputMaps())
 		{
-			InputMap& inputs = Inputs::GetCurrentInputMap();
-			return inputs.OnEvent(event);
+			if (!inputMap->IsActive())
+				continue;
+
+			eventConsumed = inputMap->OnEvent(event);
 		}
-		return false;
+		return eventConsumed;
 	}
 
 	int InputSystem::GetUsedMethod()

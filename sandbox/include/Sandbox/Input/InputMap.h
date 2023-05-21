@@ -6,6 +6,7 @@ namespace Sandbox
 {
 	class Inputs;
 	class ButtonInput;
+	class DirectionalInput;
 	struct InputMapContainer;
 
 	enum class EventType : int
@@ -21,6 +22,7 @@ namespace Sandbox
 	};
 
 	//To do: enable serialization/deserialization
+	//To do: take into consideration JoyId for multiple controller connected
 	class InputMap
 	{
 	public:
@@ -30,6 +32,7 @@ namespace Sandbox
 		/// @param name input name
 		/// @return shared_ptr to the created input
 		sptr<ButtonInput> CreateButtonInput(std::string name);
+		sptr<DirectionalInput> CreateDirectionalInput(std::string name);
 		/// @brief Set wether or not this InputMap is used by the InputSystem
 		/// @param active 
 		void SetActive(bool active);
@@ -48,13 +51,16 @@ namespace Sandbox
 		std::unordered_map<std::string, sptr<Input>> GetInputs();
 		/// @brief Get the name of this InputMap
 		std::string GetName() const;
+		bool HaveInput(std::string name) const;
 
 	private:
 		void UpdateInputsEvents();
+		bool CheckHaveInputAndDisplayWarning(std::string name) const;
+		void AddInput(sptr<Input> input);
 
 		std::vector<std::vector<sptr<Input>>> m_byEvents;
 		std::unordered_map<std::string, sptr<Input>> m_byNames;
-		std::vector<sptr<Input>> m_modified;
+		std::set<sptr<Input>> m_modified;
 		std::vector<sptr<Input>> m_toDelete;
 
 		bool m_mustUpdate;

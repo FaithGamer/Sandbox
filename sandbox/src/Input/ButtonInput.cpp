@@ -8,113 +8,19 @@ namespace Sandbox
 {
 
 	ButtonInput::ButtonInput(std::string name) :
-		m_name(name), m_sendSignalOnPress(true), m_sendSignalOnRelease(false), m_triggerSensitivity(0.5f), m_lastTriggerValue(0.f)
+		m_name(name), m_sendSignalOnPress(true), m_sendSignalOnRelease(false), m_triggerDeadzone(0.2f), m_lastTriggerValue(0.f)
 	{
 
 	}
 
-	bool ButtonInput::KeyPressed(const SDL_Event& e)
-	{
-		for (auto& button : m_bindings.buttons)
-		{
-			if (e.key.keysym.scancode == (SDL_Scancode)button.key)
-			{
-				PressButton();
-				return true;
-			}
-		}
-		return false;
-	}
 
-	bool ButtonInput::KeyReleased(const SDL_Event& e)
-	{
-		for (auto& button : m_bindings.buttons)
-		{
-			if (e.key.keysym.scancode == (SDL_Scancode)button.key)
-			{
-				return ReleaseButton();
-			}
-		}
-		return false;
-	}
-
-	bool ButtonInput::MouseButtonPressed(const SDL_Event& e)
-	{
-		for (auto& button : m_bindings.buttons)
-		{
-			if (e.button.button == (Uint8)button.mouse)
-			{
-				return PressButton();
-			}
-		}
-		return false;
-	}
-
-	bool ButtonInput::MouseButtonReleased(const SDL_Event& e)
-	{
-		for (auto& button : m_bindings.buttons)
-		{
-			if (e.button.button == (Uint8)button.mouse)
-			{
-				return ReleaseButton();
-			}
-		}
-		return false;
-	}
-
-	bool ButtonInput::ControllerButtonPressed(const SDL_Event& e)
-	{
-		for (auto& button : m_bindings.buttons)
-		{
-			if ((SDL_GameControllerButton)e.cbutton.button == (SDL_GameControllerButton)button.controller)
-			{
-				return PressButton();
-			}
-		}
-		return false;
-	}
-
-	bool ButtonInput::ControllerButtonReleased(const SDL_Event& e)
-	{
-		for (auto& button : m_bindings.buttons)
-		{
-			if ((SDL_GameControllerButton)e.cbutton.button == (SDL_GameControllerButton)button.controller)
-			{
-				return ReleaseButton();
-			}
-		}
-		return false;
-	}
-
-	bool ButtonInput::ControllerTriggerMoved(const SDL_Event& e)
-	{
-		for (auto& button : m_bindings.buttons)
-		{
-			if (e.caxis.axis == (Uint8)button.trigger)
-			{
-				//Scale trigger axis value to 0 to 1
-				float value = Math::ScaleRangeTo((float)e.caxis.value, 0.f, 1.f, 0.f, 32767.f);
-
-				if (value > 1.f - m_triggerSensitivity)
-				{
-					m_state.pressed = true;
-				}
-				else
-				{
-					m_state.pressed = false;
-				}
-
-				return SetPressedAmount(value);
-
-			}
-		}
-		return false;
-	}
 
 	void ButtonInput::ListenEventAndBind(const SDL_Event& e, int version)
 	{
-		//Keyboard
-		if (version == -1)
+
+		// To do
+
+		/*if (version == -1)
 		{
 			version = m_bindings.buttons.size();
 			m_bindings.buttons.push_back(Button());
@@ -132,7 +38,7 @@ namespace Sandbox
 		else if (e.type == SDL_CONTROLLERBUTTONUP)
 		{
 			m_bindings.buttons[version].controller = (ControllerButton)e.cbutton.button;
-		}
+		}*/
 	}
 
 	void ButtonInput::SetBindings(const ButtonBindings& bindings)
@@ -267,10 +173,10 @@ namespace Sandbox
 		m_sendSignalOnRelease = signalOnRelease;
 	}
 
-	void ButtonInput::SetTriggerSensitivity(float sensitivity)
+	void ButtonInput::SetTriggerDeadzone(float deadzone)
 	{
-		sensitivity = glm::clamp(sensitivity, 0.0f, 1.0f);
-		m_triggerSensitivity = sensitivity;
+		deadzone = glm::clamp(deadzone, 0.0f, 1.0f);
+		m_triggerDeadzone = deadzone;
 	}
 
 	int ButtonInput::GetBindingsCount() const
@@ -319,6 +225,104 @@ namespace Sandbox
 		{
 			if (button.trigger == trigger)
 				return true;
+		}
+		return false;
+	}
+
+	bool ButtonInput::KeyPressed(const SDL_Event& e)
+	{
+		for (auto& button : m_bindings.buttons)
+		{
+			if (e.key.keysym.scancode == (SDL_Scancode)button.key)
+			{
+				PressButton();
+				return true;
+			}
+		}
+		return false;
+	}
+
+	bool ButtonInput::KeyReleased(const SDL_Event& e)
+	{
+		for (auto& button : m_bindings.buttons)
+		{
+			if (e.key.keysym.scancode == (SDL_Scancode)button.key)
+			{
+				return ReleaseButton();
+			}
+		}
+		return false;
+	}
+
+	bool ButtonInput::MouseButtonPressed(const SDL_Event& e)
+	{
+		for (auto& button : m_bindings.buttons)
+		{
+			if (e.button.button == (Uint8)button.mouse)
+			{
+				return PressButton();
+			}
+		}
+		return false;
+	}
+
+	bool ButtonInput::MouseButtonReleased(const SDL_Event& e)
+	{
+		for (auto& button : m_bindings.buttons)
+		{
+			if (e.button.button == (Uint8)button.mouse)
+			{
+				return ReleaseButton();
+			}
+		}
+		return false;
+	}
+
+	bool ButtonInput::ControllerButtonPressed(const SDL_Event& e)
+	{
+		for (auto& button : m_bindings.buttons)
+		{
+			if ((SDL_GameControllerButton)e.cbutton.button == (SDL_GameControllerButton)button.controller)
+			{
+				return PressButton();
+			}
+		}
+		return false;
+	}
+
+	bool ButtonInput::ControllerButtonReleased(const SDL_Event& e)
+	{
+		for (auto& button : m_bindings.buttons)
+		{
+			if ((SDL_GameControllerButton)e.cbutton.button == (SDL_GameControllerButton)button.controller)
+			{
+				return ReleaseButton();
+			}
+		}
+		return false;
+	}
+
+	bool ButtonInput::ControllerTriggerMoved(const SDL_Event& e)
+	{
+		for (auto& button : m_bindings.buttons)
+		{
+			if (e.caxis.axis == (Uint8)button.trigger)
+			{
+				//Scale trigger axis value from 0 to 1
+				float value = Math::ScaleRangeTo((float)e.caxis.value, 0.0f, 1.0f, 0.0f, 32767.0f);
+				float threshold = m_triggerDeadzone;
+				if (value >= threshold)
+				{
+					m_state.pressed = true;
+					value = Math::ScaleRangeTo(value, 0.0f, 1.0f, threshold, 1.0f);
+					return SetPressedAmount(value);
+				}
+				else
+				{
+					m_state.pressed = false;
+					return SetPressedAmount(0.0f);
+				}
+			}
 		}
 		return false;
 	}

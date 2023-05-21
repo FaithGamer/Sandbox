@@ -72,6 +72,7 @@ namespace Sandbox
 		template <typename... ComponentType, typename Functor>
 		void ForEachComponent(Functor function)
 		{
+			//To do, replace every get main by foreach existing worlds
 			auto view = World::GetMain()->m_registry.view<ComponentType...>();
 			for (auto entityId : view)
 			{

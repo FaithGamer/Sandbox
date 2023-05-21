@@ -170,6 +170,7 @@
     <ClCompile Include="src\Tests\UniformBlockTest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Tests\InputSystemTest.h" />
     <ClInclude Include="src\Tests\SpriteRenderTest.h" />
     <ClInclude Include="src\Tests\FrameBufferTest.h" />
     <ClInclude Include="src\Tests\ImGuiSystemTest.h" />

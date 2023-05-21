@@ -38,6 +38,7 @@ namespace Sandbox
 	private:
 		friend Engine;
 		InputMapContainer m_inputMaps;
+		std::vector<SDL_Joystick*> m_controllers;
 		
 	};
 }

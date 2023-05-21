@@ -18,6 +18,7 @@
 #include "Tests/RendererTest.h"
 #include "Tests/FrameBufferTest.h"
 #include "Tests/SpriteRenderTest.h"
+#include "Tests/InputSystemTest.h"
 
 #include <random>
 #include <iostream>
@@ -34,14 +35,10 @@ void foo(int const* s)
 }
 int main(int argc, char** argv)
 {
-	sb::SignalSender<int const*> signal;
-	signal.AddListener(&foo);
-	int* bar = new int(23);
-	signal.SendSignal(bar);
-	SpriteRenderTest();
 
 
-	//RendererTest();
+	InputSystemTest();
+
 
 	return 0;
 }

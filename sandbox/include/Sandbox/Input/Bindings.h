@@ -23,8 +23,14 @@ namespace Sandbox
 		// to retreive it's Keycode on the current keyboard layout, use the macro SDL_SCANCODE_TO_KEYCODE
 		ControllerButton controller = ControllerButton::Invalid;
 		ControllerTrigger trigger = ControllerTrigger::Undefined;
+
+		bool operator==(const Button& obj)
+		{
+			return mouse == obj.mouse && key == obj.key && controller == obj.controller && trigger == obj.trigger;
+		}
 	};
 
+	/// @brief Hold the current state of a directional button
 	struct DirectionalButton
 	{
 		DirectionalButton() {}
@@ -35,6 +41,16 @@ namespace Sandbox
 		bool pressed = false;
 	};
 
+	/// @brief Hold the current state of a directional stick
+	struct DirectionalStick
+	{
+		DirectionalStick(){}
+		DirectionalStick(ControllerStick Stick) : stick(Stick) {}
+
+		ControllerStick stick;
+		Vec2f currentDirection = Vec2f(0, 0);
+	};
+
 	struct Direction
 	{
 		Direction() {}
@@ -42,7 +58,7 @@ namespace Sandbox
 		Direction(ControllerStick Stick) : stick(Stick) {}
 
 		std::vector<DirectionalButton> buttons;
-		ControllerStick stick;
+		DirectionalStick stick;
 	};
 
 	////////////////
@@ -51,6 +67,7 @@ namespace Sandbox
 
 	struct DirectionalBindings
 	{	
+		//To do: optimize by having the bindings sorted by their event type
 		std::vector<Direction> directions;
 	};
 
