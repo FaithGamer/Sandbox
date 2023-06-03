@@ -10,7 +10,7 @@
 
 namespace Sandbox
 {
-
+	//To do: add support for mouse wheel
 
 	/// @brief What state the input is currently in.
 	/// This is also the data sent by the broadcasted signal when the input is triggered.

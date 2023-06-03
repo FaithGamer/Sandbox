@@ -78,7 +78,6 @@ protected:
 
 		std::cout << "posX: " << body.position.x << std::endl;
 		std::cout << "posY: " << body.position.y << std::endl;
-
 	}
 
 };

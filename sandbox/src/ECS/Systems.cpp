@@ -290,6 +290,7 @@ namespace Sandbox
 
 	void Systems::DestroyWorld(std::string name)
 	{
+		//To do, queue up the destruction process.
 		Systems::Instance()->m_worlds.Destroy(name);
 	}
 

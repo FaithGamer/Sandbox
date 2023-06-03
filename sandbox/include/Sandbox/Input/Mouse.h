@@ -1,6 +1,6 @@
 #pragma once
 #include <SDL/SDL.h>
-
+#include "Sandbox/Vec.h"
 
 namespace Sandbox
 {
@@ -16,4 +16,6 @@ namespace Sandbox
 
 	std::string MouseButtonName(MouseButton mouseButton);
 	MouseButton MouseButtonFromName(std::string name);
+	/// @brief Get the mouse position in window coordinates
+	Vec2f GetMousePosition();
 }

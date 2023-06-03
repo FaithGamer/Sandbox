@@ -16,9 +16,7 @@ namespace Sandbox
 	enum class InputType : int
 	{
 		Button = 0,
-		Pointing,
 		Directional,
-		Scroll,
 		Textual
 	};
 

@@ -72,7 +72,7 @@ namespace Sandbox
 
 		//Screen layer
 		m_layers.push_back(RenderLayer("Window", 0, window, m_defaultLayerShader, m_defaultStencilMode, defaultLayerVertexArray));
-		CreateQuadPipeline(m_layers[0], nullptr, nullptr);
+		CreateQuadBatch(m_layers[0], nullptr, nullptr);
 
 		SetShaderUniformSampler(m_defaultLayerShader, m_maxOffscreenLayers + 1);
 
@@ -100,7 +100,7 @@ namespace Sandbox
 		shader->SetUniformArray("uTextures", &sampler[0], (GLsizei)sampler.size());
 	}
 
-	uint64_t Renderer2D::GeneratePipelineId(uint64_t a, uint64_t b, uint64_t c)
+	uint64_t Renderer2D::GenerateBatchId(uint64_t a, uint64_t b, uint64_t c)
 	{
 		b = (b + 1) * 10000;
 		a = (a + 1) * 100000000;
@@ -125,6 +125,7 @@ namespace Sandbox
 		sptr<VertexArray> layerVertexArray = GenerateLayerVertexArray(screenSpace);
 		sptr<RenderTexture> layer = makesptr<RenderTexture>(Window::GetSize());
 		m_layers.push_back(RenderLayer(name, (uint32_t)m_layers.size(), layer, shader, stencil, layerVertexArray, false, false));
+		m_renderLayers.push_back(&m_layers.back());
 
 		return (uint32_t)m_layers.size() - 1;
 	}
@@ -202,18 +203,18 @@ namespace Sandbox
 		m_layers[layer].stencil = stencil;
 	}
 
-	void Renderer2D::PreallocateQuadPipeline(int count)
+	void Renderer2D::PreallocateQuadBatch(int count)
 	{
 		for (int i = 0; i < count; i++)
 		{
-			m_quadPipelines.push_back(QuadBatch());
-			m_freeQuadPipelines.push_back(m_quadPipelines.size() - 1);
+			m_quadBatchs.push_back(QuadBatch());
+			m_freeQuadBatchs.push_back(m_quadBatchs.size() - 1);
 		}
 	}
 
-	uint32_t Renderer2D::GetPipeline(uint32_t layerIndex, sptr<Shader> shader, sptr<StencilMode> stencil)
+	uint32_t Renderer2D::GetBatchId(uint32_t layerIndex, sptr<Shader> shader, sptr<StencilMode> stencil)
 	{
-		//To do: bake the pipelines based on assets
+		//To do: bake the batchs based on assets
 
 		uint32_t shaderId = 0;
 		uint32_t stencilId = 0;
@@ -222,19 +223,18 @@ namespace Sandbox
 		if (stencil != nullptr)
 			stencilId = stencil->GetID();
 
-		uint64_t id = GeneratePipelineId(layerIndex, shaderId, stencilId);
+		uint64_t id = GenerateBatchId(layerIndex, shaderId, stencilId);
 
-		auto pipeline = m_quadPipelineFinder.find(id);
-		if (pipeline == m_quadPipelineFinder.end())
+		auto batch = m_quadBatchFinder.find(id);
+		if (batch == m_quadBatchFinder.end())
 		{
-			//Create pipeline if doesn't exists
-			CreateQuadPipeline(m_layers[layerIndex], shader, stencil);
+			//Create batch if doesn't exists
+			CreateQuadBatch(m_layers[layerIndex], shader, stencil);
 
-			uint32_t index = (uint32_t)m_quadPipelines.size() - 1;
-			m_quadPipelines.back().index = index;
-			//m_quadPipelines.back().userCount = 1;
+			uint32_t index = (uint32_t)m_quadBatchs.size() - 1;
+			m_quadBatchs.back().index = index;
 
-			m_quadPipelineFinder.insert(std::make_pair(id, index));
+			m_quadBatchFinder.insert(std::make_pair(id, index));
 
 			if (m_rendering)
 			{
@@ -245,34 +245,33 @@ namespace Sandbox
 		}
 		else
 		{
-			uint32_t index = pipeline->second;
-			//m_quadPipelines[index].userCount++;
+			uint32_t index = batch->second;
 			return index;
 		}
 	}
 
-	void Renderer2D::CreateQuadPipeline(RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil)
+	void Renderer2D::CreateQuadBatch(RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil)
 	{
 		size_t index = 0;
-		if (!m_freeQuadPipelines.empty())
+		if (!m_freeQuadBatchs.empty())
 		{
-			//Recycle a free pipeline
-			index = m_freeQuadPipelines[0];
-			Vector::RemoveAt(m_freeQuadPipelines, 0);
+			//Recycle a free batch
+			index = m_freeQuadBatchs[0];
+			Vector::RemoveAt(m_freeQuadBatchs, 0);
 		}
 		else
 		{
-			//Allocate a new pipeline
-			m_quadPipelines.push_back(QuadBatch());
-			AllocateQuadPipeline(m_quadPipelines.back());
-			index = m_quadPipelines.size() - 1;
+			//Allocate a new batch
+			m_quadBatchs.push_back(QuadBatch());
+			AllocateQuadBatch(m_quadBatchs.back());
+			index = m_quadBatchs.size() - 1;
 		}
 
-		SetupQuadPipeline(m_quadPipelines[index], layer, shader, stencil);
+		SetupQuadBatch(m_quadBatchs[index], layer, shader, stencil);
 
 	}
 
-	void Renderer2D::SetupQuadPipeline(QuadBatch& batch, RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil)
+	void Renderer2D::SetupQuadBatch(QuadBatch& batch, RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil)
 	{
 		if (shader == nullptr)
 			shader = m_defaultShader;
@@ -296,7 +295,7 @@ namespace Sandbox
 
 	}
 
-	void Renderer2D::AllocateQuadPipeline(QuadBatch& batch)
+	void Renderer2D::AllocateQuadBatch(QuadBatch& batch)
 	{
 		//Vertex buffer (quads)
 		batch.quadVertexBuffer = makesptr<VertexBuffer>(m_maxVertices * sizeof(QuadVertex));
@@ -327,9 +326,9 @@ namespace Sandbox
 
 	}
 
-	void Renderer2D::FreeQuadPipeline(uint32_t pipeline)
+	void Renderer2D::FreeQuadBatch(uint32_t batch)
 	{
-		m_freeQuadPipelines.push_back(pipeline);
+		m_freeQuadBatchs.push_back(batch);
 	}
 
 	void Renderer2D::Begin(const Camera& camera)
@@ -357,24 +356,24 @@ namespace Sandbox
 		m_stats.drawCalls = 0;
 		m_stats.quadCount = 0;
 
-		for (auto& pipeline : m_quadPipelines)
+		for (auto& batch : m_quadBatchs)
 		{
-			StartBatch(pipeline.index);
+			StartBatch(batch.index);
 		}
 
 	}
 
 	void Renderer2D::End()
 	{
-		for (auto& pipeline : m_quadPipelines)
-			Flush(pipeline.index);
+		for (auto& batch : m_quadBatchs)
+			Flush(batch.index);
 		RenderLayers();
 		m_rendering = false;
 	}
 
 	void Renderer2D::RenderLayers()
 	{
-		//Bind screen framebuffer
+		//Bind target framebuffer
 		m_target->Bind();
 		//glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		glDisable(GL_DEPTH_TEST);
@@ -385,80 +384,78 @@ namespace Sandbox
 			offscreenLayer.target->BindTexture(offscreenLayer.textureUnit);
 		}
 
-		//Draw every layers except screen
-
-		//To do: add a container with no offscreen layer and no screen
-		for (auto layer = m_layers.rbegin(); layer != m_layers.rend(); layer++)
+		//Draw every layers
+		for (auto layer = m_renderLayers.rbegin(); layer != m_renderLayers.rend(); layer++)
 		{
-			if (layer->offscreen || !layer->active || layer->index == 0)
+			if (!(*layer)->active)
 				continue;
 
-			std::static_pointer_cast<RenderTexture>(layer->target)->BindTexture(0);
-			layer->vertexArray->Bind();
-			layer->shader->Bind();
-			layer->stencil->Bind();
-			GLuint indicesCount = layer->vertexArray->GetIndexBuffer()->GetCount();
+			std::static_pointer_cast<RenderTexture>((*layer)->target)->BindTexture(0);
+			(*layer)->vertexArray->Bind();
+			(*layer)->shader->Bind();
+			(*layer)->stencil->Bind();
+			GLuint indicesCount = (*layer)->vertexArray->GetIndexBuffer()->GetCount();
 			glDrawElements(GL_TRIANGLES, indicesCount, GL_UNSIGNED_INT, 0);
 		}
 	}
 
-	void Renderer2D::Flush(uint32_t pipelineIndex)
+	void Renderer2D::Flush(uint32_t batchIndex)
 	{
-		QuadBatch& pipeline = m_quadPipelines[(size_t)pipelineIndex];
-		if (pipeline.quadIndexCount)
+		QuadBatch& batch = m_quadBatchs[(size_t)batchIndex];
+		if (batch.quadIndexCount)
 		{
 			//Send the vertex data from CPU to GPU
-			uint32_t dataSize = (uint32_t)((uint8_t*)pipeline.quadVertexPtr - (uint8_t*)pipeline.quadVertexBase);
-			pipeline.quadVertexBuffer->SetData(pipeline.quadVertexBase, dataSize);
+			uint32_t dataSize = (uint32_t)((uint8_t*)batch.quadVertexPtr - (uint8_t*)batch.quadVertexBase);
+			batch.quadVertexBuffer->SetData(batch.quadVertexBase, dataSize);
 
-			for (uint32_t i = 0; i < pipeline.textureSlotIndex; i++)
+			for (uint32_t i = 0; i < batch.textureSlotIndex; i++)
 			{
-				pipeline.textureSlots[i]->Bind(i);
+				batch.textureSlots[i]->Bind(i);
 			}
 
 			//Issue the draw call after binding adequat context
-			pipeline.layer.target->Bind();
-			pipeline.quadVertexArray->Bind();
-			pipeline.shader->Bind();
-			pipeline.stencil->Bind();
-			glDrawElements(GL_TRIANGLES, pipeline.quadIndexCount, GL_UNSIGNED_INT, 0);
+			batch.layer.target->Bind();
+			batch.quadVertexArray->Bind();
+			batch.shader->Bind();
+			batch.stencil->Bind();
+			glDrawElements(GL_TRIANGLES, batch.quadIndexCount, GL_UNSIGNED_INT, 0);
 
 			m_stats.drawCalls++;
-			m_layers[pipeline.layer.index].active = true;
+			m_layers[batch.layer.index].active = true;
 		}
 	}
 
-	void Renderer2D::DrawQuad(const Vec3f& position, const Vec2f& scale, const Vec4f& color, uint32_t pipelineIndex)
+	void Renderer2D::DrawQuad(const Vec3f& position, const Vec2f& scale, const Vec4f& color, uint32_t batchIndex)
 	{
 		Transform transform;
 		transform.SetPosition(position);
 		transform.Scale({ scale.x, scale.y, 1.0f });
-		DrawQuad(transform, color, pipelineIndex);
+		DrawQuad(transform, color, batchIndex);
 	}
 
-	void Renderer2D::DrawQuad(const Transform& transform, const Vec4f& color, uint32_t pipelineIndex)
+	void Renderer2D::DrawQuad(const Transform& transform, const Vec4f& color, uint32_t batchIndex)
 	{
 		constexpr size_t quadVertexCount = 4;
 		constexpr Vec2f texCoords[4]{ { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f } };
-		auto& pipeline = m_quadPipelines[pipelineIndex];
+		auto& batch = m_quadBatchs[batchIndex];
 		//Check if we still have space in the batch for more indices
-		if (pipeline.quadIndexCount >= m_maxIndices)
-			NextBatch(pipelineIndex);
+		if (batch.quadIndexCount >= m_maxIndices)
+			NextBatch(batchIndex);
 
 
 		//Input the vertex data to CPU within the quad vertex array
 		for (size_t i = 0; i < quadVertexCount; i++)
 		{
-			pipeline.quadVertexPtr->position = transform.GetTransformMatrix() * pipeline.quadVertexPosition[i];
-			pipeline.quadVertexPtr->texCoords = texCoords[i];
-			pipeline.quadVertexPtr->texIndex = 0;
-			pipeline.quadVertexPtr->color = color;
+			batch.quadVertexPtr->position = transform.GetTransformMatrix() * batch.quadVertexPosition[i];
+			batch.quadVertexPtr->texCoords = texCoords[i];
+			batch.quadVertexPtr->texIndex = 0;
+			batch.quadVertexPtr->color = color;
 
 			//Incrementing the pointed value of the quad vertex array
-			pipeline.quadVertexPtr++;
+			batch.quadVertexPtr++;
 		}
 
-		pipeline.quadIndexCount += 6;
+		batch.quadIndexCount += 6;
 		m_stats.quadCount++;
 	}
 
@@ -468,7 +465,7 @@ namespace Sandbox
 		sptr<Texture>& texture,
 		const std::vector<Vec2f>& texCoords,
 		const Vec4f& color,
-		uint32_t pipelineIndex)
+		uint32_t batchIndex)
 	{
 		Transform transform;
 		transform.SetPosition(position);
@@ -481,23 +478,23 @@ namespace Sandbox
 		sptr<Texture>& texture,
 		const std::vector<Vec2f>& texCoords,
 		const Vec4f& color,
-		uint32_t pipelineIndex)
+		uint32_t batchIndex)
 	{
 		constexpr size_t quadVertexCount = 4;
 		ASSERT_LOG_ERROR(bool(texCoords.size() >= 4), "texCoords size is too low.");
 
-		auto& pipeline = m_quadPipelines[pipelineIndex];
+		auto& batch = m_quadBatchs[batchIndex];
 
 		//Check if we still have space in the batch for more indices
-		if (pipeline.quadIndexCount >= m_maxIndices)
-			NextBatch(pipelineIndex);
+		if (batch.quadIndexCount >= m_maxIndices)
+			NextBatch(batchIndex);
 
 		float textureIndex = 0.0f;
 
 		//Find if the texture has been used in the current batch
-		for (uint32_t i = 1; i < pipeline.textureSlotIndex; i++)
+		for (uint32_t i = 1; i < batch.textureSlotIndex; i++)
 		{
-			if (pipeline.textureSlots[i] == texture)
+			if (batch.textureSlots[i] == texture)
 			{
 				textureIndex = (float)i;
 				break;
@@ -507,15 +504,15 @@ namespace Sandbox
 		if (textureIndex == 0.0f)
 		{
 			//Check if there is still space for a texture
-			if (pipeline.textureSlotIndex >= m_maxTextureSlots)
-				NextBatch(pipelineIndex);
+			if (batch.textureSlotIndex >= m_maxTextureSlots)
+				NextBatch(batchIndex);
 
 			//Set the current texture index
-			textureIndex = (float)pipeline.textureSlotIndex;
+			textureIndex = (float)batch.textureSlotIndex;
 			//Add the texture in the appropriate slot
-			pipeline.textureSlots[pipeline.textureSlotIndex] = texture;
+			batch.textureSlots[batch.textureSlotIndex] = texture;
 			//Increment the current index
-			pipeline.textureSlotIndex++;
+			batch.textureSlotIndex++;
 		}
 
 		float texWidth = std::fabs(texCoords[1].x - texCoords[2].x);
@@ -526,38 +523,38 @@ namespace Sandbox
 		//Input the vertex data to CPU within the quad vertex array
 		for (size_t i = 0; i < quadVertexCount; i++)
 		{
-			pipeline.quadVertexPtr->position = VertexPosition(pipeline.quadVertexPosition[i], transform, texDim, ppu, texWidth, texHeight);
-			pipeline.quadVertexPtr->texCoords = texCoords[i];
-			pipeline.quadVertexPtr->texIndex = textureIndex;
-			pipeline.quadVertexPtr->color = color;
+			batch.quadVertexPtr->position = VertexPosition(batch.quadVertexPosition[i], transform, texDim, ppu, texWidth, texHeight);
+			batch.quadVertexPtr->texCoords = texCoords[i];
+			batch.quadVertexPtr->texIndex = textureIndex;
+			batch.quadVertexPtr->color = color;
 
 			//Incrementing the pointed value of the quad vertex array
-			pipeline.quadVertexPtr++;
+			batch.quadVertexPtr++;
 		}
 
-		pipeline.quadIndexCount += 6;
+		batch.quadIndexCount += 6;
 		m_stats.quadCount++;
 	}
 
 	void Renderer2D::DrawSprite(
 		const Transform& transform,
 		const Sprite& sprite,
-		uint32_t pipelineIndex)
+		uint32_t batchIndex)
 	{
 		constexpr size_t quadVertexCount = 4;
 
-		auto& pipeline = m_quadPipelines[pipelineIndex];
+		auto& batch = m_quadBatchs[batchIndex];
 
 		//Check if we still have space in the batch for more indices
-		if (pipeline.quadIndexCount >= m_maxIndices)
-			NextBatch(pipelineIndex);
+		if (batch.quadIndexCount >= m_maxIndices)
+			NextBatch(batchIndex);
 
 		float textureIndex = 0.0f;
 		sptr<Texture> texture = sprite.GetTexture();
 		//Find if the texture has been used in the current batch
-		for (uint32_t i = 1; i < pipeline.textureSlotIndex; i++)
+		for (uint32_t i = 1; i < batch.textureSlotIndex; i++)
 		{
-			if (pipeline.textureSlots[i] == texture)
+			if (batch.textureSlots[i] == texture)
 			{
 				textureIndex = (float)i;
 				break;
@@ -567,30 +564,30 @@ namespace Sandbox
 		if (textureIndex == 0.0f)
 		{
 			//Check if there is still space for a texture
-			if (pipeline.textureSlotIndex >= m_maxTextureSlots)
-				NextBatch(pipelineIndex);
+			if (batch.textureSlotIndex >= m_maxTextureSlots)
+				NextBatch(batchIndex);
 
 			//Set the current texture index
-			textureIndex = (float)pipeline.textureSlotIndex;
+			textureIndex = (float)batch.textureSlotIndex;
 			//Add the texture in the appropriate slot
-			pipeline.textureSlots[pipeline.textureSlotIndex] = texture;
+			batch.textureSlots[batch.textureSlotIndex] = texture;
 			//Increment the current index
-			pipeline.textureSlotIndex++;
+			batch.textureSlotIndex++;
 		}
 
 		//Input the vertex data to CPU within the quad vertex array
 		for (size_t i = 0; i < quadVertexCount; i++)
 		{
-			pipeline.quadVertexPtr->position = VertexPosition(pipeline.quadVertexPosition[i], transform, sprite);
-			pipeline.quadVertexPtr->texCoords = sprite.textureCoords[i];
-			pipeline.quadVertexPtr->texIndex = textureIndex;
-			pipeline.quadVertexPtr->color = sprite.color;
+			batch.quadVertexPtr->position = VertexPosition(batch.quadVertexPosition[i], transform, sprite);
+			batch.quadVertexPtr->texCoords = sprite.textureCoords[i];
+			batch.quadVertexPtr->texIndex = textureIndex;
+			batch.quadVertexPtr->color = sprite.color;
 
 			//Incrementing the pointed value of the quad vertex array
-			pipeline.quadVertexPtr++;
+			batch.quadVertexPtr++;
 		}
 
-		pipeline.quadIndexCount += 6;
+		batch.quadIndexCount += 6;
 		m_stats.quadCount++;
 	}
 
@@ -618,23 +615,23 @@ namespace Sandbox
 		return m_stats;
 	}
 
-	void Renderer2D::StartBatch(uint32_t pipelineIndex)
+	void Renderer2D::StartBatch(uint32_t batchIndex)
 	{
 		//Reset vertex array data
-		m_quadPipelines[pipelineIndex].quadVertexPtr = m_quadPipelines[pipelineIndex].quadVertexBase;
+		m_quadBatchs[batchIndex].quadVertexPtr = m_quadBatchs[batchIndex].quadVertexBase;
 
 		//Reset counter
-		m_quadPipelines[pipelineIndex].quadIndexCount = 0;
+		m_quadBatchs[batchIndex].quadIndexCount = 0;
 
 		//Reset texture slot index
-		m_quadPipelines[pipelineIndex].textureSlotIndex = 1;
+		m_quadBatchs[batchIndex].textureSlotIndex = 1;
 
 	}
 
-	void Renderer2D::NextBatch(uint32_t pipelineIndex)
+	void Renderer2D::NextBatch(uint32_t batchIndex)
 	{
-		Flush(pipelineIndex);
-		StartBatch(pipelineIndex);
+		Flush(batchIndex);
+		StartBatch(batchIndex);
 	}
 
 	void Renderer2D::OnWindowResize(Vec2u size)

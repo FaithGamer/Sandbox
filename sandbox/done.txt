@@ -7,7 +7,7 @@ April
 - ForEachComponent improved with lambda/free function, and default gameworld
 
 16
--Improved the batch renderer to take custom shader/render target/stencil mode, with pipeline generated on purpose.
+-Improved the batch renderer to take custom shader/render target/stencil mode, with batch generated on purpose.
 
 20
 

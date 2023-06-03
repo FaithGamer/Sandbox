@@ -13,7 +13,7 @@ namespace Sandbox
 	{
 	public:
 		Sprite(sptr<Texture> Texture, sptr<Shader> Shader = nullptr)
-			: texture(Texture), shader(Shader), layer(0), color(Vec4f(1, 1, 1, 1)), needUpdateRenderPipeline(true)
+			: texture(Texture), shader(Shader), layer(0), color(Vec4f(1, 1, 1, 1)), needUpdateRenderBatch(true)
 		{
 			textureCoords[0] = Vec2f(0, 1);
 			textureCoords[1] = Vec2f(0, 0);
@@ -23,7 +23,7 @@ namespace Sandbox
 		}
 
 		Sprite(sptr<Texture> Texture, Rect TextureRect, sptr<Shader> Shader = nullptr)
-			: texture(Texture), shader(Shader), layer(0), color(Vec4f(1, 1, 1, 1)), needUpdateRenderPipeline(true)
+			: texture(Texture), shader(Shader), layer(0), color(Vec4f(1, 1, 1, 1)), needUpdateRenderBatch(true)
 		{
 			TextureCoordsRelative(textureCoords, TextureRect, 1.0f);
 			ComputeDimensions();
@@ -42,20 +42,20 @@ namespace Sandbox
 		inline void SetTexture(sptr<Texture> Texture)
 		{
 			texture = Texture;
-			needUpdateRenderPipeline = true;
+			needUpdateRenderBatch = true;
 			ComputeDimensions();
 		}
 
 		inline void SetShader(sptr<Shader> Shader)
 		{
 			shader = Shader;
-			needUpdateRenderPipeline = true;
+			needUpdateRenderBatch = true;
 		}
 
 		inline void SetLayer(uint32_t Layer)
 		{
 			layer = Layer;
-			needUpdateRenderPipeline = true;
+			needUpdateRenderBatch = true;
 		}
 
 		inline sptr<Texture> GetTexture() const
@@ -108,8 +108,8 @@ namespace Sandbox
 	public:
 		Vec4f color;
 		Vec2f textureCoords[4];
-		bool needUpdateRenderPipeline;
-		uint32_t renderPipeline;
+		bool needUpdateRenderBatch;
+		uint32_t renderBatch;
 		Vec2f dimensions;
 
 	private:

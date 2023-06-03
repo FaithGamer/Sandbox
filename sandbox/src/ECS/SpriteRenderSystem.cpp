@@ -16,12 +16,12 @@ namespace Sandbox
 
 		ForEachComponent<Sprite, Transform>([renderer](Sprite& sprite, Transform& transform)
 			{
-				if (sprite.needUpdateRenderPipeline)
+				if (sprite.needUpdateRenderBatch)
 				{
-					sprite.renderPipeline = renderer->GetPipeline(sprite.GetLayer(), sprite.GetShader(), nullptr);
-					sprite.needUpdateRenderPipeline = false;
+					sprite.renderBatch = renderer->GetBatchId(sprite.GetLayer(), sprite.GetShader(), nullptr);
+					sprite.needUpdateRenderBatch = false;
 				}
-				renderer->DrawSprite(transform, sprite, sprite.renderPipeline);
+				renderer->DrawSprite(transform, sprite, sprite.renderBatch);
 			});
 	}
 

@@ -37,4 +37,12 @@ namespace Sandbox
 		LOG_ERROR("Unknown Mouse Button name: " + name);
 		return MouseButton::Invalid;
 	}
+
+	Vec2f GetMousePosition()
+	{
+		int x;
+		int y;
+		SDL_GetMouseState(&x, &y);
+		return Vec2f(x, y);
+	}
 }

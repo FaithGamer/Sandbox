@@ -103,15 +103,15 @@ namespace Sandbox
 		void Begin(const Camera& camera);
 		/// @brief To be called when you are done Drawing. Will Render everything on the RenderTarget (default screen)
 		void End();
-		void Flush(uint32_t pipelineIndex);
+		void Flush(uint32_t batchIndex);
 
-		void DrawQuad(const Vec3f& position, const Vec2f& scale, const Vec4f& color = Vec4f(1), uint32_t pipelineIndex = 0);
-		void DrawQuad(const Transform& transform, const Vec4f& color = Vec4f(1), uint32_t pipelineIndex = 0);
+		void DrawQuad(const Vec3f& position, const Vec2f& scale, const Vec4f& color = Vec4f(1), uint32_t batchIndex = 0);
+		void DrawQuad(const Transform& transform, const Vec4f& color = Vec4f(1), uint32_t batchIndex = 0);
 		void DrawTexturedQuad(const Vec3f& position, const Vec2f& scale, sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1),
-			uint32_t pipelineIndex = 0);
+			uint32_t batchIndex = 0);
 		void DrawTexturedQuad(const Transform& transform, sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1),
-			uint32_t pipelineIndex = 0);
-		void DrawSprite(const Transform& transform, const Sprite& sprite, uint32_t pipelineIndex);
+			uint32_t batchIndex = 0);
+		void DrawSprite(const Transform& transform, const Sprite& sprite, uint32_t batchIndex);
 
 		/// @brief Add a layer on the bottom of the render queue.
 		/// The order cannot be changed ever again, and the layers cannot be removed.
@@ -131,12 +131,12 @@ namespace Sandbox
 		void SetLayerShader(uint32_t layer, sptr<Shader> shader);
 		/// @brief Set the StencilMode used when rendering a layer
 		void SetLayerStencilMode(uint32_t layer, sptr<StencilMode> stencil);
-		/// @brief Can be used for optimization if you know how much QuadPipeline you we be using.
-		/// @param count Number of quadpipeline to allocate space for.
-		void PreallocateQuadPipeline(int count);
-		/// @brief Use with care only if you know what you are doing, as every attempt to draw using this pipeline will result in undefined behaviour
-		/// @param pipeline 
-		void FreeQuadPipeline(uint32_t pipeline);
+		/// @brief Can be used for optimization if you know how much QuadBatch you we be using.
+		/// @param count Number of quadbatch to allocate space for.
+		void PreallocateQuadBatch(int count);
+		/// @brief Use with care only if you know what you are doing, as every attempt to draw using this batch will result in undefined behaviour
+		/// @param batch 
+		void FreeQuadBatch(uint32_t batch);
 		
 		/// @brief Get a layer id from it's name
 		/// @param name 
@@ -144,9 +144,9 @@ namespace Sandbox
 		uint32_t GetLayerId(std::string name);
 		/// @brief Get Every layers id
 		std::vector<uint32_t> GetLayers();
-		/// @brief Get a pipeline based on what layer/shader/stencilmode is used. nullptr = default shader/stenctilmode
-		/// @return PipelineId
-		uint32_t GetPipeline(uint32_t layerIndex, sptr<Shader> shader = nullptr, sptr<StencilMode> stencil = nullptr);
+		/// @brief Get a batch based on what layer/shader/stencilmode is used. nullptr = default shader/stenctilmode
+		/// @return BatchId
+		uint32_t GetBatchId(uint32_t layerIndex, sptr<Shader> shader = nullptr, sptr<StencilMode> stencil = nullptr);
 		/// @brief Give you some stats about the current rendering batch.
 		Statistics GetStats();
 
@@ -156,13 +156,13 @@ namespace Sandbox
 		friend Singleton<Renderer2D>;
 		Renderer2D();
 
-		void StartBatch(uint32_t pipelineIndex);
-		void NextBatch(uint32_t pipelineIndex);
+		void StartBatch(uint32_t batchIndex);
+		void NextBatch(uint32_t batchIndex);
 
-		void SetupQuadPipeline(QuadBatch& batch, RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil);
-		void AllocateQuadPipeline(QuadBatch& batch);
-		void CreateQuadPipeline(RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil);
-		uint64_t GeneratePipelineId(uint64_t a, uint64_t b, uint64_t c);
+		void SetupQuadBatch(QuadBatch& batch, RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil);
+		void AllocateQuadBatch(QuadBatch& batch);
+		void CreateQuadBatch(RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil);
+		uint64_t GenerateBatchId(uint64_t a, uint64_t b, uint64_t c);
 		void RenderLayers();
 		void SetShaderUniformSampler(sptr<Shader> shader, uint32_t count);
 		Vec3f VertexPosition(const Vec4f& pos, const Transform& transform, Vec2f texDim, float ppu, float width, float height);
@@ -172,9 +172,9 @@ namespace Sandbox
 
 		// Batched Quads
 
-		std::unordered_map<uint64_t, uint32_t> m_quadPipelineFinder;
-		std::vector<QuadBatch> m_quadPipelines;
-		std::vector<size_t> m_freeQuadPipelines;
+		std::unordered_map<uint64_t, uint32_t> m_quadBatchFinder;
+		std::vector<QuadBatch> m_quadBatchs;
+		std::vector<size_t> m_freeQuadBatchs;
 
 		uint32_t m_maxQuads;
 		uint32_t m_maxVertices;
@@ -194,6 +194,7 @@ namespace Sandbox
 		sptr<RenderTarget> m_target;
 		std::vector<RenderLayer> m_layers;
 		std::vector<OffscreenRenderLayer> m_offscreenLayers;
+		std::vector<RenderLayer*> m_renderLayers;
 		sptr<Shader> m_defaultLayerShader;
 
 		//Others
