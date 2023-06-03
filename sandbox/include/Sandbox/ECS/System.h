@@ -4,7 +4,6 @@
 #include <SDL/SDL.h>
 #include "Sandbox/ECS/World.h"
 
-
 namespace Sandbox
 {
 	class Entity;
@@ -66,35 +65,39 @@ namespace Sandbox
 		virtual std::string DebugName() { return "System"; }
 
 	protected:
-
+		std::vector<World*>& GetWorlds();
 		//To do: documentation
 
 		template <typename... ComponentType, typename Functor>
 		void ForEachComponent(Functor function)
 		{
-			//To do, replace every get main by foreach existing worlds
-			auto view = World::GetMain()->m_registry.view<ComponentType...>();
-			for (auto entityId : view)
+			for (auto& world : GetWorlds())
 			{
-				[&] <std::size_t... I>(std::index_sequence<I...>)
+				auto view = world->m_registry.view<ComponentType...>();
+				for (auto entityId : view)
 				{
-					function(std::get<I>(view.get(entityId))...);
-				}(std::make_index_sequence<sizeof...(ComponentType)>());
+					[&] <std::size_t... I>(std::index_sequence<I...>)
+					{
+						function(std::get<I>(view.get(entityId))...);
+					}(std::make_index_sequence<sizeof...(ComponentType)>());
+				}
 			}
 		};
 
 		template <typename... ComponentType, typename Functor>
 		void ForEachEntity(Functor function)
 		{
-			World* world = World::GetMain();
-			auto view = world->m_registry.view<ComponentType...>();
-			for (auto entityId : view)
+			for (auto& world : GetWorlds())
 			{
-				[&] <std::size_t... I>(std::index_sequence<I...>)
+				auto view = world->m_registry.view<ComponentType...>();
+				for (auto entityId : view)
 				{
-					Entity* entity = world->GetEntity(entityId);
-					function(*entity, std::get<I>(view.get(entityId))...);
-				}(std::make_index_sequence<sizeof...(ComponentType)>());
+					[&] <std::size_t... I>(std::index_sequence<I...>)
+					{
+						Entity* entity = world->GetEntity(entityId);
+						function(*entity, std::get<I>(view.get(entityId))...);
+					}(std::make_index_sequence<sizeof...(ComponentType)>());
+				}
 			}
 		};
 
@@ -128,14 +131,16 @@ namespace Sandbox
 		template <typename... ComponentType, typename SystemType>
 		void ForEachComponent(void(SystemType::* function)(ComponentType&...))
 		{
-			World* world = World::GetMain();
-			auto view = world->m_registry.view<ComponentType...>();
-			for (auto entityId : view)
+			for (auto& world : GetWorlds())
 			{
-				[&] <std::size_t... I>(std::index_sequence<I...>)
+				auto view = world->m_registry.view<ComponentType...>();
+				for (auto entityId : view)
 				{
-					(static_cast<SystemType*>(this)->*function)(std::get<I>(view.get(entityId))...);
-				}(std::make_index_sequence<sizeof...(ComponentType)>());
+					[&] <std::size_t... I>(std::index_sequence<I...>)
+					{
+						(static_cast<SystemType*>(this)->*function)(std::get<I>(view.get(entityId))...);
+					}(std::make_index_sequence<sizeof...(ComponentType)>());
+				}
 			}
 		};
 
@@ -184,27 +189,32 @@ namespace Sandbox
 		template <typename... ComponentType, typename SystemType>
 		void ForEachComponent(void(SystemType::* function)(Time delta, ComponentType&...), Time delta)
 		{
-			auto view = World::GetMain()->m_registry.view<ComponentType...>();
-			for (auto entityId : view)
+			for (auto& world : GetWorlds())
 			{
-				[&] <std::size_t... I>(std::index_sequence<I...>)
+				auto view = world->m_registry.view<ComponentType...>();
+				for (auto entityId : view)
 				{
-					(static_cast<SystemType*>(this)->*function)(delta, std::get<I>(view.get(entityId))...);
-				}(std::make_index_sequence<sizeof...(ComponentType)>());
+					[&] <std::size_t... I>(std::index_sequence<I...>)
+					{
+						(static_cast<SystemType*>(this)->*function)(delta, std::get<I>(view.get(entityId))...);
+					}(std::make_index_sequence<sizeof...(ComponentType)>());
+				}
 			}
 		};
 
 		template <typename... ComponentType, typename SystemType>
 		void ForEachEntity(void(SystemType::* function)(Time delta, Entity& entity, ComponentType&...), Time delta)
 		{
-			World* world = World::GetMain();
-			auto view = world->m_registry.view<ComponentType...>();
-			for (auto entityId : view)
+			for (auto& world : GetWorlds())
 			{
-				[&] <std::size_t... I>(std::index_sequence<I...>)
+				auto view = world->m_registry.view<ComponentType...>();
+				for (auto entityId : view)
 				{
-					(static_cast<SystemType*>(this)->*function)(delta, std::get<I>(view.get(entityId))...);
-				}(std::make_index_sequence<sizeof...(ComponentType)>());
+					[&] <std::size_t... I>(std::index_sequence<I...>)
+					{
+						(static_cast<SystemType*>(this)->*function)(delta, std::get<I>(view.get(entityId))...);
+					}(std::make_index_sequence<sizeof...(ComponentType)>());
+				}
 			}
 		};
 

@@ -40,9 +40,7 @@ namespace Sandbox
 		switch (type)
 		{
 		case InputType::Button:			return "Button";		break;
-		case InputType::Pointing:		return "Pointing";		break;
 		case InputType::Directional:	return "Directional";	break;
-		case InputType::Scroll:			return "Scroll";		break;
 		case InputType::Textual:		return "Textual";		break;
 		default:
 			LOG_WARN("Trying to get the name of an incorrect InputType");

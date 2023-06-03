@@ -36,8 +36,8 @@ void foo(int const* s)
 int main(int argc, char** argv)
 {
 
-
-	InputSystemTest();
+	SpriteRenderTest();
+	//InputSystemTest();
 
 
 	return 0;

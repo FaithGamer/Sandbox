@@ -60,12 +60,6 @@
     <ClCompile Include="src\Input\ButtonInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Input\PointingInput.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Input\ScrollInput.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Input\TextualInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -200,25 +194,16 @@
     <ClInclude Include="include\Sandbox\TypeId.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\entt_macros.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Sandbox\Signal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Input\DirectionalInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Input\PointingInput.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Sandbox\Input\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Input\ButtonInput.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Sandbox\Input\ScrollInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Input\TextualInput.h">
@@ -333,6 +318,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Sandbox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Sandbox\ECS\entt_macros.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

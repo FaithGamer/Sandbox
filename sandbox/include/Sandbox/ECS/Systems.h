@@ -109,11 +109,16 @@ namespace Sandbox
 		static World* CreateWorld(std::string name);
 		static void DestroyWorld(std::string name);
 
-		/// @brief Set the camera used for rendering into the window
+		/// @brief Set the camera used for rendering into the window by the Sandbox rendering Systems (like the SpriteRenderSystem)
+		/// Note that the entities rendered by the Sandbox Systems will be those within the same world as the camera.
 		/// @param camera Pointer to the camera, the Camera component is a PointableComponenent
 		static void SetMainCamera(Camera* camera);
 
-		/// @brief The first World ever created.
+		/// @brief Label a world as being main. This will be the world you get from GetMainWorld.
+		/// @param world 
+		static void SetMainWorld(World* world);
+
+		/// @brief The world wich is set as main, by default it is the first created world
 		/// @return World pointer.
 		static World* GetMainWorld();
 
@@ -134,6 +139,7 @@ namespace Sandbox
 			World* Get(std::string name);
 			std::vector<World*> pointers;
 			std::vector<std::string> names;
+			World* main;
 		};
 		friend Engine;
 		Systems();

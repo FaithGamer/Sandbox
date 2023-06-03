@@ -134,9 +134,9 @@ public:
 		uint32_t layeridmasked = Renderer2D::Instance()->AddLayer("maskedLayer", m_maskedShader, nullptr);
 		uint32_t maskLayer = Renderer2D::Instance()->AddOffscreenLayer("mask", 1);
 
-		m_maskPipeline = Renderer2D::Instance()->GetPipeline(maskLayer, nullptr, nullptr);
-		m_pipeline = Renderer2D::Instance()->GetPipeline(layerid, nullptr, nullptr);
-		m_pipelineMasked = Renderer2D::Instance()->GetPipeline(layeridmasked, nullptr, nullptr);
+		m_maskPipeline = Renderer2D::Instance()->GetBatchId(maskLayer, nullptr, nullptr);
+		m_pipeline = Renderer2D::Instance()->GetBatchId(layerid, nullptr, nullptr);
+		m_pipelineMasked = Renderer2D::Instance()->GetBatchId(layeridmasked, nullptr, nullptr);
 
 	}
 

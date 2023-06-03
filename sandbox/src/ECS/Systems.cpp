@@ -309,6 +309,12 @@ namespace Sandbox
 		instance->m_mainCamera = camera;
 	}
 
+	void Systems::SetMainWorld(World* world)
+	{
+		auto instance = Instance();
+		instance->m_worlds.main = world;
+	}
+
 	World* Systems::GetWorld(std::string name)
 	{
 		return Systems::Instance()->m_worlds.Get(name);
@@ -317,7 +323,7 @@ namespace Sandbox
 	World* Systems::GetMainWorld()
 	{
 		//To do, error handling
-		return Systems::Instance()->m_worlds.pointers[0];
+		return Systems::Instance()->m_worlds.main;
 	}
 
 	std::vector<World*>& Systems::GetWorlds()
@@ -333,6 +339,8 @@ namespace Sandbox
 	{
 		pointers.emplace_back(world);
 		names.emplace_back(world->GetName());
+		if (pointers.size() == 1)
+			main = world;
 	}
 
 	void Systems::Worlds::Destroy(std::string name)

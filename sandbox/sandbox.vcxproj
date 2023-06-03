@@ -39,7 +39,6 @@
     <ClCompile Include="src\ECS\Entity.cpp" />
     <ClCompile Include="src\Input\DirectionalInput.cpp" />
     <ClCompile Include="src\Input\Input.cpp" />
-    <ClCompile Include="src\Input\PointingInput.cpp" />
     <ClCompile Include="src\Render\Camera.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -58,7 +57,6 @@
     <ClCompile Include="src\Render\Transform.cpp" />
     <ClCompile Include="src\ECS\System.cpp" />
     <ClCompile Include="src\Input\TextualInput.cpp" />
-    <ClCompile Include="src\Input\ScrollInput.cpp" />
     <ClCompile Include="src\Task.cpp" />
     <ClCompile Include="src\Worker.cpp" />
   </ItemGroup>
@@ -96,7 +94,6 @@
     <ClInclude Include="include\Sandbox\Render.h" />
     <ClInclude Include="include\Sandbox\Input\InputMap.h" />
     <ClInclude Include="include\Sandbox\Input\DirectionalInput.h" />
-    <ClInclude Include="include\Sandbox\Input\PointingInput.h" />
     <ClInclude Include="include\Sandbox\ECS\entt_macros.h" />
     <ClInclude Include="include\Sandbox\ECS\Scene.h" />
     <ClInclude Include="include\Sandbox\ECS\Entity.h" />
@@ -121,7 +118,6 @@
     <ClInclude Include="include\Sandbox\Render\Transform.h" />
     <ClInclude Include="include\Sandbox\ECS\System.h" />
     <ClInclude Include="include\Sandbox\Input\TextualInput.h" />
-    <ClInclude Include="include\Sandbox\Input\ScrollInput.h" />
     <ClInclude Include="include\Sandbox\Task.h" />
   </ItemGroup>
   <ItemGroup>

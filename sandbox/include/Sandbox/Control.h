@@ -8,6 +8,3 @@
 #include "Sandbox/Input/Inputs.h"
 #include "Sandbox/Input/Keyboard.h"
 #include "Sandbox/Input/Mouse.h"
-#include "Sandbox/Input/PointingInput.h"
-#include "Sandbox/Input/ScrollInput.h"
-#include "Sandbox/Input/TextualInput.h"

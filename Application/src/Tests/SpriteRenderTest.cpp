@@ -27,7 +27,7 @@ void SpriteRenderTest()
 	auto sprite = entity->AddComponent<Sprite>(texture, texRect);
 
 	sprite->SetLayer(layer);
-	sprite->renderPipeline = Renderer2D::Instance()->GetPipeline(sprite->GetLayer(), sprite->GetShader(), nullptr);
+	sprite->renderBatch = Renderer2D::Instance()->GetBatchId(sprite->GetLayer(), sprite->GetShader(), nullptr);
 
 	auto transform = entity->AddComponent<Transform>();
 	transform->SetPosition(Vec3f(0, 0, 0));
