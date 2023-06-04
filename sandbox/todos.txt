@@ -6,7 +6,7 @@
 - Game World / entity serialization
 - Option to set a RenderTarget when using the batchrenderer (for rendering to framebuffer)
 - Write a RenderSystem, making use of the batchrenderer, and with option to use shader on individual sprite
-this will be related to SpriteComponent
+this will be related to SpriteRenderComponent
 - batching together sprites using the same material
 
 -tween system

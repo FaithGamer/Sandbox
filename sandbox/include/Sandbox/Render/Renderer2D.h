@@ -13,14 +13,14 @@
 
 namespace Sandbox
 {
-	struct Sprite2D
+	struct SpriteRender2D
 	{
 		Texture* texture;
 		std::vector<Vec2f> texCoords;
 		Vec4f color;
 	};
 
-	class Sprite;
+	class SpriteRender;
 	class RenderTarget;
 	class RenderTexture;
 	class Shader;
@@ -111,7 +111,7 @@ namespace Sandbox
 			uint32_t batchIndex = 0);
 		void DrawTexturedQuad(const Transform& transform, sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1),
 			uint32_t batchIndex = 0);
-		void DrawSprite(const Transform& transform, const Sprite& sprite, uint32_t batchIndex);
+		void DrawSprite(const Transform& transform, const SpriteRender& sprite, uint32_t batchIndex);
 
 		/// @brief Add a layer on the bottom of the render queue.
 		/// The order cannot be changed ever again, and the layers cannot be removed.
@@ -166,7 +166,7 @@ namespace Sandbox
 		void RenderLayers();
 		void SetShaderUniformSampler(sptr<Shader> shader, uint32_t count);
 		Vec3f VertexPosition(const Vec4f& pos, const Transform& transform, Vec2f texDim, float ppu, float width, float height);
-		Vec3f VertexPosition(const Vec4f& pos, const Transform& transform, const Sprite& sprite);
+		Vec3f VertexPosition(const Vec4f& pos, const Transform& transform, const SpriteRender& sprite);
 		sptr<VertexArray> GenerateLayerVertexArray(const std::vector<Vec2f>& screenSpace);
 	private:
 

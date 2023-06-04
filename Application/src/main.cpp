@@ -19,6 +19,7 @@
 #include "Tests/FrameBufferTest.h"
 #include "Tests/SpriteRenderTest.h"
 #include "Tests/InputSystemTest.h"
+#include "Tests/BillboardTest.h"
 
 #include <random>
 #include <iostream>
@@ -35,8 +36,10 @@ void foo(int const* s)
 }
 int main(int argc, char** argv)
 {
-
-	SpriteRenderTest();
+	//UniformBlockTest();
+	BillboardTest();
+	//RendererTest();
+	//SpriteRenderTest();
 	//InputSystemTest();
 
 

@@ -1,142 +1,37 @@
-[2023-05-14 00:15:03.753] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-14 00:15:03.757] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-14 00:15:03.758] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-14 00:15:03.758] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-14 00:15:03.758] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-14 18:40:33.204] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-14 18:40:33.210] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-14 18:40:33.210] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-14 18:40:33.210] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-14 18:40:33.211] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-14 18:40:52.809] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-14 18:40:52.810] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-14 18:40:52.810] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-14 18:40:52.810] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-14 18:40:52.810] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-14 18:41:50.156] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-14 18:41:50.158] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-14 18:41:50.158] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-14 18:41:50.158] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-14 18:41:50.158] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-21 15:33:29.654] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-21 15:33:29.655] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-21 15:33:29.655] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-21 15:33:29.656] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-21 15:33:29.656] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-21 15:33:29.662] [SANDBOX] [warning] An input map with the name Player1 already exists, no input map has been added. Nullptr returned.
-[2023-05-21 15:33:29.662] [SANDBOX] [info] inputs3 == nullptr
-[2023-05-21 15:33:56.999] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-21 15:33:56.999] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-21 15:33:56.999] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-21 15:33:57.000] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-21 15:33:57.000] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-21 15:33:57.006] [SANDBOX] [warning] An input map with the name Player1 already exists, no input map has been added. Nullptr returned.
-[2023-05-21 15:33:57.006] [SANDBOX] [info] inputs3 == nullptr
-[2023-05-21 15:34:17.559] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-21 15:34:17.560] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-21 15:34:17.560] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-21 15:34:17.560] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-21 15:34:17.560] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-21 15:34:17.566] [SANDBOX] [warning] An input map with the name Player1 already exists, no input map has been added. Nullptr returned.
-[2023-05-21 15:34:17.566] [SANDBOX] [info] inputs3 == nullptr
-[2023-05-21 15:39:11.553] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-21 15:39:11.554] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-21 15:39:11.554] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-21 15:39:11.554] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-21 15:39:11.554] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-21 15:39:11.560] [SANDBOX] [warning] An input map with the name Player1 already exists, no input map has been added. Nullptr returned.
-[2023-05-21 15:39:11.560] [SANDBOX] [info] inputs3 == nullptr
-[2023-05-21 15:44:17.335] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-21 15:44:17.335] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-21 15:44:17.336] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-21 15:44:17.336] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-21 15:44:17.336] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-21 15:44:17.341] [SANDBOX] [warning] An input map with the name Player1 already exists, no input map has been added. Nullptr returned.
-[2023-05-21 15:44:17.341] [SANDBOX] [info] inputs3 == nullptr
-[2023-05-21 15:45:18.302] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-21 15:45:18.303] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-21 15:45:18.303] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-21 15:45:18.304] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-21 15:45:18.304] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-21 15:45:18.310] [SANDBOX] [warning] An input map with the name Player1 already exists, no input map has been added. Nullptr returned.
-[2023-05-21 15:45:18.310] [SANDBOX] [info] inputs3 == nullptr
-[2023-05-21 15:45:32.354] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-21 15:45:32.354] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-21 15:45:32.355] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-21 15:45:32.355] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-21 15:45:32.355] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-21 15:45:32.360] [SANDBOX] [warning] An input map with the name Player1 already exists, no input map has been added. Nullptr returned.
-[2023-05-21 15:45:32.360] [SANDBOX] [info] inputs3 == nullptr
-[2023-05-21 15:46:10.986] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-21 15:46:10.987] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-21 15:46:10.987] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-21 15:46:10.987] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-21 15:46:10.987] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-21 15:46:10.993] [SANDBOX] [warning] An input map with the name Player1 already exists, no input map has been added. Nullptr returned.
-[2023-05-21 15:46:10.994] [SANDBOX] [info] inputs3 == nullptr
-[2023-05-21 15:54:27.189] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-21 15:54:27.189] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-21 15:54:27.190] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-21 15:54:27.190] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-21 15:54:27.190] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-21 15:54:27.201] [SANDBOX] [warning] An input map with the name Player1 already exists, no input map has been added. Nullptr returned.
-[2023-05-21 15:54:27.201] [SANDBOX] [info] inputs3 == nullptr
-[2023-05-21 15:55:07.204] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-21 15:55:07.205] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-21 15:55:07.205] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-21 15:55:07.205] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-21 15:55:07.205] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-21 15:55:07.212] [SANDBOX] [warning] An input map with the name Player1 already exists, no input map has been added. Nullptr returned.
-[2023-05-21 15:55:07.212] [SANDBOX] [info] inputs3 == nullptr
-[2023-05-21 15:56:54.122] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-21 15:56:54.123] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-21 15:56:54.123] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-21 15:56:54.123] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-21 15:56:54.123] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-21 15:56:54.129] [SANDBOX] [warning] An input map with the name Player1 already exists, no input map has been added. Nullptr returned.
-[2023-05-21 15:56:54.129] [SANDBOX] [info] inputs3 == nullptr
-[2023-05-21 15:58:24.703] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-21 15:58:24.704] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-21 15:58:24.704] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-21 15:58:24.705] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-21 15:58:24.706] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-21 15:58:24.712] [SANDBOX] [warning] An input map with the name Player1 already exists, no input map has been added. Nullptr returned.
-[2023-05-21 15:58:24.712] [SANDBOX] [info] inputs3 == nullptr
-[2023-05-21 21:03:28.371] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-21 21:03:28.376] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-21 21:03:28.376] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-21 21:03:28.376] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-21 21:03:28.377] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-21 21:03:28.394] [SANDBOX] [warning] An input map with the name Player1 already exists, no input map has been added. Nullptr returned.
-[2023-05-21 21:03:28.395] [SANDBOX] [info] inputs3 == nullptr
-[2023-05-21 21:03:58.997] [SANDBOX] [info] OpenGL Loaded.
-[2023-05-21 21:03:58.998] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-05-21 21:03:58.998] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-05-21 21:03:58.998] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-05-21 21:03:58.998] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-05-21 21:03:59.003] [SANDBOX] [warning] An input map with the name Player1 already exists, no input map has been added. Nullptr returned.
-[2023-05-21 21:03:59.004] [SANDBOX] [info] inputs3 == nullptr
-[2023-06-03 20:36:28.524] [SANDBOX] [info] OpenGL Loaded.
-[2023-06-03 20:36:28.524] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-06-03 20:36:28.525] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-06-03 20:36:28.525] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-06-03 20:36:28.525] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-06-03 20:36:28.570] [SANDBOX] [warning] An input map with the name Player1 already exists, no input map has been added. Nullptr returned.
-[2023-06-03 20:36:28.570] [SANDBOX] [info] inputs3 == nullptr
-[2023-06-03 21:28:08.173] [SANDBOX] [info] OpenGL Loaded.
-[2023-06-03 21:28:08.174] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-06-03 21:28:08.174] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-06-03 21:28:08.175] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-06-03 21:28:08.175] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-06-03 21:28:08.187] [SANDBOX] [warning] An input map with the name Player1 already exists, no input map has been added. Nullptr returned.
-[2023-06-03 21:28:08.187] [SANDBOX] [info] inputs3 == nullptr
-[2023-06-03 21:28:48.974] [SANDBOX] [info] OpenGL Loaded.
-[2023-06-03 21:28:48.975] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-06-03 21:28:48.975] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-06-03 21:28:48.976] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-06-03 21:28:48.976] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-06-03 21:53:18.050] [SANDBOX] [info] OpenGL Loaded.
-[2023-06-03 21:53:18.051] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-06-03 21:53:18.051] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-06-03 21:53:18.051] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-06-03 21:53:18.052] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-06-04 20:29:20.162] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-06-04 20:29:20.168] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-06-04 20:29:43.484] [SANDBOX] [info] OpenGL Loaded.
+[2023-06-04 20:29:43.485] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-06-04 20:29:43.486] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-06-04 20:29:43.486] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-06-04 20:29:43.486] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-06-04 20:30:00.709] [SANDBOX] [info] OpenGL Loaded.
+[2023-06-04 20:30:00.710] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-06-04 20:30:00.711] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-06-04 20:30:00.712] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-06-04 20:30:00.712] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-06-04 20:30:12.367] [SANDBOX] [info] OpenGL Loaded.
+[2023-06-04 20:30:12.368] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-06-04 20:30:12.368] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-06-04 20:30:12.369] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-06-04 20:30:12.369] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-06-04 20:30:44.760] [SANDBOX] [info] OpenGL Loaded.
+[2023-06-04 20:30:44.760] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-06-04 20:30:44.761] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-06-04 20:30:44.761] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-06-04 20:30:44.761] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-06-04 20:33:38.451] [SANDBOX] [info] OpenGL Loaded.
+[2023-06-04 20:33:38.452] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-06-04 20:33:38.452] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-06-04 20:33:38.452] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-06-04 20:33:38.452] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-06-04 20:34:17.275] [SANDBOX] [info] OpenGL Loaded.
+[2023-06-04 20:34:17.276] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-06-04 20:34:17.276] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-06-04 20:34:17.277] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-06-04 20:34:17.277] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-06-04 20:37:24.996] [SANDBOX] [info] OpenGL Loaded.
+[2023-06-04 20:37:24.998] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-06-04 20:37:24.998] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-06-04 20:37:24.998] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-06-04 20:37:24.998] [SANDBOX] [info] Max. Vertex attributes: 16

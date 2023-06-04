@@ -24,7 +24,9 @@ void SpriteRenderTest()
 
 	Rect texRect(0, 0, 1050, 1000);
 	auto entity = World::GetMain()->CreateEntity();
-	auto sprite = entity->AddComponent<Sprite>(texture, texRect);
+	auto sp = makesptr<Sprite>(texture);
+	auto sprite = entity->AddComponent<SpriteRender>();
+	sprite->SetSprite(sp);
 
 	sprite->SetLayer(layer);
 	sprite->renderBatch = Renderer2D::Instance()->GetBatchId(sprite->GetLayer(), sprite->GetShader(), nullptr);

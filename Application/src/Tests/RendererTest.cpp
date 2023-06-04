@@ -112,9 +112,11 @@ public:
 
 		auto camera = world->CreateEntity();
 		auto cam = camera->AddComponent<Camera>();
-		cam->SetOrthographicZoom(1);
+		cam->SetOrthographicZoom(0.25f);
 		cam->SetOrthographic(true);
 		cam->SetAspectRatio(Window::GetAspectRatio());
+
+		Systems::SetMainCamera(cam);
 
 		Window::GetResizeSignal()->AddListener(&RenderSys::OnResizeWindow, this);
 
@@ -146,8 +148,6 @@ public:
 		std::vector<Vec2f> texCoords{ { 0.0f, 1.0f }, { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }
 		};
 
-		Renderer2D::Instance()->Begin(*m_camera->GetComponent<Camera>());
-
 
 		int count = 0;
 		auto white = Vec4f(1, 1, 1, 1);
@@ -176,7 +176,6 @@ public:
 		Transform transform;
 		transform.SetScale(10, 10, 1);
 		Renderer2D::Instance()->DrawTexturedQuad(transform, m_texture1, texCoords, white, m_pipelineMasked);
-		Renderer2D::Instance()->End();
 
 	}
 private:

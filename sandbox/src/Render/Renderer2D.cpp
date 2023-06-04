@@ -8,7 +8,7 @@
 #include "Sandbox/Render/Shader.h"
 #include "Sandbox/Render/StencilMode.h"
 #include "Sandbox/Render/Window.h"
-#include "Sandbox/Render/Sprite.h"
+#include "Sandbox/Render/SpriteRender.h"
 #include "Sandbox/Vector.h"
 
 
@@ -19,6 +19,7 @@ namespace Sandbox
 		ASSERT_LOG_ERROR(Window::IsInitialized(), "Cannot create Renderer2D before Window is initialized.");
 
 		m_rendering = false;
+		//How much game unit are needed to fill the screen width
 		m_worldToScreenRatio = 0.02f;
 		//Limitations
 		m_maxQuads = 1000;
@@ -385,7 +386,7 @@ namespace Sandbox
 		}
 
 		//Draw every layers
-		for (auto layer = m_renderLayers.rbegin(); layer != m_renderLayers.rend(); layer++)
+		/*for (auto layer = m_renderLayers.rbegin(); layer != m_renderLayers.rend(); layer++)
 		{
 			if (!(*layer)->active)
 				continue;
@@ -395,6 +396,18 @@ namespace Sandbox
 			(*layer)->shader->Bind();
 			(*layer)->stencil->Bind();
 			GLuint indicesCount = (*layer)->vertexArray->GetIndexBuffer()->GetCount();
+			glDrawElements(GL_TRIANGLES, indicesCount, GL_UNSIGNED_INT, 0);
+		}*/
+		for (auto layer = m_layers.rbegin(); layer != m_layers.rend(); layer++)
+		{
+			if (!layer->active || layer->index == 0 || layer->offscreen)
+				continue;
+
+			std::static_pointer_cast<RenderTexture>(layer->target)->BindTexture(0);
+			layer->vertexArray->Bind();
+			layer->shader->Bind();
+			layer->stencil->Bind();
+			GLuint indicesCount = layer->vertexArray->GetIndexBuffer()->GetCount();
 			glDrawElements(GL_TRIANGLES, indicesCount, GL_UNSIGNED_INT, 0);
 		}
 	}
@@ -538,7 +551,7 @@ namespace Sandbox
 
 	void Renderer2D::DrawSprite(
 		const Transform& transform,
-		const Sprite& sprite,
+		const SpriteRender& sprite,
 		uint32_t batchIndex)
 	{
 		constexpr size_t quadVertexCount = 4;
@@ -579,7 +592,7 @@ namespace Sandbox
 		for (size_t i = 0; i < quadVertexCount; i++)
 		{
 			batch.quadVertexPtr->position = VertexPosition(batch.quadVertexPosition[i], transform, sprite);
-			batch.quadVertexPtr->texCoords = sprite.textureCoords[i];
+			batch.quadVertexPtr->texCoords = sprite.GetSprite()->GetTextureCoords(i);
 			batch.quadVertexPtr->texIndex = textureIndex;
 			batch.quadVertexPtr->color = sprite.color;
 
@@ -591,12 +604,12 @@ namespace Sandbox
 		m_stats.quadCount++;
 	}
 
-	Vec3f Renderer2D::VertexPosition(const Vec4f& pos, const Transform& transform, const Sprite& sprite)
+	Vec3f Renderer2D::VertexPosition(const Vec4f& pos, const Transform& transform, const SpriteRender& sprite)
 	{
 		Vec3f position = transform.GetTransformMatrix() * pos * m_worldToScreenRatio;
 
-		position.x *= sprite.dimensions.x;
-		position.y *= sprite.dimensions.y;
+		position.x *= sprite.GetSprite()->GetDimensions().x;
+		position.y *= sprite.GetSprite()->GetDimensions().y;
 
 		return position;
 	}

@@ -26,20 +26,22 @@
 #include "Sandbox/Vector.h"
 #include "Sandbox/Signal.h"
 
+#include "Sandbox/Engine.h"
 
 using namespace Sandbox;
 
 
 void BillboardTest()
 {
+	Engine::Init();
 
 	sptr<Shader> shader = makesptr<Shader>("assets/shaders/model_view_projection.vert", "assets/shaders/texture.frag");
 	sptr<Shader> shaderBillboard = makesptr<Shader>("assets/shaders/billboard.vert", "assets/shaders/texture.frag");
 
-	sptr<Texture> texture = makesptr<Texture>("assets/textures/image.png");
+	sptr<Texture> texture = makesptr<Texture>("assets/textures/trollface.png");
 
 	Transform transform;
-	transform.RotateZAxis(90);
+	transform.RotateZAxis(9);
 	transform.SetPosition({ 0, 0, 0 });
 	transform.SetScale(Vec3f(0.5, 0.5, 0.5));
 
@@ -48,10 +50,9 @@ void BillboardTest()
 	transform2.SetOrigin({ 0, -0.5, 0 });
 	transform2.SetScale(Vec3f(0.25, 0.25, 0.25));
 
-
 	Camera cam;
 
-	cam.SetPosition(Vec3f(1.12, -1.4, 1.3));
+	cam.SetPosition(Vec3f(0, 0, 1.3));
 
 	shader->SetUniform("model", transform.GetTransformMatrix());
 	shader->SetUniform("view", cam.GetViewMatrix());
@@ -89,17 +90,10 @@ void BillboardTest()
 	vertexArray->AddVertexBuffer(vertexBuffer);
 
 
-
-	Vec3f o = Vec3f(0, 0, 0);
-
-	LOG_INFO(o.x);
-
 	SDL_Event e;
 	bool run = true;
 
-	//shader.SetUniform("offset", 0.2f);
-
-	cam.SetPosition({ 0, 0, 1 });
+	cam.SetPosition({ .5f, 0, 3 });
 
 	std::vector<Vec2f> texCoords{ { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f }
 	};

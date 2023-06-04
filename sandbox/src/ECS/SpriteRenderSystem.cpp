@@ -14,7 +14,7 @@ namespace Sandbox
 	{
 		sptr<Renderer2D> renderer = Renderer2D::Instance();
 
-		ForEachComponent<Sprite, Transform>([renderer](Sprite& sprite, Transform& transform)
+		ForEachComponent<SpriteRender, Transform>([renderer](SpriteRender& sprite, Transform& transform)
 			{
 				if (sprite.needUpdateRenderBatch)
 				{

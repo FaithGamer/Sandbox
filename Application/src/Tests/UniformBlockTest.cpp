@@ -80,7 +80,7 @@ void UniformBlockTest()
     // store the projection matrix (we only do this once now) (note: we're not using zoom anymore by changing the FoV)
     Camera cam;
     cam.Pitch(0);
-    cam.Yaw(-10);
+    //cam.Yaw();
     cam.SetPosition({ 0, 0, 1 });
     glBindBuffer(GL_UNIFORM_BUFFER, uboMatrices);
     glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(glm::mat4), glm::value_ptr(cam.GetProjectionMatrix()));

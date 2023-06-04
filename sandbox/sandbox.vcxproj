@@ -27,6 +27,8 @@
     <ClCompile Include="src\Input\Keyboard.cpp" />
     <ClCompile Include="src\Input\Mouse.cpp" />
     <ClCompile Include="src\Render\Bindings.cpp" />
+    <ClCompile Include="src\Render\Sprite.cpp" />
+    <ClCompile Include="src\Render\SpriteRender.cpp" />
     <ClCompile Include="src\Render\UniformBuffer.cpp" />
     <ClCompile Include="src\Render\VertexBuffer.cpp" />
     <ClCompile Include="src\Vector.cpp" />
@@ -74,6 +76,7 @@
     <ClInclude Include="include\Sandbox\Render\Renderer2D.h" />
     <ClInclude Include="include\Sandbox\Render\RenderTarget.h" />
     <ClInclude Include="include\Sandbox\Render\RenderTexture.h" />
+    <ClInclude Include="include\Sandbox\Render\Sprite.h" />
     <ClInclude Include="include\Sandbox\Render\StencilMode.h" />
     <ClInclude Include="include\Sandbox\Render\UniformBuffer.h" />
     <ClInclude Include="include\Sandbox\Render\VertexBuffer.h" />
@@ -105,7 +108,7 @@
     <ClInclude Include="include\Sandbox\Input\ButtonInput.h" />
     <ClInclude Include="include\Sandbox\Render\Camera.h" />
     <ClInclude Include="include\Sandbox\Render\Buffer.h" />
-    <ClInclude Include="include\Sandbox\Render\Sprite.h" />
+    <ClInclude Include="include\Sandbox\Render\SpriteRender.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="include\Sandbox\Render\Shader.h" />
     <ClInclude Include="include\Sandbox\std_macros.h" />

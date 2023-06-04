@@ -147,6 +147,12 @@
     <ClCompile Include="src\ECS\SpriteRenderSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Render\SpriteRender.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Sandbox\Log.h">
@@ -308,7 +314,7 @@
     <ClInclude Include="include\Sandbox\Render\Rect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Render\Sprite.h">
+    <ClInclude Include="include\Sandbox\Render\SpriteRender.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\ECS\SpriteRenderSystem.h">
@@ -321,6 +327,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\ECS\entt_macros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Sandbox\Render\Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
