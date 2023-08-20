@@ -24,7 +24,7 @@ namespace Sandbox
 		ControllerButton controller = ControllerButton::Invalid;
 		ControllerTrigger trigger = ControllerTrigger::Undefined;
 
-		bool operator==(const Button& obj)
+		bool operator==(const Button& obj) const
 		{
 			return mouse == obj.mouse && key == obj.key && controller == obj.controller && trigger == obj.trigger;
 		}
