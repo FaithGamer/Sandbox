@@ -73,3 +73,12 @@ after binding buffer, that made any subsequent call to index buffer binding effe
 05 may
 
 - I cannot find how to make glm::perspective aspect ratio to crop content in the Y axis rather than the X axis.
+
+18 juillet
+
+Investigating on the rendering issue, the symptoms are that the textures coordinates, or the texture data
+isn't passed to the shader, along with the some of the data regarding the transform matrix
+
+20 august
+
+I need to better master git in order to check differences between older commit, and checkout to older commit and comeback safely

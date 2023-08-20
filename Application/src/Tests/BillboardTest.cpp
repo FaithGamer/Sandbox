@@ -38,7 +38,7 @@ void BillboardTest()
 	sptr<Shader> shader = makesptr<Shader>("assets/shaders/model_view_projection.vert", "assets/shaders/texture.frag");
 	sptr<Shader> shaderBillboard = makesptr<Shader>("assets/shaders/billboard.vert", "assets/shaders/texture.frag");
 
-	sptr<Texture> texture = makesptr<Texture>("assets/textures/trollface.png");
+	sptr<Texture> texture = makesptr<Texture>("assets/textures/image.png");
 
 	Transform transform;
 	transform.RotateZAxis(9);
@@ -88,7 +88,6 @@ void BillboardTest()
 	sptr<VertexArray> vertexArray = makesptr<VertexArray>();
 	vertexArray->SetIndexBuffer(indexBuffer);
 	vertexArray->AddVertexBuffer(vertexBuffer);
-
 
 	SDL_Event e;
 	bool run = true;
