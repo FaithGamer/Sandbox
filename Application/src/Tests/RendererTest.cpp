@@ -129,6 +129,8 @@ public:
 		m_otherShader = makesptr<Shader>("assets/shaders/batch_renderer.vert", "assets/shaders/batch_renderer2.frag");
 		m_texture1 = makesptr<Texture>("assets/textures/trollface.png");
 		m_texture2 = makesptr<Texture>("assets/textures/image.png");
+		m_texture1->SetPixelPerUnit(100);
+		m_texture2->SetPixelPerUnit(100);
 
 		m_maskedShader = makesptr<Shader>("assets/shaders/default_layer.vert", "assets/shaders/masked.frag");
 

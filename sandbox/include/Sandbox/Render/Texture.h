@@ -36,7 +36,6 @@ namespace Sandbox
 	{
 	public:
 		Texture();
-		Texture(bool whiteTexture1x1);
 		Texture(std::string path, TextureImportSettings importSettings = TextureImportSettings());
 		Texture(std::string path, uint32_t pixelPerUnit, TextureImportSettings importSettings = TextureImportSettings());
 		~Texture();
@@ -51,6 +50,7 @@ namespace Sandbox
 		float GetPixelPerUnit() const;
 
 	private:
+		void Create1x1White();
 		friend RenderTexture;
 		float m_pixelPerUnit;
 		TextureImportSettings m_importSettings;

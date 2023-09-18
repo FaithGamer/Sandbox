@@ -37,9 +37,9 @@ void foo(int const* s)
 int main(int argc, char** argv)
 {
 	//UniformBlockTest();
-	BillboardTest();
+	//BillboardTest();
 	//RendererTest();
-	//SpriteRenderTest();
+	SpriteRenderTest();
 	//InputSystemTest();
 
 

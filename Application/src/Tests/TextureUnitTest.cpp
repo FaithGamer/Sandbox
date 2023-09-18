@@ -32,7 +32,7 @@ void TextureUnitTest()
 	shader.SetUniform("texture2", 1);
 
 	//Texture
-	sptr<Texture> tex1 = makesptr<Texture>(true);
+	sptr<Texture> tex1 = makesptr<Texture>("white");
 	sptr<Texture> tex2 = makesptr<Texture>("assets/textures/trollface.png");
 
 

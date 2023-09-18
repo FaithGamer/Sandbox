@@ -17,8 +17,7 @@ namespace Sandbox
 	{
 
 	}
-	Texture::Texture(bool whiteTexture1x1) 
-		: m_size(1, 1), m_nbChannels(0), m_pixels(nullptr), m_id(0), m_importSettings(TextureImportSettings()), m_pixelPerUnit(1.f)
+	void Texture::Create1x1White()
 	{
 		//generate 1x1 white texture
 		glGenTextures(1, &m_id);
@@ -51,6 +50,11 @@ namespace Sandbox
 	Texture::Texture(std::string path, TextureImportSettings importSettings) 
 		: m_size(0, 0), m_nbChannels(0), m_pixels(nullptr), m_id(0), m_importSettings(importSettings), m_pixelPerUnit(1.f)
 	{
+		if (path == "white")
+		{
+			Create1x1White();
+			return;
+		}
 		//Load image data
 		m_pixels = stbi_load(path.c_str(), &m_size.x, &m_size.y, &m_nbChannels, 4);
 		

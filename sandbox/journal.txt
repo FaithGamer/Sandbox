@@ -82,3 +82,7 @@ isn't passed to the shader, along with the some of the data regarding the transf
 20 august
 
 I need to better master git in order to check differences between older commit, and checkout to older commit and comeback safely
+
+18 september
+
+- Fixed the renderer bug: sharedptr constructor could not discriminate between Texture(bool) and Texture(string, textureimportsetting = textureimportSetting())
