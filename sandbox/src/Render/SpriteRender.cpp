@@ -4,6 +4,7 @@
 namespace Sandbox
 {
 	SpriteRender::SpriteRender()
+		: m_sprite(nullptr), m_shader(nullptr), m_layer(0), color(Vec4f(1, 1, 1, 1)), needUpdateRenderBatch(true), renderBatch(0)
 	{
 
 	}
