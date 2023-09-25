@@ -102,15 +102,6 @@ namespace SandboxEditor
 				m_selection = path;
 			}
 
-			/*
-			if (ImGui::BeginDragDropSource())
-			{
-				auto relativePath = std::filesystem::relative(path, m_assetPath);
-				const wchar_t* itemPath = relativePath.c_str();
-				ImGui::SetDragDropPayload("CONTENT_BROWSER_ITEM", itemPath, (wcslen(itemPath) + 1) * sizeof(wchar_t));
-				ImGui::EndDragDropSource();
-			}*/
-
 			ImGui::PopStyleColor();
 
 			if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left))
@@ -139,16 +130,12 @@ namespace SandboxEditor
 			ImGui::PopID();
 		}
 
-		/*if (ImGui::IsMouseClicked(ImGuiMouseButton_Left))
-		{
-			m_selection = "";
-		}*/
+		position = ImGui::GetWindowPos();
+		size = ImGui::GetWindowSize();
 
-		/*ImGui::SliderFloat("Thumbnail Size", &thumbnailSize, 16, 512);
-		ImGui::SliderFloat("Padding", &padding, 0, 32);*/
-
-		// TODO: status bar
 		ImGui::End();
+
+		
 	}
 
 	std::string AssetBrowser::GetName()

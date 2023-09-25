@@ -13,6 +13,7 @@ namespace SandboxEditor
 	{
 		m_lastWindowSize = Window::GetSize();
 	}
+
 	void Layout::Init(std::initializer_list<sptr<Panel>> panels)
 	{
 		for (auto& panel : panels)
@@ -30,11 +31,12 @@ namespace SandboxEditor
 	{
 		for (auto& panelIt : m_panels)
 		{
-			auto panel = panelIt.second;
-			if(panel.active)
+			auto& panel = panelIt.second;
+			if (panel.active)
 				panel.panel->Display(panel.position, panel.size);
 		}
 	}
+
 	void Layout::SetPanelActive(std::string panelName, bool active)
 	{
 		auto panelFind = m_panels.find(panelName);
@@ -45,6 +47,28 @@ namespace SandboxEditor
 		}
 		panelFind->second.active = active;
 	}
+
+	void Layout::SwitchPanelActive(std::string panelName)
+	{
+		auto panelFind = m_panels.find(panelName);
+		if (panelFind == m_panels.end())
+		{
+			LOG_WARN("SetPanelActive: " + panelName + " doesn't exists.");
+			return;
+		}
+		panelFind->second.active = !panelFind->second.active;
+	}
+
+	void Layout::Reset()
+	{
+		for (auto& layout : m_panels)
+		{
+			layout.second.active = true;
+			layout.second.position = GetDefaultPosition(layout.second.panel->GetName());
+			layout.second.size = GetDefaultSize(layout.second.panel->GetName());
+		}
+	}
+
 	ImVec2 Layout::GetDefaultPosition(std::string panelName)
 	{
 		auto windowSize = Window::GetSize();
@@ -66,9 +90,10 @@ namespace SandboxEditor
 			float y = windowSize.y * 0.75f;
 			return { x, y };
 		}
- 
-		return {windowSize.x * 0.3f, windowSize.y*0.3f};
+
+		return { windowSize.x * 0.3f, windowSize.y * 0.3f };
 	}
+
 	ImVec2 Layout::GetDefaultSize(std::string panelName)
 	{
 		Vec2f windowSize = Window::GetSize();
@@ -94,6 +119,7 @@ namespace SandboxEditor
 
 		return { windowSize.x * 0.25f, windowSize.y * 0.25f };
 	}
+
 	void Layout::OnWindowResized(Vec2u windowSize)
 	{
 		Vec2f size = windowSize;
@@ -101,9 +127,13 @@ namespace SandboxEditor
 		for (auto& layout : m_panels)
 		{
 			layout.second.position.x *= ratio.x;
-			layout.second.position.y *= ratio.y;
+			if (layout.second.position.y != MAIN_MENU_HEIGHT)
+				layout.second.position.y *= ratio.y;
 			layout.second.size.x *= ratio.x;
-			layout.second.size.y *= ratio.y;
+			if (layout.second.size.y == m_lastWindowSize.y - MAIN_MENU_HEIGHT)
+				layout.second.size.y = size.y - MAIN_MENU_HEIGHT;
+			else
+				layout.second.size.y *= ratio.y;
 		}
 		m_lastWindowSize = size;
 	}

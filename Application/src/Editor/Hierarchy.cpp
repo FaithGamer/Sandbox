@@ -1,6 +1,9 @@
 #include "pch.h"
-
+#include <Sandbox/ECS.h>
 #include "Hierarchy.h"
+
+
+using namespace Sandbox;
 
 namespace SandboxEditor
 {
@@ -12,9 +15,24 @@ namespace SandboxEditor
 
 		ImGui::Begin("Hierarchy");
 
-		ImGui::Selectable("Dummy");
+
+		auto world = Systems::GetMainWorld();
+		if (world == nullptr)
+			ImGui::Text("No World instanced.");
+		else
+		{
+			world->m_registry.each([](EntityId entity) {
+				ImGui::Text(std::to_string((int)entity).c_str());
+				});
+		}
+
+
+		position = ImGui::GetWindowPos();
+		size = ImGui::GetWindowSize();
 
 		ImGui::End();
+
+
 	}
 	std::string Hierarchy::GetName()
 	{

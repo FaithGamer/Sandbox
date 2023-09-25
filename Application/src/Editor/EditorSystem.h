@@ -14,6 +14,9 @@ namespace SandboxEditor
 	public:
 		void OnStart();
 		void OnImGui();
+
+		void SwitchPanelHierarchy(Sandbox::InputSignal* input);
+		void SwitchPanelAsset(Sandbox::InputSignal* input);
 	private:
 		Layout m_layout;
 	};

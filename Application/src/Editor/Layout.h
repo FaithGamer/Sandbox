@@ -23,6 +23,8 @@ namespace SandboxEditor
 		void Init(std::initializer_list<sptr<Panel>> panels);
 		void Display();
 		void SetPanelActive(std::string panelName, bool active);
+		void SwitchPanelActive(std::string panelName);
+		void Reset();
 		ImVec2 GetDefaultPosition(std::string panelName);
 		ImVec2 GetDefaultSize(std::string panelName);
 		void OnWindowResized(Sandbox::Vec2u windowSize);

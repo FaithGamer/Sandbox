@@ -11,6 +11,8 @@ void Editor()
 	Engine::Init();
 	Camera cam;
 	Systems::SetMainCamera(&cam);
+	Systems::CreateWorld();
 	Systems::Push<SandboxEditor::EditorSystem>();
+	
 	Engine::Launch();
 }
