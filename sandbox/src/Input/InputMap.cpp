@@ -6,7 +6,7 @@
 
 namespace Sandbox
 {
-	InputMap::InputMap(std::string name) : m_name(name), m_mustUpdate(false), m_isActive(true)
+	InputMap::InputMap(std::string name) : m_name(name), m_mustUpdate(false), m_isActive(true), m_passThroughImGui(false)
 	{
 		m_byEvents.resize((int)EventType::EventTypeCount);
 	}
@@ -43,6 +43,11 @@ namespace Sandbox
 		m_isActive = active;
 	}
 
+	void InputMap::SetPassThroughImGui(bool passThrough)
+	{
+		m_passThroughImGui = passThrough;
+	}
+
 	void InputMap::DestroyInput(std::string name)
 	{
 		auto input = m_byNames.find(name);
@@ -58,8 +63,11 @@ namespace Sandbox
 		}
 	}
 
-	bool InputMap::OnEvent(const SDL_Event& e)
+	bool InputMap::OnEvent(const SDL_Event& e, bool handledByImGui)
 	{
+		if (handledByImGui && !m_passThroughImGui)
+			return false;
+
 		if (m_mustUpdate)
 			UpdateInputsEvents();
 

@@ -78,18 +78,18 @@ namespace Sandbox
 		{
 			HandleWindowEvents(m_events);
 
-			bool ImGuiEventHandled = ImGui_ImplSDL2_ProcessEvent(&m_events);
-			if (ImGuiEventHandled)
+			bool imGuiEventHandled = ImGui_ImplSDL2_ProcessEvent(&m_events);
+			/*if (ImGuiEventHandled)
 			{
 				if (ImGui::GetIO().WantCaptureKeyboard)
 					continue;
 				if (ImGui::GetIO().WantCaptureMouse)
 					continue;
-			}
+			}*/
 
 			for (auto& eventSystem : m_eventSystems)
 			{
-				if (eventSystem.system->OnEvent(m_events))
+				if (eventSystem.system->OnEvent(m_events, imGuiEventHandled))
 				{
 					break;
 				}
@@ -130,15 +130,18 @@ namespace Sandbox
 				system.system->OnRender();
 			}
 			Renderer2D::Instance()->End();
+
+			BeginImGui();
+			for (auto& system : m_imGuiSystems)
+			{
+				system.system->OnImGui();
+			}
+			EndImGui(Window::GetSize());
+
 			Window::RenderWindow();
 		}
 
-		BeginImGui();
-		for (auto& system : m_imGuiSystems)
-		{
-			system.system->OnImGui();
-		}
-		EndImGui(Window::GetSize());
+		
 	}
 
 	void Systems::HandleWindowEvents(SDL_Event& event)

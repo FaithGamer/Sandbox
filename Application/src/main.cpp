@@ -20,6 +20,9 @@
 #include "Tests/SpriteRenderTest.h"
 #include "Tests/InputSystemTest.h"
 #include "Tests/BillboardTest.h"
+#include "Tests/ImGuiSystemTest.h"
+
+#include "Editor/EntryPoint.h"
 
 #include <random>
 #include <iostream>
@@ -39,8 +42,11 @@ int main(int argc, char** argv)
 	//UniformBlockTest();
 	//BillboardTest();
 	//RendererTest();
-	SpriteRenderTest();
+	//SpriteRenderTest();
+	//ImGuiSystemTest();
 	//InputSystemTest();
+
+	Editor();
 
 
 	return 0;

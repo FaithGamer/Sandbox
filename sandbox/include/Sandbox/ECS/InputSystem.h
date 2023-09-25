@@ -8,7 +8,7 @@ namespace Sandbox
 	{
 	public:
 		InputSystem();
-		bool OnEvent(SDL_Event& event);
+		bool OnEvent(SDL_Event& event, bool handledByImGui);
 		int GetUsedMethod();
 	};
 }

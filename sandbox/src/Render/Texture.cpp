@@ -119,6 +119,11 @@ namespace Sandbox
 		glBindTexture(GL_TEXTURE_2D, m_id);
 	}
 
+	GLuint Texture::GetId()
+	{
+		return m_id;
+	}
+
 	Vec2i Texture::GetSize()
 	{
 		return m_size;

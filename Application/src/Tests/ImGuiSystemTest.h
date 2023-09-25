@@ -2,7 +2,9 @@
 
 #include "Sandbox/ECS/System.h"
 
-class ImGuiSystemTest : public Sandbox::System
+class ImGuiSystem : public Sandbox::System
 {
 	void OnImGui();
 };
+
+void ImGuiSystemTest();

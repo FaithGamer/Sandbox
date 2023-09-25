@@ -14,9 +14,14 @@ this will be related to SpriteRenderComponent
 
 -Store world not as pointers ?
 
--Render:
-
 -signal on resize window
 -create render texture that scale on window size
 -check if generateId works as intended
 -implement stencilmode
+-test renderer
+-find name for batchid
+-material instead of just shader
+
+-layers that are a set of systems
+-define "use imgui" ?
+-resource id for shader/stencil/ ->"render mode option batch id" 

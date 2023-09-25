@@ -42,7 +42,8 @@ namespace Sandbox
 
 		void SetPixelPerUnit(uint32_t pixelPerUnit);
 		void Bind(uint32_t textureUnit = 0);
-
+		
+		GLuint GetId();
 		Vec2i GetSize();
 
 		/// @brief The scale of the texture.

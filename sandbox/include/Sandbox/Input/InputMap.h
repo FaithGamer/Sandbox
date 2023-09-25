@@ -36,11 +36,14 @@ namespace Sandbox
 		/// @brief Set wether or not this InputMap is used by the InputSystem
 		/// @param active 
 		void SetActive(bool active);
+		/// @brief Set true to capture event even if ImGui captured it. Default: false.
+		/// @param passThrough 
+		void SetPassThroughImGui(bool passThrough);
 		/// @brief Delete an input
 		/// @param name Name of the Input to delete
 		void DestroyInput(std::string name);
 
-		bool OnEvent(const SDL_Event& e);
+		bool OnEvent(const SDL_Event& e, bool handledByImGui);
 		void OnInputEventModified(sptr<Input> input);
 
 		/// @brief Should this input map be used or not.
@@ -65,6 +68,7 @@ namespace Sandbox
 
 		bool m_mustUpdate;
 		bool m_isActive;
+		bool m_passThroughImGui;
 
 		std::string m_name;
 	};

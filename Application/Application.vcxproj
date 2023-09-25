@@ -150,6 +150,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Editor\AssetBrowser.cpp" />
+    <ClCompile Include="src\Editor\EditorSystem.cpp" />
+    <ClCompile Include="src\Editor\Hierarchy.cpp" />
+    <ClCompile Include="src\Editor\Layout.cpp" />
+    <ClCompile Include="src\Editor\Menu.cpp" />
+    <ClCompile Include="src\Editor\SandboxEditorUtils.cpp" />
     <ClCompile Include="src\Tests\ECSTest.cpp" />
     <ClCompile Include="src\Tests\ECSTest.h" />
     <ClCompile Include="src\Tests\FrameBufferTest.cpp" />
@@ -170,6 +176,13 @@
     <ClCompile Include="src\Tests\UniformBlockTest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Editor\Hierarchy.h" />
+    <ClInclude Include="src\Editor\Menu.h" />
+    <ClInclude Include="src\Editor\AssetBrowser.h" />
+    <ClInclude Include="src\Editor\EntryPoint.h" />
+    <ClInclude Include="src\Editor\EditorSystem.h" />
+    <ClInclude Include="src\Editor\Layout.h" />
+    <ClInclude Include="src\Editor\Panel.h" />
     <ClInclude Include="src\Tests\InputSystemTest.h" />
     <ClInclude Include="src\Tests\SpriteRenderTest.h" />
     <ClInclude Include="src\Tests\FrameBufferTest.h" />
@@ -186,6 +199,7 @@
     <ClInclude Include="src\Tests\ToolboxTest.h" />
     <ClInclude Include="src\Tests\UniformBlockTest.h" />
     <ClInclude Include="src\Tests\SystemTest.h" />
+    <ClInclude Include="src\Editor\SandboxEditorUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sandbox\sandbox.vcxproj">

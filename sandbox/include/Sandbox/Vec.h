@@ -1,3 +1,4 @@
+#pragma once
 #include <glm/glm.hpp>
 
 namespace Sandbox
@@ -14,4 +15,15 @@ namespace Sandbox
 
 	typedef glm::mat4 Mat4;
 	typedef glm::mat3 Mat3;
+
+	class Vec2
+	{
+	public:
+		static std::string String(Vec2i vec)
+		{
+			std::string x = std::to_string(vec.x);
+			std::string y = std::to_string(vec.y);
+			return "[" + x + "], [" + y + "]";
+		}
+	};
 }

@@ -42,7 +42,7 @@ namespace Sandbox
 		/// @brief Called every time an SDL_Event is received, if no other system has processed the event.
 		/// @param event SDL_Event
 		/// @return true if the event has been
-		virtual bool OnEvent(SDL_Event& event) { return false; }
+		virtual bool OnEvent(SDL_Event& event, bool handledByImGui) { return false; }
 
 		/// @brief Called when the system is removed from Systems
 		virtual void OnRemove() {}

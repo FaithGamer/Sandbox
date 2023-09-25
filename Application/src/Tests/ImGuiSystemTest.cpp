@@ -1,8 +1,23 @@
 #include "ImGuiSystemTest.h"
 #include "imgui/imgui.h"
-
-void ImGuiSystemTest::OnImGui()
+#include "Sandbox/Engine.h"
+#include "Sandbox/ECS.h"
+#include "Sandbox/Render.h"
+void ImGuiSystem::OnImGui()
 {
 	bool show_demo_window = true;
 	ImGui::ShowDemoWindow(&show_demo_window);
+}
+
+using namespace Sandbox;
+
+void ImGuiSystemTest()
+{
+	EngineParameters parameters;
+	parameters.appName = "Sandbox Imgui System Test";
+	Engine::Init();
+	Camera camera;
+	Systems::SetMainCamera(&camera);
+	Systems::Push<ImGuiSystem>();
+	Engine::Launch();
 }
