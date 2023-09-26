@@ -25,3 +25,5 @@ this will be related to SpriteRenderComponent
 -layers that are a set of systems
 -define "use imgui" ?
 -resource id for shader/stencil/ ->"render mode option batch id" 
+
+-!sprite with different height than width move faster in the longest dimension.

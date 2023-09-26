@@ -247,8 +247,8 @@ namespace Sandbox
 		if (m_orthographic)
 		{
 			m_projectionMatrix = glm::ortho(
-				-m_aspectRatio * m_orthographicZoom,
 				m_aspectRatio * m_orthographicZoom,
+				-m_aspectRatio * m_orthographicZoom,
 				-m_orthographicZoom,
 				m_orthographicZoom,
 				-100.f,

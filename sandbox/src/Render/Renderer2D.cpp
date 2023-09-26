@@ -19,7 +19,7 @@ namespace Sandbox
 		ASSERT_LOG_ERROR(Window::IsInitialized(), "Cannot create Renderer2D before Window is initialized.");
 
 		m_rendering = false;
-		//How much game unit are needed to fill the screen width
+		//How much game unit are needed to fill the screen height
 		m_worldToScreenRatio = 0.02f;
 		//Limitations
 		m_maxQuads = 1000;
@@ -185,7 +185,7 @@ namespace Sandbox
 	std::vector<uint32_t> Renderer2D::GetLayers()
 	{
 		size_t layerCount = m_layers.size();
-		std::vector<uint32_t> layers(layerCount-1);
+		std::vector<uint32_t> layers(layerCount - 1);
 		for (size_t i = 1; i < layerCount; i++)
 		{
 			layers[i] = m_layers[i].index;
@@ -606,21 +606,20 @@ namespace Sandbox
 
 	Vec3f Renderer2D::VertexPosition(const Vec4f& pos, const Transform& transform, const SpriteRender& sprite)
 	{
-		Vec3f position = transform.GetTransformMatrix() * pos * m_worldToScreenRatio;
-
+		Vec4f position = pos;
 		position.x *= sprite.GetSprite()->GetDimensions().x;
 		position.y *= sprite.GetSprite()->GetDimensions().y;
 
-		return position;
+		return transform.GetTransformMatrix() * position * m_worldToScreenRatio;
 	}
 
 	Vec3f Renderer2D::VertexPosition(const Vec4f& pos, const Transform& transform, Vec2f texDim, float ppu, float width, float height)
 	{
-		Vec3f position = transform.GetTransformMatrix() * pos * m_worldToScreenRatio;
+		Vec4f position = pos;
 		position.x *= width * texDim.x * ppu;
 		position.y *= height * texDim.y * ppu;
 
-		return position;
+		return transform.GetTransformMatrix() * position * m_worldToScreenRatio;
 	}
 
 	Renderer2D::Statistics Renderer2D::GetStats()

@@ -96,7 +96,7 @@ namespace Sandbox
 
 	Texture::Texture(std::string path, uint32_t pixelPerUnit, TextureImportSettings importSettings) : Texture(path, importSettings)
 	{
-		m_pixelPerUnit = pixelPerUnit;
+		m_pixelPerUnit = 1.f/pixelPerUnit;
 	}
 
 	Texture::~Texture()

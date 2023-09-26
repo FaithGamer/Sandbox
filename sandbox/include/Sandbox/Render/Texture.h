@@ -13,7 +13,7 @@ namespace Sandbox
 
 	typedef enum : GLint
 	{
-		Clamp = GL_CLAMP_TO_BORDER,
+		Clamp = GL_CLAMP_TO_EDGE,
 		Repeat = GL_REPEAT
 	}TextureWrapping;
 

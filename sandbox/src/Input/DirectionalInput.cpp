@@ -393,7 +393,6 @@ namespace Sandbox
 				sum += direction.stick.currentDirection;
 			}
 		}
-		sum = glm::normalize(sum);
 
 		if (m_state.direction != sum)
 		{
