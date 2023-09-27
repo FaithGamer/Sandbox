@@ -26,4 +26,5 @@ this will be related to SpriteRenderComponent
 -define "use imgui" ?
 -resource id for shader/stencil/ ->"render mode option batch id" 
 
--!sprite with different height than width move faster in the longest dimension.
+
+-upscaling shader for pixel art 

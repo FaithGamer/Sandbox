@@ -31,3 +31,10 @@ september
 
 - InputMap: Event can pass through 
 
+
+26
+-fixed bug with rendering sprite
+
+27
+-optimization for non-moving sprite
+-fixed: layer works again (one batch was doubled, GetBatchId was laways returning 0, glViewport wasn't used in RdnerTexture->Bind)

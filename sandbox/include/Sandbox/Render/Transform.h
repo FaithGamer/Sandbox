@@ -40,6 +40,8 @@ namespace Sandbox
 		Vec3f GetOrigin() const;
 
 		Mat4 GetTransformMatrix() const;
+		mutable bool needCompute;
+		mutable bool matrixUpdated;
 	private:
 		void ComputeMatrix() const;
 		
@@ -48,7 +50,7 @@ namespace Sandbox
 		Vec3f m_rotation;
 		Vec3f m_origin;
 
-		mutable bool m_needCompute;
+		
 		mutable Mat4 m_transformMatrix;
 	};
 }

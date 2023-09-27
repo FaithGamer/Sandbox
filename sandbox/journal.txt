@@ -86,3 +86,9 @@ I need to better master git in order to check differences between older commit, 
 18 september
 
 - Fixed the renderer bug: sharedptr constructor could not discriminate between Texture(bool) and Texture(string, textureimportsetting = textureimportSetting())
+
+27 september
+
+- after further testing I realized my batch rendering seems to be totally ok performance wise
+especially after making an optimization to not recalculate position vertex when sprite no moving (and avoiding a costly matrix4 * vector4)
+I can do further optimization by reducing the layer size wich is very suited for pixel art graphic

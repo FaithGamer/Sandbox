@@ -7,6 +7,7 @@
 #include "Sandbox/Render/VertexArray.h"
 #include "Sandbox/Render/Camera.h"
 #include "Sandbox/Render/Texture.h"
+#include "Sandbox/Render/Sprite.h"
 #include "Sandbox/Render/Transform.h"
 #include "Sandbox/Render/RenderTarget.h"
 #include "Sandbox/Singleton.h"
@@ -111,7 +112,7 @@ namespace Sandbox
 			uint32_t batchIndex = 0);
 		void DrawTexturedQuad(const Transform& transform, sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1),
 			uint32_t batchIndex = 0);
-		void DrawSprite(const Transform& transform, const SpriteRender& sprite, uint32_t batchIndex);
+		void DrawSprite(Transform& transform, SpriteRender& sprite, uint32_t batchIndex);
 
 		/// @brief Add a layer on the bottom of the render queue.
 		/// The order cannot be changed ever again, and the layers cannot be removed.
@@ -165,8 +166,8 @@ namespace Sandbox
 		uint64_t GenerateBatchId(uint64_t a, uint64_t b, uint64_t c);
 		void RenderLayers();
 		void SetShaderUniformSampler(sptr<Shader> shader, uint32_t count);
-		Vec3f VertexPosition(const Vec4f& pos, const Transform& transform, Vec2f texDim, float ppu, float width, float height);
-		Vec3f VertexPosition(const Vec4f& pos, const Transform& transform, const SpriteRender& sprite);
+		Vec3f VertexPosition(Vec4f pos, const Transform& transform, Vec2f texDim, float ppu, float width, float height);
+		Vec3f VertexPosition(Vec4f pos, const Transform& transform, const Sprite& sprite);
 		sptr<VertexArray> GenerateLayerVertexArray(const std::vector<Vec2f>& screenSpace);
 	private:
 

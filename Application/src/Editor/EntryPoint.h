@@ -9,7 +9,9 @@ using namespace Sandbox;
 
 void Editor()
 {
-	Engine::Init();
+	EngineParameters params;
+	params.startupWindowResolution = { 320, 180 };
+	Engine::Init(params);
 	Camera cam;
 	cam.SetOrthographic(true);
 	Window::GetResizeSignal()->AddListener(&Camera::SetAspectRatio, &cam);

@@ -41,21 +41,17 @@ namespace Sandbox
 			return m_layer;
 		}
 
-
-
 	public:
 		Vec4f color;
 		bool needUpdateRenderBatch;
 		uint32_t renderBatch;
+		Sandbox::Vec3f preComputedPosition[4];
+		bool spriteDimensionsChanged;
 	
-
 	private:
 		sptr<Shader> m_shader;
 		sptr<Sprite> m_sprite;
 		uint32_t m_layer;
-
-
-
 
 	};
 }

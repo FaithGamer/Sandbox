@@ -4,12 +4,14 @@
 namespace Sandbox
 {
 	SpriteRender::SpriteRender()
-		: m_sprite(nullptr), m_shader(nullptr), m_layer(0), color(Vec4f(1, 1, 1, 1)), needUpdateRenderBatch(true), renderBatch(0)
+		: m_sprite(nullptr), m_shader(nullptr), m_layer(0), color(Vec4f(1, 1, 1, 1)),
+		needUpdateRenderBatch(true), renderBatch(0), spriteDimensionsChanged(true)
 	{
 
 	}
 	SpriteRender::SpriteRender(sptr<Sprite> sprite, sptr<Shader> Shader = nullptr)
-		: m_sprite(sprite), m_shader(Shader), m_layer(0), color(Vec4f(1, 1, 1, 1)), needUpdateRenderBatch(true), renderBatch(0)
+		: m_sprite(sprite), m_shader(Shader), m_layer(0), color(Vec4f(1, 1, 1, 1)),
+		needUpdateRenderBatch(true), renderBatch(0), spriteDimensionsChanged(true)
 	{
 
 	}
@@ -18,6 +20,12 @@ namespace Sandbox
 	{
 		m_sprite = sprite;
 		needUpdateRenderBatch = true;
+
+		if (!m_sprite || m_sprite->GetDimensions() == sprite->GetDimensions())
+			return;
+
+		spriteDimensionsChanged = true;
+
 	}
 
 	void SpriteRender::SetShader(sptr<Shader> Shader)

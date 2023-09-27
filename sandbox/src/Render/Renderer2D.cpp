@@ -73,7 +73,7 @@ namespace Sandbox
 
 		//Screen layer
 		m_layers.push_back(RenderLayer("Window", 0, window, m_defaultLayerShader, m_defaultStencilMode, defaultLayerVertexArray));
-		CreateQuadBatch(m_layers[0], nullptr, nullptr);
+		//CreateQuadBatch(m_layers[0], nullptr, nullptr);
 
 		SetShaderUniformSampler(m_defaultLayerShader, m_maxOffscreenLayers + 1);
 
@@ -124,7 +124,8 @@ namespace Sandbox
 
 		std::vector<Vec2f> screenSpace{ {-1, -1}, { 1, -1 }, { 1, 1 }, { -1, 1 } };
 		sptr<VertexArray> layerVertexArray = GenerateLayerVertexArray(screenSpace);
-		sptr<RenderTexture> layer = makesptr<RenderTexture>(Window::GetSize());
+		//sptr<RenderTexture> layer = makesptr<RenderTexture>(Window::GetSize());
+		sptr<RenderTexture> layer = makesptr<RenderTexture>(Vec2u(320, 180));
 		m_layers.push_back(RenderLayer(name, (uint32_t)m_layers.size(), layer, shader, stencil, layerVertexArray, false, false));
 		m_renderLayers.push_back(&m_layers.back());
 
@@ -177,6 +178,7 @@ namespace Sandbox
 			{
 				return i;
 			}
+			i++;
 		}
 		LOG_WARN("No render layer with the name: " + name + " default layer returned.");
 		return 0;
@@ -550,8 +552,8 @@ namespace Sandbox
 	}
 
 	void Renderer2D::DrawSprite(
-		const Transform& transform,
-		const SpriteRender& sprite,
+		Transform& transform,
+		SpriteRender& spriteRender,
 		uint32_t batchIndex)
 	{
 		constexpr size_t quadVertexCount = 4;
@@ -563,7 +565,7 @@ namespace Sandbox
 			NextBatch(batchIndex);
 
 		float textureIndex = 0.0f;
-		sptr<Texture> texture = sprite.GetTexture();
+		sptr<Texture> texture = spriteRender.GetTexture();
 		//Find if the texture has been used in the current batch
 		for (uint32_t i = 1; i < batch.textureSlotIndex; i++)
 		{
@@ -588,38 +590,50 @@ namespace Sandbox
 			batch.textureSlotIndex++;
 		}
 
+		sptr<Sprite> sprite = spriteRender.GetSprite();
+		bool reComputePosition = transform.matrixUpdated || transform.needCompute || spriteRender.spriteDimensionsChanged;
+
 		//Input the vertex data to CPU within the quad vertex array
 		for (size_t i = 0; i < quadVertexCount; i++)
 		{
-			batch.quadVertexPtr->position = VertexPosition(batch.quadVertexPosition[i], transform, sprite);
-			batch.quadVertexPtr->texCoords = sprite.GetSprite()->GetTextureCoords(i);
+			if (reComputePosition) //to do check if spriteRender dim changed
+			{
+				batch.quadVertexPtr->position = VertexPosition(batch.quadVertexPosition[i], transform, *sprite);
+				spriteRender.preComputedPosition[i] = batch.quadVertexPtr->position;
+			}
+			else
+			{
+				batch.quadVertexPtr->position = spriteRender.preComputedPosition[i];
+			}
+
+			batch.quadVertexPtr->texCoords = sprite->GetTextureCoords(i);
 			batch.quadVertexPtr->texIndex = textureIndex;
-			batch.quadVertexPtr->color = sprite.color;
+			batch.quadVertexPtr->color = spriteRender.color;
 
 			//Incrementing the pointed value of the quad vertex array
 			batch.quadVertexPtr++;
 		}
 
+		spriteRender.spriteDimensionsChanged = false;
+		transform.matrixUpdated = false;
 		batch.quadIndexCount += 6;
 		m_stats.quadCount++;
 	}
 
-	Vec3f Renderer2D::VertexPosition(const Vec4f& pos, const Transform& transform, const SpriteRender& sprite)
+	Vec3f Renderer2D::VertexPosition(Vec4f pos, const Transform& transform, const Sprite& sprite)
 	{
-		Vec4f position = pos;
-		position.x *= sprite.GetSprite()->GetDimensions().x;
-		position.y *= sprite.GetSprite()->GetDimensions().y;
+		pos.x *= sprite.GetDimensions().x;
+		pos.y *= sprite.GetDimensions().y;
 
-		return transform.GetTransformMatrix() * position * m_worldToScreenRatio;
+		return transform.GetTransformMatrix() * pos * m_worldToScreenRatio;
 	}
 
-	Vec3f Renderer2D::VertexPosition(const Vec4f& pos, const Transform& transform, Vec2f texDim, float ppu, float width, float height)
+	Vec3f Renderer2D::VertexPosition(Vec4f pos, const Transform& transform, Vec2f texDim, float ppu, float width, float height)
 	{
-		Vec4f position = pos;
-		position.x *= width * texDim.x * ppu;
-		position.y *= height * texDim.y * ppu;
+		pos.x *= width * texDim.x * ppu;
+		pos.y *= height * texDim.y * ppu;
 
-		return transform.GetTransformMatrix() * position * m_worldToScreenRatio;
+		return transform.GetTransformMatrix() * pos * m_worldToScreenRatio;
 	}
 
 	Renderer2D::Statistics Renderer2D::GetStats()
@@ -652,7 +666,7 @@ namespace Sandbox
 		{
 			if (layer.index == 0)
 				continue;
-			layer.target->SetSize(size);
+			//layer.target->SetSize(size);
 		}
 	}
 
@@ -660,7 +674,7 @@ namespace Sandbox
 	{
 		//Create a vertex array for a layer
 
-		//The screen coordinates the layer will be redered into.
+		//The screen coordinates the layer will be rendered into.
 		float layerVertices[]
 		{
 		screenSpace[0].x, screenSpace[0].y, 0,  0.0, 0.0,

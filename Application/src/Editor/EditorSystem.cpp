@@ -34,7 +34,7 @@ namespace SandboxEditor
 	void EditorSystem::CreateEntityTool()
 	{
 		ImGui::Begin("Create Entity");
-		int count = 1;
+		static int count = 1;
 		ImGui::InputInt("Count", &count);
 		std::string pos = std::to_string(m_position.x) + " " + std::to_string(m_position.y);
 		std::string dir = std::to_string(m_direction.x) + " " + std::to_string(m_direction.y);
@@ -43,8 +43,6 @@ namespace SandboxEditor
 		ImGui::Text(dir.c_str());
 		if (ImGui::Button("Create Entity"))
 		{
-		
-			
 			auto world = Systems::GetMainWorld();
 			if (world == nullptr)
 			{
@@ -54,8 +52,8 @@ namespace SandboxEditor
 
 			for (int i = 0; i < count; i++)
 			{
-				float x = 0;// Rng(0, 1);
-				float y = 0;// Rng(0, 1);
+				float x = Rng(-50, 50);
+				float y = Rng(-50, 50);
 
 				auto entity = world->CreateEntity();
 				auto transform = entity->AddComponent<Transform>();
@@ -63,22 +61,25 @@ namespace SandboxEditor
 
 				auto render = entity->AddComponent<SpriteRender>();
 				render->SetSprite(m_entitySprite);
+
+				//render->SetLayer(Renderer2D::Instance()->GetLayerId("320x180"));
 			}
 		}
 		ImGui::End();
 	}
 	void EditorSystem::OnUpdate(Time deltaTime)
 	{
-		ForEachComponent<Transform>([this, deltaTime](Transform& transform)  {
+		ForEachComponent<Transform>([this, deltaTime](Transform& transform) {
 			auto position = transform.GetPosition();
 			position.x += (float)deltaTime * m_direction.x * 10;
 			position.y += (float)deltaTime * m_direction.y * 10;
 			m_position = position;
 			transform.SetPosition(position);
-		});
+			});
 	}
 	void EditorSystem::OnStart()
 	{
+		Renderer2D::Instance()->AddLayer("320x180");
 		auto niceguy = makesptr<Texture>("assets/textures/nice_guy_head.png", TextureImportSettings(TextureFiltering::Nearest, TextureWrapping::Clamp, false, false));
 		m_entitySprite = makesptr<Sprite>(niceguy);
 		//Layout
@@ -117,7 +118,6 @@ namespace SandboxEditor
 		switchAsset->signal.AddListener(&EditorSystem::SwitchPanelAsset, this);
 
 		Window::GetResizeSignal()->AddListener(&Layout::OnWindowResized, &m_layout);
-
 	}
 
 	void EditorSystem::OnImGui()

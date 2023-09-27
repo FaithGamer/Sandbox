@@ -137,6 +137,7 @@ namespace Sandbox
 
 	void Window::Bind()
 	{
+		glViewport(0, 0, m_size.x, m_size.y);
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	}
 }

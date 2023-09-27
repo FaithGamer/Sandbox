@@ -16,8 +16,8 @@ namespace Sandbox
 		glGenTextures(1, &m_textureId);
 		glBindTexture(GL_TEXTURE_2D, m_textureId);
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.x, size.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_textureId, 0);
 
 		//Render buffer attachement for depth and stencil testing
@@ -42,6 +42,7 @@ namespace Sandbox
 
 	void RenderTexture::Bind()
 	{
+		glViewport(0, 0, m_size.x, m_size.y);
 		glBindFramebuffer(GL_FRAMEBUFFER, m_frameBufferId);
 	}
 

@@ -10,104 +10,128 @@
 namespace Sandbox
 {
 	Transform::Transform() :
-		m_translation(0.f, 0.f, 0.f), m_scale(1.f, 1.f, 1.f), m_rotation(0.f), m_origin(0.f, 0.f, 0.f), m_transformMatrix(1.f), m_needCompute(true)
+		m_translation(0.f, 0.f, 0.f), m_scale(1.f, 1.f, 1.f), m_rotation(0.f), m_origin(0.f, 0.f, 0.f), m_transformMatrix(1.f), needCompute(true), matrixUpdated(true)
+
 	{
 	}
 
 	Transform::Transform(Vec3f translation, Vec3f scale, float angle, Vec3f origin)
-		: m_translation(translation), m_scale(scale), m_rotation({ 0.f, 0.f, angle }), m_origin(origin), m_transformMatrix(1.f), m_needCompute(true)
+		: m_translation(translation), m_scale(scale), m_rotation({ 0.f, 0.f, angle }), m_origin(origin), m_transformMatrix(1.f), needCompute(true), matrixUpdated(true)
+
 	{
 	}
 
 	Transform::Transform(Vec3f translation, Vec3f scale, Vec3f angles, Vec3f origin)
-		: m_translation(translation), m_scale(scale), m_rotation(angles), m_origin(origin), m_transformMatrix(1.f), m_needCompute(true)
+		: m_translation(translation), m_scale(scale), m_rotation(angles), m_origin(origin), m_transformMatrix(1.f), needCompute(true), matrixUpdated(true)
+
 	{
 	}
 
 	void Transform::SetPosition(Vec3f translation)
 	{
+		if (translation == m_translation)
+			return;
 		m_translation = translation;
-		m_needCompute = true;
+		needCompute = true;
 	}
 
 	void Transform::SetScale(Vec3f scale)
 	{
+		if (m_scale == scale)
+			return;
 		m_scale = scale;
-		m_needCompute = true;
+		needCompute = true;
 	}
 
 	void Transform::SetOrigin(Vec3f origin)
 	{
+		if (m_origin == origin)
+			return;
 		m_origin = origin;
-		m_needCompute = true;
+		needCompute = true;
 	}
 
 	void Transform::SetPosition(float x, float y, float z)
 	{
-		m_translation = Vec3f(x, y, z);
-		m_needCompute = true;
+		auto pos = Vec3f(x, y, z);
+		if (m_translation == pos)
+			return;
+		m_translation = pos;
+		needCompute = true;
 	}
 
 	void Transform::SetScale(float x, float y, float z)
 	{
+		auto scale = Vec3f(x, y, z);
+		if (m_scale == scale)
+			return;
 		m_scale = Vec3f(x, y, z);
-		m_needCompute = true;
+		needCompute = true;
 	}
 
 	void Transform::SetOrigin(float x, float y, float z)
 	{
+		auto origin = Vec3f(x, y, z);
+		if (m_origin == origin)
+			return;
 		m_origin = Vec3f(x, y, z);
-		m_needCompute = true;
+		needCompute = true;
 	}
 
 	void Transform::SetRotation(Vec3f angles)
 	{
+		if (m_rotation == angles)
+			return;
 		m_rotation = angles;
-		m_needCompute = true;
+		needCompute = true;
 	}
 
 	void Transform::SetRotationZAxis(float angle)
 	{
+		if (m_rotation.z == angle)
+			return;
 		m_rotation.z = angle;
-		m_needCompute = true;
+		needCompute = true;
 	}
 
 	void Transform::Move(Vec3f translation)
 	{
 		m_translation += translation;
-		m_needCompute = true;
+		needCompute = true;
 	}
 
 	void Transform::Move(float x, float y, float z)
 	{
+		auto prev = m_translation;
 		m_translation += Vec3f(x, y, z);
-		m_needCompute = true;
+		needCompute = true;
 	}
 
 	void Transform::Scale(Vec3f scale)
 	{
+		auto prev = m_scale;
 		m_scale *= scale;
-		m_needCompute = true;
+		needCompute = true;
 	}
 
 	void Transform::Scale(float x, float y, float z)
 	{
 		m_scale *= Vec3f(x, y, z);
-		m_needCompute = true;
+		needCompute = true;
 	}
 
 	void Transform::Rotate(Vec3f angles)
 	{
 		//TO DO: Quaternions
 		m_rotation += angles;
-		m_needCompute = true;
+		needCompute = true;
 	}
 
 	void Transform::RotateZAxis(float angle)
 	{
 		//TO DO: Quaternions
 		m_rotation.z += angle;
-		m_needCompute = true;
+		needCompute = true;
 	}
 
 	void Transform::Reset()
@@ -117,7 +141,7 @@ namespace Sandbox
 		m_translation = Vec3f(0.f);
 		m_origin = Vec3f(0.f);
 
-		m_needCompute = true;
+		needCompute = true;
 	}
 
 	Transform Transform::operator+(const Transform& trans)
@@ -137,7 +161,7 @@ namespace Sandbox
 		m_rotation += trans.m_rotation;
 		m_origin += trans.m_origin;
 
-		m_needCompute = true;
+		needCompute = true;
 
 		return *this;
 	}
@@ -149,7 +173,7 @@ namespace Sandbox
 		m_rotation = trans.m_rotation;
 		m_origin = trans.m_origin;
 
-		m_needCompute = true;
+		needCompute = true;
 
 		return *this;
 	}
@@ -181,10 +205,10 @@ namespace Sandbox
 
 	Mat4 Transform::GetTransformMatrix() const
 	{
-		if (m_needCompute)
+		if (needCompute)
 		{
 			ComputeMatrix();
-			m_needCompute = false;
+			needCompute = false;
 		}
 		return m_transformMatrix;
 	}
@@ -200,5 +224,6 @@ namespace Sandbox
 		transform = glm::translate(transform, -m_origin);
 
 		m_transformMatrix = transform;
+		matrixUpdated = true;
 	}
 }
