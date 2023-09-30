@@ -132,7 +132,7 @@
     <ClCompile Include="src\Render\RenderTexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="include\Sandbox\Render\StencilMode.cpp">
+    <ClCompile Include="include\Sandbox\Render\RenderOptions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Render\VertexBuffer.cpp">
@@ -151,6 +151,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Render\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Random.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -296,7 +299,7 @@
     <ClInclude Include="include\Sandbox\Render\RenderTexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Render\StencilMode.h">
+    <ClInclude Include="include\Sandbox\Render\RenderOptions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Render\Renderer2D.h">
@@ -330,6 +333,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Render\Sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Sandbox\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

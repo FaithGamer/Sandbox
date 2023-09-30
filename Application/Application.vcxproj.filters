@@ -87,6 +87,9 @@
     <ClCompile Include="src\Editor\Hierarchy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Editor\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Tests\SignalTest.h">
@@ -161,6 +164,9 @@
     <ClInclude Include="src\Editor\Hierarchy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Editor\Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\batch_renderer.frag" />
@@ -182,5 +188,6 @@
     <None Include="assets\shaders\default_layer.frag" />
     <None Include="assets\shaders\default_layer.vert" />
     <None Include="assets\shaders\masked.frag" />
+    <None Include="assets\shaders\batch_renderer_pixel_art.frag" />
   </ItemGroup>
 </Project>

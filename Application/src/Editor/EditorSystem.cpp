@@ -11,24 +11,28 @@
 #include <Sandbox/ECS.h>
 #include <Sandbox/Render/SpriteRender.h>
 #include <Sandbox/Time.h>
+#include <Sandbox/Random.h>
 
 #include "EditorSystem.h"
 #include "SandboxEditorUtils.h"
 #include "AssetBrowser.h"
 #include "Menu.h"
 #include "Hierarchy.h"
+#include "Game.h"
 
 #include <random>
 
 using namespace Sandbox;
 namespace fs = std::filesystem;
 
-int Rng(int min, int max)
+struct Mover
 {
-	static std::default_random_engine generator;
-	std::uniform_int_distribution<int> dist(min, max);
-	return dist(generator);
-}
+	Vec2f direction;
+	Clock clock;
+	Time time;
+};
+
+
 namespace SandboxEditor
 {
 	void EditorSystem::CreateEntityTool()
@@ -52,36 +56,15 @@ namespace SandboxEditor
 
 			for (int i = 0; i < count; i++)
 			{
-				float x = Rng(-50, 50);
-				float y = Rng(-50, 50);
-
-				auto entity = world->CreateEntity();
-				auto transform = entity->AddComponent<Transform>();
-				transform->SetPosition({ x, y, 0 });
-
-				auto render = entity->AddComponent<SpriteRender>();
-				render->SetSprite(m_entitySprite);
-
-				//render->SetLayer(Renderer2D::Instance()->GetLayerId("320x180"));
+				m_enemySystem->InstanceEnemy();
 			}
 		}
 		ImGui::End();
 	}
-	void EditorSystem::OnUpdate(Time deltaTime)
-	{
-		ForEachComponent<Transform>([this, deltaTime](Transform& transform) {
-			auto position = transform.GetPosition();
-			position.x += (float)deltaTime * m_direction.x * 10;
-			position.y += (float)deltaTime * m_direction.y * 10;
-			m_position = position;
-			transform.SetPosition(position);
-			});
-	}
+	
 	void EditorSystem::OnStart()
 	{
-		Renderer2D::Instance()->AddLayer("320x180");
-		auto niceguy = makesptr<Texture>("assets/textures/nice_guy_head.png", TextureImportSettings(TextureFiltering::Nearest, TextureWrapping::Clamp, false, false));
-		m_entitySprite = makesptr<Sprite>(niceguy);
+		m_enemySystem = Systems::Get<EnemySystem>();
 		//Layout
 		sptr<Menu> menu = makesptr<Menu>();
 		menu->SetLayout(&m_layout);
@@ -91,25 +74,14 @@ namespace SandboxEditor
 		m_layout.Init({ menu, hierarchy, assetBrowser });
 
 		//Inputs 
-		auto editorInputMap = Inputs::CreateInputMap();
-		editorInputMap->SetPassThroughImGui(true);
-		auto deleteButton = editorInputMap->CreateButtonInput("Delete");
+		auto inputMap = Inputs::GetInputMap("InputMap_0");
+		inputMap->SetPassThroughImGui(true);
+		auto deleteButton = inputMap->CreateButtonInput("Delete");
 		deleteButton->AddKey(KeyScancode::Delete);
 		deleteButton->signal.AddListener(&AssetBrowser::DeleteSelection, &*assetBrowser);
 
-		auto moveSprite = editorInputMap->CreateDirectionalInput("MoveSprite");
-		std::vector<DirectionalButton> buttons
-		{
-			DirectionalButton(KeyScancode::W, Vec2f(0, 1)),
-			DirectionalButton(KeyScancode::A, Vec2f(-1, 0)),
-			DirectionalButton(KeyScancode::S, Vec2f(0, -1)),
-			DirectionalButton(KeyScancode::D, Vec2f(1, 0)),
-		};
-		moveSprite->AddButtons(buttons);
-		moveSprite->signal.AddListener(&EditorSystem::OnMove, this);
-
-		auto switchHierarchy = editorInputMap->CreateButtonInput("SwitchHierarchy");
-		auto switchAsset = editorInputMap->CreateButtonInput("SwitchAsset");
+		auto switchHierarchy = inputMap->CreateButtonInput("SwitchHierarchy");
+		auto switchAsset = inputMap->CreateButtonInput("SwitchAsset");
 
 		switchHierarchy->AddKey(KeyScancode::F1);
 		switchAsset->AddKey(KeyScancode::F2);
@@ -136,8 +108,5 @@ namespace SandboxEditor
 		m_layout.SwitchPanelActive("AssetBrowser");
 	}
 
-	void EditorSystem::OnMove(Sandbox::InputSignal* input)
-	{
-		m_direction = input->GetVec2f();
-	}
+
 }

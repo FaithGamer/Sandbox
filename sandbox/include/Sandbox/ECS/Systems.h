@@ -78,13 +78,14 @@ namespace Sandbox
 			Systems::Instance()->m_pendingSystemIn.push_back(SystemIdPriority(system, TypeId::GetId<SystemType>(), system->GetPriority()));
 		}
 		template <typename SystemType>
-		static System* Get()
+		static SystemType* Get()
 		{
+			auto ins = Instance();
 			int32_t typeId = TypeId::GetId<SystemType>();
-			auto system = m_allSystems.find(typeId);
-			if (system == m_allSystems.end())
+			auto system = ins->m_allSystems.find(typeId);
+			if (system == ins->m_allSystems.end())
 				return nullptr;
-			return system->second;
+			return static_cast<SystemType*>(system->second);
 		}
 		template <typename SystemType>
 		static void Remove()

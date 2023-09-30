@@ -12,6 +12,6 @@
 #include "Sandbox/Render/IndexBuffer.h"
 #include "Sandbox/Render/SpriteRender.h"
 #include "Sandbox/Render/Sprite.h"
-#include "Sandbox/Render/StencilMode.h"
+#include "Sandbox/Render/RenderOptions.h"
 #include "Sandbox/Render/RenderTexture.h"
 

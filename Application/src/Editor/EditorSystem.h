@@ -8,12 +8,14 @@
 #include "Sandbox/Input/ButtonInput.h"
 #include "Layout.h"
 
+
+class EnemySystem;
+
 namespace SandboxEditor
 {
 	class EditorSystem : public Sandbox::System
 	{
 	public:
-		void OnUpdate(Sandbox::Time deltaTime);
 		void OnStart();
 		void OnImGui();
 
@@ -26,5 +28,6 @@ namespace SandboxEditor
 		Sandbox::Vec2f m_position;
 		Sandbox::Vec2f m_direction;
 		sptr<Sandbox::Sprite> m_entitySprite;
+		EnemySystem* m_enemySystem;
 	};
 }

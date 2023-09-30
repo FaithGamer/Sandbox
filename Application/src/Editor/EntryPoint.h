@@ -3,21 +3,41 @@
 #include "Sandbox/ECS.h"
 #include "Sandbox/Render/Camera.h"
 #include "Sandbox/Render/Window.h"
+#include "Sandbox/Render/Renderer2D.h"
 #include "EditorSystem.h"
+#include "Game.h"
 
 using namespace Sandbox;
 
 void Editor()
 {
+	//Initialize
 	EngineParameters params;
-	params.startupWindowResolution = { 320, 180 };
+	params.startupWindowResolution = { 1600, 900 };
 	Engine::Init(params);
+
+	//World
+	Systems::CreateWorld();
+
+	//Systems
+	Systems::Push<EnemySystem>();
+	Systems::Push<HeroSystem>();
+	Systems::Push<SandboxEditor::EditorSystem>();
+
+	//Camera
 	Camera cam;
+	cam.worldToScreenRatio = 0.05f;
 	cam.SetOrthographic(true);
+	cam.SetAspectRatio(1600.f / 900.f);
 	Window::GetResizeSignal()->AddListener(&Camera::SetAspectRatio, &cam);
 	Systems::SetMainCamera(&cam);
-	Systems::CreateWorld();
-	Systems::Push<SandboxEditor::EditorSystem>();
-	
+
+	//Add a custom rendering layer with a fixed height
+	Renderer2D::AddLayer("640p", 640);
+
+	//Input Map
+	Inputs::CreateInputMap();
+
+	//Start
 	Engine::Launch();
 }

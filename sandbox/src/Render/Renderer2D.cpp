@@ -6,7 +6,7 @@
 #include "Sandbox/Render/RenderTarget.h"
 #include "Sandbox/Render/RenderTexture.h"
 #include "Sandbox/Render/Shader.h"
-#include "Sandbox/Render/StencilMode.h"
+#include "Sandbox/Render/RenderOptions.h"
 #include "Sandbox/Render/Window.h"
 #include "Sandbox/Render/SpriteRender.h"
 #include "Sandbox/Vector.h"
@@ -57,7 +57,7 @@ namespace Sandbox
 			"assets/shaders/batch_renderer.vert",
 			"assets/shaders/batch_renderer.frag");
 
-		m_defaultStencilMode = makesptr<StencilMode>();
+		m_defaultRenderOptions = makesptr<RenderOptions>();
 		auto window = Window::Instance();
 
 		m_camera = Mat4(1);
@@ -72,7 +72,7 @@ namespace Sandbox
 		sptr<VertexArray> defaultLayerVertexArray = GenerateLayerVertexArray(screenSpace);
 
 		//Screen layer
-		m_layers.push_back(RenderLayer("Window", 0, window, m_defaultLayerShader, m_defaultStencilMode, defaultLayerVertexArray));
+		m_layers.push_back(RenderLayer("Window", 0, window, m_defaultLayerShader, m_defaultRenderOptions, defaultLayerVertexArray));
 		//CreateQuadBatch(m_layers[0], nullptr, nullptr);
 
 		SetShaderUniformSampler(m_defaultLayerShader, m_maxOffscreenLayers + 1);
@@ -113,50 +113,67 @@ namespace Sandbox
 		m_target = target;
 	}
 
-	uint32_t Renderer2D::AddLayer(std::string name, sptr<Shader> shader, sptr<StencilMode> stencil)
+	uint32_t Renderer2D::AddLayer(std::string name, unsigned int height, sptr<Shader> shader, sptr<RenderOptions> renderOptions)
 	{
+		auto ins = Instance();
 		if (shader == nullptr)
-			shader = m_defaultLayerShader;
-		if (stencil == nullptr)
-			stencil = m_defaultStencilMode;
+			shader = ins->m_defaultLayerShader;
+		if (renderOptions == nullptr)
+			renderOptions = ins->m_defaultRenderOptions;
 
-		SetShaderUniformSampler(shader, m_maxOffscreenLayers + 1);
+		ins->SetShaderUniformSampler(shader, ins->m_maxOffscreenLayers + 1);
 
-		std::vector<Vec2f> screenSpace{ {-1, -1}, { 1, -1 }, { 1, 1 }, { -1, 1 } };
-		sptr<VertexArray> layerVertexArray = GenerateLayerVertexArray(screenSpace);
-		//sptr<RenderTexture> layer = makesptr<RenderTexture>(Window::GetSize());
-		sptr<RenderTexture> layer = makesptr<RenderTexture>(Vec2u(320, 180));
-		m_layers.push_back(RenderLayer(name, (uint32_t)m_layers.size(), layer, shader, stencil, layerVertexArray, false, false));
-		m_renderLayers.push_back(&m_layers.back());
+		std::vector<Vec2f> screenSpace{ { -1, -1 }, { 1, -1 }, { 1, 1 }, { -1, 1 } };
+		sptr<VertexArray> layerVertexArray = ins->GenerateLayerVertexArray(screenSpace);
+		auto windowSize = Window::GetSize();
+		sptr<RenderTexture> layer;
+		if (height == 0)
+		{
+			layer = makesptr<RenderTexture>(windowSize);
+		}
+		else
+		{
+			unsigned int width = round((float)windowSize.x / (float)windowSize.y * (float)height);
+			layer = makesptr<RenderTexture>(Vec2u(width, height));
+		}
+		ins->m_layers.push_back(RenderLayer(name, (uint32_t)ins->m_layers.size(), layer, shader, renderOptions, layerVertexArray, height, false, false));
+		ins->m_renderLayers.push_back(&ins->m_layers.back());
 
-		return (uint32_t)m_layers.size() - 1;
+		return (uint32_t)ins->m_layers.size() - 1;
+	}
+
+	uint32_t Renderer2D::AddLayer(std::string name, sptr<Shader> shader, sptr<RenderOptions> renderOptions)
+	{
+		return AddLayer(name, 0, shader, renderOptions);
 	}
 
 	uint32_t Renderer2D::AddOffscreenLayer(std::string name, uint32_t sampler2DIndex)
 	{
+		auto ins = Instance();
 		ASSERT_LOG_ERROR(bool(sampler2DIndex > 0 && sampler2DIndex < 16), "sampler2DIndex must be comprised between 1 and 15");
-		ASSERT_LOG_ERROR(bool(m_offscreenLayers.size() < 15), "Number of Offscreen layers exceeded (max 15)");
+		ASSERT_LOG_ERROR(bool(ins->m_offscreenLayers.size() < 15), "Number of Offscreen layers exceeded (max 15)");
 
 		//To do: check if sampler2DIndex hasn't been used already.
 
 		sptr<RenderTexture> layer = makesptr<RenderTexture>(Window::GetSize());
 		std::vector<Vec2f> screenSpace{ {-1, -1}, { 1, -1 }, { 1, 1 }, { -1, 1 } };
-		sptr<VertexArray> layerVertexArray = GenerateLayerVertexArray(screenSpace);
-		uint32_t index = (uint32_t)m_layers.size();
-		m_layers.push_back(RenderLayer(name, index, layer, m_defaultLayerShader, m_defaultStencilMode, layerVertexArray, false, true));
-		m_offscreenLayers.push_back(OffscreenRenderLayer(layer, sampler2DIndex, index));
+		sptr<VertexArray> layerVertexArray = ins->GenerateLayerVertexArray(screenSpace);
+		uint32_t index = (uint32_t)ins->m_layers.size();
+		ins->m_layers.push_back(RenderLayer(name, index, layer, ins->m_defaultLayerShader, ins->m_defaultRenderOptions, layerVertexArray, false, true));
+		ins->m_offscreenLayers.push_back(OffscreenRenderLayer(layer, sampler2DIndex, index));
 
-		return (uint32_t)m_layers.size() - 1;
+		return (uint32_t)ins->m_layers.size() - 1;
 	}
 
 	void Renderer2D::SetLayerScreenSpace(uint32_t layer, const std::vector<Vec2f>& screenSpace)
 	{
+		auto ins = Instance();
 		if (screenSpace.size() != 4)
 		{
 			LOG_WARN("screenSpace size is not 4. Layer screen space hasn't been changed.");
 			return;
 		}
-		if (m_layers.size() <= layer)
+		if (ins->m_layers.size() <= layer)
 		{
 			LOG_WARN("layer id is over layer count. Layer screen space hasn't been changed.");
 			return;
@@ -166,13 +183,14 @@ namespace Sandbox
 			LOG_WARN("Cannot change layer screen space of the screen layer. Layer screen space hasn't been changed.");
 			return;
 		}
-		m_layers[layer].vertexArray = GenerateLayerVertexArray(screenSpace);
+		ins->m_layers[layer].vertexArray = ins->GenerateLayerVertexArray(screenSpace);
 	}
 
 	uint32_t Renderer2D::GetLayerId(std::string name)
 	{
+		auto ins = Instance();
 		uint32_t i = 0;
-		for (auto& layer : m_layers)
+		for (auto& layer : ins->m_layers)
 		{
 			if (layer.name == name)
 			{
@@ -186,62 +204,44 @@ namespace Sandbox
 
 	std::vector<uint32_t> Renderer2D::GetLayers()
 	{
-		size_t layerCount = m_layers.size();
+		auto ins = Instance();
+		size_t layerCount = ins->m_layers.size();
 		std::vector<uint32_t> layers(layerCount - 1);
 		for (size_t i = 1; i < layerCount; i++)
 		{
-			layers[i] = m_layers[i].index;
+			layers[i] = ins->m_layers[i].index;
 		}
 		return layers;
 	}
 
-	void Renderer2D::SetLayerShader(uint32_t layer, sptr<Shader> shader)
-	{
-		SetShaderUniformSampler(shader, m_maxOffscreenLayers + 1);
-		m_layers[layer].shader = shader;
-	}
-
-	void Renderer2D::SetLayerStencilMode(uint32_t layer, sptr<StencilMode> stencil)
-	{
-		m_layers[layer].stencil = stencil;
-	}
-
-	void Renderer2D::PreallocateQuadBatch(int count)
-	{
-		for (int i = 0; i < count; i++)
-		{
-			m_quadBatchs.push_back(QuadBatch());
-			m_freeQuadBatchs.push_back(m_quadBatchs.size() - 1);
-		}
-	}
-
-	uint32_t Renderer2D::GetBatchId(uint32_t layerIndex, sptr<Shader> shader, sptr<StencilMode> stencil)
+	uint32_t Renderer2D::GetBatchId(uint32_t layerIndex, sptr<Shader> shader, sptr<RenderOptions> renderOptions)
 	{
 		//To do: bake the batchs based on assets
+		auto ins = Instance();
 
 		uint32_t shaderId = 0;
-		uint32_t stencilId = 0;
+		uint32_t renderOptionsId = 0;
 		if (shader != nullptr)
 			shaderId = shader->GetID();
-		if (stencil != nullptr)
-			stencilId = stencil->GetID();
+		if (renderOptions != nullptr)
+			renderOptionsId = renderOptions->GetID();
 
-		uint64_t id = GenerateBatchId(layerIndex, shaderId, stencilId);
+		uint64_t id = ins->GenerateBatchId(layerIndex, shaderId, renderOptionsId);
 
-		auto batch = m_quadBatchFinder.find(id);
-		if (batch == m_quadBatchFinder.end())
+		auto batch = ins->m_quadBatchFinder.find(id);
+		if (batch == ins->m_quadBatchFinder.end())
 		{
 			//Create batch if doesn't exists
-			CreateQuadBatch(m_layers[layerIndex], shader, stencil);
+			ins->CreateQuadBatch(ins->m_layers[layerIndex], shader, renderOptions);
 
-			uint32_t index = (uint32_t)m_quadBatchs.size() - 1;
-			m_quadBatchs.back().index = index;
+			uint32_t index = (uint32_t)ins->m_quadBatchs.size() - 1;
+			ins->m_quadBatchs.back().index = index;
 
-			m_quadBatchFinder.insert(std::make_pair(id, index));
+			ins->m_quadBatchFinder.insert(std::make_pair(id, index));
 
-			if (m_rendering)
+			if (ins->m_rendering)
 			{
-				StartBatch(index);
+				ins->StartBatch(index);
 			}
 
 			return index;
@@ -253,7 +253,38 @@ namespace Sandbox
 		}
 	}
 
-	void Renderer2D::CreateQuadBatch(RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil)
+	void Renderer2D::SetLayerShader(uint32_t layer, sptr<Shader> shader)
+	{
+		auto ins = Instance();
+		ins->SetShaderUniformSampler(shader, ins->m_maxOffscreenLayers + 1);
+		ins->m_layers[layer].shader = shader;
+	}
+
+	void Renderer2D::SetLayerRenderOptions(uint32_t layer, sptr<RenderOptions> renderOptions)
+	{
+		auto ins = Instance();
+		ins->m_layers[layer].renderOptions = renderOptions;
+	}
+
+	void Renderer2D::SetLayerHeight(uint32_t layer, unsigned int height)
+	{
+		auto ins = Instance();
+		ins->m_layers[layer].height = height;
+		auto windowSize = Window::GetSize();
+		unsigned int width = round((float)windowSize.x / (float)windowSize.y * (float)height);
+		ins->m_layers[layer].target->SetSize({ width, height });
+	}
+
+	void Renderer2D::PreallocateQuadBatch(int count)
+	{
+		for (int i = 0; i < count; i++)
+		{
+			m_quadBatchs.push_back(QuadBatch());
+			m_freeQuadBatchs.push_back(m_quadBatchs.size() - 1);
+		}
+	}
+
+	void Renderer2D::CreateQuadBatch(RenderLayer& layer, sptr<Shader> shader, sptr<RenderOptions> renderOptions)
 	{
 		size_t index = 0;
 		if (!m_freeQuadBatchs.empty())
@@ -270,20 +301,20 @@ namespace Sandbox
 			index = m_quadBatchs.size() - 1;
 		}
 
-		SetupQuadBatch(m_quadBatchs[index], layer, shader, stencil);
+		SetupQuadBatch(m_quadBatchs[index], layer, shader, renderOptions);
 
 	}
 
-	void Renderer2D::SetupQuadBatch(QuadBatch& batch, RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil)
+	void Renderer2D::SetupQuadBatch(QuadBatch& batch, RenderLayer& layer, sptr<Shader> shader, sptr<RenderOptions> renderOptions)
 	{
 		if (shader == nullptr)
 			shader = m_defaultShader;
-		if (stencil == nullptr)
-			stencil = m_defaultStencilMode;
+		if (renderOptions == nullptr)
+			renderOptions = m_defaultRenderOptions;
 
 		batch.shader = shader;
 		batch.layer = layer;
-		batch.stencil = stencil;
+		batch.renderOptions = renderOptions;
 
 		//Assign relevant texture unit to the sampler2D[] uniform uTextures
 		std::vector<int> sampler;
@@ -336,7 +367,6 @@ namespace Sandbox
 
 	void Renderer2D::Begin(const Camera& camera)
 	{
-		glEnable(GL_DEPTH_TEST);
 		m_rendering = true;
 
 		for (auto& layer : m_layers)
@@ -363,7 +393,6 @@ namespace Sandbox
 		{
 			StartBatch(batch.index);
 		}
-
 	}
 
 	void Renderer2D::End()
@@ -378,7 +407,6 @@ namespace Sandbox
 	{
 		//Bind target framebuffer
 		m_target->Bind();
-		//glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		glDisable(GL_DEPTH_TEST);
 
 		//Put offscreen layer in according texture slots
@@ -396,7 +424,7 @@ namespace Sandbox
 			std::static_pointer_cast<RenderTexture>((*layer)->target)->BindTexture(0);
 			(*layer)->vertexArray->Bind();
 			(*layer)->shader->Bind();
-			(*layer)->stencil->Bind();
+			(*layer)->renderOptions->Bind();
 			GLuint indicesCount = (*layer)->vertexArray->GetIndexBuffer()->GetCount();
 			glDrawElements(GL_TRIANGLES, indicesCount, GL_UNSIGNED_INT, 0);
 		}*/
@@ -408,7 +436,7 @@ namespace Sandbox
 			std::static_pointer_cast<RenderTexture>(layer->target)->BindTexture(0);
 			layer->vertexArray->Bind();
 			layer->shader->Bind();
-			layer->stencil->Bind();
+			layer->renderOptions->Bind();
 			GLuint indicesCount = layer->vertexArray->GetIndexBuffer()->GetCount();
 			glDrawElements(GL_TRIANGLES, indicesCount, GL_UNSIGNED_INT, 0);
 		}
@@ -432,7 +460,7 @@ namespace Sandbox
 			batch.layer.target->Bind();
 			batch.quadVertexArray->Bind();
 			batch.shader->Bind();
-			batch.stencil->Bind();
+			batch.renderOptions->Bind();
 			glDrawElements(GL_TRIANGLES, batch.quadIndexCount, GL_UNSIGNED_INT, 0);
 
 			m_stats.drawCalls++;
@@ -556,6 +584,7 @@ namespace Sandbox
 		SpriteRender& spriteRender,
 		uint32_t batchIndex)
 	{
+
 		constexpr size_t quadVertexCount = 4;
 
 		auto& batch = m_quadBatchs[batchIndex];
@@ -638,7 +667,7 @@ namespace Sandbox
 
 	Renderer2D::Statistics Renderer2D::GetStats()
 	{
-		return m_stats;
+		return Instance()->m_stats;
 	}
 
 	void Renderer2D::StartBatch(uint32_t batchIndex)
@@ -666,7 +695,15 @@ namespace Sandbox
 		{
 			if (layer.index == 0)
 				continue;
-			//layer.target->SetSize(size);
+
+			if (layer.height == 0)
+				layer.target->SetSize(size);
+			else
+			{
+				auto windowSize = Window::GetSize();
+				unsigned int width = round((float)windowSize.x / (float)windowSize.y * (float)layer.height);
+				layer.target->SetSize({ width, layer.height });
+			}
 		}
 	}
 

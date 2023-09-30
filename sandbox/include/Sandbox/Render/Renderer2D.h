@@ -25,7 +25,7 @@ namespace Sandbox
 	class RenderTarget;
 	class RenderTexture;
 	class Shader;
-	class StencilMode;
+	class RenderOptions;
 
 
 	struct QuadVertex
@@ -42,8 +42,9 @@ namespace Sandbox
 		uint32_t index = 0;
 		sptr<RenderTarget> target = nullptr;
 		sptr<Shader> shader = nullptr;
-		sptr<StencilMode> stencil = nullptr;
+		sptr<RenderOptions> renderOptions = nullptr;
 		sptr<VertexArray> vertexArray;
+		unsigned int height = 0;
 		bool active = false;
 		bool offscreen = false;
 	};
@@ -81,7 +82,7 @@ namespace Sandbox
 		};
 
 		RenderLayer layer;
-		sptr<StencilMode> stencil;
+		sptr<RenderOptions> renderOptions;
 		sptr<Shader> shader;
 
 	};
@@ -94,7 +95,6 @@ namespace Sandbox
 			uint32_t drawCalls = 0;
 			uint32_t quadCount = 0;
 		};
-
 
 		~Renderer2D();
 		void SetRenderTarget(sptr<RenderTarget> target);
@@ -118,21 +118,28 @@ namespace Sandbox
 		/// The order cannot be changed ever again, and the layers cannot be removed.
 		/// @param name A friendly identifier.
 		/// @return The identifier to use when refering to this layer.
-		uint32_t AddLayer(std::string name, sptr<Shader> shader = nullptr, sptr<StencilMode> stencil = nullptr);
+		static uint32_t AddLayer(std::string name, sptr<Shader> shader = nullptr, sptr<RenderOptions> renderOptions = nullptr);
+		/// @brief Add a layer on the bottom of the render queue with a fixed height, it will keep the aspect ratio of the window.
+		/// @param name A friendly identifier.
+		/// @return The identifier to use when refering to this layer.
+		static uint32_t AddLayer(std::string name, unsigned int height, sptr<Shader> shader = nullptr, sptr<RenderOptions> renderOptions = nullptr);
 		/// @brief Add a layer that won't display but can be used in the shader of other layers.
 		/// Usage example: normal map.
 		/// @param sampler2DIndex Wich index the texture will be available in the sampler2D uniform.
 		/// Must be comprised in between 1 and 15.
-		uint32_t AddOffscreenLayer(std::string name, uint32_t sampler2DIndex);
+		static uint32_t AddOffscreenLayer(std::string name, uint32_t sampler2DIndex);
 	
 		/// @brief Set the space the layer take up on the screen,
 		/// @param screenSpace  normalized screen space (vector must be of size 4)
-		void SetLayerScreenSpace(uint32_t layer, const std::vector<Vec2f>& screenSpace);
+		static void SetLayerScreenSpace(uint32_t layer, const std::vector<Vec2f>& screenSpace);
 		/// @brief Set the shader used to render a layer.
-		void SetLayerShader(uint32_t layer, sptr<Shader> shader);
-		/// @brief Set the StencilMode used when rendering a layer
-		void SetLayerStencilMode(uint32_t layer, sptr<StencilMode> stencil);
-		/// @brief Can be used for optimization if you know how much QuadBatch you we be using.
+		static void SetLayerShader(uint32_t layer, sptr<Shader> shader);
+		/// @brief Set the RenderOptions used when rendering a layer
+		static void SetLayerRenderOptions(uint32_t layer, sptr<RenderOptions> renderOptions);
+		/// @brief Set the layer height (width will be calculated to fit the aspect ratio of the window)
+		static void SetLayerHeight(uint32_t layer, unsigned int height);
+
+		/// @brief Can be used for optimization if you know how much QuadBatch you will be using.
 		/// @param count Number of quadbatch to allocate space for.
 		void PreallocateQuadBatch(int count);
 		/// @brief Use with care only if you know what you are doing, as every attempt to draw using this batch will result in undefined behaviour
@@ -142,14 +149,14 @@ namespace Sandbox
 		/// @brief Get a layer id from it's name
 		/// @param name 
 		/// @return LayerId
-		uint32_t GetLayerId(std::string name);
+		static uint32_t GetLayerId(std::string name);
 		/// @brief Get Every layers id
-		std::vector<uint32_t> GetLayers();
-		/// @brief Get a batch based on what layer/shader/stencilmode is used. nullptr = default shader/stenctilmode
+		static std::vector<uint32_t> GetLayers();
+		/// @brief Get a batch based on what layer/shader/render options is used. nullptr = default shader/render options
 		/// @return BatchId
-		uint32_t GetBatchId(uint32_t layerIndex, sptr<Shader> shader = nullptr, sptr<StencilMode> stencil = nullptr);
+		static uint32_t GetBatchId(uint32_t layerIndex, sptr<Shader> shader = nullptr, sptr<RenderOptions> renderOptions = nullptr);
 		/// @brief Give you some stats about the current rendering batch.
-		Statistics GetStats();
+		static Statistics GetStats();
 
 		void OnWindowResize(Vec2u size);
 	private:
@@ -160,9 +167,9 @@ namespace Sandbox
 		void StartBatch(uint32_t batchIndex);
 		void NextBatch(uint32_t batchIndex);
 
-		void SetupQuadBatch(QuadBatch& batch, RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil);
+		void SetupQuadBatch(QuadBatch& batch, RenderLayer& layer, sptr<Shader> shader, sptr<RenderOptions> renderOptions);
 		void AllocateQuadBatch(QuadBatch& batch);
-		void CreateQuadBatch(RenderLayer& layer, sptr<Shader> shader, sptr<StencilMode> stencil);
+		void CreateQuadBatch(RenderLayer& layer, sptr<Shader> shader, sptr<RenderOptions> renderOptions);
 		uint64_t GenerateBatchId(uint64_t a, uint64_t b, uint64_t c);
 		void RenderLayers();
 		void SetShaderUniformSampler(sptr<Shader> shader, uint32_t count);
@@ -184,7 +191,7 @@ namespace Sandbox
 		uint32_t m_maxOffscreenLayers;
 
 		sptr<Shader> m_defaultShader;
-		sptr<StencilMode> m_defaultStencilMode;
+		sptr<RenderOptions> m_defaultRenderOptions;
 		sptr<Texture> m_whiteTexture;
 		sptr<UniformBuffer> m_cameraUniformBuffer;
 		sptr<IndexBuffer> m_quadIndexBuffer;

@@ -152,6 +152,7 @@
   <ItemGroup>
     <ClCompile Include="src\Editor\AssetBrowser.cpp" />
     <ClCompile Include="src\Editor\EditorSystem.cpp" />
+    <ClCompile Include="src\Editor\Game.cpp" />
     <ClCompile Include="src\Editor\Hierarchy.cpp" />
     <ClCompile Include="src\Editor\Layout.cpp" />
     <ClCompile Include="src\Editor\Menu.cpp" />
@@ -176,6 +177,7 @@
     <ClCompile Include="src\Tests\UniformBlockTest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Editor\Game.h" />
     <ClInclude Include="src\Editor\Hierarchy.h" />
     <ClInclude Include="src\Editor\Menu.h" />
     <ClInclude Include="src\Editor\AssetBrowser.h" />
@@ -213,6 +215,7 @@
     <None Include="assets\shaders\batch_renderer.frag" />
     <None Include="assets\shaders\batch_renderer.vert" />
     <None Include="assets\shaders\batch_renderer2.frag" />
+    <None Include="assets\shaders\batch_renderer_pixel_art.frag" />
     <None Include="assets\shaders\billboard.vert" />
     <None Include="assets\shaders\color.frag" />
     <None Include="assets\shaders\default_layer.frag" />
