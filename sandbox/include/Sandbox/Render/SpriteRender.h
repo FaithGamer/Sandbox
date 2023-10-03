@@ -48,7 +48,7 @@ namespace Sandbox
 		Sandbox::Vec3f preComputedPosition[4];
 		bool spriteDimensionsChanged;
 	
-	private:
+	protected:
 		sptr<Shader> m_shader;
 		sptr<Sprite> m_sprite;
 		uint32_t m_layer;

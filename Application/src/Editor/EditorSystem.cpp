@@ -4,14 +4,11 @@
 #include "Sandbox/Log.h"
 #include "Sandbox/Render/Window.h"
 #include "Sandbox/Render/Texture.h"
-#include "Sandbox/Input/Inputs.h"
-#include <Sandbox/Input/Input.h>
-#include <Sandbox/Input/ButtonInput.h>
-#include <Sandbox/Input/DirectionalInput.h>
 #include <Sandbox/ECS.h>
 #include <Sandbox/Render/SpriteRender.h>
 #include <Sandbox/Time.h>
 #include <Sandbox/Random.h>
+#include <Sandbox/Input.h>
 
 #include "EditorSystem.h"
 #include "SandboxEditorUtils.h"
@@ -25,26 +22,15 @@
 using namespace Sandbox;
 namespace fs = std::filesystem;
 
-struct Mover
-{
-	Vec2f direction;
-	Clock clock;
-	Time time;
-};
-
-
 namespace SandboxEditor
 {
 	void EditorSystem::CreateEntityTool()
 	{
+		//Create entity
+		auto world = Systems::GetMainWorld();
 		ImGui::Begin("Create Entity");
 		static int count = 1;
 		ImGui::InputInt("Count", &count);
-		std::string pos = std::to_string(m_position.x) + " " + std::to_string(m_position.y);
-		std::string dir = std::to_string(m_direction.x) + " " + std::to_string(m_direction.y);
-
-		ImGui::Text(pos.c_str());
-		ImGui::Text(dir.c_str());
 		if (ImGui::Button("Create Entity"))
 		{
 			auto world = Systems::GetMainWorld();
@@ -59,9 +45,24 @@ namespace SandboxEditor
 				m_enemySystem->InstanceEnemy();
 			}
 		}
+
+		//Text label
+		Vec3f heroPosition;
+		ForEachComponent<Hero, Transform>([&heroPosition](Hero& hero, Transform& transform)
+			{
+				heroPosition = transform.GetPosition();
+			});
+		std::string pos = std::to_string(heroPosition.x) + " " + std::to_string(heroPosition.y);
+		ImGui::LabelText(pos.c_str(), "Hero Position");
+		Vec3f mouse = Systems::GetMainCamera()->ScreenToWorld(GetMousePosition(), Window::GetSize());
+		std::string mouseStr = std::to_string(mouse.x) + " " + std::to_string(mouse.y);
+		ImGui::LabelText(mouseStr.c_str(), "Mouse Position");
+		std::string enttCount = std::to_string(world->GetEntityCount());
+		ImGui::LabelText(enttCount.c_str(), "Entity Count");
+
 		ImGui::End();
 	}
-	
+
 	void EditorSystem::OnStart()
 	{
 		m_enemySystem = Systems::Get<EnemySystem>();
@@ -89,6 +90,7 @@ namespace SandboxEditor
 		switchHierarchy->signal.AddListener(&EditorSystem::SwitchPanelHierarchy, this);
 		switchAsset->signal.AddListener(&EditorSystem::SwitchPanelAsset, this);
 
+		//Window size signal
 		Window::GetResizeSignal()->AddListener(&Layout::OnWindowResized, &m_layout);
 	}
 

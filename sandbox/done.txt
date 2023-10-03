@@ -42,3 +42,14 @@ september
 28
 -implemented a shader for neat pixel art rendering. But it decrease the performances on large amount of entities.
 could be nice to use this shader only for static elements, since (fast) moving sprites distortion are less visible.
+
+octobre
+
+1
+
+-Camera Screen To World position
+-Entity is now a simple handle, no more pointer
+
+3
+
+- started working on particle

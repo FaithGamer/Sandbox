@@ -302,7 +302,7 @@ namespace Sandbox
 		auto instance = Instance();
 		for (auto& world : instance->m_worlds.pointers)
 		{
-			auto view = world->m_registry.view<Camera>();
+			auto view = world->registry.view<Camera>();
 			for (auto& camera : view)
 			{
 				view.get<Camera>(camera).isMain = false;
@@ -332,6 +332,11 @@ namespace Sandbox
 	std::vector<World*>& Systems::GetWorlds()
 	{
 		return Systems::Instance()->m_worlds.pointers;
+	}
+
+	Camera* Systems::GetMainCamera()
+	{
+		return Instance()->m_mainCamera;
 	}
 
 	//////////////

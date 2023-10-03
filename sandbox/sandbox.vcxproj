@@ -11,8 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\ECS\ParticleSystem.cpp" />
     <ClCompile Include="include\Sandbox\Render\RenderOptions.cpp" />
     <ClCompile Include="src\ECS\SpriteRenderSystem.cpp" />
+    <ClCompile Include="src\Render\Particle.cpp" />
     <ClCompile Include="src\Random.cpp" />
     <ClCompile Include="src\Render\IndexBuffer.cpp" />
     <ClCompile Include="src\Render\RenderTexture.cpp" />
@@ -65,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Sandbox\ECS.h" />
+    <ClInclude Include="include\Sandbox\ECS\ParticleSystem.h" />
     <ClInclude Include="include\Sandbox\ECS\SpriteRenderSystem.h" />
     <ClInclude Include="include\Sandbox\ECS\World.h" />
     <ClInclude Include="include\Sandbox\ImGuiLoader.h" />
@@ -74,6 +77,7 @@
     <ClInclude Include="include\Sandbox\EngineParameters.h" />
     <ClInclude Include="include\Sandbox\Random.h" />
     <ClInclude Include="include\Sandbox\Render\IndexBuffer.h" />
+    <ClInclude Include="include\Sandbox\Render\Particle.h" />
     <ClInclude Include="include\Sandbox\Render\Rect.h" />
     <ClInclude Include="include\Sandbox\Render\Renderer2D.h" />
     <ClInclude Include="include\Sandbox\Render\RenderTarget.h" />

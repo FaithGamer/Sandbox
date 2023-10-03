@@ -98,7 +98,7 @@ namespace Sandbox
 		case SDL_MOUSEBUTTONUP:
 			for (auto& input : m_byEvents[(int)EventType::MouseBtn])
 			{
-				if (input->MouseButtonPressed(e))
+				if (input->MouseButtonReleased(e))
 					eventHandled = true;
 			}
 			break;

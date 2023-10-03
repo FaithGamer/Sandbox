@@ -108,10 +108,10 @@ public:
 	}
 	void OnStart()
 	{
-		auto world = World::GetMain();
+		auto world = Systems::GetMainWorld();
 
 		auto camera = world->CreateEntity();
-		auto cam = camera->AddComponent<Camera>();
+		auto cam = camera.AddComponent<Camera>();
 		cam->SetOrthographicZoom(0.25f);
 		cam->SetOrthographic(true);
 		cam->SetAspectRatio(Window::GetAspectRatio());
@@ -124,7 +124,6 @@ public:
 		cam->Yaw(0);
 		cam->SetPosition({ 0, 0, 20 });
 
-		m_camera = world->GetEntity(camera->GetId());
 
 		m_otherShader = makesptr<Shader>("assets/shaders/batch_renderer.vert", "assets/shaders/batch_renderer2.frag");
 		m_texture1 = makesptr<Texture>("assets/textures/trollface.png");
@@ -191,7 +190,6 @@ private:
 	uint32_t m_pipelineMasked;
 	uint32_t m_maskPipeline;
 
-	Entity* m_camera;
 };
 
 void RendererTest()

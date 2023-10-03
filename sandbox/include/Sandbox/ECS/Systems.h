@@ -131,6 +131,10 @@ namespace Sandbox
 		/// @brief Access all the game worlds
 		/// @return Reference to the Worlds vector.
 		static std::vector<World*>& GetWorlds();
+
+		/// @brief Return camera used for window rendering
+		/// @return main camera
+		static Camera* GetMainCamera();
 	private:
 
 		struct Worlds

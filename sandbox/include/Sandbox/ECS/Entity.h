@@ -2,20 +2,22 @@
 #include "Sandbox/std_macros.h"
 #include "entt/entt.hpp"
 
-typedef entt::entity EntityId;
-
 namespace Sandbox
 {
+	typedef entt::entity EntityId;
+
 	class World;
 
 	class Entity
 	{
 	public:
-		~Entity();
-
 		//To do: copy constructo and operator=,
 		//to really copy the component, have typeid vector of contained components.
-		
+
+		/// @brief Create an entity in the main world
+		Entity();
+		/// @brief Create an entity in a specified world
+		Entity(World* world);
 		/// @brief Add a component if it doesn't exists yet.
 		/// @param args Parameters for the component constructor.
 		/// @return Added component, or the one already in place.
@@ -50,19 +52,25 @@ namespace Sandbox
 		/// The EntityId will remain the same during the entity lifetime.
 		/// It can be used to retreive the entity from it's World with no overhead.
 		/// @return The EntityId
-		EntityId GetId() const;
-		/// @brief Destroy all entities component and recycle it's identifier
-		void Free();
-		/// @brief A free entity is not a valid entity.
-		/// @return true if entity is free
-		bool IsFree() const;
+		inline EntityId GetId() const
+		{
+			return m_id;
+		}
+		/// @brief Destroy the entity and it's components
+		/// Trying to access or add components after using this method
+		/// will result in undefined behaviour
+		void Destroy() const;
+
+		bool operator==(const Entity& rhs) const
+		{
+			return m_id == rhs.m_id;
+		}
+
 	private:
 		friend World;
-		Entity();
-		Entity(entt::registry* registry, EntityId id);
 		
+		Entity(entt::registry* registry, EntityId id);
 		EntityId m_id;
-		bool m_free;
 		entt::registry* m_registry;
 	};
 }

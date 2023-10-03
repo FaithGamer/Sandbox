@@ -27,4 +27,5 @@ this will be related to SpriteRenderComponent
 -resource id for shader/stencil/ ->"render mode option batch id" 
 
 
--upscaling shader for pixel art 
+-particles: entities left over ?
+

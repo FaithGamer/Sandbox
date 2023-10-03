@@ -21,7 +21,7 @@ namespace SandboxEditor
 			ImGui::Text("No World instanced.");
 		else
 		{
-			world->m_registry.each([](EntityId entity) {
+			world->registry.each([](EntityId entity) {
 				ImGui::Text(std::to_string((int)entity).c_str());
 				});
 		}

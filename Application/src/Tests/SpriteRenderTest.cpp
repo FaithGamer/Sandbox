@@ -11,7 +11,7 @@ void SpriteRenderTest()
 	uint32_t layer = Renderer2D::Instance()->AddLayer("Layer");
 	//Renderer2D::Instance()->SetLayerScreenSpace(layer, std::vector<Vec2f>{ {-0.5, -0.5 }, { 0.5, -0.5 }, { 0.5, 0.5 }, { -0.5, 0.5 }});
 
-	auto camera = Systems::CreateWorld()->CreateEntity()->AddComponent<Camera>();
+	auto camera = Systems::CreateWorld()->CreateEntity().AddComponent<Camera>();
 	camera->SetAspectRatio(Window::GetAspectRatio());
 	camera->SetOrthographic(false);
 	Window::GetResizeSignal()->AddListener(&Camera::SetAspectRatio, camera);
@@ -23,15 +23,15 @@ void SpriteRenderTest()
 	sptr<Texture> texture = makesptr<Texture>("assets/textures/test_rect.png", settings);
 
 	Rect texRect(0, 0, 1050, 1000);
-	auto entity = World::GetMain()->CreateEntity();
+	auto entity = Systems::GetMainWorld()->CreateEntity();
 	auto sp = makesptr<Sprite>(texture);
-	auto sprite = entity->AddComponent<SpriteRender>();
+	auto sprite = entity.AddComponent<SpriteRender>();
 	sprite->SetSprite(sp);
 
 	sprite->SetLayer(layer);
 	sprite->renderBatch = Renderer2D::Instance()->GetBatchId(sprite->GetLayer(), sprite->GetShader(), nullptr);
 
-	auto transform = entity->AddComponent<Transform>();
+	auto transform = entity.AddComponent<Transform>();
 	transform->SetPosition(Vec3f(0, 0, 0));
 	transform->SetScale(0.1, 0.1, 1);
 

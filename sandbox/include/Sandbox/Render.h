@@ -14,4 +14,5 @@
 #include "Sandbox/Render/Sprite.h"
 #include "Sandbox/Render/RenderOptions.h"
 #include "Sandbox/Render/RenderTexture.h"
+#include "Sandbox/Render/Particle.h"
 

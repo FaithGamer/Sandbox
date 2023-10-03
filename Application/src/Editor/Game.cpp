@@ -3,20 +3,24 @@
 #include "Game.h"
 #include <Sandbox/Render.h>
 #include <Sandbox/Random.h>
+#include <cmath>
 
 using namespace Sandbox;
 
-
-
 /* -- hero -- */
-
+sptr<Texture> LoadPixelArtTexture(std::string path)
+{
+	return makesptr<Texture>(path, 16.f,
+		TextureImportSettings(TextureFiltering::Nearest, TextureWrapping::Clamp, true, false));
+}
 void HeroSystem::OnStart()
 {
+	LoadAssets();
 	//Controls
 
 	auto inputMap = Inputs::GetInputMap("InputMap_0");
 	//Input
-	auto moveSprite = inputMap->CreateDirectionalInput("MoveSprite");
+	auto moveInput = inputMap->CreateDirectionalInput("Move");
 	std::vector<DirectionalButton> buttons
 	{
 		DirectionalButton(KeyScancode::W, Vec2f(0, 1)),
@@ -24,33 +28,109 @@ void HeroSystem::OnStart()
 		DirectionalButton(KeyScancode::S, Vec2f(0, -1)),
 		DirectionalButton(KeyScancode::D, Vec2f(1, 0)),
 	};
-	moveSprite->AddButtons(buttons);
-	moveSprite->signal.AddListener(&HeroSystem::OnMove, this);
+	moveInput->AddButtons(buttons);
+	moveInput->signal.AddListener(&HeroSystem::OnMove, this);
+
+	auto fireInput = inputMap->CreateButtonInput("Fire");
+	fireInput->AddMouse(MouseButton::Left);
+	fireInput->signal.AddListener(&HeroSystem::OnFire, this);
+	fireInput->SetSendSignalOnRelease(true);
 
 	//Instance Hero
 
-	sptr<Texture> heroTexture = makesptr<Texture>("assets/textures/hero.png", 16.f,
-		TextureImportSettings(TextureFiltering::Nearest, TextureWrapping::Clamp, true, false));
+	sptr<Texture> heroTexture = LoadPixelArtTexture("assets/textures/hero.png");
 	sptr<Sprite> heroSprite = makesptr<Sprite>(heroTexture);
 
-	auto world = Systems::GetMainWorld();
-	auto hero = world->CreateEntity();
-	hero->AddComponent<Hero>();
-	hero->AddComponent<Transform>()->SetPosition(0, 0, 0);
-	auto render = hero->AddComponent<SpriteRender>();
+	Entity hero;
+	hero.AddComponent<Hero>();
+	hero.AddComponent<Transform>()->SetPosition(0, 0, 0);
+	auto render = hero.AddComponent<SpriteRender>();
 	render->SetSprite(heroSprite);
 	render->SetLayer(Renderer2D::GetLayerId("640p"));
 }
 
 void HeroSystem::OnUpdate(Time delta)
 {
-	ForEachComponent<Hero, Transform>([delta](Hero& hero, Transform& transform) {
+	auto world = Systems::GetMainWorld();
+	//Move hero
+	ForEachComponent<Hero, Transform>([delta, this](Hero& hero, Transform& transform) {
 		float speed = 15.f;
 		auto pos = transform.GetPosition();
 		pos.x += hero.direction.x * (float)delta * speed;
 		pos.y += hero.direction.y * (float)delta * speed;
 		transform.SetPosition(pos);
+		m_heroPosition = pos;
+		hero.elapsed += delta;
+
+		if (hero.isFiring && hero.elapsed >= hero.fireRate)
+		{
+			auto mouse = Systems::GetMainCamera()->ScreenToWorld(GetMousePosition(), Window::GetSize());
+			InstantiateBullet(m_heroPosition, mouse);
+			hero.elapsed = 0.f;
+		}
+		Systems::GetMainCamera()->SetPosition(pos);
 		});
+
+	//Move bullet
+	std::vector<Entity> toDestroy;
+	ForEachEntity<Bullet, Transform, CircleHitbox>([&toDestroy, this, delta, world]
+	(Entity bulletEntt, Bullet& bullet, Transform& bulletTransform, CircleHitbox& bulletHitbox)
+		{
+			auto pos = bulletTransform.GetPosition();
+			Vec2f offset{ bullet.direction.x * bullet.speed * (float)delta,
+			bullet.direction.y * bullet.speed * (float)delta };
+			pos.x += offset.x;
+			pos.y += offset.y;
+			bullet.distance += glm::length(offset);
+			bool collided = false;
+			if (bullet.distance >= 100.f)
+			{
+				bulletEntt.Destroy();
+			}
+			else
+			{
+				bulletTransform.SetPosition(pos);
+				ForEachEntity<Enemy, Transform, CircleHitbox>(
+					[&collided, &toDestroy, bulletEntt, pos, world, bulletHitbox]
+				(Entity enemyEntt, Enemy& enemy, Transform& enemyTransform, CircleHitbox& enemyHitbox)
+					{
+						//Circle collision
+						if (!collided && glm::distance(pos, enemyTransform.GetPosition()) < enemyHitbox.radius + bulletHitbox.radius)
+						{
+							collided = true;
+							enemyEntt.Destroy();
+							toDestroy.emplace_back(bulletEntt);
+						}
+					});
+			}
+
+		});
+	for (auto entt : toDestroy)
+	{
+		entt.Destroy();
+	}
+}
+
+void HeroSystem::OnFire(Sandbox::InputSignal* input)
+{
+	ForEachComponent<Hero>([input](Hero& hero) {
+		hero.isFiring = input->GetBool();
+		});
+}
+
+void HeroSystem::InstantiateBullet(Vec3f origin, Vec3f target)
+{
+	auto direction = glm::normalize(target - origin);
+	auto world = Systems::GetMainWorld();
+	auto bullet = world->CreateEntity();
+	bullet.AddComponent<Bullet>()->direction = direction;
+	bullet.AddComponent<CircleHitbox>()->radius = 0.5f;
+	auto render = bullet.AddComponent<SpriteRender>();
+	render->SetSprite(m_bulletSprite);
+	render->SetLayer(Renderer2D::GetLayerId("640p"));
+	auto transform = bullet.AddComponent<Transform>();
+	transform->SetPosition(origin);
+	transform->SetRotationZAxis(glm::degrees(std::atan2(direction.x, direction.y)));
 }
 
 void HeroSystem::OnMove(Sandbox::InputSignal* input)
@@ -60,12 +140,18 @@ void HeroSystem::OnMove(Sandbox::InputSignal* input)
 		});
 }
 
+void HeroSystem::LoadAssets()
+{
+	auto bulletTexture = LoadPixelArtTexture("assets/textures/bullet.png");
+	m_bulletSprite = makesptr<Sprite>(bulletTexture);
+}
+
 /* -- enemy -- */
 
 void EnemySystem::OnStart()
 {
-	sptr<Texture> enemyTexture = makesptr<Texture>("assets/textures/nice_guy.png", 16.f,
-		TextureImportSettings(TextureFiltering::Nearest, TextureWrapping::Clamp, true, false));
+	sptr<Texture> enemyTexture = makesptr<Texture>("assets/textures/pig.png", 16.f,
+		TextureImportSettings(TextureFiltering::Linear, TextureWrapping::Clamp, true, false));
 	m_enemySprite = makesptr<Sprite>(enemyTexture);
 }
 
@@ -79,16 +165,23 @@ void EnemySystem::OnUpdate(Time deltaTime)
 		heroPtr = &hero;
 		heroPos = heroTransform.GetPosition();
 		});
-	float speed = 2.f;
+	float speed = 7.f;
+
+	if (m_instanceClock.GetElapsed() > 1.f)
+	{
+		InstanceEnemy();
+		m_instanceClock.Restart();
+	}
 
 	//Move towards hero
-	ForEachComponent<Transform, MoveTowardsHero>([this, deltaTime, heroPos, speed](Transform& transform, MoveTowardsHero& mover)
+	ForEachComponent<Transform, Enemy>([this, deltaTime, heroPos, speed]
+	(Transform& transform, Enemy& enemy)
 		{
 			Vec2f direction = heroPos - transform.GetPosition();
-			direction = glm::normalize(direction) * speed;
+			direction = glm::normalize(direction);
 			auto position = transform.GetPosition();
-			position.x += (float)deltaTime * direction.x * speed;
-			position.y += (float)deltaTime * direction.y * speed;
+			position.x += (float)deltaTime * direction.x * speed + Random::Range(-0.1f, 0.1f);
+			position.y += (float)deltaTime * direction.y * speed + Random::Range(-0.1f, 0.1f);
 			transform.SetPosition(position);
 		});
 }
@@ -97,16 +190,20 @@ void EnemySystem::InstanceEnemy()
 {
 	auto world = Systems::GetMainWorld();
 
-
 	auto entity = world->CreateEntity();
-	auto transform = entity->AddComponent<Transform>();
-	float x = Random::Range(-16, 16);
-	float y = Random::Range(-10, 10);
+	auto transform = entity.AddComponent<Transform>();
+	float x = Random::Range(-40, 40);
+	float y = Random::Range(-40, 40);
 	transform->SetPosition({ x, y, 0 });
-	entity->AddComponent<MoveTowardsHero>();
-	auto render = entity->AddComponent<SpriteRender>();
+	entity.AddComponent<Enemy>();
+	auto render = entity.AddComponent<SpriteRender>();
 	render->SetSprite(m_enemySprite);
 	render->SetLayer(Renderer2D::GetLayerId("640p"));
+	entity.AddComponent<CircleHitbox>()->radius = 0.5f;
+
+	Entity particle;
+	particle.AddComponent<ParticleGenerator>();
+	particle.AddComponent<Transform>();
 }
 
 

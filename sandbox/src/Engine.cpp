@@ -9,6 +9,7 @@
 #include "Sandbox/ECS/InputSystem.h"
 #include "Sandbox/Render/Renderer2D.h"
 #include "Sandbox/ECS/SpriteRenderSystem.h"
+#include "Sandbox/ECS/ParticleSystem.h"
 #include <stb/stb_image.h>
 
 namespace Sandbox
@@ -36,6 +37,7 @@ namespace Sandbox
 		{
 			Systems::Push<InputSystem>();
 			Systems::Push<SpriteRenderSystem>();
+			Systems::Push<ParticleSystem>();
 		}
 	}
 

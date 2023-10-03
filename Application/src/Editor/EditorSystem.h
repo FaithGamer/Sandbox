@@ -25,9 +25,6 @@ namespace SandboxEditor
 	private:
 		void CreateEntityTool();
 		Layout m_layout;
-		Sandbox::Vec2f m_position;
-		Sandbox::Vec2f m_direction;
-		sptr<Sandbox::Sprite> m_entitySprite;
 		EnemySystem* m_enemySystem;
 	};
 }

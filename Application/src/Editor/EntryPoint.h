@@ -33,6 +33,7 @@ void Editor()
 	Systems::SetMainCamera(&cam);
 
 	//Add a custom rendering layer with a fixed height
+	Renderer2D::AddLayer("Particles", 640);
 	Renderer2D::AddLayer("640p", 640);
 
 	//Input Map

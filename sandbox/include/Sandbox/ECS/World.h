@@ -20,17 +20,20 @@ namespace Sandbox
 	{
 	public:
 		/// @brief Create an entity
-		/// @return the entity created.
-		Entity* CreateEntity();
+		/// @return the entity handle created.
+		Entity CreateEntity();
 
 		/// @brief Destroy an entity
 		/// @param entity The entity id to destroy
 		void DestroyEntity(EntityId id);
 
-		/// @brief Get an entity pointer.
-		/// Do not store the entity pointer, use id to store entity.
-		/// @return Entity
-		Entity* GetEntity(EntityId id);
+		/// @brief Get an entity handle
+		Entity GetEntity(EntityId id);
+		/// @brief Get the count of entity 
+		inline unsigned int GetEntityCount()
+		{
+			return registry.alive();
+		}
 
 		std::string GetName();
 		
@@ -48,7 +51,7 @@ namespace Sandbox
 			if (findId == m_onAddComponent.end())
 			{
 				m_onAddComponent.insert(std::make_pair((int32_t)typeId, SignalSink(this)));
-				m_registry.on_construct<ComponentType>().connect<&SignalSink::Send>(m_onAddComponent[typeId]);
+				registry.on_construct<ComponentType>().connect<&SignalSink::Send>(m_onAddComponent[typeId]);
 			}
 			m_onAddComponent[typeId].sender.AddListener(callback, listener, priority);
 		}
@@ -67,13 +70,12 @@ namespace Sandbox
 			if (findId == m_onRemoveComponent.end())
 			{
 				m_onRemoveComponent.insert(std::make_pair(typeId, SignalSink(this)));
-				m_registry.on_construct<ComponentType>().connect<&SignalSink::Send>(m_onRemoveComponent[typeId]);
+				registry.on_construct<ComponentType>().connect<&SignalSink::Send>(m_onRemoveComponent[typeId]);
 			}
 			m_onRemoveComponent[typeId].sender.AddListener<ListenerType>(callback, listener, priority);
 		}
 
-		static World* GetMain();
-		entt::registry m_registry;
+		entt::registry registry;
 	private:
 		World(std::string name);
 		friend Entity;

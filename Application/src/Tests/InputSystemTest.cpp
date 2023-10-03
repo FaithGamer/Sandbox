@@ -124,9 +124,9 @@ void InputSystemTest()
 
 	InitInputs();
 
-	Entity* player = Systems::GetMainWorld()->CreateEntity();
-	player->AddComponent<PlayerControlled>();
-	player->AddComponent<Body>();
+	Entity player = Systems::GetMainWorld()->CreateEntity();
+	player.AddComponent<PlayerControlled>();
+	player.AddComponent<Body>();
 
 	Systems::Push<Controller>();
 	Systems::Push<PhysicsSystem>();

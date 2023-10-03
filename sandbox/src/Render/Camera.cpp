@@ -5,6 +5,7 @@
 
 #include "Sandbox/Vec.h"
 #include "Sandbox/Render/Camera.h"
+#include "Sandbox/Log.h"
 
 
 
@@ -204,9 +205,25 @@ namespace Sandbox
 		return glm::lookAt(m_position, m_target, m_worldUp);
 	}
 
+	Vec3f Camera::ScreenToWorld(Vec2f screenPosition, Vec2u screenSize) const
+	{
+		//todo perspective
+		if (m_orthographic)
+		{
+			Vec2f screenNorm = { screenPosition.x / screenSize.x - 0.5f, screenPosition.y / screenSize.y - 0.5f };
+			return{ screenNorm.x * m_aspectRatio / worldToScreenRatio / m_orthographicZoom + m_position.x,
+			-screenNorm.y / worldToScreenRatio / m_orthographicZoom + m_position.y, 0 };
+		}
+		else
+		{
+			LOG_WARN("ScreenToWorld not implemented for perspective camera");
+			return Vec3f(0, 0, 0);
+		}
+	}
+
 	void Camera::ComputeViewMatrix() const
 	{
-		m_viewMatrix = glm::lookAt(m_position, m_position + m_localBack, m_localUp);
+		m_viewMatrix = glm::lookAt(m_position * worldToScreenRatio * 2.f, m_position * worldToScreenRatio * 2.f + m_localBack, m_localUp);
 
 		//view matrix will be composed like this
 		// 
