@@ -18,6 +18,9 @@ namespace Sandbox
 		Entity();
 		/// @brief Create an entity in a specified world
 		Entity(World* world);
+		/// @brief Create an handle to an existing entity
+		Entity(EntityId entityId);
+
 		/// @brief Add a component if it doesn't exists yet.
 		/// @param args Parameters for the component constructor.
 		/// @return Added component, or the one already in place.

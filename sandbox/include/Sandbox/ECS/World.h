@@ -13,7 +13,7 @@ namespace Sandbox
 
 	struct ComponentSignal
 	{
-		Entity* entity;
+		EntityId entity;
 	};
 	/// @brief Contains all the entities, usually there is one game world.
 	class World

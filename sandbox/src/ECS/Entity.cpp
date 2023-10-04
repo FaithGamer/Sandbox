@@ -16,6 +16,12 @@ namespace Sandbox
 		m_id = world->registry.create();
 		m_registry = &world->registry;
 	}
+
+	Entity::Entity(EntityId entityId) : m_id(entityId)
+	{
+		m_registry = &Systems::GetMainWorld()->registry;
+	}
+
 	Entity::Entity(entt::registry* registry, EntityId id) : m_registry(registry), m_id(id)
 	{
 

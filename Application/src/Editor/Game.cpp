@@ -91,13 +91,15 @@ void HeroSystem::OnUpdate(Time delta)
 			{
 				bulletTransform.SetPosition(pos);
 				ForEachEntity<Enemy, Transform, CircleHitbox>(
-					[&collided, &toDestroy, bulletEntt, pos, world, bulletHitbox]
+					[&collided, &toDestroy, bulletEntt, pos, world, bulletHitbox, this]
 				(Entity enemyEntt, Enemy& enemy, Transform& enemyTransform, CircleHitbox& enemyHitbox)
 					{
 						//Circle collision
 						if (!collided && glm::distance(pos, enemyTransform.GetPosition()) < enemyHitbox.radius + bulletHitbox.radius)
 						{
 							collided = true;
+							InstanceBurstParticle(enemyTransform.GetPosition());
+							//todo wrong position
 							enemyEntt.Destroy();
 							toDestroy.emplace_back(bulletEntt);
 						}
@@ -131,6 +133,16 @@ void HeroSystem::InstantiateBullet(Vec3f origin, Vec3f target)
 	auto transform = bullet.AddComponent<Transform>();
 	transform->SetPosition(origin);
 	transform->SetRotationZAxis(glm::degrees(std::atan2(direction.x, direction.y)));
+}
+
+void HeroSystem::InstanceBurstParticle(Vec3f position)
+{
+	Entity particle;
+	particle.AddComponent<Transform>()->SetPosition(position);
+	auto part = particle.AddComponent<ParticleGenerator>();
+	part->countByInstance = 60;
+	part->particleFrequency = 0.09f;
+	part->duration = 0.1f;
 }
 
 void HeroSystem::OnMove(Sandbox::InputSignal* input)
@@ -201,9 +213,6 @@ void EnemySystem::InstanceEnemy()
 	render->SetLayer(Renderer2D::GetLayerId("640p"));
 	entity.AddComponent<CircleHitbox>()->radius = 0.5f;
 
-	Entity particle;
-	particle.AddComponent<ParticleGenerator>();
-	particle.AddComponent<Transform>();
 }
 
 

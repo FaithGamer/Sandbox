@@ -40,7 +40,7 @@ public:
 	void OnFire(Sandbox::InputSignal* input);
 
 	void InstantiateBullet(Sandbox::Vec3f origin, Sandbox::Vec3f target);
-
+	void InstanceBurstParticle(Sandbox::Vec3f position);
 private:
 	void LoadAssets();
 	sptr <Sandbox::Sprite> m_bulletSprite;

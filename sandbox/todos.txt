@@ -27,5 +27,6 @@ this will be related to SpriteRenderComponent
 -resource id for shader/stencil/ ->"render mode option batch id" 
 
 
--particles: entities left over ?
+-particles: have a container separate from registry with preallocated memory
 
+-multiple worlds is obsoloete since differents entt::registry are in fact bound to the same containers

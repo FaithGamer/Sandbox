@@ -6,6 +6,8 @@
 #include "Sandbox/Math.h"
 #include "Sandbox/ECS/Systems.h"
 
+#define MAX_PARTICLES 50000
+
 namespace Sandbox
 {
 	ParticleSystem::ParticleSystem()
@@ -13,11 +15,22 @@ namespace Sandbox
 		SetPriority(9999);
 	}
 
+	void ParticleSystem::OnStart()
+	{
+		Systems::GetMainWorld()->ListenOnAddComponent<ParticleGenerator>(&ParticleSystem::OnAddParticle, this);
+		m_particles.resize(MAX_PARTICLES);
+		m_freeSpot.emplace_back(0);
+		LOG_INFO("Particle System size, for {0} particles max: {1} ko", MAX_PARTICLES, (float)sizeof(Particle) * MAX_PARTICLES / 1000);
+	}
+
 	void ParticleSystem::OnUpdate(Time deltaTime)
 	{
 		ForEachEntity<ParticleGenerator>([this, deltaTime](Entity entity, ParticleGenerator& generator) {
 
-			generator.internalClock += deltaTime;
+			if (generator.internalClock <= 0.f)
+				generator.internalClock = generator.particleFrequency;
+			else
+				generator.internalClock += deltaTime;
 
 			if (!generator.emitting)
 				return;
@@ -28,20 +41,21 @@ namespace Sandbox
 				{
 					generator.internalClock = 0;
 					generator.instancedCount = 0;
+					generator.deadCount = 0;
 				}
 				else
 				{
-					if (generator.destroyWhenOver)
+					if (generator.destroyWhenOver && generator.deadCount >= generator.instancedCount)
 						entity.Destroy();
 
 					generator.emitting = false;
 					return;
 				}
 			}
-			int count = floor((float)generator.internalClock / (float)generator.particleFrequency * generator.countByInstance);
-			for (int i = 0; i < count - generator.instancedCount; i++)
+			int count = floor((float)generator.internalClock / (float)generator.particleFrequency);
+			for (int i = 0; i < count * generator.countByInstance - generator.instancedCount; i++)
 			{
-				InstanceParticle(generator, entity);
+				InstanceParticle(generator, entity.GetId());
 			}
 			});
 
@@ -54,7 +68,13 @@ namespace Sandbox
 				particle.internalClock += deltaTime;
 
 				if (particle.internalClock >= particle.lifeTime)
+				{
+					auto generator = registry.try_get<ParticleGenerator>(particle.generator); 
+					if(generator)
+						generator->deadCount++;
 					registry.destroy(entt);
+
+				}
 
 				auto offset = particle.velocity * (float)deltaTime;
 				transform.Move(offset);
@@ -67,20 +87,23 @@ namespace Sandbox
 		auto& registry = Systems::GetMainWorld()->registry;
 		auto renderer = Renderer2D::Instance();
 
-		ForEachComponent<Particle, Transform>([this, renderer](Particle& particle, Transform& transform)
+		ForEachEntity<Particle, Transform>([&registry, this, renderer](Entity entity, Particle& particle, Transform& transform)
 			{
 				if (particle.needUpdateRenderBatch)
 				{
 					particle.renderBatch = Renderer2D::GetBatchId(particle.GetLayer(), particle.GetShader());
 					particle.needUpdateRenderBatch = false;
 				}
-				auto generatorTransform = particle.generator.GetComponent<Transform>();
-				Transform finalTransform = transform;// +*generatorTransform;
-				renderer->DrawSprite(finalTransform, particle, particle.renderBatch);
+				auto generatorTransform = registry.try_get<Transform>(particle.generator);
+				if (!generatorTransform)
+					entity.Destroy();
+				else
+				{
+					Transform trans;
+					trans.SetPosition(transform.GetPosition() + generatorTransform->GetPosition());
+					renderer->DrawSprite(trans, particle, particle.renderBatch);
+				}
 			});
-
-
-
 	}
 
 	int ParticleSystem::GetUsedMethod()
@@ -88,7 +111,13 @@ namespace Sandbox
 		return Method::Render | Method::Update;
 	}
 
-	void ParticleSystem::InstanceParticle(ParticleGenerator& generator, Entity genEntity)
+	void ParticleSystem::OnAddParticle(ComponentSignal componentSignal)
+	{
+		auto generator = Entity(componentSignal.entity).GetComponent<ParticleGenerator>();
+
+	}
+
+	void ParticleSystem::InstanceParticle(ParticleGenerator& generator, EntityId generatorId)
 	{
 		auto& registry = Systems::GetMainWorld()->registry;
 
@@ -103,7 +132,8 @@ namespace Sandbox
 		particle.SetSprite(generator.sprite);
 		particle.SetLayer(generator.layer);
 		particle.SetShader(generator.shader);
-		particle.generator = genEntity;
+		particle.generator = generatorId;
+		generator.instancedCount++;
 	}
 
 }

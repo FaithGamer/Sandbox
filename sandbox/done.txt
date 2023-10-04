@@ -53,3 +53,8 @@ octobre
 3
 
 - started working on particle
+
+4
+
+- fixed particle position instance
+- particle start emitting right away when constructed

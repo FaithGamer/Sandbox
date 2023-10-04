@@ -5,13 +5,16 @@ namespace Sandbox
 {
 	ParticleGenerator::ParticleGenerator() : 
 		duration(2), particleLifeTime(1), particleFrequency(0.3f), countByInstance(1),
-		spreadAngle(360), speed(20.f), loop(false), destroyWhenOver(true), emitting(true), instancedCount(0), layer(0)
+		spreadAngle(360), speed(20.f), loop(false), destroyWhenOver(true), emitting(true),
+		instancedCount(0), deadCount(0), layer(0)
 	{
 
 		static auto texture = makesptr<Texture>("assets/textures/square.png", 16.f, 
 			TextureImportSettings(TextureFiltering::Nearest, TextureWrapping::Clamp, true, false));
-		sprite = makesptr<Sprite>(texture);
+		static auto s = makesptr<Sprite>(texture);
+		sprite = s;
 	}
+
 	Particle::Particle() : SpriteRender()
 	{
 		m_layer = 0;

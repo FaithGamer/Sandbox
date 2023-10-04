@@ -12,13 +12,12 @@ namespace Sandbox
 	{
 	public:
 		Particle();
-		Entity generator;
-
+		EntityId generator;
 		Vec3f velocity = { 0, 0, 0 };
 
 		Time internalClock;
 		Time lifeTime;
-		bool alive = true;
+		bool alive = false;
 		
 	};
 
@@ -45,5 +44,8 @@ namespace Sandbox
 		sptr<Shader> shader;
 
 		unsigned int instancedCount;
+		unsigned int deadCount;
+	private:
+
 	};
 }

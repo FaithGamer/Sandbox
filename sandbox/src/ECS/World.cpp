@@ -37,6 +37,6 @@ namespace Sandbox
 
 	void World::SignalSink::Send(entt::registry& registry, entt::entity enttId)
 	{
-		sender.SendSignal(ComponentSignal(&world->m_entities[(size_t)enttId]));
+		sender.SendSignal(ComponentSignal(enttId));
 	}
 }
