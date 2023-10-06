@@ -10,13 +10,16 @@
 #include "Sandbox/Render/Renderer2D.h"
 #include "Sandbox/Render/Camera.h"
 
+#define SANDBOX_IMGUI
+
 namespace Sandbox
 {
 	Systems::Systems() :
 		m_fixedUpdateTime(0.030f),
 		m_pushCount(0),
 		m_maxFixedUpdate(10),
-		m_events(0)
+		m_events(0),
+		m_imGuiEnabled(true)
 	{
 
 	}
@@ -77,15 +80,12 @@ namespace Sandbox
 		while (SDL_PollEvent(&m_events) != 0)
 		{
 			HandleWindowEvents(m_events);
+			bool imGuiEventHandled = false;
 
-			bool imGuiEventHandled = ImGui_ImplSDL2_ProcessEvent(&m_events);
-			/*if (ImGuiEventHandled)
-			{
-				if (ImGui::GetIO().WantCaptureKeyboard)
-					continue;
-				if (ImGui::GetIO().WantCaptureMouse)
-					continue;
-			}*/
+#ifdef SANDBOX_IMGUI
+			if (m_imGuiEnabled)
+				imGuiEventHandled = ImGui_ImplSDL2_ProcessEvent(&m_events);
+#endif
 
 			for (auto& eventSystem : m_eventSystems)
 			{
@@ -119,7 +119,7 @@ namespace Sandbox
 			//the m_updateClock.Restart increment doesn't accurately describe time passing by.
 			system.system->OnUpdate(delta);
 		}
-	
+
 		if (m_mainCamera != nullptr)
 		{
 			Window::ClearWindow();
@@ -131,17 +131,22 @@ namespace Sandbox
 			}
 			Renderer2D::Instance()->End();
 
-			BeginImGui();
-			for (auto& system : m_imGuiSystems)
+#ifdef SANDBOX_IMGUI
+			if (m_imGuiEnabled)
 			{
-				system.system->OnImGui();
+				BeginImGui();
+				for (auto& system : m_imGuiSystems)
+				{
+					system.system->OnImGui();
+				}
+				EndImGui(Window::GetSize());
 			}
-			EndImGui(Window::GetSize());
+#endif
 
 			Window::RenderWindow();
 		}
 
-		
+
 	}
 
 	void Systems::HandleWindowEvents(SDL_Event& event)
@@ -271,6 +276,16 @@ namespace Sandbox
 			return true;
 
 		return false;
+	}
+
+	void Systems::EnableImGui(bool enabled)
+	{
+		Systems::Instance()->m_imGuiEnabled = enabled;
+	}
+
+	bool Systems::IsImGuiEnabled()
+	{
+		return Systems::Instance()->m_imGuiEnabled;
 	}
 
 	Time Systems::GetFixedUpdateTime()

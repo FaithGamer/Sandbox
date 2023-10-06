@@ -32,7 +32,7 @@ namespace Sandbox
 		/// @brief Get the count of entity 
 		inline unsigned int GetEntityCount()
 		{
-			return registry.alive();
+			return (unsigned int)registry.alive();
 		}
 
 		std::string GetName();

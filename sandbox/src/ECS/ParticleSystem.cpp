@@ -6,11 +6,13 @@
 #include "Sandbox/Math.h"
 #include "Sandbox/ECS/Systems.h"
 
-#define MAX_PARTICLES 50000
+
 
 namespace Sandbox
 {
-	ParticleSystem::ParticleSystem()
+	unsigned int ParticleSystem::m_particleCount(0);
+
+	ParticleSystem::ParticleSystem() : m_freeSpot(0), m_lastParticle(0)
 	{
 		SetPriority(9999);
 	}
@@ -18,22 +20,19 @@ namespace Sandbox
 	void ParticleSystem::OnStart()
 	{
 		Systems::GetMainWorld()->ListenOnAddComponent<ParticleGenerator>(&ParticleSystem::OnAddParticle, this);
-		m_particles.resize(MAX_PARTICLES);
-		m_freeSpot.emplace_back(0);
+		m_freeSpot = 0;
 		LOG_INFO("Particle System size, for {0} particles max: {1} ko", MAX_PARTICLES, (float)sizeof(Particle) * MAX_PARTICLES / 1000);
 	}
 
 	void ParticleSystem::OnUpdate(Time deltaTime)
 	{
+		//Particles generator update
 		ForEachEntity<ParticleGenerator>([this, deltaTime](Entity entity, ParticleGenerator& generator) {
 
 			if (generator.internalClock <= 0.f)
 				generator.internalClock = generator.particleFrequency;
 			else
 				generator.internalClock += deltaTime;
-
-			if (!generator.emitting)
-				return;
 
 			if (generator.internalClock >= generator.duration)
 			{
@@ -52,6 +51,10 @@ namespace Sandbox
 					return;
 				}
 			}
+
+			if (!generator.emitting)
+				return;
+
 			int count = floor((float)generator.internalClock / (float)generator.particleFrequency);
 			for (int i = 0; i < count * generator.countByInstance - generator.instancedCount; i++)
 			{
@@ -61,25 +64,33 @@ namespace Sandbox
 
 		auto& registry = Systems::GetMainWorld()->registry;
 
-		registry.view<Particle, Transform>().each(
+		//Particles Updates
+		for (int i = 0; i < m_lastParticle; i++)
+		{
+			if (!m_particles[i].alive)
+				continue;
 
-			[&](EntityId entt, Particle& particle, Transform& transform)
+			m_particles[i].internalClock += deltaTime;
+
+			if (m_particles[i].internalClock >= m_particles[i].lifeTime)
 			{
-				particle.internalClock += deltaTime;
+				//Particle death
+				DestroyParticle(i, registry);
+			}
+			else
+			{
+				//Particle Update
+				ParticleUpdate(i, deltaTime);
+			}
+		}
 
-				if (particle.internalClock >= particle.lifeTime)
-				{
-					auto generator = registry.try_get<ParticleGenerator>(particle.generator); 
-					if(generator)
-						generator->deadCount++;
-					registry.destroy(entt);
-
-				}
-
-				auto offset = particle.velocity * (float)deltaTime;
-				transform.Move(offset);
-			});
-
+		for (int i = m_lastParticle - 1; i > 0; i--)
+		{
+			if (m_particles[i].alive)
+				break;
+			else
+				m_lastParticle--;
+		}
 	}
 
 	void ParticleSystem::OnRender()
@@ -87,23 +98,26 @@ namespace Sandbox
 		auto& registry = Systems::GetMainWorld()->registry;
 		auto renderer = Renderer2D::Instance();
 
-		ForEachEntity<Particle, Transform>([&registry, this, renderer](Entity entity, Particle& particle, Transform& transform)
+		for (int i = 0; i < m_lastParticle; i++)
+		{
+			if (!m_particles[i].alive)
+				continue;
+
+			if (m_particles[i].needUpdateRenderBatch)
 			{
-				if (particle.needUpdateRenderBatch)
-				{
-					particle.renderBatch = Renderer2D::GetBatchId(particle.GetLayer(), particle.GetShader());
-					particle.needUpdateRenderBatch = false;
-				}
-				auto generatorTransform = registry.try_get<Transform>(particle.generator);
-				if (!generatorTransform)
-					entity.Destroy();
-				else
-				{
-					Transform trans;
-					trans.SetPosition(transform.GetPosition() + generatorTransform->GetPosition());
-					renderer->DrawSprite(trans, particle, particle.renderBatch);
-				}
-			});
+				m_particles[i].renderBatch = Renderer2D::GetBatchId(m_particles[i].GetLayer(), m_particles[i].GetShader());
+				m_particles[i].needUpdateRenderBatch = false;
+			}
+			auto generatorTransform = registry.try_get<Transform>(m_particles[i].generator);
+			if (!generatorTransform)
+				Entity(m_particles[i].generator).Destroy();
+			else
+			{
+				Transform transform;
+				transform.SetPosition(m_particles[i].position + generatorTransform->GetPosition());
+				renderer->DrawSprite(transform, m_particles[i], m_particles[i].renderBatch);
+			}
+		}
 	}
 
 	int ParticleSystem::GetUsedMethod()
@@ -113,27 +127,65 @@ namespace Sandbox
 
 	void ParticleSystem::OnAddParticle(ComponentSignal componentSignal)
 	{
-		auto generator = Entity(componentSignal.entity).GetComponent<ParticleGenerator>();
+		//auto generator = Entity(componentSignal.entity).GetComponent<ParticleGenerator>();
 
+	}
+
+	unsigned int ParticleSystem::GetParticleCount()
+	{
+		return m_particleCount;
+	}
+
+	void ParticleSystem::DestroyParticle(size_t i, entt::registry& registry)
+	{
+		auto generator = registry.try_get<ParticleGenerator>(m_particles[i].generator);
+		if (generator)
+			generator->deadCount++;
+
+		m_particles[i].alive = false;
+		m_particleCount--;
+
+		if (i < m_freeSpot)
+		{
+			m_freeSpot = i;
+		}
+	}
+
+	void ParticleSystem::ParticleUpdate(size_t i, Time delta)
+	{
+		m_particles[i].position += m_particles[i].velocity * (float)delta;
 	}
 
 	void ParticleSystem::InstanceParticle(ParticleGenerator& generator, EntityId generatorId)
 	{
-		auto& registry = Systems::GetMainWorld()->registry;
 
-		EntityId particleId = registry.create();
-		Particle& particle = registry.emplace<Particle>(particleId);
-		registry.emplace<Transform>(particleId);
+		while (m_particles[m_freeSpot].alive)
+		{
+			m_freeSpot++;
+			if (m_freeSpot >= MAX_PARTICLES)
+			{
+				LOG_WARN("Max particle count reach.");
+				return;
+			}
+		}
 
 		float angle = Random::Range(0.f, generator.spreadAngle);
 		Vec2f direction = Math::AngleToVec(angle);
-		particle.velocity = { direction.x * generator.speed, direction.y * generator.speed, 0.f };
-		particle.lifeTime = generator.particleLifeTime;
-		particle.SetSprite(generator.sprite);
-		particle.SetLayer(generator.layer);
-		particle.SetShader(generator.shader);
-		particle.generator = generatorId;
-		generator.instancedCount++;
-	}
 
+		m_particles[m_freeSpot].internalClock = 0.f;
+		m_particles[m_freeSpot].position = { 0, 0, 0 };
+		m_particles[m_freeSpot].velocity = { direction.x * generator.speed, direction.y * generator.speed, 0.f };
+		m_particles[m_freeSpot].lifeTime = Random::Range((float)generator.particleLifeTime * 0.25f, (float)generator.particleLifeTime);
+		m_particles[m_freeSpot].SetSprite(generator.sprite);
+		m_particles[m_freeSpot].SetLayer(generator.layer);
+		m_particles[m_freeSpot].SetShader(generator.shader);
+		m_particles[m_freeSpot].generator = generatorId;
+		m_particles[m_freeSpot].alive = true;
+		generator.instancedCount++;
+
+		m_particleCount++;
+
+
+		m_lastParticle = m_freeSpot + 1 > m_lastParticle ? m_freeSpot + 1 : m_lastParticle;
+	}
 }

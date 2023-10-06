@@ -14,7 +14,7 @@ namespace Sandbox
 		Particle();
 		EntityId generator;
 		Vec3f velocity = { 0, 0, 0 };
-
+		Vec3f position = { 0, 0, 0 };
 		Time internalClock;
 		Time lifeTime;
 		bool alive = false;

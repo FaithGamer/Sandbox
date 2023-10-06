@@ -36,6 +36,7 @@ void Editor()
 	Renderer2D::AddLayer("Particles", 640);
 	Renderer2D::AddLayer("640p", 640);
 
+
 	//Input Map
 	Inputs::CreateInputMap();
 

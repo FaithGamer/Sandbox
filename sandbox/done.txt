@@ -58,3 +58,8 @@ octobre
 
 - fixed particle position instance
 - particle start emitting right away when constructed
+
+6
+
+- particle system independent of entt::registry
+- im gui can be enabled/disabled

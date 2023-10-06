@@ -21,7 +21,6 @@ namespace SandboxEditor
 
 		void SwitchPanelHierarchy(Sandbox::InputSignal* input);
 		void SwitchPanelAsset(Sandbox::InputSignal* input);
-		void OnMove(Sandbox::InputSignal* input);
 	private:
 		void CreateEntityTool();
 		Layout m_layout;

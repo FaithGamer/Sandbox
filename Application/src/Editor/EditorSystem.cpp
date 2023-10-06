@@ -9,7 +9,7 @@
 #include <Sandbox/Time.h>
 #include <Sandbox/Random.h>
 #include <Sandbox/Input.h>
-
+#include <Sandbox/ECS/ParticleSystem.h>
 #include "EditorSystem.h"
 #include "SandboxEditorUtils.h"
 #include "AssetBrowser.h"
@@ -24,6 +24,10 @@ namespace fs = std::filesystem;
 
 namespace SandboxEditor
 {
+	void EnableImGui(InputSignal* input)
+	{
+		Systems::EnableImGui(!Systems::IsImGuiEnabled());
+	}
 	void EditorSystem::CreateEntityTool()
 	{
 		//Create entity
@@ -60,6 +64,12 @@ namespace SandboxEditor
 		std::string enttCount = std::to_string(world->GetEntityCount());
 		ImGui::LabelText(enttCount.c_str(), "Entity Count");
 
+		auto particles = Systems::Get<ParticleSystem>();
+		auto partCount = std::to_string(particles->GetParticleCount());
+		std::string lastPart = std::to_string(particles->m_lastParticle);
+		ImGui::LabelText(partCount.c_str(), "Particle Count");
+		ImGui::LabelText(lastPart.c_str(), "Particle Iterations");
+
 		ImGui::End();
 	}
 
@@ -89,6 +99,10 @@ namespace SandboxEditor
 
 		switchHierarchy->signal.AddListener(&EditorSystem::SwitchPanelHierarchy, this);
 		switchAsset->signal.AddListener(&EditorSystem::SwitchPanelAsset, this);
+
+		auto imGuiBtn = inputMap->CreateButtonInput("ImGui");
+		imGuiBtn->AddKey(KeyScancode::Tab);
+		imGuiBtn->signal.AddListener(&EnableImGui);
 
 		//Window size signal
 		Window::GetResizeSignal()->AddListener(&Layout::OnWindowResized, &m_layout);

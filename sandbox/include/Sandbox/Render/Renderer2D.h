@@ -192,6 +192,7 @@ namespace Sandbox
 
 		sptr<Shader> m_defaultShader;
 		sptr<RenderOptions> m_defaultRenderOptions;
+		sptr<RenderOptions> m_defaultRenderOptionsLayer;
 		sptr<Texture> m_whiteTexture;
 		sptr<UniformBuffer> m_cameraUniformBuffer;
 		sptr<IndexBuffer> m_quadIndexBuffer;

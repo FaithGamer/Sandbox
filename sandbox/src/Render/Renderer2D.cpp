@@ -58,6 +58,8 @@ namespace Sandbox
 			"assets/shaders/batch_renderer.frag");
 
 		m_defaultRenderOptions = makesptr<RenderOptions>();
+		m_defaultRenderOptionsLayer = makesptr<RenderOptions>();
+		m_defaultRenderOptionsLayer->SetDepthTest(false);
 		auto window = Window::Instance();
 
 		m_camera = Mat4(1);
@@ -72,7 +74,7 @@ namespace Sandbox
 		sptr<VertexArray> defaultLayerVertexArray = GenerateLayerVertexArray(screenSpace);
 
 		//Screen layer
-		m_layers.push_back(RenderLayer("Window", 0, window, m_defaultLayerShader, m_defaultRenderOptions, defaultLayerVertexArray));
+		m_layers.push_back(RenderLayer("Window", 0, window, m_defaultLayerShader, m_defaultRenderOptionsLayer, defaultLayerVertexArray));
 		//CreateQuadBatch(m_layers[0], nullptr, nullptr);
 
 		SetShaderUniformSampler(m_defaultLayerShader, m_maxOffscreenLayers + 1);
@@ -119,7 +121,7 @@ namespace Sandbox
 		if (shader == nullptr)
 			shader = ins->m_defaultLayerShader;
 		if (renderOptions == nullptr)
-			renderOptions = ins->m_defaultRenderOptions;
+			renderOptions = ins->m_defaultRenderOptionsLayer;
 
 		ins->SetShaderUniformSampler(shader, ins->m_maxOffscreenLayers + 1);
 
@@ -159,7 +161,7 @@ namespace Sandbox
 		std::vector<Vec2f> screenSpace{ {-1, -1}, { 1, -1 }, { 1, 1 }, { -1, 1 } };
 		sptr<VertexArray> layerVertexArray = ins->GenerateLayerVertexArray(screenSpace);
 		uint32_t index = (uint32_t)ins->m_layers.size();
-		ins->m_layers.push_back(RenderLayer(name, index, layer, ins->m_defaultLayerShader, ins->m_defaultRenderOptions, layerVertexArray, false, true));
+		ins->m_layers.push_back(RenderLayer(name, index, layer, ins->m_defaultLayerShader, ins->m_defaultRenderOptionsLayer, layerVertexArray, false, true));
 		ins->m_offscreenLayers.push_back(OffscreenRenderLayer(layer, sampler2DIndex, index));
 
 		return (uint32_t)ins->m_layers.size() - 1;
@@ -416,18 +418,7 @@ namespace Sandbox
 		}
 
 		//Draw every layers
-		/*for (auto layer = m_renderLayers.rbegin(); layer != m_renderLayers.rend(); layer++)
-		{
-			if (!(*layer)->active)
-				continue;
 
-			std::static_pointer_cast<RenderTexture>((*layer)->target)->BindTexture(0);
-			(*layer)->vertexArray->Bind();
-			(*layer)->shader->Bind();
-			(*layer)->renderOptions->Bind();
-			GLuint indicesCount = (*layer)->vertexArray->GetIndexBuffer()->GetCount();
-			glDrawElements(GL_TRIANGLES, indicesCount, GL_UNSIGNED_INT, 0);
-		}*/
 		for (auto layer = m_layers.rbegin(); layer != m_layers.rend(); layer++)
 		{
 			if (!layer->active || layer->index == 0 || layer->offscreen)

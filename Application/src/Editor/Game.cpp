@@ -129,7 +129,7 @@ void HeroSystem::InstantiateBullet(Vec3f origin, Vec3f target)
 	bullet.AddComponent<CircleHitbox>()->radius = 0.5f;
 	auto render = bullet.AddComponent<SpriteRender>();
 	render->SetSprite(m_bulletSprite);
-	render->SetLayer(Renderer2D::GetLayerId("640p"));
+	render->SetLayer(Renderer2D::GetLayerId("Particles"));
 	auto transform = bullet.AddComponent<Transform>();
 	transform->SetPosition(origin);
 	transform->SetRotationZAxis(glm::degrees(std::atan2(direction.x, direction.y)));
@@ -142,7 +142,10 @@ void HeroSystem::InstanceBurstParticle(Vec3f position)
 	auto part = particle.AddComponent<ParticleGenerator>();
 	part->countByInstance = 60;
 	part->particleFrequency = 0.09f;
+	part->particleLifeTime = 0.4f;
+	part->layer = Renderer2D::GetLayerId("Particles");
 	part->duration = 0.1f;
+
 }
 
 void HeroSystem::OnMove(Sandbox::InputSignal* input)
@@ -163,7 +166,7 @@ void HeroSystem::LoadAssets()
 void EnemySystem::OnStart()
 {
 	sptr<Texture> enemyTexture = makesptr<Texture>("assets/textures/pig.png", 16.f,
-		TextureImportSettings(TextureFiltering::Linear, TextureWrapping::Clamp, true, false));
+		TextureImportSettings(TextureFiltering::Nearest, TextureWrapping::Clamp, true, false));
 	m_enemySprite = makesptr<Sprite>(enemyTexture);
 }
 
@@ -189,11 +192,20 @@ void EnemySystem::OnUpdate(Time deltaTime)
 	ForEachComponent<Transform, Enemy>([this, deltaTime, heroPos, speed]
 	(Transform& transform, Enemy& enemy)
 		{
-			Vec2f direction = heroPos - transform.GetPosition();
+			enemy.timer += deltaTime;
+			if (enemy.timer >= enemy.nextTime)
+			{
+				enemy.targetOffset.x = Random::Range(-2.f, 2.f);
+				enemy.targetOffset.y = Random::Range(-2.f, 2.f);
+
+				enemy.nextTime = Random::Range(1.f, 4.f);
+				enemy.timer = 0;
+			}
+			Vec2f direction = heroPos - transform.GetPosition() + Vec3f{ enemy.targetOffset.x, enemy.targetOffset.y, 0 };
 			direction = glm::normalize(direction);
 			auto position = transform.GetPosition();
-			position.x += (float)deltaTime * direction.x * speed + Random::Range(-0.1f, 0.1f);
-			position.y += (float)deltaTime * direction.y * speed + Random::Range(-0.1f, 0.1f);
+			position.x += (float)deltaTime * direction.x * speed;
+			position.y += (float)deltaTime * direction.y * speed;
 			transform.SetPosition(position);
 		});
 }

@@ -16,7 +16,7 @@ namespace Sandbox
 		{
 			static std::default_random_engine generator;
 			std::uniform_int_distribution<int64_t> dist(min * 10000, max * 10000);
-			return (float)dist(generator) * 0.00001f;
+			return (float)dist(generator) * 0.0001f;
 		}
 	}
 }

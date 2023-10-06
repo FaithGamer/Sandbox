@@ -10,13 +10,15 @@ struct Hero
 {
 	Sandbox::Vec2f direction = { 0, 0 };
 	bool isFiring = false;
-	Sandbox::Time fireRate = 0.02f;
+	Sandbox::Time fireRate = 0.1f;
 	Sandbox::Time elapsed = fireRate;
 };
 
 struct Enemy
 {
-	float dummy;
+	Sandbox::Vec2f targetOffset = { 0, 0 };
+	Sandbox::Time timer;
+	Sandbox::Time nextTime = 1;
 };
 
 struct CircleHitbox

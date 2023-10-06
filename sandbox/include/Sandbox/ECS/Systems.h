@@ -98,6 +98,8 @@ namespace Sandbox
 			return Systems::Instance()->HasSystem(TypeId::GetId<SystemType>());
 		}
 
+		static void EnableImGui(bool enabled);
+		static bool IsImGuiEnabled();
 		static Time GetFixedUpdateTime();
 
 		/// @brief Create and store a World, usually you will have only one World
@@ -179,5 +181,6 @@ namespace Sandbox
 		SDL_Event m_events;
 
 		int m_pushCount;
+		bool m_imGuiEnabled;
 	};
 }
