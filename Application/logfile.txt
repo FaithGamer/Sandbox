@@ -151,3 +151,15 @@
 [2023-10-06 23:05:27.406] [SANDBOX] [info] Particles
 [2023-10-06 23:05:27.469] [SANDBOX] [info] 640p
 [2023-10-06 23:05:27.470] [SANDBOX] [info] Particles
+[2023-10-06 23:12:05.563] [SANDBOX] [info] OpenGL Loaded.
+[2023-10-06 23:12:05.564] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2023-10-06 23:12:05.565] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2023-10-06 23:12:05.565] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2023-10-06 23:12:05.565] [SANDBOX] [info] Max. Vertex attributes: 16
+[2023-10-06 23:12:05.580] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-28 13:14:45.309] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-28 13:14:45.311] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-28 13:14:45.311] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-28 13:14:45.311] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-28 13:14:45.311] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-28 13:14:45.356] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
