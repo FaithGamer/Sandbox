@@ -157,6 +157,7 @@
     <ClCompile Include="src\Editor\Layout.cpp" />
     <ClCompile Include="src\Editor\Menu.cpp" />
     <ClCompile Include="src\Editor\SandboxEditorUtils.cpp" />
+    <ClCompile Include="src\Tests\BlendingTest.cpp" />
     <ClCompile Include="src\Tests\ECSTest.cpp" />
     <ClCompile Include="src\Tests\ECSTest.h" />
     <ClCompile Include="src\Tests\FrameBufferTest.cpp" />
@@ -167,6 +168,7 @@
     <ClCompile Include="src\Tests\BillboardTest.cpp" />
     <ClCompile Include="src\Tests\EnttTest.cpp" />
     <ClCompile Include="src\Tests\InputSystemTest.cpp" />
+    <ClCompile Include="src\Tests\JsonTest.cpp" />
     <ClCompile Include="src\Tests\RendererTest.cpp" />
     <ClCompile Include="src\Tests\SignalTest.cpp" />
     <ClCompile Include="src\Tests\SpriteRenderTest.cpp" />
@@ -177,6 +179,7 @@
     <ClCompile Include="src\Tests\UniformBlockTest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Tests\JsonTest.h" />
     <ClInclude Include="src\Editor\Game.h" />
     <ClInclude Include="src\Editor\Hierarchy.h" />
     <ClInclude Include="src\Editor\Menu.h" />
@@ -185,6 +188,7 @@
     <ClInclude Include="src\Editor\EditorSystem.h" />
     <ClInclude Include="src\Editor\Layout.h" />
     <ClInclude Include="src\Editor\Panel.h" />
+    <ClInclude Include="src\Tests\BlendingTest.h" />
     <ClInclude Include="src\Tests\InputSystemTest.h" />
     <ClInclude Include="src\Tests\SpriteRenderTest.h" />
     <ClInclude Include="src\Tests\FrameBufferTest.h" />

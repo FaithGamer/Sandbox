@@ -12,3 +12,189 @@
 [2024-01-30 01:04:25.963] [SANDBOX] [info] Vendor: NVIDIA Corporation
 [2024-01-30 01:04:25.963] [SANDBOX] [info] Max. Vertex attributes: 16
 [2024-01-30 01:04:26.010] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 13:15:18.462] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 13:15:18.463] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 13:15:18.463] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 13:15:18.463] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 13:15:18.463] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 13:15:18.518] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 13:17:08.895] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 13:17:08.896] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 13:17:08.896] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 13:17:08.897] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 13:17:08.897] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 13:17:08.909] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 13:19:02.500] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 13:19:02.501] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 13:19:02.501] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 13:19:02.502] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 13:19:02.502] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 13:19:02.513] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 13:22:07.165] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 13:22:07.166] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 13:22:07.166] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 13:22:07.166] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 13:22:07.167] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 13:22:07.179] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 13:22:25.123] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 13:22:25.124] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 13:22:25.124] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 13:22:25.124] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 13:22:25.124] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 13:22:25.136] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 13:22:48.699] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 13:22:48.700] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 13:22:48.701] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 13:22:48.701] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 13:22:48.701] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 13:22:48.713] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 13:24:02.099] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 13:24:02.100] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 13:24:02.100] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 13:24:02.101] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 13:24:02.101] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 13:24:02.113] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 13:25:10.510] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 13:25:10.512] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 13:25:10.512] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 13:25:10.512] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 13:25:10.513] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 13:25:10.524] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 13:29:20.360] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 13:29:20.361] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 13:29:20.361] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 13:29:20.362] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 13:29:20.362] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 13:29:20.372] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 13:44:05.354] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 13:44:05.355] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 13:44:05.356] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 13:44:05.356] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 13:44:05.356] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 13:44:05.370] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 13:44:55.216] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 13:44:55.217] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 13:44:55.218] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 13:44:55.218] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 13:44:55.218] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 13:44:55.230] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 13:47:57.089] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 13:47:57.090] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 13:47:57.090] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 13:47:57.090] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 13:47:57.090] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 13:47:57.102] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 13:48:39.922] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 13:48:39.923] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 13:48:39.923] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 13:48:39.923] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 13:48:39.923] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 13:48:39.934] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 13:49:21.003] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 13:49:21.004] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 13:49:21.004] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 13:49:21.004] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 13:49:21.004] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 13:49:21.017] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 13:50:35.487] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 13:50:35.488] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 13:50:35.488] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 13:50:35.488] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 13:50:35.488] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 13:50:35.502] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 13:53:41.709] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 13:53:41.710] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 13:53:41.710] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 13:53:41.711] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 13:53:41.711] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 13:53:41.724] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 14:00:35.488] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 14:00:35.489] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 14:00:35.489] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 14:00:35.490] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 14:00:35.490] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 14:00:35.499] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 14:03:19.444] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 14:03:19.445] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 14:03:19.446] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 14:03:19.446] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 14:03:19.446] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 14:03:19.454] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 14:04:13.251] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 14:04:13.252] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 14:04:13.252] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 14:04:13.252] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 14:04:13.252] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 14:04:13.261] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 14:04:40.678] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 14:04:40.679] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 14:04:40.679] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 14:04:40.680] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 14:04:40.680] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 14:04:40.686] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-01-30 17:43:07.641] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 17:43:07.645] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 17:43:07.645] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 17:43:07.645] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 17:43:07.646] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 17:43:07.712] [SANDBOX] [error] Config json exception with parameter: Float
+exception id: 304 - what: set
+[2024-01-30 17:51:50.893] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 17:51:50.894] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 17:51:50.894] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 17:51:50.894] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 17:51:50.894] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 17:51:50.905] [SANDBOX] [error] Config json exception with parameter: Float
+exception id: 304 - what: [json.exception.type_error.304] cannot use at() with string
+
+[2024-01-30 18:20:31.477] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 18:20:31.479] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 18:20:31.480] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 18:20:31.480] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 18:20:31.480] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 18:20:42.361] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 18:20:42.362] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 18:20:42.362] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 18:20:42.362] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 18:20:42.363] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 18:20:42.376] [SANDBOX] [error] Config error in file jsontest.jsonwith parameter: Fzloat
+json exception: 403, [json.exception.out_of_range.403] key 'Fzloat' not found
+
+[2024-01-30 18:21:04.956] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 18:21:04.957] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 18:21:04.957] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 18:21:04.957] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 18:21:04.958] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 18:21:04.969] [SANDBOX] [error] Config error in file jsontest.json, parameter: Fzloat
+json exception: 403, [json.exception.out_of_range.403] key 'Fzloat' not found
+
+[2024-01-30 18:23:43.067] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 18:23:43.068] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 18:23:43.068] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 18:23:43.068] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 18:23:43.069] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 18:23:43.086] [SANDBOX] [error] Config error in file jsontest.json, parameter: Fzloat
+json exception: 403, [json.exception.out_of_range.403] key 'Fzloat' not found
+
+[2024-01-30 18:23:43.086] [SANDBOX] [error] Config error in file jsontest.json->Object, parameter: String
+json exception: 304, [json.exception.type_error.304] cannot use at() with null
+
+[2024-01-30 18:27:17.784] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 18:27:17.785] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 18:27:17.785] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 18:27:17.785] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 18:27:17.786] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 18:27:17.805] [SANDBOX] [error] Config error in file jsontest.json, parameter: Fzloat
+json exception: 403, [json.exception.out_of_range.403] key 'Fzloat' not found
+
+[2024-01-30 18:27:42.611] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-30 18:27:42.611] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-30 18:27:42.612] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-30 18:27:42.612] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-30 18:27:42.612] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-30 18:27:42.626] [SANDBOX] [error] Config error in file jsontest.json, parameter: Fzloat
+json exception: 403, [json.exception.out_of_range.403] key 'Fzloat' not found
+
+[2024-01-30 18:27:42.626] [SANDBOX] [error] Config error in file jsontest.json->Object, parameter: Stringz
+json exception: 403, [json.exception.out_of_range.403] key 'Stringz' not found
+

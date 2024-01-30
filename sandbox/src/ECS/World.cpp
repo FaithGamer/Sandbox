@@ -11,7 +11,6 @@ namespace Sandbox
 		m_entityPreallocationSize(10000),
 		m_entityReallocationSize(100)
 	{
-		m_entities.reserve(m_entityPreallocationSize);
 	}
 
 	Entity World::CreateEntity()

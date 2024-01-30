@@ -12,14 +12,7 @@ this will be related to SpriteRenderComponent
 -tween system
 
 
--Store world not as pointers ?
 
--signal on resize window
--create render texture that scale on window size
--check if generateId works as intended
--implement stencilmode
--test renderer
--find name for batchid
 -material instead of just shader
 
 -layers that are a set of systems
@@ -29,10 +22,38 @@ this will be related to SpriteRenderComponent
 
 -particles: have a container separate from registry with preallocated memory
 
--multiple worlds is obsoloete since differents entt::registry are in fact bound to the same containers
 
 -add math to pch
 -ability to have parent transform
 -inline Transform
--have a way to batch and depth test semi transparent pixel	
--> two pass rendering, first opaque fragment discard transparent then
+
+
+
+-optimize the particle system by recording the prevOffset and nextOffset for each element in the particle array
+
+-test if listener that are null are properly discardded by signaler
+-easing
+-state machine like in csharp
+
+big tasks:
+
+- assets and asset manager
+
+
+- animator for transform and sprite render
+
+- rendering line (batching ?)
+- sound
+- fixed aspect ratio for layers
+- transform parenting
+
+
+Asset Manager:
+
+-I wanna have all the assets loaded when the engine launches.
+-create any asset ref with it's path
+-texture can be cut into sprites
+-json file in the same folder as the texture, with the same name, give the rules of cutting
+-asset manager read these json files and create sprites accordingly.
+-Config class that is a wrapper around a nlhomman json object to store all sort of parameters
+

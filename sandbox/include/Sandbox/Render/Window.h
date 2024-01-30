@@ -30,7 +30,7 @@ namespace Sandbox
 		void Bind() override;
 		void Clear() override;
 		
-		SignalSender<Vec2u> resizeSignal;
+		SignalSender<Vec2u> ResizeSignal;
 	private:
 		friend Engine;
 		friend Singleton<Window>;

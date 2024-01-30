@@ -117,7 +117,7 @@ namespace Sandbox
 
 	SignalSender<Vec2u>* Window::GetResizeSignal()
 	{
-		return &Window::Instance()->resizeSignal;
+		return &Window::Instance()->ResizeSignal;
 	}
 
 	void Window::Clear()
@@ -132,7 +132,7 @@ namespace Sandbox
 		SDL_SetWindowSize(m_window, size.x, size.y);
 		glViewport(0, 0, size.x, size.y);
 		m_size = size;
-		resizeSignal.SendSignal(m_size);
+		ResizeSignal.SendSignal(m_size);
 	}
 
 	void Window::Bind()

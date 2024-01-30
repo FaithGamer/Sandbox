@@ -1,0 +1,17 @@
+{
+    "Array": [
+        1,
+        1,
+        2,
+        4
+    ],
+    "Float": 23.082759976387024,
+    "Object": {
+        "String": "Bonjouren",
+        "StringArray": [
+            "oui",
+            "non",
+            "peut-etre"
+        ]
+    }
+}

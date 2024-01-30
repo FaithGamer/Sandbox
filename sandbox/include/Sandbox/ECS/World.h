@@ -93,8 +93,6 @@ namespace Sandbox
 			void Send(entt::registry& registry, entt::entity enttId);
 		};
 
-		std::vector<Entity> m_entities;
-
 		std::unordered_map<int32_t, SignalSink> m_onAddComponent;
 		std::unordered_map<int32_t, SignalSink> m_onRemoveComponent;
 

@@ -12,7 +12,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ECS\ParticleSystem.cpp" />
-    <ClCompile Include="include\Sandbox\Render\RenderOptions.cpp" />
+    <ClCompile Include="src\Json.cpp" />
+    <ClCompile Include="src\Render\RenderOptions.cpp" />
     <ClCompile Include="src\ECS\SpriteRenderSystem.cpp" />
     <ClCompile Include="src\Render\Particle.cpp" />
     <ClCompile Include="src\Utils\Random.cpp" />
@@ -22,7 +23,6 @@
     <ClCompile Include="src\ECS\World.cpp" />
     <ClCompile Include="src\ImGuiLoader.cpp" />
     <ClCompile Include="src\Input\Inputs.cpp" />
-    <ClCompile Include="src\Parameters.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\ECS\InputSystem.cpp" />
     <ClCompile Include="src\ECS\Systems.cpp" />
@@ -76,6 +76,7 @@
     <ClInclude Include="include\Sandbox\Input.h" />
     <ClInclude Include="include\Sandbox\Input\Inputs.h" />
     <ClInclude Include="include\Sandbox\EngineParameters.h" />
+    <ClInclude Include="include\Sandbox\Json.h" />
     <ClInclude Include="include\Sandbox\Random.h" />
     <ClInclude Include="include\Sandbox\Render\IndexBuffer.h" />
     <ClInclude Include="include\Sandbox\Render\Particle.h" />

@@ -21,6 +21,8 @@
 #include "Tests/InputSystemTest.h"
 #include "Tests/BillboardTest.h"
 #include "Tests/ImGuiSystemTest.h"
+#include "Tests/BlendingTest.h"
+#include "Tests/JsonTest.h"
 
 #include "Editor/EntryPoint.h"
 
@@ -46,7 +48,9 @@ int main(int argc, char** argv)
 	//ImGuiSystemTest();
 	//InputSystemTest();
 
-	Editor();
+	//Editor();
+	//BlendingTest();
 	//VectorUnitTest();
+	JsonTest();
 	return 0;
 }
