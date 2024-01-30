@@ -81,7 +81,7 @@ void HeroSystem::OnUpdate(Time delta)
 			bullet.direction.y * bullet.speed * (float)delta };
 			pos.x += offset.x;
 			pos.y += offset.y;
-			bullet.distance += glm::length(offset);
+			bullet.distance += offset.Magnitude();
 			bool collided = false;
 			if (bullet.distance >= 100.f)
 			{
@@ -95,7 +95,7 @@ void HeroSystem::OnUpdate(Time delta)
 				(Entity enemyEntt, Enemy& enemy, Transform& enemyTransform, CircleHitbox& enemyHitbox)
 					{
 						//Circle collision
-						if (!collided && glm::distance(pos, enemyTransform.GetPosition()) < enemyHitbox.radius + bulletHitbox.radius)
+						if (!collided && pos.Distance(enemyTransform.GetPosition()) < enemyHitbox.radius + bulletHitbox.radius)
 						{
 							collided = true;
 							InstanceBurstParticle(enemyTransform.GetPosition());
@@ -122,10 +122,10 @@ void HeroSystem::OnFire(Sandbox::InputSignal* input)
 
 void HeroSystem::InstantiateBullet(Vec3f origin, Vec3f target)
 {
-	auto direction = glm::normalize(target - origin);
+	auto direction = (target - origin).Normalized();
 	auto world = Systems::GetMainWorld();
 	auto bullet = world->CreateEntity();
-	bullet.AddComponent<Bullet>()->direction = direction;
+	bullet.AddComponent<Bullet>()->direction = (Vec2f)direction;
 	bullet.AddComponent<CircleHitbox>()->radius = 0.5f;
 	auto render = bullet.AddComponent<SpriteRender>();
 	render->SetSprite(m_bulletSprite);
@@ -201,8 +201,8 @@ void EnemySystem::OnUpdate(Time deltaTime)
 				enemy.nextTime = Random::Range(1.f, 4.f);
 				enemy.timer = 0;
 			}
-			Vec2f direction = heroPos - transform.GetPosition() + Vec3f{ enemy.targetOffset.x, enemy.targetOffset.y, 0 };
-			direction = glm::normalize(direction);
+			Vec3f direction = heroPos - transform.GetPosition() + Vec3f{ enemy.targetOffset.x, enemy.targetOffset.y, 0 };
+			direction.Normalize();
 			auto position = transform.GetPosition();
 			position.x += (float)deltaTime * direction.x * speed;
 			position.y += (float)deltaTime * direction.y * speed;

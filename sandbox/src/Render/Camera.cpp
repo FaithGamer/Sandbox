@@ -202,7 +202,7 @@ namespace Sandbox
 
 	Mat4 Camera::GetTargetViewMatrix() const
 	{
-		return glm::lookAt(m_position, m_target, m_worldUp);
+		return glm::lookAt((glm::vec3)m_position, (glm::vec3)m_target, (glm::vec3)m_worldUp);
 	}
 
 	Vec3f Camera::ScreenToWorld(Vec2f screenPosition, Vec2u screenSize) const
@@ -223,7 +223,9 @@ namespace Sandbox
 
 	void Camera::ComputeViewMatrix() const
 	{
-		m_viewMatrix = glm::lookAt(m_position * worldToScreenRatio * 2.f, m_position * worldToScreenRatio * 2.f + m_localBack, m_localUp);
+		m_viewMatrix = glm::lookAt(
+			(glm::vec3)m_position * worldToScreenRatio * 2.f,
+			(glm::vec3)m_position * worldToScreenRatio * 2.f + (glm::vec3)m_localBack, (glm::vec3)m_localUp);
 
 		//view matrix will be composed like this
 		// 
@@ -245,18 +247,20 @@ namespace Sandbox
 	void Camera::ComputeDirection()
 	{
 		//Calculate view direction (in fact the opposite this is why it's called back here)
-		glm::vec3 back;
+		Vec3f back;
 		back.x = cos(glm::radians(m_yaw - 90.0f)) * cos(glm::radians(m_pitch));
 		back.y = sin(glm::radians(m_pitch));
 		back.z = sin(glm::radians(m_yaw - 90.0f)) * cos(glm::radians(m_pitch));
 
 		// normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
-		m_localBack = glm::normalize(back);
-		m_localRight = glm::normalize(glm::cross(m_localBack, m_worldUp));
+		m_localBack = back.Normalized();
+		m_localRight = (m_localBack.Cross(m_worldUp)).Normalized();
+		//m_localRight = glm::normalize(glm::cross((glm::vec3)m_localBack, (glm::vec3)m_worldUp));
 		/*Vec3f rightWithRoll = m_localRight;
 		rightWithRoll.x += cos(glm::radians(m_roll));
 		rightWithRoll.y -= sin(glm::radians(m_roll));*/
-		m_localUp = glm::normalize(glm::cross(m_localRight, m_localBack));
+		m_localUp = (m_localRight.Cross(m_localBack)).Normalized();
+		//m_localUp = glm::normalize(glm::cross((glm::vec3)m_localRight, (glm::vec3)m_localBack));
 	}
 
 	void Camera::ComputeProjectionMatrix() const

@@ -15,7 +15,7 @@
     <ClCompile Include="include\Sandbox\Render\RenderOptions.cpp" />
     <ClCompile Include="src\ECS\SpriteRenderSystem.cpp" />
     <ClCompile Include="src\Render\Particle.cpp" />
-    <ClCompile Include="src\Random.cpp" />
+    <ClCompile Include="src\Utils\Random.cpp" />
     <ClCompile Include="src\Render\IndexBuffer.cpp" />
     <ClCompile Include="src\Render\RenderTexture.cpp" />
     <ClCompile Include="src\Delegate.cpp" />
@@ -34,9 +34,10 @@
     <ClCompile Include="src\Render\SpriteRender.cpp" />
     <ClCompile Include="src\Render\UniformBuffer.cpp" />
     <ClCompile Include="src\Render\VertexBuffer.cpp" />
+    <ClCompile Include="src\Vec.cpp" />
     <ClCompile Include="src\Vector.cpp" />
     <ClCompile Include="src\Files.cpp" />
-    <ClCompile Include="src\Math.cpp" />
+    <ClCompile Include="src\Utils\Math.cpp" />
     <ClCompile Include="src\Render\Renderer2D.cpp" />
     <ClCompile Include="src\Input\InputMap.cpp" />
     <ClCompile Include="src\Input\ButtonInput.cpp" />
@@ -87,7 +88,7 @@
     <ClInclude Include="include\Sandbox\Render\UniformBuffer.h" />
     <ClInclude Include="include\Sandbox\Render\VertexBuffer.h" />
     <ClInclude Include="include\Sandbox\Sandbox.h" />
-    <ClInclude Include="include\Sandbox\Vector.h" />
+    <ClInclude Include="include\Sandbox\Utils\Container.h" />
     <ClInclude Include="include\Sandbox\Delegate.h" />
     <ClInclude Include="include\Sandbox\Engine.h" />
     <ClInclude Include="include\Sandbox\Singleton.h" />
@@ -97,13 +98,13 @@
     <ClInclude Include="include\Sandbox\Input\Controller.h" />
     <ClInclude Include="include\Sandbox\Input\Keyboard.h" />
     <ClInclude Include="include\Sandbox\Input\Mouse.h" />
-    <ClInclude Include="include\Sandbox\Files.h" />
+    <ClInclude Include="include\Sandbox\Utils\Files.h" />
     <ClInclude Include="include\Sandbox\Math.h" />
     <ClInclude Include="include\Sandbox\PlatformDetection.h" />
     <ClInclude Include="include\Sandbox\Render.h" />
     <ClInclude Include="include\Sandbox\Input\InputMap.h" />
     <ClInclude Include="include\Sandbox\Input\DirectionalInput.h" />
-    <ClInclude Include="include\Sandbox\ECS\entt_macros.h" />
+    <ClInclude Include="include\Sandbox\ECS\Components.h" />
     <ClInclude Include="include\Sandbox\ECS\Scene.h" />
     <ClInclude Include="include\Sandbox\ECS\Entity.h" />
     <ClInclude Include="include\Sandbox\Vec.h" />
@@ -142,13 +143,14 @@
     <None Include="assets\shaders\uniform_buffer_test.frag" />
     <None Include="assets\shaders\texture_unit.frag" />
     <None Include="assets\shaders\texture_unit.vert" />
-    <None Include="include\Sandbox\Vector.tpp" />
+    <None Include="include\Sandbox\Utils\Container.tpp" />
     <None Include="include\Sandbox\Math.tpp" />
     <None Include="src\Tools\Toolbox.tpp" />
     <None Include="assets\shaders\texture.frag" />
     <None Include="assets\shaders\position_color.vert" />
     <None Include="include\Sandbox\Signal.tpp" />
     <None Include="assets\shaders\uniform_buffer_test.vert" />
+    <None Include="Vec.tpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\box2d-2.4.1\build\src\box2d.vcxproj">

@@ -220,11 +220,11 @@ namespace Sandbox
 
 	void Systems::RemovePending(std::vector<SystemIdPriority>& systems, int32_t system, std::set<SystemIdPriority, CompareSystemId>& toDelete)
 	{
-		int64_t index = Vector::FindIndex(systems, system);
+		int64_t index = Container::FindIndex(systems, system);
 		if (index != -1)
 		{
 			toDelete.insert(systems[index]);
-			Vector::RemoveAt(systems, index);
+			Container::RemoveAt(systems, index);
 			std::sort(systems.begin(), systems.end(), CompareSystemPriority());
 		}
 	}
@@ -268,11 +268,11 @@ namespace Sandbox
 
 	bool Systems::HasSystem(int32_t typeId)
 	{
-		if (Vector::Contains(m_updateSystems, typeId) ||
-			Vector::Contains(m_fixedUpdateSystems, typeId) ||
-			Vector::Contains(m_eventSystems, typeId) ||
-			Vector::Contains(m_imGuiSystems, typeId) ||
-			Vector::Contains(m_renderSystems, typeId))
+		if (Container::Contains(m_updateSystems, typeId) ||
+			Container::Contains(m_fixedUpdateSystems, typeId) ||
+			Container::Contains(m_eventSystems, typeId) ||
+			Container::Contains(m_imGuiSystems, typeId) ||
+			Container::Contains(m_renderSystems, typeId))
 			return true;
 
 		return false;
@@ -368,15 +368,15 @@ namespace Sandbox
 
 	void Systems::Worlds::Destroy(std::string name)
 	{
-		int64_t index = Vector::FindIndex(names, name);
-		Vector::RemoveAt(names, index);
+		int64_t index = Container::FindIndex(names, name);
+		Container::RemoveAt(names, index);
 		delete pointers[index];
-		Vector::RemoveAt(pointers, index);
+		Container::RemoveAt(pointers, index);
 	}
 
 	World* Systems::Worlds::Get(std::string name)
 	{
-		int64_t index = Vector::FindIndex(names, name);
+		int64_t index = Container::FindIndex(names, name);
 		return pointers[index];
 	}
 

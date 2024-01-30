@@ -47,7 +47,6 @@ int main(int argc, char** argv)
 	//InputSystemTest();
 
 	Editor();
-
-
+	//VectorUnitTest();
 	return 0;
 }

@@ -1,9 +1,9 @@
-#include "Sandbox/Vector.h"
+#include "Sandbox/Utils/Container.h"
 #include "Sandbox/Log.h"
 
 namespace Sandbox
 {
-	namespace Vector
+	namespace Container
 	{
 		template <typename T, typename V>
 		int Remove(std::vector<T>& container, V toRemove)

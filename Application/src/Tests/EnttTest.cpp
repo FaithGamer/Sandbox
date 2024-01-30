@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "EnttTest.h"
-#include "Sandbox/ECS/entt_macros.h"
+#include "Sandbox/ECS/Components.h"
 #include "Sandbox/Vec.h"
 #include "Sandbox/Signal.h"
 #include "Sandbox/Time.h"

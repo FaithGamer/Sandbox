@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Sandbox/Input/InputMap.h"
-#include "Sandbox/Vector.h"
+#include "Sandbox/Utils/Container.h"
 #include "Sandbox/Input/ButtonInput.h"
 #include "Sandbox/Input/DirectionalInput.h"
 
@@ -207,7 +207,7 @@ namespace Sandbox
 		{
 			for (auto& inputs : m_byEvents)
 			{
-				Vector::Remove(inputs, input);
+				Container::Remove(inputs, input);
 			}
 			m_byNames.erase(input->GetName());
 		}
@@ -217,67 +217,67 @@ namespace Sandbox
 			const InputEvent& events = input->m_eventsListened;
 			const std::string& name = input->GetName();
 
-			if (events.keyButton && !Vector::Contains(m_byEvents[(int)EventType::Key], input))
+			if (events.keyButton && !Container::Contains(m_byEvents[(int)EventType::Key], input))
 			{
 				m_byEvents[(int)EventType::Key].push_back(input);
 			}
 			else if (!events.keyButton)
 			{
-				Vector::Remove(m_byEvents[(int)EventType::Key], input);
+				Container::Remove(m_byEvents[(int)EventType::Key], input);
 			}
 
-			if (events.keyText && !Vector::Contains(m_byEvents[(int)EventType::Text], input))
+			if (events.keyText && !Container::Contains(m_byEvents[(int)EventType::Text], input))
 			{
 				m_byEvents[(int)EventType::Text].push_back(input);
 			}
 			else if (!events.keyText)
 			{
-				Vector::Remove(m_byEvents[(int)EventType::Text], input);
+				Container::Remove(m_byEvents[(int)EventType::Text], input);
 			}
 
-			if (events.mouseButton && !Vector::Contains(m_byEvents[(int)EventType::MouseBtn], input))
+			if (events.mouseButton && !Container::Contains(m_byEvents[(int)EventType::MouseBtn], input))
 			{
 				m_byEvents[(int)EventType::MouseBtn].push_back(input);
 			}
 			else if (!events.mouseButton)
 			{
-				Vector::Remove(m_byEvents[(int)EventType::MouseBtn], input);
+				Container::Remove(m_byEvents[(int)EventType::MouseBtn], input);
 			}
 
-			if (events.mouseMovement && !Vector::Contains(m_byEvents[(int)EventType::MouseMove], input))
+			if (events.mouseMovement && !Container::Contains(m_byEvents[(int)EventType::MouseMove], input))
 			{
 				m_byEvents[(int)EventType::MouseMove].push_back(input);
 			}
 			else if (!events.mouseMovement)
 			{
-				Vector::Remove(m_byEvents[(int)EventType::MouseMove], input);
+				Container::Remove(m_byEvents[(int)EventType::MouseMove], input);
 			}
 
-			if (events.controllerButton && !Vector::Contains(m_byEvents[(int)EventType::ControllerBtn], input))
+			if (events.controllerButton && !Container::Contains(m_byEvents[(int)EventType::ControllerBtn], input))
 			{
 				m_byEvents[(int)EventType::ControllerBtn].push_back(input);
 			}
 			else if (!events.controllerButton)
 			{
-				Vector::Remove(m_byEvents[(int)EventType::ControllerBtn], input);
+				Container::Remove(m_byEvents[(int)EventType::ControllerBtn], input);
 			}
 
-			if (events.controllerStick && !Vector::Contains(m_byEvents[(int)EventType::ControllerStick], input))
+			if (events.controllerStick && !Container::Contains(m_byEvents[(int)EventType::ControllerStick], input))
 			{
 				m_byEvents[(int)EventType::ControllerStick].push_back(input);
 			}
 			else if (!events.controllerStick)
 			{
-				Vector::Remove(m_byEvents[(int)EventType::ControllerStick], input);
+				Container::Remove(m_byEvents[(int)EventType::ControllerStick], input);
 			}
 
-			if (events.controllerTrigger && !Vector::Contains(m_byEvents[(int)EventType::ControllerTrigger], input))
+			if (events.controllerTrigger && !Container::Contains(m_byEvents[(int)EventType::ControllerTrigger], input))
 			{
 				m_byEvents[(int)EventType::ControllerTrigger].push_back(input);
 			}
 			else if (!events.controllerTrigger)
 			{
-				Vector::Remove(m_byEvents[(int)EventType::ControllerTrigger], input);
+				Container::Remove(m_byEvents[(int)EventType::ControllerTrigger], input);
 			}
 		}
 		m_modified.clear();

@@ -81,7 +81,7 @@
     <ClCompile Include="src\Vector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Math.cpp">
+    <ClCompile Include="src\Utils\Math.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Render\Bindings.cpp">
@@ -153,13 +153,16 @@
     <ClCompile Include="src\Render\Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Random.cpp">
+    <ClCompile Include="src\Utils\Random.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Render\Particle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ECS\ParticleSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Vec.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -236,10 +239,10 @@
     <ClInclude Include="include\Sandbox\PlatformDetection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Files.h">
+    <ClInclude Include="include\Sandbox\Utils\Files.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Vector.h">
+    <ClInclude Include="include\Sandbox\Utils\Container.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Math.h">
@@ -335,9 +338,6 @@
     <ClInclude Include="include\Sandbox\Sandbox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\ECS\entt_macros.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Sandbox\Render\Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -348,6 +348,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\ECS\ParticleSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Sandbox\ECS\Components.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -369,8 +372,9 @@
     <None Include="assets\shaders\ubt.frag" />
     <None Include="assets\shaders\texture_unit.vert" />
     <None Include="assets\shaders\texture_unit.frag" />
-    <None Include="include\Sandbox\Vector.tpp" />
+    <None Include="include\Sandbox\Utils\Container.tpp" />
     <None Include="include\Sandbox\Math.tpp" />
+    <None Include="Vec.tpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="known_issues.txt" />

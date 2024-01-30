@@ -30,3 +30,9 @@ this will be related to SpriteRenderComponent
 -particles: have a container separate from registry with preallocated memory
 
 -multiple worlds is obsoloete since differents entt::registry are in fact bound to the same containers
+
+-add math to pch
+-ability to have parent transform
+-inline Transform
+-have a way to batch and depth test semi transparent pixel	
+-> two pass rendering, first opaque fragment discard transparent then

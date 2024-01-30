@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Sandbox/Input/DirectionalInput.h"
-#include "Sandbox/Vector.h"
+#include "Sandbox/Utils/Container.h"
 #include "Sandbox/Math.h"
 
 namespace Sandbox
@@ -75,7 +75,7 @@ namespace Sandbox
 
 	void DirectionalInput::RemoveBinding(int version)
 	{
-		if (!Vector::RemoveAt(m_bindings.directions, version))
+		if (!Container::RemoveAt(m_bindings.directions, version))
 		{
 			LOG_WARN("DirectionalInput::RemoveBinding -> version does not exists.");
 		}

@@ -10,13 +10,13 @@
 namespace Sandbox
 {
 	Transform::Transform() :
-		m_translation(0.f, 0.f, 0.f), m_scale(1.f, 1.f, 1.f), m_rotation(0.f), m_origin(0.f, 0.f, 0.f), m_transformMatrix(1.f), needCompute(true), matrixUpdated(true)
+		m_translation(0.f), m_scale(1.f), m_rotation(0.f), m_origin(0.f), m_transformMatrix(1.f), needCompute(true), matrixUpdated(true)
 
 	{
 	}
 
 	Transform::Transform(Vec3f translation, Vec3f scale, float angle, Vec3f origin)
-		: m_translation(translation), m_scale(scale), m_rotation({ 0.f, 0.f, angle }), m_origin(origin), m_transformMatrix(1.f), needCompute(true), matrixUpdated(true)
+		: m_translation(translation), m_scale(scale), m_rotation(0.f, 0.f, angle), m_origin(origin), m_transformMatrix(1.f), needCompute(true), matrixUpdated(true)
 
 	{
 	}
@@ -217,11 +217,11 @@ namespace Sandbox
 	{
 		Mat4 transform(1.f);
 
-		transform = glm::translate(transform, m_translation);
+		transform = glm::translate(transform, (glm::vec3)m_translation);
 		//TO DO: rotation from quaternion
 		transform = glm::rotate(transform, glm::radians(-m_rotation.z), glm::vec3(0, 0, 1));
-		transform = glm::scale(transform, m_scale);
-		transform = glm::translate(transform, -m_origin);
+		transform = glm::scale(transform, (glm::vec3)m_scale);
+		transform = glm::translate(transform, -(glm::vec3)m_origin);
 
 		m_transformMatrix = transform;
 		matrixUpdated = true;

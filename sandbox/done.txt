@@ -63,3 +63,17 @@ octobre
 
 - particle system independent of entt::registry
 - im gui can be enabled/disabled
+
+January 2024
+
+28
+
+- renamed entt_macros.h Components.h
+- moved Files.h/cpp in Utils
+- moved Components.h/cpp in Utils
+- Moved Math.h/cpp in Utils
+
+29
+
+- typedefed std::string -> String
+- Vec2 and Vec3 classes

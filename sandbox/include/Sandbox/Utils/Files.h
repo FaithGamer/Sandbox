@@ -5,6 +5,6 @@ namespace Sandbox
 {
 	namespace IO
 	{
-		std::string ifstreamToString(std::ifstream& file);
+		std::string IfstreamToString(std::ifstream& file);
 	};
 }

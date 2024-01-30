@@ -2,7 +2,7 @@
 #include "Sandbox/Math.h"
 #include "Sandbox/Input/ButtonInput.h"
 #include "Sandbox/Input/Bindings.h"
-#include "Sandbox/Vector.h"
+#include "Sandbox/Utils/Container.h"
 
 namespace Sandbox
 {
@@ -160,7 +160,7 @@ namespace Sandbox
 			LOG_WARN("ButtonInput::RemoveBinding -> bindings count is under version, no binding removed.");
 			return;
 		}
-		Vector::RemoveAt(m_bindings.buttons, version);
+		Container::RemoveAt(m_bindings.buttons, version);
 	}
 
 	void ButtonInput::SetSendSignalOnPress(bool signalOnPress)

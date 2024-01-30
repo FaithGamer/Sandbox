@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Sandbox/Vec.h"
-#include "Sandbox/ECS/entt_macros.h"
+#include "Sandbox/ECS/Components.h"
 
 namespace Sandbox
 {

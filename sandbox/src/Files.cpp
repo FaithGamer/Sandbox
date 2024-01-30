@@ -1,11 +1,11 @@
 #include "pch.h"
-#include "Sandbox/Files.h"
+#include "Sandbox/Utils/Files.h"
 
 namespace Sandbox
 {
     namespace IO
     {
-        std::string ifstreamToString(std::ifstream& file)
+        std::string IfstreamToString(std::ifstream& file)
         {
             std::ostringstream stream;
             stream << file.rdbuf();

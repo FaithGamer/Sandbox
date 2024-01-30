@@ -9,7 +9,7 @@
 #include "Sandbox/Render/RenderOptions.h"
 #include "Sandbox/Render/Window.h"
 #include "Sandbox/Render/SpriteRender.h"
-#include "Sandbox/Vector.h"
+#include "Sandbox/Utils/Container.h"
 
 
 namespace Sandbox
@@ -293,7 +293,7 @@ namespace Sandbox
 		{
 			//Recycle a free batch
 			index = m_freeQuadBatchs[0];
-			Vector::RemoveAt(m_freeQuadBatchs, 0);
+			Container::RemoveAt(m_freeQuadBatchs, 0);
 		}
 		else
 		{
@@ -470,7 +470,7 @@ namespace Sandbox
 	void Renderer2D::DrawQuad(const Transform& transform, const Vec4f& color, uint32_t batchIndex)
 	{
 		constexpr size_t quadVertexCount = 4;
-		constexpr Vec2f texCoords[4]{ { 0.0f, 1.0f }, { 1.0f, 1.0f }, { 1.0f, 0.0f }, { 0.0f, 0.0f } };
+		constexpr Vec2f texCoords[4]{ Vec2f( 0.0f, 1.0f ), Vec2f( 1.0f, 1.0f ), Vec2f( 1.0f, 0.0f ), Vec2f( 0.0f, 0.0f ) };
 		auto& batch = m_quadBatchs[batchIndex];
 		//Check if we still have space in the batch for more indices
 		if (batch.quadIndexCount >= m_maxIndices)
@@ -480,7 +480,7 @@ namespace Sandbox
 		//Input the vertex data to CPU within the quad vertex array
 		for (size_t i = 0; i < quadVertexCount; i++)
 		{
-			batch.quadVertexPtr->position = transform.GetTransformMatrix() * batch.quadVertexPosition[i];
+			batch.quadVertexPtr->position = (Vec3f)(transform.GetTransformMatrix() * batch.quadVertexPosition[i]);
 			batch.quadVertexPtr->texCoords = texCoords[i];
 			batch.quadVertexPtr->texIndex = 0;
 			batch.quadVertexPtr->color = color;
@@ -645,7 +645,7 @@ namespace Sandbox
 		pos.x *= sprite.GetDimensions().x;
 		pos.y *= sprite.GetDimensions().y;
 
-		return transform.GetTransformMatrix() * pos * m_worldToScreenRatio;
+		return (Vec3f)(transform.GetTransformMatrix() * pos * m_worldToScreenRatio);
 	}
 
 	Vec3f Renderer2D::VertexPosition(Vec4f pos, const Transform& transform, Vec2f texDim, float ppu, float width, float height)
@@ -653,7 +653,7 @@ namespace Sandbox
 		pos.x *= width * texDim.x * ppu;
 		pos.y *= height * texDim.y * ppu;
 
-		return transform.GetTransformMatrix() * pos * m_worldToScreenRatio;
+		return (Vec3f)(transform.GetTransformMatrix() * pos * m_worldToScreenRatio);
 	}
 
 	Renderer2D::Statistics Renderer2D::GetStats()

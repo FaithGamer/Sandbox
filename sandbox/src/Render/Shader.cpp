@@ -3,7 +3,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glad/glad.h>
 
-#include "Sandbox/Files.h"
+#include "Sandbox/Utils/Files.h"
 #include "Sandbox/Log.h"
 #include "Sandbox/Render/Shader.h"
 
@@ -31,7 +31,7 @@ namespace Sandbox
 		{
 			LOG_ERROR("Unable to open the shader: " + path);
 		}
-		return IO::ifstreamToString(shaderFile);
+		return IO::IfstreamToString(shaderFile);
 	}
 
 	void shaderCompilationError(uint32_t shader)

@@ -2,7 +2,7 @@
 
 #include "Sandbox/Log.h"
 #include "Sandbox/Input/Inputs.h"
-#include "Sandbox/Vector.h"
+#include "Sandbox/Utils/Container.h"
 
 namespace Sandbox
 {
@@ -12,7 +12,7 @@ namespace Sandbox
 
 	sptr<InputMap> InputMapContainer::Add(std::string name)
 	{
-		int64_t alreadyExists = Vector::FindIndex(names, name);
+		int64_t alreadyExists = Container::FindIndex(names, name);
 		if (alreadyExists != -1)
 		{
 			LOG_WARN("An input map with the name " + name + " already exists, no input map has been added. Nullptr returned.");
@@ -25,7 +25,7 @@ namespace Sandbox
 
 	sptr<InputMap> InputMapContainer::Get(std::string name)
 	{
-		int64_t index = Vector::FindIndex(names, name);
+		int64_t index = Container::FindIndex(names, name);
 		if (index == -1)
 		{
 			LOG_WARN("No input map with the name " + name + " nullptr returned.");
@@ -36,15 +36,15 @@ namespace Sandbox
 
 	void InputMapContainer::Remove(std::string name)
 	{
-		int64_t index = Vector::FindIndex(names, name);
+		int64_t index = Container::FindIndex(names, name);
 		if (index == -1)
 		{
 			LOG_WARN("No input map with the name " + name + " no input map removed.");
 			return;
 		}
 
-		Vector::RemoveAt(names, index);
-		Vector::RemoveAt(inputs, index);
+		Container::RemoveAt(names, index);
+		Container::RemoveAt(inputs, index);
 
 	}
 

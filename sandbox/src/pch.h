@@ -16,3 +16,4 @@
 #include <fstream>
 #include <random>
 #include <initializer_list>
+#include <math.h>
