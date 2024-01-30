@@ -1,299 +1,191 @@
-[2023-10-06 23:05:26.528] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.538] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.539] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.547] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.547] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.555] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.555] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.563] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.564] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.574] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.574] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.584] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.584] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.595] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.595] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.605] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.605] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.615] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.616] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.626] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.626] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.636] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.636] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.646] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.646] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.656] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.656] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.666] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.666] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.679] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.679] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.691] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.691] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.704] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.704] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.716] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.717] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.729] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.729] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.741] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.741] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.754] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.754] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.766] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.767] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.779] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.779] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.791] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.791] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.803] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.803] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.816] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.816] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.828] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.828] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.840] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.840] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.852] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.852] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.864] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.865] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.876] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.877] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.889] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.889] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.901] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.901] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.913] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.913] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.925] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.925] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.937] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.937] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.949] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.949] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.961] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.961] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.973] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.973] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.985] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.985] [SANDBOX] [info] Particles
-[2023-10-06 23:05:26.997] [SANDBOX] [info] 640p
-[2023-10-06 23:05:26.997] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.009] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.010] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.021] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.022] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.033] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.033] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.045] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.045] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.057] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.057] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.069] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.069] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.081] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.081] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.093] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.093] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.106] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.106] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.118] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.118] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.130] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.130] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.142] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.142] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.154] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.154] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.166] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.166] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.178] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.179] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.190] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.191] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.203] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.203] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.214] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.215] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.226] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.227] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.238] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.239] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.250] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.251] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.262] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.262] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.274] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.275] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.286] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.287] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.298] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.298] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.310] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.311] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.322] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.323] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.334] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.335] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.346] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.347] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.359] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.359] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.371] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.371] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.382] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.383] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.394] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.395] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.406] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.406] [SANDBOX] [info] Particles
-[2023-10-06 23:05:27.469] [SANDBOX] [info] 640p
-[2023-10-06 23:05:27.470] [SANDBOX] [info] Particles
-[2023-10-06 23:12:05.563] [SANDBOX] [info] OpenGL Loaded.
-[2023-10-06 23:12:05.564] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2023-10-06 23:12:05.565] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2023-10-06 23:12:05.565] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2023-10-06 23:12:05.565] [SANDBOX] [info] Max. Vertex attributes: 16
-[2023-10-06 23:12:05.580] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-01-28 13:14:45.309] [SANDBOX] [info] OpenGL Loaded.
-[2024-01-28 13:14:45.311] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-01-28 13:14:45.311] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-01-28 13:14:45.311] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-01-28 13:14:45.311] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-01-28 13:14:45.356] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-01-28 17:51:17.788] [SANDBOX] [info] OpenGL Loaded.
-[2024-01-28 17:51:17.789] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-01-28 17:51:17.789] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-01-28 17:51:17.789] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-01-28 17:51:17.789] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-01-28 17:51:17.864] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-01-29 23:20:15.842] [SANDBOX] [info] OpenGL Loaded.
-[2024-01-29 23:20:15.843] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-01-29 23:20:15.844] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-01-29 23:20:15.844] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-01-29 23:20:15.844] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-01-29 23:20:15.896] [SANDBOX] [info] Creating A = Vec3<float>(2, 3, 4).
-[2024-01-29 23:20:15.897] [SANDBOX] [info] Creating B = Vec3<float>(-1, 6, -8).
-[2024-01-29 23:20:15.897] [SANDBOX] [info] A ToString: [2.000000], [3.000000], [4.000000]
-[2024-01-29 23:20:15.897] [SANDBOX] [info] A normalized: [0.371391], [0.557086], [0.742781]
-[2024-01-29 23:20:15.897] [SANDBOX] [info] A clamped with magnitude of 2: [0.742781], [1.114172], [1.485563]
-[2024-01-29 23:20:15.898] [SANDBOX] [info] A + B: [1.000000], [9.000000], [-4.000000]
-[2024-01-29 23:20:15.898] [SANDBOX] [info] A moved toward B with magnitude of 1: [1.764298], [3.235702], [3.057191]
-[2024-01-29 23:20:15.898] [SANDBOX] [info] A += B: [2.000000], [3.000000], [4.000000]
-[2024-01-29 23:20:15.899] [SANDBOX] [info] Angle of A from 0, 0, 0: 0.000000
-[2024-01-29 23:20:45.281] [SANDBOX] [info] OpenGL Loaded.
-[2024-01-29 23:20:45.282] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-01-29 23:20:45.282] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-01-29 23:20:45.283] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-01-29 23:20:45.283] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-01-29 23:20:45.292] [SANDBOX] [info] Creating A = Vec3<float>(2, 3, 4).
-[2024-01-29 23:20:45.293] [SANDBOX] [info] Creating B = Vec3<float>(-1, 6, -8).
-[2024-01-29 23:20:45.293] [SANDBOX] [info] A ToString: [2.000000], [3.000000], [4.000000]
-[2024-01-29 23:20:45.293] [SANDBOX] [info] A normalized: [0.371391], [0.557086], [0.742781]
-[2024-01-29 23:20:45.294] [SANDBOX] [info] A clamped with magnitude of 2: [0.742781], [1.114172], [1.485563]
-[2024-01-29 23:20:45.294] [SANDBOX] [info] A + B: [1.000000], [9.000000], [-4.000000]
-[2024-01-29 23:20:45.294] [SANDBOX] [info] A moved toward B with magnitude of 1: [1.764298], [3.235702], [3.057191]
-[2024-01-29 23:20:45.294] [SANDBOX] [info] A += B: [2.000000], [3.000000], [4.000000]
-[2024-01-29 23:20:45.294] [SANDBOX] [info] Angle of A from 0, 0, 0: 0.000000
-[2024-01-29 23:25:35.920] [SANDBOX] [info] OpenGL Loaded.
-[2024-01-29 23:25:35.921] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-01-29 23:25:35.922] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-01-29 23:25:35.922] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-01-29 23:25:35.922] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-01-29 23:25:35.936] [SANDBOX] [info] Creating A = Vec3<float>(2, 3, 4).
-[2024-01-29 23:25:35.936] [SANDBOX] [info] Creating B = Vec3<float>(-1, 6, -8).
-[2024-01-29 23:25:35.937] [SANDBOX] [info] A ToString: [2.000000], [3.000000], [4.000000]
-[2024-01-29 23:25:35.937] [SANDBOX] [info] A normalized: [0.371391], [0.557086], [0.742781]
-[2024-01-29 23:25:35.937] [SANDBOX] [info] A clamped with magnitude of 2: [0.742781], [1.114172], [1.485563]
-[2024-01-29 23:25:35.938] [SANDBOX] [info] A + B: [1.000000], [9.000000], [-4.000000]
-[2024-01-29 23:25:35.938] [SANDBOX] [info] A moved toward B with magnitude of 1: [1.764298], [3.235702], [3.057191]
-[2024-01-29 23:25:35.938] [SANDBOX] [info] A += B: [2.000000], [3.000000], [4.000000]
-[2024-01-29 23:25:35.938] [SANDBOX] [info] Angle of A from 0, 0, 0: 0.000000
-[2024-01-29 23:25:46.675] [SANDBOX] [info] OpenGL Loaded.
-[2024-01-29 23:25:46.677] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-01-29 23:25:46.677] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-01-29 23:25:46.677] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-01-29 23:25:46.677] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-01-29 23:25:46.687] [SANDBOX] [info] Creating A = Vec3<float>(2, 3, 4).
-[2024-01-29 23:25:46.687] [SANDBOX] [info] Creating B = Vec3<float>(-1, 6, -8).
-[2024-01-29 23:25:46.687] [SANDBOX] [info] A ToString: [2.000000], [3.000000], [4.000000]
-[2024-01-29 23:25:46.688] [SANDBOX] [info] A normalized: [0.371391], [0.557086], [0.742781]
-[2024-01-29 23:25:46.688] [SANDBOX] [info] A clamped with magnitude of 2: [0.742781], [1.114172], [1.485563]
-[2024-01-29 23:25:46.688] [SANDBOX] [info] A + B: [1.000000], [9.000000], [-4.000000]
-[2024-01-29 23:25:46.688] [SANDBOX] [info] A moved toward B with magnitude of 1: [1.764298], [3.235702], [3.057191]
-[2024-01-29 23:25:46.688] [SANDBOX] [info] A += B: [2.000000], [3.000000], [4.000000]
-[2024-01-29 23:25:46.688] [SANDBOX] [info] Angle of A from 0, 0, 0: 0.000000
-[2024-01-29 23:29:58.854] [SANDBOX] [info] OpenGL Loaded.
-[2024-01-29 23:29:58.856] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-01-29 23:29:58.856] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-01-29 23:29:58.856] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-01-29 23:29:58.857] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-01-29 23:29:58.868] [SANDBOX] [info] Creating A = Vec3<float>(2, 3, 4).
-[2024-01-29 23:29:58.868] [SANDBOX] [info] Creating B = Vec3<float>(-1, 6, -8).
-[2024-01-29 23:29:58.869] [SANDBOX] [info] A ToString: [2.000000], [3.000000], [4.000000]
-[2024-01-29 23:29:58.869] [SANDBOX] [info] A normalized: [0.371391], [0.557086], [0.742781]
-[2024-01-29 23:29:58.869] [SANDBOX] [info] A clamped with magnitude of 2: [0.742781], [1.114172], [1.485563]
-[2024-01-29 23:29:58.871] [SANDBOX] [info] A + B: [1.000000], [9.000000], [-4.000000]
-[2024-01-29 23:29:58.872] [SANDBOX] [info] A moved toward B with magnitude of 1: [1.764298], [3.235702], [3.057191]
-[2024-01-29 23:29:58.872] [SANDBOX] [info] A += B: [1.000000], [9.000000], [-4.000000]
-[2024-01-29 23:29:58.873] [SANDBOX] [info] Angle of A from 0, 0, 0: 0.000000
-[2024-01-29 23:52:18.452] [SANDBOX] [info] OpenGL Loaded.
-[2024-01-29 23:52:18.453] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-01-29 23:52:18.454] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-01-29 23:52:18.454] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-01-29 23:52:18.454] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-01-29 23:52:18.486] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-01-30 00:39:24.350] [SANDBOX] [info] OpenGL Loaded.
-[2024-01-30 00:39:24.359] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-01-30 00:39:24.359] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-01-30 00:39:24.359] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-01-30 00:39:24.361] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-01-30 00:39:24.461] [SANDBOX] [info] Vector3
-[2024-01-30 00:39:24.462] [SANDBOX] [info] --------
-[2024-01-30 00:39:24.462] [SANDBOX] [info] Creating A = Vec3<float>(2, 3, 4).
-[2024-01-30 00:39:24.462] [SANDBOX] [info] Creating B = Vec3<float>(-1, 6, -8).
-[2024-01-30 00:39:24.471] [SANDBOX] [info] A ToString: [2.000000], [3.000000], [4.000000]
-[2024-01-30 00:39:24.471] [SANDBOX] [info] A normalized: [0.371391], [0.557086], [0.742781]
-[2024-01-30 00:39:24.471] [SANDBOX] [info] A clamped with magnitude of 2: [0.742781], [1.114172], [1.485563]
-[2024-01-30 00:39:24.471] [SANDBOX] [info] A + B: [1.000000], [9.000000], [-4.000000]
-[2024-01-30 00:39:24.471] [SANDBOX] [info] A moved toward B with magnitude of 1: [1.764298], [3.235702], [3.057191]
-[2024-01-30 00:39:24.472] [SANDBOX] [info] A += B: [1.000000], [9.000000], [-4.000000]
-[2024-01-30 00:39:24.472] [SANDBOX] [info] Angle of A from 0, 0, 0: 0.000000
-[2024-01-30 00:39:24.472] [SANDBOX] [info] A negative: [-2.000000], [-3.000000], [-4.000000]
-[2024-01-30 00:39:24.472] [SANDBOX] [info] A dot B: -16.000000
-[2024-01-30 00:39:24.473] [SANDBOX] [info] A cross B: [-48.000000], [12.000000], [15.000000]
-[2024-01-30 00:39:24.473] [SANDBOX] [info] A Reflected on plane B: [-30.000000], [195.000000], [-252.000000]
-[2024-01-30 00:40:58.812] [SANDBOX] [info] OpenGL Loaded.
-[2024-01-30 00:40:58.813] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-01-30 00:40:58.813] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-01-30 00:40:58.813] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-01-30 00:40:58.814] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-01-30 00:40:58.827] [SANDBOX] [info] Vector3
-[2024-01-30 00:40:58.828] [SANDBOX] [info] --------
-[2024-01-30 00:40:58.828] [SANDBOX] [info] Creating A = Vec3<float>(2, 3, 4).
-[2024-01-30 00:40:58.828] [SANDBOX] [info] Creating B = Vec3<float>(-1, 6, -8).
-[2024-01-30 00:40:58.829] [SANDBOX] [info] A ToString: [2.000000], [3.000000], [4.000000]
-[2024-01-30 00:40:58.830] [SANDBOX] [info] A normalized: [0.371391], [0.557086], [0.742781]
-[2024-01-30 00:40:58.830] [SANDBOX] [info] A clamped with magnitude of 2: [0.742781], [1.114172], [1.485563]
-[2024-01-30 00:40:58.830] [SANDBOX] [info] A + B: [1.000000], [9.000000], [-4.000000]
-[2024-01-30 00:40:58.830] [SANDBOX] [info] A moved toward B with magnitude of 1: [1.764298], [3.235702], [3.057191]
-[2024-01-30 00:40:58.831] [SANDBOX] [info] A += B: [1.000000], [9.000000], [-4.000000]
-[2024-01-30 00:40:58.831] [SANDBOX] [info] Angle of A from 0, 0, 0: 0.000000
-[2024-01-30 00:40:58.831] [SANDBOX] [info] A negative: [-2.000000], [-3.000000], [-4.000000]
-[2024-01-30 00:40:58.831] [SANDBOX] [info] A dot B: -16.000000
-[2024-01-30 00:40:58.832] [SANDBOX] [info] A cross B: [-48.000000], [12.000000], [15.000000]
-[2024-01-30 00:40:58.832] [SANDBOX] [info] A Reflected on plane B: [-30.000000], [195.000000], [-252.000000]
-[2024-01-30 00:41:11.167] [SANDBOX] [info] OpenGL Loaded.
-[2024-01-30 00:41:11.169] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-01-30 00:41:11.169] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-01-30 00:41:11.169] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-01-30 00:41:11.170] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-01-30 00:41:11.181] [SANDBOX] [info] Vector3
-[2024-01-30 00:41:11.181] [SANDBOX] [info] --------
-[2024-01-30 00:41:11.181] [SANDBOX] [info] Creating A = Vec3<float>(2, 3, 4).
-[2024-01-30 00:41:11.181] [SANDBOX] [info] Creating B = Vec3<float>(-1, 6, -8).
-[2024-01-30 00:41:11.182] [SANDBOX] [info] A ToString: [2.000000], [3.000000], [4.000000]
-[2024-01-30 00:41:11.182] [SANDBOX] [info] A normalized: [0.371391], [0.557086], [0.742781]
-[2024-01-30 00:41:11.182] [SANDBOX] [info] A clamped with magnitude of 2: [0.742781], [1.114172], [1.485563]
+[2024-01-31 00:23:16.795] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-31 00:23:16.795] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-31 00:23:16.796] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-31 00:23:16.796] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-31 00:23:16.796] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-31 00:23:16.806] [SANDBOX] [info] Extension of assets/shaders/batch_renderer.frag .frag
+[2024-01-31 00:23:16.806] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.frag
+[2024-01-31 00:23:16.807] [SANDBOX] [info] Extension of assets/shaders/batch_renderer.vert .vert
+[2024-01-31 00:23:16.807] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.vert
+[2024-01-31 00:23:16.807] [SANDBOX] [info] Extension of assets/shaders/batch_renderer2.frag .frag
+[2024-01-31 00:23:16.807] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer2.frag
+[2024-01-31 00:23:16.807] [SANDBOX] [info] Extension of assets/shaders/batch_renderer_pixel_art.frag .frag
+[2024-01-31 00:23:16.808] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer_pixel_art.frag
+[2024-01-31 00:23:16.808] [SANDBOX] [info] Extension of assets/shaders/billboard.vert .vert
+[2024-01-31 00:23:16.808] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/billboard.vert
+[2024-01-31 00:23:16.808] [SANDBOX] [info] Extension of assets/shaders/color.frag .frag
+[2024-01-31 00:23:16.808] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/color.frag
+[2024-01-31 00:23:16.809] [SANDBOX] [info] Extension of assets/shaders/default_layer.frag .frag
+[2024-01-31 00:23:16.809] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/default_layer.frag
+[2024-01-31 00:23:16.809] [SANDBOX] [info] Extension of assets/shaders/default_layer.vert .vert
+[2024-01-31 00:23:16.809] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/default_layer.vert
+[2024-01-31 00:23:16.809] [SANDBOX] [info] Extension of assets/shaders/masked.frag .frag
+[2024-01-31 00:23:16.810] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/masked.frag
+[2024-01-31 00:23:16.812] [SANDBOX] [info] Extension of assets/shaders/model_view_projection.vert .vert
+[2024-01-31 00:23:16.812] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/model_view_projection.vert
+[2024-01-31 00:23:16.812] [SANDBOX] [info] Extension of assets/shaders/position_color.vert .vert
+[2024-01-31 00:23:16.812] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/position_color.vert
+[2024-01-31 00:23:16.812] [SANDBOX] [info] Extension of assets/shaders/position_texture.vert .vert
+[2024-01-31 00:23:16.813] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/position_texture.vert
+[2024-01-31 00:23:16.813] [SANDBOX] [info] Extension of assets/shaders/position_texture_transform.vert .vert
+[2024-01-31 00:23:16.814] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/position_texture_transform.vert
+[2024-01-31 00:23:16.814] [SANDBOX] [info] Extension of assets/shaders/texture.frag .frag
+[2024-01-31 00:23:16.815] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/texture.frag
+[2024-01-31 00:23:16.815] [SANDBOX] [info] Extension of assets/shaders/texture_unit.frag .frag
+[2024-01-31 00:23:16.815] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/texture_unit.frag
+[2024-01-31 00:23:16.816] [SANDBOX] [info] Extension of assets/shaders/texture_unit.vert .vert
+[2024-01-31 00:23:16.816] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/texture_unit.vert
+[2024-01-31 00:23:16.817] [SANDBOX] [info] Extension of assets/shaders/ubt.frag .frag
+[2024-01-31 00:23:16.817] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/ubt.frag
+[2024-01-31 00:23:16.818] [SANDBOX] [info] Extension of assets/shaders/ubt.vert .ver[2024-01-31 00:23:32.360] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-31 00:23:32.361] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-31 00:23:32.361] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-31 00:23:32.362] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-31 00:23:32.362] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-31 00:23:32.371] [SANDBOX] [info] Extension of assets/shaders/batch_renderer.frag .frag
+[2024-01-31 00:23:32.371] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.frag
+[2024-01-31 00:23:32.372] [SANDBOX] [info] Extension of assets/shaders/batch_renderer.vert .vert
+[2024-01-31 00:23:32.372] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.vert
+[2024-01-31 00:23:32.372] [SANDBOX] [info] Extension of assets/shaders/batch_renderer2.frag .frag
+[2024-01-31 00:23:32.372] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer2.frag
+[2024-01-31 00:23:32.372] [SANDBOX] [info] Extension of assets/shaders/batch_renderer_pixel_art.frag .frag
+[2024-01-31 00:23:32.373] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer_pixel_art.frag
+[2024-01-31 00:23:32.373] [SANDBOX] [info] Extension of assets/shaders/billboard.vert .vert
+[2024-01-31 00:23:32.373] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/billboard.vert
+[2024-01-31 00:23:32.373] [SANDBOX] [info] Extension of assets/shaders/color.frag .frag
+[2024-01-31 00:23:32.373] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/color.frag
+[2024-01-31 00:23:32.373] [SANDBOX] [info] Extension of assets/shaders/default_layer.frag .frag
+[2024-01-31 00:23:32.373] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/default_layer.frag
+[2024-01-31 00:23:32.374] [SANDBOX] [info] Extension of assets/shaders/default_layer.vert .vert
+[2024-01-31 00:23:32.374] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/default_layer.vert
+[2024-01-31 00:23:32.374] [SANDBOX] [info] Extension of assets/shaders/masked.frag .frag
+[2024-01-31 00:23:32.374] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/masked.frag
+[2024-01-31 00:23:32.374] [SANDBOX] [info] Extension of assets/shaders/model_view_projection.vert .vert
+[2024-01-31 00:23:32.374] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/model_view_projection.vert
+[2024-01-31 00:23:32.374] [SANDBOX] [info] Extension of assets/shaders/position_color.vert .vert
+[2024-01-31 00:23:32.374] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/position_color.vert
+[2024-01-31 00:23:32.375] [SANDBOX] [info] Extension of assets/shaders/position_texture.vert .vert
+[2024-01-31 00:23:32.375] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/position_texture.vert
+[2024-01-31 00:23:32.375] [SANDBOX] [info] Extension of assets/shaders/position_texture_transform.vert .vert
+[2024-01-31 00:23:32.376] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/position_texture_transform.vert
+[2024-01-31 00:23:32.376] [SANDBOX] [info] Extension of assets/shaders/texture.frag .frag
+[2024-01-31 00:23:32.379] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/texture.frag
+[2024-01-31 00:23:32.379] [SANDBOX] [info] Extension of assets/shaders/texture_unit.frag .frag
+[2024-01-31 00:23:32.380] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/texture_unit.frag
+[2024-01-31 00:23:32.380] [SANDBOX] [info] Extension of assets/shaders/texture_unit.vert .vert
+[2024-01-31 00:23:32.381] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/texture_unit.vert
+[2024-01-31 00:23:32.381] [SANDBOX] [info] Extension of assets/shaders/ubt.frag .frag
+[2024-01-31 00:23:32.382] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/ubt.frag
+[2024-01-31 00:23:32.382] [SANDBOX] [info] Extension of assets/shaders/ubt.vert .ver[2024-01-31 00:46:02.081] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-31 00:46:02.082] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-31 00:46:02.082] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-31 00:46:02.082] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-31 00:46:02.082] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-31 00:46:02.095] [SANDBOX] [info] Extension of assets/shaders/batch_renderer.frag .frag
+[2024-01-31 00:46:02.095] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.frag
+[2024-01-31 00:46:02.095] [SANDBOX] [info] Extension of assets/shaders/batch_renderer.vert .vert
+[2024-01-31 00:46:02.096] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.vert
+[2024-01-31 00:46:02.096] [SANDBOX] [info] Extension of assets/shaders/batch_renderer2.frag .frag
+[2024-01-31 00:46:02.096] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer2.frag
+[2024-01-31 00:46:02.096] [SANDBOX] [info] Extension of assets/shaders/batch_renderer_pixel_art.frag .frag
+[2024-01-31 00:46:02.096] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer_pixel_art.frag
+[2024-01-31 00:46:02.096] [SANDBOX] [info] Extension of assets/shaders/billboard.vert .vert
+[2024-01-31 00:46:02.097] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/billboard.vert
+[2024-01-31 00:46:02.097] [SANDBOX] [info] Extension of assets/shaders/color.frag .frag
+[2024-01-31 00:46:02.097] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/color.frag
+[2024-01-31 00:46:02.097] [SANDBOX] [info] Extension of assets/shaders/default_layer.frag .frag
+[2024-01-31 00:46:02.097] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/default_layer.frag
+[2024-01-31 00:46:02.097] [SANDBOX] [info] Extension of assets/shaders/default_layer.vert .vert
+[2024-01-31 00:46:02.097] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/default_layer.vert
+[2024-01-31 00:46:02.098] [SANDBOX] [info] Extension of assets/shaders/masked.frag .frag
+[2024-01-31 00:46:02.098] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/masked.frag
+[2024-01-31 00:46:02.098] [SANDBOX] [info] Extension of assets/shaders/model_view_projection.vert .vert
+[2024-01-31 00:46:02.098] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/model_view_projection.vert
+[2024-01-31 00:46:02.098] [SANDBOX] [info] Extension of assets/shaders/position_color.vert .vert
+[2024-01-31 00:46:02.098] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/position_color.vert
+[2024-01-31 00:46:02.098] [SANDBOX] [info] Extension of assets/shaders/position_texture.vert .vert
+[2024-01-31 00:46:02.099] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/position_texture.vert
+[2024-01-31 00:46:02.099] [SANDBOX] [info] Extension of assets/shaders/position_texture_transform.vert .vert
+[2024-01-31 00:46:02.100] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/position_texture_transform.vert
+[2024-01-31 00:46:02.100] [SANDBOX] [info] Extension of assets/shaders/texture.frag .frag
+[2024-01-31 00:46:02.100] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/texture.frag
+[2024-01-31 00:46:02.101] [SANDBOX] [info] Extension of assets/shaders/texture_unit.frag .frag
+[2024-01-31 00:46:02.101] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/texture_unit.frag
+[2024-01-31 00:46:02.102] [SANDBOX] [info] Extension of assets/shaders/texture_unit.vert .vert
+[2024-01-31 00:46:02.105] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/texture_unit.vert
+[2024-01-31 00:46:02.105] [SANDBOX] [info] Extension of assets/shaders/ubt.frag .frag
+[2024-01-31 00:46:02.105] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/ubt.frag
+[2024-01-31 00:46:02.106] [SANDBOX] [info] Extension of assets/shaders/ubt.vert .ver[2024-01-31 00:46:11.236] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-31 00:46:11.237] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-31 00:46:11.237] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-31 00:46:11.237] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-31 00:46:11.237] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-31 00:46:11.263] [SANDBOX] [info] Extension of assets/shaders/batch_renderer.frag .frag
+[2024-01-31 00:46:11.263] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.frag
+[2024-01-31 00:46:11.263] [SANDBOX] [info] Extension of assets/shaders/batch_renderer.vert .vert
+[2024-01-31 00:46:11.263] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.vert
+[2024-01-31 00:46:11.264] [SANDBOX] [info] Extension of assets/shaders/batch_renderer2.frag .frag
+[2024-01-31 00:46:11.264] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer2.frag
+[2024-01-31 00:46:11.264] [SANDBOX] [info] Extension of assets/shaders/batch_renderer_pixel_art.frag .frag
+[2024-01-31 00:46:11.264] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer_pixel_art.frag
+[2024-01-31 00:46:11.264] [SANDBOX] [info] Extension of assets/shaders/billboard.vert .vert
+[2024-01-31 00:46:11.264] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/billboard.vert
+[2024-01-31 00:46:11.264] [SANDBOX] [info] Extension of assets/shaders/color.frag .frag
+[2024-01-31 00:46:11.264] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/color.frag
+[2024-01-31 00:46:11.265] [SANDBOX] [info] Extension of assets/shaders/default_layer.frag .frag
+[2024-01-31 00:46:11.265] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/default_layer.frag
+[2024-01-31 00:46:11.265] [SANDBOX] [info] Extension of assets/shaders/default_layer.vert .vert
+[2024-01-31 00:46:11.265] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/default_layer.vert
+[2024-01-31 00:46:11.265] [SANDBOX] [info] Extension of assets/shaders/masked.frag .frag
+[2024-01-31 00:46:11.265] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/masked.frag
+[2024-01-31 00:46:11.265] [SANDBOX] [info] Extension of assets/shaders/model_view_projection.vert .vert
+[2024-01-31 00:46:11.266] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/model_view_projection.vert
+[2024-01-31 00:46:11.268] [SANDBOX] [info] Extension of assets/shaders/position_color.vert .vert
+[2024-01-31 00:46:11.268] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/position_color.vert
+[2024-01-31 00:46:11.268] [SANDBOX] [info] Extension of assets/shaders/position_texture.vert .vert
+[2024-01-31 00:46:11.268] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/position_texture.vert
+[2024-01-31 00:46:11.269] [SANDBOX] [info] Extension of assets/shaders/position_texture_transform.vert .vert
+[2024-01-31 00:46:11.269] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/position_texture_transform.vert
+[2024-01-31 00:46:11.269] [SANDBOX] [info] Extension of assets/shaders/texture.frag .frag
+[2024-01-31 00:46:11.270] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/texture.frag
+[2024-01-31 00:46:11.270] [SANDBOX] [info] Extension of assets/shaders/texture_unit.frag .frag
+[2024-01-31 00:46:11.271] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/texture_unit.frag
+[2024-01-31 00:46:11.271] [SANDBOX] [info] Extension of assets/shaders/texture_unit.vert .vert
+[2024-01-31 00:46:11.272] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/texture_unit.vert
+[2024-01-31 00:46:11.272] [SANDBOX] [info] Extension of assets/shaders/ubt.frag .frag
+[2024-01-31 00:46:11.272] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/ubt.frag
+[2024-01-31 00:46:11.273] [SANDBOX] [info] Extension of assets/shaders/ubt.vert .ver[2024-01-31 00:48:19.223] [SANDBOX] [info] OpenGL Loaded.
+[2024-01-31 00:48:19.224] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-01-31 00:48:19.224] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-01-31 00:48:19.224] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-01-31 00:48:19.225] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-01-31 00:48:19.240] [SANDBOX] [info] Extension of assets/shaders/batch_renderer.frag .frag
+[2024-01-31 00:48:19.241] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.frag
+[2024-01-31 00:48:19.241] [SANDBOX] [info] Extension of assets/shaders/batch_renderer.vert .vert
+[2024-01-31 00:48:19.241] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.vert
+[2024-01-31 00:48:19.241] [SANDBOX] [info] Extension of assets/shaders/batch_renderer2.frag .frag
+[2024-01-31 00:48:19.242] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer2.frag
+[2024-01-31 00:48:19.242] [SANDBOX] [info] Extension of assets/shaders/batch_renderer_pixel_art.frag .frag
+[2024-01-31 00:48:19.242] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer_pixel_art.frag
+[2024-01-31 00:48:19.242] [SANDBOX] [info] Extension of assets/shaders/billboard.vert .vert
+[2024-01-31 00:48:19.243] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/billboard.vert
+[2024-01-31 00:48:19.243] [SANDBOX] [info] Extension of assets/shaders/color.frag .frag
+[2024-01-31 00:48:19.243] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/color.frag
+[2024-01-31 00:48:19.243] [SANDBOX] [info] Extension of assets/shaders/default_layer.frag .frag
+[2024-01-31 00:48:19.243] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/default_layer.frag
+[2024-01-31 00:48:19.244] [SANDBOX] [info] Extension of assets/shaders/default_layer.vert .vert
+[2024-01-31 00:48:19.244] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/default_layer.vert
+[2024-01-31 00:48:19.244] [SANDBOX] [info] Extension of assets/shaders/masked.frag .frag
+[2024-01-31 00:48:19.244] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/masked.frag
+[2024-01-31 00:48:19.244] [SANDBOX] [info] Extension of assets/shaders/model_view_projection.vert .vert
+[2024-01-31 00:48:19.245] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/model_view_projection.vert
+[2024-01-31 00:48:19.245] [SANDBOX] [info] Extension of assets/shaders/position_color.vert .vert
+[2024-01-31 00:48:19.245] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/position_color.vert
+[2024-01-31 00:48:19.245] [SANDBOX] [info] Extension of assets/shaders/position_texture.vert .vert
+[2024-01-31 00:48:19.249] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/position_texture.vert
+[2024-01-31 00:48:19.250] [SANDBOX] [info] Extension of assets/shaders/position_texture_transform.vert .vert
+[2024-01-31 00:48:19.250] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/position_texture_transform.vert
+[2024-01-31 00:48:19.251] [SANDBOX] [info] Extension of assets/shaders/texture.frag .frag
+[2024-01-31 00:48:19.252] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/texture.frag
+[2024-01-31 00:48:19.252] [SANDBOX] [info] Extension of assets/shaders/texture_unit.frag .frag
+[2024-01-31 00:48:19.253] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/texture_unit.frag

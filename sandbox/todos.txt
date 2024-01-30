@@ -34,6 +34,7 @@ this will be related to SpriteRenderComponent
 -test if listener that are null are properly discardded by signaler
 -easing
 -state machine like in csharp
+-some delegate are "eating" the parameters lvalue
 
 big tasks:
 
@@ -54,6 +55,16 @@ Asset Manager:
 -create any asset ref with it's path
 -texture can be cut into sprites
 -json file in the same folder as the texture, with the same name, give the rules of cutting
--asset manager read these json files and create sprites accordingly.
--Config class that is a wrapper around a nlhomman json object to store all sort of parameters
+-asset manager read these json files and create sprites accordingly, create a default one if there's none.
 
+accessible asset type:
+
+config
+sprite
+material
+audioclip
+
+underlying asset:
+
+texture
+shader

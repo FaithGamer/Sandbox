@@ -96,6 +96,9 @@
     <ClCompile Include="src\Tests\JsonTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Tests\AssetsTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Tests\SignalTest.h">
@@ -177,6 +180,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Tests\JsonTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tests\AssetsTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

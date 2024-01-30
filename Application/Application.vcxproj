@@ -157,6 +157,7 @@
     <ClCompile Include="src\Editor\Layout.cpp" />
     <ClCompile Include="src\Editor\Menu.cpp" />
     <ClCompile Include="src\Editor\SandboxEditorUtils.cpp" />
+    <ClCompile Include="src\Tests\AssetsTest.cpp" />
     <ClCompile Include="src\Tests\BlendingTest.cpp" />
     <ClCompile Include="src\Tests\ECSTest.cpp" />
     <ClCompile Include="src\Tests\ECSTest.h" />
@@ -179,6 +180,7 @@
     <ClCompile Include="src\Tests\UniformBlockTest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Tests\AssetsTest.h" />
     <ClInclude Include="src\Tests\JsonTest.h" />
     <ClInclude Include="src\Editor\Game.h" />
     <ClInclude Include="src\Editor\Hierarchy.h" />

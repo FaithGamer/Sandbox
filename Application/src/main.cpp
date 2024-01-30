@@ -23,6 +23,7 @@
 #include "Tests/ImGuiSystemTest.h"
 #include "Tests/BlendingTest.h"
 #include "Tests/JsonTest.h"
+#include "Tests/AssetsTest.h"
 
 #include "Editor/EntryPoint.h"
 
@@ -51,6 +52,8 @@ int main(int argc, char** argv)
 	//Editor();
 	//BlendingTest();
 	//VectorUnitTest();
-	JsonTest();
+	//JsonTest();
+
+	AssetsTest();
 	return 0;
 }

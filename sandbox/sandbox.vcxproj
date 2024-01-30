@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Assets.cpp" />
     <ClCompile Include="src\ECS\ParticleSystem.cpp" />
     <ClCompile Include="src\Json.cpp" />
     <ClCompile Include="src\Render\RenderOptions.cpp" />
@@ -67,6 +68,7 @@
     <ClCompile Include="src\Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Sandbox\Assets.h" />
     <ClInclude Include="include\Sandbox\ECS.h" />
     <ClInclude Include="include\Sandbox\ECS\ParticleSystem.h" />
     <ClInclude Include="include\Sandbox\ECS\SpriteRenderSystem.h" />

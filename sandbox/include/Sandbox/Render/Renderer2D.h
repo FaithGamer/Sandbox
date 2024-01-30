@@ -14,12 +14,6 @@
 
 namespace Sandbox
 {
-	struct SpriteRender2D
-	{
-		Texture* texture;
-		std::vector<Vec2f> texCoords;
-		Vec4f color;
-	};
 
 	class SpriteRender;
 	class RenderTarget;
