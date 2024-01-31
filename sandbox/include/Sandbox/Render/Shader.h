@@ -8,7 +8,7 @@ namespace Sandbox
 	class Shader
 	{
 	public:
-		Shader(std::string vertexSourcePath, std::string fragmentSourcePath);
+		Shader(std::string vertexSource, std::string fragmentSource);
 		~Shader();
 
 		void Bind() const;

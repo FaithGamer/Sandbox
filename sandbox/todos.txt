@@ -1,40 +1,26 @@
 - to create an input, only go through an input map, same for InputMap, create it from Inputs
-- push game world: do not push instantly, queue the push
+
 - threaded BatchRendering
 - bindings serialization (include cereal in project)
-- Scene
-- Game World / entity serialization
-- Option to set a RenderTarget when using the batchrenderer (for rendering to framebuffer)
-- Write a RenderSystem, making use of the batchrenderer, and with option to use shader on individual sprite
-this will be related to SpriteRenderComponent
-- batching together sprites using the same material
-
--tween system
-
 
 
 -material instead of just shader
 
--layers that are a set of systems
--define "use imgui" ?
 -resource id for shader/stencil/ ->"render mode option batch id" 
 
 
--particles: have a container separate from registry with preallocated memory
-
 
 -add math to pch
--ability to have parent transform
--inline Transform
 
 
 
 -optimize the particle system by recording the prevOffset and nextOffset for each element in the particle array
-
 -test if listener that are null are properly discardded by signaler
 -easing
 -state machine like in csharp
 -some delegate are "eating" the parameters lvalue
+-renderer2D hardcode it's default shader to not rely on asset manager
+-engine settings from json
 
 big tasks:
 

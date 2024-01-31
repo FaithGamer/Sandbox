@@ -12,10 +12,10 @@ void AssetsTest()
 {
 	Engine::Init();
 
-	auto assets = Assets::Instance();
-    Asset<Config> config = assets->Get<Config>("jsontest.config");
+    Asset<Config> config = Assets::Get<Config>("jsontest.config");
 
-
+	auto intptr = makesptr<int>(2);
+	auto ptr2 = intptr;
 
 	std::cout << config.Ptr()->GetFloat("Float");
 }

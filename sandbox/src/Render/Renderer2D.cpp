@@ -10,7 +10,7 @@
 #include "Sandbox/Render/Window.h"
 #include "Sandbox/Render/SpriteRender.h"
 #include "Sandbox/Utils/Container.h"
-
+#include "Sandbox/Assets.h"
 
 namespace Sandbox
 {
@@ -53,9 +53,7 @@ namespace Sandbox
 
 		m_whiteTexture = makesptr<Texture>();
 
-		m_defaultShader = makesptr<Shader>(
-			"assets/shaders/batch_renderer.vert",
-			"assets/shaders/batch_renderer.frag");
+		m_defaultShader = Assets::Get<Shader>("batch_renderer.shader").Ptr();
 
 		m_defaultRenderOptions = makesptr<RenderOptions>();
 		m_defaultRenderOptionsLayer = makesptr<RenderOptions>();
@@ -64,11 +62,7 @@ namespace Sandbox
 
 		m_camera = Mat4(1);
 
-
-		//Layer default shader
-		m_defaultLayerShader = makesptr<Shader>(
-			"assets/shaders/default_layer.vert",
-			"assets/shaders/default_layer.frag");
+		m_defaultLayerShader = Assets::Get<Shader>("default_layer.shader").Ptr();
 
 		std::vector<Vec2f> screenSpace{ {-1, -1}, { 1, -1 }, { 1, 1 }, { -1, 1 } };
 		sptr<VertexArray> defaultLayerVertexArray = GenerateLayerVertexArray(screenSpace);
@@ -618,7 +612,7 @@ namespace Sandbox
 		{
 			if (reComputePosition) //to do check if spriteRender dim changed
 			{
-				batch.quadVertexPtr->position = VertexPosition(batch.quadVertexPosition[i], transform, *sprite);
+				batch.quadVertexPtr->position = VertexPosition(batch.quadVertexPosition[i]-sprite->GetOrigin(), transform, *sprite);
 				spriteRender.preComputedPosition[i] = batch.quadVertexPtr->position;
 			}
 			else

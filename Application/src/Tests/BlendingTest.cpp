@@ -1,12 +1,21 @@
 #include "Sandbox/Render.h"
 #include "Sandbox/Engine.h"
 #include "Sandbox/ECS.h"
+#include "Sandbox/Assets.h"
 
 using namespace Sandbox;
-sptr<Sprite> LoadSprite()
+sptr<Sprite> LoadSpriteNeutral()
 {
-	auto texture = makesptr<Texture>("assets/textures/semi_transparent.png");
-	return makesptr<Sprite>(texture);
+	auto texture = Assets::Get<Texture>("semi_transparent.png");
+	return makesptr<Sprite>(texture.Ptr());
+}
+
+sptr<Sprite> LoadSpriteOrigin()
+{
+	auto texture = Assets::Get<Texture>("semi_transparent_green.png");
+	auto sprite = makesptr<Sprite>(texture.Ptr());
+	sprite->SetOrigin(Vec2f(0, 0.5));
+	return sprite;
 }
 
 void CreateEntity(Vec3f pos, sptr<Sprite> sprite)
@@ -27,13 +36,11 @@ void BlendingTest()
 	cam.SetOrthographic(true);
 	Systems::SetMainCamera(&cam);
 	Window::GetResizeSignal()->AddListener(&Camera::SetAspectRatio, &cam);
-	auto sprite = LoadSprite();
+	auto sprite1 = LoadSpriteNeutral();
+	auto sprite2 = LoadSpriteOrigin();
 
-	for (int i = 4; i >= 0; i--)
-	{
-		Vec3f pos(-4.f + i * 10, i, i*0.001f);
-		CreateEntity(pos, sprite);
-	}
+	CreateEntity(Vec3f(0), sprite1);
+	CreateEntity(Vec3f(0, 0, -1), sprite2);
 
 	Engine::Launch();
 }

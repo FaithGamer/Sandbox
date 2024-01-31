@@ -6,5 +6,6 @@
 #define uptr std::unique_ptr
 #define makeuptr std::make_unique
 #define wptr std::weak_ptr
+#define MakePair std::make_pair
 
 typedef std::string String;

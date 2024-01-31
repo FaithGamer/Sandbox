@@ -4,7 +4,9 @@
 #include "TypeId.h"
 #include "Sandbox/Log.h"
 #include "Sandbox/Delegate.h"
+#include "Sandbox/Render/Texture.h"
 #include <unordered_map>
+
 namespace Sandbox
 {
 	class OpaqueAsset
@@ -57,28 +59,16 @@ namespace Sandbox
 
 		Assets();
 
-	
+
 		void HotReload();
 
 		template <class T>
-		Asset<T> Get(String name)
+		static Asset<T> Get(String name)
 		{
-			auto find_it = m_assets.find(name);
-			if (find_it == m_assets.end())
-			{
-				LOG_ERROR("Cannot find asset, " + name);
-				return Asset<T>();
-			}
-			if (find_it->second->GetType() != TypeId::GetId<T>())
-			{
-				LOG_ERROR("Getting wrong asset type, " + name);
-				return Asset<T>();
-			}
-			auto ptr = static_pointer_cast<Asset<T>>(find_it->second);
-			Asset<T> asset;
-			asset.Copy(*ptr);
-			return asset;
+			return Instance()->GetPrivate<T>(name);
 		}
+
+
 	private:
 		friend sptr<Assets> Singleton<Assets>::Instance();
 		friend void Singleton<Assets>::Kill();
@@ -86,7 +76,33 @@ namespace Sandbox
 		void LoadAssets();
 		void InitAddAssetFunctions();
 		void AddAsset(String path);
+		void CompileShaders();
+
+		void CreateDefaultTextureSettingsFile(String path);
+		void AddTexture(String filename, String path);
+		void AddConfig(String filename, String path);
+		void AddSprites(String filename, String path);
+		void AddFragmentShader(String filename, String path);
+		void AddVertexShader(String filename, String path);
+		void AddMaterial(String filename, String path);
+
+		template <class T>
+		Asset<T> GetPrivate(String name)
+		{
+			auto find_it = m_assets.find(name);
+
+			ASSERT_LOG_ERROR((bool)(find_it != m_assets.end()), "Cannot find asset, " + name)
+				ASSERT_LOG_ERROR((bool)(find_it->second->GetType() == TypeId::GetId<T>()), "Getting wrong asset type, " + name);
+
+			auto ptr = static_pointer_cast<Asset<T>>(find_it->second);
+			Asset<T> asset;
+			asset.Copy(*ptr);
+			return asset;
+		}
+
 		std::unordered_map<String, sptr<OpaqueAsset>> m_assets;
-		std::unordered_map<String, Delegate<sptr<OpaqueAsset>, String>> m_addAssetFunctions;
+		std::unordered_map<String, Delegate<void, String, String>> m_addAssetFunctions;
+		std::unordered_map<String, std::pair<String, String>> m_shadersPath;
+		TextureImportSettings m_defaultImportSettings;
 	};
 }

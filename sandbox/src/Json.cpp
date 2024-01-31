@@ -12,6 +12,10 @@ namespace Sandbox
 	Config::Config(String path) : m_path(path)
 	{
 		auto file = std::ifstream(path);
+		if (!file.is_open())
+		{
+			LOG_ERROR("Cannot load config from path: " + path);
+		}
 		try {
 
 			file >> m_json;
@@ -48,6 +52,19 @@ namespace Sandbox
 		else
 		{
 			return 0;
+		}
+	}
+
+	bool Config::GetBool(String name)
+	{
+		bool value;
+		if (SafeGet<bool>(name, value))
+		{
+			return value;
+		}
+		else
+		{
+			return false;
 		}
 	}
 
@@ -92,6 +109,16 @@ namespace Sandbox
 		}
 	}
 
+	String Config::GetPath() const
+	{
+		return m_path;
+	}
+
+	Json Config::ToJson()
+	{
+		return m_json;
+	}
+
 	template <class T>
 	bool Config::SafeGet(String name, T& value)
 	{
@@ -110,4 +137,5 @@ namespace Sandbox
 			return false;
 		}
 	}
+
 }

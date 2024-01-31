@@ -8,9 +8,10 @@
 #include "Sandbox/ImGuiLoader.h"
 #include "Sandbox/ECS/InputSystem.h"
 #include "Sandbox/Render/Renderer2D.h"
+#include "Sandbox/Assets.h"
 #include "Sandbox/ECS/SpriteRenderSystem.h"
 #include "Sandbox/ECS/ParticleSystem.h"
-#include <stb/stb_image.h>
+
 
 namespace Sandbox
 {
@@ -24,15 +25,17 @@ namespace Sandbox
 
 	void Engine::Init(const EngineParameters& parameters)
 	{
+
 		//Initialization
 		Log::Init();
 
 		//To do, call instance of every singleton allocate memory first
 		Window::Instance()->Init(parameters.appName, parameters.startupWindowResolution);
+		Assets::Instance();
 		Renderer2D::Instance();
 
 		LoadImGui(Window::GetSDLWindow(), Window::GetSDL_GLContext());
-		stbi_set_flip_vertically_on_load(true);
+	
 		if (parameters.useEngineSystems)
 		{
 			Systems::Push<InputSystem>();

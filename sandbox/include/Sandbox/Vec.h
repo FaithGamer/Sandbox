@@ -368,6 +368,11 @@ namespace Sandbox
 		return lhs.x == rhs.x && lhs.y == rhs.y;
 	}
 
+	inline Vec4f operator-(Vec4f lhs, Vec2<float> rhs)
+	{
+		return { lhs.x - rhs.x, lhs.y - rhs.y, lhs.z, lhs.w };
+	}
+
 	//Static vector methods
 	class Vec
 	{

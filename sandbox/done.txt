@@ -86,3 +86,13 @@ January 2024
 - json single include added into the project
 - Config wrapper around json with safe get including error message and exception handling
 - basic Asset manager and asset wrapper!
+
+31
+
+- Assets manager compile shader
+>sprite origin
+>asset loading sprite sheet for every texture
+-added sprite origin
+-textureimport settings loading from config
+-serializable interface
+-textureimportesetting serializable

@@ -3,12 +3,12 @@
 
 namespace Sandbox
 {
-	Sprite::Sprite()
+	Sprite::Sprite() : m_origin(0)
 	{
-	
+
 	}
 
-	Sprite::Sprite(sptr<Texture> texture) : m_texture(texture)
+	Sprite::Sprite(sptr<Texture> texture) : m_texture(texture), m_origin(0)
 	{
 		m_textureCoords[0] = Vec2f(0, 1);
 		m_textureCoords[1] = Vec2f(0, 0);
@@ -17,12 +17,26 @@ namespace Sandbox
 		ComputeDimensions();
 	}
 
-	Sprite::Sprite(sptr<Texture> texture, Rect textureRect) : m_texture(texture)
+	Sprite::Sprite(sptr<Texture> texture, Rect textureRect) : m_texture(texture), m_origin(0)
 	{
 		SetTextureRect(textureRect);
 	}
 
-	Sprite::Sprite(sptr<Texture> texture, Vec2f* textureCoords)
+	Sprite::Sprite(sptr<Texture> texture, Rect textureRect, Vec2f origin) : m_texture(texture), m_origin(origin)
+	{
+		SetTextureRect(textureRect);
+	}
+
+	Sprite::Sprite(sptr<Texture> texture, Vec2f* textureCoords) : m_origin(0)
+	{
+		m_textureCoords[0] = textureCoords[0];
+		m_textureCoords[1] = textureCoords[1];
+		m_textureCoords[2] = textureCoords[2];
+		m_textureCoords[3] = textureCoords[3];
+		ComputeDimensions();
+	}
+
+	Sprite::Sprite(sptr<Texture> texture, Vec2f* textureCoords, Vec2f origin) : m_origin(origin)
 	{
 		m_textureCoords[0] = textureCoords[0];
 		m_textureCoords[1] = textureCoords[1];
@@ -41,6 +55,11 @@ namespace Sandbox
 	{
 		m_texture = Texture;
 		ComputeDimensions();
+	}
+
+	void Sprite::SetOrigin(Vec2f origin)
+	{
+		m_origin = origin;
 	}
 
 	void Sprite::TextureCoordsRelative(Vec2f* coords, Rect rect, float resFactor)
@@ -74,4 +93,5 @@ namespace Sandbox
 		m_dimensions.y = texHeight * texSize.y * ppu;
 
 	}
+
 }

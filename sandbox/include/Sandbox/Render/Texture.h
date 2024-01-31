@@ -1,10 +1,12 @@
 #pragma once
-
-#include "Sandbox/Vec.h"
 #include <glad/glad.h>
+#include "Sandbox/Vec.h"
+#include "Sandbox/Json.h"
+
 
 namespace Sandbox
 {
+
 	typedef enum : GLint
 	{
 		Linear = GL_LINEAR,
@@ -17,13 +19,16 @@ namespace Sandbox
 		Repeat = GL_REPEAT
 	}TextureWrapping;
 
-	struct TextureImportSettings
+	struct TextureImportSettings : public Serializable
 	{
 		TextureImportSettings(
 			TextureFiltering TextureFiltering = Linear,
 			TextureWrapping Wrapping = Clamp,
 			bool UseMipmaps = true,
 			bool KeepData = false);
+		TextureImportSettings(Config parameters);
+		void LoadParameters(Config parameters);
+		Json ToJson();
 		TextureFiltering filtering;
 		GLint wrapping;
 		bool useMipmaps;

@@ -8,12 +8,61 @@
 
 namespace Sandbox
 {
-	TextureImportSettings::TextureImportSettings(TextureFiltering Filtering, TextureWrapping Wrapping, bool UseMipmaps, bool KeepData) 
+	TextureImportSettings::TextureImportSettings(TextureFiltering Filtering, TextureWrapping Wrapping, bool UseMipmaps, bool KeepData)
 		: filtering(Filtering), wrapping(Wrapping), useMipmaps(UseMipmaps), keepData(KeepData)
 	{
 
 	}
-	Texture::Texture(): m_id(0), m_pixelPerUnit(1.f), m_pixels(nullptr), m_nbChannels(0), m_importSettings(TextureImportSettings()), m_size(1, 1)
+	TextureImportSettings::TextureImportSettings(Config parameters) : TextureImportSettings()
+	{
+		LoadParameters(parameters);
+	}
+
+	void TextureImportSettings::LoadParameters(Config parameters)
+	{
+		String Filtering = parameters.GetString("Filtering");
+		if (Filtering == "Linear")
+			filtering = TextureFiltering::Linear;
+		else if (Filtering == "Nearest")
+			filtering = TextureFiltering::Nearest;
+		else
+		{
+			LOG_WARN("Unknown texture filtering parameters: " + Filtering + ", in file: " + parameters.GetPath());
+		}
+
+		String Wrapping = parameters.GetString("Wrapping");
+		if (Wrapping == "Clamp")
+			wrapping = TextureWrapping::Clamp;
+		else if (Wrapping == "Repeat")
+			wrapping = TextureWrapping::Repeat;
+		else
+		{
+			LOG_WARN("Unknown texture wrapping parameters: " + Wrapping + ", in file: " + parameters.GetPath());
+		}
+
+		useMipmaps = parameters.GetBool("Mipmaps");
+		keepData = parameters.GetBool("KeepData");
+
+	}
+	Json TextureImportSettings::ToJson()
+	{
+		Json json;
+		if (filtering == TextureFiltering::Linear)
+			json["Filtering"] = "Linear";
+		else
+			json["Filtering"] = "Nearest";
+
+		if (wrapping == TextureWrapping::Clamp)
+			json["Wrapping"] = "Clamp";
+		else
+			json["Wrapping"] = "Repeat";
+
+		json["Mipmaps"] = useMipmaps;
+		json["KeepData"] = keepData;
+
+		return json;
+	}
+	Texture::Texture() : m_id(0), m_pixelPerUnit(1.f), m_pixels(nullptr), m_nbChannels(0), m_importSettings(TextureImportSettings()), m_size(1, 1)
 	{
 
 	}
@@ -47,7 +96,7 @@ namespace Sandbox
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	Texture::Texture(std::string path, TextureImportSettings importSettings) 
+	Texture::Texture(std::string path, TextureImportSettings importSettings)
 		: m_size(0, 0), m_nbChannels(0), m_pixels(nullptr), m_id(0), m_importSettings(importSettings), m_pixelPerUnit(1.f)
 	{
 		if (path == "white")
@@ -57,7 +106,7 @@ namespace Sandbox
 		}
 		//Load image data
 		m_pixels = stbi_load(path.c_str(), &m_size.x, &m_size.y, &m_nbChannels, 4);
-		
+
 
 		ASSERT_LOG_ERROR(m_pixels, "Failed to load texture: " + path);
 
@@ -96,7 +145,7 @@ namespace Sandbox
 
 	Texture::Texture(std::string path, uint32_t pixelPerUnit, TextureImportSettings importSettings) : Texture(path, importSettings)
 	{
-		m_pixelPerUnit = 1.f/pixelPerUnit;
+		m_pixelPerUnit = 1.f / pixelPerUnit;
 	}
 
 	Texture::~Texture()
@@ -110,7 +159,7 @@ namespace Sandbox
 
 	void Texture::SetPixelPerUnit(uint32_t pixelPerUnit)
 	{
-		m_pixelPerUnit = 1.f/pixelPerUnit;
+		m_pixelPerUnit = 1.f / pixelPerUnit;
 	}
 
 	void Texture::Bind(uint32_t textureUnit)
@@ -134,5 +183,5 @@ namespace Sandbox
 	{
 		return m_pixelPerUnit;
 	}
-	
+
 }

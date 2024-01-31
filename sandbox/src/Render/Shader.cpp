@@ -67,23 +67,26 @@ namespace Sandbox
 		}
 	}
 
-	Shader::Shader(std::string vertexSourcePath, std::string fragmentSourcePath)
+	/*Shader::Shader(std::string vertexAndFrag)
+	{
+		String vertex = vertexAndFrag.find_first_of(#fragment)
+	}*/
+
+	Shader::Shader(std::string vertexSource, std::string fragmentSource)
 	{
 		m_id = m_currentId++;
 		//Load shader source files
-		std::string vertStr = loadShaderSourceFromFile(vertexSourcePath);
-		const GLchar* vertexSource = (const GLchar*)vertStr.c_str();
-		std::string  fragStr = loadShaderSourceFromFile(fragmentSourcePath).c_str();
-		const GLchar* fragmentSource = (const GLchar*)fragStr.c_str();
+		const GLchar* vertexSrc = (const GLchar*)vertexSource.c_str();
+		const GLchar* fragmentSrc = (const GLchar*)fragmentSource.c_str();
 
 		//Creates shaders and compile
 		GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
-		glShaderSource(vertexShader, 1, &vertexSource, NULL);
+		glShaderSource(vertexShader, 1, &vertexSrc, NULL);
 		glCompileShader(vertexShader);
 		shaderCompilationError(vertexShader);
 
 		GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-		glShaderSource(fragmentShader, 1, &fragmentSource, NULL);
+		glShaderSource(fragmentShader, 1, &fragmentSrc, NULL);
 		glCompileShader(fragmentShader);
 		shaderCompilationError(fragmentShader);
 

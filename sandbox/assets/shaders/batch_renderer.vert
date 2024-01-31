@@ -1,3 +1,4 @@
+//vertex
 #version 330 core
 
 layout (location = 0) in vec3 aPosition;
@@ -21,3 +22,5 @@ void main()
 	vTexIndex = aTexIndex;
 	gl_Position = uViewProjection * vec4(aPosition, 1.0);
 }
+
+//fragment
