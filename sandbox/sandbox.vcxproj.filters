@@ -162,7 +162,7 @@
     <ClCompile Include="src\Vec.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Json.cpp">
+    <ClCompile Include="src\Serialization.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Assets.cpp">
@@ -356,7 +356,7 @@
     <ClInclude Include="include\Sandbox\ECS\Components.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Json.h">
+    <ClInclude Include="include\Sandbox\Serialization.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Assets.h">

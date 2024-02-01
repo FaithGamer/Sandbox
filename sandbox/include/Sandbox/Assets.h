@@ -9,38 +9,23 @@
 
 namespace Sandbox
 {
+	class Assets;
+
 	class OpaqueAsset
 	{
 	public:
 		virtual ~OpaqueAsset() {};
-		int32_t GetType()
-		{
-			return m_type;
-		}
+		virtual int32_t GetType() = 0;
 	protected:
-		int32_t m_type;
 	};
 
 	template<class T>
 	class Asset : public OpaqueAsset
 	{
 	public:
-		template<class... Args>
-		Asset(Args&&... args)
-		{
-			m_ptr = makesptr<T>(args...);
-			m_type = TypeId::GetId<T>();
-		}
-		template <class T>
-		Asset(const Asset<T>& asset) : m_ptr(asset.m_ptr)
-		{
+		Asset() = default;
 
-		}
-		void Copy(const Asset<T>& asset)
-		{
-			m_ptr = asset.m_ptr;
-		}
-		Asset()
+		Asset(const Asset<T>& asset) : m_ptr(asset.m_ptr)
 		{
 
 		}
@@ -48,10 +33,18 @@ namespace Sandbox
 		{
 			return m_ptr;
 		}
+		int32_t GetType()
+		{
+			return TypeId::GetId<T>();
+		}
 	private:
+
+		friend Assets;
 		sptr<T> m_ptr;
 
 	};
+
+
 
 	class Assets : public Singleton<Assets>
 	{
@@ -73,15 +66,36 @@ namespace Sandbox
 		friend sptr<Assets> Singleton<Assets>::Instance();
 		friend void Singleton<Assets>::Kill();
 
+		template<class T, class... Args>
+		static sptr<Asset<T>> MakeAsset(Args&&... args)
+		{
+			auto asset = makesptr<Asset<T>>();
+			asset->m_ptr = makesptr<T>(args...);
+			return asset;
+		}
+
 		void LoadAssets();
 		void InitAddAssetFunctions();
 		void AddAsset(String path);
 		void CompileShaders();
+		template<class T>
+		void InsertAsset(String filename, sptr<Asset<T>> asset)
+		{
+			if (m_assets.find(filename) == m_assets.end())
+			{
+				m_assets.insert(MakePair(filename, asset));
+			}
+			else
+			{
+				LOG_ERROR("More than one asset with the same filename: " + filename + ", only one could be loaded.");
+			}
+		}
 
-		void CreateDefaultTextureSettingsFile(String path);
+		void GenerateSprites(String filename, Serialized& spritesheet, sptr<Texture> texture);
+		Serialized CreateDefaultTextureImportSettings();
+		Serialized CreateDefaultSpritesheet(sptr<Texture> texture);
 		void AddTexture(String filename, String path);
 		void AddConfig(String filename, String path);
-		void AddSprites(String filename, String path);
 		void AddFragmentShader(String filename, String path);
 		void AddVertexShader(String filename, String path);
 		void AddMaterial(String filename, String path);
@@ -91,13 +105,11 @@ namespace Sandbox
 		{
 			auto find_it = m_assets.find(name);
 
-			ASSERT_LOG_ERROR((bool)(find_it != m_assets.end()), "Cannot find asset, " + name)
-				ASSERT_LOG_ERROR((bool)(find_it->second->GetType() == TypeId::GetId<T>()), "Getting wrong asset type, " + name);
+			ASSERT_LOG_ERROR((bool)(find_it != m_assets.end()), "Cannot find asset, " + name);
+			ASSERT_LOG_ERROR((bool)(find_it->second->GetType() == TypeId::GetId<T>()), "Getting wrong asset type, " + name);
 
-			auto ptr = static_pointer_cast<Asset<T>>(find_it->second);
-			Asset<T> asset;
-			asset.Copy(*ptr);
-			return asset;
+			return *static_pointer_cast<Asset<T>>(find_it->second);
+
 		}
 
 		std::unordered_map<String, sptr<OpaqueAsset>> m_assets;

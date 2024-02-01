@@ -50,10 +50,11 @@ int main(int argc, char** argv)
 	//InputSystemTest();
 
 	//Editor();
-	BlendingTest();
+	//BlendingTest();
 	//VectorUnitTest();
 	//JsonTest();
 
-	//AssetsTest();
+
+	AssetsTest();
 	return 0;
 }

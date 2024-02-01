@@ -1,7 +1,7 @@
 #pragma once
 #include <glad/glad.h>
 #include "Sandbox/Vec.h"
-#include "Sandbox/Json.h"
+#include "Sandbox/Serialization.h"
 
 
 namespace Sandbox
@@ -21,18 +21,27 @@ namespace Sandbox
 
 	struct TextureImportSettings : public Serializable
 	{
+		TextureImportSettings() = default;
 		TextureImportSettings(
-			TextureFiltering TextureFiltering = Linear,
-			TextureWrapping Wrapping = Clamp,
-			bool UseMipmaps = true,
-			bool KeepData = false);
-		TextureImportSettings(Config parameters);
-		void LoadParameters(Config parameters);
-		Json ToJson();
-		TextureFiltering filtering;
-		GLint wrapping;
-		bool useMipmaps;
-		bool keepData;
+			TextureFiltering TextureFiltering,
+			TextureWrapping Wrapping,
+			float PixelPerUnit,
+			bool UseMipmaps,
+			bool KeepData);
+
+		TextureImportSettings(Serialized& config);
+		void Deserialize(Serialized& config);
+		Serialized Serialize() override;
+		bool DeserializationError() override;
+
+		TextureFiltering filtering = TextureFiltering::Linear;
+		GLint wrapping = TextureWrapping::Clamp;
+		float pixelPerUnit = 1;
+		bool useMipmaps = true;
+		bool keepData = false;
+
+		bool valid = true;
+
 	};
 
 	class RenderTexture;
@@ -42,12 +51,11 @@ namespace Sandbox
 	public:
 		Texture();
 		Texture(std::string path, TextureImportSettings importSettings = TextureImportSettings());
-		Texture(std::string path, uint32_t pixelPerUnit, TextureImportSettings importSettings = TextureImportSettings());
 		~Texture();
 
-		void SetPixelPerUnit(uint32_t pixelPerUnit);
 		void Bind(uint32_t textureUnit = 0);
-		
+		void SetPixelPerUnit(float ppu);
+
 		GLuint GetId();
 		Vec2i GetSize();
 
@@ -58,7 +66,6 @@ namespace Sandbox
 	private:
 		void Create1x1White();
 		friend RenderTexture;
-		float m_pixelPerUnit;
 		TextureImportSettings m_importSettings;
 		Vec2i m_size;
 		int m_nbChannels;

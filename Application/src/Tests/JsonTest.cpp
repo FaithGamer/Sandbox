@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "JsonTest.h"
-#include "Sandbox/Json.h"
+#include "Sandbox/Serialization.h"
 #include "Sandbox/Engine.h"
 
 using namespace Sandbox;
@@ -34,12 +34,12 @@ void JsonTest()
 		std::cout << str << std::endl;
 	}*/
 
-	Config config("jsontest.json");
+	Serialized config("jsontest.json");
 
 	std::cout << config.GetFloat("Float") << std::endl;
 	std::cout << config.GetFloat("Fzloat") << std::endl;
 
-	Config obj = config.GetConfig("Object");
+	Serialized obj = config.GetObj("Object");
 	
 	std::cout << obj.GetString("String") << std::endl;
 	std::cout << obj.GetString("Stringz") << std::endl;

@@ -90,7 +90,7 @@ namespace Sandbox
 		sptr<Texture> texture = makesptr<Texture>();
 		texture->m_id = m_textureId;
 		texture->m_size = m_size;
-		texture->m_pixelPerUnit = 1.f / pixelPerUnit;
+		texture->m_importSettings.pixelPerUnit = 1.f / pixelPerUnit;
 		return texture;
 	}
 }

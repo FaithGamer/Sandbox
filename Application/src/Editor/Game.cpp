@@ -10,8 +10,8 @@ using namespace Sandbox;
 /* -- hero -- */
 sptr<Texture> LoadPixelArtTexture(std::string path)
 {
-	return makesptr<Texture>(path, 16.f,
-		TextureImportSettings(TextureFiltering::Nearest, TextureWrapping::Clamp, true, false));
+	return makesptr<Texture>(path,
+		TextureImportSettings(TextureFiltering::Nearest, TextureWrapping::Clamp, 16, true, false));
 }
 void HeroSystem::OnStart()
 {
@@ -165,8 +165,8 @@ void HeroSystem::LoadAssets()
 
 void EnemySystem::OnStart()
 {
-	sptr<Texture> enemyTexture = makesptr<Texture>("assets/textures/pig.png", 16.f,
-		TextureImportSettings(TextureFiltering::Nearest, TextureWrapping::Clamp, true, false));
+	sptr<Texture> enemyTexture = makesptr<Texture>("assets/textures/pig.png",
+		TextureImportSettings(TextureFiltering::Nearest, TextureWrapping::Clamp, 16, true, false));
 	m_enemySprite = makesptr<Sprite>(enemyTexture);
 }
 

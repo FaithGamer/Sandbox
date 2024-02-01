@@ -64,5 +64,28 @@ namespace Sandbox
 		play = false;
 	}
 
+	EngineParameters::EngineParameters(Serialized settings)
+	{
+		Deserialize(settings);
+	}
+
+	void EngineParameters::Deserialize(Serialized& settings)
+	{
+		appName = settings.GetString("AppName");
+
+		startupWindowResolution.x = settings.GetArray<int>("Resolution")[0];
+		startupWindowResolution.y = settings.GetArray<int>("Resolution")[1];
+
+		enableImGui = settings.GetBool("EnableImGui");
+		imGuiLightTheme = settings.GetBool("ImGuiLightTheme");
+		fixedUpdateTimeStep = settings.GetFloat("FixedTimeStep");
+		useEngineSystems = settings.GetBool("UseEngineSystems");
+	}
+
+	Serialized EngineParameters::Serialize()
+	{
+		return Serialized();
+	}
+
 }
 

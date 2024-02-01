@@ -5937,7 +5937,7 @@ void ImGui::ShowAboutWindow(bool* p_open)
     ImGui::Text("Dear ImGui is licensed under the MIT License, see LICENSE for more information.");
 
     static bool show_config_info = false;
-    ImGui::Checkbox("Config/Build Information", &show_config_info);
+    ImGui::Checkbox("Serialized/Build Information", &show_config_info);
     if (show_config_info)
     {
         ImGuiIO& io = ImGui::GetIO();

@@ -9,8 +9,8 @@ namespace Sandbox
 		instancedCount(0), deadCount(0), layer(0)
 	{
 
-		static auto texture = makesptr<Texture>("assets/textures/square.png", 16.f, 
-			TextureImportSettings(TextureFiltering::Nearest, TextureWrapping::Clamp, true, false));
+		static auto texture = makesptr<Texture>("assets/textures/square.png", 
+			TextureImportSettings(TextureFiltering::Nearest, TextureWrapping::Clamp, 16, true, false));
 		static auto s = makesptr<Sprite>(texture);
 		sprite = s;
 	}

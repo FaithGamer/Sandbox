@@ -13,7 +13,7 @@
 -add math to pch
 
 
-
+-test if correction of ill formed texture import settings works and overwrite or not the spritesheet and vice versa
 -optimize the particle system by recording the prevOffset and nextOffset for each element in the particle array
 -test if listener that are null are properly discardded by signaler
 -easing

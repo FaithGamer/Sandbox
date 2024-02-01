@@ -11,7 +11,7 @@ namespace SandboxEditor
 	AssetBrowser::AssetBrowser()
 	{
 		m_deleteSelection = false;
-		TextureImportSettings textureSettings(TextureFiltering::Nearest, TextureWrapping::Clamp, false, false);
+		TextureImportSettings textureSettings(TextureFiltering::Nearest, TextureWrapping::Clamp, 1, false, false);
 		m_fileIcon = makesptr<Texture>("assets/textures/file_icon.png", textureSettings);
 		m_directoryIcon = makesptr<Texture>("assets/textures/folder_icon.png", textureSettings);
 		m_assetPath = "assets";
@@ -97,7 +97,7 @@ namespace SandboxEditor
 			sptr<Texture> icon = directoryEntry.is_directory() ? m_directoryIcon : m_fileIcon;
 			ImVec4 iconColor = { 0, 0, 0, 0 };
 			ImGui::PushStyleColor(ImGuiCol_Button, iconColor);
-			if (ImGui::ImageButton((ImTextureID)icon->GetId(), { thumbnailSize, thumbnailSize }, { 0, 1 }, { 1, 0 }))
+			if (ImGui::ImageButton((ImTextureID)icon->GetId(), { thumbnailSize, thumbnailSize }, { 0, 0 }, { 1, 1 }))
 			{
 				m_selection = path;
 			}

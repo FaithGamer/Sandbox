@@ -10,10 +10,10 @@ namespace Sandbox
 
 	Sprite::Sprite(sptr<Texture> texture) : m_texture(texture), m_origin(0)
 	{
-		m_textureCoords[0] = Vec2f(0, 1);
-		m_textureCoords[1] = Vec2f(0, 0);
-		m_textureCoords[2] = Vec2f(1, 0);
-		m_textureCoords[3] = Vec2f(1, 1);
+		m_textureCoords[0] = Vec2f(0, 0);
+		m_textureCoords[1] = Vec2f(0, 1);
+		m_textureCoords[2] = Vec2f(1, 1);
+		m_textureCoords[3] = Vec2f(1, 0);
 		ComputeDimensions();
 	}
 
@@ -68,15 +68,17 @@ namespace Sandbox
 		texSize.x *= resFactor;
 		texSize.y *= resFactor;
 
-		coords[0].x = rect.left / texSize.x + rect.width / texSize.x;
-		coords[0].y = rect.top / texSize.y + rect.height / texSize.y;
+		coords[0].x = rect.left / texSize.x;
+		coords[0].y = rect.top / texSize.y;
+
 
 		coords[1].x = coords[0].x;
-		coords[1].y = rect.top / texSize.y;
+		coords[1].y = rect.top / texSize.y + rect.height / texSize.y;
 
 
-		coords[2].x = rect.left / texSize.x;
+		coords[2].x = rect.left / texSize.x + rect.width / texSize.x;
 		coords[2].y = coords[1].y;
+
 
 		coords[3].x = coords[2].x;
 		coords[3].y = coords[0].y;
@@ -91,7 +93,5 @@ namespace Sandbox
 		float ppu = m_texture->GetPixelPerUnit();
 		m_dimensions.x = texWidth * texSize.x * ppu;
 		m_dimensions.y = texHeight * texSize.y * ppu;
-
 	}
-
 }

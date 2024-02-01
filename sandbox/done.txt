@@ -84,15 +84,29 @@ January 2024
 - moved render options cpp from include to src
 - z sorting solved the problem of semi transparency!
 - json single include added into the project
-- Config wrapper around json with safe get including error message and exception handling
+- Serialized wrapper around json with safe get including error message and exception handling
 - basic Asset manager and asset wrapper!
 
 31
 
 - Assets manager compile shader
->sprite origin
->asset loading sprite sheet for every texture
+-sprite origin
+
 -added sprite origin
 -textureimport settings loading from config
 -serializable interface
 -textureimportesetting serializable
+
+February
+
+01
+
+- Config renamed Serialized
+- Serialized mission best defined
+- Serialized now handle writing and loading from disk, and rememeber it's writing and reading path
+- Serialized can also be "loaded" from a json.
+- pixel per unit is now part of texture import settings
+- Asset manager now check the presence and validity of texture settings and create a default one when needed.
+- cropping texture with spritesheet
+- loading sprite as assets, with appropriate naming
+- no double assets possible
