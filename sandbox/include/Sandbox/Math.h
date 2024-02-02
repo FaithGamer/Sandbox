@@ -8,16 +8,35 @@ namespace Sandbox
 	{
 		///@brief Scale a value ranged in between two number, to another range in between two other numbers.
 		template <typename T>
-		T ScaleRangeTo(T value, T newMin, T newMax, T oldMin, T oldMax);
+		T ScaleRangeTo(T value, T oldMin, T oldMax, T newMin, T newMax)
+		{
+			T oldRange = (oldMax - oldMin);
+			T newRange = (newMax - newMin);
+			return (((value - oldMin) * newRange) / oldRange) + newMin;
+		}
 
+		/// @brief Return direction of degrees in vector
 		inline Vec2f AngleToVec(float degrees)
 		{
 			return { cos(degrees), sin(degrees) };
 		}
 
-		inline float VecToAngle(Vec2f unitVector)
+		/// @brief Return direction of vector in degrees
+		inline float VecToAngle(Vec2f vector)
 		{
-			return glm::degrees(atan2(unitVector.y, unitVector.x));
+			return glm::degrees(atan2(vector.y, vector.x));
+		}
+
+		template <typename T>
+		inline constexpr T Min(T lhs, T rhs)
+		{
+			return std::min(lhs, rhs);
+		}
+
+		template <typename T>
+		inline constexpr T Max(T lhs, T rhs)
+		{
+			return std::max(lhs, rhs);
 		}
 
 		inline float Lerp(float min, float max, float t)

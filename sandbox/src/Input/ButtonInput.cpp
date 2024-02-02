@@ -309,12 +309,13 @@ namespace Sandbox
 			if (e.caxis.axis == (Uint8)button.trigger)
 			{
 				//Scale trigger axis value from 0 to 1
-				float value = Math::ScaleRangeTo((float)e.caxis.value, 0.0f, 1.0f, 0.0f, 32767.0f);
+				//float value = Math::ScaleRangeTo((float)e.caxis.value,  0.0f, 32767.0f, 0.0f, 1.0f);
+				float value = (float)e.caxis.value / 32767.0f;
 				float threshold = m_triggerDeadzone;
 				if (value >= threshold)
 				{
 					m_state.pressed = true;
-					value = Math::ScaleRangeTo(value, 0.0f, 1.0f, threshold, 1.0f);
+					value = Math::ScaleRangeTo(value, threshold, 1.0f, 0.0f, 1.0f);
 					return SetPressedAmount(value);
 				}
 				else

@@ -1,16 +1,8 @@
 - to create an input, only go through an input map, same for InputMap, create it from Inputs
-
 - threaded BatchRendering
-- bindings serialization (include cereal in project)
-
-
 -material instead of just shader
-
 -resource id for shader/stencil/ ->"render mode option batch id" 
 
-
-
--add math to pch
 
 
 -test if correction of ill formed texture import settings works and overwrite or not the spritesheet and vice versa
@@ -24,33 +16,10 @@
 
 big tasks:
 
-- assets and asset manager
-
-
+- transform parenting
+- fixed aspect ratio for layers
 - animator for transform and sprite render
-
+- 2D physics, raycasting, shape casting.
 - rendering line (batching ?)
 - sound
-- fixed aspect ratio for layers
-- transform parenting
 
-
-Asset Manager:
-
--I wanna have all the assets loaded when the engine launches.
--create any asset ref with it's path
--texture can be cut into sprites
--json file in the same folder as the texture, with the same name, give the rules of cutting
--asset manager read these json files and create sprites accordingly, create a default one if there's none.
-
-accessible asset type:
-
-config
-sprite
-material
-audioclip
-
-underlying asset:
-
-texture
-shader

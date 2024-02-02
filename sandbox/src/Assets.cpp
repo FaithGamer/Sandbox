@@ -6,6 +6,7 @@
 #include "Sandbox/Utils/Files.h"
 #include "Sandbox/Render/Shader.h"
 #include "Sandbox/Render/Sprite.h"
+#include "Sandbox/Math.h"
 
 #define TEXTURE_IMPORT_SETTING_IS_ERROR
 #define SPRITESHEET_IS_ERROR
@@ -14,8 +15,8 @@ namespace Sandbox
 {
 	void Assets::GenerateSprites(String filename, Serialized& spritesheet, sptr<Texture> texture)
 	{
-		int width = spritesheet.GetInt("Width");
-		int height = spritesheet.GetInt("Height");
+		int width = Math::Max(1, spritesheet.GetInt("Width"));
+		int height = Math::Max(1, spritesheet.GetInt("Height"));
 		Vec2f origin;
 		origin.x = spritesheet.GetArray<float>("Origin")[0];
 		origin.y = spritesheet.GetArray<float>("Origin")[1];

@@ -270,7 +270,8 @@ namespace Sandbox
 		{
 			for (auto& button : direction.buttons)
 			{
-				float value = Math::ScaleRangeTo((float)e.caxis.value, 0.f, 1.f, 0.f, 32767.f);
+				//float value = Math::ScaleRangeTo((float)e.caxis.value, 0.f, 1.f, 0.f, 32767.f);
+				float value = e.caxis.value / 32767.f;
 				float threshold = m_triggerDeadzone;
 				if (value >= threshold && button.pressed == false)
 				{
@@ -313,7 +314,8 @@ namespace Sandbox
 
 	void DirectionalInput::AxisMove(float value, bool x, Direction& direction)
 	{
-		value = Math::ScaleRangeTo(value, -1.0f, 1.0f, -32768.f, 32767.f);
+		//value = Math::ScaleRangeTo(value, -1.0f, 1.0f, -32768.f, 32767.f);
+		value /= 32767.f;
 		float absValue = std::fabs(value);
 		if (absValue > m_stickDeadzone)
 		{

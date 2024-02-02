@@ -110,3 +110,7 @@ February
 - cropping texture with spritesheet
 - loading sprite as assets, with appropriate naming
 - no double assets possible
+
+02
+
+- changed scalerangeto parameters order
