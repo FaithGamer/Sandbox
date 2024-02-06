@@ -5,9 +5,15 @@ namespace Sandbox
 {
 	namespace Random
 	{
+		void Seed(unsigned int seed)
+		{
+			static std::default_random_engine generator;
+			generator.seed(seed);
+		}
 		int Range(int min, int max)
 		{
 			static std::default_random_engine generator;
+			
 			std::uniform_int_distribution<int> dist(min, max);
 			return dist(generator);
 		}

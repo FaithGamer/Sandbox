@@ -18,7 +18,7 @@ namespace Sandbox
 		/// @brief Return direction of degrees in vector
 		inline Vec2f AngleToVec(float degrees)
 		{
-			return { cos(degrees), sin(degrees) };
+			return { cos(glm::radians(degrees)), sin(glm::radians(degrees)) };
 		}
 
 		/// @brief Return direction of vector in degrees
@@ -39,6 +39,16 @@ namespace Sandbox
 			return std::max(lhs, rhs);
 		}
 
+		inline float Sin(float degrees)
+		{
+			return std::sin(glm::radians(degrees));
+		}
+
+		inline float Cos(float degrees)
+		{
+			return std::cos(glm::radians(degrees));
+		}
+
 		inline float Lerp(float min, float max, float t)
 		{
 			return min * (1 - t) + max * t;
@@ -53,14 +63,6 @@ namespace Sandbox
 		{
 			const float t = value < 0 ? 0 : value;
 			return t > 1 ? 1 : t;
-		}
-		inline float Sin(float degrees)
-		{
-			return sin(glm::radians(degrees));
-		}
-		inline float Cos(float degrees)
-		{
-			return cos(glm::radians(degrees));
 		}
 		///@brief Loops the value t, so that it is never larger than length and never smaller than 0.
 		inline float Repeat(float t, float length)

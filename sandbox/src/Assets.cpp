@@ -108,7 +108,7 @@ namespace Sandbox
 			settings.WriteOnDisk(settingsPath);
 			importSettings.Deserialize(importSettingsCfg);
 #endif
-			
+
 		}
 
 		//Create the texture with the import settings
@@ -150,13 +150,19 @@ namespace Sandbox
 	{
 		auto length = filename.size() - (filename.size() - filename.find_last_of("."));
 		String shadername = filename.substr(0, length);
-		m_shadersPath[shadername].second = path;
+		m_shadersPath[shadername].fragment = path;
 	}
 	void Assets::AddVertexShader(String filename, String path)
 	{
 		auto length = filename.size() - (filename.size() - filename.find_last_of("."));
 		String shadername = filename.substr(0, length);
-		m_shadersPath[shadername].first = path;
+		m_shadersPath[shadername].vertex = path;
+	}
+	void Assets::AddGeometryShader(String filename, String path)
+	{
+		auto length = filename.size() - (filename.size() - filename.find_last_of("."));
+		String shadername = filename.substr(0, length);
+		m_shadersPath[shadername].geometry = path;
 	}
 
 	Assets::Assets()
@@ -172,6 +178,7 @@ namespace Sandbox
 		m_addAssetFunctions.insert(std::make_pair(".config", Delegate(&Assets::AddConfig, this)));
 		m_addAssetFunctions.insert(std::make_pair(".vert", Delegate(&Assets::AddVertexShader, this)));
 		m_addAssetFunctions.insert(std::make_pair(".frag", Delegate(&Assets::AddFragmentShader, this)));
+		m_addAssetFunctions.insert(std::make_pair(".geom", Delegate(&Assets::AddGeometryShader, this)));
 		//m_addAssetFunctions.insert(std::make_pair(".spritesheet", &AddSprites));
 	}
 
@@ -218,20 +225,26 @@ namespace Sandbox
 		return IO::IfstreamToString(shaderFile);
 	}
 
-
 	void Assets::CompileShaders()
 	{
 		LOG_INFO("Compiling shaders...");
 		for (auto& shader : m_shadersPath)
 		{
-			String& vertPath = shader.second.first;
-			String& fragPath = shader.second.second;
+			String& vertPath = shader.second.vertex;
+			String& fragPath = shader.second.fragment;
+			String& geomPath = shader.second.geometry;
+
 			if (vertPath == "" || fragPath == "")
+			{
+				LOG_ERROR("Incomplete shader program, can't compile: [" + vertPath + "], [" + geomPath + "], [" + fragPath + "]");
 				continue;
+			}
 
 			String vertSrc = LoadShaderSourceFromFile(vertPath);
 			String fragSrc = LoadShaderSourceFromFile(fragPath);
-			auto shaderAsset = MakeAsset<Shader>(vertSrc, fragSrc);
+			String geomSrc = geomPath == "" ? "" : LoadShaderSourceFromFile(geomPath);
+
+			auto shaderAsset = geomSrc == "" ? MakeAsset<Shader>(vertSrc, fragSrc) : MakeAsset<Shader>(vertSrc, geomSrc, fragSrc);
 			String path = vertPath;
 			size_t i = path.find_last_of("/");
 			size_t j = path.find_last_of(".");

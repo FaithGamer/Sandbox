@@ -9,6 +9,7 @@ namespace Sandbox
 	{
 	public:
 		Shader(std::string vertexSource, std::string fragmentSource);
+		Shader(std::string vertexSource, std::string geometrySource, std::string fragmentSource);
 		~Shader();
 
 		void Bind() const;

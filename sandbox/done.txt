@@ -114,3 +114,30 @@ February
 02
 
 - changed scalerangeto parameters order
+- add Min Max to math
+- transforms parenting
+- got rid of origin in Transform
+- need compute recursive call through transform parents, not tested
+- world to screen ratio is now part of the uniform buffer
+- basic line renderer, still need width modulation
+
+03
+
+- line renderer can be modified by transform (was harder than expected)
+- dirty fix for the children transform "needCOmpute" update, always return true if have parent, need optimization
+- transform get worldPosition and GetTransformMatrix are now nice even with parenting
+
+04
+
+- found a way to triangluate complex polygon shape with hole using earcut
+- vec2/3f for earcut polygon
+
+05
+
+-included cute_c2 for collisions
+-discovered how to properly use geometry shader and draw triangles by "zigzaging"
+
+06
+
+- found line_strip_adjacency drawing mode that enable access for the geometry shader to the previous and next line
+- good progress on the line, width is consistent up to 90 degrees angles

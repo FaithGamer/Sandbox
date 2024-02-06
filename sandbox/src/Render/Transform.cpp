@@ -5,26 +5,56 @@
 
 #include "Sandbox/Render/Transform.h"
 
-
-
+#include "Sandbox/ECS/Entity.h"
 namespace Sandbox
 {
 	Transform::Transform() :
-		m_translation(0.f), m_scale(1.f), m_rotation(0.f), m_origin(0.f), m_transformMatrix(1.f), needCompute(true), matrixUpdated(true)
+		m_translation(0.f),
+		m_scale(1.f),
+		m_rotation(0.f),
+		m_transformMatrix(1.f),
+		needCompute(true),
+		matrixUpdated(true),
+		m_haveParent(false),
+		m_parent(EntityId(0))
 
 	{
 	}
 
-	Transform::Transform(Vec3f translation, Vec3f scale, float angle, Vec3f origin)
-		: m_translation(translation), m_scale(scale), m_rotation(0.f, 0.f, angle), m_origin(origin), m_transformMatrix(1.f), needCompute(true), matrixUpdated(true)
+	Transform::Transform(Vec3f translation, Vec3f scale, float angle)
+		: m_translation(translation),
+		m_scale(scale),
+		m_rotation(0.f, 0.f, angle),
+		m_transformMatrix(1.f),
+		needCompute(true),
+		matrixUpdated(true),
+		m_parent(EntityId(0))
 
 	{
 	}
 
-	Transform::Transform(Vec3f translation, Vec3f scale, Vec3f angles, Vec3f origin)
-		: m_translation(translation), m_scale(scale), m_rotation(angles), m_origin(origin), m_transformMatrix(1.f), needCompute(true), matrixUpdated(true)
+	Transform::Transform(Vec3f translation, Vec3f scale, Vec3f angles)
+		: m_translation(translation),
+		m_scale(scale),
+		m_rotation(angles),
+		m_transformMatrix(1.f),
+		needCompute(true),
+		matrixUpdated(true),
+		m_haveParent(false),
+		m_parent(EntityId(0))
 
 	{
+	}
+
+	void Transform::SetParent(EntityId entity)
+	{
+		m_parent = entity;
+		m_haveParent = true;
+	}
+
+	void Transform::RemoveParent()
+	{
+		m_haveParent = false;
 	}
 
 	void Transform::SetPosition(Vec3f translation)
@@ -43,13 +73,13 @@ namespace Sandbox
 		needCompute = true;
 	}
 
-	void Transform::SetOrigin(Vec3f origin)
+	/*void Transform::SetOrigin(Vec3f origin)
 	{
 		if (m_origin == origin)
 			return;
 		m_origin = origin;
 		needCompute = true;
-	}
+	}*/
 
 	void Transform::SetPosition(float x, float y, float z)
 	{
@@ -69,14 +99,14 @@ namespace Sandbox
 		needCompute = true;
 	}
 
-	void Transform::SetOrigin(float x, float y, float z)
+	/*void Transform::SetOrigin(float x, float y, float z)
 	{
 		auto origin = Vec3f(x, y, z);
 		if (m_origin == origin)
 			return;
 		m_origin = Vec3f(x, y, z);
 		needCompute = true;
-	}
+	}*/
 
 	void Transform::SetRotation(Vec3f angles)
 	{
@@ -148,8 +178,7 @@ namespace Sandbox
 	{
 		Transform t(m_translation + trans.m_translation,
 			m_scale * trans.m_scale,
-			m_rotation + trans.m_rotation,
-			m_origin + trans.m_origin);
+			m_rotation + trans.m_rotation);
 		//todo see warning
 		return t;
 	}
@@ -183,8 +212,26 @@ namespace Sandbox
 		return m_translation;
 	}
 
+	Vec3f Transform::GetWorldPosition() const
+	{
+		if (m_haveParent)
+		{
+			return m_translation + Entity(m_parent).GetComponent<Transform>()->GetWorldPosition();
+		}
+		return m_translation;
+	}
+
 	Vec3f Transform::GetScale() const
 	{
+		return m_scale;
+	}
+
+	Vec3f Transform::GetWorldScale() const
+	{
+		if (m_haveParent)
+		{
+			return m_scale * Entity(m_parent).GetComponent<Transform>()->GetWorldScale();
+		}
 		return m_scale;
 	}
 
@@ -193,14 +240,18 @@ namespace Sandbox
 		return m_rotation;
 	}
 
+	Vec3f Transform::GetWorldRotation() const
+	{
+		if (m_haveParent)
+		{
+			return m_rotation + Entity(m_parent).GetComponent<Transform>()->GetWorldScale();
+		}
+		return m_rotation;
+	}
+
 	float Transform::GetRotationZAxis() const
 	{
 		return m_rotation.z;
-	}
-
-	Vec3f Transform::GetOrigin() const
-	{
-		return m_origin;
 	}
 
 	Mat4 Transform::GetTransformMatrix() const
@@ -210,6 +261,11 @@ namespace Sandbox
 			ComputeMatrix();
 			needCompute = false;
 		}
+		if (m_haveParent)
+		{
+			auto parent = Entity(m_parent).GetComponent<Transform>();
+			return parent->GetTransformMatrix() * m_transformMatrix;
+		}
 		return m_transformMatrix;
 	}
 
@@ -218,10 +274,8 @@ namespace Sandbox
 		Mat4 transform(1.f);
 
 		transform = glm::translate(transform, (glm::vec3)m_translation);
-		//TO DO: rotation from quaternion
 		transform = glm::rotate(transform, glm::radians(-m_rotation.z), glm::vec3(0, 0, 1));
 		transform = glm::scale(transform, (glm::vec3)m_scale);
-		transform = glm::translate(transform, -(glm::vec3)m_origin);
 
 		m_transformMatrix = transform;
 		matrixUpdated = true;

@@ -101,6 +101,42 @@ namespace Sandbox
 
 	}
 
+	Shader::Shader(std::string vertexSource, std::string geometrySource, std::string fragmentSource)
+	{
+		m_id = m_currentId++;
+		//Load shader source files
+		const GLchar* vertexSrc = (const GLchar*)vertexSource.c_str();
+		const GLchar* geometrySrc = (const GLchar*)geometrySource.c_str();
+		const GLchar* fragmentSrc = (const GLchar*)fragmentSource.c_str();
+
+		//Creates shaders and compile
+		GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
+		glShaderSource(vertexShader, 1, &vertexSrc, NULL);
+		glCompileShader(vertexShader);
+		shaderCompilationError(vertexShader);
+
+		GLuint geometryShader = glCreateShader(GL_GEOMETRY_SHADER);
+		glShaderSource(geometryShader, 1, &geometrySrc, NULL);
+		glCompileShader(geometryShader);
+		shaderCompilationError(geometryShader);
+
+		GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+		glShaderSource(fragmentShader, 1, &fragmentSrc, NULL);
+		glCompileShader(fragmentShader);
+		shaderCompilationError(fragmentShader);
+
+		m_glid = glCreateProgram();
+		glAttachShader(m_glid, vertexShader);
+		glAttachShader(m_glid, geometryShader);
+		glAttachShader(m_glid, fragmentShader);
+		glLinkProgram(m_glid);
+		programLinkageError(m_glid);
+
+		glDeleteShader(vertexShader);
+		glDeleteShader(fragmentShader);
+
+	}
+
 	Shader::~Shader()
 	{
 		glDeleteProgram(m_glid);

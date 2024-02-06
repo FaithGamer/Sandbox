@@ -12,6 +12,7 @@ out float vTexIndex;
 layout (std140) uniform camera
 {
 	mat4 uViewProjection;
+	float uWorldScreenRatio;
 };
 
 void main()
@@ -19,5 +20,6 @@ void main()
 	vColor = aColor;
 	vTexCoords = aTexCoords;
 	vTexIndex = aTexIndex;
-	gl_Position = uViewProjection * vec4(aPosition, 1.0);
+	vec4 pos = vec4(aPosition.xyz * uWorldScreenRatio, 1);
+	gl_Position = uViewProjection * pos;
 }

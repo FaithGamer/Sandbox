@@ -16,7 +16,7 @@ namespace Sandbox
 		Serialized Serialize() override;
 
 		std::string appName = "Sandbox Application";
-		Vec2u startupWindowResolution = Vec2u(1000, 500);
+		Vec2u startupWindowResolution = Vec2u(500, 500);
 		bool enableImGui = true;
 		bool imGuiLightTheme = false;
 		Time fixedUpdateTimeStep = 0.02f;

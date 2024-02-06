@@ -6,20 +6,57 @@
 #include "Sandbox/Engine.h"
 #include "Sandbox/Serialization.h"
 #include "Sandbox/ECS.h"
+#include "Sandbox/Math.h"
 
 using namespace Sandbox;
 
-void CreateEntity(Vec3f pos, Asset<Sprite> sprite)
+struct RootTag
+{
+	int tag = 0;
+};
+EntityId CreateEntity(Vec3f pos, Asset<Sprite> sprite)
 {
 	Entity entity;
 	entity.AddComponent<SpriteRender>()->SetSprite(sprite.Ptr());
 	entity.AddComponent<Transform>()->SetPosition(pos);
+
+	return entity.GetId();
 }
+class TransformSystem : public System
+{
+public:
+	void OnUpdate(Time deltaTime) override
+	{
+		time += (float)deltaTime*100;
+
+		ForEachComponent<RootTag, Transform>([deltaTime, this](RootTag& root, Transform& tr) {
+			tr.RotateZAxis((float)deltaTime * 50.f);
+			float s = Math::Lerp(1, 3, (Math::Sin((float)time)+1)/2);
+			float zpos = Math::Lerp(1, -1, (Math::Sin((float)time) + 1) / 2);
+			tr.SetScale(Vec3f(s, s, s));
+			tr.SetPosition(tr.GetPosition().x, tr.GetPosition().y, zpos);
+			});
+
+		/*ForEachEntity<Transform>([deltaTime, this](Entity& entity, Transform& tr) {
+			if (entity.GetComponent<RootTag>() != nullptr)
+				return;
+
+			tr.RotateZAxis((float)deltaTime * 50.f);
+			//float s = Math::Lerp(1, 3, (Math::Sin((float)time) + 1) / 2);
+			//float zpos = Math::Lerp(-1, 1, (Math::Sin((float)time) + 1) / 2);
+			//tr.SetScale(Vec3f(s, s, s));
+			//tr.SetPosition(tr.GetPosition().x, tr.GetPosition().y, zpos);
+			});*/
+	}
+	float time = 0.f;
+};
 void AssetsTest()
 {
 	Engine::Init();
 
-    Asset<Serialized> config = Assets::Get<Serialized>("jsontest.config");
+	Systems::Push<TransformSystem>();
+
+	Asset<Serialized> config = Assets::Get<Serialized>("jsontest.config");
 
 	auto intptr = makesptr<int>(2);
 	auto ptr2 = intptr;
@@ -40,10 +77,17 @@ void AssetsTest()
 	auto sprite3 = Assets::Get<Sprite>("spritesheet.png_1_0");
 	auto sprite4 = Assets::Get<Sprite>("spritesheet.png_1_1");
 
-	CreateEntity(Vec3f(-14, 10, 0), sprite1);
-	CreateEntity(Vec3f(10, 10, 0), sprite2);
-	CreateEntity(Vec3f(-10, -10, 0), sprite3);
+	auto parent = CreateEntity(Vec3f(-14, 10, 1), sprite1);
+	Entity(parent).AddComponent<RootTag>();
+	auto child = CreateEntity(Vec3f(10, 0, 0), sprite2);
+
+	Entity(child).GetComponent<Transform>()->SetParent(parent);
+	auto childchild = CreateEntity(Vec3f(0, -10, 0), sprite3);
+	Entity(childchild).GetComponent<Transform>()->SetParent(child);
 	CreateEntity(Vec3f(10, -10, 0), sprite4);
+	CreateEntity(Vec3f(-30, -10, 0), sprite4);
+	CreateEntity(Vec3f(-30, 10, 0), sprite4);
+	CreateEntity(Vec3f(-15, 10, 0), sprite4);
 
 	Engine::Launch();
 }

@@ -36,10 +36,11 @@ namespace Sandbox
 		{
 
 		}
-		constexpr Vec3(float value) : x(value), y(value), z(value)
+		constexpr Vec3(T value) : x(value), y(value), z(value)
 		{
 
 		}
+
 		template <class T>
 		Vec3(Vec3<T> v) : x(v.x), y(v.y), z(v.z)
 		{
@@ -148,6 +149,10 @@ namespace Sandbox
 			z -= rhs.z;
 			return *this;
 		}
+		/*inline operator std::tuple<float, float, float>()
+		{
+			return std::make_tuple(x, y, z);
+		}*/
 	};
 
 	///////////
@@ -176,7 +181,7 @@ namespace Sandbox
 		{
 
 		}
-		constexpr Vec2(float value) : x(value), y(value)
+		constexpr Vec2(T value) : x(value), y(value)
 		{
 
 		}

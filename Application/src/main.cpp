@@ -24,7 +24,8 @@
 #include "Tests/BlendingTest.h"
 #include "Tests/JsonTest.h"
 #include "Tests/AssetsTest.h"
-
+#include "Tests/LineRenderTest.h"
+#include "Tests/EarcutTest.h"
 #include "Editor/EntryPoint.h"
 
 #include <random>
@@ -55,6 +56,10 @@ int main(int argc, char** argv)
 	//JsonTest();
 
 
-	AssetsTest();
+	//AssetsTest();
+	//EarcutTest();
+	LineRenderTest();
+
+
 	return 0;
 }

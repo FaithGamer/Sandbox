@@ -47,7 +47,7 @@ void BillboardTest()
 
 	Transform transform2;
 	transform2.SetPosition({ 0, 0, 0 });
-	transform2.SetOrigin({ 0, -0.5, 0 });
+	//transform2.SetOrigin({ 0, -0.5, 0 });
 	transform2.SetScale(Vec3f(0.25, 0.25, 0.25));
 
 	Camera cam;

@@ -12,7 +12,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Assets.cpp" />
+    <ClCompile Include="src\ECS\LineRendererSystem.cpp" />
     <ClCompile Include="src\ECS\ParticleSystem.cpp" />
+    <ClCompile Include="src\Render\LineRenderer.cpp" />
     <ClCompile Include="src\Serialization.cpp" />
     <ClCompile Include="src\Render\RenderOptions.cpp" />
     <ClCompile Include="src\ECS\SpriteRenderSystem.cpp" />
@@ -68,8 +70,11 @@
     <ClCompile Include="src\Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\cute\cute_c2.h" />
+    <ClInclude Include="include\earcut\mapbox\earcut.hpp" />
     <ClInclude Include="include\Sandbox\Assets.h" />
     <ClInclude Include="include\Sandbox\ECS.h" />
+    <ClInclude Include="include\Sandbox\ECS\LineRendererSystem.h" />
     <ClInclude Include="include\Sandbox\ECS\ParticleSystem.h" />
     <ClInclude Include="include\Sandbox\ECS\SpriteRenderSystem.h" />
     <ClInclude Include="include\Sandbox\ECS\World.h" />
@@ -78,6 +83,7 @@
     <ClInclude Include="include\Sandbox\Input.h" />
     <ClInclude Include="include\Sandbox\Input\Inputs.h" />
     <ClInclude Include="include\Sandbox\EngineParameters.h" />
+    <ClInclude Include="include\Sandbox\Render\LineRenderer.h" />
     <ClInclude Include="include\Sandbox\Serialization.h" />
     <ClInclude Include="include\Sandbox\Random.h" />
     <ClInclude Include="include\Sandbox\Render\IndexBuffer.h" />

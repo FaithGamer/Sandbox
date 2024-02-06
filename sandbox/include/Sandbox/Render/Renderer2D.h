@@ -11,6 +11,7 @@
 #include "Sandbox/Render/Transform.h"
 #include "Sandbox/Render/RenderTarget.h"
 #include "Sandbox/Singleton.h"
+#include "Sandbox/Render/LineRenderer.h"
 
 namespace Sandbox
 {
@@ -107,6 +108,7 @@ namespace Sandbox
 		void DrawTexturedQuad(const Transform& transform, sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1),
 			uint32_t batchIndex = 0);
 		void DrawSprite(Transform& transform, SpriteRender& sprite, uint32_t batchIndex);
+		void DrawLine(LineRenderer& line, Transform& transform, uint32_t layer);
 
 		/// @brief Add a layer on the bottom of the render queue.
 		/// The order cannot be changed ever again, and the layers cannot be removed.
@@ -191,7 +193,14 @@ namespace Sandbox
 		sptr<UniformBuffer> m_cameraUniformBuffer;
 		sptr<IndexBuffer> m_quadIndexBuffer;
 
-		Mat4 m_camera;
+		struct CameraBufferData
+		{
+			Mat4 projectionView;
+			float worldToScreenRatio;
+		};
+
+		CameraBufferData m_cameraUniform;
+		
 
 		//Layers
 		sptr<RenderTarget> m_target;
@@ -199,6 +208,9 @@ namespace Sandbox
 		std::vector<OffscreenRenderLayer> m_offscreenLayers;
 		std::vector<RenderLayer*> m_renderLayers;
 		sptr<Shader> m_defaultLayerShader;
+
+		//Line
+		sptr<Shader> m_defaultLineShader;
 
 		//Others
 

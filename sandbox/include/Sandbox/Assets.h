@@ -98,6 +98,7 @@ namespace Sandbox
 		void AddConfig(String filename, String path);
 		void AddFragmentShader(String filename, String path);
 		void AddVertexShader(String filename, String path);
+		void AddGeometryShader(String filename, String path);
 		void AddMaterial(String filename, String path);
 
 		template <class T>
@@ -112,9 +113,16 @@ namespace Sandbox
 
 		}
 
+		struct ShaderSources
+		{
+			String vertex;
+			String geometry;
+			String fragment;
+		};
+
 		std::unordered_map<String, sptr<OpaqueAsset>> m_assets;
 		std::unordered_map<String, Delegate<void, String, String>> m_addAssetFunctions;
-		std::unordered_map<String, std::pair<String, String>> m_shadersPath;
+		std::unordered_map<String, ShaderSources> m_shadersPath;
 		TextureImportSettings m_defaultImportSettings;
 	};
 }

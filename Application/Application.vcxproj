@@ -151,10 +151,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Editor\AssetBrowser.cpp" />
+    <ClCompile Include="src\Tests\EarcutTest.cpp" />
     <ClCompile Include="src\Editor\EditorSystem.cpp" />
     <ClCompile Include="src\Editor\Game.cpp" />
     <ClCompile Include="src\Editor\Hierarchy.cpp" />
     <ClCompile Include="src\Editor\Layout.cpp" />
+    <ClCompile Include="src\Tests\LineRenderTest.cpp" />
     <ClCompile Include="src\Editor\Menu.cpp" />
     <ClCompile Include="src\Editor\SandboxEditorUtils.cpp" />
     <ClCompile Include="src\Tests\AssetsTest.cpp" />
@@ -180,6 +182,8 @@
     <ClCompile Include="src\Tests\UniformBlockTest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Tests\EarcutTest.h" />
+    <ClInclude Include="src\Tests\LineRenderTest.h" />
     <ClInclude Include="src\Tests\AssetsTest.h" />
     <ClInclude Include="src\Tests\JsonTest.h" />
     <ClInclude Include="src\Editor\Game.h" />
@@ -220,18 +224,16 @@
   <ItemGroup>
     <None Include="assets\shaders\batch_renderer.frag" />
     <None Include="assets\shaders\batch_renderer.vert" />
-    <None Include="assets\shaders\batch_renderer2.frag" />
     <None Include="assets\shaders\batch_renderer_pixel_art.frag" />
     <None Include="assets\shaders\billboard.vert" />
     <None Include="assets\shaders\color.frag" />
     <None Include="assets\shaders\default_layer.frag" />
     <None Include="assets\shaders\default_layer.vert" />
+    <None Include="assets\shaders\batch_renderer.examplegeom" />
+    <None Include="assets\shaders\line.frag" />
+    <None Include="assets\shaders\line.geom" />
+    <None Include="assets\shaders\line.vert" />
     <None Include="assets\shaders\masked.frag" />
-    <None Include="assets\shaders\model_view_projection.vert" />
-    <None Include="assets\shaders\position_color.vert" />
-    <None Include="assets\shaders\position_texture.vert" />
-    <None Include="assets\shaders\position_texture_transform.vert" />
-    <None Include="assets\shaders\texture.frag" />
     <None Include="assets\shaders\texture_unit.frag" />
     <None Include="assets\shaders\texture_unit.vert" />
     <None Include="assets\shaders\ubt.frag" />

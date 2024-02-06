@@ -11,7 +11,7 @@
 #include "Sandbox/Render/SpriteRender.h"
 #include "Sandbox/Utils/Container.h"
 #include "Sandbox/Assets.h"
-
+#include "Sandbox/Utils/PrintMat4.h"
 namespace Sandbox
 {
 	Renderer2D::Renderer2D()
@@ -49,7 +49,7 @@ namespace Sandbox
 		delete[] quadIndices;
 
 		//Camera uniform buffer
-		m_cameraUniformBuffer = makesptr<UniformBuffer>(sizeof(Mat4), 0);
+		m_cameraUniformBuffer = makesptr<UniformBuffer>(sizeof(CameraBufferData), 0);
 
 		m_whiteTexture = makesptr<Texture>();
 
@@ -60,9 +60,10 @@ namespace Sandbox
 		m_defaultRenderOptionsLayer->SetDepthTest(false);
 		auto window = Window::Instance();
 
-		m_camera = Mat4(1);
+		//m_camera = Mat4(1);
 
 		m_defaultLayerShader = Assets::Get<Shader>("default_layer.shader").Ptr();
+		m_defaultLineShader = Assets::Get<Shader>("line.shader").Ptr();
 
 		std::vector<Vec2f> screenSpace{ {-1, -1}, { 1, -1 }, { 1, 1 }, { -1, 1 } };
 		sptr<VertexArray> defaultLayerVertexArray = GenerateLayerVertexArray(screenSpace);
@@ -327,6 +328,7 @@ namespace Sandbox
 
 	void Renderer2D::AllocateQuadBatch(QuadBatch& batch)
 	{
+
 		//Vertex buffer (quads)
 		batch.quadVertexBuffer = makesptr<VertexBuffer>(m_maxVertices * sizeof(QuadVertex));
 		batch.quadVertexBuffer->SetLayout({
@@ -371,9 +373,10 @@ namespace Sandbox
 		}
 		//Set the camera matrices into the uniform buffer
 
-		m_camera = camera.GetProjectionMatrix() * camera.GetViewMatrix();
+		m_cameraUniform.projectionView = camera.GetProjectionMatrix() * camera.GetViewMatrix();
+		m_cameraUniform.worldToScreenRatio = camera.worldToScreenRatio * 2;
 		m_worldToScreenRatio = camera.worldToScreenRatio * 2;
-		m_cameraUniformBuffer->SetData(&m_camera, sizeof(Mat4), 0);
+		m_cameraUniformBuffer->SetData(&m_cameraUniform, sizeof(CameraBufferData), 0);
 
 		//Clear layers
 		for (auto& layer : m_layers)
@@ -634,12 +637,29 @@ namespace Sandbox
 		m_stats.quadCount++;
 	}
 
+	void Renderer2D::DrawLine(LineRenderer& line, Transform& transform, uint32_t layer)
+	{
+
+
+		m_defaultLineShader->SetUniform("aTransform", transform.GetTransformMatrix());
+		m_defaultLineShader->BindUniformBlock("camera", 0);
+
+		m_defaultLineShader->Bind();
+		
+		line.Bind();
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		glDrawElements(GL_LINE_STRIP_ADJACENCY, line.GetPointCount()+2, GL_UNSIGNED_INT, 0);
+		///glDrawArrays(GL_LINE_STRIP_ADJACENCY, 0, line.GetPointCount()*2);
+
+
+	}
+
 	Vec3f Renderer2D::VertexPosition(Vec4f pos, const Transform& transform, const Sprite& sprite)
 	{
 		pos.x *= sprite.GetDimensions().x;
 		pos.y *= sprite.GetDimensions().y;
 
-		return (Vec3f)(transform.GetTransformMatrix() * pos * m_worldToScreenRatio);
+		return (Vec3f)(transform.GetTransformMatrix() * pos);
 	}
 
 	Vec3f Renderer2D::VertexPosition(Vec4f pos, const Transform& transform, Vec2f texDim, float ppu, float width, float height)
@@ -647,7 +667,8 @@ namespace Sandbox
 		pos.x *= width * texDim.x * ppu;
 		pos.y *= height * texDim.y * ppu;
 
-		return (Vec3f)(transform.GetTransformMatrix() * pos * m_worldToScreenRatio);
+		//return (Vec3f)(transform.GetTransformMatrix() * pos * m_worldToScreenRatio);
+		return (Vec3f)(transform.GetTransformMatrix() * pos);
 	}
 
 	Renderer2D::Statistics Renderer2D::GetStats()
