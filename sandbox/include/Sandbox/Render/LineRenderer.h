@@ -41,7 +41,7 @@ namespace Sandbox
 		struct LinePoint
 		{
 			Vec3f point;
-			int index;
+			float index;
 		};
 		void UpdateBuffer();
 		sptr<VertexBuffer> m_vertexBuffer;

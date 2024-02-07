@@ -643,7 +643,7 @@ namespace Sandbox
 	void Renderer2D::DrawLine(LineRenderer& line, Transform& transform, uint32_t layer)
 	{
 		m_defaultLineShader->SetUniform("aTransform", transform.GetTransformMatrix());
-		m_defaultLineShader->SetUniform("uIndexCount", (int)line.GetPointCount());
+		m_defaultLineShader->SetUniform("uIndexCount", (float)line.GetPointCount());
 		m_defaultLineShader->SetUniformArray("uWidth", line.GetWidthArray(), (int)line.GetPointCount());
 		m_defaultLineShader->SetUniform("uColor", line.GetColor());
 		m_defaultLineShader->BindUniformBlock("camera", 0);

@@ -12,7 +12,7 @@ namespace Sandbox
 		m_vertexBuffer = makesptr<VertexBuffer>(maxPoints * sizeof(LinePoint));
 		AttributeLayout layout({
 				{ ShaderDataType::Vec3f, "aPosition" },
-				{ ShaderDataType::Int, "aIndex" }
+				{ ShaderDataType::Float, "aIndex" }
 			});
 		m_vertexBuffer->SetLayout(layout);
 		uint32_t* indices = new uint32_t[maxPoints+2];
@@ -57,8 +57,8 @@ namespace Sandbox
 		if (index < m_maxPoints)
 		{
 			index = (int)m_points.size();
-			m_points.emplace_back(point, index);
-			m_points.emplace_back(point, index);
+			m_points.emplace_back(point, (float)index);
+			m_points.emplace_back(point, (float)index);
 			
 			m_needUpdateBuffer = true;
 		}
@@ -100,7 +100,7 @@ namespace Sandbox
 		}
 		else
 		{
-			m_width[index];
+			m_width[index] = width;
 		}
 	}
 	void LineRenderer::Bind()

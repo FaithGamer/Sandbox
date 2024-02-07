@@ -13,11 +13,11 @@ layout (std140) uniform camera
 	float uWorldToScreen;
 };
 
-in int vIndex[];
+in float vIndex[];
 const int nbWidth = 5;
 uniform float uWidth[nbWidth];
 uniform float uAspectRatio;
-uniform int uIndexCount;
+uniform float uIndexCount;
 
 /*float vecAngle(vec2 a, vec2 b)
 {
@@ -43,18 +43,21 @@ vec2 offsetDir(vec2 dirIn, vec2 dirOut, float width)
 	return normalize(c) * width * uWorldToScreen * 0.5 * w;
 }
 
-float width(int index, int count)
+float width(float index, float count)
 {
-	float increment = 1.0 / float(nbWidth);
+	float nb = float(nbWidth);
+	float increment = 1.0 / (nb-1);
 
-	float progression = float(index) / float(count);
+	float progression = index / count;
 
 	float prev = floor(progression / increment);
-	float next = ceil(progression / increment);
+	float next = prev +1;
 
 	float curProg = progression / (increment * next);
 
-	return mix(uWidth[int(prev)], uWidth[int(next)], sineInOut(curProg));
+	return mix(uWidth[int(prev)], uWidth[int(next)], curProg);
+
+	//return mix(prev, next, curProg);
 }
 
 void main()
@@ -82,11 +85,10 @@ void main()
 	float widthEnd = width(vIndex[2], uIndexCount);
 
 	vec2 startOffset = offsetDir(dirIn, dir, widthBegin);
+
 	vec2 endOffset = offsetDir(dir, dirOut, widthEnd);
 	startOffset.x /= uAspectRatio;
 	endOffset.x /= uAspectRatio;
-
-	startOffset.y += float(vIndex[0]) * 0.01;
 
 	gl_Position = gl_in[1].gl_Position + vec4(startOffset.xy, 0, 0);
 	EmitVertex();
