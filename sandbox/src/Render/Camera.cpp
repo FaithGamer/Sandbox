@@ -180,6 +180,10 @@ namespace Sandbox
 		m_needComputeViewMatrix = true;
 	}
 
+	float Camera::GetAspectRatio() const
+	{
+		return m_aspectRatio;
+	}
 	Mat4 Camera::GetViewMatrix() const
 	{
 		if (m_needComputeViewMatrix)

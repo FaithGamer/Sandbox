@@ -38,6 +38,7 @@ namespace Sandbox
 		void SetUniform(GLint location, const glm::i32vec4& uniform);
 
 		void SetUniformArray(std::string name, const int* uniform, GLsizei count);
+		void SetUniformArray(std::string name, const float* uniform, GLsizei count);
 
 		GLint GetUniformLocation(std::string name);
 		void BindUniformBlock(std::string uniformName, GLint bindingPoint);

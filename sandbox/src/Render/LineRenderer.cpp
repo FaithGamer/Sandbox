@@ -9,11 +9,12 @@ namespace Sandbox
 	{
 		//Vertex buffer
 		//*2 because we use lines adjacency
-		m_vertexBuffer = makesptr<VertexBuffer>(maxPoints * sizeof(Vec3f));
+		m_vertexBuffer = makesptr<VertexBuffer>(maxPoints * sizeof(LinePoint));
 		AttributeLayout layout({
-				{ ShaderDataType::Vec3f, "aPosition" }
+				{ ShaderDataType::Vec3f, "aPosition" },
+				{ ShaderDataType::Int, "aIndex" }
 			});
-
+		m_vertexBuffer->SetLayout(layout);
 		uint32_t* indices = new uint32_t[maxPoints+2];
 
 		indices[0] = 0;
@@ -36,23 +37,30 @@ namespace Sandbox
 
 		m_vertexArray.SetIndexBuffer(indexBuffer);
 
-		m_vertexBuffer->SetLayout(layout);
+	
 		m_vertexArray.AddVertexBuffer(m_vertexBuffer);
+
+		for (int i = 0; i < LINE_WIDTH_INDICES; i++)
+		{
+			m_width[i] = 1.f;
+		}
+
+		m_color = Vec4f(1, 0, 0, 1);
 	}
 	void LineRenderer::AddPoint(Vec3f point)
 	{
-		if (m_points.size() > 0)
+		int index = (int)m_points.size();
+		if (index > 0)
 		{
 			m_points.pop_back();
 		}
-		if (m_points.size() < m_maxPoints)
+		if (index < m_maxPoints)
 		{
-		
-			m_points.emplace_back(point);
-			m_points.emplace_back(point);
+			index = (int)m_points.size();
+			m_points.emplace_back(point, index);
+			m_points.emplace_back(point, index);
 			
-
-				m_needUpdateBuffer = true;
+			m_needUpdateBuffer = true;
 		}
 		else
 		{
@@ -77,6 +85,24 @@ namespace Sandbox
 	{
 		m_layer = layer;
 	}
+	void LineRenderer::SetColor(Vec4f color)
+	{
+		m_color = color;
+	}
+	void LineRenderer::SetWidth(float width, int index)
+	{
+		if (index < 0 || index >= LINE_WIDTH_INDICES)
+		{
+			for (int i = 0; i < LINE_WIDTH_INDICES; i++)
+			{
+				m_width[i] = width;
+			}
+		}
+		else
+		{
+			m_width[index];
+		}
+	}
 	void LineRenderer::Bind()
 	{
 		if (m_needUpdateBuffer)
@@ -92,6 +118,11 @@ namespace Sandbox
 		return m_layer;
 	}
 
+	Vec4f LineRenderer::GetColor() const
+	{
+		return m_color;
+	}
+
 	void LineRenderer::Reverse()
 	{
 		//todo
@@ -105,15 +136,26 @@ namespace Sandbox
 			return Vec3f(0);
 		}
 	}
+
 	size_t LineRenderer::GetPointCount()
 	{
 		return m_points.size();
 	}
 
+	float* LineRenderer::GetWidthArray()
+	{
+		return m_width;
+	}
+
+	float LineRenderer::WidthAt(float distance)
+	{
+		return 0;
+	}
+
 	void LineRenderer::UpdateBuffer()
 	{
 		//Index buffer
-		m_vertexBuffer->SetData(&m_points[0], sizeof(Vec3f) * m_points.size());
+		m_vertexBuffer->SetData(&m_points[0], sizeof(LinePoint) * m_points.size());
 
 	}
 }

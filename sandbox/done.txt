@@ -141,3 +141,8 @@ February
 
 - found line_strip_adjacency drawing mode that enable access for the geometry shader to the previous and next line
 - good progress on the line, width is consistent up to 90 degrees angles
+
+07
+
+-line shader take into consideration aspect ratio
+-added uniform float array to Shader class

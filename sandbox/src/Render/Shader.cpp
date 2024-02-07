@@ -202,6 +202,11 @@ namespace Sandbox
 		SET_UNIFORM(glUniform1iv(location, count, uniform));
 	}
 
+	void Shader::SetUniformArray(std::string name, const float* uniform, GLsizei count)
+	{
+		SET_UNIFORM(glUniform1fv(location, count, uniform));
+	}
+
 	void Shader::BindUniformBlock(std::string uniformName, GLint bindingPoint)
 	{
 		GLuint location = glGetUniformBlockIndex(m_glid, (const GLchar*)uniformName.c_str());

@@ -19,6 +19,7 @@
     <ClCompile Include="src\Render\RenderOptions.cpp" />
     <ClCompile Include="src\ECS\SpriteRenderSystem.cpp" />
     <ClCompile Include="src\Render\Particle.cpp" />
+    <ClCompile Include="src\Utils\Easing.cpp" />
     <ClCompile Include="src\Utils\Random.cpp" />
     <ClCompile Include="src\Render\IndexBuffer.cpp" />
     <ClCompile Include="src\Render\RenderTexture.cpp" />
@@ -40,7 +41,7 @@
     <ClCompile Include="src\Vec.cpp" />
     <ClCompile Include="src\Vector.cpp" />
     <ClCompile Include="src\Files.cpp" />
-    <ClCompile Include="src\Utils\Math.cpp" />
+    <ClCompile Include="src\Math.cpp" />
     <ClCompile Include="src\Render\Renderer2D.cpp" />
     <ClCompile Include="src\Input\InputMap.cpp" />
     <ClCompile Include="src\Input\ButtonInput.cpp" />
@@ -107,6 +108,7 @@
     <ClInclude Include="include\Sandbox\Input\Controller.h" />
     <ClInclude Include="include\Sandbox\Input\Keyboard.h" />
     <ClInclude Include="include\Sandbox\Input\Mouse.h" />
+    <ClInclude Include="include\Sandbox\Utils\Easing.h" />
     <ClInclude Include="include\Sandbox\Utils\Files.h" />
     <ClInclude Include="include\Sandbox\Math.h" />
     <ClInclude Include="include\Sandbox\PlatformDetection.h" />

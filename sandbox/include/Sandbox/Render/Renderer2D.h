@@ -217,5 +217,6 @@ namespace Sandbox
 		bool m_rendering;
 		Statistics m_stats;
 		float m_worldToScreenRatio;
+		float m_aspectRatio;
 	};
 }
