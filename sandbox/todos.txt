@@ -12,24 +12,16 @@
 -renderer2D hard-code it's default shaders to not rely on asset manager
 -engine settings from json
 -line renderer width take transform into account
--enable 
+-line antialiasing ?
+-test line renderer reverse (must reverse width aswell i think)
 
 big tasks:
 
-- rendering line (batching ?)
+
+2D physics, raycasting, shape casting:
+
+
 - fixed aspect ratio for layers
 - animator for transform and sprite render
 - collisions
 
-- sound
-
-line:
-
--line width control
--vertex position scale with camera ppu
--line width take transform and aspect ratio into consideration
--butt
--different width along the line (each point ? or interpolated across the total length ?)
--antialiasing
-
-2D physics, raycasting, shape casting:

@@ -644,6 +644,7 @@ namespace Sandbox
 	{
 		m_defaultLineShader->SetUniform("aTransform", transform.GetTransformMatrix());
 		m_defaultLineShader->SetUniform("uIndexCount", (float)line.GetPointCount());
+		m_defaultLineShader->SetUniform("uEndCapVertices", line.GetEndCapVertices());
 		m_defaultLineShader->SetUniformArray("uWidth", line.GetWidthArray(), (int)line.GetPointCount());
 		m_defaultLineShader->SetUniform("uColor", line.GetColor());
 		m_defaultLineShader->BindUniformBlock("camera", 0);
@@ -651,7 +652,7 @@ namespace Sandbox
 		m_defaultLineShader->Bind();
 		
 		line.Bind();
-		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		glDrawElements(GL_LINE_STRIP_ADJACENCY, line.GetPointCount()+2, GL_UNSIGNED_INT, 0);
 		///glDrawArrays(GL_LINE_STRIP_ADJACENCY, 0, line.GetPointCount()*2);
 	}
