@@ -1,7 +1,8 @@
 #include "pch.h"
 #include "Sandbox/Render/LineRenderer.h"
 #include "Sandbox/Log.h"
-
+#include "Sandbox/Math.h"
+#include "Sandbox/Utils/Easing.h"
 
 namespace Sandbox
 {
@@ -126,6 +127,7 @@ namespace Sandbox
 	void LineRenderer::Reverse()
 	{
 		//todo
+		std::reverse(m_points.begin(), m_points.end());
 		m_needUpdateBuffer = true;
 	}
 	Vec3f LineRenderer::GetPointPosition(size_t index)
@@ -149,7 +151,16 @@ namespace Sandbox
 
 	float LineRenderer::WidthAt(float distance)
 	{
-		return 0;
+		distance = Math::Clamp01(distance);
+
+		float increment = 1.0 / (LINE_WIDTH_INDICES - 1);
+
+		float next = ceil(distance / increment);
+		float prev = Math::Max(0, (int)next - 1);
+
+		float curProg = (distance - (prev * increment)) / increment;
+
+		return Math::Lerp(m_width[int(prev)], m_width[int(next)], Easing::SineInOut(curProg));
 	}
 
 	void LineRenderer::UpdateBuffer()

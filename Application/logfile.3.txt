@@ -1,219 +1,221 @@
-[2024-02-07 22:48:11.752] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.755] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.757] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.758] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.758] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.759] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.759] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.759] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.760] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.760] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.761] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.762] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.763] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.763] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.764] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.764] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.765] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.765] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.765] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.766] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.766] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.767] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.767] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.768] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.768] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.769] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.769] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.770] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.770] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.771] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.771] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.773] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.774] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.774] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.775] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.775] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.776] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.776] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.777] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.778] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.778] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.779] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.779] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.780] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.780] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.781] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.781] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.782] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.782] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.783] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.783] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.784] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.784] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.785] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.785] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.786] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.786] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.787] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.787] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.789] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.790] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.791] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.791] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.792] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.792] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.793] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.793] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.794] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.794] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.795] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.795] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.796] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.796] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.797] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.797] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.798] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.798] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.799] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.799] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.799] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.800] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.800] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.801] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.801] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.802] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.802] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.803] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.803] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.805] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.806] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.806] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.807] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.807] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.808] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.808] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.809] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.809] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.810] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.810] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.810] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.811] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.812] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.812] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.813] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.813] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.813] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.814] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.814] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.815] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.815] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.816] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.816] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.817] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.817] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.818] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.818] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.819] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.820] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.822] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.822] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.823] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.823] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.823] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.824] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.824] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.826] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.826] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.827] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.827] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.828] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.828] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.829] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.829] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.829] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.830] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.830] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.831] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.832] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.832] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.832] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.833] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.833] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.834] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.834] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.835] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.836] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.837] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.838] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.839] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.840] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.840] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.841] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.841] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.842] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.842] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.843] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.843] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.843] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.844] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.844] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.845] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.845] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.846] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.846] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.847] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.847] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.848] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.848] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.849] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.849] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.850] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.850] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.851] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.851] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.853] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.854] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.854] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.855] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.855] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.856] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.856] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.857] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.857] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.858] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.858] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.859] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.859] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.860] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.860] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.861] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.861] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.862] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.862] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.863] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.863] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.864] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.864] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.865] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.865] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.866] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.866] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.867] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.867] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.870] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.870] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.871] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.871] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.872] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.872] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.873] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.874] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.875] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.875] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.876] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.876] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.877] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.877] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.878] [SANDBOX] [error] The following uniform cannot be found: uWidth
-[2024-02-07 22:48:11.878] [SANDBOX] [error] The following uniform cannot be found: uWidth
+[2024-02-08 07:38:27.530] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
+[2024-02-08 07:38:27.534] [SANDBOX] [info] Asset loaded assets/textures/hero.png
+[2024-02-08 07:38:27.535] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
+[2024-02-08 07:38:27.543] [SANDBOX] [info] Asset loaded assets/textures/image.png
+[2024-02-08 07:38:27.546] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
+[2024-02-08 07:38:27.547] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
+[2024-02-08 07:38:27.550] [SANDBOX] [info] Asset loaded assets/textures/pig.png
+[2024-02-08 07:38:27.563] [SANDBOX] [info] Asset loaded assets/textures/sd.png
+[2024-02-08 07:38:27.566] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
+[2024-02-08 07:38:27.568] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
+[2024-02-08 07:38:27.569] [SANDBOX] [info] Asset loaded assets/textures/spritesheet.png
+[2024-02-08 07:38:27.571] [SANDBOX] [info] Asset loaded assets/textures/square.png
+[2024-02-08 07:38:27.586] [SANDBOX] [info] Asset loaded assets/textures/test_rect.png
+[2024-02-08 07:38:27.668] [SANDBOX] [info] Asset loaded assets/textures/trollface.png
+[2024-02-08 07:38:27.786] [SANDBOX] [info] Asset loaded assets/textures/trollface_alpha.png
+[2024-02-08 07:38:27.787] [SANDBOX] [info] Compiling shaders...
+[2024-02-08 07:38:27.809] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/batch_renderer_pixel_art.frag]
+[2024-02-08 07:38:27.810] [SANDBOX] [error] Incomplete shader program, can't compile: [assets/shaders/billboard.vert], [], []
+[2024-02-08 07:38:27.810] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/masked.frag]
+[2024-02-08 07:38:27.811] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/color.frag]
+[2024-02-08 07:39:04.651] [SANDBOX] [info] OpenGL Loaded.
+[2024-02-08 07:39:04.652] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-02-08 07:39:04.653] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-02-08 07:39:04.653] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-02-08 07:39:04.653] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-02-08 07:39:04.654] [SANDBOX] [info] Asset loaded assets/jsontest.config
+[2024-02-08 07:39:04.655] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
+[2024-02-08 07:39:04.655] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-02-08 07:39:04.655] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-02-08 07:39:04.656] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
+[2024-02-08 07:39:04.656] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
+[2024-02-08 07:39:04.656] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
+[2024-02-08 07:39:04.656] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-02-08 07:39:04.657] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-02-08 07:39:04.657] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-02-08 07:39:04.657] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-02-08 07:39:04.658] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-02-08 07:39:04.658] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
+[2024-02-08 07:39:04.658] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
+[2024-02-08 07:39:04.658] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
+[2024-02-08 07:39:04.658] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
+[2024-02-08 07:39:04.659] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
+[2024-02-08 07:39:04.659] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
+[2024-02-08 07:39:04.659] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
+[2024-02-08 07:39:04.661] [SANDBOX] [info] Asset loaded assets/textures/bullet.png
+[2024-02-08 07:39:04.719] [SANDBOX] [info] Asset loaded assets/textures/c.png
+[2024-02-08 07:39:04.908] [SANDBOX] [info] Asset loaded assets/textures/cmb.png
+[2024-02-08 07:39:04.946] [SANDBOX] [info] Asset loaded assets/textures/file_icon.png
+[2024-02-08 07:39:04.949] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
+[2024-02-08 07:39:04.950] [SANDBOX] [info] Asset loaded assets/textures/hero.png
+[2024-02-08 07:39:04.950] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
+[2024-02-08 07:39:04.958] [SANDBOX] [info] Asset loaded assets/textures/image.png
+[2024-02-08 07:39:04.960] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
+[2024-02-08 07:39:04.961] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
+[2024-02-08 07:39:04.962] [SANDBOX] [info] Asset loaded assets/textures/pig.png
+[2024-02-08 07:39:04.973] [SANDBOX] [info] Asset loaded assets/textures/sd.png
+[2024-02-08 07:39:04.976] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
+[2024-02-08 07:39:04.978] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
+[2024-02-08 07:39:04.979] [SANDBOX] [info] Asset loaded assets/textures/spritesheet.png
+[2024-02-08 07:39:04.980] [SANDBOX] [info] Asset loaded assets/textures/square.png
+[2024-02-08 07:39:04.995] [SANDBOX] [info] Asset loaded assets/textures/test_rect.png
+[2024-02-08 07:39:05.078] [SANDBOX] [info] Asset loaded assets/textures/trollface.png
+[2024-02-08 07:39:05.191] [SANDBOX] [info] Asset loaded assets/textures/trollface_alpha.png
+[2024-02-08 07:39:05.192] [SANDBOX] [info] Compiling shaders...
+[2024-02-08 07:39:05.210] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/batch_renderer_pixel_art.frag]
+[2024-02-08 07:39:05.211] [SANDBOX] [error] Incomplete shader program, can't compile: [assets/shaders/billboard.vert], [], []
+[2024-02-08 07:39:05.211] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/masked.frag]
+[2024-02-08 07:39:05.212] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/color.frag]
+[2024-02-08 07:39:46.787] [SANDBOX] [info] OpenGL Loaded.
+[2024-02-08 07:39:46.788] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-02-08 07:39:46.788] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-02-08 07:39:46.788] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-02-08 07:39:46.788] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-02-08 07:39:46.789] [SANDBOX] [info] Asset loaded assets/jsontest.config
+[2024-02-08 07:39:46.790] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
+[2024-02-08 07:39:46.790] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-02-08 07:39:46.790] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-02-08 07:39:46.790] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
+[2024-02-08 07:39:46.791] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
+[2024-02-08 07:39:46.791] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
+[2024-02-08 07:39:46.791] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-02-08 07:39:46.791] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-02-08 07:39:46.792] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-02-08 07:39:46.792] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-02-08 07:39:46.792] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-02-08 07:39:46.792] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
+[2024-02-08 07:39:46.792] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
+[2024-02-08 07:39:46.793] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
+[2024-02-08 07:39:46.793] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
+[2024-02-08 07:39:46.793] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
+[2024-02-08 07:39:46.793] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
+[2024-02-08 07:39:46.794] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
+[2024-02-08 07:39:46.795] [SANDBOX] [info] Asset loaded assets/textures/bullet.png
+[2024-02-08 07:39:46.856] [SANDBOX] [info] Asset loaded assets/textures/c.png
+[2024-02-08 07:39:47.054] [SANDBOX] [info] Asset loaded assets/textures/cmb.png
+[2024-02-08 07:39:47.091] [SANDBOX] [info] Asset loaded assets/textures/file_icon.png
+[2024-02-08 07:39:47.093] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
+[2024-02-08 07:39:47.094] [SANDBOX] [info] Asset loaded assets/textures/hero.png
+[2024-02-08 07:39:47.094] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
+[2024-02-08 07:39:47.102] [SANDBOX] [info] Asset loaded assets/textures/image.png
+[2024-02-08 07:39:47.104] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
+[2024-02-08 07:39:47.106] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
+[2024-02-08 07:39:47.106] [SANDBOX] [info] Asset loaded assets/textures/pig.png
+[2024-02-08 07:39:47.118] [SANDBOX] [info] Asset loaded assets/textures/sd.png
+[2024-02-08 07:39:47.122] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
+[2024-02-08 07:39:47.123] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
+[2024-02-08 07:39:47.124] [SANDBOX] [info] Asset loaded assets/textures/spritesheet.png
+[2024-02-08 07:39:47.125] [SANDBOX] [info] Asset loaded assets/textures/square.png
+[2024-02-08 07:39:47.140] [SANDBOX] [info] Asset loaded assets/textures/test_rect.png
+[2024-02-08 07:39:47.223] [SANDBOX] [info] Asset loaded assets/textures/trollface.png
+[2024-02-08 07:39:47.318] [SANDBOX] [info] Asset loaded assets/textures/trollface_alpha.png
+[2024-02-08 07:39:47.318] [SANDBOX] [info] Compiling shaders...
+[2024-02-08 07:39:47.336] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/batch_renderer_pixel_art.frag]
+[2024-02-08 07:39:47.337] [SANDBOX] [error] Incomplete shader program, can't compile: [assets/shaders/billboard.vert], [], []
+[2024-02-08 07:39:47.337] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/masked.frag]
+[2024-02-08 07:39:47.338] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/color.frag]
+[2024-02-08 07:40:12.791] [SANDBOX] [info] OpenGL Loaded.
+[2024-02-08 07:40:12.792] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-02-08 07:40:12.793] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-02-08 07:40:12.793] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-02-08 07:40:12.793] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-02-08 07:40:12.794] [SANDBOX] [info] Asset loaded assets/jsontest.config
+[2024-02-08 07:40:12.795] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
+[2024-02-08 07:40:12.795] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-02-08 07:40:12.795] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-02-08 07:40:12.795] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
+[2024-02-08 07:40:12.795] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
+[2024-02-08 07:40:12.796] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
+[2024-02-08 07:40:12.796] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-02-08 07:40:12.796] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-02-08 07:40:12.796] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-02-08 07:40:12.797] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-02-08 07:40:12.797] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-02-08 07:40:12.797] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
+[2024-02-08 07:40:12.797] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
+[2024-02-08 07:40:12.797] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
+[2024-02-08 07:40:12.798] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
+[2024-02-08 07:40:12.798] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
+[2024-02-08 07:40:12.798] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
+[2024-02-08 07:40:12.798] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
+[2024-02-08 07:40:12.799] [SANDBOX] [info] Asset loaded assets/textures/bullet.png
+[2024-02-08 07:40:12.859] [SANDBOX] [info] Asset loaded assets/textures/c.png
+[2024-02-08 07:40:13.040] [SANDBOX] [info] Asset loaded assets/textures/cmb.png
+[2024-02-08 07:40:13.075] [SANDBOX] [info] Asset loaded assets/textures/file_icon.png
+[2024-02-08 07:40:13.076] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
+[2024-02-08 07:40:13.078] [SANDBOX] [info] Asset loaded assets/textures/hero.png
+[2024-02-08 07:40:13.078] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
+[2024-02-08 07:40:13.088] [SANDBOX] [info] Asset loaded assets/textures/image.png
+[2024-02-08 07:40:13.090] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
+[2024-02-08 07:40:13.092] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
+[2024-02-08 07:40:13.093] [SANDBOX] [info] Asset loaded assets/textures/pig.png
+[2024-02-08 07:40:13.106] [SANDBOX] [info] Asset loaded assets/textures/sd.png
+[2024-02-08 07:40:13.111] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
+[2024-02-08 07:40:13.113] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
+[2024-02-08 07:40:13.117] [SANDBOX] [info] Asset loaded assets/textures/spritesheet.png
+[2024-02-08 07:40:13.119] [SANDBOX] [info] Asset loaded assets/textures/square.png
+[2024-02-08 07:40:13.138] [SANDBOX] [info] Asset loaded assets/textures/test_rect.png
+[2024-02-08 07:40:13.241] [SANDBOX] [info] Asset loaded assets/textures/trollface.png
+[2024-02-08 07:40:13.334] [SANDBOX] [info] Asset loaded assets/textures/trollface_alpha.png
+[2024-02-08 07:40:13.335] [SANDBOX] [info] Compiling shaders...
+[2024-02-08 07:40:13.353] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/batch_renderer_pixel_art.frag]
+[2024-02-08 07:40:13.354] [SANDBOX] [error] Incomplete shader program, can't compile: [assets/shaders/billboard.vert], [], []
+[2024-02-08 07:40:13.354] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/masked.frag]
+[2024-02-08 07:40:13.355] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/color.frag]
+[2024-02-08 07:47:59.727] [SANDBOX] [info] OpenGL Loaded.
+[2024-02-08 07:47:59.728] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-02-08 07:47:59.728] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-02-08 07:47:59.728] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-02-08 07:47:59.729] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-02-08 07:47:59.730] [SANDBOX] [info] Asset loaded assets/jsontest.config
+[2024-02-08 07:47:59.730] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
+[2024-02-08 07:47:59.730] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-02-08 07:47:59.731] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-02-08 07:47:59.731] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
+[2024-02-08 07:47:59.731] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
+[2024-02-08 07:47:59.732] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
+[2024-02-08 07:47:59.732] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-02-08 07:47:59.732] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-02-08 07:47:59.732] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-02-08 07:47:59.733] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-02-08 07:47:59.733] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-02-08 07:47:59.733] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
+[2024-02-08 07:47:59.733] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
+[2024-02-08 07:47:59.733] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
+[2024-02-08 07:47:59.734] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
+[2024-02-08 07:47:59.734] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
+[2024-02-08 07:47:59.734] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
+[2024-02-08 07:47:59.734] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
+[2024-02-08 07:47:59.736] [SANDBOX] [info] Asset loaded assets/textures/bullet.png
+[2024-02-08 07:47:59.799] [SANDBOX] [info] Asset loaded assets/textures/c.png
+[2024-02-08 07:47:59.987] [SANDBOX] [info] Asset loaded assets/textures/cmb.png
+[2024-02-08 07:48:00.018] [SANDBOX] [info] Asset loaded assets/textures/file_icon.png
+[2024-02-08 07:48:00.019] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
+[2024-02-08 07:48:00.020] [SANDBOX] [info] Asset loaded assets/textures/hero.png
+[2024-02-08 07:48:00.021] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
+[2024-02-08 07:48:00.028] [SANDBOX] [info] Asset loaded assets/textures/image.png
+[2024-02-08 07:48:00.031] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
+[2024-02-08 07:48:00.032] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
+[2024-02-08 07:48:00.033] [SANDBOX] [info] Asset loaded assets/textures/pig.png
+[2024-02-08 07:48:00.045] [SANDBOX] [info] Asset loaded assets/textures/sd.png
+[2024-02-08 07:48:00.048] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
+[2024-02-08 07:48:00.050] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
+[2024-02-08 07:48:00.051] [SANDBOX] [info] Asset loaded assets/textures/spritesheet.png
+[2024-02-08 07:48:00.052] [SANDBOX] [info] Asset loaded assets/textures/square.png
+[2024-02-08 07:48:00.068] [SANDBOX] [info] Asset loaded assets/textures/test_rect.png
+[2024-02-08 07:48:00.154] [SANDBOX] [info] Asset loaded assets/textures/trollface.png
+[2024-02-08 07:48:00.248] [SANDBOX] [info] Asset loaded assets/textures/trollface_alpha.png
+[2024-02-08 07:48:00.249] [SANDBOX] [info] Compiling shaders...
+[2024-02-08 07:48:00.267] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/batch_renderer_pixel_art.frag]
+[2024-02-08 07:48:00.268] [SANDBOX] [error] Incomplete shader program, can't compile: [assets/shaders/billboard.vert], [], []
+[2024-02-08 07:48:00.268] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/masked.frag]
+[2024-02-08 07:48:00.269] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/color.frag]
+[2024-02-08 07:48:44.859] [SANDBOX] [info] OpenGL Loaded.
+[2024-02-08 07:48:44.860] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-02-08 07:48:44.861] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-02-08 07:48:44.861] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-02-08 07:48:44.861] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-02-08 07:48:44.862] [SANDBOX] [info] Asset loaded assets/jsontest.config
+[2024-02-08 07:48:44.863] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
+[2024-02-08 07:48:44.864] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-02-08 07:48:44.864] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert

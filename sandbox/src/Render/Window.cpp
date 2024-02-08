@@ -66,6 +66,7 @@ namespace Sandbox
 		glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ZERO);
 
 		SDL_GL_SetSwapInterval(0);
+
 		m_initialized = true;
 	}
 

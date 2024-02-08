@@ -48,14 +48,14 @@ float width(float index, float count)
 	float nb = float(nbWidth);
 	float increment = 1.0 / (nb-1);
 
-	float progression = index / count;
+	float progression = index / (count-1);
 
-	float prev = floor(progression / increment);
-	float next = prev +1;
+	float next = ceil(progression / increment);
+	float prev = max(0, next-1);
 
-	float curProg = progression / (increment * next);
+	float curProg = (progression - (prev*increment)) / increment;
 
-	return mix(uWidth[int(prev)], uWidth[int(next)], curProg);
+	return mix(uWidth[int(prev)], uWidth[int(next)], sineInOut(curProg));
 
 	//return mix(prev, next, curProg);
 }

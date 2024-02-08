@@ -146,3 +146,7 @@ February
 
 -line shader take into consideration aspect ratio
 -added uniform float array to Shader class
+
+08
+
+- line width is properly working.
