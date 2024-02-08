@@ -33,6 +33,7 @@ public:
 	std::vector<float> widths;
 	Time timer;
 };
+
 void LineRenderTest()
 {
 	Engine::Init();

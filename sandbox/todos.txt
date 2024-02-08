@@ -17,11 +17,35 @@
 
 big tasks:
 
-
-2D physics, raycasting, shape casting:
-
-
 - fixed aspect ratio for layers
 - animator for transform and sprite render
 - collisions
+
+2D physics, raycasting, shape casting:
+
+-remove cute
+- create callbacks class for raycasting
+- Physics singleton to invoke raycast and hold b2World 
+	-RaycastAll(include layermask)
+	-RaycastClosest(include layermask)
+	-
+
+-separate collider component from body component?
+-CollideableObject must be moved with both transform&body
+static Physics::MoveBody(entity& )
+{
+}
+
+-fixture must have entityId as userdata, so collider must have too,
+-use OnAddComponent callback to automatically add entityId to the collider
+-test the onAddComponent/On remove component callbacks
+- Collider (component)
+	Collider.AddShape(1)
+	{
+	m_body.addFixture(1)
+	}
+- CircleShape
+- BoxShape
+- PolygonShape
+
 

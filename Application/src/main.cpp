@@ -27,6 +27,7 @@
 #include "Tests/LineRenderTest.h"
 #include "Tests/EarcutTest.h"
 #include "Editor/EntryPoint.h"
+#include "Tests/RaycastTest.h"
 
 #include <random>
 #include <iostream>
@@ -58,7 +59,8 @@ int main(int argc, char** argv)
 
 	//AssetsTest();
 	//EarcutTest();
-	LineRenderTest();
+	//LineRenderTest();
+	RaycastTest();
 
 
 	return 0;

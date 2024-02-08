@@ -84,6 +84,7 @@
     <ClInclude Include="include\Sandbox\Input.h" />
     <ClInclude Include="include\Sandbox\Input\Inputs.h" />
     <ClInclude Include="include\Sandbox\EngineParameters.h" />
+    <ClInclude Include="include\Sandbox\Physics\Polygon2D.h" />
     <ClInclude Include="include\Sandbox\Render\LineRenderer.h" />
     <ClInclude Include="include\Sandbox\Serialization.h" />
     <ClInclude Include="include\Sandbox\Random.h" />

@@ -1,11 +1,10 @@
 #include "pch.h"
-#include "Sandbox/Engine.h"
 #include "Sandbox/Vec.h"
+
+/*#include "Sandbox/Engine.h"
+
 #include "Sandbox/Log.h"
 using namespace Sandbox;
-
-
-//Just for individual compiling of Vec.h
 
 void Sandbox::VectorUnitTest() 
 {
@@ -36,4 +35,4 @@ void Sandbox::VectorUnitTest()
 	LOG_INFO("A dot B: " + std::to_string(A.Dot(B)));
 	LOG_INFO("A cross B: " + A.Cross(B).ToString());
 	LOG_INFO("A Reflected on plane B: " + A.Reflected(B).ToString());
-}
+}*/

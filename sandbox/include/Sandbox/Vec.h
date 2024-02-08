@@ -1,6 +1,7 @@
 #pragma once
 #include <glm/glm.hpp>
 #include <math.h>
+#include <box2d/b2_math.h>
 
 namespace Sandbox
 {
@@ -32,7 +33,11 @@ namespace Sandbox
 		{
 
 		}
-		constexpr Vec3(glm::vec3 glm) : x(glm.x), y(glm.y), z(glm.z)
+		constexpr Vec3(b2Vec2 vec) : x((T)vec.x), y((T)vec.y), z((T)0)
+		{
+
+		}
+		constexpr Vec3(glm::vec3 glm) : x((T)glm.x), y((T)glm.y), z((T)glm.z)
 		{
 
 		}
@@ -131,6 +136,10 @@ namespace Sandbox
 		{
 			return glm::vec3{ x, y, z };
 		}
+		inline operator b2Vec2() const
+		{
+			return b2Vec2(x, y);
+		}
 		inline Vec3<T> operator-()
 		{
 			return Vec3<float>(-x, -y, -z);
@@ -177,7 +186,11 @@ namespace Sandbox
 		{
 
 		}
-		constexpr Vec2(glm::vec2 glm) : x(glm.x), y(glm.y)
+		constexpr Vec2(glm::vec2 glm) : x((T)glm.x), y((T)glm.y)
+		{
+
+		}
+		constexpr Vec2(b2Vec2 vec) : x((T)vec.x), y((T)vec.y)
 		{
 
 		}
@@ -268,11 +281,15 @@ namespace Sandbox
 		}
 		inline operator glm::vec2() const
 		{
-			return glm::vec2{ x, y };
+			return glm::vec2{ (float)x, (float)y };
 		}
 		inline operator Vec3<T>() const
 		{
 			return Vec3<T>(x, y, 0);
+		}
+		inline operator b2Vec2() const
+		{
+			return b2Vec2((float)x, (float)y);
 		}
 		inline Vec2<T> operator-()
 		{

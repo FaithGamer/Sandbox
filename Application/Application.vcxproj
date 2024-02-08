@@ -172,6 +172,7 @@
     <ClCompile Include="src\Tests\EnttTest.cpp" />
     <ClCompile Include="src\Tests\InputSystemTest.cpp" />
     <ClCompile Include="src\Tests\JsonTest.cpp" />
+    <ClCompile Include="src\Tests\RaycastTest.cpp" />
     <ClCompile Include="src\Tests\RendererTest.cpp" />
     <ClCompile Include="src\Tests\SignalTest.cpp" />
     <ClCompile Include="src\Tests\SpriteRenderTest.cpp" />
@@ -196,6 +197,7 @@
     <ClInclude Include="src\Editor\Panel.h" />
     <ClInclude Include="src\Tests\BlendingTest.h" />
     <ClInclude Include="src\Tests\InputSystemTest.h" />
+    <ClInclude Include="src\Tests\RaycastTest.h" />
     <ClInclude Include="src\Tests\SpriteRenderTest.h" />
     <ClInclude Include="src\Tests\FrameBufferTest.h" />
     <ClInclude Include="src\Tests\ImGuiSystemTest.h" />

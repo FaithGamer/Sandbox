@@ -386,6 +386,9 @@
     <ClInclude Include="include\Sandbox\Utils\Easing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Sandbox\Physics\Polygon2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\texture.frag" />
