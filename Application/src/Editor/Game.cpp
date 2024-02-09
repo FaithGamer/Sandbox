@@ -41,7 +41,7 @@ void HeroSystem::OnStart()
 	sptr<Texture> heroTexture = LoadPixelArtTexture("assets/textures/hero.png");
 	sptr<Sprite> heroSprite = makesptr<Sprite>(heroTexture);
 
-	Entity hero;
+	Entity hero = Entity::Create();
 	hero.AddComponent<Hero>();
 	hero.AddComponent<Transform>()->SetPosition(0, 0, 0);
 	auto render = hero.AddComponent<SpriteRender>();
@@ -53,7 +53,7 @@ void HeroSystem::OnUpdate(Time delta)
 {
 	auto world = Systems::GetMainWorld();
 	//Move hero
-	ForEachComponent<Hero, Transform>([delta, this](Hero& hero, Transform& transform) {
+	ForeachEntities<Hero, Transform>([delta, this](Entity entity, Hero& hero, Transform& transform) {
 		float speed = 15.f;
 		auto pos = transform.GetPosition();
 		pos.x += hero.direction.x * (float)delta * speed;
@@ -73,7 +73,7 @@ void HeroSystem::OnUpdate(Time delta)
 
 	//Move bullet
 	std::vector<Entity> toDestroy;
-	ForEachEntity<Bullet, Transform, CircleHitbox>([&toDestroy, this, delta, world]
+	ForeachEntities<Bullet, Transform, CircleHitbox>([&toDestroy, this, delta, world]
 	(Entity bulletEntt, Bullet& bullet, Transform& bulletTransform, CircleHitbox& bulletHitbox)
 		{
 			auto pos = bulletTransform.GetPosition();
@@ -90,7 +90,7 @@ void HeroSystem::OnUpdate(Time delta)
 			else
 			{
 				bulletTransform.SetPosition(pos);
-				ForEachEntity<Enemy, Transform, CircleHitbox>(
+				ForeachEntities<Enemy, Transform, CircleHitbox>(
 					[&collided, &toDestroy, bulletEntt, pos, world, bulletHitbox, this]
 				(Entity enemyEntt, Enemy& enemy, Transform& enemyTransform, CircleHitbox& enemyHitbox)
 					{
@@ -115,7 +115,7 @@ void HeroSystem::OnUpdate(Time delta)
 
 void HeroSystem::OnFire(Sandbox::InputSignal* input)
 {
-	ForEachComponent<Hero>([input](Hero& hero) {
+	ForeachComponents<Hero>([input](Hero& hero) {
 		hero.isFiring = input->GetBool();
 		});
 }
@@ -124,7 +124,7 @@ void HeroSystem::InstantiateBullet(Vec3f origin, Vec3f target)
 {
 	auto direction = (target - origin).Normalized();
 	auto world = Systems::GetMainWorld();
-	auto bullet = world->CreateEntity();
+	auto bullet = Entity::Create();
 	bullet.AddComponent<Bullet>()->direction = (Vec2f)direction;
 	bullet.AddComponent<CircleHitbox>()->radius = 0.5f;
 	auto render = bullet.AddComponent<SpriteRender>();
@@ -137,7 +137,7 @@ void HeroSystem::InstantiateBullet(Vec3f origin, Vec3f target)
 
 void HeroSystem::InstanceBurstParticle(Vec3f position)
 {
-	Entity particle;
+	Entity particle = Entity::Create();
 	particle.AddComponent<Transform>()->SetPosition(position);
 	auto part = particle.AddComponent<ParticleGenerator>();
 	part->countByInstance = 60;
@@ -150,7 +150,7 @@ void HeroSystem::InstanceBurstParticle(Vec3f position)
 
 void HeroSystem::OnMove(Sandbox::InputSignal* input)
 {
-	ForEachComponent<Hero>([input](Hero& hero) {
+	ForeachComponents<Hero>([input](Hero& hero) {
 		hero.direction = input->GetVec2f();
 		});
 }
@@ -176,7 +176,7 @@ void EnemySystem::OnUpdate(Time deltaTime)
 	Vec3f heroPos;
 
 	//Get Hero pos:
-	ForEachComponent<Hero, Transform>([&heroPtr, &heroPos](Hero& hero, Transform& heroTransform) {
+	ForeachComponents<Hero, Transform>([&heroPtr, &heroPos](Hero& hero, Transform& heroTransform) {
 		heroPtr = &hero;
 		heroPos = heroTransform.GetPosition();
 		});
@@ -189,7 +189,7 @@ void EnemySystem::OnUpdate(Time deltaTime)
 	}
 
 	//Move towards hero
-	ForEachComponent<Transform, Enemy>([this, deltaTime, heroPos, speed]
+	ForeachComponents<Transform, Enemy>([this, deltaTime, heroPos, speed]
 	(Transform& transform, Enemy& enemy)
 		{
 			enemy.timer += deltaTime;
@@ -212,9 +212,8 @@ void EnemySystem::OnUpdate(Time deltaTime)
 
 void EnemySystem::InstanceEnemy()
 {
-	auto world = Systems::GetMainWorld();
 
-	auto entity = world->CreateEntity();
+	auto entity = Entity::Create();
 	auto transform = entity.AddComponent<Transform>();
 	float x = Random::Range(-40, 40);
 	float y = Random::Range(-40, 40);

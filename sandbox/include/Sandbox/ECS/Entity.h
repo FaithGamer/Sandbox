@@ -11,15 +11,21 @@ namespace Sandbox
 	class Entity
 	{
 	public:
-		//To do: copy constructo and operator=,
-		//to really copy the component, have typeid vector of contained components.
 
-		/// @brief Create an entity in the main world
+		/// @brief An invalid entity handle, use it to store an entity later and check validity
 		Entity();
-		/// @brief Create an entity in a specified world
-		Entity(World* world);
-		/// @brief Create an handle to an existing entity
+		/// @brief Create a handle to an existing entity of the main world
 		Entity(EntityId entityId);
+		/// @brief Create a handle to an existing entity of a specific world
+		Entity(EntityId entityId, World* world);
+		/// @brief Create an entity in the main world
+		static Entity Create();
+		/// @brief Create an entity in a specified world
+		static Entity Create(World* world);
+
+		
+
+		bool Valid();
 
 		/// @brief Add a component if it doesn't exists yet.
 		/// @param args Parameters for the component constructor.
@@ -62,18 +68,16 @@ namespace Sandbox
 		/// @brief Destroy the entity and it's components
 		/// Trying to access or add components after using this method
 		/// will result in undefined behaviour
-		void Destroy() const;
+		void Destroy();
 
 		bool operator==(const Entity& rhs) const
 		{
-			return m_id == rhs.m_id;
+			return m_id == rhs.m_id && m_registry == rhs.m_registry;
 		}
 
 	private:
-		friend World;
-		
-		Entity(entt::registry* registry, EntityId id);
 		EntityId m_id;
 		entt::registry* m_registry;
+		bool m_valid;
 	};
 }

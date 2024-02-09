@@ -150,3 +150,19 @@ February
 08
 
 - line width is properly working.
+- testing box2D for raycasting 
+
+09
+
+- cute header removed
+- delta and fixed delta accessible as static variable from class Time
+-ForeachEntities: world/all world, lambda/member func
+-ForeachComponents: only on free/lambda function
+-AddComponentSignal/Remove added directly within the system class
+-removed Create/Destroy entity from World
+-removed getEntity from world
+-added have entity to world
+-Added Create entity as static Entity method
+-So Entity default constructor no longer create an entity in registry
+-tested listen/Stop listen add/remove compoenet
+-entity valid tested and works

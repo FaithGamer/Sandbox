@@ -14,7 +14,7 @@ namespace Sandbox
 	{
 		sptr<Renderer2D> renderer = Renderer2D::Instance();
 
-		ForEachComponent<LineRenderer, Transform>([renderer](LineRenderer& line, Transform& transform)
+		ForeachComponents<LineRenderer, Transform>([renderer](LineRenderer& line, Transform& transform)
 			{
 				renderer->DrawLine(line, transform, line.GetLayer());
 			});

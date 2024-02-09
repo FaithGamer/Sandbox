@@ -48,11 +48,12 @@ public:
 
 	void OnUpdate(Time delta) override
 	{
-		ForEachComponent(&CameraMovementSystem::MoveCamera, delta);
+		ForeachEntities(&CameraMovementSystem::MoveCamera);
 	}
 
-	void MoveCamera(Time delta, Camera& camera)
+	void MoveCamera(Entity entity, Camera& camera)
 	{
+		Time delta = Time::Delta();
 		float speed = 10;
 		float offset = (float)delta * speed;
 
@@ -102,7 +103,7 @@ class RenderSys : public System
 public:
 	void OnResizeWindow(Vec2u size)
 	{
-		ForEachComponent<Camera>([size](Camera& camera) {
+		ForeachComponents<Camera>([size](Camera& camera) {
 			camera.SetAspectRatio(size);
 			});
 	}
@@ -110,7 +111,7 @@ public:
 	{
 		auto world = Systems::GetMainWorld();
 
-		auto camera = world->CreateEntity();
+		auto camera = Entity::Create();
 		auto cam = camera.AddComponent<Camera>();
 		cam->SetOrthographicZoom(0.25f);
 		cam->SetOrthographic(true);

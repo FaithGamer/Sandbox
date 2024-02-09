@@ -43,7 +43,7 @@ void RaycastTest()
 
 	body1->CreateFixture(&fixtureDefault);
 
-	body1->DestroyFixture
+
 
 	RaycastCallback raycast;
 

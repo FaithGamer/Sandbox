@@ -66,6 +66,8 @@ namespace Sandbox
 	void Systems::Update()
 	{
 		Time delta = m_updateClock.Restart();
+		Time::delta = delta;
+		Time::fixedDelta = m_fixedUpdateTime;
 		//Making sure at least one microseconds has elapsed.
 		if (delta < 0.000001f)
 		{

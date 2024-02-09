@@ -16,7 +16,7 @@ struct RootTag
 };
 EntityId CreateEntity(Vec3f pos, Asset<Sprite> sprite)
 {
-	Entity entity;
+	Entity entity = Entity::Create();
 	entity.AddComponent<SpriteRender>()->SetSprite(sprite.Ptr());
 	entity.AddComponent<Transform>()->SetPosition(pos);
 
@@ -29,7 +29,7 @@ public:
 	{
 		time += (float)deltaTime*100;
 
-		ForEachComponent<RootTag, Transform>([deltaTime, this](RootTag& root, Transform& tr) {
+		ForeachComponents<RootTag, Transform>([deltaTime, this](RootTag& root, Transform& tr) {
 			tr.RotateZAxis((float)deltaTime * 50.f);
 			float s = Math::Lerp(1, 3, (Math::Sin((float)time)+1)/2);
 			float zpos = Math::Lerp(1, -1, (Math::Sin((float)time) + 1) / 2);

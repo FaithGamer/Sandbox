@@ -7,26 +7,18 @@
 namespace Sandbox
 {
 	World::World(std::string name) :
-		m_name(name),
-		m_entityPreallocationSize(10000),
-		m_entityReallocationSize(100)
+		m_name(name)
 	{
 	}
 
-	Entity World::CreateEntity()
+	bool World::HaveEntity(EntityId entity)
 	{
-		EntityId id = registry.create();
-		return Entity(&registry, id);
+		return registry.valid(entity);
 	}
 
-	void World::DestroyEntity(EntityId id)
+	bool World::HaveEntity(Entity entity)
 	{
-		registry.destroy(id);
-	}
-
-	Entity World::GetEntity(EntityId id)
-	{
-		return Entity(&registry, id);
+		return registry.valid(entity.GetId());
 	}
 
 	std::string World::GetName()

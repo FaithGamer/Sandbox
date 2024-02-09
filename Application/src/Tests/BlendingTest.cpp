@@ -20,7 +20,7 @@ sptr<Sprite> LoadSpriteOrigin()
 
 void CreateEntity(Vec3f pos, sptr<Sprite> sprite)
 {
-	Entity entity;
+	Entity entity = Entity::Create();
 	entity.AddComponent<SpriteRender>()->SetSprite(sprite);
 	entity.AddComponent<Transform>()->SetPosition(pos);
 }

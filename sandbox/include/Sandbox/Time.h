@@ -7,6 +7,9 @@ namespace Sandbox
 	/// Wrapper around a std::chrono::microseconds to represent time duration
 	/// Can be implicitly converted to float to represent seconds
 	/// </summary>
+	
+	class Systems;
+
 	class Time
 	{
 	public:
@@ -22,7 +25,13 @@ namespace Sandbox
 
 		operator float() const;
 
+		static Time Delta();
+		static Time FixedDelta();
+
 	private:
+		friend Systems;
+		static Time delta;
+		static Time fixedDelta;
 
 		std::chrono::microseconds m_microseconds;
 

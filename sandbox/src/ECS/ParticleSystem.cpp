@@ -19,7 +19,7 @@ namespace Sandbox
 
 	void ParticleSystem::OnStart()
 	{
-		Systems::GetMainWorld()->ListenOnAddComponent<ParticleGenerator>(&ParticleSystem::OnAddParticle, this);
+		ListenAddComponent<ParticleGenerator>(&ParticleSystem::OnAddParticle);
 		m_freeSpot = 0;
 		LOG_INFO("Particle System size, for {0} particles max: {1} ko", MAX_PARTICLES, (float)sizeof(Particle) * MAX_PARTICLES / 1000);
 	}
@@ -27,7 +27,7 @@ namespace Sandbox
 	void ParticleSystem::OnUpdate(Time deltaTime)
 	{
 		//Particles generator update
-		ForEachEntity<ParticleGenerator>([this, deltaTime](Entity entity, ParticleGenerator& generator) {
+		ForeachEntities<ParticleGenerator>([this, deltaTime](Entity entity, ParticleGenerator& generator) {
 
 			if (generator.internalClock <= 0.f)
 				generator.internalClock = generator.particleFrequency;

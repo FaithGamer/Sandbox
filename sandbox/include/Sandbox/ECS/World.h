@@ -19,16 +19,11 @@ namespace Sandbox
 	class World
 	{
 	public:
-		/// @brief Create an entity
-		/// @return the entity handle created.
-		Entity CreateEntity();
 
-		/// @brief Destroy an entity
-		/// @param entity The entity id to destroy
-		void DestroyEntity(EntityId id);
-
-		/// @brief Get an entity handle
-		Entity GetEntity(EntityId id);
+		/// @brief Does this world contains this entity (given the entity is valid)
+		bool HaveEntity(Entity entity);
+		/// @brief Does this world contains this entity (given the entity is valid)
+		bool HaveEntity(EntityId entity);
 		/// @brief Get the count of entity 
 		inline unsigned int GetEntityCount()
 		{
@@ -41,8 +36,8 @@ namespace Sandbox
 		/// @param callback Method to call when the component is added
 		/// @param listener Object to call the method upon
 		/// @param priority Higher priority will receive message first.
-		template <typename ComponentType, typename ListenerType> 	//To do: add free fuction
-		void ListenOnAddComponent(
+		template <typename ComponentType, typename ListenerType>
+		void ListenAddComponentSignal(
 			void (ListenerType::* callback)(ComponentSignal), ListenerType* const listener, SignalPriority priority = SignalPriority::medium)
 		{
 			int typeId = TypeId::GetId<ComponentType>();
@@ -60,8 +55,8 @@ namespace Sandbox
 		/// @param callback Method to call when the component is removed
 		/// @param listener Object to call the method upon
 		/// @param priority Higher priority will receive message first.
-		template <typename ComponentType, typename ListenerType>	//To do: add free fuction
-		void ListenOnRemoveComponent(
+		template <typename ComponentType, typename ListenerType>
+		void ListenRemoveComponentSignal(
 			void (ListenerType::* callback)(ComponentSignal), ListenerType* const listener, SignalPriority priority = SignalPriority::medium)
 		{
 			int typeId = TypeId::GetId<ComponentType>();
@@ -73,6 +68,34 @@ namespace Sandbox
 				registry.on_construct<ComponentType>().connect<&SignalSink::Send>(m_onRemoveComponent[typeId]);
 			}
 			m_onRemoveComponent[typeId].sender.AddListener<ListenerType>(callback, listener, priority);
+		}
+
+		template <typename ComponentType, typename ListenerType>
+		void StopListenAddComponentSignal(ListenerType* const listener)
+		{
+			int typeId = TypeId::GetId<ComponentType>();
+
+			auto findId = m_onAddComponent.find(typeId);
+			if (findId == m_onAddComponent.end())
+			{
+				m_onAddComponent.insert(std::make_pair((int32_t)typeId, SignalSink(this)));
+				registry.on_construct<ComponentType>().connect<&SignalSink::Send>(m_onAddComponent[typeId]);
+			}
+			m_onAddComponent[typeId].sender.RemoveListener(listener);
+		}
+
+		template <typename ComponentType, typename ListenerType>
+		void StopListenRemoveComponentSignal(ListenerType* const listener)
+		{
+			int typeId = TypeId::GetId<ComponentType>();
+
+			auto findId = m_onRemoveComponent.find(typeId);
+			if (findId == m_onRemoveComponent.end())
+			{
+				m_onRemoveComponent.insert(std::make_pair(typeId, SignalSink(this)));
+				registry.on_construct<ComponentType>().connect<&SignalSink::Send>(m_onRemoveComponent[typeId]);
+			}
+			m_onRemoveComponent[typeId].sender.RemoveListener(listener);
 		}
 
 		entt::registry registry;
@@ -98,8 +121,5 @@ namespace Sandbox
 
 		std::string m_name;
 
-		//To do: make theses variable changeable
-		uint64_t m_entityPreallocationSize;
-		uint32_t m_entityReallocationSize;
 	};
 }

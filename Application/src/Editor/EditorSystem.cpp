@@ -52,7 +52,7 @@ namespace SandboxEditor
 
 		//Text label
 		Vec3f heroPosition;
-		ForEachComponent<Hero, Transform>([&heroPosition](Hero& hero, Transform& transform)
+		ForeachEntities<Hero, Transform>([&heroPosition](Entity entity, Hero& hero, Transform& transform)
 			{
 				heroPosition = transform.GetPosition();
 			});

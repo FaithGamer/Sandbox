@@ -2,12 +2,22 @@
 #include "Sandbox/Time.h"
 
 
+
 namespace Sandbox
 {
-	
+	Time Time::delta;
+	Time Time::fixedDelta;
 	////////////////////////////
 	/// Time ///////////////////
 	////////////////////////////
+	Time Time::Delta()
+	{
+		return delta;
+	}
+	Time Time::FixedDelta()
+	{
+		return fixedDelta;
+	}
 
 	Time::Time() : m_microseconds(std::chrono::microseconds::zero())
 	{

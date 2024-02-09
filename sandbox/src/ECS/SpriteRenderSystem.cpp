@@ -34,7 +34,7 @@ namespace Sandbox
 			});*/
 		std::list<OrderedSpriteTransform> ordered;
 
-		ForEachComponent<SpriteRender, Transform>([&ordered, renderer](SpriteRender& sprite, Transform& transform)
+		ForeachComponents<SpriteRender, Transform>([&ordered, renderer](SpriteRender& sprite, Transform& transform)
 			{
 				auto ord = OrderedSpriteTransform(&sprite, &transform, transform.GetWorldPosition().z);
 				ordered.push_back(ord);

@@ -23,7 +23,6 @@ big tasks:
 
 2D physics, raycasting, shape casting:
 
--remove cute
 - create callbacks class for raycasting
 - Physics singleton to invoke raycast and hold b2World 
 	-RaycastAll(include layermask)
@@ -32,7 +31,7 @@ big tasks:
 
 -separate collider component from body component?
 -CollideableObject must be moved with both transform&body
-static Physics::MoveBody(entity& )
+static Physics::SetBodyPosition/Scale/Rotation(entity& )
 {
 }
 

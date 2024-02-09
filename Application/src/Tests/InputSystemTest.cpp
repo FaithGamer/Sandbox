@@ -37,7 +37,7 @@ class Controller : public System
 	{
 		if (signal->GetBool())
 		{
-			ForEachComponent<PlayerControlled, Body>(
+			ForeachComponents<PlayerControlled, Body>(
 				[](PlayerControlled& component, Body& body)
 				{
 					body.position.y += 10;
@@ -49,7 +49,7 @@ class Controller : public System
 	{
 		Vec2f dir = signal->GetVec2f();
 
-		ForEachComponent<PlayerControlled, Body>(
+		ForeachComponents<PlayerControlled, Body>(
 			[dir](PlayerControlled& component, Body& body)
 			{
 				body.direction = dir;
@@ -67,11 +67,12 @@ public:
 protected:
 	void OnFixedUpdate(Time time) override
 	{
-		ForEachComponent(&PhysicsSystem::Gravity, time);
+		ForeachEntities(&PhysicsSystem::Gravity);
 	}
 
-	void Gravity(Time time, Body& body)
+	void Gravity(Entity entity, Body& body)
 	{
+
 		float gravity = 1.f;
 		body.position.y -= gravity;
 		body.position += body.direction;
@@ -124,7 +125,7 @@ void InputSystemTest()
 
 	InitInputs();
 
-	Entity player = Systems::GetMainWorld()->CreateEntity();
+	Entity player = Entity::Create();
 	player.AddComponent<PlayerControlled>();
 	player.AddComponent<Body>();
 

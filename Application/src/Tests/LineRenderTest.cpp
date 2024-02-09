@@ -20,7 +20,7 @@ public:
 	{
 		timer += (float)delta * 100;
 
-		ForEachComponent<LineRenderer>([this, delta](LineRenderer& line)
+		ForeachComponents<LineRenderer>([this, delta](LineRenderer& line)
 			{
 				for (int i = 0; i < 5; i++)
 				{

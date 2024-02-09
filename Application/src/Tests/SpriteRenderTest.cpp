@@ -11,7 +11,8 @@ void SpriteRenderTest()
 	uint32_t layer = Renderer2D::Instance()->AddLayer("Layer");
 	//Renderer2D::Instance()->SetLayerScreenSpace(layer, std::vector<Vec2f>{ {-0.5, -0.5 }, { 0.5, -0.5 }, { 0.5, 0.5 }, { -0.5, 0.5 }});
 
-	auto camera = Systems::CreateWorld()->CreateEntity().AddComponent<Camera>();
+	Entity camEnt = Entity::Create();
+	auto camera =camEnt.AddComponent<Camera>();
 	camera->SetAspectRatio(Window::GetAspectRatio());
 	camera->SetOrthographic(false);
 	Window::GetResizeSignal()->AddListener(&Camera::SetAspectRatio, camera);
@@ -23,7 +24,7 @@ void SpriteRenderTest()
 	sptr<Texture> texture = makesptr<Texture>("assets/textures/test_rect.png", settings);
 
 	Rect texRect(0, 0, 1050, 1000);
-	auto entity = Systems::GetMainWorld()->CreateEntity();
+	auto entity = Entity::Create();
 	auto sp = makesptr<Sprite>(texture);
 	auto sprite = entity.AddComponent<SpriteRender>();
 	sprite->SetSprite(sp);
