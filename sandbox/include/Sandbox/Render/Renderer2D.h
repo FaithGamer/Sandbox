@@ -15,13 +15,11 @@
 
 namespace Sandbox
 {
-
 	class SpriteRender;
 	class RenderTarget;
 	class RenderTexture;
 	class Shader;
 	class RenderOptions;
-
 
 	struct QuadVertex
 	{

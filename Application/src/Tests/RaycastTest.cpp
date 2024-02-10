@@ -8,21 +8,23 @@
 
 using namespace Sandbox;
 
-class RaycastCallback : public b2RayCastCallback
+
+class RaycastCallbackClosest : public b2RayCastCallback
 {
 public:
 	float ReportFixture(b2Fixture* fixture, const b2Vec2& point, const b2Vec2& normal, float fraction) override
 	{
-		hit = true;
-		_point = point;
-		_normal = normal;
+		//fixture->GetUserData().pointer;
+
+		result.point = point;
+		result.normal = normal;
+		result.hit = true;
 
 		return fraction;
 	}
-	bool hit = false;
-	Vec2f _point;
-	Vec2f _normal;
+	RaycastResult result;
 };
+
 void RaycastTest()
 {
 	Engine::Init();
@@ -45,9 +47,11 @@ void RaycastTest()
 
 
 
-	RaycastCallback raycast;
+	RaycastCallbackClosest raycast;
 
 	world.RayCast(&raycast, Vec2f(100, 0), Vec2f(-100, 0));
+
+
 
 	LOG_INFO("Raycast 1 hit? " + std::to_string(raycast.hit));
 

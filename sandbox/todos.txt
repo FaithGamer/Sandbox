@@ -20,20 +20,42 @@ big tasks:
 - fixed aspect ratio for layers
 - animator for transform and sprite render
 - collisions
+- tile map
+- path finding
 
 2D physics, raycasting, shape casting:
 
-- create callbacks class for raycasting
-- Physics singleton to invoke raycast and hold b2World 
+- create callbacks classes for raycasting:
+RaycastResult[] RaycastAll
+RaycastResult RaycastClosest
+entity[] CircleOverlap
+- RaycastResult class
+{
+	entity
+	distance
+	point
+	normal
+}
+- Physics singleton to invoke raycast
 	-RaycastAll(include layermask)
 	-RaycastClosest(include layermask)
-	-
+
+
 
 -separate collider component from body component?
 -CollideableObject must be moved with both transform&body
-static Physics::SetBodyPosition/Scale/Rotation(entity& )
-{
+
+
+PhysicsSystem class{
+
+Update{
+	foreach<KinematicBody>{ b2position = transform.position, b2rotation = transform.position}
 }
+
+OnAddComponent<KinematicBody>(entityid entity)
+entity.getComponent<KinematicBody>().SetEntity(entity);
+}
+
 
 -fixture must have entityId as userdata, so collider must have too,
 -use OnAddComponent callback to automatically add entityId to the collider

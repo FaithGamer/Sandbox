@@ -1,8 +1,9 @@
 #pragma once
 
 #include <vector>
+#include <earcut/mapbox/earcut.hpp>
+#include <box2D/box2d.h>
 #include "Sandbox/Vec.h"
-#include "earcut/mapbox/earcut.hpp"
 
 namespace mapbox {
 	namespace util {
@@ -44,14 +45,36 @@ namespace Sandbox
 		Vec2f c;
 	};
 
-	class Polygon2D
+	struct Box2D
+	{
+		Box2D();
+		Box2D(float width, float height);
+
+		b2FixtureDef b2Fixture;
+		b2PolygonShape b2Shape;
+	};
+
+	struct Circle2D
+	{
+		Circle2D()
+		Circle2D(float radius);
+	};
+
+	struct Polygon2D
 	{
 	public:
-		std::vector<Triangle> triangles;
+		Polygon2D();
+		Polygon2D(std::vector<Vec2f> points);
 		void AddPoint(Vec2f point);
-		void SetPoints(Vec2f points);
+		void SetPoints(std::vector<Vec2f> points);
+		void ClearPoints();
 		void BakeTriangles();
+
+		std::vector<Triangle>* GetTriangles();
+		
 	private:
+		bool m_needBake;
+		std::vector<Triangle> m_triangles;
 		std::vector<std::vector<Vec2f>> m_points;
 	};
 }
