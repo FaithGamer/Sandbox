@@ -8,6 +8,18 @@ namespace Sandbox
 
 	class World;
 
+	/// @brief For internal use, makes the entity a parent
+	struct Children
+	{
+		std::unordered_set<EntityId> children;
+	};
+
+	/// @brief For internal use, makes the entity a child
+	struct Parent
+	{
+		EntityId parent;
+	};
+
 	class Entity
 	{
 	public:
@@ -22,6 +34,10 @@ namespace Sandbox
 		static Entity Create();
 		/// @brief Create an entity in a specified world
 		static Entity Create(World* world);
+
+		void AddChild(Entity entity);
+		void RemoveChild(EntityId entity);
+		void Unparent();
 
 		
 
@@ -65,7 +81,7 @@ namespace Sandbox
 		{
 			return m_id;
 		}
-		/// @brief Destroy the entity and it's components
+		/// @brief Destroy the entity and it's components, and does the same for every children
 		/// Trying to access or add components after using this method
 		/// will result in undefined behaviour
 		void Destroy();
@@ -76,6 +92,11 @@ namespace Sandbox
 		}
 
 	private:
+		/// @brief Called by remove child
+		void JustUnparent();
+		/// @brief Called by remove parent
+		void JustRemoveChild(EntityId id);
+		Entity(EntityId, entt::registry* registry);
 		EntityId m_id;
 		entt::registry* m_registry;
 		bool m_valid;

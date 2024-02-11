@@ -14,6 +14,7 @@
 -line renderer width take transform into account
 -line antialiasing ?
 -test line renderer reverse (must reverse width aswell i think)
+-vec operator take references
 
 big tasks:
 
@@ -22,6 +23,7 @@ big tasks:
 - collisions
 - tile map
 - path finding
+- destroy children entities -> transform system
 
 2D physics, raycasting, shape casting:
 

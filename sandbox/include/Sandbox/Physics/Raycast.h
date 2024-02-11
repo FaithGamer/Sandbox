@@ -3,6 +3,7 @@
 #include <box2d/box2d.h>
 #include "Sandbox/Vec.h"
 #include "Sandbox/ECS/Entity.h"
+#include "Sandbox/Physics/Collider.h"
 
 namespace Sandbox
 {
@@ -19,13 +20,21 @@ namespace Sandbox
 		}
 	};
 
+	struct OverlapResult
+	{
+		Entity entity;
+	};
+
+	/// @brief For internal use
 	class RaycastCallbackClosest : public b2RayCastCallback
 	{
 	public:
 		float ReportFixture(b2Fixture* fixture, const b2Vec2& point, const b2Vec2& normal, float fraction) override
 		{
 			//fixture->GetUserData().pointer;
+			auto data = static_cast<FixtureUserData*>((void*)(fixture->GetUserData().pointer));
 
+			result.entity = data->entity;
 			result.point = point;
 			result.normal = normal;
 			result.hit = true;
@@ -33,6 +42,28 @@ namespace Sandbox
 			return fraction;
 		}
 		RaycastResult result;
+	};
+
+	/// @brief For internal use
+	class QueryCircleOverlapAny : public b2QueryCallback
+	{
+	public:
+		QueryCircleOverlapAny(Vec2f pos, float radius)
+		{
+
+		}
+
+		bool ReportFixture(b2Fixture* fixture) override
+		{
+			auto data = static_cast<FixtureUserData*>((void*)(fixture->GetUserData().pointer));
+			
+
+
+			// Continue the query.
+			return true;
+		}
+
+		OverlapResult result;
 	};
 
 }

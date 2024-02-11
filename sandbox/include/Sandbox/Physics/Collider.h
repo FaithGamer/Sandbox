@@ -4,6 +4,7 @@
 #include <earcut/mapbox/earcut.hpp>
 #include <box2D/box2d.h>
 #include "Sandbox/Vec.h"
+#include "Sandbox/ECS/Entity.h"
 
 namespace mapbox {
 	namespace util {
@@ -38,6 +39,8 @@ namespace mapbox {
 
 namespace Sandbox
 {
+	class Body;
+
 	struct Triangle
 	{
 		Vec2f a;
@@ -45,22 +48,43 @@ namespace Sandbox
 		Vec2f c;
 	};
 
-	struct Box2D
+	struct FixtureUserData
 	{
-		Box2D();
+		Body* body;
+		EntityId entity;
+	};
+
+	class Collider
+	{
+	public:
+		virtual ~Collider(){}
+		virtual bool ColliderOverlap(Collider* collider) = 0;
+		virtual bool CircleOverlap(Vec2f point, float radius) = 0;
+		virtual bool PointInside(Vec2f point) = 0;
+		virtual FixtureUserData* GetFixtureUserData() = 0;
+	private:
+
+	};
+
+	struct Box2D : public Collider
+	{
+		Box2D(Vec2f dimensions);
 		Box2D(float width, float height);
 
-		b2FixtureDef b2Fixture;
-		b2PolygonShape b2Shape;
+		Vec2f dimensions;
+
+		b2PolygonShape shape;
 	};
 
-	struct Circle2D
+	struct Circle2D : public Collider
 	{
-		Circle2D()
 		Circle2D(float radius);
+		
+		float radius;
+		b2CircleShape shape;
 	};
 
-	struct Polygon2D
+	struct Polygon2D : public Collider
 	{
 	public:
 		Polygon2D();

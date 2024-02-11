@@ -4,6 +4,8 @@
 
 namespace Sandbox
 {
+	class Collider;
+
 	struct CollisionLayer
 	{
 
@@ -19,10 +21,18 @@ namespace Sandbox
 		Body(Type type);
 		/// @brief Set the layer it's on
 		/// @param layer 
-		void SetLayerFlag(uint16 layer);
+		void SetLayer(Bitmask layer);
 		/// @brief Set the layers it collide with
 		/// @param mask 
-		void SetLayerMask(uint16 mask);
+		void SetLayerMask(Bitmask mask);
+
+		void AddCollider(sptr<Collider> collider);
+
+		bool BodyOverlap(Body* body);
+		bool CircleOverlap(Vec2f point, float radius);
+		bool PointInside(Vec2f point);
+
+		
 	private:
 		void CreateStatic();
 		void CreateKinematic();
@@ -30,6 +40,5 @@ namespace Sandbox
 
 
 		b2Body m_body;
-		b2World* m_world;
 	};
 }

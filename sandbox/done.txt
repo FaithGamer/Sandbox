@@ -166,3 +166,12 @@ February
 -So Entity default constructor no longer create an entity in registry
 -tested listen/Stop listen add/remove compoenet
 -entity valid tested and works
+
+
+
+11
+
+- Bitmask
+- custom filters
+- fixed transform parenting problem by removing optimization of precomputed position for non modified transform
+- parenting entity and destroying children when destroying parent

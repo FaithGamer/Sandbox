@@ -14,6 +14,11 @@
     <ClCompile Include="src\Assets.cpp" />
     <ClCompile Include="src\ECS\LineRendererSystem.cpp" />
     <ClCompile Include="src\ECS\ParticleSystem.cpp" />
+    <ClCompile Include="src\Physics\Bitmask.cpp" />
+    <ClCompile Include="src\Physics\Body.cpp" />
+    <ClCompile Include="src\Physics\Physics.cpp" />
+    <ClCompile Include="src\Physics\Raycast.cpp" />
+    <ClCompile Include="src\Physics\Collider.cpp" />
     <ClCompile Include="src\Render\LineRenderer.cpp" />
     <ClCompile Include="src\Serialization.cpp" />
     <ClCompile Include="src\Render\RenderOptions.cpp" />
@@ -84,7 +89,9 @@
     <ClInclude Include="include\Sandbox\Input.h" />
     <ClInclude Include="include\Sandbox\Input\Inputs.h" />
     <ClInclude Include="include\Sandbox\EngineParameters.h" />
-    <ClInclude Include="include\Sandbox\Physics\Polygon2D.h" />
+    <ClInclude Include="include\Sandbox\Physics\Body.h" />
+    <ClInclude Include="include\Sandbox\Physics\Collider.h" />
+    <ClInclude Include="include\Sandbox\Physics\Raycast.h" />
     <ClInclude Include="include\Sandbox\Render\LineRenderer.h" />
     <ClInclude Include="include\Sandbox\Serialization.h" />
     <ClInclude Include="include\Sandbox\Random.h" />
@@ -128,6 +135,7 @@
     <ClInclude Include="include\Sandbox\Render\Camera.h" />
     <ClInclude Include="include\Sandbox\Render\Buffer.h" />
     <ClInclude Include="include\Sandbox\Render\SpriteRender.h" />
+    <ClInclude Include="include\Sandbox\Physics\Physics.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="include\Sandbox\Render\Shader.h" />
     <ClInclude Include="include\Sandbox\std_macros.h" />
@@ -141,6 +149,7 @@
     <ClInclude Include="include\Sandbox\ECS\System.h" />
     <ClInclude Include="include\Sandbox\Input\TextualInput.h" />
     <ClInclude Include="include\Sandbox\Task.h" />
+    <ClInclude Include="include\Sandbox\Physics\Bitmask.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\batch_renderer.frag" />

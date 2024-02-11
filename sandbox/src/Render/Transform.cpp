@@ -50,11 +50,13 @@ namespace Sandbox
 	{
 		m_parent = entity;
 		m_haveParent = true;
+		needCompute = true;
 	}
 
 	void Transform::RemoveParent()
 	{
 		m_haveParent = false;
+		needCompute = true;
 	}
 
 	void Transform::SetPosition(Vec3f translation)

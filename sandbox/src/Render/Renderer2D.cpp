@@ -611,20 +611,20 @@ namespace Sandbox
 		}
 
 		sptr<Sprite> sprite = spriteRender.GetSprite();
-		bool reComputePosition = transform.matrixUpdated || transform.needCompute || spriteRender.spriteDimensionsChanged;
+		//bool reComputePosition = transform.matrixUpdated || transform.needCompute || spriteRender.spriteDimensionsChanged;
 
 		//Input the vertex data to CPU within the quad vertex array
 		for (size_t i = 0; i < quadVertexCount; i++)
 		{
-			if (reComputePosition) //to do check if spriteRender dim changed
-			{
+			/*if (reComputePosition)
+			{*/
 				batch.quadVertexPtr->position = VertexPosition(batch.quadVertexPosition[i]-sprite->GetOrigin(), transform, *sprite);
 				spriteRender.preComputedPosition[i] = batch.quadVertexPtr->position;
-			}
+			/*}
 			else
 			{
 				batch.quadVertexPtr->position = spriteRender.preComputedPosition[i];
-			}
+			}*/
 
 			batch.quadVertexPtr->texCoords = sprite->GetTextureCoords(i);
 			batch.quadVertexPtr->texIndex = textureIndex;
@@ -670,7 +670,6 @@ namespace Sandbox
 		pos.x *= width * texDim.x * ppu;
 		pos.y *= height * texDim.y * ppu;
 
-		//return (Vec3f)(transform.GetTransformMatrix() * pos * m_worldToScreenRatio);
 		return (Vec3f)(transform.GetTransformMatrix() * pos);
 	}
 
