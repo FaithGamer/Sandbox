@@ -24,7 +24,7 @@ namespace Sandbox
 		/// Width indices count is fixed and is NOT line point count.
 		/// @param index range between 0 and LINE_WIDTH_INDICES-1, 0 = start point, LINE_WIDTH_INDICES-1 = end point.
 		/// using a value under or above will set every index to the same width.
-		void SetWidth(float width, int index);
+		void SetWidth(float width, int index = -1);
 		/// @brief Set the number of vertices for the round shape and the tips. 
 		/// @param count 0 for flat. max 21
 		void SetEndCapVertices(int count);

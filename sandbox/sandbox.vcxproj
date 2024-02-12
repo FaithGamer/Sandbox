@@ -80,6 +80,7 @@
     <ClInclude Include="include\earcut\mapbox\earcut.hpp" />
     <ClInclude Include="include\Sandbox\Assets.h" />
     <ClInclude Include="include\Sandbox\ECS.h" />
+    <ClInclude Include="include\Sandbox\ECS\EntityId.h" />
     <ClInclude Include="include\Sandbox\ECS\LineRendererSystem.h" />
     <ClInclude Include="include\Sandbox\ECS\ParticleSystem.h" />
     <ClInclude Include="include\Sandbox\ECS\SpriteRenderSystem.h" />
@@ -89,8 +90,10 @@
     <ClInclude Include="include\Sandbox\Input.h" />
     <ClInclude Include="include\Sandbox\Input\Inputs.h" />
     <ClInclude Include="include\Sandbox\EngineParameters.h" />
+    <ClInclude Include="include\Sandbox\Physics.h" />
     <ClInclude Include="include\Sandbox\Physics\Body.h" />
     <ClInclude Include="include\Sandbox\Physics\Collider.h" />
+    <ClInclude Include="include\Sandbox\Physics\PhysicsSystem.h" />
     <ClInclude Include="include\Sandbox\Physics\Raycast.h" />
     <ClInclude Include="include\Sandbox\Render\LineRenderer.h" />
     <ClInclude Include="include\Sandbox\Serialization.h" />

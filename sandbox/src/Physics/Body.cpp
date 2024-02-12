@@ -1,1 +1,125 @@
 #include "pch.h"
+#include "Sandbox/Physics/Body.h"
+#include "Sandbox/Physics/Physics.h"
+
+namespace Sandbox
+{
+	Body::Body(Type type, Bitmask layer) : m_type(type), m_layer(layer), m_mask(65535), m_YisZ(false), m_entity(EntityId(0))
+	{
+		b2BodyDef def;
+
+		switch (type)
+		{
+		case Type::Static:
+			def.type = b2BodyType::b2_staticBody;
+			break;
+		case Type::Kinematic:
+			def.type = b2BodyType::b2_kinematicBody;
+			break;
+		case Type::Dynamic:
+			LOG_ERROR("Dynamic body not implemented");
+			//def.type = b2BodyType::b2_dynamicBody;
+			break;
+		}
+
+		m_body = Physics::GetB2World()->CreateBody(&def);
+		m_body->SetTransform(Vec2f(0, 0), 0);
+	}
+
+	Body::~Body()
+	{
+		//Free the b2Body in the b2World
+		m_body->GetWorld()->DestroyBody(m_body);
+	}
+
+	void Body::SetLayer(Bitmask layer)
+	{
+		m_layer = layer;
+	}
+
+	void Body::SetLayerMask(Bitmask mask)
+	{
+		m_mask = mask;
+	}
+
+	void Body::AddCollider(sptr<Collider> collider)
+	{
+		//Attach collider and body
+		collider->SetBody(this, GetB2Filter());
+		m_colliders.emplace_back(collider);
+	}
+
+	void Body::ClearCollider()
+	{
+		//to do
+	}
+
+	bool Body::BodyOverlap(Body* body)
+	{
+		//to do
+		return false;
+	}
+
+	bool Body::CircleOverlap(Vec2f point, float radius)
+	{
+		//to do
+		return false;
+	}
+
+	bool Body::PointInside(Vec2f point)
+	{
+		//to do
+		return false;
+	}
+
+	void Body::UpdateTransform(Vec3f position, float rotation)
+	{
+		//todo scale
+		b2Vec2 pos(position.x, position.y);
+		if (m_YisZ)
+		{
+			pos.y = position.z;
+		}
+		m_body->SetTransform(pos, rotation);
+	}
+
+	void Body::SetYisZ(bool yIsZ)
+	{
+		m_YisZ = yIsZ;
+	}
+
+	Bitmask Body::GetLayer() const
+	{
+		return m_layer;
+	}
+
+	Bitmask Body::GetLayerMask() const
+	{
+		return m_mask;
+	}
+
+	Body::Type Body::GetType() const
+	{
+		return m_type;
+	}
+
+	b2Body* Body::GetB2Body()
+	{
+		return m_body;
+	}
+
+	b2Filter Body::GetB2Filter()
+	{
+		b2Filter filter;
+		filter.categoryBits = m_layer.flags;
+		filter.groupIndex = 0;
+		filter.maskBits = m_mask.flags;
+		return filter;
+	}
+
+	const std::vector<sptr<Collider>>* Body::GetColliders()
+	{
+		return &m_colliders;
+	}
+
+}

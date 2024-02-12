@@ -4,7 +4,8 @@
 #include <earcut/mapbox/earcut.hpp>
 #include <box2D/box2d.h>
 #include "Sandbox/Vec.h"
-#include "Sandbox/ECS/Entity.h"
+#include "Sandbox/ECS/EntityId.h"
+#include "Sandbox/Render/LineRenderer.h"
 
 namespace mapbox {
 	namespace util {
@@ -54,37 +55,64 @@ namespace Sandbox
 		EntityId entity;
 	};
 
+	struct CollisionRender
+	{
+		LineRenderer line = LineRenderer(10);
+	};
+
+	/// @brief Interface class for colliders, need to be added to a Body
+	/// Can be any type of shape.
 	class Collider
 	{
 	public:
-		virtual ~Collider(){}
+		virtual ~Collider() {}
 		virtual bool ColliderOverlap(Collider* collider) = 0;
 		virtual bool CircleOverlap(Vec2f point, float radius) = 0;
 		virtual bool PointInside(Vec2f point) = 0;
-		virtual FixtureUserData* GetFixtureUserData() = 0;
-	private:
-
+		virtual CollisionRender GetCollisionRender() = 0;
+		
+		Body* GetBody()
+		{
+			return m_body;
+		}
+	protected:
+		friend Body;
+		virtual void SetBody(Body* body, b2Filter filter) = 0;
+		Body* m_body = nullptr;
 	};
 
-	struct Box2D : public Collider
+	/// @brief Wrapper around a fixturedef
+	class Box2D : public Collider
 	{
+
+	public:
+		/// @brief Create a box of dimension 1x1;
+		Box2D();
 		Box2D(Vec2f dimensions);
 		Box2D(float width, float height);
 
-		Vec2f dimensions;
 
-		b2PolygonShape shape;
+		void SetBody(Body* body, b2Filter filter) override;
+		bool ColliderOverlap(Collider* collider) override;
+		bool CircleOverlap(Vec2f point, float radius) override;
+		bool PointInside(Vec2f point) override;
+		CollisionRender GetCollisionRender() override;
+	
+
+	private:
+		b2FixtureDef m_fixtureDef;
+		b2PolygonShape m_shape;
 	};
 
-	struct Circle2D : public Collider
+	class Circle2D : public Collider
 	{
 		Circle2D(float radius);
-		
+
 		float radius;
-		b2CircleShape shape;
+
 	};
 
-	struct Polygon2D : public Collider
+	class Polygon2D : public Collider
 	{
 	public:
 		Polygon2D();
@@ -95,7 +123,7 @@ namespace Sandbox
 		void BakeTriangles();
 
 		std::vector<Triangle>* GetTriangles();
-		
+
 	private:
 		bool m_needBake;
 		std::vector<Triangle> m_triangles;

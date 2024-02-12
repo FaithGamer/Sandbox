@@ -361,6 +361,8 @@ public:
 	b2Fixture* GetFixtureList();
 	const b2Fixture* GetFixtureList() const;
 
+	int32 GetFixtureCount() const;
+
 	/// Get the list of all joints attached to this body.
 	b2JointEdge* GetJointList();
 	const b2JointEdge* GetJointList() const;
@@ -694,6 +696,11 @@ inline bool b2Body::IsSleepingAllowed() const
 inline b2Fixture* b2Body::GetFixtureList()
 {
 	return m_fixtureList;
+}
+
+inline int32 b2Body::GetFixtureCount() const
+{
+	return m_fixtureCount;
 }
 
 inline const b2Fixture* b2Body::GetFixtureList() const

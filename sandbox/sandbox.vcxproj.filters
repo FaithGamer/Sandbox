@@ -416,6 +416,15 @@
     <ClInclude Include="include\Sandbox\Physics\Bitmask.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Sandbox\Physics\PhysicsSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Sandbox\ECS\EntityId.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Sandbox\Physics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\texture.frag" />

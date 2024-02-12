@@ -175,3 +175,12 @@ February
 - custom filters
 - fixed transform parenting problem by removing optimization of precomputed position for non modified transform
 - parenting entity and destroying children when destroying parent
+- good progress on overlap
+- good progress on raycast methods and callbacks
+
+12
+
+- Physics::OverlapCircle works
+- Body works
+- Collider interface works
+- Box2D works

@@ -1,11 +1,9 @@
 #pragma once
 #include "Sandbox/std_macros.h"
-#include "entt/entt.hpp"
+#include "EntityId.h"
 
 namespace Sandbox
 {
-	typedef entt::entity EntityId;
-
 	class World;
 
 	/// @brief For internal use, makes the entity a parent

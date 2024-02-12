@@ -4,7 +4,7 @@
 
 namespace Sandbox
 {
-	Filter::Filter() : m_maxFlags(31)
+	Filter::Filter() : m_maxFlags(16)
 	{
 
 	}
@@ -16,7 +16,8 @@ namespace Sandbox
 		}
 		else
 		{
-			if (!m_flags.insert(MakePair(name, std::pow(2, m_flags.size()))).second)
+			auto flag = std::pow(2, m_flags.size());
+			if (!m_flags.insert(MakePair(name, flag)).second)
 			{
 				LOG_WARN("Filter flag already exists: " + name);
 			}

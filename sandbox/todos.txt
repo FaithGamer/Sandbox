@@ -27,48 +27,11 @@ big tasks:
 
 2D physics, raycasting, shape casting:
 
+-move raycast implementation into cpp
 - create callbacks classes for raycasting:
-RaycastResult[] RaycastAll
-RaycastResult RaycastClosest
-entity[] CircleOverlap
-- RaycastResult class
-{
-	entity
-	distance
-	point
-	normal
-}
-- Physics singleton to invoke raycast
-	-RaycastAll(include layermask)
-	-RaycastClosest(include layermask)
-
-
-
--separate collider component from body component?
--CollideableObject must be moved with both transform&body
-
-
-PhysicsSystem class{
-
-Update{
-	foreach<KinematicBody>{ b2position = transform.position, b2rotation = transform.position}
-}
-
-OnAddComponent<KinematicBody>(entityid entity)
-entity.getComponent<KinematicBody>().SetEntity(entity);
-}
-
-
--fixture must have entityId as userdata, so collider must have too,
--use OnAddComponent callback to automatically add entityId to the collider
--test the onAddComponent/On remove component callbacks
-- Collider (component)
-	Collider.AddShape(1)
-	{
-	m_body.addFixture(1)
-	}
-- CircleShape
-- BoxShape
-- PolygonShape
+-Body must be moved with both transform&body
+-PhysicsSystem OnAddComponent and Transform Update
+-find way to draw debug collision shapes
+-once done test collision with differents shapes and fitler
 
 

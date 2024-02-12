@@ -52,9 +52,12 @@ namespace Sandbox
 			SetMask(mask, filters...);
 			return mask;
 		}
+		inline std::unordered_map<String, uint16_t> GetFlags()
+		{
+			return m_flags;
+		}
 
 		bool BitmaskContains(Bitmask mask, String flag);
-
 
 	private:
 		template<typename... str>
@@ -76,6 +79,8 @@ namespace Sandbox
 		{
 
 		}
+
+		Bitmask m_allFlags;
 		size_t m_maxFlags;
 		std::unordered_map<String, uint16_t> m_flags;
 	};

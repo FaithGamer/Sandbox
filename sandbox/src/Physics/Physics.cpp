@@ -1,47 +1,42 @@
 #include "pch.h"
 #include "Sandbox/Physics/Physics.h"
+#include "Sandbox/Physics/Raycast.h"
 
 namespace Sandbox
 {
-	/*class QueryCircleOverlap: public b2QueryCallback
+	Physics::Physics()
 	{
-	public:
+		m_world = new b2World({ 0, -1 });
 
-
-		bool ReportFixture(b2Fixture* fixture) override
-		{
-			b2Body* body = fixture->GetBody();
-			
-			b2Distance()
-				bool inside = fixture->TestPoint(m_point);
-				if (inside)
-				{
-					m_fixture = fixture;
-
-					// We are done, terminate the query.
-					return false;
-				}
-			
-
-			// Continue the query.
-			return true;
-		}
-
-		b2Fixture* m_fixture;
-	};*/
-
-	void Physics::CircleOverlap(std::vector<Body*> result, Vec2f pos, float radius)
+	}
+	Physics::~Physics()
+	{
+		delete m_world;
+	}
+	void Physics::CircleOverlap(std::vector<OverlapResult>& results, Vec2f pos, float radius, Bitmask mask)
 	{
 		auto ins = Instance();
-		//b2Transform
 			
-		// Make a small box englobing the circle
+		// Make a box englobing the circle
 		b2AABB aabb;
 		aabb.lowerBound = pos - radius;
 		aabb.upperBound = pos + radius;
 
-		//QueryCircleOverlap query;
+		//Create the query
+		b2CircleShape shape;
+		shape.m_p = pos;
+		shape.m_radius = radius;
+		QueryOverlapAll query(&shape, mask);
+		query.results = &results;
 
-		//ins->m_world.QueryAABB(&query, circlAABB);
+		//Query the world
+		ins->m_world->QueryAABB(&query, aabb);
+
+		//Results are now stored 
 	}
-}
+
+	b2World* Physics::GetB2World()
+	{
+		return Instance()->m_world;
+	}
+}	
