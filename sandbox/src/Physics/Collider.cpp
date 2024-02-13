@@ -2,34 +2,39 @@
 #include "Sandbox/Physics/Collider.h"
 #include "Sandbox/Vec.h"
 #include "Sandbox/Physics/Body.h"
+#include "Sandbox/Math.h"
 
 namespace Sandbox
 {
 	Box2D::Box2D()
 	{
 		m_shape.SetAsBox(1, 1);
-		m_fixtureDef.shape = &m_shape;
 	}
 
 	Box2D::Box2D(Vec2f dimensions)
 	{
 		m_shape.SetAsBox(dimensions.x * 0.5f, dimensions.y * 0.5f);
-		m_fixtureDef.shape = &m_shape;
 	}
 
 	Box2D::Box2D(float width, float height)
 	{
 		m_shape.SetAsBox(width * 0.5f, height * 0.5f);
-		m_fixtureDef.shape = &m_shape;
 	}
 
 	void Box2D::SetBody(Body* body, b2Filter filter)
 	{
 		//Create fixture and attach to body
 		b2Body* b2B = body->GetB2Body();
-		auto fixture = b2B->CreateFixture(&m_fixtureDef);
+		b2FixtureDef fixtureDef;
+		fixtureDef.shape = &m_shape;
+		auto fixture = b2B->CreateFixture(&fixtureDef);
 		fixture->SetFilterData(filter);
 
+	}
+
+	bool Box2D::B2ShapeOverlap(b2Shape* shape, b2Transform& transform)
+	{
+		return b2TestOverlap(&m_shape, 0, shape, 0, m_body->GetB2Body()->GetTransform(), transform);
 	}
 
 	bool Box2D::ColliderOverlap(Collider* collider)
@@ -47,18 +52,79 @@ namespace Sandbox
 		return false;
 	}
 
-	CollisionRender Box2D::GetCollisionRender()
+	void Box2D::SetupRender(ColliderRender* render)
 	{
-		CollisionRender render;
-		render.line.AddPoint(m_shape.m_vertices[0]);
-		render.line.AddPoint(m_shape.m_vertices[1]);
-		render.line.AddPoint(m_shape.m_vertices[2]);
-		render.line.AddPoint(m_shape.m_vertices[3]);
-		render.line.AddPoint(m_shape.m_vertices[0]);
-		render.line.SetColor(Vec4f(0, 1, 0, 1));
-		render.line.SetWidth(0.3f);
-		return render;
+		render->wire = makesptr<WireRender>(6);
+		render->wire->AddPoint(m_shape.m_vertices[0]);
+		render->wire->AddPoint(m_shape.m_vertices[1]);
+		render->wire->AddPoint(m_shape.m_vertices[2]);
+		render->wire->AddPoint(m_shape.m_vertices[3]);
+		render->wire->AddPoint(m_shape.m_vertices[0]);
+		render->wire->SetColor(Vec4f(0, 1, 0, 1));
 	}
+
+	b2AABB Box2D::GetAABB()
+	{
+		b2AABB aabb;
+		m_shape.ComputeAABB(&aabb, m_body->GetB2Body()->GetTransform(), 0);
+		return aabb;
+	}
+
+	///
+	/// 
+	///Circle
+	///
+	///
+
+	Circle2D::Circle2D()
+	{
+		m_shape.m_radius = 1;
+	}
+	Circle2D::Circle2D(float radius)
+	{
+		m_shape.m_radius = radius;
+	}
+	void Circle2D::SetBody(Body* body, b2Filter filter)
+	{
+		b2Body* b2B = body->GetB2Body();
+		b2FixtureDef fixtureDef;
+		fixtureDef.shape = &m_shape;
+		auto fixture = b2B->CreateFixture(&fixtureDef);
+		fixture->SetFilterData(filter);
+	}
+
+	bool Circle2D::B2ShapeOverlap(b2Shape* shape, b2Transform& transform)
+	{
+		return b2TestOverlap(&m_shape, 0, shape, 0, m_body->GetB2Body()->GetTransform(), transform);
+	}
+	bool Circle2D::ColliderOverlap(Collider* collider)
+	{
+		return false;
+	}
+	bool Circle2D::CircleOverlap(Vec2f point, float radius)
+	{
+		return false;
+	}
+	bool Circle2D::PointInside(Vec2f point)
+	{
+		return false;
+	}
+	void Circle2D::SetupRender(ColliderRender* render)
+	{
+		render->wire = makesptr<WireRender>(21);
+		for (int i = 0; i < 21; i++)
+		{
+			auto dir = Math::AngleToVec((float)i / (float)20 * 360)* m_shape.m_radius;
+			render->wire->AddPoint(dir);
+		}
+	}
+	b2AABB Circle2D::GetAABB()
+	{
+		b2AABB aabb;
+		m_shape.ComputeAABB(&aabb, m_body->GetB2Body()->GetTransform(), 0);
+		return aabb;
+	}
+
 
 	///
 	/// 
@@ -89,27 +155,36 @@ namespace Sandbox
 		b2FixtureDef def;
 		def.filter = filter;
 		std::vector<Vec2f> debugTriangles; //to do to delete
-		
-		while (i*3 < m_triangles.size())
+
+		while (i * 3 < m_triangles.size())
 		{
 			b2Vec2* vertices = new b2Vec2[3];
-			b2PolygonShape triangle;
+			m_shapes.emplace_back(b2PolygonShape());
 			for (int j = 0; j < 3; j++)
 			{
 				vertices[j] = m_points[0][m_triangles[i * 3 + j]];
 				debugTriangles.emplace_back(m_points[0][m_triangles[i * 3 + j]]);
 			}
-			triangle.Set(vertices, 3);
+			m_shapes.back().Set(vertices, 3);
 
-			
-			def.shape = &triangle;
-		
+
+			def.shape = &m_shapes.back();
+
 			b2Body* b2B = body->GetB2Body();
 			auto fixture = b2B->CreateFixture(&def);
 
 			delete[] vertices;
 			i++;
 		}
+	}
+	bool Polygon2D::B2ShapeOverlap(b2Shape* shape, b2Transform& transform)
+	{
+		for (int i = 0; i < m_shapes.size(); i++)
+		{
+			if (b2TestOverlap(&m_shapes[i], 0, shape, 0, m_body->GetB2Body()->GetTransform(), transform))
+				return true;
+		}
+		return false;
 	}
 	bool Polygon2D::ColliderOverlap(Collider* collider)
 	{
@@ -123,9 +198,10 @@ namespace Sandbox
 	{
 		return false;
 	}
-	CollisionRender Polygon2D::GetCollisionRender()
+	void Polygon2D::SetupRender(ColliderRender* render)
 	{
-		return CollisionRender();
+		//to do
+		//render->wire
 	}
 	void Polygon2D::AddPoint(Vec2f point)
 	{

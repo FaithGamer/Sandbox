@@ -169,7 +169,7 @@ namespace Sandbox
 
 	void Systems::IntegratePending()
 	{
-		std::set<SystemIdPriority, CompareSystemPriority> mustCallOnStart;
+		std::multiset<SystemIdPriority, CompareSystemPriority> mustCallOnStart;
 
 		for (auto& system : m_pendingSystemIn)
 		{

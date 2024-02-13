@@ -98,7 +98,7 @@ void ECSTest()
 
 	entity.AddComponent<compa>();
 	entity.AddComponent<compb>();
-	//can we create entity and add component when iterating view ?
+	//can we create entity and add component when iterating view ? YES
 
 
 	Sandbox::Engine::Launch();

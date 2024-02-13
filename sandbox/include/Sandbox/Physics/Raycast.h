@@ -5,6 +5,7 @@
 #include "Sandbox/Vec.h"
 #include "Sandbox/ECS/Entity.h"
 #include "Sandbox/Physics/Collider.h"
+#include "Sandbox/Physics/Body.h"
 #include "Sandbox/Physics/Bitmask.h"
 namespace Sandbox
 {
@@ -74,7 +75,7 @@ namespace Sandbox
 				return -1.0f;
 
 			//User data in the fixture's body
-			auto data = static_cast<FixtureUserData*>((void*)(fixture->GetUserData().pointer));
+			auto data = static_cast<FixtureUserData*>((void*)(fixture->GetBody()->GetUserData().pointer));
 
 			//to do user data 
 			//results->emplace_back(OverlapResult(Entity(data->entity)));
@@ -89,6 +90,50 @@ namespace Sandbox
 	private:
 		Bitmask m_mask;
 		b2Shape* m_shape;
+	};
+
+	class QueryBodyOverlapAll : public b2QueryCallback
+	{
+	public:
+		QueryBodyOverlapAll(Body* body, Bitmask mask) : m_mask(mask), m_body(body)
+		{
+
+		}
+
+		bool ReportFixture(b2Fixture* fixture) override
+		{
+			//Layer mask
+			if (!m_mask.Contains(fixture->GetFilterData().categoryBits))
+				return -1.0f;
+
+			auto colliders = m_body->GetColliders();
+			bool collide = false;
+			for (int i = 0; i < colliders->size(); i++)
+			{
+				auto trans = fixture->GetBody()->GetTransform();
+				if ((*colliders)[i]->B2ShapeOverlap(fixture->GetShape(), trans))
+				{
+					collide = true;
+				}
+			}
+			if (!collide)
+				return -1.0f;
+			//User data in the fixture's body
+			auto data = static_cast<FixtureUserData*>((void*)(fixture->GetBody()->GetUserData().pointer));
+
+			//to do user data 
+			//results->emplace_back(OverlapResult(Entity(data->entity)));
+			results->emplace_back(OverlapResult(Entity(EntityId(0))));
+
+
+			// Continue the query.
+			return true;
+		}
+
+		std::vector<OverlapResult>* results;
+	private:
+		Body* m_body;
+		Bitmask m_mask;
 	};
 
 }

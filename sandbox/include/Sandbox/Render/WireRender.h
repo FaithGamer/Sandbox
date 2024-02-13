@@ -12,6 +12,7 @@ namespace Sandbox
 	class WireRender
 	{
 	public:
+		WireRender();
 		WireRender(unsigned int maxPoints);
 		void AddPoint(Vec3f point);
 		void PopPoint();

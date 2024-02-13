@@ -76,7 +76,7 @@ void LineRenderTest()
 
 	auto wire = wireEnt.AddComponent<WireRender>(29);
 	wireEnt.AddComponent<Transform>();
-
+	wire->SetLayer(Renderer2D::GetLayerId("DebugLayer"));
 	wire->AddPoint({ 0, 0, 0 });
 	wire->AddPoint({ 4, 0, 0 });
 	wire->AddPoint({ 7, 2, 0 });

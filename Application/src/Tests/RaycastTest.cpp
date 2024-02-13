@@ -26,31 +26,26 @@ void Overlap(Vec2f pos, float radius)
 	}
 }
 
-class CollisionShapeDebugRenderSystem : public System
-{
-	void OnRender() override
-	{
-		ForeachComponents<CollisionRender, Transform>([](CollisionRender& render, Transform& trans)
-			{
-				Renderer2D::Instance()->DrawLine(render.line, trans, render.line.GetLayer());
-			});
-	}
-};
 
 class CollisionTestSystem : public System
 {
 public:
 	void OnUpdate(Time delta) override
 	{
-		timer += (float)delta*100;
+		timer += (float)delta*50;
 		y = Math::Sin(timer) * 10;
+
+		ForeachComponents<Body, Transform>([&](Body& body, Transform& trans)
+			{
+				body.UpdateTransform(trans.GetWorldPosition(), trans.GetRotationZAxis());
+			});
+
 		ForeachEntities<Body, SpriteRender>([&](Entity entity, Body& body, SpriteRender& sprite)
 			{
 				auto trans = entity.GetComponent<Transform>();
-				trans->SetPosition({ 0, y, 0 });
-				body.UpdateTransform(trans->GetWorldPosition(), trans->GetRotationZAxis());
+				trans->SetPosition({ -0.1, y, 0 });
 				std::vector<OverlapResult> overlap;
-				Physics::CircleOverlap(overlap, Vec2f(7, 0), 3);
+				Physics::CircleOverlap(overlap, Vec2f(7, 0), 3, 1);
 				if (overlap.size() > 0)
 				{
 					sprite.color = Vec4f(1, 0, 0, 1);
@@ -59,7 +54,6 @@ public:
 				{
 					sprite.color = Vec4f(1, 1, 1, 1);
 				}
-				
 			});
 	}
 	float timer = 0;
@@ -177,53 +171,32 @@ void RaycastTest()
 	
 	Physics::Instance();
 	Systems::Push<CollisionTestSystem>();
-	Systems::Push<CollisionShapeDebugRenderSystem>();
+
 	Camera cam;
 	cam.SetOrthographic(true);
 	Systems::SetMainCamera(&cam);
 
 	Entity bodyEntity = Entity::Create();
 
-	auto body = bodyEntity.AddComponent<Body>(Body::Type::Kinematic);
-	bodyEntity.AddComponent<Transform>()->SetRotationZAxis(50);
+	auto body = bodyEntity.AddComponent<Body>(Body::Type::Kinematic, 1);
+	auto trans = bodyEntity.AddComponent<Transform>();
+	trans->SetRotationZAxis(12);
 	auto spriteRender = bodyEntity.AddComponent<SpriteRender>();
 	spriteRender->SetSprite(Assets::Get<Sprite>("spritesheet.png_0_0").Ptr());
-	Physics::Instance();
-	body->AddCollider(makesptr<Box2D>(10, 10));
+	body->AddCollider(makesptr<Box2D>(7, 7));
 
 	Entity circleEntity = Entity::Create();
 
+
 	circleEntity.AddComponent<Transform>()->SetPosition(7, 0, 0);
-	auto circleLine = circleEntity.AddComponent<LineRenderer>(21);
-	for (int i = 0; i < 21; i++)
-	{
-		auto pos = Math::AngleToVec((float)i / (float)21 * 360) * 3;
-		circleLine->AddPoint(pos);
-	}
-	for (auto& col : *body->GetColliders())
-	{
-		auto line = bodyEntity.AddComponent<LineRenderer>(10);
-		line->AddPoint(Vec2f(-5, 5));
-		line->AddPoint(Vec2f(5, 5));
-		line->AddPoint(Vec2f(5, -5));
-		line->AddPoint(Vec2f(-5, -5));
-		line->AddPoint(Vec2f(-5, 5));
-	}
+	auto bo = circleEntity.AddComponent<Body>(Body::Type::Kinematic, 4);
+
+	bo->AddCollider(makesptr<Circle2D>(3));
+
+	Physics::DrawCollider(true);
+
 
 	Engine::Launch();
-
-	/*Overlap(Vec2f(10, 10), 3);
-	Overlap(Vec2f(10, 10), 3);
-	Overlap(Vec2f(10, 10), 3);*/
-
-/*	for (int i = -10; i < 14; i++)
-	{
-		std::cout << "Pos: " << i << std::endl;
-		Overlap(Vec2f(i, i), 3);
-
-		
-	}
-	std::cout << std::endl;*/
 
 
 }

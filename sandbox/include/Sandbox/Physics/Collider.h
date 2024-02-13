@@ -5,7 +5,7 @@
 #include <box2D/box2d.h>
 #include "Sandbox/Vec.h"
 #include "Sandbox/ECS/EntityId.h"
-#include "Sandbox/Render/LineRenderer.h"
+#include "Sandbox/Render/WireRender.h"
 
 namespace mapbox {
 	namespace util {
@@ -55,10 +55,7 @@ namespace Sandbox
 		EntityId entity;
 	};
 
-	struct CollisionRender
-	{
-		LineRenderer line = LineRenderer(10);
-	};
+	class ColliderRender;
 
 	/// @brief Interface class for colliders, need to be added to a Body
 	/// Can be any type of shape.
@@ -66,10 +63,12 @@ namespace Sandbox
 	{
 	public:
 		virtual ~Collider() {}
+		virtual bool B2ShapeOverlap(b2Shape* shape, b2Transform& transform) = 0;
 		virtual bool ColliderOverlap(Collider* collider) = 0;
 		virtual bool CircleOverlap(Vec2f point, float radius) = 0;
 		virtual bool PointInside(Vec2f point) = 0;
-		virtual CollisionRender GetCollisionRender() = 0;
+		virtual void SetupRender(ColliderRender* render) = 0;
+		virtual b2AABB GetAABB() = 0;
 		
 		Body* GetBody()
 		{
@@ -79,6 +78,16 @@ namespace Sandbox
 		friend Body;
 		virtual void SetBody(Body* body, b2Filter filter) = 0;
 		Body* m_body = nullptr;
+	};
+
+
+	struct ColliderRender
+	{
+		ColliderRender(Collider* collider)
+		{
+			collider->SetupRender(this);
+		}
+		sptr<WireRender> wire;
 	};
 
 	/// @brief Wrapper around a fixturedef
@@ -91,24 +100,40 @@ namespace Sandbox
 		Box2D(Vec2f dimensions);
 		Box2D(float width, float height);
 
-
 		void SetBody(Body* body, b2Filter filter) override;
+
+		bool B2ShapeOverlap(b2Shape* shape, b2Transform& transform) override;
 		bool ColliderOverlap(Collider* collider) override;
 		bool CircleOverlap(Vec2f point, float radius) override;
 		bool PointInside(Vec2f point) override;
-		CollisionRender GetCollisionRender() override;
+		void SetupRender(ColliderRender* render) override;
+		virtual b2AABB GetAABB() override;
 	
 
 	private:
-		b2FixtureDef m_fixtureDef;
 		b2PolygonShape m_shape;
 	};
 
 	class Circle2D : public Collider
 	{
+		
+	public:
+		/// @brief Create circle of radius 1
+		Circle2D();
 		Circle2D(float radius);
 
-		float radius;
+
+		void SetBody(Body* body, b2Filter filter) override;
+
+		bool B2ShapeOverlap(b2Shape* shape, b2Transform& transform) override;
+		bool ColliderOverlap(Collider* collider) override;
+		bool CircleOverlap(Vec2f point, float radius) override;
+		bool PointInside(Vec2f point) override;
+		void SetupRender(ColliderRender* render) override;
+		b2AABB GetAABB() override;
+
+	private:
+		b2CircleShape m_shape;
 
 	};
 
@@ -119,10 +144,13 @@ namespace Sandbox
 		Polygon2D(std::vector<Vec2f> points);
 
 		void SetBody(Body* body, b2Filter filter) override;
+
+		bool B2ShapeOverlap(b2Shape* shape, b2Transform& transform) override;
 		bool ColliderOverlap(Collider* collider) override;
 		bool CircleOverlap(Vec2f point, float radius) override;
 		bool PointInside(Vec2f point) override;
-		CollisionRender GetCollisionRender() override;
+		void SetupRender(ColliderRender* render) override;
+		b2AABB GetAABB() override;
 
 		/// @brief Counter Clockwise Winding order
 		/// @param point 
@@ -130,8 +158,10 @@ namespace Sandbox
 		void SetPoints(std::vector<Vec2f>& points);
 
 
+
 	private:
 		void BakeTriangles();
+		std::vector<b2PolygonShape> m_shapes;
 		std::vector<uint32_t> m_triangles;
 		std::vector<std::vector<Vec2f>> m_points;
 	};

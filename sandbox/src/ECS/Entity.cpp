@@ -61,7 +61,7 @@ namespace Sandbox
 		auto children = AddComponent<Children>();
 		children->children.insert(entity.m_id);
 
-		auto transformChildren = entity.GetComponent<Transform>();
+		auto transformChildren = entity.AddComponent<Transform>();
 		transformChildren->SetParent(m_id);
 
 	}
@@ -122,6 +122,11 @@ namespace Sandbox
 			{
 				Entity(child, m_registry).Destroy();
 			}
+		}
+		auto parent = GetComponent<Parent>();
+		if (parent != nullptr)
+		{
+			Entity(parent->parent).JustRemoveChild(m_id);
 		}
 		m_valid = false;
 		m_registry->destroy(m_id);

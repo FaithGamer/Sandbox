@@ -4,6 +4,14 @@
 
 namespace Sandbox
 {
+	WireRender::WireRender() :
+		m_needUpdateBuffer(true),
+		m_maxPoints(0),
+		m_layer(0),
+		m_color({ 1, 1, 1, 1 })
+	{
+
+	}
 	WireRender::WireRender(unsigned int maxPoints) :
 		m_needUpdateBuffer(true),
 		m_maxPoints(maxPoints),

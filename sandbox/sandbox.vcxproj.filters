@@ -198,6 +198,9 @@
     <ClCompile Include="src\ECS\WireRenderSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\ECS\ColliderRenderDebugSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Sandbox\Log.h">
@@ -435,6 +438,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\ECS\WireRenderSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Sandbox\ECS\ColliderRenderDebugSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

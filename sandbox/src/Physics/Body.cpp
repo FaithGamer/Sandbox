@@ -122,4 +122,22 @@ namespace Sandbox
 		return &m_colliders;
 	}
 
+	b2AABB Body::GetAABB()
+	{
+		b2AABB aabb = m_colliders[0]->GetAABB();
+		for (int i = 1; i < m_colliders.size(); i++)
+		{
+			auto caabb = m_colliders[i]->GetAABB();
+			if (caabb.lowerBound.x < aabb.lowerBound.x)
+				aabb.lowerBound.x = caabb.lowerBound.x;
+			if (caabb.lowerBound.y < aabb.lowerBound.y)
+				aabb.lowerBound.y = caabb.lowerBound.y;
+			if (caabb.upperBound.x > aabb.upperBound.x)
+				aabb.upperBound.x = caabb.upperBound.x;
+			if (caabb.upperBound.y > aabb.upperBound.y)
+				aabb.upperBound.y = caabb.upperBound.y;
+		}
+		return aabb;
+	}
+
 }

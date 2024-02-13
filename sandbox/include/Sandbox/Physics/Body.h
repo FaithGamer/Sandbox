@@ -64,6 +64,7 @@ namespace Sandbox
 		Type GetType() const;
 		b2Body* GetB2Body();
 		const std::vector<sptr<Collider>>* GetColliders();
+		b2AABB GetAABB();
 		
 	private:
 		friend PhysicsSystem;

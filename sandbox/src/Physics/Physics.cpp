@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Sandbox/Physics/Physics.h"
 #include "Sandbox/Physics/Raycast.h"
+#include "Sandbox/ECS/Systems.h"
+#include "Sandbox/ECS/ColliderRenderDebugSystem.h"
 
 namespace Sandbox
 {
@@ -12,6 +14,16 @@ namespace Sandbox
 	Physics::~Physics()
 	{
 		delete m_world;
+	}
+	void Physics::BodyOverlap(std::vector<OverlapResult>& results, Body* body, Bitmask mask = 65535)
+	{
+		auto ins = Instance();
+
+		b2AABB aabb = body->GetAABB();
+
+		QueryBodyOverlapAll query(body, mask);
+
+			ins->m_world->QueryAABB(&query, aabb);
 	}
 	void Physics::CircleOverlap(std::vector<OverlapResult>& results, Vec2f pos, float radius, Bitmask mask)
 	{
@@ -33,6 +45,18 @@ namespace Sandbox
 		ins->m_world->QueryAABB(&query, aabb);
 
 		//Results are now stored 
+	}
+
+	void Physics::DrawCollider(bool draw)
+	{
+		if (draw)
+		{
+			Systems::Push<ColliderRenderDebugSystem>();
+		}
+		else
+		{
+			Systems::Remove<ColliderRenderDebugSystem>();
+		}
 	}
 
 	b2World* Physics::GetB2World()

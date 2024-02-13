@@ -1,226 +1,227 @@
-[2024-02-13 14:55:06.867] [SANDBOX] [info] OpenGL Loaded.
-[2024-02-13 14:55:06.868] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-02-13 14:55:06.868] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-02-13 14:55:06.868] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-02-13 14:55:06.868] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-02-13 14:55:06.869] [SANDBOX] [info] Asset loaded assets/jsontest.config
-[2024-02-13 14:55:06.870] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
-[2024-02-13 14:55:06.870] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-02-13 14:55:06.871] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-02-13 14:55:06.871] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
-[2024-02-13 14:55:06.871] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
-[2024-02-13 14:55:06.871] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
-[2024-02-13 14:55:06.872] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-02-13 14:55:06.872] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-02-13 14:55:06.872] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-02-13 14:55:06.873] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-02-13 14:55:06.873] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-02-13 14:55:06.875] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
-[2024-02-13 14:55:06.876] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
-[2024-02-13 14:55:06.877] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
-[2024-02-13 14:55:06.877] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
-[2024-02-13 14:55:06.877] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
-[2024-02-13 14:55:06.877] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
-[2024-02-13 14:55:06.878] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
-[2024-02-13 14:55:06.878] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-02-13 14:55:06.879] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-02-13 14:55:06.880] [SANDBOX] [info] Asset loaded assets/textures/bullet.png
-[2024-02-13 14:55:06.939] [SANDBOX] [info] Asset loaded assets/textures/c.png
-[2024-02-13 14:55:07.150] [SANDBOX] [info] Asset loaded assets/textures/cmb.png
-[2024-02-13 14:55:07.199] [SANDBOX] [info] Asset loaded assets/textures/file_icon.png
-[2024-02-13 14:55:07.202] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
-[2024-02-13 14:55:07.203] [SANDBOX] [info] Asset loaded assets/textures/hero.png
-[2024-02-13 14:55:07.203] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
-[2024-02-13 14:55:07.214] [SANDBOX] [info] Asset loaded assets/textures/image.png
-[2024-02-13 14:55:07.217] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
-[2024-02-13 14:55:07.218] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
-[2024-02-13 14:55:07.219] [SANDBOX] [info] Asset loaded assets/textures/pig.png
-[2024-02-13 14:55:07.234] [SANDBOX] [info] Asset loaded assets/textures/sd.png
-[2024-02-13 14:55:07.239] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
-[2024-02-13 14:55:07.241] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
-[2024-02-13 14:55:07.242] [SANDBOX] [info] Asset loaded assets/textures/spritesheet.png
-[2024-02-13 14:55:07.244] [SANDBOX] [info] Asset loaded assets/textures/square.png
-[2024-02-13 14:55:07.259] [SANDBOX] [info] Asset loaded assets/textures/test_rect.png
-[2024-02-13 14:55:07.343] [SANDBOX] [info] Asset loaded assets/textures/trollface.png
-[2024-02-13 14:57:01.001] [SANDBOX] [info] OpenGL Loaded.
-[2024-02-13 14:57:01.003] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-02-13 14:57:01.003] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-02-13 14:57:01.003] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-02-13 14:57:01.003] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-02-13 14:57:01.005] [SANDBOX] [info] Asset loaded assets/jsontest.config
-[2024-02-13 14:57:01.005] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
-[2024-02-13 14:57:01.006] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-02-13 14:57:01.006] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-02-13 14:57:01.006] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
-[2024-02-13 14:57:01.007] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
-[2024-02-13 14:57:01.008] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
-[2024-02-13 14:57:01.009] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-02-13 14:57:01.009] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-02-13 14:57:01.010] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-02-13 14:57:01.010] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-02-13 14:57:01.010] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-02-13 14:57:01.010] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
-[2024-02-13 14:57:01.011] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
-[2024-02-13 14:57:01.011] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
-[2024-02-13 14:57:01.011] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
-[2024-02-13 14:57:01.011] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
-[2024-02-13 14:57:01.012] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
-[2024-02-13 14:57:01.012] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
-[2024-02-13 14:57:01.012] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-02-13 14:57:01.012] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-02-13 14:57:01.014] [SANDBOX] [info] Asset loaded assets/textures/bullet.png
-[2024-02-13 14:57:01.074] [SANDBOX] [info] Asset loaded assets/textures/c.png
-[2024-02-13 14:57:01.279] [SANDBOX] [info] Asset loaded assets/textures/cmb.png
-[2024-02-13 14:57:01.316] [SANDBOX] [info] Asset loaded assets/textures/file_icon.png
-[2024-02-13 14:57:01.318] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
-[2024-02-13 14:57:01.320] [SANDBOX] [info] Asset loaded assets/textures/hero.png
-[2024-02-13 14:57:01.320] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
-[2024-02-13 14:57:01.329] [SANDBOX] [info] Asset loaded assets/textures/image.png
-[2024-02-13 14:57:01.331] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
-[2024-02-13 14:57:01.333] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
-[2024-02-13 14:57:01.334] [SANDBOX] [info] Asset loaded assets/textures/pig.png
-[2024-02-13 14:57:01.393] [SANDBOX] [info] Asset loaded assets/textures/sd.png
-[2024-02-13 14:57:01.397] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
-[2024-02-13 14:57:01.398] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
-[2024-02-13 14:57:01.400] [SANDBOX] [info] Asset loaded assets/textures/spritesheet.png
-[2024-02-13 14:57:01.401] [SANDBOX] [info] Asset loaded assets/textures/square.png
-[2024-02-13 14:57:01.415] [SANDBOX] [info] Asset loaded assets/textures/test_rect.png
-[2024-02-13 14:57:01.497] [SANDBOX] [info] Asset loaded assets/textures/trollface.png
-[2024-02-13 14:57:01.606] [SANDBOX] [info] Asset loaded assets/textures/trollface_alpha.png
-[2024-02-13 14:57:01.607] [SANDBOX] [info] Compiling shaders...
-[2024-02-13 14:57:01.629] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/batch_renderer[2024-02-13 14:59:10.718] [SANDBOX] [info] OpenGL Loaded.
-[2024-02-13 14:59:10.719] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-02-13 14:59:10.719] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-02-13 14:59:10.719] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-02-13 14:59:10.719] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-02-13 14:59:10.721] [SANDBOX] [info] Asset loaded assets/jsontest.config
-[2024-02-13 14:59:10.721] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
-[2024-02-13 14:59:10.721] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-02-13 14:59:10.722] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-02-13 14:59:10.722] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
-[2024-02-13 14:59:10.722] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
-[2024-02-13 14:59:10.723] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
-[2024-02-13 14:59:10.723] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-02-13 14:59:10.723] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-02-13 14:59:10.723] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-02-13 14:59:10.724] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-02-13 14:59:10.724] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-02-13 14:59:10.724] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
-[2024-02-13 14:59:10.724] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
-[2024-02-13 14:59:10.724] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
-[2024-02-13 14:59:10.725] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
-[2024-02-13 14:59:10.725] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
-[2024-02-13 14:59:10.725] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
-[2024-02-13 14:59:10.725] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
-[2024-02-13 14:59:10.725] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-02-13 14:59:10.725] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-02-13 14:59:10.727] [SANDBOX] [info] Asset loaded assets/textures/bullet.png
-[2024-02-13 14:59:10.793] [SANDBOX] [info] Asset loaded assets/textures/c.png
-[2024-02-13 14:59:10.990] [SANDBOX] [info] Asset loaded assets/textures/cmb.png
-[2024-02-13 14:59:11.029] [SANDBOX] [info] Asset loaded assets/textures/file_icon.png
-[2024-02-13 14:59:11.031] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
-[2024-02-13 14:59:11.032] [SANDBOX] [info] Asset loaded assets/textures/hero.png
-[2024-02-13 14:59:11.033] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
-[2024-02-13 14:59:11.042] [SANDBOX] [info] Asset loaded assets/textures/image.png
-[2024-02-13 14:59:11.045] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
-[2024-02-13 14:59:11.047] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
-[2024-02-13 14:59:11.050] [SANDBOX] [info] Asset loaded assets/textures/pig.png
-[2024-02-13 14:59:11.063] [SANDBOX] [info] Asset loaded assets/textures/sd.png
-[2024-02-13 14:59:11.068] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
-[2024-02-13 14:59:11.069] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
-[2024-02-13 14:59:11.071] [SANDBOX] [info] Asset loaded assets/textures/spritesheet.png
-[2024-02-13 14:59:11.073] [SANDBOX] [info] Asset loaded assets/textures/square.png
-[2024-02-13 14:59:11.099] [SANDBOX] [info] Asset loaded assets/textures/test_rect.png
-[2024-02-13 14:59:11.190] [SANDBOX] [info] Asset loaded assets/textures/trollface.png
-[2024-02-13 14:59:11.314] [SANDBOX] [info] Asset loaded assets/textures/trollface_alpha.png
-[2024-02-13 14:59:11.315] [SANDBOX] [info] Compiling shaders...
-[2024-02-13 14:59:11.334] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/batch_renderer_pixel_art.frag]
-[2024-02-13 14:59:11.335] [SANDBOX] [error] Incomplete shader program, can't compile: [assets/shaders/billboard.vert], [], []
-[2024-02-13 14:59:11.336] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/masked.frag]
-[2024-02-13 14:59:11.338] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/color.frag]
-[2024-02-13 15:01:21.311] [SANDBOX] [info] OpenGL Loaded.
-[2024-02-13 15:01:21.312] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-02-13 15:01:21.312] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-02-13 15:01:21.312] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-02-13 15:01:21.312] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-02-13 15:01:21.313] [SANDBOX] [info] Asset loaded assets/jsontest.config
-[2024-02-13 15:01:21.314] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
-[2024-02-13 15:01:21.314] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-02-13 15:01:21.314] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-02-13 15:01:21.315] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
-[2024-02-13 15:01:21.315] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
-[2024-02-13 15:01:21.315] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
-[2024-02-13 15:01:21.315] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-02-13 15:01:21.315] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-02-13 15:01:21.316] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-02-13 15:01:21.316] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-02-13 15:01:21.316] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-02-13 15:01:21.316] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
-[2024-02-13 15:01:21.316] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
-[2024-02-13 15:01:21.317] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
-[2024-02-13 15:01:21.317] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
-[2024-02-13 15:01:21.317] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
-[2024-02-13 15:01:21.317] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
-[2024-02-13 15:01:21.318] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
-[2024-02-13 15:01:21.318] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-02-13 15:01:21.318] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-02-13 15:01:21.319] [SANDBOX] [info] Asset loaded assets/textures/bullet.png
-[2024-02-13 15:01:21.381] [SANDBOX] [info] Asset loaded assets/textures/c.png
-[2024-02-13 15:01:21.574] [SANDBOX] [info] Asset loaded assets/textures/cmb.png
-[2024-02-13 15:01:21.636] [SANDBOX] [info] Asset loaded assets/textures/file_icon.png
-[2024-02-13 15:01:21.674] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
-[2024-02-13 15:01:21.676] [SANDBOX] [info] Asset loaded assets/textures/hero.png
-[2024-02-13 15:01:21.676] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
-[2024-02-13 15:01:21.684] [SANDBOX] [info] Asset loaded assets/textures/image.png
-[2024-02-13 15:01:21.687] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
-[2024-02-13 15:01:21.688] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
-[2024-02-13 15:01:21.690] [SANDBOX] [info] Asset loaded assets/textures/pig.png
-[2024-02-13 15:01:21.702] [SANDBOX] [info] Asset loaded assets/textures/sd.png
-[2024-02-13 15:01:21.706] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
-[2024-02-13 15:01:21.707] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
-[2024-02-13 15:01:21.708] [SANDBOX] [info] Asset loaded assets/textures/spritesheet.png
-[2024-02-13 15:01:21.709] [SANDBOX] [info] Asset loaded assets/textures/square.png
-[2024-02-13 15:01:21.725] [SANDBOX] [info] Asset loaded assets/textures/test_rect.png
-[2024-02-13 15:01:21.815] [SANDBOX] [info] Asset loaded assets/textures/trollface.png
-[2024-02-13 15:01:21.919] [SANDBOX] [info] Asset loaded assets/textures/trollface_alpha.png
-[2024-02-13 15:01:21.920] [SANDBOX] [info] Compiling shaders...
-[2024-02-13 15:01:21.941] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/batch_renderer[2024-02-13 15:02:30.406] [SANDBOX] [info] OpenGL Loaded.
-[2024-02-13 15:02:30.407] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-02-13 15:02:30.407] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-02-13 15:02:30.407] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-02-13 15:02:30.407] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-02-13 15:02:30.409] [SANDBOX] [info] Asset loaded assets/jsontest.config
-[2024-02-13 15:02:30.409] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
-[2024-02-13 15:02:30.409] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-02-13 15:02:30.409] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-02-13 15:02:30.410] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
-[2024-02-13 15:02:30.410] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
-[2024-02-13 15:02:30.410] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
-[2024-02-13 15:02:30.411] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-02-13 15:02:30.411] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-02-13 15:02:30.411] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-02-13 15:02:30.411] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-02-13 15:02:30.412] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-02-13 15:02:30.412] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
-[2024-02-13 15:02:30.412] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
-[2024-02-13 15:02:30.412] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
-[2024-02-13 15:02:30.413] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
-[2024-02-13 15:02:30.413] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
-[2024-02-13 15:02:30.413] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
-[2024-02-13 15:02:30.414] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
-[2024-02-13 15:02:30.414] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-02-13 15:02:30.414] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-02-13 15:02:30.415] [SANDBOX] [info] Asset loaded assets/textures/bullet.png
-[2024-02-13 15:02:30.478] [SANDBOX] [info] Asset loaded assets/textures/c.png
-[2024-02-13 15:02:30.692] [SANDBOX] [info] Asset loaded assets/textures/cmb.png
-[2024-02-13 15:02:30.764] [SANDBOX] [info] Asset loaded assets/textures/file_icon.png
-[2024-02-13 15:02:30.766] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
-[2024-02-13 15:02:30.767] [SANDBOX] [info] Asset loaded assets/textures/hero.png
-[2024-02-13 15:02:30.767] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
-[2024-02-13 15:02:30.775] [SANDBOX] [info] Asset loaded assets/textures/image.png
-[2024-02-13 15:02:30.777] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
-[2024-02-13 15:02:30.779] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
-[2024-02-13 15:02:30.780] [SANDBOX] [info] Asset loaded assets/textures/pig.png
-[2024-02-13 15:02:30.792] [SANDBOX] [info] Asset loaded assets/textures/sd.png
-[2024-02-13 15:02:30.795] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
-[2024-02-13 15:02:30.797] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
+[2024-02-13 20:30:39.094] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-02-13 20:30:39.098] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-02-13 20:30:39.099] [SANDBOX] [info] Asset loaded assets/jsontest.config
+[2024-02-13 20:30:39.100] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
+[2024-02-13 20:30:39.100] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-02-13 20:30:39.100] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-02-13 20:30:39.101] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
+[2024-02-13 20:30:39.101] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
+[2024-02-13 20:30:39.101] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
+[2024-02-13 20:30:39.101] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-02-13 20:30:39.102] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-02-13 20:30:39.102] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-02-13 20:30:39.102] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-02-13 20:30:39.103] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-02-13 20:30:39.103] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
+[2024-02-13 20:30:39.103] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
+[2024-02-13 20:30:39.103] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
+[2024-02-13 20:30:39.103] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
+[2024-02-13 20:30:39.105] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
+[2024-02-13 20:30:39.105] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
+[2024-02-13 20:30:39.106] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
+[2024-02-13 20:30:39.106] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-02-13 20:30:39.106] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-02-13 20:30:39.108] [SANDBOX] [info] Asset loaded assets/textures/bullet.png
+[2024-02-13 20:30:39.175] [SANDBOX] [info] Asset loaded assets/textures/c.png
+[2024-02-13 20:30:39.379] [SANDBOX] [info] Asset loaded assets/textures/cmb.png
+[2024-02-13 20:30:39.418] [SANDBOX] [info] Asset loaded assets/textures/file_icon.png
+[2024-02-13 20:30:39.420] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
+[2024-02-13 20:30:39.421] [SANDBOX] [info] Asset loaded assets/textures/hero.png
+[2024-02-13 20:30:39.422] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
+[2024-02-13 20:30:39.430] [SANDBOX] [info] Asset loaded assets/textures/image.png
+[2024-02-13 20:30:39.433] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
+[2024-02-13 20:30:39.435] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
+[2024-02-13 20:30:39.437] [SANDBOX] [info] Asset loaded assets/textures/pig.png
+[2024-02-13 20:30:39.469] [SANDBOX] [info] Asset loaded assets/textures/sd.png
+[2024-02-13 20:30:39.473] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
+[2024-02-13 20:30:39.475] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
+[2024-02-13 20:30:39.476] [SANDBOX] [info] Asset loaded assets/textures/spritesheet.png
+[2024-02-13 20:30:39.477] [SANDBOX] [info] Asset loaded assets/textures/square.png
+[2024-02-13 20:30:39.493] [SANDBOX] [info] Asset loaded assets/textures/test_rect.png
+[2024-02-13 20:30:39.578] [SANDBOX] [info] Asset loaded assets/textures/trollface.png
+[2024-02-13 20:30:39.687] [SANDBOX] [info] Asset loaded assets/textures/trollface_alpha.png
+[2024-02-13 20:30:39.688] [SANDBOX] [info] Compiling shaders...
+[2024-02-13 20:30:39.706] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/batch_renderer_pixel_art.frag]
+[2024-02-13 20:30:39.707] [SANDBOX] [error] Incomplete shader program, can't compile: [assets/shaders/billboard.vert], [], []
+[2024-02-13 20:30:39.708] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/masked.frag]
+[2024-02-13 20:30:39.710] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/color.frag]
+[2024-02-13 20:30:39.720] [SANDBOX] [info]  --- b2Raycast ---
+[2024-02-13 20:30:39.720] [SANDBOX] [info] Raycast 1 hit? 1
+[2024-02-13 20:30:39.721] [SANDBOX] [info] Raycast 2 result? 0
+[2024-02-13 20:30:39.724] [SANDBOX] [info]  --- Filter ---
+[2024-02-13 20:30:39.742] [SANDBOX] [info]  --- CustomPhysics ---
+[2024-02-13 20:30:39.744] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-02-13 20:36:09.509] [SANDBOX] [info] OpenGL Loaded.
+[2024-02-13 20:36:09.510] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-02-13 20:36:09.510] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-02-13 20:36:09.510] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-02-13 20:36:09.510] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-02-13 20:36:09.512] [SANDBOX] [info] Asset loaded assets/jsontest.config
+[2024-02-13 20:36:09.512] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
+[2024-02-13 20:36:09.513] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-02-13 20:36:09.513] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-02-13 20:36:09.513] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
+[2024-02-13 20:36:09.514] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
+[2024-02-13 20:36:09.514] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
+[2024-02-13 20:36:09.514] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-02-13 20:36:09.515] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-02-13 20:36:09.515] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-02-13 20:36:09.515] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-02-13 20:36:09.515] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-02-13 20:36:09.516] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
+[2024-02-13 20:36:09.516] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
+[2024-02-13 20:36:09.516] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
+[2024-02-13 20:36:09.517] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
+[2024-02-13 20:36:09.517] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
+[2024-02-13 20:36:09.518] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
+[2024-02-13 20:36:09.519] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
+[2024-02-13 20:36:09.519] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-02-13 20:36:09.519] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-02-13 20:36:09.520] [SANDBOX] [info] Asset loaded assets/textures/bullet.png
+[2024-02-13 20:36:09.584] [SANDBOX] [info] Asset loaded assets/textures/c.png
+[2024-02-13 20:36:09.788] [SANDBOX] [info] Asset loaded assets/textures/cmb.png
+[2024-02-13 20:36:09.827] [SANDBOX] [info] Asset loaded assets/textures/file_icon.png
+[2024-02-13 20:36:09.829] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
+[2024-02-13 20:36:09.831] [SANDBOX] [info] Asset loaded assets/textures/hero.png
+[2024-02-13 20:36:09.831] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
+[2024-02-13 20:36:09.840] [SANDBOX] [info] Asset loaded assets/textures/image.png
+[2024-02-13 20:36:09.842] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
+[2024-02-13 20:36:09.844] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
+[2024-02-13 20:36:09.846] [SANDBOX] [info] Asset loaded assets/textures/pig.png
+[2024-02-13 20:36:09.857] [SANDBOX] [info] Asset loaded assets/textures/sd.png
+[2024-02-13 20:36:09.861] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
+[2024-02-13 20:36:09.862] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
+[2024-02-13 20:36:09.863] [SANDBOX] [info] Asset loaded assets/textures/spritesheet.png
+[2024-02-13 20:36:09.865] [SANDBOX] [info] Asset loaded assets/textures/square.png
+[2024-02-13 20:36:09.880] [SANDBOX] [info] Asset loaded assets/textures/test_rect.png
+[2024-02-13 20:36:09.965] [SANDBOX] [info] Asset loaded assets/textures/trollface.png
+[2024-02-13 20:36:10.063] [SANDBOX] [info] Asset loaded assets/textures/trollface_alpha.png
+[2024-02-13 20:36:10.064] [SANDBOX] [info] Compiling shaders...
+[2024-02-13 20:36:10.086] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/batch_renderer_pixel_art.frag]
+[2024-02-13 20:36:10.087] [SANDBOX] [error] Incomplete shader program, can't compile: [assets/shaders/billboard.vert], [], []
+[2024-02-13 20:36:10.090] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/masked.frag]
+[2024-02-13 20:36:10.094] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/color.frag]
+[2024-02-13 20:36:10.106] [SANDBOX] [info]  --- b2Raycast ---
+[2024-02-13 20:36:10.106] [SANDBOX] [info] Raycast 1 hit? 1
+[2024-02-13 20:36:10.107] [SANDBOX] [info] Raycast 2 result? 0
+[2024-02-13 20:36:10.109] [SANDBOX] [info]  --- Filter ---
+[2024-02-13 20:36:10.123] [SANDBOX] [info]  --- CustomPhysics ---
+[2024-02-13 20:36:10.126] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-02-13 20:37:23.562] [SANDBOX] [info] OpenGL Loaded.
+[2024-02-13 20:37:23.563] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-02-13 20:37:23.563] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-02-13 20:37:23.563] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-02-13 20:37:23.563] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-02-13 20:37:23.564] [SANDBOX] [info] Asset loaded assets/jsontest.config
+[2024-02-13 20:37:23.565] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
+[2024-02-13 20:37:23.565] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-02-13 20:37:23.566] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-02-13 20:37:23.566] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
+[2024-02-13 20:37:23.566] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
+[2024-02-13 20:37:23.566] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
+[2024-02-13 20:37:23.566] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-02-13 20:37:23.567] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-02-13 20:37:23.567] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-02-13 20:37:23.567] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-02-13 20:37:23.567] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-02-13 20:37:23.568] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
+[2024-02-13 20:37:23.568] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
+[2024-02-13 20:37:23.568] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
+[2024-02-13 20:37:23.568] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
+[2024-02-13 20:37:23.569] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
+[2024-02-13 20:37:23.569] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
+[2024-02-13 20:37:23.569] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
+[2024-02-13 20:37:23.569] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-02-13 20:37:23.570] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-02-13 20:37:23.571] [SANDBOX] [info] Asset loaded assets/textures/bullet.png
+[2024-02-13 20:37:23.637] [SANDBOX] [info] Asset loaded assets/textures/c.png
+[2024-02-13 20:37:23.840] [SANDBOX] [info] Asset loaded assets/textures/cmb.png
+[2024-02-13 20:37:23.875] [SANDBOX] [info] Asset loaded assets/textures/file_icon.png
+[2024-02-13 20:37:23.877] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
+[2024-02-13 20:37:23.878] [SANDBOX] [info] Asset loaded assets/textures/hero.png
+[2024-02-13 20:37:23.878] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
+[2024-02-13 20:37:23.887] [SANDBOX] [info] Asset loaded assets/textures/image.png
+[2024-02-13 20:37:23.889] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
+[2024-02-13 20:37:23.890] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
+[2024-02-13 20:37:23.891] [SANDBOX] [info] Asset loaded assets/textures/pig.png
+[2024-02-13 20:37:23.903] [SANDBOX] [info] Asset loaded assets/textures/sd.png
+[2024-02-13 20:37:23.906] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
+[2024-02-13 20:37:23.908] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
+[2024-02-13 20:37:23.909] [SANDBOX] [info] Asset loaded assets/textures/spritesheet.png
+[2024-02-13 20:37:23.910] [SANDBOX] [info] Asset loaded assets/textures/square.png
+[2024-02-13 20:37:23.925] [SANDBOX] [info] Asset loaded assets/textures/test_rect.png
+[2024-02-13 20:37:24.011] [SANDBOX] [info] Asset loaded assets/textures/trollface.png
+[2024-02-13 20:37:24.110] [SANDBOX] [info] Asset loaded assets/textures/trollface_alpha.png
+[2024-02-13 20:37:24.111] [SANDBOX] [info] Compiling shaders...
+[2024-02-13 20:37:24.130] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/batch_renderer[2024-02-13 20:38:06.812] [SANDBOX] [info] OpenGL Loaded.
+[2024-02-13 20:38:06.813] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-02-13 20:38:06.813] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-02-13 20:38:06.813] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-02-13 20:38:06.814] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-02-13 20:38:06.815] [SANDBOX] [info] Asset loaded assets/jsontest.config
+[2024-02-13 20:38:06.815] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
+[2024-02-13 20:38:06.816] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-02-13 20:38:06.816] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-02-13 20:38:06.816] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
+[2024-02-13 20:38:06.817] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
+[2024-02-13 20:38:06.817] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
+[2024-02-13 20:38:06.818] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-02-13 20:38:06.818] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-02-13 20:38:06.818] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-02-13 20:38:06.818] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-02-13 20:38:06.818] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-02-13 20:38:06.819] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
+[2024-02-13 20:38:06.819] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
+[2024-02-13 20:38:06.819] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
+[2024-02-13 20:38:06.819] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
+[2024-02-13 20:38:06.819] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
+[2024-02-13 20:38:06.820] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
+[2024-02-13 20:38:06.820] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
+[2024-02-13 20:38:06.820] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-02-13 20:38:06.820] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-02-13 20:38:06.821] [SANDBOX] [info] Asset loaded assets/textures/bullet.png
+[2024-02-13 20:38:06.879] [SANDBOX] [info] Asset loaded assets/textures/c.png
+[2024-02-13 20:38:07.226] [SANDBOX] [info] Asset loaded assets/textures/cmb.png
+[2024-02-13 20:38:07.269] [SANDBOX] [info] Asset loaded assets/textures/file_icon.png
+[2024-02-13 20:38:07.271] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
+[2024-02-13 20:38:07.272] [SANDBOX] [info] Asset loaded assets/textures/hero.png
+[2024-02-13 20:38:07.273] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
+[2024-02-13 20:38:07.282] [SANDBOX] [info] Asset loaded assets/textures/image.png
+[2024-02-13 20:38:07.285] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
+[2024-02-13 20:38:07.286] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
+[2024-02-13 20:38:07.288] [SANDBOX] [info] Asset loaded assets/textures/pig.png
+[2024-02-13 20:38:07.299] [SANDBOX] [info] Asset loaded assets/textures/sd.png
+[2024-02-13 20:38:07.303] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
+[2024-02-13 20:38:07.305] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
+[2024-02-13 20:38:07.306] [SANDBOX] [info] Asset loaded assets/textures/spritesheet.png
+[2024-02-13 20:38:07.307] [SANDBOX] [info] Asset loaded assets/textures/square.png
+[2024-02-13 20:38:07.323] [SANDBOX] [info] Asset loaded assets/textures/test_rect.png
+[2024-02-13 20:38:07.418] [SANDBOX] [info] Asset loaded assets/textures/trollface.png
+[2024-02-13 20:38:07.525] [SANDBOX] [info] Asset loaded assets/textures/trollface_alpha.png
+[2024-02-13 20:38:07.525] [SANDBOX] [info] Compiling shaders...
+[2024-02-13 20:38:07.547] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/batch_renderer_pixel_art.frag]
+[2024-02-13 20:38:07.548] [SANDBOX] [error] Incomplete shader program, can't compile: [assets/shaders/billboard.vert], [], []
+[2024-02-13 20:38:07.549] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/masked.frag]
+[2024-02-13 20:38:07.550] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/color.frag]
+[2024-02-13 20:38:07.562] [SANDBOX] [info]  --- b2Raycast ---
+[2024-02-13 20:38:07.563] [SANDBOX] [info] Raycast 1 hit? 1
+[2024-02-13 20:38:07.564] [SANDBOX] [info] Raycast 2 result? 0
+[2024-02-13 20:38:07.571] [SANDBOX] [info]  --- Filter ---
+[2024-02-13 20:38:07.598] [SANDBOX] [info]  --- CustomPhysics ---
+[2024-02-13 20:38:07.602] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-02-13 20:38:35.566] [SANDBOX] [info] OpenGL Loaded.
+[2024-02-13 20:38:35.567] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-02-13 20:38:35.568] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-02-13 20:38:35.568] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-02-13 20:38:35.568] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-02-13 20:38:35.569] [SANDBOX] [info] Asset loaded assets/jsontest.config
+[2024-02-13 20:38:35.570] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
+[2024-02-13 20:38:35.570] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-02-13 20:38:35.571] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-02-13 20:38:35.571] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
+[2024-02-13 20:38:35.571] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
+[2024-02-13 20:38:35.571] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
+[2024-02-13 20:38:35.572] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-02-13 20:38:35.572] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-02-13 20:38:35.572] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-02-13 20:38:35.573] [SANDBOX] [info] Asset loaded assets/shaders/line.geom

@@ -644,6 +644,7 @@ namespace Sandbox
 	void Renderer2D::DrawLine(LineRenderer& line, Transform& transform, uint32_t layer)
 	{
 		m_layers[layer].target->Bind();
+		m_layers[layer].active = true;
 		m_defaultLineShader->SetUniform("aTransform", transform.GetTransformMatrix());
 		m_defaultLineShader->SetUniform("uIndexCount", (float)line.GetPointCount());
 		m_defaultLineShader->SetUniform("uEndCapVertices", line.GetEndCapVertices());
@@ -661,6 +662,7 @@ namespace Sandbox
 	void Renderer2D::DrawWire(WireRender& wire, Transform& transform, uint32_t layer)
 	{
 		m_layers[layer].target->Bind();
+		m_layers[layer].active = true;
 		m_defaultWireShader->SetUniform("aTransform", transform.GetTransformMatrix());
 		m_defaultWireShader->SetUniform("uColor", wire.GetColor());
 		m_defaultWireShader->BindUniformBlock("camera", 0);

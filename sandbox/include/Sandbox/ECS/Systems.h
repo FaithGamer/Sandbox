@@ -97,7 +97,7 @@ namespace Sandbox
 		template <typename SystemType>
 		static void Remove()
 		{
-			m_pendingSystemOut.push_back(TypeId::GetId<SystemType>());
+			Systems::Instance()->m_pendingSystemOut.push_back(TypeId::GetId<SystemType>());
 		}
 		template <typename SystemType>
 		static bool HasSystem()
