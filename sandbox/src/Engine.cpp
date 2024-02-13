@@ -11,6 +11,7 @@
 #include "Sandbox/Assets.h"
 #include "Sandbox/ECS/SpriteRenderSystem.h"
 #include "Sandbox/ECS/LineRendererSystem.h"
+#include "Sandbox/ECS/WireRenderSystem.h"
 #include "Sandbox/ECS/ParticleSystem.h"
 
 
@@ -27,13 +28,12 @@ namespace Sandbox
 	void Engine::Init(const EngineParameters& parameters)
 	{
 
-		//Initialization
 		Log::Init();
 
-		//To do, call instance of every singleton allocate memory first
 		Window::Instance()->Init(parameters.appName, parameters.startupWindowResolution);
 		Assets::Instance();
 		Renderer2D::Instance();
+		Renderer2D::AddLayer("DebugLayer");
 
 		LoadImGui(Window::GetSDLWindow(), Window::GetSDL_GLContext());
 	
@@ -42,6 +42,7 @@ namespace Sandbox
 			Systems::Push<InputSystem>();
 			Systems::Push<SpriteRenderSystem>();
 			Systems::Push<LineRendererSystem>();
+			Systems::Push<WireRenderSystem>();
 			Systems::Push<ParticleSystem>();
 		}
 	}

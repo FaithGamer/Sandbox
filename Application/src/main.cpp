@@ -59,8 +59,8 @@ int main(int argc, char** argv)
 
 	//AssetsTest();
 	//EarcutTest();
-	//LineRenderTest();
-	RaycastTest();
+	LineRenderTest();
+	//RaycastTest();
 	//ECSTest();
 
 

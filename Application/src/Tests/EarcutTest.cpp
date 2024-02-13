@@ -42,8 +42,8 @@ namespace mapbox {
 }
 void DrawTriangle(Vec3f* points)
 {
-	Entity li;
-	auto line = li.AddComponent<LineRenderer>(4);
+	Entity li = Entity::Create();
+	auto line = li.AddComponent<LineRenderer>(6);
 	li.AddComponent<Transform>();
 
 	line->AddPoint(points[0]);
@@ -68,7 +68,7 @@ void EarcutTest()
 	// The first polyline defines the main polygon.
 	polygon.push_back({ {25, 0}, {25, 25}, {0, 25}, {0, 0},  });
 	// Following polylines define holes.
-	polygon.push_back({ {5, 0 }, {7, 0}, {7, 15}, {10, 15}, {10, 0}, {14, 0}, {14, 17}, {10, 17}, {5, 17} });
+	//polygon.push_back({ {5, 0 }, {7, 0}, {7, 15}, {10, 15}, {10, 0}, {14, 0}, {14, 17}, {10, 17}, {5, 17} });
 	//polygon.push_back({ {15, 3 }, {19, 3}, {19, 7} });
 
 

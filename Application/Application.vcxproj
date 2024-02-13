@@ -224,6 +224,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\shaders\wire.vert" />
     <None Include="assets\shaders\batch_renderer.frag" />
     <None Include="assets\shaders\batch_renderer.vert" />
     <None Include="assets\shaders\batch_renderer_pixel_art.frag" />
@@ -242,6 +243,7 @@
     <None Include="assets\shaders\ubt.vert" />
     <None Include="assets\shaders\uniform_buffer_test.frag" />
     <None Include="assets\shaders\uniform_buffer_test.vert" />
+    <None Include="assets\shaders\wire.frag" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

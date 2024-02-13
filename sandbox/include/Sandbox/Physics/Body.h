@@ -15,6 +15,15 @@ namespace Sandbox
 	{
 
 	};
+	/// @brief We can: 
+	/// -add multiple colliders: Circle, Box, Polygons(triangle composition)
+	/// -colliders rotation and position computed automatically by the transform component on same entity
+	/// we can't:
+	/// -remove collider
+	/// -rescale collider
+	/// -change collider shape
+	/// -scale circle to make them ellipses
+	/// atm: to remove or rescale collider you need to Destroy/Recreate body 
 	struct Body
 	{
 	public:
@@ -33,7 +42,9 @@ namespace Sandbox
 		/// Warning: Must be set BEFORE adding colliders, (this will change in the future)
 		/// @param mask 
 		void SetLayerMask(Bitmask mask);
-		/// @brief Add a collider
+		/// @brief Add a collider, 
+		/// Warning: collider cannot be changed after being added. Make sure it's properly initialized
+		/// (i.e : Polygon2D SetPoints before adding )
 		/// @param collider 
 		void AddCollider(sptr<Collider> collider);
 		/// @brief Remove all the colliders, 
@@ -44,6 +55,8 @@ namespace Sandbox
 		bool CircleOverlap(Vec2f point, float radius);
 		bool PointInside(Vec2f point);
 		void UpdateTransform(Vec3f position, float rotation);
+		/// @brief Set true for collision to happen in the X/Z plane
+		/// @param yIsZ 
 		void SetYisZ(bool yIsZ);
 
 		Bitmask GetLayer() const;

@@ -64,6 +64,7 @@ namespace Sandbox
 
 		m_defaultLayerShader = Assets::Get<Shader>("default_layer.shader").Ptr();
 		m_defaultLineShader = Assets::Get<Shader>("line.shader").Ptr();
+		m_defaultWireShader = Assets::Get<Shader>("wire.shader").Ptr();
 
 		std::vector<Vec2f> screenSpace{ {-1, -1}, { 1, -1 }, { 1, 1 }, { -1, 1 } };
 		sptr<VertexArray> defaultLayerVertexArray = GenerateLayerVertexArray(screenSpace);
@@ -642,19 +643,32 @@ namespace Sandbox
 
 	void Renderer2D::DrawLine(LineRenderer& line, Transform& transform, uint32_t layer)
 	{
+		m_layers[layer].target->Bind();
 		m_defaultLineShader->SetUniform("aTransform", transform.GetTransformMatrix());
 		m_defaultLineShader->SetUniform("uIndexCount", (float)line.GetPointCount());
 		m_defaultLineShader->SetUniform("uEndCapVertices", line.GetEndCapVertices());
 		m_defaultLineShader->SetUniformArray("uWidth", line.GetWidthArray(), (int)line.GetPointCount());
 		m_defaultLineShader->SetUniform("uColor", line.GetColor());
 		m_defaultLineShader->BindUniformBlock("camera", 0);
-
 		m_defaultLineShader->Bind();
 		
 		line.Bind();
 		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		glDrawElements(GL_LINE_STRIP_ADJACENCY, line.GetPointCount()+2, GL_UNSIGNED_INT, 0);
 		///glDrawArrays(GL_LINE_STRIP_ADJACENCY, 0, line.GetPointCount()*2);
+	}
+
+	void Renderer2D::DrawWire(WireRender& wire, Transform& transform, uint32_t layer)
+	{
+		m_layers[layer].target->Bind();
+		m_defaultWireShader->SetUniform("aTransform", transform.GetTransformMatrix());
+		m_defaultWireShader->SetUniform("uColor", wire.GetColor());
+		m_defaultWireShader->BindUniformBlock("camera", 0);
+		m_defaultWireShader->Bind();
+
+		wire.Bind();
+
+		glDrawArrays(GL_LINE_STRIP, 0, wire.GetPointCount());
 	}
 
 	Vec3f Renderer2D::VertexPosition(Vec4f pos, const Transform& transform, const Sprite& sprite)

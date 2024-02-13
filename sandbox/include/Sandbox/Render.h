@@ -12,8 +12,10 @@
 #include "Sandbox/Render/IndexBuffer.h"
 #include "Sandbox/Render/SpriteRender.h"
 #include "Sandbox/Render/LineRenderer.h"
+#include "Sandbox/Render/WireRender.h"
 #include "Sandbox/Render/Sprite.h"
 #include "Sandbox/Render/RenderOptions.h"
 #include "Sandbox/Render/RenderTexture.h"
 #include "Sandbox/Render/Particle.h"
+
 

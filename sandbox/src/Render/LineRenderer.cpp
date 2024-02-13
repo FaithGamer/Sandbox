@@ -13,8 +13,8 @@ namespace Sandbox
 		m_endCapVertices(0),
 		m_color({ 1, 1, 1, 1 })
 	{
+		m_points.reserve(maxPoints);
 		//Vertex buffer
-		//*2 because we use lines adjacency
 		m_vertexBuffer = makesptr<VertexBuffer>(maxPoints * sizeof(LinePoint));
 		AttributeLayout layout({
 				{ ShaderDataType::Vec3f, "aPosition" },
@@ -31,12 +31,7 @@ namespace Sandbox
 		}
 
 		indices[maxPoints +1] = maxPoints -1;
-		std::vector<uint32_t> debug;
-		for (int i = 0; i < maxPoints + 2; i++)
-		{
-			debug.push_back(indices[i]);
-		}
-		
+
 		auto indexBuffer = makesptr<IndexBuffer>(indices, maxPoints*2);
 		delete[] indices;
 
@@ -157,7 +152,7 @@ namespace Sandbox
 	{
 		if (index >= m_points.size())
 		{
-			LOG_ERROR("Line renderer, point index is over point count");
+			LOG_ERROR("LineRenderer::GetPointPosition, point index is over point count");
 			return Vec3f(0);
 		}
 		return m_points[index].point;
@@ -194,7 +189,6 @@ namespace Sandbox
 
 	void LineRenderer::UpdateBuffer()
 	{
-		//Index buffer
 		m_vertexBuffer->SetData(&m_points[0], sizeof(LinePoint) * m_points.size());
 	}
 }

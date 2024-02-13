@@ -223,5 +223,7 @@
     <None Include="assets\shaders\line.frag" />
     <None Include="assets\shaders\line.geom" />
     <None Include="assets\shaders\line.vert" />
+    <None Include="assets\shaders\wire.vert" />
+    <None Include="assets\shaders\wire.frag" />
   </ItemGroup>
 </Project>

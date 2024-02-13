@@ -15,6 +15,7 @@
 -line antialiasing ?
 -test line renderer reverse (must reverse width aswell i think)
 -vec operator take references
+-test if we can draw a line between two sprites (Z depth)
 
 big tasks:
 
@@ -31,7 +32,8 @@ big tasks:
 - create callbacks classes for raycasting:
 -Body must be moved with both transform&body
 -PhysicsSystem OnAddComponent and Transform Update
--find way to draw debug collision shapes
+-find way to draw debug collision shapes (WireRenderer + DrawWire, on a Layer for that purpose)
 -once done test collision with differents shapes and fitler
+-check polygon winding order
 
 

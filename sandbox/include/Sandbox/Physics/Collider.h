@@ -117,16 +117,22 @@ namespace Sandbox
 	public:
 		Polygon2D();
 		Polygon2D(std::vector<Vec2f> points);
-		void AddPoint(Vec2f point);
-		void SetPoints(std::vector<Vec2f> points);
-		void ClearPoints();
-		void BakeTriangles();
 
-		std::vector<Triangle>* GetTriangles();
+		void SetBody(Body* body, b2Filter filter) override;
+		bool ColliderOverlap(Collider* collider) override;
+		bool CircleOverlap(Vec2f point, float radius) override;
+		bool PointInside(Vec2f point) override;
+		CollisionRender GetCollisionRender() override;
+
+		/// @brief Counter Clockwise Winding order
+		/// @param point 
+		void AddPoint(Vec2f point);
+		void SetPoints(std::vector<Vec2f>& points);
+
 
 	private:
-		bool m_needBake;
-		std::vector<Triangle> m_triangles;
+		void BakeTriangles();
+		std::vector<uint32_t> m_triangles;
 		std::vector<std::vector<Vec2f>> m_points;
 	};
 }

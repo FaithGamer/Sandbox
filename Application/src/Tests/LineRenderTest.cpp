@@ -47,8 +47,11 @@ void LineRenderTest()
 	cam.worldToScreenRatio = 0.05;
 	Window::GetResizeSignal()->AddListener(&Camera::SetAspectRatio, &cam);
 
-	Entity line;
 
+	/// line____
+
+
+	/*Entity line = Entity::Create();
 
 	auto trans = line.AddComponent<Transform>();
 
@@ -65,7 +68,22 @@ void LineRenderTest()
 		lastAngle += Random::Range(-5, 5);
 		p += Math::AngleToVec(lastAngle)*0.2;
 		lineRender->AddPoint(p);
-	}
+	}*/
+
+	/// wire _____
+
+	Entity wireEnt = Entity::Create();
+
+	auto wire = wireEnt.AddComponent<WireRender>(29);
+	wireEnt.AddComponent<Transform>();
+
+	wire->AddPoint({ 0, 0, 0 });
+	wire->AddPoint({ 4, 0, 0 });
+	wire->AddPoint({ 7, 2, 0 });
+	wire->AddPoint({ 3, 6, 0 });
+	wire->AddPoint({ 5, 2, 0 });
+
+
 	
 	Engine::Launch();
 }

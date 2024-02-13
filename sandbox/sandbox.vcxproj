@@ -11,6 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\ECS\WireRenderSystem.cpp" />
+    <ClCompile Include="src\Render\WireRender.cpp" />
     <ClCompile Include="src\Assets.cpp" />
     <ClCompile Include="src\ECS\LineRendererSystem.cpp" />
     <ClCompile Include="src\ECS\ParticleSystem.cpp" />
@@ -84,6 +86,7 @@
     <ClInclude Include="include\Sandbox\ECS\LineRendererSystem.h" />
     <ClInclude Include="include\Sandbox\ECS\ParticleSystem.h" />
     <ClInclude Include="include\Sandbox\ECS\SpriteRenderSystem.h" />
+    <ClInclude Include="include\Sandbox\ECS\WireRenderSystem.h" />
     <ClInclude Include="include\Sandbox\ECS\World.h" />
     <ClInclude Include="include\Sandbox\ImGuiLoader.h" />
     <ClInclude Include="include\Sandbox\Control.h" />
@@ -93,6 +96,7 @@
     <ClInclude Include="include\Sandbox\Physics.h" />
     <ClInclude Include="include\Sandbox\Physics\Body.h" />
     <ClInclude Include="include\Sandbox\Physics\Collider.h" />
+    <ClInclude Include="include\Sandbox\Render\WireRender.h" />
     <ClInclude Include="include\Sandbox\Physics\PhysicsSystem.h" />
     <ClInclude Include="include\Sandbox\Physics\Raycast.h" />
     <ClInclude Include="include\Sandbox\Render\LineRenderer.h" />

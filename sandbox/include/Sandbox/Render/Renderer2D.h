@@ -12,6 +12,7 @@
 #include "Sandbox/Render/RenderTarget.h"
 #include "Sandbox/Singleton.h"
 #include "Sandbox/Render/LineRenderer.h"
+#include "Sandbox/Render/WireRender.h"
 
 namespace Sandbox
 {
@@ -107,6 +108,7 @@ namespace Sandbox
 			uint32_t batchIndex = 0);
 		void DrawSprite(Transform& transform, SpriteRender& sprite, uint32_t batchIndex);
 		void DrawLine(LineRenderer& line, Transform& transform, uint32_t layer);
+		void DrawWire(WireRender& wire, Transform& transform, uint32_t layer);
 
 		/// @brief Add a layer on the bottom of the render queue.
 		/// The order cannot be changed ever again, and the layers cannot be removed.
@@ -209,6 +211,9 @@ namespace Sandbox
 
 		//Line
 		sptr<Shader> m_defaultLineShader;
+
+		//Wire
+		sptr<Shader> m_defaultWireShader;
 
 		//Others
 

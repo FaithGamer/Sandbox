@@ -55,6 +55,13 @@ namespace Sandbox
 		
 		~Systems();
 
+		/// @brief Add a system to the game logic.
+		/// If the system priority is 0 (default), the system's push order will
+		/// be their order in the queue for calling OnUpdate/OnFixedUpdate/OnRender/OnEvent
+		/// with their priority set to 1+(Nb of System pushed with a priority of 0)
+		/// @tparam SystemType 
+		/// @tparam ...Args 
+		/// @param ...args 
 		template <typename SystemType, typename... Args>
 		static void Push(Args&&... args)
 		{
