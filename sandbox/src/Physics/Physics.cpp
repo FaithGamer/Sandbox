@@ -15,7 +15,7 @@ namespace Sandbox
 	{
 		delete m_world;
 	}
-	void Physics::BodyOverlap(std::vector<OverlapResult>& results, Body* body, Bitmask mask = 65535)
+	void Physics::BodyOverlap(std::vector<OverlapResult>& results, Body* body, Bitmask mask)
 	{
 		auto ins = Instance();
 
