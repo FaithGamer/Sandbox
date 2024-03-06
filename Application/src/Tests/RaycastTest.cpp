@@ -5,7 +5,7 @@
 #include "Sandbox/Render.h"
 #include "box2d/box2d.h"
 #include "Sandbox/Engine.h"
-#include "Sandbox/Physics.h"
+#include "Sandbox/PhysicsEngine.h"
 #include "Sandbox/Assets.h"
 #include "Sandbox/Math.h"
 #include "Sandbox/Render/Renderer2D.h"
@@ -14,17 +14,6 @@ using namespace Sandbox;
 
 
 
-void Overlap(Vec2f pos, float radius)
-{
-	std::vector<OverlapResult> results;
-	Physics::CircleOverlap(results, pos, radius);
-
-
-	for (auto& result : results)
-	{
-		std::cout << "Circle overlap with entity #" << (unsigned int)result.entity.GetId() << std::endl;
-	}
-}
 
 
 class CollisionTestSystem : public System
@@ -34,11 +23,6 @@ public:
 	{
 		timer += (float)delta*50;
 		y = Math::Sin(timer) * 10;
-
-		ForeachComponents<Body, Transform>([&](Body& body, Transform& trans)
-			{
-				body.UpdateTransform(trans.GetWorldPosition(), trans.GetRotationZAxis());
-			});
 
 		ForeachEntities<Body, SpriteRender>([&](Entity entity, Body& body, SpriteRender& sprite)
 			{
@@ -165,11 +149,12 @@ void RaycastTest()
 	///___ physics test
 	LOG_INFO(" --- CustomPhysics ---");
 	std::cout << std::endl;
-		//circle overlap custom physics
-	std::cout << " Circle overlap Sandbox::Body: " << std::endl;
+	
+	
+	//circle overlap a rectangle
+	std::cout << " Circle overlap rectangle  " << std::endl;
 
 	
-	Physics::Instance();
 	Systems::Push<CollisionTestSystem>();
 
 	Camera cam;

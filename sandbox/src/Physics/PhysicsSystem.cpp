@@ -11,7 +11,7 @@ namespace Sandbox
 	}
 	void PhysicsSystem::OnStart()
 	{
-		ListenAddComponent<Body>(&OnAddBody);
+		ListenAddComponent<Body>(&PhysicsSystem::OnAddBody);
 	}
 	void PhysicsSystem::OnAddBody(ComponentSignal signal)
 	{
@@ -24,6 +24,10 @@ namespace Sandbox
 			{
 				body.UpdateTransform(transform.GetPosition(), transform.GetRotationZAxis());
 			});
+	}
+	int PhysicsSystem::GetUsedMethod()
+	{
+		return System::Method::Update;
 	}
 
 }

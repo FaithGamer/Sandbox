@@ -201,6 +201,9 @@
     <ClCompile Include="src\Physics\ColliderRenderDebugSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Physics\PhysicsSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Sandbox\Log.h">
@@ -431,7 +434,7 @@
     <ClInclude Include="include\Sandbox\ECS\EntityId.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\PhysicEngine.h">
+    <ClInclude Include="include\Sandbox\PhysicsEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Render\WireRender.h">

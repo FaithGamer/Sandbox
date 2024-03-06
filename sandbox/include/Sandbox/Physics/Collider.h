@@ -58,7 +58,7 @@ namespace Sandbox
 	public:
 		struct UserData
 		{
-			EntityId entity = EntityId(0);
+			EntityId entityId = EntityId(0);
 		};
 		virtual ~Collider() {}
 		virtual bool B2ShapeOverlap(b2Shape* shape, b2Transform& transform) = 0;

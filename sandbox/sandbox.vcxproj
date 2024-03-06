@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ECS\WireRenderSystem.cpp" />
+    <ClCompile Include="src\Physics\PhysicsSystem.cpp" />
     <ClCompile Include="src\Render\WireRender.cpp" />
     <ClCompile Include="src\Assets.cpp" />
     <ClCompile Include="src\ECS\LineRendererSystem.cpp" />
@@ -94,7 +95,7 @@
     <ClInclude Include="include\Sandbox\Input.h" />
     <ClInclude Include="include\Sandbox\Input\Inputs.h" />
     <ClInclude Include="include\Sandbox\EngineParameters.h" />
-    <ClInclude Include="include\Sandbox\PhysicEngine.h" />
+    <ClInclude Include="include\Sandbox\PhysicsEngine.h" />
     <ClInclude Include="include\Sandbox\Physics\Body.h" />
     <ClInclude Include="include\Sandbox\Physics\Collider.h" />
     <ClInclude Include="include\Sandbox\Physics\ColliderRenderDebugSystem.h" />

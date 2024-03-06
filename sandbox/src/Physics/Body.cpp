@@ -46,7 +46,7 @@ namespace Sandbox
 	void Body::AddCollider(sptr<Collider> collider)
 	{
 		//Attach collider and body
-		collider->SetBody(this, GetB2Filter());
+		collider->SetBody(this, GetB2Filter(), userData);
 		m_colliders.emplace_back(collider);
 	}
 
