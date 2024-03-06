@@ -6,6 +6,14 @@ namespace Sandbox
 {
 	namespace Math
 	{
+		inline float Degrees(float radians)
+		{
+			return glm::degrees(radians);
+		}
+		inline float Radians(float degrees)
+		{
+			return glm::radians(degrees);
+		}
 		///@brief Scale a value ranged in between two number, to another range in between two other numbers.
 		template <typename T>
 		T ScaleRangeTo(T value, T oldMin, T oldMax, T newMin, T newMax)
