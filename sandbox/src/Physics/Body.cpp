@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Sandbox/Physics/Body.h"
 #include "Sandbox/Physics/Physics.h"
+#include "Sandbox/Math.h"
 
 namespace Sandbox
 {
@@ -74,13 +75,14 @@ namespace Sandbox
 
 	void Body::UpdateTransform(Vec3f position, float rotation)
 	{
-		//todo scale
+		//todo scale, needs to recreate the fixture
+
 		b2Vec2 pos(position.x, position.y);
 		if (m_YisZ)
 		{
 			pos.y = position.z;
 		}
-		m_body->SetTransform(pos, rotation);
+		m_body->SetTransform(pos, Math::Radians(rotation));
 	}
 
 	void Body::SetYisZ(bool yIsZ)

@@ -7,7 +7,9 @@ namespace Sandbox
 	class PhysicsSystem : public System
 	{
 	public:
+		PhysicsSystem();
 		void OnStart() override;
+		void OnUpdate(Time deltaTime) override;
 		int GetUsedMethod() override;
 		void OnAddBody(ComponentSignal signal);
 

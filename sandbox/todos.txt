@@ -29,14 +29,15 @@ big tasks:
 2D physics, raycasting, shape casting:
 
 -move raycast implementation into cpp
-- create callbacks classes for raycasting:
--Body must be moved with both transform&body
--PhysicsSystem OnAddComponent and Transform Update
 
--once done test collision with differents shapes and fitler
+-PhysicsSystem Transform Update: Body b2Transform must be moved with both transform&body
+
 -check polygon winding order
 -test enable/disable DrawCollider
 -add offset for box2D/circle2D
+
 -negate scale in ColliderRender.wire transform matrix
--physics::BodyOverlap
 -check if aspect ratio for wire is needed
+
+-implement physics method
+-testing of physics

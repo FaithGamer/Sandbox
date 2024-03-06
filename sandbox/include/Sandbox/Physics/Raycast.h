@@ -11,7 +11,7 @@ namespace Sandbox
 {
 	struct RaycastResult
 	{
-		Entity entity;
+		EntityId entityId;
 		Vec2f point = 0;
 		Vec2f normal = 0;
 		float distance = 0;
@@ -25,7 +25,7 @@ namespace Sandbox
 
 	struct OverlapResult
 	{
-		Entity entity;
+		EntityId entityId;
 	};
 
 	/// @brief For internal use
@@ -38,13 +38,15 @@ namespace Sandbox
 		}
 		float ReportFixture(b2Fixture* fixture, const b2Vec2& point, const b2Vec2& normal, float fraction) override
 		{
+			//Fixture's body is not contained in the collision mask
 			if (!m_mask.Contains(fixture->GetFilterData().categoryBits))
 				return -1.0f;
-			//fixture->GetUserData().pointer;
-			auto data = static_cast<FixtureUserData*>((void*)(fixture->GetBody()->GetUserData().pointer));
 
-			//to do user data
-			//result.entity = data->entity;
+			//UserData contains entity id of fixture's body's entity
+			auto data = static_cast<Collider::UserData*>((void*)(fixture->GetBody()->GetUserData().pointer));
+
+			//Store raycast data
+			result.entityId = data->entity;
 			result.point = point;
 			result.normal = normal;
 			//to do compute distance

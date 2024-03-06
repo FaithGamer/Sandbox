@@ -49,12 +49,6 @@ namespace Sandbox
 		Vec2f c;
 	};
 
-	struct FixtureUserData
-	{
-		Body* body;
-		EntityId entity;
-	};
-
 	class ColliderRender;
 
 	/// @brief Interface class for colliders, need to be added to a Body
