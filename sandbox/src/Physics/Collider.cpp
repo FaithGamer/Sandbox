@@ -215,4 +215,27 @@ namespace Sandbox
 	{
 		m_triangles = mapbox::earcut(m_points);
 	}
+
+	b2AABB Polygon2D::GetAABB()
+	{
+		b2AABB aabb;
+		aabb.lowerBound.x = -99999999;
+		aabb.lowerBound.y = -99999999;
+		aabb.upperBound.x = 99999999;
+		aabb.upperBound.y = 99999999;
+		for (int i = 1; i < m_shapes.size(); i++)
+		{
+			b2AABB saabb;
+			m_shapes[i].ComputeAABB(&saabb, m_body->GetB2Body()->GetTransform(), 0);
+			if (saabb.lowerBound.x < aabb.lowerBound.x)
+				aabb.lowerBound.x = saabb.lowerBound.x;
+			if (saabb.lowerBound.y < aabb.lowerBound.y)
+				aabb.lowerBound.y = saabb.lowerBound.y;
+			if (saabb.upperBound.x > aabb.upperBound.x)
+				aabb.upperBound.x = saabb.upperBound.x;
+			if (saabb.upperBound.y > aabb.upperBound.y)
+				aabb.upperBound.y = saabb.upperBound.y;
+		}
+		return aabb;
+	}
 }
