@@ -23,7 +23,7 @@ namespace Sandbox
 
 		QueryBodyOverlapAll query(body, mask);
 
-			ins->m_world->QueryAABB(&query, aabb);
+		ins->m_world->QueryAABB(&query, aabb);
 	}
 	void Physics::CircleOverlap(std::vector<OverlapResult>& results, Vec2f pos, float radius, Bitmask mask)
 	{
@@ -38,7 +38,7 @@ namespace Sandbox
 		b2CircleShape shape;
 		shape.m_p = pos;
 		shape.m_radius = radius;
-		QueryOverlapAll query(&shape, mask);
+		QueryB2ShapeOverlapAll query(&shape, mask);
 		query.results = &results;
 
 		//Query the world

@@ -57,10 +57,10 @@ namespace Sandbox
 	};
 
 	/// @brief For internal use
-	class QueryOverlapAll : public b2QueryCallback
+	class QueryB2ShapeOverlapAll : public b2QueryCallback
 	{
 	public:
-		QueryOverlapAll(b2Shape* shape, Bitmask mask) : m_mask(mask), m_shape(shape)
+		QueryB2ShapeOverlapAll(b2Shape* shape, Bitmask mask) : m_mask(mask), m_shape(shape)
 		{
 		}
 
@@ -68,11 +68,11 @@ namespace Sandbox
 		{
 			//Layer mask
 			if (!m_mask.Contains(fixture->GetFilterData().categoryBits))
-				return -1.0f;
+				return true;
 
 			b2Transform identity(b2Vec2(0, 0), b2Rot(0));
 			if (!b2TestOverlap(m_shape, 0, fixture->GetShape(), 0, identity, fixture->GetBody()->GetTransform()))
-				return -1.0f;
+				return true;
 
 			//User data in the fixture's body
 			auto data = static_cast<FixtureUserData*>((void*)(fixture->GetBody()->GetUserData().pointer));
@@ -104,7 +104,7 @@ namespace Sandbox
 		{
 			//Layer mask
 			if (!m_mask.Contains(fixture->GetFilterData().categoryBits))
-				return -1.0f;
+				return true;
 
 			auto colliders = m_body->GetColliders();
 			bool collide = false;
@@ -117,7 +117,7 @@ namespace Sandbox
 				}
 			}
 			if (!collide)
-				return -1.0f;
+				return true;
 			//User data in the fixture's body
 			auto data = static_cast<FixtureUserData*>((void*)(fixture->GetBody()->GetUserData().pointer));
 
