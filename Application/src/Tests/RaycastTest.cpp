@@ -45,9 +45,7 @@ public:
 };
 void RaycastTest()
 {
-	Systems::CreateWorld();
 	Engine::Init();
-	
 
 	///__ b2 raycast
 	LOG_INFO(" --- b2Raycast ---");

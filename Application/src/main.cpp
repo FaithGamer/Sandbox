@@ -60,8 +60,9 @@ int main(int argc, char** argv)
 	//AssetsTest();
 	//EarcutTest();
 	//LineRenderTest();
+
 	RaycastTest();
-//	ECSTest();
+	//ECSTest();
 
 
 	return 0;

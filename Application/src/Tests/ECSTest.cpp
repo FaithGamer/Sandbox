@@ -28,15 +28,16 @@ using namespace Sandbox;
 class EcsTest : public System
 {
 public:
-	EcsTest(World* world)
+	EcsTest()
 	{
-		m_world = world;
+		m_world = Systems::GetMainWorld();
+		ListenAddComponent<CompC>(&EcsTest::OnAddCompC);
+		ListenRemoveComponent<CompC>(&EcsTest::OnRemoveCompC);
 	}
 
 	void OnStart() override
 	{
-		ListenAddComponent<CompC>(&EcsTest::OnAddCompC);
-		ListenRemoveComponent<CompC>(&EcsTest::OnRemoveCompC);
+
 	}
 
 	void OnUpdate(Time time) override
@@ -82,9 +83,9 @@ void ECSTest()
 {
 	Sandbox::Engine::Init();
 
-	auto world = Sandbox::Systems::CreateWorld("MyWorld");
 
-	Sandbox::Systems::Push<EcsTest>(world);
+
+	Sandbox::Systems::Push<EcsTest>();
 
 
 	Entity entity = Entity::Create();
