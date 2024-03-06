@@ -23,7 +23,12 @@ namespace Sandbox
 		void SetScale(float x, float y, float z);
 		/*void SetOrigin(Vec3f origin);
 		void SetOrigin(float x, float y, float z);*/
+
+		/// @brief Warning! Currently rotation works only for the Z axis
+		/// @param angles Degrees
 		void SetRotation(Vec3f angles);
+		/// @brief Rotate on the Z axis (mainly for 2D usage)
+		/// @param angles Degrees
 		void SetRotationZAxis(float angle);
 		
 		void Move(Vec3f translation);
