@@ -44,5 +44,7 @@ big tasks:
 -negate scale in ColliderRender.wire transform matrix
 -check if aspect ratio for wire is needed
 
+-OnAddComponent cannot be triggered before engine launch?
+
 -implement physics method
 -testing of physics

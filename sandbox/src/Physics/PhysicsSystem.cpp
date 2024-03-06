@@ -8,10 +8,11 @@ namespace Sandbox
 	PhysicsSystem::PhysicsSystem()
 	{
 		SetPriority(99999);
+		ListenAddComponent<Body>(&PhysicsSystem::OnAddBody);
 	}
 	void PhysicsSystem::OnStart()
 	{
-		ListenAddComponent<Body>(&PhysicsSystem::OnAddBody);
+		
 	}
 	void PhysicsSystem::OnAddBody(ComponentSignal signal)
 	{

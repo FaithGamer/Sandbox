@@ -36,6 +36,7 @@ namespace Sandbox
 		Assets::Instance();
 		Renderer2D::Instance();
 		Renderer2D::AddLayer("DebugLayer");
+		Systems::Instance()->CreateWorld();
 		Physics::Instance();
 
 		LoadImGui(Window::GetSDLWindow(), Window::GetSDL_GLContext());
