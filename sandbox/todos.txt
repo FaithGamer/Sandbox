@@ -32,6 +32,9 @@ big tasks:
 
 -PhysicsSystem Transform Update: Body b2Transform must be moved with both transform&body
 
+-test phsyics system update
+-test physics system OnAddBody
+
 -check polygon winding order
 -test enable/disable DrawCollider
 -add offset for box2D/circle2D

@@ -14,6 +14,7 @@
 #include "Sandbox/ECS/WireRenderSystem.h"
 #include "Sandbox/ECS/ParticleSystem.h"
 #include "Sandbox/Physics/PhysicsSystem.h"
+#include "Sandbox/Physics/Physics.h"
 
 
 namespace Sandbox
@@ -35,6 +36,7 @@ namespace Sandbox
 		Assets::Instance();
 		Renderer2D::Instance();
 		Renderer2D::AddLayer("DebugLayer");
+		Physics::Instance();
 
 		LoadImGui(Window::GetSDLWindow(), Window::GetSDL_GLContext());
 	
