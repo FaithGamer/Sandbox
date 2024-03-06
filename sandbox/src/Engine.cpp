@@ -13,6 +13,7 @@
 #include "Sandbox/ECS/LineRendererSystem.h"
 #include "Sandbox/ECS/WireRenderSystem.h"
 #include "Sandbox/ECS/ParticleSystem.h"
+#include "Sandbox/Physics/PhysicsSystem.h"
 
 
 namespace Sandbox
@@ -44,6 +45,7 @@ namespace Sandbox
 			Systems::Push<LineRendererSystem>();
 			Systems::Push<WireRenderSystem>();
 			Systems::Push<ParticleSystem>();
+			Systems::Push<PhysicsSystem>();
 		}
 	}
 
