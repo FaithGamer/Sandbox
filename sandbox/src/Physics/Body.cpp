@@ -4,7 +4,7 @@
 
 namespace Sandbox
 {
-	Body::Body(Type type, Bitmask layer) : m_type(type), m_layer(layer), m_mask(65535), m_YisZ(false), m_entity(EntityId(0))
+	Body::Body(Type type, Bitmask layer) : m_type(type), m_layer(layer), m_mask(65535), m_YisZ(false)
 	{
 		b2BodyDef def;
 

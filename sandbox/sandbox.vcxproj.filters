@@ -198,7 +198,7 @@
     <ClCompile Include="src\ECS\WireRenderSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ECS\ColliderRenderDebugSystem.cpp">
+    <ClCompile Include="src\Physics\ColliderRenderDebugSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -431,7 +431,7 @@
     <ClInclude Include="include\Sandbox\ECS\EntityId.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Physics.h">
+    <ClInclude Include="include\Sandbox\PhysicEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Render\WireRender.h">
@@ -440,7 +440,7 @@
     <ClInclude Include="include\Sandbox\ECS\WireRenderSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\ECS\ColliderRenderDebugSystem.h">
+    <ClInclude Include="include\Sandbox\Physics\ColliderRenderDebugSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

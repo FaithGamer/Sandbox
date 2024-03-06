@@ -2,6 +2,7 @@
 
 #include "box2d/box2d.h"
 #include "Sandbox/Vec.h"
+#include "Sandbox/Physics/Collider.h"
 #include "Sandbox/Physics/Bitmask.h"
 #include "Sandbox/ECS/EntityId.h"
 #include "Sandbox/std_macros.h"
@@ -65,8 +66,16 @@ namespace Sandbox
 		b2Body* GetB2Body();
 		const std::vector<sptr<Collider>>* GetColliders();
 		b2AABB GetAABB();
-		
+
+	public:
+		/// @brief Used internally to keep data about the body within box2D
+
+
+		Collider::UserData userData;
+
 	private:
+
+
 		friend PhysicsSystem;
 		b2Filter GetB2Filter();
 
@@ -75,7 +84,7 @@ namespace Sandbox
 		Bitmask m_layer;
 		Bitmask m_mask;
 		b2Body* m_body;
-		EntityId m_entity;
+
 		bool m_YisZ;
 	};
 }

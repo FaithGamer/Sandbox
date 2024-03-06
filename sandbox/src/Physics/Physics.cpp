@@ -2,7 +2,7 @@
 #include "Sandbox/Physics/Physics.h"
 #include "Sandbox/Physics/Raycast.h"
 #include "Sandbox/ECS/Systems.h"
-#include "Sandbox/ECS/ColliderRenderDebugSystem.h"
+#include "Sandbox/Physics/ColliderRenderDebugSystem.h"
 
 namespace Sandbox
 {

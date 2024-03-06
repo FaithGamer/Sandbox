@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Sandbox/ECS/ColliderRenderDebugSystem.h"
+#include "Sandbox/Physics/ColliderRenderDebugSystem.h"
 #include "Sandbox/Physics/Collider.h"
 #include "Sandbox/Render/Renderer2D.h"
 #include "Sandbox/Physics/Body.h"

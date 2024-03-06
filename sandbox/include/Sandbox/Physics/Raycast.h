@@ -95,7 +95,7 @@ namespace Sandbox
 	class QueryBodyOverlapAll : public b2QueryCallback
 	{
 	public:
-		QueryBodyOverlapAll(Body* body, Bitmask mask) : m_mask(mask), m_body(body)
+		QueryBodyOverlapAll(Body* body, Bitmask mask) : m_mask(mask), m_body(body), 
 		{
 
 		}

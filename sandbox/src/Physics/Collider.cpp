@@ -21,13 +21,15 @@ namespace Sandbox
 		m_shape.SetAsBox(width * 0.5f, height * 0.5f);
 	}
 
-	void Box2D::SetBody(Body* body, b2Filter filter)
+	void Box2D::SetBody(Body* body, b2Filter filter, UserData& userData)
 	{
 		//Create fixture and attach to body
 		b2Body* b2B = body->GetB2Body();
 		b2FixtureDef fixtureDef;
 		fixtureDef.shape = &m_shape;
+		fixtureDef.userData.pointer = (uintptr_t)&userData;
 		auto fixture = b2B->CreateFixture(&fixtureDef);
+
 		fixture->SetFilterData(filter);
 
 	}
@@ -84,11 +86,13 @@ namespace Sandbox
 	{
 		m_shape.m_radius = radius;
 	}
-	void Circle2D::SetBody(Body* body, b2Filter filter)
+
+	void Circle2D::SetBody(Body* body, b2Filter filter, UserData& userData)
 	{
 		b2Body* b2B = body->GetB2Body();
 		b2FixtureDef fixtureDef;
 		fixtureDef.shape = &m_shape;
+		fixtureDef.userData.pointer = (uintptr_t)&userData;
 		auto fixture = b2B->CreateFixture(&fixtureDef);
 		fixture->SetFilterData(filter);
 	}
@@ -142,7 +146,7 @@ namespace Sandbox
 		m_points.emplace_back(points);
 	}
 
-	void Polygon2D::SetBody(Body* body, b2Filter filter)
+	void Polygon2D::SetBody(Body* body, b2Filter filter, UserData& userData)
 	{
 		BakeTriangles();
 		if (m_triangles.size() < 3)
@@ -169,6 +173,7 @@ namespace Sandbox
 
 
 			def.shape = &m_shapes.back();
+			def.userData.pointer = (uintptr_t)&userData;
 
 			b2Body* b2B = body->GetB2Body();
 			auto fixture = b2B->CreateFixture(&def);

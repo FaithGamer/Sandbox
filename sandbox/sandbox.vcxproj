@@ -75,7 +75,7 @@
     <ClCompile Include="src\ECS\System.cpp" />
     <ClCompile Include="src\Input\TextualInput.cpp" />
     <ClCompile Include="src\Task.cpp" />
-    <ClCompile Include="src\ECS\ColliderRenderDebugSystem.cpp" />
+    <ClCompile Include="src\Physics\ColliderRenderDebugSystem.cpp" />
     <ClCompile Include="src\Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -94,10 +94,10 @@
     <ClInclude Include="include\Sandbox\Input.h" />
     <ClInclude Include="include\Sandbox\Input\Inputs.h" />
     <ClInclude Include="include\Sandbox\EngineParameters.h" />
-    <ClInclude Include="include\Sandbox\Physics.h" />
+    <ClInclude Include="include\Sandbox\PhysicEngine.h" />
     <ClInclude Include="include\Sandbox\Physics\Body.h" />
     <ClInclude Include="include\Sandbox\Physics\Collider.h" />
-    <ClInclude Include="include\Sandbox\ECS\ColliderRenderDebugSystem.h" />
+    <ClInclude Include="include\Sandbox\Physics\ColliderRenderDebugSystem.h" />
     <ClInclude Include="include\Sandbox\Render\WireRender.h" />
     <ClInclude Include="include\Sandbox\Physics\PhysicsSystem.h" />
     <ClInclude Include="include\Sandbox\Physics\Raycast.h" />

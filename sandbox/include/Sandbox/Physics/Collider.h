@@ -62,6 +62,10 @@ namespace Sandbox
 	class Collider
 	{
 	public:
+		struct UserData
+		{
+			EntityId entity = EntityId(0);
+		};
 		virtual ~Collider() {}
 		virtual bool B2ShapeOverlap(b2Shape* shape, b2Transform& transform) = 0;
 		virtual bool ColliderOverlap(Collider* collider) = 0;
@@ -76,7 +80,7 @@ namespace Sandbox
 		}
 	protected:
 		friend Body;
-		virtual void SetBody(Body* body, b2Filter filter) = 0;
+		virtual void SetBody(Body* body, b2Filter filter, UserData& userData) = 0;
 		Body* m_body = nullptr;
 	};
 
@@ -100,7 +104,7 @@ namespace Sandbox
 		Box2D(Vec2f dimensions);
 		Box2D(float width, float height);
 
-		void SetBody(Body* body, b2Filter filter) override;
+		void SetBody(Body* body, b2Filter filter, UserData& userData) override;
 
 		bool B2ShapeOverlap(b2Shape* shape, b2Transform& transform) override;
 		bool ColliderOverlap(Collider* collider) override;
@@ -123,7 +127,7 @@ namespace Sandbox
 		Circle2D(float radius);
 
 
-		void SetBody(Body* body, b2Filter filter) override;
+		void SetBody(Body* body, b2Filter filter, UserData& userData) override;
 
 		bool B2ShapeOverlap(b2Shape* shape, b2Transform& transform) override;
 		bool ColliderOverlap(Collider* collider) override;
@@ -143,7 +147,7 @@ namespace Sandbox
 		Polygon2D();
 		Polygon2D(std::vector<Vec2f> points);
 
-		void SetBody(Body* body, b2Filter filter) override;
+		void SetBody(Body* body, b2Filter filter, UserData& userData) override;
 
 		bool B2ShapeOverlap(b2Shape* shape, b2Transform& transform) override;
 		bool ColliderOverlap(Collider* collider) override;
