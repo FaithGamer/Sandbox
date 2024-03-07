@@ -16,6 +16,7 @@
 -test line renderer reverse (must reverse width aswell i think)
 -vec operator take references
 -test if we can draw a line between two sprites (Z depth)
+-rename spriteRender to SpriteRenderer
 
 BIG TASKS:
 

@@ -19,7 +19,6 @@ struct MouseTag
 	int tag;
 };
 
-
 class CollisionTestSystem : public System
 {
 public:
@@ -28,12 +27,10 @@ public:
 		timer += (float)delta*50;
 		y = Math::Sin(timer) * 10;
 
-		Vec3f pos;
+		Vec3f pos = Systems::GetMainCamera()->ScreenToWorld(GetMousePosition(), Window::GetSize());
 
 		ForeachComponents<MouseTag, Transform>([&pos](MouseTag& tag, Transform& trans)
 			{
-				pos = Systems::GetMainCamera()->ScreenToWorld(GetMousePosition(), Window::GetSize());
-
 				trans.SetPosition(pos);
 			});
 
@@ -42,9 +39,10 @@ public:
 				auto trans = entity.GetComponent<Transform>();
 				//trans->SetPosition({ 0, y, 0 });
 				std::vector<OverlapResult> overlap;
-				Physics::CircleOverlap(overlap, pos, 3, 1);
+				Physics::PointInside(overlap, pos, 1);
 				if (overlap.size() > 0)
 				{
+					CreatePixel(pos);
 					sprite.color = Vec4f(1, 0, 0, 1);
 				}
 				else
@@ -52,6 +50,17 @@ public:
 					sprite.color = Vec4f(1, 1, 1, 1);
 				}
 			});
+	}
+
+	void CreatePixel(Vec3f pos)
+	{
+		Entity pixel = Entity::Create();
+		auto transform = pixel.AddComponent<Transform>();
+		transform->SetPosition(pos);
+		transform->SetScale(0.1f);
+
+		auto sprite = pixel.AddComponent<SpriteRender>();
+		sprite->SetSprite(Assets::Get<Sprite>("square.png_0_0").Ptr());
 	}
 	float timer = 0;
 	float y = 0;
@@ -190,8 +199,6 @@ void RaycastTest()
 	auto bo = circleEntity.AddComponent<Body>(Body::Type::Kinematic, 4);
 
 	bo->AddCollider(makesptr<Circle2D>(3));
-
-
 
 
 	Engine::Launch();
