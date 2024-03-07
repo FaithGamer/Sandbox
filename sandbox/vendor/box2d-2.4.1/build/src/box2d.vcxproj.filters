@@ -312,4 +312,7 @@
       <UniqueIdentifier>{E0A0EA74-48B9-375B-B88B-1A16042CBB9B}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\Application\Application.vcxproj" />
+  </ItemGroup>
 </Project>

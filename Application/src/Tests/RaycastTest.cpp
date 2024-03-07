@@ -9,11 +9,15 @@
 #include "Sandbox/Assets.h"
 #include "Sandbox/Math.h"
 #include "Sandbox/Render/Renderer2D.h"
+#include "Sandbox/Input/Mouse.h"
 
 using namespace Sandbox;
 
 
-
+struct MouseTag
+{
+	int tag;
+};
 
 
 class CollisionTestSystem : public System
@@ -24,12 +28,21 @@ public:
 		timer += (float)delta*50;
 		y = Math::Sin(timer) * 10;
 
+		Vec3f pos;
+
+		ForeachComponents<MouseTag, Transform>([&pos](MouseTag& tag, Transform& trans)
+			{
+				pos = Systems::GetMainCamera()->ScreenToWorld(GetMousePosition(), Window::GetSize());
+
+				trans.SetPosition(pos);
+			});
+
 		ForeachEntities<Body, SpriteRender>([&](Entity entity, Body& body, SpriteRender& sprite)
 			{
 				auto trans = entity.GetComponent<Transform>();
-				trans->SetPosition({ -0.1, y, 0 });
+				//trans->SetPosition({ 0, y, 0 });
 				std::vector<OverlapResult> overlap;
-				Physics::CircleOverlap(overlap, Vec2f(7, 0), 3, 1);
+				Physics::CircleOverlap(overlap, pos, 3, 1);
 				if (overlap.size() > 0)
 				{
 					sprite.color = Vec4f(1, 0, 0, 1);
@@ -46,10 +59,10 @@ public:
 void RaycastTest()
 {
 	Engine::Init();
-
+	
 	///__ b2 raycast
 	LOG_INFO(" --- b2Raycast ---");
-	b2World world(Vec2f(0, 0));
+	/*b2World world(Vec2f(0, 0));
 
 	b2BodyDef bodyDefault;
 	auto body1 = world.CreateBody(&bodyDefault);
@@ -87,7 +100,7 @@ void RaycastTest()
 	std::cout << "OVERLAP2: " << b2TestOverlap(&circle1, 0, &circle2, 0, t, t) << std::endl;
 	std::cout << std::endl;
 	std::cout << std::endl;
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 
 	///_____ filter test
 
@@ -139,8 +152,6 @@ void RaycastTest()
 		std::cout << m.flags << std::endl;
 	}
 
-
-
 	std::cout << std::endl;
 	std::cout << std::endl;
 	std::cout << std::endl;
@@ -160,19 +171,21 @@ void RaycastTest()
 	cam.SetOrthographic(true);
 	Systems::SetMainCamera(&cam);
 
+	Window::Instance()->ResizeSignal.AddListener(&Camera::SetAspectRatio, &cam);
+
 	Entity bodyEntity = Entity::Create();
 
 	auto body = bodyEntity.AddComponent<Body>(Body::Type::Kinematic, 1);
 	auto trans = bodyEntity.AddComponent<Transform>();
-	trans->SetRotationZAxis(12);
+	trans->SetRotationZAxis(50);
 	auto spriteRender = bodyEntity.AddComponent<SpriteRender>();
 	spriteRender->SetSprite(Assets::Get<Sprite>("spritesheet.png_0_0").Ptr());
 	body->AddCollider(makesptr<Box2D>(7, 7));
 
 	Entity circleEntity = Entity::Create();
 
-
-	circleEntity.AddComponent<Transform>()->SetPosition(7, 0, 0);
+	circleEntity.AddComponent<MouseTag>();
+	circleEntity.AddComponent<Transform>()->SetPosition(5, 0, 0);
 	auto bo = circleEntity.AddComponent<Body>(Body::Type::Kinematic, 4);
 
 	bo->AddCollider(makesptr<Circle2D>(3));

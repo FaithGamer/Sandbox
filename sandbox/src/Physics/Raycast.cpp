@@ -14,7 +14,7 @@ namespace Sandbox
 			return -1.0f;
 
 		//UserData contains entity id of fixture's body's entity
-		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetBody()->GetUserData().pointer));
+		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetUserData().pointer));
 
 		//Store raycast data
 		result.entityId = data->entityId;
@@ -45,7 +45,7 @@ namespace Sandbox
 			return true;
 
 		//User data in the fixture's body
-		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetBody()->GetUserData().pointer));
+		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetUserData().pointer));
 
 		results->emplace_back(OverlapResult(data->entityId));
 
@@ -83,7 +83,7 @@ namespace Sandbox
 		if (!collide)
 			return true;
 		//User data in the fixture's body
-		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetBody()->GetUserData().pointer));
+		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetUserData().pointer));
 
 		results->emplace_back(OverlapResult(data->entityId));
 
