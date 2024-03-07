@@ -46,7 +46,7 @@ namespace Sandbox
 	class QueryB2ShapeOverlapAll : public b2QueryCallback
 	{
 	public:
-		QueryB2ShapeOverlapAll(b2Shape* shape, Bitmask mask);
+		QueryB2ShapeOverlapAll(b2Shape* shape, Bitmask mask, std::vector<OverlapResult>* Results);
 		bool ReportFixture(b2Fixture* fixture) override;
 
 	public:
@@ -61,7 +61,7 @@ namespace Sandbox
 	class QueryBodyOverlapAll : public b2QueryCallback
 	{
 	public:
-		QueryBodyOverlapAll(Body* body, Bitmask mask);
+		QueryBodyOverlapAll(Body* body, Bitmask mask, std::vector<OverlapResult>* Results);
 		bool ReportFixture(b2Fixture* fixture) override;
 
 	public:
@@ -69,6 +69,21 @@ namespace Sandbox
 
 	private:
 		Body* m_body;
+		Bitmask m_mask;
+	};
+
+	/// @brief For internal use
+	class QueryPointInsideAll : public b2QueryCallback
+	{
+	public:
+		QueryPointInsideAll(Vec2f point, Bitmask mask, std::vector<OverlapResult>* Results);
+		bool ReportFixture(b2Fixture* fixture) override;
+
+	public:
+		std::vector<OverlapResult>* results;
+
+	private:
+		Vec2f m_point;
 		Bitmask m_mask;
 	};
 

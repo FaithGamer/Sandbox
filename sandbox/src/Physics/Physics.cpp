@@ -17,11 +17,12 @@ namespace Sandbox
 	}
 	void Physics::BodyOverlap(std::vector<OverlapResult>& results, Body* body, Bitmask mask)
 	{
+		//to do TEST
 		auto ins = Instance();
 
 		b2AABB aabb = body->GetAABB();
 
-		QueryBodyOverlapAll query(body, mask);
+		QueryBodyOverlapAll query(body, mask, &results);
 
 		ins->m_world->QueryAABB(&query, aabb);
 	}
@@ -38,8 +39,7 @@ namespace Sandbox
 		b2CircleShape shape;
 		shape.m_p = pos;
 		shape.m_radius = radius;
-		QueryB2ShapeOverlapAll query(&shape, mask);
-		query.results = &results;
+		QueryB2ShapeOverlapAll query(&shape, mask, &results);
 
 		//Query the world
 		ins->m_world->QueryAABB(&query, aabb);
@@ -47,6 +47,19 @@ namespace Sandbox
 		//Results are now stored 
 	}
 
+	void Physics::PointInside(std::vector<OverlapResult>& results, Vec2f pos, Bitmask mask)
+	{
+		auto ins = Instance();
+
+		b2AABB aabb;
+		aabb.lowerBound = pos - 0.01f;
+		aabb.upperBound = pos + 0.01f;
+
+		QueryPointInsideAll query(pos, mask, &results);
+
+		ins->m_world->QueryAABB(&query, aabb);
+
+	}
 	void Physics::DrawCollider(bool draw)
 	{
 		if (draw)

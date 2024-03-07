@@ -68,6 +68,7 @@ namespace Sandbox
 		std::vector<World*>& GetWorlds();
 
 		/// @brief Set a callback for every time a component of type ComponentType is created on an entity of any world
+		/// Use this method in system's constructor for it to work even for component created before Engine::Launch
 		/// @param callback Method to call upon creation
 		/// @param priority if multiple callback are set, higher priority get called first
 		template <typename ComponentType, typename SystemType>
@@ -80,6 +81,7 @@ namespace Sandbox
 		}
 
 		/// @brief Set a callback for every time a component of type ComponentType is created on an entity of a specific world
+		/// Use this method in system's constructor for it to work even for component created before Engine::Launch
 		/// @param callback Method to call upon creation
 		/// @param priority if multiple callback are set, higher priority get called first
 		template <typename ComponentType, typename SystemType>
@@ -89,6 +91,7 @@ namespace Sandbox
 		}
 
 		/// @brief Set a callback for every time a component of type ComponentType is removed on an entity of any world
+		/// Use this method in system's constructor for it to work even for component created before Engine::Launch
 		/// @param callback Method to call upon creation
 		/// @param priority if multiple callback are set, higher priority get called first
 		template <typename ComponentType, typename SystemType>
@@ -101,6 +104,7 @@ namespace Sandbox
 		}
 
 		/// @brief Set a callback for every time a component of type ComponentType is removed on an entity of a specific world
+		/// Use this method in system's constructor for it to work even for component created before Engine::Launch
 		/// @param callback Method to call upon creation
 		/// @param priority if multiple callback are set, higher priority get called first
 		template <typename ComponentType, typename SystemType>
@@ -110,6 +114,7 @@ namespace Sandbox
 		}
 
 		/// @brief Remove every callbacks for when a component of type ComponentType is added in any world
+		/// Use this method in system's constructor for it to work even for component created before Engine::Launch
 		/// @param callback Method to call upon creation
 		/// @param priority if multiple callback are set, higher priority get called first
 		template <typename ComponentType>

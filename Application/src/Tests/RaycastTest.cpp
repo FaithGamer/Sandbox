@@ -164,7 +164,7 @@ void RaycastTest()
 	//circle overlap a rectangle
 	std::cout << " Circle overlap rectangle  " << std::endl;
 
-	
+	Physics::DrawCollider(true);
 	Systems::Push<CollisionTestSystem>();
 
 	Camera cam;
@@ -176,21 +176,22 @@ void RaycastTest()
 	Entity bodyEntity = Entity::Create();
 
 	auto body = bodyEntity.AddComponent<Body>(Body::Type::Kinematic, 1);
+	body->AddCollider(makesptr<Box2D>(7, 7));
 	auto trans = bodyEntity.AddComponent<Transform>();
 	trans->SetRotationZAxis(50);
-	auto spriteRender = bodyEntity.AddComponent<SpriteRender>();
-	spriteRender->SetSprite(Assets::Get<Sprite>("spritesheet.png_0_0").Ptr());
-	body->AddCollider(makesptr<Box2D>(7, 7));
+	auto sprite = bodyEntity.AddComponent<SpriteRender>();
+	sprite->SetSprite(Assets::Get<Sprite>("spritesheet.png_0_0").Ptr());
+	
 
 	Entity circleEntity = Entity::Create();
 
 	circleEntity.AddComponent<MouseTag>();
-	circleEntity.AddComponent<Transform>()->SetPosition(5, 0, 0);
+	circleEntity.AddComponent<Transform>();
 	auto bo = circleEntity.AddComponent<Body>(Body::Type::Kinematic, 4);
 
 	bo->AddCollider(makesptr<Circle2D>(3));
 
-	Physics::DrawCollider(true);
+
 
 
 	Engine::Launch();

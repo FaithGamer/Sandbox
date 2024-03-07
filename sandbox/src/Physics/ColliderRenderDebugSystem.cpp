@@ -22,15 +22,14 @@ namespace Sandbox
 	ColliderRenderDebugSystem::ColliderRenderDebugSystem() : m_debugLayer(0)
 	{
 		SetPriority(-9999);
+
+		//Will add a collider render for each new body
+		ListenAddComponent<Body>(&ColliderRenderDebugSystem::OnAddBody);
 	}
 
 	void ColliderRenderDebugSystem::OnStart()
 	{
-		//OnStart is called after engine launch.
 		m_debugLayer = Renderer2D::GetLayerId("DebugLayer");
-
-		//Will add a collider render for each new body
-		ListenAddComponent<Body>(&ColliderRenderDebugSystem::OnAddBody);
 
 		//Create ColliderRender for every body
 		ForeachEntities<Body>([](Entity entity, Body& body)

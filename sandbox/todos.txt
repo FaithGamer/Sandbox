@@ -17,34 +17,27 @@
 -vec operator take references
 -test if we can draw a line between two sprites (Z depth)
 
-big tasks:
+BIG TASKS:
 
-- fixed aspect ratio for layers
+- fixed aspect ratio for render layers
 - animator for transform and sprite render
 - collisions
 - tile map
 - path finding
 - destroy children entities -> transform system
 
-2D physics, raycasting, shape casting:
+PHYSICS:
 
--move raycast implementation into cpp
-
--PhysicsSystem Transform Update: Body b2Transform must be moved with both transform&body
-
+-fix rotation that is no 45 degrees
 -test phsyics system update
 -test physics system OnAddBody
-
 -check polygon winding order
 -test enable/disable DrawCollider
 -add offset for box2D/circle2D
 -physics must have filters
--fix user data
-
--negate scale in ColliderRender.wire transform matrix
+-test user data
+-check if collision render wire draw correctly
+-draw box2D colliders to compare
 -check if aspect ratio for wire is needed
-
--OnAddBody is never called
-
 -implement physics method
 -testing of physics

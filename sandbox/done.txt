@@ -193,10 +193,11 @@ February
 >OverlapBody
 >Raycast
 
-February
+March
 
 06
 
->PhysicsSystem OnAddBody
->PhysicsSystem transform body = transform
->OnAddBody is never called
+-A default world is automatically created with engine init
+so OnAddComponent method of system works even before engine::init if they are called from constructor.
+-PhysicsSystem OnAddBody
+-PhysicsSystem transform body = transform

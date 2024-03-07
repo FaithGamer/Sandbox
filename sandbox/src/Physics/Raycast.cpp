@@ -3,6 +3,11 @@
 
 namespace Sandbox
 {
+	//
+	//
+	// Raycast Closest
+	//
+	//
 	RaycastCallbackClosest::RaycastCallbackClosest(Bitmask mask) : m_mask(mask)
 	{
 
@@ -28,10 +33,12 @@ namespace Sandbox
 
 	//
 	//
+	// B2Shape overlap
 	//
 	//
 
-	QueryB2ShapeOverlapAll::QueryB2ShapeOverlapAll(b2Shape* shape, Bitmask mask) : m_mask(mask), m_shape(shape), results(nullptr)
+	QueryB2ShapeOverlapAll::QueryB2ShapeOverlapAll(b2Shape* shape, Bitmask mask, std::vector<OverlapResult>* Results)
+		: m_mask(mask), m_shape(shape), results(Results)
 	{
 	}
 	bool QueryB2ShapeOverlapAll::ReportFixture(b2Fixture* fixture)
@@ -42,7 +49,7 @@ namespace Sandbox
 
 		b2Transform identity(b2Vec2(0, 0), b2Rot(0));
 		if (!b2TestOverlap(m_shape, 0, fixture->GetShape(), 0, identity, fixture->GetBody()->GetTransform()))
-			return true;
+			return true; //No overlap
 
 		//User data in the fixture's body
 		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetUserData().pointer));
@@ -56,10 +63,12 @@ namespace Sandbox
 
 	//
 	//
+	// Body Overlap
 	//
 	//
 
-	QueryBodyOverlapAll::QueryBodyOverlapAll(Body* body, Bitmask mask) : m_body(body), m_mask(mask), results(nullptr)
+	QueryBodyOverlapAll::QueryBodyOverlapAll(Body* body, Bitmask mask, std::vector<OverlapResult>* Results)
+		: m_body(body), m_mask(mask), results(Results)
 	{
 
 	}
@@ -87,6 +96,34 @@ namespace Sandbox
 
 		results->emplace_back(OverlapResult(data->entityId));
 
+
+		// Continue the query.
+		return true;
+	}
+
+	//
+	//
+	// Point Inside
+	//
+	//
+
+	QueryPointInsideAll::QueryPointInsideAll(Vec2f point, Bitmask mask, std::vector<OverlapResult>* Results)
+		: m_point(point), m_mask(mask), results(Results)
+	{
+
+	}
+	bool QueryPointInsideAll::ReportFixture(b2Fixture* fixture)
+	{
+		//Layer mask
+		if (!m_mask.Contains(fixture->GetFilterData().categoryBits))
+			return true;
+		//Is point inside fixture
+		if (!fixture->TestPoint(m_point))
+			return true;
+		//User data in the fixture's body
+		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetUserData().pointer));
+
+		results->emplace_back(OverlapResult(data->entityId));
 
 		// Continue the query.
 		return true;
