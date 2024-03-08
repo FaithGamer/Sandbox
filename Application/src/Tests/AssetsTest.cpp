@@ -34,7 +34,7 @@ public:
 		time += (float)deltaTime * 100;
 
 		ForeachComponents<RootTag, Transform>([deltaTime, this](RootTag& root, Transform& tr) {
-			tr.RotateZAxis((float)deltaTime * 50.f);
+			tr.RotateZ((float)deltaTime * 50.f);
 			float s = Math::Lerp(1, 3, (Math::Sin((float)time) + 1) / 2);
 			float zpos = Math::Lerp(1, -1, (Math::Sin((float)time) + 1) / 2);
 			tr.SetScale(Vec3f(s, s, s));
@@ -68,7 +68,7 @@ public:
 			if (entity.GetComponent<RootTag>() != nullptr)
 				return;
 
-			tr.RotateZAxis((float)deltaTime * 50.f);
+			tr.RotateZ((float)deltaTime * 50.f);
 			//float s = Math::Lerp(1, 3, (Math::Sin((float)time) + 1) / 2);
 			//float zpos = Math::Lerp(-1, 1, (Math::Sin((float)time) + 1) / 2);
 			//tr.SetScale(Vec3f(s, s, s));

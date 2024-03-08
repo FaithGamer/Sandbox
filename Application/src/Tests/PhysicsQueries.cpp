@@ -230,7 +230,7 @@ public:
 
 		ForeachComponents<ParentTag, Transform>([&](ParentTag& tag, Transform& transform) {
 			float rotation = time * 10.f;
-			transform.SetRotationZAxis(rotation);
+			transform.SetRotationZ(rotation);
 			});
 	}
 

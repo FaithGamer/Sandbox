@@ -193,7 +193,7 @@ protected:
 	float m_s1, m_s2;
 	float m_a1, m_a2;
 	b2Mat22 m_K;
-	float m_translation;
+	float m_position;
 	float m_axialMass;
 };
 

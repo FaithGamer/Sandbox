@@ -190,7 +190,7 @@ protected:
 
 	float m_lowerImpulse;
 	float m_upperImpulse;
-	float m_translation;
+	float m_position;
 	float m_lowerTranslation;
 	float m_upperTranslation;
 

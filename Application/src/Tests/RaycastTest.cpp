@@ -218,7 +218,7 @@ void RaycastTest()
 	auto body = bodyEntity.AddComponent<Body>(Body::Type::Kinematic, 1);
 	body->AddCollider(makesptr<Box2D>(7, 7));
 	auto trans = bodyEntity.AddComponent<Transform>();
-	trans->SetRotationZAxis(50);
+	trans->SetRotationZ(50);
 	auto sprite = bodyEntity.AddComponent<SpriteRender>();
 	sprite->SetSprite(Assets::Get<Sprite>("spritesheet.png_0_0").Ptr());
 	

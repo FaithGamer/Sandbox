@@ -106,7 +106,7 @@ b2PrismaticJoint::b2PrismaticJoint(const b2PrismaticJointDef* def)
 	m_enableLimit = def->enableLimit;
 	m_enableMotor = def->enableMotor;
 
-	m_translation = 0.0f;
+	m_position = 0.0f;
 	m_axis.SetZero();
 	m_perp.SetZero();
 }
@@ -177,7 +177,7 @@ void b2PrismaticJoint::InitVelocityConstraints(const b2SolverData& data)
 
 	if (m_enableLimit)
 	{
-		m_translation = b2Dot(m_axis, d);
+		m_position = b2Dot(m_axis, d);
 	}
 	else
 	{
@@ -257,7 +257,7 @@ void b2PrismaticJoint::SolveVelocityConstraints(const b2SolverData& data)
 	{
 		// Lower limit
 		{
-			float C = m_translation - m_lowerTranslation;
+			float C = m_position - m_lowerTranslation;
 			float Cdot = b2Dot(m_axis, vB - vA) + m_a2 * wB - m_a1 * wA;
 			float impulse = -m_axialMass * (Cdot + b2Max(C, 0.0f) * data.step.inv_dt);
 			float oldImpulse = m_lowerImpulse;
@@ -278,7 +278,7 @@ void b2PrismaticJoint::SolveVelocityConstraints(const b2SolverData& data)
 		// Note: signs are flipped to keep C positive when the constraint is satisfied.
 		// This also keeps the impulse positive when the limit is active.
 		{
-			float C = m_upperTranslation - m_translation;
+			float C = m_upperTranslation - m_position;
 			float Cdot = b2Dot(m_axis, vA - vB) + m_a1 * wA - m_a2 * wB;
 			float impulse = -m_axialMass * (Cdot + b2Max(C, 0.0f) * data.step.inv_dt);
 			float oldImpulse = m_upperImpulse;

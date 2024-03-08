@@ -41,7 +41,7 @@ void BillboardTest()
 	sptr<Texture> texture = makesptr<Texture>("assets/textures/image.png");
 
 	Transform transform;
-	transform.RotateZAxis(9);
+	transform.RotateZ(9);
 	transform.SetPosition({ 0, 0, 0 });
 	transform.SetScale(Vec3f(0.5, 0.5, 0.5));
 

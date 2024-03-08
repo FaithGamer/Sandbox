@@ -132,7 +132,7 @@ void HeroSystem::InstantiateBullet(Vec3f origin, Vec3f target)
 	render->SetLayer(Renderer2D::GetLayerId("Particles"));
 	auto transform = bullet.AddComponent<Transform>();
 	transform->SetPosition(origin);
-	transform->SetRotationZAxis(glm::degrees(std::atan2(direction.x, direction.y)));
+	transform->SetRotationZ(glm::degrees(std::atan2(direction.x, direction.y)));
 }
 
 void HeroSystem::InstanceBurstParticle(Vec3f position)

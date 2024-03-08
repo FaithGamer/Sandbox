@@ -179,7 +179,7 @@ void b2WheelJoint::InitVelocityConstraints(const b2SolverData& data)
 
 	if (m_enableLimit)
 	{
-		m_translation = b2Dot(m_ax, d);
+		m_position = b2Dot(m_ax, d);
 	}
 	else
 	{
@@ -279,7 +279,7 @@ void b2WheelJoint::SolveVelocityConstraints(const b2SolverData& data)
 	{
 		// Lower limit
 		{
-			float C = m_translation - m_lowerTranslation;
+			float C = m_position - m_lowerTranslation;
 			float Cdot = b2Dot(m_ax, vB - vA) + m_sBx * wB - m_sAx * wA;
 			float impulse = -m_axialMass * (Cdot + b2Max(C, 0.0f) * data.step.inv_dt);
 			float oldImpulse = m_lowerImpulse;
@@ -300,7 +300,7 @@ void b2WheelJoint::SolveVelocityConstraints(const b2SolverData& data)
 		// Note: signs are flipped to keep C positive when the constraint is satisfied.
 		// This also keeps the impulse positive when the limit is active.
 		{
-			float C = m_upperTranslation - m_translation;
+			float C = m_upperTranslation - m_position;
 			float Cdot = b2Dot(m_ax, vA - vB) + m_sAx * wA - m_sBx * wB;
 			float impulse = -m_axialMass * (Cdot + b2Max(C, 0.0f) * data.step.inv_dt);
 			float oldImpulse = m_upperImpulse;

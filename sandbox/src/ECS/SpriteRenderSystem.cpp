@@ -36,7 +36,7 @@ namespace Sandbox
 
 		ForeachComponents<SpriteRender, Transform>([&ordered, renderer](SpriteRender& sprite, Transform& transform)
 			{
-				auto ord = OrderedSpriteTransform(&sprite, &transform, transform.GetWorldPosition().z);
+				auto ord = OrderedSpriteTransform(&sprite, &transform, transform.GetPosition().z);
 				ordered.push_back(ord);
 			});
 		ordered.sort();

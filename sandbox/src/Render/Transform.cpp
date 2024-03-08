@@ -2,16 +2,16 @@
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-
+#include <glm/gtx/matrix_decompose.hpp>
 #include "Sandbox/Render/Transform.h"
 
 #include "Sandbox/ECS/Entity.h"
 namespace Sandbox
 {
 	Transform::Transform() :
-		m_translation(0.f),
-		m_scale(1.f),
-		m_rotation(0.f),
+		m_localPosition(0.f),
+		m_localScale(1.f),
+		m_localRotation(0.f),
 		m_transformMatrix(1.f),
 		needCompute(true),
 		matrixUpdated(true),
@@ -22,9 +22,9 @@ namespace Sandbox
 	}
 
 	Transform::Transform(Vec3f translation, Vec3f scale, float angle)
-		: m_translation(translation),
-		m_scale(scale),
-		m_rotation(0.f, 0.f, angle),
+		: m_localPosition(translation),
+		m_localScale(scale),
+		m_localRotation(0.f, 0.f, angle),
 		m_transformMatrix(1.f),
 		needCompute(true),
 		matrixUpdated(true),
@@ -34,9 +34,9 @@ namespace Sandbox
 	}
 
 	Transform::Transform(Vec3f translation, Vec3f scale, Vec3f angles)
-		: m_translation(translation),
-		m_scale(scale),
-		m_rotation(angles),
+		: m_localPosition(translation),
+		m_localScale(scale),
+		m_localRotation(angles),
 		m_transformMatrix(1.f),
 		needCompute(true),
 		matrixUpdated(true),
@@ -61,136 +61,108 @@ namespace Sandbox
 
 	void Transform::SetPosition(Vec3f translation)
 	{
-		if (translation == m_translation)
+		if (translation == m_localPosition)
 			return;
-		m_translation = translation;
+		m_localPosition = translation;
 		needCompute = true;
 	}
 
 	void Transform::SetScale(Vec3f scale)
 	{
-		if (m_scale == scale)
+		if (m_localScale == scale)
 			return;
-		m_scale = scale;
+		m_localScale = scale;
 		needCompute = true;
 	}
-
-	/*void Transform::SetOrigin(Vec3f origin)
-	{
-		if (m_origin == origin)
-			return;
-		m_origin = origin;
-		needCompute = true;
-	}*/
 
 	void Transform::SetPosition(float x, float y, float z)
 	{
 		auto pos = Vec3f(x, y, z);
-		if (m_translation == pos)
+		if (m_localPosition == pos)
 			return;
-		m_translation = pos;
+		m_localPosition = pos;
 		needCompute = true;
 	}
 
 	void Transform::SetScale(float x, float y, float z)
 	{
 		auto scale = Vec3f(x, y, z);
-		if (m_scale == scale)
+		if (m_localScale == scale)
 			return;
-		m_scale = Vec3f(x, y, z);
+		m_localScale = Vec3f(x, y, z);
 		needCompute = true;
 	}
-
-	/*void Transform::SetOrigin(float x, float y, float z)
-	{
-		auto origin = Vec3f(x, y, z);
-		if (m_origin == origin)
-			return;
-		m_origin = Vec3f(x, y, z);
-		needCompute = true;
-	}*/
 
 	void Transform::SetRotation(Vec3f angles)
 	{
-		if (m_rotation == angles)
+		if (m_localRotation == angles)
 			return;
-		m_rotation = angles;
+		m_localRotation = angles;
 		needCompute = true;
 	}
 
-	void Transform::SetRotationZAxis(float angle)
+	void Transform::SetRotationZ(float angle)
 	{
-		if (m_rotation.z == angle)
+		if (m_localRotation.z == angle)
 			return;
-		m_rotation.z = angle;
+		m_localRotation.z = angle;
 		needCompute = true;
 	}
 
 	void Transform::Move(Vec3f translation)
 	{
-		m_translation += translation;
+		m_localPosition += translation;
 		needCompute = true;
 	}
 
 	void Transform::Move(float x, float y, float z)
 	{
-		auto prev = m_translation;
-		m_translation += Vec3f(x, y, z);
+		auto prev = m_localPosition;
+		m_localPosition += Vec3f(x, y, z);
 		needCompute = true;
 	}
 
 	void Transform::Scale(Vec3f scale)
 	{
-		auto prev = m_scale;
-		m_scale *= scale;
+		auto prev = m_localScale;
+		m_localScale *= scale;
 		needCompute = true;
 	}
 
 	void Transform::Scale(float x, float y, float z)
 	{
-		m_scale *= Vec3f(x, y, z);
+		m_localScale *= Vec3f(x, y, z);
 		needCompute = true;
 	}
 
 	void Transform::Rotate(Vec3f angles)
 	{
 		//TO DO: Quaternions
-		m_rotation += angles;
+		m_localRotation += angles;
 		needCompute = true;
 	}
 
-	void Transform::RotateZAxis(float angle)
+	void Transform::RotateZ(float angle)
 	{
 		//TO DO: Quaternions
-		m_rotation.z += angle;
-		needCompute = true;
-	}
-
-	void Transform::Reset()
-	{
-		m_rotation = Vec3f(0.f);
-		m_scale = Vec3f(1.f);
-		m_translation = Vec3f(0.f);
-		m_origin = Vec3f(0.f);
-
+		m_localRotation.z += angle;
 		needCompute = true;
 	}
 
 	Transform Transform::operator+(const Transform& trans)
 	{
-		Transform t(m_translation + trans.m_translation,
-			m_scale * trans.m_scale,
-			m_rotation + trans.m_rotation);
+		Transform t(m_localPosition + trans.m_localPosition,
+			m_localScale * trans.m_localScale,
+			m_localRotation + trans.m_localRotation);
 		//todo see warning
 		return t;
 	}
 
 	Transform& Transform::operator+=(const Transform& trans)
 	{
-		m_translation += trans.m_translation;
-		m_scale *= trans.m_scale;
-		m_rotation += trans.m_rotation;
-		m_origin += trans.m_origin;
+		m_localPosition += trans.m_localPosition;
+		m_localScale *= trans.m_localScale;
+		m_localRotation += trans.m_localRotation;
 
 		needCompute = true;
 
@@ -199,10 +171,9 @@ namespace Sandbox
 
 	Transform& Transform::operator=(const Transform& trans)
 	{
-		m_translation = trans.m_translation;
-		m_scale = trans.m_scale;
-		m_rotation = trans.m_rotation;
-		m_origin = trans.m_origin;
+		m_localPosition = trans.m_localPosition;
+		m_localScale = trans.m_localScale;
+		m_localRotation = trans.m_localRotation;
 
 		needCompute = true;
 
@@ -211,49 +182,52 @@ namespace Sandbox
 
 	Vec3f Transform::GetPosition() const
 	{
-		return m_translation;
-	}
-
-	Vec3f Transform::GetWorldPosition() const
-	{
 		if (m_haveParent)
 		{
-			return m_translation + Entity(m_parent).GetComponent<Transform>()->GetWorldPosition();
+			if (needCompute)
+			{
+				ComputeMatrix();
+			}
+			auto parent = Entity(m_parent).GetComponent<Transform>();
+			Mat4 mat = parent->GetTransformMatrix() * m_transformMatrix;
+			return Vec3f(mat[3]);
 		}
-		return m_translation;
+		return m_localPosition;
+	}
+
+	Vec3f Transform::GetLocalPosition() const
+	{
+		return m_localPosition;
 	}
 
 	Vec3f Transform::GetScale() const
 	{
-		return m_scale;
-	}
-
-	Vec3f Transform::GetWorldScale() const
-	{
 		if (m_haveParent)
 		{
-			return m_scale * Entity(m_parent).GetComponent<Transform>()->GetWorldScale();
+			auto parent = Entity(m_parent).GetComponent<Transform>();
+			return parent->GetScale() * m_localScale;
 		}
-		return m_scale;
+		return m_localScale;
+	}
+
+	Vec3f Transform::GetLocalScale() const
+	{
+		return m_localScale;
 	}
 
 	Vec3f Transform::GetRotation() const
 	{
-		return m_rotation;
-	}
-
-	Vec3f Transform::GetWorldRotation() const
-	{
 		if (m_haveParent)
 		{
-			return m_rotation + Entity(m_parent).GetComponent<Transform>()->GetWorldScale();
+			auto parent = Entity(m_parent).GetComponent<Transform>();
+			return parent->GetRotation() + m_localRotation;
 		}
-		return m_rotation;
+		return m_localRotation;
 	}
 
-	float Transform::GetRotationZAxis() const
+	Vec3f Transform::GetLocalRotation() const
 	{
-		return m_rotation.z;
+		return m_localRotation;
 	}
 
 	Mat4 Transform::GetTransformMatrix() const
@@ -261,7 +235,6 @@ namespace Sandbox
 		if (needCompute)
 		{
 			ComputeMatrix();
-			needCompute = false;
 		}
 		if (m_haveParent)
 		{
@@ -273,13 +246,13 @@ namespace Sandbox
 
 	void Transform::ComputeMatrix() const
 	{
-		Mat4 transform(1.f);
+		Mat4 matrix(1.f);
 
-		transform = glm::translate(transform, (glm::vec3)m_translation);
-		transform = glm::rotate(transform, glm::radians(-m_rotation.z), glm::vec3(0, 0, 1));
-		transform = glm::scale(transform, (glm::vec3)m_scale);
-
-		m_transformMatrix = transform;
+		matrix = glm::translate(matrix, (glm::vec3)m_localPosition);
+		matrix = glm::rotate(matrix, glm::radians(-m_localRotation.z), glm::vec3(0, 0, 1));
+		matrix = glm::scale(matrix, (glm::vec3)m_localScale);
+		m_transformMatrix = matrix;
 		matrixUpdated = true;
+		needCompute = false;
 	}
 }
