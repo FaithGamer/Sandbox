@@ -41,3 +41,4 @@ PHYSICS:
 -check if aspect ratio for wire is needed
 -implement physics method
 -testing of physics
+-add entity parent in userdata

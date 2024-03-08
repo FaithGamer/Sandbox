@@ -213,6 +213,11 @@ so OnAddComponent method of system works even before engine::init if they are ca
 08
 
 >Testing physics queries
->make a body constructor with no layer (using default layer)
+-make a body constructor with no layer (this was already the case)
 -BodyOverlap tested and works
--
+-RaycastClosest tested and works
+-RaycastAll tested and works
+
+>fix GetWorldPosition and GetWorldRotation
+>change to LocalPosition and LocalRotation and scale
+

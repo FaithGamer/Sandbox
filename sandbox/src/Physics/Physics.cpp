@@ -18,7 +18,7 @@ namespace Sandbox
 	void Physics::RaycastClosest(RaycastResult& result, Vec2f start, Vec2f end, Bitmask mask)
 	{
 		auto ins = Instance();
-		QueryRaycastCallbackClosest query(start, mask);
+		QueryRaycastCallbackClosest query(start, mask, &result);
 		ins->m_world->RayCast(&query, start, end);
 	}
 	void Physics::RaycastAll(std::vector<RaycastResult>& results, Vec2f start, Vec2f end, Bitmask mask)

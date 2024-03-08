@@ -22,7 +22,7 @@ namespace Sandbox
 	{
 		ForeachComponents<Body, Transform>([](Body& body, Transform& transform)
 			{
-				body.UpdateTransform(transform.GetPosition(), transform.GetRotationZAxis());
+				body.UpdateTransform(transform.GetWorldPosition(), transform.GetWorldRotation().z);
 			});
 	}
 	int PhysicsSystem::GetUsedMethod()

@@ -10,7 +10,8 @@ namespace Sandbox
 	//
 	//
 
-	QueryRaycastCallbackClosest::QueryRaycastCallbackClosest(Vec2f start, Bitmask mask) : m_start(start), m_mask(mask)
+	QueryRaycastCallbackClosest::QueryRaycastCallbackClosest(Vec2f start, Bitmask mask, RaycastResult* Result) 
+		: m_start(start), m_mask(mask), result(Result)
 	{
 
 	}
@@ -24,11 +25,11 @@ namespace Sandbox
 		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetUserData().pointer));
 
 		//Store raycast result
-		result.entityId = data->entityId;
-		result.point = point;
-		result.normal = normal;
-		result.distance = Math::Abs(Vec2f((Vec2f)point - m_start).Magnitude()) * fraction;
-		result.hit = true;
+		result->entityId = data->entityId;
+		result->point = point;
+		result->normal = normal;
+		result->distance = Math::Abs(Vec2f((Vec2f)point - m_start).Magnitude()) * fraction;
+		result->hit = true;
 
 		return fraction;
 	}
@@ -39,7 +40,8 @@ namespace Sandbox
 	//
 	//
 
-	QueryRaycastCallbackAll::QueryRaycastCallbackAll(Vec2f start, Bitmask mask, std::vector<RaycastResult>* Results) : m_start(start), m_mask(), results(Results)
+	QueryRaycastCallbackAll::QueryRaycastCallbackAll(Vec2f start, Bitmask mask, std::vector<RaycastResult>* Results) 
+		: m_start(start), m_mask(mask), results(Results)
 	{
 
 	}

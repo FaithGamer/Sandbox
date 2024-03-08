@@ -361,7 +361,7 @@ namespace Sandbox
 	Vec2f Systems::GetMouseWorldPos()
 	{
 		Camera* camera = Instance()->m_mainCamera;
-		if (camera)
+		if (!camera)
 		{
 			LOG_WARN("Systems::GetMouseWorldPos, no main camera, Vec2f(0, 0) returned");
 			return Vec2f(0, 0);

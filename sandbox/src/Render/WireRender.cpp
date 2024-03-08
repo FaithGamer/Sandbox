@@ -51,6 +51,7 @@ namespace Sandbox
 			return;
 		}
 		m_points[index].point = position;
+		m_needUpdateBuffer = true;
 	}
 
 	void WireRender::SetLayer(uint32_t layer)

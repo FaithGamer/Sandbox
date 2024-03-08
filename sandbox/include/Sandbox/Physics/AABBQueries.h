@@ -14,11 +14,11 @@ namespace Sandbox
 	class QueryRaycastCallbackClosest : public b2RayCastCallback
 	{
 	public:
-		QueryRaycastCallbackClosest(Vec2f start, Bitmask mask);
+		QueryRaycastCallbackClosest(Vec2f start, Bitmask mask, RaycastResult* result);
 		float ReportFixture(b2Fixture* fixture, const b2Vec2& point, const b2Vec2& normal, float fraction) override;
 
 	public:
-		RaycastResult result;
+		RaycastResult* result;
 
 	private:
 		Vec2f m_start;
