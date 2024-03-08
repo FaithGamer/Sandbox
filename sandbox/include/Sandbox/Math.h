@@ -6,6 +6,14 @@ namespace Sandbox
 {
 	namespace Math
 	{
+		inline int Abs(int value)
+		{
+			return std::abs(value);
+		}
+		inline float Abs(float value)
+		{
+			return std::abs(value);
+		}
 		inline float Degrees(float radians)
 		{
 			return glm::degrees(radians);
