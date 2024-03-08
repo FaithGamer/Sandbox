@@ -29,7 +29,8 @@ BIG TASKS:
 
 PHYSICS:
 
--fix rotation that is no 45 degrees
+-fix rotation that is no 45 degrees:
+	visualize the actual physics during rotation on each frame (create pixel on the whole space on each frame and make the square rotate)
 -test phsyics system update
 -test physics system OnAddBody
 -check polygon winding order

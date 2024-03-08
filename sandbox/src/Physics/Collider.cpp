@@ -31,6 +31,7 @@ namespace Sandbox
 		auto fixture = b2B->CreateFixture(&fixtureDef);
 
 		fixture->SetFilterData(filter);
+		m_body = body;
 
 	}
 
@@ -95,6 +96,7 @@ namespace Sandbox
 		fixtureDef.userData.pointer = (uintptr_t)&userData;
 		auto fixture = b2B->CreateFixture(&fixtureDef);
 		fixture->SetFilterData(filter);
+		m_body = body;
 	}
 
 	bool Circle2D::B2ShapeOverlap(b2Shape* shape, b2Transform& transform)
@@ -148,6 +150,7 @@ namespace Sandbox
 
 	void Polygon2D::SetBody(Body* body, b2Filter filter, UserData& userData)
 	{
+		m_body = body;
 		BakeTriangles();
 		if (m_triangles.size() < 3)
 		{

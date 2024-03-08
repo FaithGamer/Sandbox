@@ -19,35 +19,54 @@ struct MouseTag
 	int tag;
 };
 
+struct PixelTag
+{
+	int tag;
+};
+
 class CollisionTestSystem : public System
 {
 public:
 	void OnUpdate(Time delta) override
 	{
 		timer += (float)delta*50;
-		y = Math::Sin(timer) * 10;
+		rotation = Math::Sin(timer) * 10;
 
 		Vec3f pos = Systems::GetMainCamera()->ScreenToWorld(GetMousePosition(), Window::GetSize());
 
+		//Destroy old pixel
+		ForeachEntities<PixelTag>([](Entity entity, PixelTag& tag)
+			{
+				entity.Destroy();
+			});
+
+		//Set circle to mouse position
 		ForeachComponents<MouseTag, Transform>([&pos](MouseTag& tag, Transform& trans)
 			{
 				trans.SetPosition(pos);
 			});
 
+		//Rotate square body and create pixel over the hitbox
 		ForeachEntities<Body, SpriteRender>([&](Entity entity, Body& body, SpriteRender& sprite)
 			{
 				auto trans = entity.GetComponent<Transform>();
-				//trans->SetPosition({ 0, y, 0 });
-				std::vector<OverlapResult> overlap;
-				Physics::PointInside(overlap, pos, 1);
-				if (overlap.size() > 0)
+				trans->SetRotation(rotation);
+
+				auto aabb = body.GetAABB();
+
+				for (int i = aabb.lowerBound.y*100; i < aabb.upperBound.y*100; i++)
 				{
-					CreatePixel(pos);
-					sprite.color = Vec4f(1, 0, 0, 1);
-				}
-				else
-				{
-					sprite.color = Vec4f(1, 1, 1, 1);
+					for (int j = aabb.lowerBound.x*100; j < aabb.upperBound.x*100; j++)
+					{
+						Vec2f position((float)j / 100, (float)i / 100);
+
+						std::vector<OverlapResult> overlap;
+						Physics::PointInside(overlap, pos, 1);
+						if (overlap.size() > 0)
+						{
+							CreatePixel(position);
+						}
+					}
 				}
 			});
 	}
@@ -63,7 +82,7 @@ public:
 		sprite->SetSprite(Assets::Get<Sprite>("square.png_0_0").Ptr());
 	}
 	float timer = 0;
-	float y = 0;
+	float rotation = 0;
 };
 void RaycastTest()
 {

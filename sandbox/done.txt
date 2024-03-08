@@ -201,3 +201,7 @@ March
 so OnAddComponent method of system works even before engine::init if they are called from constructor.
 -PhysicsSystem OnAddBody
 -PhysicsSystem transform body = transform
+-Physics::PointInside
+-Better identified the rotation physics problem
+
+>visualize the actual physics during rotation on each frame (create pixel on the whole space on each frame and make the square rotate)
