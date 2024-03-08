@@ -29,17 +29,13 @@ BIG TASKS:
 
 PHYSICS:
 
--fix rotation that is no 45 degrees:
-	visualize the actual physics during rotation on each frame (create pixel on the whole space on each frame and make the square rotate)
--test phsyics system update
--test physics system OnAddBody
+
 -check polygon winding order
 -test enable/disable DrawCollider
--add offset for box2D/circle2D
+-add offset for colliders
 -physics must have filters
 -test user data
 -check if collision render wire draw correctly
--draw box2D colliders to compare
 -check if aspect ratio for wire is needed
 -implement physics method
 -testing of physics

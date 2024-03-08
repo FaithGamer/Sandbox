@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Sandbox/Physics/Physics.h"
-#include "Sandbox/Physics/Raycast.h"
+#include "Sandbox/Physics/AABBQueries.h"
 #include "Sandbox/ECS/Systems.h"
 #include "Sandbox/Physics/ColliderRenderDebugSystem.h"
 
@@ -14,6 +14,12 @@ namespace Sandbox
 	Physics::~Physics()
 	{
 		delete m_world;
+	}
+	void Physics::RaycastClosest(RaycastResult& result, Vec2f start, Vec2f end, Bitmask mask)
+	{
+		auto ins = Instance();
+
+		QueryRa
 	}
 	void Physics::BodyOverlap(std::vector<OverlapResult>& results, Body* body, Bitmask mask)
 	{
