@@ -30,15 +30,14 @@ BIG TASKS:
 
 PHYSICS:
 
--have mask parameters with Physics::BodyOverlap, and use m_mask with Body::Overlap
+
 -add Body raycast
--check polygon winding order
+-implement polygon
 -test enable/disable DrawCollider
--add offset for colliders
+
 -physics must have filters
--test user data
+
 -check if collision render wire draw correctly
 -check if aspect ratio for wire is needed
 -implement physics method
 -testing of physics
--add entity parent in userdata

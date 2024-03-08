@@ -217,7 +217,6 @@ so OnAddComponent method of system works even before engine::init if they are ca
 -BodyOverlap tested and works
 -RaycastClosest tested and works
 -RaycastAll tested and works
-
->fix GetWorldPosition and GetWorldRotation
->change to LocalPosition and LocalRotation and scale
-
+-fixed transform Getposition to reflect accurately when having parent
+-added GetLocalPosition (GetPosition get World position now)
+-Physics queries have all been tested and work
