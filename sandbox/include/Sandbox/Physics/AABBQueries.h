@@ -9,24 +9,6 @@
 #include "Sandbox/Physics/Bitmask.h"
 namespace Sandbox
 {
-	struct RaycastResult
-	{
-		EntityId entityId = EntityId(0);
-		Vec2f point = 0;
-		Vec2f normal = 0;
-		float distance = 0;
-		bool hit = false;
-
-		operator bool()
-		{
-			return hit;
-		}
-	};
-
-	struct OverlapResult
-	{
-		EntityId entityId;
-	};
 
 	/// @brief For internal use
 	class QueryRaycastCallbackClosest : public b2RayCastCallback
@@ -77,13 +59,14 @@ namespace Sandbox
 	class QueryBodyOverlapAll : public b2QueryCallback
 	{
 	public:
-		QueryBodyOverlapAll(Body* body, std::vector<OverlapResult>* Results);
+		QueryBodyOverlapAll(Body* body, Bitmask mask, std::vector<OverlapResult>* Results);
 		bool ReportFixture(b2Fixture* fixture) override;
 
 	public:
 		std::vector<OverlapResult>* results;
 
 	private:
+		Bitmask m_mask;
 		Body* m_body;
 	};
 

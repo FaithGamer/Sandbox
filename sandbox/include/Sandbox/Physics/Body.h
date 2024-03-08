@@ -12,6 +12,25 @@ namespace Sandbox
 	class Collider;
 	class PhysicsSystem;
 
+	struct RaycastResult
+	{
+		EntityId entityId = EntityId(0);
+		Vec2f point = 0;
+		Vec2f normal = 0;
+		float distance = 0;
+		bool hit = false;
+
+		operator bool()
+		{
+			return hit;
+		}
+	};
+
+	struct OverlapResult
+	{
+		EntityId entityId;
+	};
+
 	struct CollisionLayer
 	{
 
@@ -52,8 +71,14 @@ namespace Sandbox
 		/// Warning: not implemented. Destroy/Recreate the body instead
 		void ClearCollider();
 
+		/// @brief Get the list of overlapping bodies within the approriate collision layer
+		/// @param results 
+		void OverlappingBodies(std::vector<OverlapResult>& results);
+		/// @brief Not implemeneted
 		bool BodyOverlap(Body* body);
+		/// @brief Not implemeneted
 		bool CircleOverlap(Vec2f point, float radius);
+		/// @brief Not implemeneted
 		bool PointInside(Vec2f point);
 		void UpdateTransform(Vec3f position, float rotation);
 		/// @brief Set true for collision to happen in the X/Z plane

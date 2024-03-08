@@ -214,3 +214,5 @@ so OnAddComponent method of system works even before engine::init if they are ca
 
 >Testing physics queries
 >make a body constructor with no layer (using default layer)
+-BodyOverlap tested and works
+-

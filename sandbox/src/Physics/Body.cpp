@@ -55,6 +55,11 @@ namespace Sandbox
 		//to do
 	}
 
+	void Body::OverlappingBodies(std::vector<OverlapResult>& results)
+	{
+		Physics::BodyOverlap(results, this, m_mask);
+	}
+
 	bool Body::BodyOverlap(Body* body)
 	{
 		//to do

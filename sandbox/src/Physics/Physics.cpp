@@ -27,14 +27,14 @@ namespace Sandbox
 		QueryRaycastCallbackAll query(start, mask, &results);
 		ins->m_world->RayCast(&query, start, end);
 	}
-	void Physics::BodyOverlap(std::vector<OverlapResult>& results, Body* body)
+	void Physics::BodyOverlap(std::vector<OverlapResult>& results, Body* body, Bitmask mask)
 	{
 		//to do TEST
 		auto ins = Instance();
 
 		b2AABB aabb = body->GetAABB();
 
-		QueryBodyOverlapAll query(body, &results);
+		QueryBodyOverlapAll query(body, mask, &results);
 
 		ins->m_world->QueryAABB(&query, aabb);
 	}

@@ -102,8 +102,8 @@ namespace Sandbox
 	//
 	//
 
-	QueryBodyOverlapAll::QueryBodyOverlapAll(Body* body, std::vector<OverlapResult>* Results)
-		: m_body(body), results(Results)
+	QueryBodyOverlapAll::QueryBodyOverlapAll(Body* body, Bitmask mask, std::vector<OverlapResult>* Results)
+		: m_body(body), m_mask(mask), results(Results)
 	{
 
 	}
@@ -111,7 +111,7 @@ namespace Sandbox
 	bool QueryBodyOverlapAll::ReportFixture(b2Fixture* fixture)
 	{
 		//Layer mask
-		if (!m_body->GetLayerMask().Contains(fixture->GetFilterData().categoryBits))
+		if (!m_mask.Contains(fixture->GetFilterData().categoryBits))
 			return true;
 
 		auto colliders = m_body->GetColliders();

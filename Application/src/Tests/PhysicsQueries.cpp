@@ -18,13 +18,13 @@ struct FollowMouse
 {
 	int tag;
 };
-
+Filter collisionLayers;
 class BodySystem :public System
 {
 public:
 	void OnStart() override
 	{
-		Filter collisionLayers;
+	
 		collisionLayers.AddFlag("Layer1");
 		collisionLayers.AddFlag("Layer2");
 
@@ -64,8 +64,8 @@ public:
 		ForeachComponents<Body, SpriteRender>([&](Body& body, SpriteRender& sprite)
 			{
 				std::vector<OverlapResult> results;
-				Physics::BodyOverlap(results, &body);
-
+				//Physics::BodyOverlap(results, &body, collisionLayers.GetMask("Layer1"));
+				body.OverlappingBodies(results);
 				if (results.size() > 0)
 				{
 					sprite.color = Vec4f(1, 0, 0, 1);
