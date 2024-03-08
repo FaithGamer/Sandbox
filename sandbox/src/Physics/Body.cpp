@@ -82,7 +82,8 @@ namespace Sandbox
 		{
 			pos.y = position.z;
 		}
-		m_body->SetTransform(pos, Math::Radians(rotation));
+		//box2D rotation is counter-clockwise
+		m_body->SetTransform(pos, Math::Radians(-rotation));
 	}
 
 	void Body::SetYisZ(bool yIsZ)

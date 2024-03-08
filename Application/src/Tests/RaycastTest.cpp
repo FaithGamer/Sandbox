@@ -30,7 +30,7 @@ public:
 	void OnUpdate(Time delta) override
 	{
 		timer += (float)delta*50;
-		rotation = Math::Sin(timer) * 10;
+		rotation = Math::Sin(timer) * 180;
 
 		Vec3f pos = Systems::GetMainCamera()->ScreenToWorld(GetMousePosition(), Window::GetSize());
 
@@ -51,29 +51,41 @@ public:
 			{
 				auto trans = entity.GetComponent<Transform>();
 				trans->SetRotation(rotation);
+				std::vector<OverlapResult> overlap;
+				Physics::CircleOverlap(overlap, pos, 3, 1);
 
-				auto aabb = body.GetAABB();
-
-				for (int i = aabb.lowerBound.y*100; i < aabb.upperBound.y*100; i++)
+				if (overlap.size() > 0)
 				{
-					for (int j = aabb.lowerBound.x*100; j < aabb.upperBound.x*100; j++)
+					sprite.color = Vec4f(1, 0, 0, 1);
+				}
+				else
+				{
+					sprite.color = Vec4f(1, 1, 1, 1);
+				}
+
+				/*auto aabb = body.GetAABB();
+
+				for (int i = aabb.lowerBound.y*10; i < aabb.upperBound.y*10; i++)
+				{
+					for (int j = aabb.lowerBound.x*10; j < aabb.upperBound.x*10; j++)
 					{
-						Vec2f position((float)j / 100, (float)i / 100);
+						Vec2f position((float)j / 10, (float)i / 10);
 
 						std::vector<OverlapResult> overlap;
-						Physics::PointInside(overlap, pos, 1);
+						Physics::PointInside(overlap, position, 1);
 						if (overlap.size() > 0)
 						{
 							CreatePixel(position);
 						}
 					}
-				}
+				}*/
 			});
 	}
 
 	void CreatePixel(Vec3f pos)
 	{
 		Entity pixel = Entity::Create();
+		pixel.AddComponent<PixelTag>();
 		auto transform = pixel.AddComponent<Transform>();
 		transform->SetPosition(pos);
 		transform->SetScale(0.1f);
