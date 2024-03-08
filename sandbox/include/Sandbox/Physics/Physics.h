@@ -16,11 +16,11 @@ namespace Sandbox
 		~Physics();
 
 		static void RaycastClosest(RaycastResult& result, Vec2f start, Vec2f end, Bitmask mask = 65535);
-		static void RaycastAll(std::vector<RaycastResult>& result, Vec2f start, Vec2f end, Bitmask mask = 65535);
+		static void RaycastAll(std::vector<RaycastResult>& results, Vec2f start, Vec2f end, Bitmask mask = 65535);
 		static void CircleOverlap(std::vector<OverlapResult>& results, Vec2f pos, float radius, Bitmask mask = 65535);
-		static void BodyOverlap(std::vector<OverlapResult>& results, Body* body, Bitmask mask = 65535);
 		static void PointInside(std::vector<OverlapResult>& results, Vec2f pos, Bitmask mask = 65535);
-		static float BodyDistance(Body& lhs, Body& rhs);
+		static void BodyOverlap(std::vector<OverlapResult>& results, Body* body);
+		//static float BodyDistance(Body& lhs, Body& rhs);
 
 		/// @brief Won't work for the colliders created after this call AND before Engine::Launch
 		/// @param draw 

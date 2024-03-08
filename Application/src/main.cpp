@@ -28,6 +28,7 @@
 #include "Tests/EarcutTest.h"
 #include "Editor/EntryPoint.h"
 #include "Tests/RaycastTest.h"
+#include "Tests/PhysicsQueries.h"
 
 #include <random>
 #include <iostream>
@@ -61,9 +62,10 @@ int main(int argc, char** argv)
 	//EarcutTest();
 	//LineRenderTest();
 
-	RaycastTest();
+	//RaycastTest();
 	//ECSTest();
 
+	PhysicsQueries();
 
 	return 0;
 }

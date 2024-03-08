@@ -1,226 +1,200 @@
-[2024-03-08 01:40:55.678] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-08 01:40:55.679] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-08 01:40:55.679] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-08 01:40:55.680] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-08 01:40:55.680] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-08 01:40:55.681] [SANDBOX] [info] Asset loaded assets/jsontest.config
-[2024-03-08 01:40:55.681] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
-[2024-03-08 01:40:55.681] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-08 01:40:55.682] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-08 01:40:55.682] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
-[2024-03-08 01:40:55.682] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
-[2024-03-08 01:40:55.682] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
-[2024-03-08 01:40:55.683] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-08 01:40:55.683] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-08 01:40:55.683] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-08 01:40:55.683] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-08 01:40:55.684] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-08 01:40:55.684] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
-[2024-03-08 01:40:55.684] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
-[2024-03-08 01:40:55.684] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
-[2024-03-08 01:40:55.685] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
-[2024-03-08 01:40:55.685] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
-[2024-03-08 01:40:55.685] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
-[2024-03-08 01:40:55.686] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
-[2024-03-08 01:40:55.686] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-08 01:40:55.686] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-08 01:40:55.688] [SANDBOX] [info] Asset loaded assets/textures/bullet.png
-[2024-03-08 01:40:55.750] [SANDBOX] [info] Asset loaded assets/textures/c.png
-[2024-03-08 01:40:55.954] [SANDBOX] [info] Asset loaded assets/textures/cmb.png
-[2024-03-08 01:40:55.995] [SANDBOX] [info] Asset loaded assets/textures/file_icon.png
-[2024-03-08 01:40:55.997] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
-[2024-03-08 01:40:55.999] [SANDBOX] [info] Asset loaded assets/textures/hero.png
-[2024-03-08 01:40:56.001] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
-[2024-03-08 01:40:56.010] [SANDBOX] [info] Asset loaded assets/textures/image.png
-[2024-03-08 01:40:56.012] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
-[2024-03-08 01:40:56.013] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
-[2024-03-08 01:40:56.014] [SANDBOX] [info] Asset loaded assets/textures/pig.png
-[2024-03-08 01:40:56.026] [SANDBOX] [info] Asset loaded assets/textures/sd.png
-[2024-03-08 01:40:56.030] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
-[2024-03-08 01:40:56.032] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
-[2024-03-08 01:40:56.034] [SANDBOX] [info] Asset loaded assets/textures/spritesheet.png
-[2024-03-08 01:40:56.036] [SANDBOX] [info] Asset loaded assets/textures/square.png
-[2024-03-08 01:40:56.053] [SANDBOX] [info] Asset loaded assets/textures/test_rect.png
-[2024-03-08 01:40:56.145] [SANDBOX] [info] Asset loaded assets/textures/trollface.png
-[2024-03-08 01:40:56.252] [SANDBOX] [info] Asset loaded assets/textures/trollface_alpha.png
-[2024-03-08 01:40:56.252] [SANDBOX] [info] Compiling shaders...
-[2024-03-08 01:40:56.277] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/batch_renderer[2024-03-08 01:42:39.130] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-08 01:42:39.132] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-08 01:42:39.132] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-08 01:42:39.132] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-08 01:42:39.132] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-08 01:42:39.134] [SANDBOX] [info] Asset loaded assets/jsontest.config
-[2024-03-08 01:42:39.134] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
-[2024-03-08 01:42:39.134] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-08 01:42:39.135] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-08 01:42:39.135] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
-[2024-03-08 01:42:39.135] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
-[2024-03-08 01:42:39.135] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
-[2024-03-08 01:42:39.136] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-08 01:42:39.136] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-08 01:42:39.136] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-08 01:42:39.137] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-08 01:42:39.137] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-08 01:42:39.137] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
-[2024-03-08 01:42:39.138] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
-[2024-03-08 01:42:39.138] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
-[2024-03-08 01:42:39.139] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
-[2024-03-08 01:42:39.139] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
-[2024-03-08 01:42:39.139] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
-[2024-03-08 01:42:39.140] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
-[2024-03-08 01:42:39.140] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-08 01:42:39.140] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-08 01:42:39.142] [SANDBOX] [info] Asset loaded assets/textures/bullet.png
-[2024-03-08 01:42:39.205] [SANDBOX] [info] Asset loaded assets/textures/c.png
-[2024-03-08 01:42:39.391] [SANDBOX] [info] Asset loaded assets/textures/cmb.png
-[2024-03-08 01:42:39.428] [SANDBOX] [info] Asset loaded assets/textures/file_icon.png
-[2024-03-08 01:42:39.430] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
-[2024-03-08 01:42:39.431] [SANDBOX] [info] Asset loaded assets/textures/hero.png
-[2024-03-08 01:42:39.431] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
-[2024-03-08 01:42:39.440] [SANDBOX] [info] Asset loaded assets/textures/image.png
-[2024-03-08 01:42:39.442] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
-[2024-03-08 01:42:39.443] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
-[2024-03-08 01:42:39.444] [SANDBOX] [info] Asset loaded assets/textures/pig.png
-[2024-03-08 01:42:39.457] [SANDBOX] [info] Asset loaded assets/textures/sd.png
-[2024-03-08 01:42:39.461] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
-[2024-03-08 01:42:39.462] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
-[2024-03-08 01:42:39.464] [SANDBOX] [info] Asset loaded assets/textures/spritesheet.png
-[2024-03-08 01:42:39.474] [SANDBOX] [info] Asset loaded assets/textures/square.png
-[2024-03-08 01:42:39.490] [SANDBOX] [info] Asset loaded assets/textures/test_rect.png
-[2024-03-08 01:42:39.585] [SANDBOX] [info] Asset loaded assets/textures/trollface.png
-[2024-03-08 01:42:39.681] [SANDBOX] [info] Asset loaded assets/textures/trollface_alpha.png
-[2024-03-08 01:42:39.681] [SANDBOX] [info] Compiling shaders...
-[2024-03-08 01:42:39.700] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/batch_renderer_pixel_art.frag]
-[2024-03-08 01:42:39.701] [SANDBOX] [error] Incomplete shader program, can't compile: [assets/shaders/billboard.vert], [], []
-[2024-03-08 01:42:39.701] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/masked.frag]
-[2024-03-08 01:42:39.702] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/color.frag]
-[2024-03-08 01:42:39.712] [SANDBOX] [info]  --- b2Raycast ---
-[2024-03-08 01:42:39.712] [SANDBOX] [info]  --- Filter ---
-[2024-03-08 01:42:39.729] [SANDBOX] [info]  --- CustomPhysics ---
-[2024-03-08 01:42:39.732] [SANDBOX] [info] cacahouete
-[2024-03-08 01:42:39.732] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-08 01:43:26.917] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-08 01:43:26.918] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-08 01:43:26.919] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-08 01:43:26.919] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-08 01:43:26.919] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-08 01:43:26.920] [SANDBOX] [info] Asset loaded assets/jsontest.config
-[2024-03-08 01:43:26.921] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
-[2024-03-08 01:43:26.921] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-08 01:43:26.921] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-08 01:43:26.922] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
-[2024-03-08 01:43:26.922] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
-[2024-03-08 01:43:26.922] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
-[2024-03-08 01:43:26.922] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-08 01:43:26.923] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-08 01:43:26.923] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-08 01:43:26.923] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-08 01:43:26.923] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-08 01:43:26.924] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
-[2024-03-08 01:43:26.924] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
-[2024-03-08 01:43:26.924] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
-[2024-03-08 01:43:26.925] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
-[2024-03-08 01:43:26.925] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
-[2024-03-08 01:43:26.925] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
-[2024-03-08 01:43:26.925] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
-[2024-03-08 01:43:26.926] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-08 01:43:26.926] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-08 01:43:26.927] [SANDBOX] [info] Asset loaded assets/textures/bullet.png
-[2024-03-08 01:43:26.992] [SANDBOX] [info] Asset loaded assets/textures/c.png
-[2024-03-08 01:43:27.180] [SANDBOX] [info] Asset loaded assets/textures/cmb.png
-[2024-03-08 01:43:27.214] [SANDBOX] [info] Asset loaded assets/textures/file_icon.png
-[2024-03-08 01:43:27.216] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
-[2024-03-08 01:43:27.217] [SANDBOX] [info] Asset loaded assets/textures/hero.png
-[2024-03-08 01:43:27.217] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
-[2024-03-08 01:43:27.226] [SANDBOX] [info] Asset loaded assets/textures/image.png
-[2024-03-08 01:43:27.228] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
-[2024-03-08 01:43:27.230] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
-[2024-03-08 01:43:27.231] [SANDBOX] [info] Asset loaded assets/textures/pig.png
-[2024-03-08 01:43:27.242] [SANDBOX] [info] Asset loaded assets/textures/sd.png
-[2024-03-08 01:43:27.247] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
-[2024-03-08 01:43:27.248] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
-[2024-03-08 01:43:27.250] [SANDBOX] [info] Asset loaded assets/textures/spritesheet.png
-[2024-03-08 01:43:27.251] [SANDBOX] [info] Asset loaded assets/textures/square.png
-[2024-03-08 01:43:27.272] [SANDBOX] [info] Asset loaded assets/textures/test_rect.png
-[2024-03-08 01:43:27.361] [SANDBOX] [info] Asset loaded assets/textures/trollface.png
-[2024-03-08 01:43:27.458] [SANDBOX] [info] Asset loaded assets/textures/trollface_alpha.png
-[2024-03-08 01:43:27.459] [SANDBOX] [info] Compiling shaders...
-[2024-03-08 01:43:27.481] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/batch_renderer[2024-03-08 01:44:05.945] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-08 01:44:05.946] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-08 01:44:05.947] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-08 01:44:05.947] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-08 01:44:05.947] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-08 01:44:05.948] [SANDBOX] [info] Asset loaded assets/jsontest.config
-[2024-03-08 01:44:05.949] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
-[2024-03-08 01:44:05.949] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-08 01:44:05.949] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-08 01:44:05.950] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
-[2024-03-08 01:44:05.950] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
-[2024-03-08 01:44:05.950] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
-[2024-03-08 01:44:05.951] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-08 01:44:05.951] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-08 01:44:05.951] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-08 01:44:05.951] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-08 01:44:05.951] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-08 01:44:05.952] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
-[2024-03-08 01:44:05.953] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
-[2024-03-08 01:44:05.953] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
-[2024-03-08 01:44:05.954] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
-[2024-03-08 01:44:05.954] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
-[2024-03-08 01:44:05.954] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
-[2024-03-08 01:44:05.955] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
-[2024-03-08 01:44:05.955] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-08 01:44:05.955] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-08 01:44:05.956] [SANDBOX] [info] Asset loaded assets/textures/bullet.png
-[2024-03-08 01:44:06.027] [SANDBOX] [info] Asset loaded assets/textures/c.png
-[2024-03-08 01:44:06.222] [SANDBOX] [info] Asset loaded assets/textures/cmb.png
-[2024-03-08 01:44:06.260] [SANDBOX] [info] Asset loaded assets/textures/file_icon.png
-[2024-03-08 01:44:06.262] [SANDBOX] [info] Asset loaded assets/textures/folder_icon.png
-[2024-03-08 01:44:06.265] [SANDBOX] [info] Asset loaded assets/textures/hero.png
-[2024-03-08 01:44:06.265] [SANDBOX] [warning] Asset file extension not supported, assets/textures/image.bmp
-[2024-03-08 01:44:06.274] [SANDBOX] [info] Asset loaded assets/textures/image.png
-[2024-03-08 01:44:06.276] [SANDBOX] [info] Asset loaded assets/textures/nice_guy.png
-[2024-03-08 01:44:06.278] [SANDBOX] [info] Asset loaded assets/textures/nice_guy_head.png
-[2024-03-08 01:44:06.279] [SANDBOX] [info] Asset loaded assets/textures/pig.png
-[2024-03-08 01:44:06.290] [SANDBOX] [info] Asset loaded assets/textures/sd.png
-[2024-03-08 01:44:06.294] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent.png
-[2024-03-08 01:44:06.296] [SANDBOX] [info] Asset loaded assets/textures/semi_transparent_green.png
-[2024-03-08 01:44:06.297] [SANDBOX] [info] Asset loaded assets/textures/spritesheet.png
-[2024-03-08 01:44:06.298] [SANDBOX] [info] Asset loaded assets/textures/square.png
-[2024-03-08 01:44:06.314] [SANDBOX] [info] Asset loaded assets/textures/test_rect.png
-[2024-03-08 01:44:06.396] [SANDBOX] [info] Asset loaded assets/textures/trollface.png
-[2024-03-08 01:44:06.493] [SANDBOX] [info] Asset loaded assets/textures/trollface_alpha.png
-[2024-03-08 01:44:06.493] [SANDBOX] [info] Compiling shaders...
-[2024-03-08 01:44:06.512] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/batch_renderer_pixel_art.frag]
-[2024-03-08 01:44:06.513] [SANDBOX] [error] Incomplete shader program, can't compile: [assets/shaders/billboard.vert], [], []
-[2024-03-08 01:44:06.514] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/masked.frag]
-[2024-03-08 01:44:06.517] [SANDBOX] [error] Incomplete shader program, can't compile: [], [], [assets/shaders/color.frag]
-[2024-03-08 01:44:06.530] [SANDBOX] [info]  --- b2Raycast ---
-[2024-03-08 01:44:06.530] [SANDBOX] [info]  --- Filter ---
-[2024-03-08 01:44:06.550] [SANDBOX] [info]  --- CustomPhysics ---
-[2024-03-08 01:44:06.553] [SANDBOX] [info] cacahouete
-[2024-03-08 01:44:06.553] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-08 01:45:06.221] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-08 01:45:06.223] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-08 01:45:06.223] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-08 01:45:06.223] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-08 01:45:06.223] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-08 01:45:06.225] [SANDBOX] [info] Asset loaded assets/jsontest.config
-[2024-03-08 01:45:06.225] [SANDBOX] [warning] Asset file extension not supported, assets/shaders/batch_renderer.examplegeom
-[2024-03-08 01:45:06.226] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-08 01:45:06.226] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-08 01:45:06.226] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer_pixel_art.frag
-[2024-03-08 01:45:06.227] [SANDBOX] [info] Asset loaded assets/shaders/billboard.vert
-[2024-03-08 01:45:06.227] [SANDBOX] [info] Asset loaded assets/shaders/color.frag
-[2024-03-08 01:45:06.227] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-08 01:45:06.228] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-08 01:45:06.228] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-08 01:45:06.228] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-08 01:45:06.229] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-08 01:45:06.229] [SANDBOX] [info] Asset loaded assets/shaders/masked.frag
-[2024-03-08 01:45:06.229] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.frag
-[2024-03-08 01:45:06.229] [SANDBOX] [info] Asset loaded assets/shaders/texture_unit.vert
-[2024-03-08 01:45:06.230] [SANDBOX] [info] Asset loaded assets/shaders/ubt.frag
-[2024-03-08 01:45:06.230] [SANDBOX] [info] Asset loaded assets/shaders/ubt.vert
-[2024-03-08 01:45:06.230] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.frag
-[2024-03-08 01:45:06.230] [SANDBOX] [info] Asset loaded assets/shaders/uniform_buffer_test.vert
+[2024-03-08 13:32:12.140] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.143] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.144] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.145] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.145] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.145] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.146] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.146] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.147] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.147] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.148] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.148] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.149] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.149] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.150] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.150] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.151] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.151] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.152] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.152] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.153] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.153] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.154] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.154] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.155] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.155] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.156] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.156] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.157] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.157] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.158] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.158] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.161] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.161] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.162] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.162] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.162] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.163] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.164] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.164] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.165] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.165] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.166] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.166] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.166] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.167] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.167] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.168] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.168] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.169] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.169] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.170] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.171] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.171] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.172] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.172] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.172] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.173] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.175] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.176] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.177] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.177] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.178] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.178] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.179] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.179] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.180] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.180] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.180] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.181] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.181] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.182] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.182] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.183] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.183] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.187] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.188] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.191] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.191] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.192] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.193] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.193] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.194] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.194] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.195] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.195] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.196] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.196] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.197] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.197] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.197] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.198] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.198] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.199] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.199] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.200] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.200] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.200] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.201] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.201] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.202] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.202] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.203] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.203] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.204] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.204] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.206] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.207] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.207] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.208] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.208] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.209] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.209] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.209] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.210] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.210] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.211] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.211] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.212] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.212] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.213] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.213] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.214] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.214] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.215] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.215] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.216] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.216] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.217] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.217] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.217] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.218] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.218] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.219] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.219] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.219] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.220] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.222] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.223] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.223] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.224] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.224] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.225] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.225] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.226] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.226] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.226] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.227] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.227] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.228] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.228] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.229] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.229] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.229] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.230] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.230] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.231] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.231] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.231] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.232] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.232] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.233] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.233] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.233] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.234] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.234] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.235] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.235] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.235] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.236] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.238] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.239] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.239] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.240] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.240] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.241] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.241] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.242] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.242] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.243] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.243] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.243] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.244] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.244] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.245] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.245] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.245] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.246] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.246] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.247] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.247] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.248] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.248] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.248] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.249] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.249] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.250] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.250] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.250] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera
+[2024-03-08 13:32:12.251] [SANDBOX] [warning] ScreenToWorld not implemented for perspective camera

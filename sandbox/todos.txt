@@ -17,6 +17,7 @@
 -vec operator take references
 -test if we can draw a line between two sprites (Z depth)
 -rename spriteRender to SpriteRenderer
+-Add mouse position from systems and camera
 
 BIG TASKS:
 
@@ -29,7 +30,8 @@ BIG TASKS:
 
 PHYSICS:
 
-
+-have mask parameters with Physics::BodyOverlap, and use m_mask with Body::Overlap
+-add Body raycast
 -check polygon winding order
 -test enable/disable DrawCollider
 -add offset for colliders

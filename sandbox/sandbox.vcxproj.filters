@@ -183,7 +183,7 @@
     <ClCompile Include="src\Physics\Collider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Physics\Raycast.cpp">
+    <ClCompile Include="src\Physics\AABBQueries.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Physics\Body.cpp">
@@ -419,7 +419,7 @@
     <ClInclude Include="include\Sandbox\Physics\Physics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Physics\Raycast.h">
+    <ClInclude Include="include\Sandbox\Physics\AABBQueries.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Physics\Body.h">

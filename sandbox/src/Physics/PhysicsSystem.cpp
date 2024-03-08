@@ -12,7 +12,6 @@ namespace Sandbox
 	}
 	void PhysicsSystem::OnStart()
 	{
-		LOG_INFO("cacahouete");
 	}
 	void PhysicsSystem::OnAddBody(ComponentSignal signal)
 	{

@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Sandbox/Physics/AABBQueries.h"
+#include "Sandbox/Math.h"
 
 namespace Sandbox
 {
@@ -8,27 +9,61 @@ namespace Sandbox
 	// Raycast Closest
 	//
 	//
-	RaycastCallbackClosest::RaycastCallbackClosest(Bitmask mask) : m_mask(mask)
+
+	QueryRaycastCallbackClosest::QueryRaycastCallbackClosest(Vec2f start, Bitmask mask) : m_start(start), m_mask(mask)
 	{
 
 	}
-	float RaycastCallbackClosest::ReportFixture(b2Fixture* fixture, const b2Vec2& point, const b2Vec2& normal, float fraction)
+	float QueryRaycastCallbackClosest::ReportFixture(b2Fixture* fixture, const b2Vec2& point, const b2Vec2& normal, float fraction)
 	{
 		//Fixture's body is not contained in the collision mask
 		if (!m_mask.Contains(fixture->GetFilterData().categoryBits))
-			return -1.0f;
+			return 1.0f;
 
 		//UserData contains entity id of fixture's body's entity
 		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetUserData().pointer));
 
-		//Store raycast data
+		//Store raycast result
 		result.entityId = data->entityId;
 		result.point = point;
 		result.normal = normal;
-		//to do compute distance
+		result.distance = Math::Abs(Vec2f((Vec2f)point - m_start).Magnitude()) * fraction;
 		result.hit = true;
 
 		return fraction;
+	}
+
+	//
+	//
+	// Raycast all
+	//
+	//
+
+	QueryRaycastCallbackAll::QueryRaycastCallbackAll(Vec2f start, Bitmask mask, std::vector<RaycastResult>* Results) : m_start(start), m_mask(), results(Results)
+	{
+
+	}
+	float QueryRaycastCallbackAll::ReportFixture(b2Fixture* fixture, const b2Vec2& point, const b2Vec2& normal, float fraction)
+	{
+		//Fixture's body is not contained in the collision mask
+		if (!m_mask.Contains(fixture->GetFilterData().categoryBits))
+			return 1.0f;
+
+		//UserData contains entity id of fixture's body's entity
+		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetUserData().pointer));
+
+		//Store raycast results
+		RaycastResult result(
+			data->entityId,
+			point,
+			normal,
+			Math::Abs(Vec2f((Vec2f)point - m_start).Magnitude()) * fraction,
+			true
+		);
+
+		results->emplace_back(result);
+
+		return 1.0;
 	}
 
 	//
@@ -67,8 +102,8 @@ namespace Sandbox
 	//
 	//
 
-	QueryBodyOverlapAll::QueryBodyOverlapAll(Body* body, Bitmask mask, std::vector<OverlapResult>* Results)
-		: m_body(body), m_mask(mask), results(Results)
+	QueryBodyOverlapAll::QueryBodyOverlapAll(Body* body, std::vector<OverlapResult>* Results)
+		: m_body(body), results(Results)
 	{
 
 	}
@@ -76,15 +111,15 @@ namespace Sandbox
 	bool QueryBodyOverlapAll::ReportFixture(b2Fixture* fixture)
 	{
 		//Layer mask
-		if (!m_mask.Contains(fixture->GetFilterData().categoryBits))
+		if (!m_body->GetLayerMask().Contains(fixture->GetFilterData().categoryBits))
 			return true;
 
 		auto colliders = m_body->GetColliders();
 		bool collide = false;
+		auto transform = fixture->GetBody()->GetTransform();
 		for (int i = 0; i < colliders->size(); i++)
 		{
-			auto trans = fixture->GetBody()->GetTransform();
-			if ((*colliders)[i]->B2ShapeOverlap(fixture->GetShape(), trans))
+			if ((*colliders)[i]->B2ShapeOverlap(fixture->GetShape(), transform))
 			{
 				collide = true;
 			}
@@ -95,7 +130,6 @@ namespace Sandbox
 		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetUserData().pointer));
 
 		results->emplace_back(OverlapResult(data->entityId));
-
 
 		// Continue the query.
 		return true;

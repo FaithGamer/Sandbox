@@ -20,7 +20,7 @@
     <ClCompile Include="src\Physics\Bitmask.cpp" />
     <ClCompile Include="src\Physics\Body.cpp" />
     <ClCompile Include="src\Physics\Physics.cpp" />
-    <ClCompile Include="src\Physics\Raycast.cpp" />
+    <ClCompile Include="src\Physics\AABBQueries.cpp" />
     <ClCompile Include="src\Physics\Collider.cpp" />
     <ClCompile Include="src\Render\LineRenderer.cpp" />
     <ClCompile Include="src\Serialization.cpp" />
@@ -101,7 +101,7 @@
     <ClInclude Include="include\Sandbox\Physics\ColliderRenderDebugSystem.h" />
     <ClInclude Include="include\Sandbox\Render\WireRender.h" />
     <ClInclude Include="include\Sandbox\Physics\PhysicsSystem.h" />
-    <ClInclude Include="include\Sandbox\Physics\Raycast.h" />
+    <ClInclude Include="include\Sandbox\Physics\AABBQueries.h" />
     <ClInclude Include="include\Sandbox\Render\LineRenderer.h" />
     <ClInclude Include="include\Sandbox\Serialization.h" />
     <ClInclude Include="include\Sandbox\Random.h" />

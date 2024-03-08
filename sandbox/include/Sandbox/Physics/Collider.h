@@ -135,6 +135,7 @@ namespace Sandbox
 
 	};
 
+	/// @brief Not implemented
 	class Polygon2D : public Collider
 	{
 	public:

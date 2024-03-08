@@ -18,17 +18,23 @@ namespace Sandbox
 	void Physics::RaycastClosest(RaycastResult& result, Vec2f start, Vec2f end, Bitmask mask)
 	{
 		auto ins = Instance();
-
-		QueryRa
+		QueryRaycastCallbackClosest query(start, mask);
+		ins->m_world->RayCast(&query, start, end);
 	}
-	void Physics::BodyOverlap(std::vector<OverlapResult>& results, Body* body, Bitmask mask)
+	void Physics::RaycastAll(std::vector<RaycastResult>& results, Vec2f start, Vec2f end, Bitmask mask)
+	{
+		auto ins = Instance();
+		QueryRaycastCallbackAll query(start, mask, &results);
+		ins->m_world->RayCast(&query, start, end);
+	}
+	void Physics::BodyOverlap(std::vector<OverlapResult>& results, Body* body)
 	{
 		//to do TEST
 		auto ins = Instance();
 
 		b2AABB aabb = body->GetAABB();
 
-		QueryBodyOverlapAll query(body, mask, &results);
+		QueryBodyOverlapAll query(body, &results);
 
 		ins->m_world->QueryAABB(&query, aabb);
 	}
