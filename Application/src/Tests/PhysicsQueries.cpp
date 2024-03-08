@@ -19,12 +19,13 @@ struct FollowMouse
 	int tag;
 };
 Filter collisionLayers;
+
 class BodySystem :public System
 {
 public:
 	void OnStart() override
 	{
-	
+
 		collisionLayers.AddFlag("Layer1");
 		collisionLayers.AddFlag("Layer2");
 
@@ -47,8 +48,6 @@ public:
 		SpriteRender* sprite = box.AddComponent<SpriteRender>();
 		sprite->SetSprite(Assets::Get<Sprite>("spritesheet.png_0_0").Ptr());
 
-
-
 	}
 	void OnUpdate(Time delta) override
 	{
@@ -58,6 +57,63 @@ public:
 		ForeachComponents<FollowMouse, Transform>([&mousePos](FollowMouse& mouse, Transform& transform)
 			{
 				transform.SetPosition(mousePos);
+			});
+
+		//Check if circle overlap box
+		ForeachComponents<Body, SpriteRender>([&](Body& body, SpriteRender& sprite)
+			{
+				std::vector<OverlapResult> results;
+				//Physics::BodyOverlap(results, &body, collisionLayers.GetMask("Layer1"));
+				body.OverlappingBodies(results);
+				if (results.size() > 0)
+				{
+					sprite.color = Vec4f(1, 0, 0, 1);
+				}
+				else
+				{
+					sprite.color = Vec4f(1, 1, 1, 1);
+				}
+			});
+	}
+};
+
+class RaycastSystem :public System
+{
+public:
+	void OnStart() override
+	{
+
+		collisionLayers.AddFlag("Layer1");
+		collisionLayers.AddFlag("Layer2");
+
+		//Create a line that extends from the middle of the screen to the mouse
+		Entity lineMouse = Entity::Create();
+
+
+		lineMouse.AddComponent<Transform>();
+		WireRender* line = lineMouse.AddComponent<WireRender>(2);
+
+		line->AddPoint(Vec3f(0, 0, 0));
+
+		//Create a box with a sprite
+		Entity box = Entity::Create();
+
+		box.AddComponent<Transform>()->SetPosition(8, 5, 0);
+		Body* boxBody = box.AddComponent<Body>(Body::Type::Kinematic, collisionLayers.GetMask("Layer2"));
+		boxBody->SetLayerMask(collisionLayers.GetMask("Layer1"));
+		boxBody->AddCollider(makesptr<Box2D>(Vec2f(4, 4)));
+		SpriteRender* sprite = box.AddComponent<SpriteRender>();
+		sprite->SetSprite(Assets::Get<Sprite>("spritesheet.png_0_0").Ptr());
+
+	}
+	void OnUpdate(Time delta) override
+	{
+		Vec2f mousePos = Systems::GetMainCamera()->ScreenToWorld(GetMousePosition(), Window::GetSize());
+
+		//Follow mouse
+		ForeachComponents<WireRender>([&mousePos](WireRender& wire)
+			{
+				
 			});
 
 		//Check if circle overlap box

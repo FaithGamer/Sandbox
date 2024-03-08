@@ -9,6 +9,7 @@
 #include "Sandbox/Render/Window.h"
 #include "Sandbox/Render/Renderer2D.h"
 #include "Sandbox/Render/Camera.h"
+#include "Sandbox/Input/Mouse.h"
 
 #define SANDBOX_IMGUI
 
@@ -354,6 +355,18 @@ namespace Sandbox
 	Camera* Systems::GetMainCamera()
 	{
 		return Instance()->m_mainCamera;
+	}
+
+
+	Vec2f Systems::GetMouseWorldPos()
+	{
+		Camera* camera = Instance()->m_mainCamera;
+		if (camera)
+		{
+			LOG_WARN("Systems::GetMouseWorldPos, no main camera, Vec2f(0, 0) returned");
+			return Vec2f(0, 0);
+		}
+		return camera->ScreenToWorld(GetMousePosition(), Window::GetSize());
 	}
 
 	//////////////

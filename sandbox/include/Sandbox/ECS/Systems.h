@@ -6,7 +6,7 @@
 #include "Sandbox/Singleton.h"
 #include "Sandbox/Utils/Container.h"
 #include "Sandbox/TypeId.h"
-
+#include "Sandbox/Vec.h"
 
 namespace Sandbox
 {
@@ -144,6 +144,10 @@ namespace Sandbox
 		/// @brief Return camera used for window rendering
 		/// @return main camera
 		static Camera* GetMainCamera();
+
+		/// @brief Return the mouse position in wolrd unit relative to the main camera
+		/// @return mouse position
+		static Vec2f GetMouseWorldPos();
 	private:
 
 		struct Worlds
