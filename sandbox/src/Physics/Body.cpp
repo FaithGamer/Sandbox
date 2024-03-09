@@ -5,6 +5,16 @@
 
 namespace Sandbox
 {
+	Body::Body(Body&& body) noexcept
+		: m_type(body.m_type), 
+		m_layer(body.m_layer),
+		m_mask(body.m_mask), 
+		m_YisZ(body.m_YisZ), 
+		m_b2Body(body.m_b2Body), 
+		m_colliders(body.m_colliders)
+	{
+
+	}
 	Body::Body(Type type, Bitmask layer) : m_type(type), m_layer(layer), m_mask(65535), m_YisZ(false)
 	{
 		b2BodyDef def;
@@ -23,14 +33,14 @@ namespace Sandbox
 			break;
 		}
 
-		m_body = Physics::GetB2World()->CreateBody(&def);
-		m_body->SetTransform(Vec2f(0, 0), 0);
+		m_b2Body = Physics::GetB2World()->CreateBody(&def);
+		m_b2Body->SetTransform(Vec2f(0, 0), 0);
 	}
 
 	Body::~Body()
 	{
 		//Free the b2Body in the b2World
-		m_body->GetWorld()->DestroyBody(m_body);
+		m_b2Body->GetWorld()->DestroyBody(m_b2Body);
 	}
 
 	void Body::SetLayer(Bitmask layer)
@@ -88,7 +98,7 @@ namespace Sandbox
 			pos.y = position.z;
 		}
 		//box2D rotation is counter-clockwise
-		m_body->SetTransform(pos, Math::Radians(-rotation));
+		m_b2Body->SetTransform(pos, Math::Radians(-rotation));
 	}
 
 	void Body::SetYisZ(bool yIsZ)
@@ -113,7 +123,7 @@ namespace Sandbox
 
 	b2Body* Body::GetB2Body()
 	{
-		return m_body;
+		return m_b2Body;
 	}
 
 	b2Filter Body::GetB2Filter()

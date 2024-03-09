@@ -25,7 +25,6 @@ class BodySystem :public System
 public:
 	void OnStart() override
 	{
-
 		collisionLayers.AddFlag("Layer1");
 		collisionLayers.AddFlag("Layer2");
 
@@ -195,8 +194,6 @@ public:
 	}
 	void OnUpdate(Time delta) override
 	{
-
-
 		//Mouse position
 		Vec2f endLine = Systems::GetMouseWorldPos();
 
@@ -223,15 +220,22 @@ public:
 		//Visualize raycast line from center screen to mouse
 		ForeachComponents<WireRender>([&endLine](WireRender& wire)
 			{
+				
 				wire.SetPointPosition(1, endLine);
 			});
 
 		time += (float)delta;
 
-		ForeachComponents<ParentTag, Transform>([&](ParentTag& tag, Transform& transform) {
+		ForeachEntities<ParentTag, Transform>([&](Entity& entity, ParentTag& tag, Transform& transform) {
+			if (time > 1) {
+				LOG_INFO("bue");
+				entity.Destroy();
+			}
 			float rotation = time * 10.f;
 			transform.SetRotationZ(rotation);
 			});
+
+		
 	}
 
 	float time;

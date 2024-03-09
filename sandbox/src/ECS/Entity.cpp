@@ -55,6 +55,11 @@ namespace Sandbox
 			LOG_ERROR("Cannot add an entity child if it doesn't belong to the same world as parent.");
 			return;
 		}
+		if (entity.GetId() == m_id)
+		{
+			LOG_ERROR("Entity cannot have itself as a child.");
+			return;
+		}
 
 		entity.JustUnparent();
 

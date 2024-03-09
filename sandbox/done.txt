@@ -220,3 +220,12 @@ so OnAddComponent method of system works even before engine::init if they are ca
 -fixed transform Getposition to reflect accurately when having parent
 -added GetLocalPosition (GetPosition get World position now)
 -Physics queries have all been tested and work
+
+09
+
+
+-We have three Body object somehow that are being destroyed
+-Fixed by using a move constructor on Body
+
+10
+>Entity child must not be able to have parent as child!

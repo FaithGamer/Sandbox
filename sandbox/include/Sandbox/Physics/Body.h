@@ -36,23 +36,29 @@ namespace Sandbox
 
 	};
 	/// @brief We can: 
-	/// -add multiple colliders: Circle, Box, Polygons(triangle composition)
-	/// -colliders rotation and position computed automatically by the transform component on same entity
+	/// -add multiple colliders: Circle, Box, Polygons (not implemented yet)
+	/// -colliders rotation and position computed automatically by the PhysicsSystem from the transform component on same entity
 	/// we can't:
 	/// -remove collider
 	/// -rescale collider
 	/// -change collider shape
 	/// -scale circle to make them ellipses
-	/// atm: to remove or rescale collider you need to Destroy/Recreate body 
 	struct Body
 	{
 	public:
+
+		/// @brief There's no difference between different types at the moment
+		/// Ultimately the goal is to have Kinematic and Dynamic be able to interpolate between two fixed step
+		/// Dynamic would automatically collide and react to  physic.
+		/// I don't even know yet what should be the difference between kinematic and static tho.
+		/// Also different body type might better be different classes
 		enum class Type
 		{
 			Static, Kinematic, Dynamic
 		};
 
-		Body(Type type, Bitmask layer = 1);
+		Body(Type type = Type::Kinematic, Bitmask layer = 1);
+		Body(Body&& body) noexcept;
 		~Body();
 		/// @brief Set the layer it's on. 
 		/// Warning: Must be set BEFORE adding colliders, (this will change in the future)
@@ -108,7 +114,7 @@ namespace Sandbox
 		Type m_type;
 		Bitmask m_layer;
 		Bitmask m_mask;
-		b2Body* m_body;
+		b2Body* m_b2Body;
 
 		bool m_YisZ;
 	};

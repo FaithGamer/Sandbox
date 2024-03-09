@@ -96,3 +96,9 @@ I can do further optimization by reducing the layer size wich is very suited for
 09 February
 
 - We can destroy entities and add component when iterating a view
+
+09 march
+
+- Entt will copy things around to keep data packed when component are removed,
+But it will use the move constructor if it can, this can avoid call multiple time the component destructor.
+This solved a bug I was having when Body got it's destructor called three time for only two objects.
