@@ -1,7 +1,7 @@
 #pragma once
 #include <glad/glad.h>
-#include "Sandbox/Vec.h"
-#include "Sandbox/Serialization.h"
+#include "Sandbox/Core/Vec.h"
+#include "Sandbox/Core/Serialization.h"
 
 
 namespace Sandbox

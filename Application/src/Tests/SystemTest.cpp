@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Sandbox/ECS/Systems.h"
 #include "Sandbox/ECS/System.h"
-#include "Sandbox/Time.h"
+#include "Sandbox/Core/Time.h"
 #include "Sandbox/Engine.h"
 
 class MySytem : public Sandbox::System

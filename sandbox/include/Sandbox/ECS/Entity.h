@@ -1,5 +1,5 @@
 #pragma once
-#include "Sandbox/std_macros.h"
+#include "Sandbox/Core/std_macros.h"
 #include "EntityId.h"
 
 namespace Sandbox

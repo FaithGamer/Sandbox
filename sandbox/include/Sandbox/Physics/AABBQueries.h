@@ -2,7 +2,7 @@
 
 #include <box2d/box2d.h>
 #include <box2d/b2_distance.h>
-#include "Sandbox/Vec.h"
+#include "Sandbox/Core/Vec.h"
 #include "Sandbox/ECS/Entity.h"
 #include "Sandbox/Physics/Collider.h"
 #include "Sandbox/Physics/Body.h"

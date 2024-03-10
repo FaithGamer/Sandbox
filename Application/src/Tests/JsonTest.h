@@ -1,4 +1,4 @@
 #pragma once
-#include "Sandbox/Serialization.h"
+#include "Sandbox/Core/Serialization.h"
 
 void JsonTest();

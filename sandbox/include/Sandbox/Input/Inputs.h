@@ -2,7 +2,7 @@
 #include <string>
 
 #include "Sandbox/Input/InputMap.h"
-#include "Sandbox/Singleton.h"
+#include "Sandbox/Internal/Singleton.h"
 
 
 namespace Sandbox

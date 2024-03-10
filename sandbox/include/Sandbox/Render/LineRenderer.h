@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Sandbox/Vec.h"
+#include "Sandbox/Core/Vec.h"
 #include "Sandbox/Render/VertexBuffer.h"
 #include "Sandbox/Render/VertexArray.h"
-#include "Sandbox/std_macros.h"
+#include "Sandbox/Core/std_macros.h"
 
 #define LINE_WIDTH_INDICES 5
 

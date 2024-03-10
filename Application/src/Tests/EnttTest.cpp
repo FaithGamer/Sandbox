@@ -1,10 +1,10 @@
 #include "pch.h"
 #include "EnttTest.h"
 #include "Sandbox/ECS/Components.h"
-#include "Sandbox/Vec.h"
-#include "Sandbox/Signal.h"
-#include "Sandbox/Time.h"
-#include "Sandbox/Log.h"
+#include "Sandbox/Core/Vec.h"
+#include "Sandbox/Core/Signal.h"
+#include "Sandbox/Core/Time.h"
+#include "Sandbox/Core/Log.h"
 
 using namespace Sandbox;
 

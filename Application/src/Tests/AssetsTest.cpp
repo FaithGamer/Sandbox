@@ -2,11 +2,11 @@
 
 #include "AssetsTest.h"
 #include "Sandbox/Render.h"
-#include "Sandbox/Assets.h"
+#include "Sandbox/Core/Assets.h"
 #include "Sandbox/Engine.h"
-#include "Sandbox/Serialization.h"
+#include "Sandbox/Core/Serialization.h"
 #include "Sandbox/ECS.h"
-#include "Sandbox/Math.h"
+#include "Sandbox/Core/Math.h"
 
 using namespace Sandbox;
 

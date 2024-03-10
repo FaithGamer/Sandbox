@@ -3,9 +3,9 @@
 #include <SDL/SDL.h>
 #include <entt/entt.hpp>
 
-#include "Sandbox/Log.h"
-#include "Sandbox/Signal.h"
-#include "Sandbox/Vec.h"
+#include "Sandbox/Core/Log.h"
+#include "Sandbox/Core/Signal.h"
+#include "Sandbox/Core/Vec.h"
 
 namespace Sandbox
 {

@@ -4,8 +4,8 @@
 #include "Sandbox/ECS.h"
 #include "Sandbox/Render.h"
 #include "Sandbox/Engine.h"
-#include "Sandbox/Random.h"
-#include "Sandbox/Math.h"
+#include "Sandbox/Core/Random.h"
+#include "Sandbox/Core/Math.h"
 
 using namespace Sandbox;
 

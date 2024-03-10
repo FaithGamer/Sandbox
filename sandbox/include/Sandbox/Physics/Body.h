@@ -1,11 +1,11 @@
 #pragma once
 
 #include "box2d/box2d.h"
-#include "Sandbox/Vec.h"
+#include "Sandbox/Core/Vec.h"
 #include "Sandbox/Physics/Collider.h"
 #include "Sandbox/Physics/Bitmask.h"
 #include "Sandbox/ECS/EntityId.h"
-#include "Sandbox/std_macros.h"
+#include "Sandbox/Core/std_macros.h"
 
 namespace Sandbox
 {

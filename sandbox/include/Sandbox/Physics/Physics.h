@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Sandbox/Singleton.h"
+#include "Sandbox/Internal/Singleton.h"
 #include "Sandbox/Physics/AABBQueries.h"
 #include "Sandbox/Physics/Bitmask.h"
 #include "Sandbox/Physics/Body.h"

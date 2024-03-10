@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Sandbox/Render/Buffer.h"
-#include "Sandbox/std_macros.h"
+#include "Sandbox/Core/std_macros.h"
 
 namespace Sandbox
 {

@@ -3,8 +3,8 @@
 #include <initializer_list>
 #include <map>
 #include <string>
-#include "Sandbox/std_macros.h"
-#include "Sandbox/Vec.h"
+#include "Sandbox/Core/std_macros.h"
+#include "Sandbox/Core/Vec.h"
 #include "Panel.h"
 
 namespace SandboxEditor

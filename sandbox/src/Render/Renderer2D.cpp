@@ -2,16 +2,16 @@
 
 #include <glm/gtc/matrix_transform.hpp>
 #include "Sandbox/Render/Renderer2D.h"
-#include "Sandbox/Log.h"
+#include "Sandbox/Core/Log.h"
 #include "Sandbox/Render/RenderTarget.h"
 #include "Sandbox/Render/RenderTexture.h"
 #include "Sandbox/Render/Shader.h"
 #include "Sandbox/Render/RenderOptions.h"
 #include "Sandbox/Render/Window.h"
 #include "Sandbox/Render/SpriteRender.h"
-#include "Sandbox/Utils/Container.h"
-#include "Sandbox/Assets.h"
-#include "Sandbox/Utils/PrintMat4.h"
+#include "Sandbox/Core/Container.h"
+#include "Sandbox/Core/Assets.h"
+#include "Sandbox/Core/Print.h"
 namespace Sandbox
 {
 	Renderer2D::Renderer2D()
@@ -131,7 +131,7 @@ namespace Sandbox
 		}
 		else
 		{
-			unsigned int width = round((float)windowSize.x / (float)windowSize.y * (float)height);
+			unsigned int width = (unsigned int)round((float)windowSize.x / (float)windowSize.y * (float)height);
 			layer = makesptr<RenderTexture>(Vec2u(width, height));
 		}
 		ins->m_layers.push_back(RenderLayer(name, (uint32_t)ins->m_layers.size(), layer, shader, renderOptions, layerVertexArray, height, false, false));
@@ -269,7 +269,7 @@ namespace Sandbox
 		auto ins = Instance();
 		ins->m_layers[layer].height = height;
 		auto windowSize = Window::GetSize();
-		unsigned int width = round((float)windowSize.x / (float)windowSize.y * (float)height);
+		unsigned int width = (unsigned int)round((float)windowSize.x / (float)windowSize.y * (float)height);
 		ins->m_layers[layer].target->SetSize({ width, height });
 	}
 
@@ -615,7 +615,7 @@ namespace Sandbox
 		//bool reComputePosition = transform.matrixUpdated || transform.needCompute || spriteRender.spriteDimensionsChanged;
 
 		//Input the vertex data to CPU within the quad vertex array
-		for (size_t i = 0; i < quadVertexCount; i++)
+		for (int i = 0; i < quadVertexCount; i++)
 		{
 			/*if (reComputePosition)
 			{*/
@@ -655,7 +655,7 @@ namespace Sandbox
 		
 		line.Bind();
 		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-		glDrawElements(GL_LINE_STRIP_ADJACENCY, line.GetPointCount()+2, GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_LINE_STRIP_ADJACENCY, (GLsizei)line.GetPointCount()+2, GL_UNSIGNED_INT, 0);
 		///glDrawArrays(GL_LINE_STRIP_ADJACENCY, 0, line.GetPointCount()*2);
 	}
 
@@ -670,7 +670,7 @@ namespace Sandbox
 
 		wire.Bind();
 
-		glDrawArrays(GL_LINE_STRIP, 0, wire.GetPointCount());
+		glDrawArrays(GL_LINE_STRIP, 0, (GLsizei)wire.GetPointCount());
 	}
 
 	Vec3f Renderer2D::VertexPosition(Vec4f pos, const Transform& transform, const Sprite& sprite)
@@ -725,7 +725,7 @@ namespace Sandbox
 			else
 			{
 				auto windowSize = Window::GetSize();
-				unsigned int width = round((float)windowSize.x / (float)windowSize.y * (float)layer.height);
+				unsigned int width = (unsigned int)round((float)windowSize.x / (float)windowSize.y * (float)layer.height);
 				layer.target->SetSize({ width, layer.height });
 			}
 		}

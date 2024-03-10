@@ -3,7 +3,7 @@
 #include "imgui/imgui_impl_sdl2.h"
 #include "Sandbox/ECS/Systems.h"
 #include "Sandbox/Render/Window.h"
-#include "Sandbox/ImGuiLoader.h"
+#include "Sandbox/Internal/ImGuiLoader.h"
 #include "Sandbox/Engine.h"
 #include "Sandbox/ECS/World.h"
 #include "Sandbox/Render/Window.h"

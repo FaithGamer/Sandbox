@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Sandbox/Input/DirectionalInput.h"
-#include "Sandbox/Utils/Container.h"
-#include "Sandbox/Math.h"
+#include "Sandbox/Core/Container.h"
+#include "Sandbox/Core/Math.h"
 
 namespace Sandbox
 {

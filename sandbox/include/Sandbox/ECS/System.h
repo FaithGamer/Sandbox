@@ -1,6 +1,6 @@
 #pragma once
-#include "Sandbox/std_macros.h"
-#include "Sandbox/Time.h"
+#include "Sandbox/Core/std_macros.h"
+#include "Sandbox/Core/Time.h"
 #include <SDL/SDL.h>
 #include "Sandbox/ECS/World.h"
 

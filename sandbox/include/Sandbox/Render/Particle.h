@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Sandbox/Time.h"
+#include "Sandbox/Core/Time.h"
 #include "Sandbox/Render/Sprite.h"
 #include "Sandbox/Render/Transform.h"
 #include "Sandbox/Render/SpriteRender.h"

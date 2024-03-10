@@ -1,5 +1,5 @@
 #pragma once
 
-#include "Sandbox/Assets.h"
+#include "Sandbox/Core/Assets.h"
 
 void AssetsTest();

@@ -3,7 +3,7 @@
 #include <vector>
 #include <earcut/mapbox/earcut.hpp>
 #include <box2D/box2d.h>
-#include "Sandbox/Vec.h"
+#include "Sandbox/Core/Vec.h"
 #include "Sandbox/ECS/EntityId.h"
 #include "Sandbox/Render/WireRender.h"
 

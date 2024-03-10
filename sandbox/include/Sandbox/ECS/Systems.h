@@ -3,10 +3,10 @@
 #include <set>
 
 #include "Sandbox/ECS/System.h"
-#include "Sandbox/Singleton.h"
-#include "Sandbox/Utils/Container.h"
-#include "Sandbox/TypeId.h"
-#include "Sandbox/Vec.h"
+#include "Sandbox/Internal/Singleton.h"
+#include "Sandbox/Core/Container.h"
+#include "Sandbox/Core/TypeId.h"
+#include "Sandbox/Core/Vec.h"
 
 namespace Sandbox
 {

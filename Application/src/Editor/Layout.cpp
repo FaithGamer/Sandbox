@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Layout.h"
 #include <Sandbox/Render/Window.h>
-#include <Sandbox/Log.h>
+#include <Sandbox/Core/Log.h>
 
 using namespace Sandbox;
 

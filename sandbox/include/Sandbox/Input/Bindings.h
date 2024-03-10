@@ -3,7 +3,7 @@
 #include "Sandbox/Input/Keyboard.h"
 #include "Sandbox/Input/Controller.h"
 #include "Sandbox/Input/Mouse.h"
-#include "Sandbox/Vec.h"
+#include "Sandbox/Core/Vec.h"
 
 /// @brief Every possible bindings, can be used to set binding on an Input wich will ignore the adequate fields
 namespace Sandbox

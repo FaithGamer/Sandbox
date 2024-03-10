@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Log.cpp">
+    <ClCompile Include="src\Core\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\pch.cpp">
+    <ClCompile Include="src\Core\pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Render\Window.cpp">
@@ -39,10 +39,10 @@
     <ClCompile Include="src\Render\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Utils\PrintMat4.cpp">
+    <ClCompile Include="src\Core\PrintMat4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Time.cpp">
+    <ClCompile Include="src\Core\Time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ECS\Entity.cpp">
@@ -54,7 +54,7 @@
     <ClCompile Include="src\ECS\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\TypeId.cpp">
+    <ClCompile Include="src\Core\TypeId.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Input\ButtonInput.cpp">
@@ -75,13 +75,13 @@
     <ClCompile Include="src\Render\Renderer2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Files.cpp">
+    <ClCompile Include="src\Core\Files.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Vector.cpp">
+    <ClCompile Include="src\Core\Vector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Math.cpp">
+    <ClCompile Include="src\Core\Math.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Render\Bindings.cpp">
@@ -96,13 +96,13 @@
     <ClCompile Include="src\Input\Keyboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Worker.cpp">
+    <ClCompile Include="src\Core\Worker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Delegate.cpp">
+    <ClCompile Include="src\Core\Delegate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Task.cpp">
+    <ClCompile Include="src\Core\Task.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine.cpp">
@@ -114,7 +114,7 @@
     <ClCompile Include="src\Input\Inputs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ImGuiLoader.cpp">
+    <ClCompile Include="src\Internal\ImGuiLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ECS\InputSystem.cpp">
@@ -150,7 +150,7 @@
     <ClCompile Include="src\Render\Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Utils\Random.cpp">
+    <ClCompile Include="src\Core\Random.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Render\Particle.cpp">
@@ -159,13 +159,13 @@
     <ClCompile Include="src\ECS\ParticleSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Vec.cpp">
+    <ClCompile Include="src\Core\Vec.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Serialization.cpp">
+    <ClCompile Include="src\Core\Serialization.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Assets.cpp">
+    <ClCompile Include="src\Core\Assets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Render\LineRenderer.cpp">
@@ -174,7 +174,7 @@
     <ClCompile Include="src\ECS\LineRendererSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Utils\Easing.cpp">
+    <ClCompile Include="src\Core\Easing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Physics\Physics.cpp">
@@ -206,7 +206,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Sandbox\Log.h">
+    <ClInclude Include="include\Sandbox\Core\Log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h">
@@ -215,7 +215,7 @@
     <ClInclude Include="include\Sandbox\Render\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\std_macros.h">
+    <ClInclude Include="include\Sandbox\Core\std_macros.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Render\Buffer.h">
@@ -233,10 +233,10 @@
     <ClInclude Include="include\Sandbox\Render\Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Utils\PrintMat4.h">
+    <ClInclude Include="include\Sandbox\Core\Print.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Time.h">
+    <ClInclude Include="include\Sandbox\Core\Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\ECS\Entity.h">
@@ -248,10 +248,10 @@
     <ClInclude Include="include\Sandbox\ECS\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\TypeId.h">
+    <ClInclude Include="include\Sandbox\Core\TypeId.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Signal.h">
+    <ClInclude Include="include\Sandbox\Core\Signal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Input\DirectionalInput.h">
@@ -272,19 +272,19 @@
     <ClInclude Include="include\Sandbox\Render.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Vec.h">
+    <ClInclude Include="include\Sandbox\Core\Vec.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\PlatformDetection.h">
+    <ClInclude Include="include\Sandbox\Internal\PlatformDetection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Utils\Files.h">
+    <ClInclude Include="include\Sandbox\Core\Files.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Utils\Container.h">
+    <ClInclude Include="include\Sandbox\Core\Container.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Math.h">
+    <ClInclude Include="include\Sandbox\Core\Math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Input\Controller.h">
@@ -299,13 +299,13 @@
     <ClInclude Include="include\Sandbox\Input\Bindings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Worker.h">
+    <ClInclude Include="include\Sandbox\Core\Worker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Delegate.h">
+    <ClInclude Include="include\Sandbox\Core\Delegate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Task.h">
+    <ClInclude Include="include\Sandbox\Core\Task.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\ECS\Systems.h">
@@ -314,7 +314,7 @@
     <ClInclude Include="include\Sandbox\Engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Singleton.h">
+    <ClInclude Include="include\Sandbox\Internal\Singleton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\EngineParameters.h">
@@ -326,13 +326,13 @@
     <ClInclude Include="include\Sandbox\ECS\InputSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\ImGuiLoader.h">
+    <ClInclude Include="include\Sandbox\Internal\ImGuiLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\ECS\World.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Random.h">
+    <ClInclude Include="include\Sandbox\Core\Random.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\ECS.h">
@@ -371,9 +371,6 @@
     <ClInclude Include="include\Sandbox\ECS\SpriteRenderSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Control.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Sandbox\Sandbox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -392,10 +389,10 @@
     <ClInclude Include="include\Sandbox\ECS\Components.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Serialization.h">
+    <ClInclude Include="include\Sandbox\Core\Serialization.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Assets.h">
+    <ClInclude Include="include\Sandbox\Core\Assets.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Render\LineRenderer.h">
@@ -410,7 +407,7 @@
     <ClInclude Include="include\cute\cute_c2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sandbox\Utils\Easing.h">
+    <ClInclude Include="include\Sandbox\Core\Easing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Sandbox\Physics\Collider.h">
@@ -446,6 +443,9 @@
     <ClInclude Include="include\Sandbox\Physics\ColliderRenderDebugSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Sandbox\Core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\texture.frag" />
@@ -455,7 +455,7 @@
     <None Include="assets\shaders\position_texture_transform.vert" />
     <None Include="assets\shaders\model_view_projection.vert" />
     <None Include="assets\shaders\billboard.vert" />
-    <None Include="include\Sandbox\Signal.tpp" />
+    <None Include="include\Sandbox\Core\Signal.tpp" />
     <None Include="src\Tools\Toolbox.tpp" />
     <None Include="assets\shaders\batch_renderer.vert" />
     <None Include="assets\shaders\batch_renderer.frag" />
@@ -465,8 +465,8 @@
     <None Include="assets\shaders\ubt.frag" />
     <None Include="assets\shaders\texture_unit.vert" />
     <None Include="assets\shaders\texture_unit.frag" />
-    <None Include="include\Sandbox\Utils\Container.tpp" />
-    <None Include="include\Sandbox\Math.tpp" />
+    <None Include="include\Sandbox\Core\Container.tpp" />
+    <None Include="include\Sandbox\Core\Math.tpp" />
     <None Include="Vec.tpp" />
   </ItemGroup>
   <ItemGroup>

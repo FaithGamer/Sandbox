@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Sandbox/ECS.h>
-#include <Sandbox/Time.h>
+#include <Sandbox/Core/Time.h>
 #include <Sandbox/Input.h>
 #include <Sandbox/Render/Sprite.h>
 

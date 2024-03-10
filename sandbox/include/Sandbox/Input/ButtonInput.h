@@ -5,7 +5,7 @@
 #include "Sandbox/Input/Controller.h"
 #include "Sandbox/Input/Mouse.h"
 #include "Sandbox/Input/Bindings.h"
-#include "Sandbox/Vec.h"
+#include "Sandbox/Core/Vec.h"
 
 
 namespace Sandbox

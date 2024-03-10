@@ -3,14 +3,14 @@
 
 
 #include "entt/entt.hpp"
-#include "Sandbox/Vec.h"
-#include "Sandbox/Time.h"
+#include "Sandbox/Core/Vec.h"
+#include "Sandbox/Core/Time.h"
 #include "Sandbox/ECS.h"
 #include "Sandbox/Input/Inputs.h"
 #include "Sandbox/Input/Input.h"
 #include "Sandbox/Input/InputMap.h"
 #include "Sandbox/Input/ButtonInput.h"
-#include "Sandbox/std_macros.h"
+#include "Sandbox/Core/std_macros.h"
 
 #include "Tests/ImGuiSystemTest.h"
 #include "Tests/ECSTest.h"
@@ -36,8 +36,8 @@
 namespace sb = Sandbox;
 
 #include "Sandbox/ECS/Entity.h"
-#include "Sandbox/Log.h"
-#include "Sandbox/Signal.h"
+#include "Sandbox/Core/Log.h"
+#include "Sandbox/Core/Signal.h"
 
 void foo(int const* s)
 {

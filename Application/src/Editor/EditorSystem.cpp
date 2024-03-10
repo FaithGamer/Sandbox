@@ -1,13 +1,13 @@
 #include "pch.h"
 
 #include <filesystem>
-#include "Sandbox/Log.h"
+#include "Sandbox/Core/Log.h"
 #include "Sandbox/Render/Window.h"
 #include "Sandbox/Render/Texture.h"
 #include <Sandbox/ECS.h>
 #include <Sandbox/Render/SpriteRender.h>
-#include <Sandbox/Time.h>
-#include <Sandbox/Random.h>
+#include <Sandbox/Core/Time.h>
+#include <Sandbox/Core/Random.h>
 #include <Sandbox/Input.h>
 #include <Sandbox/ECS/ParticleSystem.h>
 #include "EditorSystem.h"

@@ -3,9 +3,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/functions.hpp>
 
-#include "Sandbox/Vec.h"
+#include "Sandbox/Core/Vec.h"
 #include "Sandbox/Render/Camera.h"
-#include "Sandbox/Log.h"
+#include "Sandbox/Core/Log.h"
 
 
 

@@ -1,9 +1,9 @@
 #pragma once
 #include <string>
-#include "Sandbox/Singleton.h"
-#include "Sandbox/Vec.h"
-#include "Sandbox/Time.h"
-#include "Sandbox/Serialization.h"
+#include "Sandbox/Internal/Singleton.h"
+#include "Sandbox/Core/Vec.h"
+#include "Sandbox/Core/Time.h"
+#include "Sandbox/Core/Serialization.h"
 
 namespace Sandbox
 {

@@ -1,7 +1,7 @@
 #include "Sandbox/Render.h"
 #include "Sandbox/Engine.h"
 #include "Sandbox/ECS.h"
-#include "Sandbox/Assets.h"
+#include "Sandbox/Core/Assets.h"
 #include <earcut/mapbox/earcut.hpp>
 
 using namespace Sandbox;

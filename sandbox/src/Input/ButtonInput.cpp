@@ -1,8 +1,8 @@
 #include "pch.h"
-#include "Sandbox/Math.h"
+#include "Sandbox/Core/Math.h"
 #include "Sandbox/Input/ButtonInput.h"
 #include "Sandbox/Input/Bindings.h"
-#include "Sandbox/Utils/Container.h"
+#include "Sandbox/Core/Container.h"
 
 namespace Sandbox
 {

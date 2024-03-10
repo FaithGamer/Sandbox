@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "Sandbox/Physics/Collider.h"
-#include "Sandbox/Vec.h"
+#include "Sandbox/Core/Vec.h"
 #include "Sandbox/Physics/Body.h"
-#include "Sandbox/Math.h"
+#include "Sandbox/Core/Math.h"
 
 namespace Sandbox
 {

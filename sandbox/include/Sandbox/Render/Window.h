@@ -4,10 +4,10 @@
 #include <glad/glad.h>
 #include <SDL/SDL.h>
 #include <SDL/SDL_opengl.h>
-#include "Sandbox/Singleton.h"
-#include "Sandbox/Vec.h"
+#include "Sandbox/Internal/Singleton.h"
+#include "Sandbox/Core/Vec.h"
 #include "RenderTarget.h"
-#include "Sandbox/Signal.h"
+#include "Sandbox/Core/Signal.h"
 
 namespace Sandbox
 {

@@ -1,6 +1,6 @@
 #pragma once
 #include <SDL/SDL.h>
-#include "Sandbox/Vec.h"
+#include "Sandbox/Core/Vec.h"
 
 namespace Sandbox
 {

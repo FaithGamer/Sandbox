@@ -3,7 +3,7 @@
 #include <glad/glad.h>
 
 #include "Sandbox/Render/VertexBuffer.h"
-#include "Sandbox/Log.h"
+#include "Sandbox/Core/Log.h"
 
 namespace Sandbox
 {

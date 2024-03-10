@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Sandbox/Physics/AABBQueries.h"
-#include "Sandbox/Math.h"
+#include "Sandbox/Core/Math.h"
 
 namespace Sandbox
 {

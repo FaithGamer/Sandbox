@@ -2,8 +2,8 @@
 
 #include <cstdint>
 #include <unordered_map>
-#include "Sandbox/std_macros.h"
-#include "Sandbox/Log.h"
+#include "Sandbox/Core/std_macros.h"
+#include "Sandbox/Core/Log.h"
 
 namespace Sandbox
 {

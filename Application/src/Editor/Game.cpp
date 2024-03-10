@@ -2,7 +2,7 @@
 
 #include "Game.h"
 #include <Sandbox/Render.h>
-#include <Sandbox/Random.h>
+#include <Sandbox/Core/Random.h>
 #include <cmath>
 
 using namespace Sandbox;

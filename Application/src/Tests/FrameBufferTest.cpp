@@ -9,20 +9,20 @@
 #include "Sandbox/Render/Renderer2D.h"
 #include "Sandbox/Input/ButtonInput.h"
 #include "Sandbox/Input/InputMap.h"
-#include "Sandbox/Log.h"
-#include "Sandbox/TypeId.h"
+#include "Sandbox/Core/Log.h"
+#include "Sandbox/Core/TypeId.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <entt/entt.hpp>
 #include "Sandbox/Engine.h"
-#include "Sandbox/Time.h"
+#include "Sandbox/Core/Time.h"
 #include "Sandbox/ECS/System.h"
 #include "Sandbox/ECS/Systems.h"
 #include "Sandbox/Render/RenderTexture.h"
 
-#include "Sandbox/std_macros.h"
+#include "Sandbox/Core/std_macros.h"
 
 #include "FrameBufferTest.h"
 

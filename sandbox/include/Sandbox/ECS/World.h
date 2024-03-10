@@ -1,8 +1,8 @@
 #pragma once
 
 #include "entt/entt.hpp"
-#include "Sandbox/TypeId.h"
-#include "Sandbox/Signal.h"
+#include "Sandbox/Core/TypeId.h"
+#include "Sandbox/Core/Signal.h"
 #include "Sandbox/ECS/Entity.h"
 
 namespace Sandbox

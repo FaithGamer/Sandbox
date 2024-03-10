@@ -4,7 +4,7 @@
 #include "Sandbox/Engine.h"
 #include "Sandbox/Render.h"
 #include "Sandbox/ECS.h"
-#include "Sandbox/Control.h"
+#include "Sandbox/Input.h"
 
 
 using namespace Sandbox;

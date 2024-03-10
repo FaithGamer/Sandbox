@@ -1,7 +1,7 @@
 #include "pch.h"
 
 #include "Sandbox/ECS/World.h"
-#include "Sandbox/Log.h"
+#include "Sandbox/Core/Log.h"
 
 
 namespace Sandbox

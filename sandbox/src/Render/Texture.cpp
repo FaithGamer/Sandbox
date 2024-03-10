@@ -1,7 +1,7 @@
 #include "pch.h"
 
-#include "Sandbox/Log.h"
-#include "Sandbox/Vec.h"
+#include "Sandbox/Core/Log.h"
+#include "Sandbox/Core/Vec.h"
 #include "Sandbox/Render/Texture.h"
 
 #include <stb/stb_image.h>

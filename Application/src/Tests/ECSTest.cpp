@@ -4,7 +4,7 @@
 #include "Sandbox/ECS/Entity.h"
 #include "Sandbox/ECS/System.h"
 #include "Sandbox/ECS/Systems.h"
-#include "Sandbox/Log.h"
+#include "Sandbox/Core/Log.h"
 
 
 struct compa

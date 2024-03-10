@@ -1,8 +1,8 @@
 #pragma once
 
 #include <unordered_map>
-#include "Sandbox/std_macros.h"
-#include "Sandbox/Vec.h"
+#include "Sandbox/Core/std_macros.h"
+#include "Sandbox/Core/Vec.h"
 #include "Sandbox/Render/Buffer.h"
 #include "Sandbox/Render/VertexArray.h"
 #include "Sandbox/Render/Camera.h"
@@ -10,7 +10,7 @@
 #include "Sandbox/Render/Sprite.h"
 #include "Sandbox/Render/Transform.h"
 #include "Sandbox/Render/RenderTarget.h"
-#include "Sandbox/Singleton.h"
+#include "Sandbox/Internal/Singleton.h"
 #include "Sandbox/Render/LineRenderer.h"
 #include "Sandbox/Render/WireRender.h"
 

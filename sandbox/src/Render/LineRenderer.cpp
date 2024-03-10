@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "Sandbox/Render/LineRenderer.h"
-#include "Sandbox/Log.h"
-#include "Sandbox/Math.h"
-#include "Sandbox/Utils/Easing.h"
+#include "Sandbox/Core/Log.h"
+#include "Sandbox/Core/Math.h"
+#include "Sandbox/Core/Easing.h"
 
 namespace Sandbox
 {

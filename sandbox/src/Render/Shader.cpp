@@ -3,8 +3,8 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glad/glad.h>
 
-#include "Sandbox/Utils/Files.h"
-#include "Sandbox/Log.h"
+#include "Sandbox/Core/Files.h"
+#include "Sandbox/Core/Log.h"
 #include "Sandbox/Render/Shader.h"
 
 

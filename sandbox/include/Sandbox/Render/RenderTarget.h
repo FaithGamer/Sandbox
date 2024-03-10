@@ -1,5 +1,5 @@
 #pragma once
-#include "Sandbox/Vec.h"
+#include "Sandbox/Core/Vec.h"
 
 namespace Sandbox
 {

@@ -2,8 +2,8 @@
 #include "Sandbox/ECS/ParticleSystem.h"
 #include "Sandbox/Render/Particle.h"
 #include "Sandbox/Render/Renderer2D.h"
-#include "Sandbox/Random.h"
-#include "Sandbox/Math.h"
+#include "Sandbox/Core/Random.h"
+#include "Sandbox/Core/Math.h"
 #include "Sandbox/ECS/Systems.h"
 
 

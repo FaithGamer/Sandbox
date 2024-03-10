@@ -1,7 +1,7 @@
 #pragma once
 #include "Sandbox/Input/Input.h"
 #include "Sandbox/Input/ButtonInput.h"
-#include "Sandbox/Vec.h"
+#include "Sandbox/Core/Vec.h"
 
 namespace Sandbox
 {

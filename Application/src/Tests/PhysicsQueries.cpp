@@ -6,8 +6,8 @@
 #include "box2d/box2d.h"
 #include "Sandbox/Engine.h"
 #include "Sandbox/PhysicsEngine.h"
-#include "Sandbox/Assets.h"
-#include "Sandbox/Math.h"
+#include "Sandbox/Core/Assets.h"
+#include "Sandbox/Core/Math.h"
 #include "Sandbox/Render/Renderer2D.h"
 #include "Sandbox/Input/Mouse.h"
 #include "PhysicsQueries.h"
@@ -228,7 +228,6 @@ public:
 
 		ForeachEntities<ParentTag, Transform>([&](Entity& entity, ParentTag& tag, Transform& transform) {
 			if (time > 1) {
-				LOG_INFO("bue");
 				entity.Destroy();
 			}
 			float rotation = time * 10.f;

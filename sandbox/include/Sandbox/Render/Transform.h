@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Sandbox/Vec.h"
+#include "Sandbox/Core/Vec.h"
 #include "Sandbox/ECS/Entity.h"
 
 namespace Sandbox

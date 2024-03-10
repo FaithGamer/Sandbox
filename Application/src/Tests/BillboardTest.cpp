@@ -13,18 +13,18 @@
 #include "Sandbox/Render/Renderer2D.h"
 #include "Sandbox/Input/ButtonInput.h"
 #include "Sandbox/Input/InputMap.h"
-#include "Sandbox/Log.h"
-#include "Sandbox/TypeId.h"
+#include "Sandbox/Core/Log.h"
+#include "Sandbox/Core/TypeId.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <entt/entt.hpp>
 
-#include "Sandbox/Time.h"
+#include "Sandbox/Core/Time.h"
 #include "Sandbox/ECS/Components.h"
-#include "Sandbox/Utils/Container.h"
-#include "Sandbox/Signal.h"
+#include "Sandbox/Core/Container.h"
+#include "Sandbox/Core/Signal.h"
 
 #include "Sandbox/Engine.h"
 
