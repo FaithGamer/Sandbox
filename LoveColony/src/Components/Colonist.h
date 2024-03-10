@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Sandbox/Core/Vec.h"
+#include "Sandbox/ECS/EntityId.h"
+
 using namespace Sandbox;
 
 enum ColonistState : int
@@ -13,7 +15,6 @@ enum ColonistState : int
 
 struct ColonistPhysics
 {
-	//Movement
 	float wanderDirection = 0;
 	float currentAngle = 0;
 	float speed = 0;
@@ -22,10 +23,10 @@ struct ColonistPhysics
 	float nextWanderTime = 0;
 	Vec2f velocity = 0;
 	Vec2f offset = 0;
-
 };
 
 struct ColonistBrain
 {
 	ColonistState state = SearchingFood;
+	EntityId lastFollowedScent = EntityId(0);
 };

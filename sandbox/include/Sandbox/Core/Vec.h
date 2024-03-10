@@ -321,8 +321,11 @@ namespace Sandbox
 	{
 		return Vec3<float>(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z);
 	}
-
 	inline Vec3<float> operator*(Vec3<float> vec3, const float f)
+	{
+		return Vec3<float>(vec3.x * f, vec3.y * f, vec3.z * f);
+	}
+	inline Vec3<float> operator*(const float f, Vec3<float> vec3)
 	{
 		return Vec3<float>(vec3.x * f, vec3.y * f, vec3.z * f);
 	}
@@ -362,6 +365,10 @@ namespace Sandbox
 		return Vec2<float>(lhs.x - rhs.x, lhs.y - rhs.y);
 	}
 	inline Vec2<float> operator*(Vec2<float> vec3, const float f)
+	{
+		return Vec2<float>(vec3.x * f, vec3.y * f);
+	}
+	inline Vec2<float> operator*(const float f, Vec2<float> vec3)
 	{
 		return Vec2<float>(vec3.x * f, vec3.y * f);
 	}

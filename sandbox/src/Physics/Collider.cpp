@@ -123,6 +123,7 @@ namespace Sandbox
 			auto dir = Math::AngleToVec((float)i / (float)20 * 360)* m_shape.m_radius;
 			render->wire->AddPoint(dir);
 		}
+		render->wire->SetColor(Vec4f(0, 1, 0, 1));
 	}
 	b2AABB Circle2D::GetAABB()
 	{

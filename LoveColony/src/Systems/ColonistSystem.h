@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Sandbox/Sandbox.h"
+#include "Settings/ColonistSettings.h"
 using namespace Sandbox;
 
 
@@ -16,4 +17,5 @@ public:
 	void OnAddColonistPhysics(ComponentSignal signal);
 	void OnAddColonistBrain(ComponentSignal signal);
 
+	ColonistSettings settings;
 };

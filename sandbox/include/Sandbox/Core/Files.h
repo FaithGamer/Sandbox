@@ -3,7 +3,7 @@
 
 namespace Sandbox
 {
-	namespace IO
+	namespace Files
 	{
 		std::string IfstreamToString(std::ifstream& file);
 	};

@@ -40,7 +40,7 @@ namespace Sandbox
 
 		/// @brief Enable/Disable drawing the colliders wireframe
 		/// @param draw 
-		static void DrawCollider(bool draw);
+		static void DrawColliders(bool draw);
 		static b2World* GetB2World();
 	private:
 

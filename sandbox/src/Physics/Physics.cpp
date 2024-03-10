@@ -72,7 +72,7 @@ namespace Sandbox
 		ins->m_world->QueryAABB(&query, aabb);
 
 	}
-	void Physics::DrawCollider(bool draw)
+	void Physics::DrawColliders(bool draw)
 	{
 		if (draw)
 		{

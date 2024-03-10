@@ -189,7 +189,7 @@ February
 >Polygon2D
 -WireRender
 -CollisionDebugRendersystem
--Enable/Disable DrawCollider
+-Enable/Disable DrawColliders
 >OverlapBody
 >Raycast
 
@@ -228,4 +228,9 @@ so OnAddComponent method of system works even before engine::init if they are ca
 -Fixed by using a move constructor on Body
 
 10
+
+-Physics layer
+-better include hierarchy
+-Started LoveColony project
+
 >Entity child must not be able to have parent as child!

@@ -18,5 +18,42 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Systems\GameManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Prefab.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Systems\ColonistSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Systems\GameManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Prefab.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Systems\ColonistSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\Colonist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Settings\ColonistSettings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\shaders\default_layer.vert" />
+    <None Include="assets\shaders\default_layer.frag" />
+    <None Include="assets\shaders\batch_renderer.frag" />
+    <None Include="assets\shaders\batch_renderer.vert" />
+    <None Include="assets\shaders\line.frag" />
+    <None Include="assets\shaders\line.geom" />
+    <None Include="assets\shaders\line.vert" />
+    <None Include="assets\shaders\wire.frag" />
+    <None Include="assets\shaders\wire.vert" />
   </ItemGroup>
 </Project>

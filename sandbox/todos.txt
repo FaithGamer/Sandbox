@@ -33,7 +33,7 @@ PHYSICS:
 
 -add Body raycast
 -implement polygon
--test enable/disable DrawCollider
+-test enable/disable DrawColliders
 
 -physics must have filters
 

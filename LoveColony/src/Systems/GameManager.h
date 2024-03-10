@@ -7,6 +7,7 @@ class GameManager : public System
 {
 public:
 	GameManager();
+	void OnStart() override;
 	void OnUpdate(Time delta) override;
 	void StartGame();
 	

@@ -204,7 +204,7 @@ void RaycastTest()
 	//circle overlap a rectangle
 	std::cout << " Circle overlap rectangle  " << std::endl;
 
-	Physics::DrawCollider(true);
+	Physics::DrawColliders(true);
 	Systems::Push<CollisionTestSystem>();
 
 	Camera cam;

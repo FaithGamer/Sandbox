@@ -110,14 +110,16 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Sandbox\;$(SolutionDir)Sandbox\src;$(SolutionDir)Sandbox\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Sandbox\;$(SolutionDir)Sandbox\src;$(SolutionDir)LoveColony\src;$(SolutionDir)Sandbox\include</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>winmm.lib;Imm32.lib;Setupapi.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -126,20 +128,48 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Sandbox\;$(SolutionDir)Sandbox\src;$(SolutionDir)Sandbox\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Sandbox\;$(SolutionDir)Sandbox\src;$(SolutionDir)LoveColony\src;$(SolutionDir)Sandbox\include</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>winmm.lib;Imm32.lib;Setupapi.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Systems\ColonistSystem.cpp" />
+    <ClCompile Include="src\Prefab.cpp" />
+    <ClCompile Include="src\Systems\GameManager.cpp" />
     <ClCompile Include="src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Settings\ColonistSettings.h" />
+    <ClInclude Include="src\Systems\ColonistSystem.h" />
+    <ClInclude Include="src\Components\Colonist.h" />
+    <ClInclude Include="src\Systems\GameManager.h" />
+    <ClInclude Include="src\Prefab.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sandbox\sandbox.vcxproj">
+      <Project>{2bf5f329-9550-470d-ac5b-1e0253c2bc20}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\shaders\batch_renderer.frag" />
+    <None Include="assets\shaders\batch_renderer.vert" />
+    <None Include="assets\shaders\default_layer.frag" />
+    <None Include="assets\shaders\default_layer.vert" />
+    <None Include="assets\shaders\line.frag" />
+    <None Include="assets\shaders\line.geom" />
+    <None Include="assets\shaders\line.vert" />
+    <None Include="assets\shaders\wire.frag" />
+    <None Include="assets\shaders\wire.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

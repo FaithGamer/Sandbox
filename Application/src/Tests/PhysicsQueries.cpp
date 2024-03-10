@@ -252,7 +252,7 @@ void PhysicsQueries()
 	//Systems::Push<BodySystem>();
 	//Systems::Push<RaycastSystem>();
 	Systems::Push<RaycastAllSystem>();
-	Physics::DrawCollider(true);
+	Physics::DrawColliders(true);
 
 	Engine::Launch();
 }
