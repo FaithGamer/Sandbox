@@ -19,6 +19,9 @@
 -rename spriteRender to SpriteRenderer
 -Add mouse position from systems and camera
 
+-transform optimize the matrix computation for children
+-try computing matrix in shader
+
 BIG TASKS:
 
 - fixed aspect ratio for render layers
@@ -30,8 +33,8 @@ BIG TASKS:
 
 PHYSICS:
 
-
--add Body raycast
+- raycast with use direction + distance
+-add Body raycast/overlap that ignores itslef
 -implement polygon
 -test enable/disable DrawColliders
 

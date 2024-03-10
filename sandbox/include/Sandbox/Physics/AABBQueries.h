@@ -71,6 +71,21 @@ namespace Sandbox
 	};
 
 	/// @brief For internal use
+	class QueryBodyRaycastAll : public b2RayCastCallback
+	{
+	public:
+		QueryBodyRaycastAll(Body* body, Bitmask mask, std::vector<OverlapResult>* Results);
+		float ReportFixture(b2Fixture* fixture, const b2Vec2& point, const b2Vec2& normal, float fraction) override;
+
+	public:
+		std::vector<OverlapResult>* results;
+
+	private:
+		Bitmask m_mask;
+		Body* m_body;
+	};
+
+	/// @brief For internal use
 	class QueryPointInsideAll : public b2QueryCallback
 	{
 	public:

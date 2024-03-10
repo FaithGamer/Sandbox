@@ -164,4 +164,17 @@ namespace Sandbox
 		// Continue the query.
 		return true;
 	}
+
+	//
+	//
+	// Body raycast
+	//
+	//
+	QueryBodyRaycastAll::QueryBodyRaycastAll(Body* body, Bitmask mask, std::vector<OverlapResult>* Results)
+	{
+	}
+	float QueryBodyRaycastAll::ReportFixture(b2Fixture* fixture, const b2Vec2& point, const b2Vec2& normal, float fraction)
+	{
+		return 0.0f;
+	}
 }

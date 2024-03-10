@@ -21,14 +21,16 @@ void ColonistSystem::OnUpdate(Time delta)
 {
 	Bitmask wallMask = Physics::GetLayerMask("Walls");
 	float hitboxRadius = 0.2f;
+	float margin = 0.01f;
 	ForeachComponents<ColonistPhysics, Transform>([&](ColonistPhysics& physics, Transform& transform)
 		{
 			//Move, collide and reflect velocity
-			
+			Vec3f position = transform.GetPosition();
+			Vec2f direction = Math::AngleToVec(physics.currentAngle);
+
 			//Acceleration
 			physics.speed += settings.acceleration * (float)delta;
-			auto direction = Math::AngleToVec(physics.currentAngle);
-			Vec3f position = transform.GetPosition();
+			physics.speed = Math::Clamp(physics.speed, 0, settings.maxSpeed);
 
 			//Velocity
 			Vec2f offset = 0;
@@ -36,14 +38,17 @@ void ColonistSystem::OnUpdate(Time delta)
 			offset = direction * physics.speed * (float)delta;
 
 			//Collision
-			Vec2f radius = offset.Normalized() * hitboxRadius;
+			Vec2f radius = offset.Normalized() * (hitboxRadius + margin);
 			RaycastResult raycast;
-			Physics::RaycastClosest(raycast, position, (Vec2f)position + offset + radius, wallMask);
+			Physics::RaycastClosest(raycast, position, offset + (Vec2f)position + radius, wallMask);
 
 			if (raycast.hit)
 			{
-				offset = raycast.distance * offset.Normalized();
-
+				offset = (raycast.distance - margin - hitboxRadius) * offset.Normalized();
+				
+				direction = direction.Reflected(raycast.normal);
+				physics.currentAngle = Math::VecToAngle(direction);
+				physics.velocity = physics.speed * direction;
 			}
 
 			transform.Move(offset);
@@ -52,12 +57,12 @@ void ColonistSystem::OnUpdate(Time delta)
 
 int ColonistSystem::GetUsedMethod()
 {
-	return 0;
+	return System::Method::Update;
 }
 
 void ColonistSystem::OnAddColonistPhysics(ComponentSignal signal)
 {
-	//Initialize colonist physics
+	Entity(signal.entity).GetComponent<ColonistPhysics>()->currentAngle = Random::Range(0, 360);
 }
 
 void ColonistSystem::OnAddColonistBrain(ComponentSignal signal)

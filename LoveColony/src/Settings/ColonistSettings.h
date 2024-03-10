@@ -6,7 +6,7 @@ struct ColonistSettings : public Serializable
 {
 	//Default constructor
 	ColonistSettings()
-		: maxSpeed(2.f), acceleration(10.f)
+		: maxSpeed(10.f), acceleration(10.f)
 	{
 
 	}
