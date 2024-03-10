@@ -31,7 +31,7 @@ namespace Sandbox
 		{
 			LOG_ERROR("Unable to open the shader: " + path);
 		}
-		return IO::IfstreamToString(shaderFile);
+		return Files::IfstreamToString(shaderFile);
 	}
 
 	void shaderCompilationError(uint32_t shader)
