@@ -22,7 +22,23 @@ namespace Sandbox
 		static void BodyOverlap(std::vector<OverlapResult>& results, Body* body, Bitmask mask = 65535);
 		//static float BodyDistance(Body& lhs, Body& rhs);
 
-		/// @brief Won't work for the colliders created after this call AND before Engine::Launch
+		/// @brief Add a collision layer with a custom name
+		/// Generally call this method a bunch of time before launching the engine and creating Bodies
+		/// @param layerName 
+		static void AddLayer(String layerName)
+		{
+			Instance()->m_layers.AddFlag(layerName);
+		}
+		/// @brief Create a bitmask for the given collision layers. 
+		/// Layers must have been added first using AddLayer.
+		/// @return Bitmask of layers
+		template <typename ...Str>
+		static Bitmask GetLayerMask(Str... layers)
+		{
+			return Instance()->m_layers.GetMask(layers...);
+		}
+
+		/// @brief Enable/Disable drawing the colliders wireframe
 		/// @param draw 
 		static void DrawCollider(bool draw);
 		static b2World* GetB2World();
@@ -30,5 +46,6 @@ namespace Sandbox
 
 		b2World* m_world;
 		friend Singleton<Physics>;
+		Filter m_layers;
 	};
 }

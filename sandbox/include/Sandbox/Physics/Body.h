@@ -60,7 +60,7 @@ namespace Sandbox
 		Body(Type type = Type::Kinematic, Bitmask layer = 1);
 		Body(Body&& body) noexcept;
 		~Body();
-		/// @brief Set the layer it's on. 
+		/// @brief Set the layers it's on. 
 		/// Warning: Must be set BEFORE adding colliders, (this will change in the future)
 		/// @param layer 
 		void SetLayer(Bitmask layer);
