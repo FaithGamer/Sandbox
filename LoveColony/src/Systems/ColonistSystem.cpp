@@ -21,38 +21,14 @@ void ColonistSystem::OnUpdate(Time delta)
 {
 	/*Bitmask wallMask = Physics::GetLayerMask("Walls", "Scent");
 	float hitboxRadius = 0.2f;
-	float margin = 0.01f;
+	float margin = 0.01f;*/
 	ForeachComponents<ColonistPhysics, Transform>([&](ColonistPhysics& physics, Transform& transform)
 		{
-			//Move, collide and reflect velocity
-			Vec3f position = transform.GetPosition();
-			Vec2f direction = Math::AngleToVec(physics.currentAngle);
-
-			//Acceleration
-			physics.speed += settings.acceleration * (float)delta;
-			physics.speed = Math::Clamp(physics.speed, 0, settings.maxSpeed);
-
-			//Velocity
-			Vec2f offset = 0;
-			physics.velocity = physics.speed * direction;
-			offset = direction * physics.speed * (float)delta;
-
-			//Collision
-			Vec2f radius = offset.Normalized() * (hitboxRadius + margin);
-			RaycastResult raycast;
-			Physics::RaycastClosest(raycast, position, offset + (Vec2f)position + radius, wallMask);
-
-			if (raycast.hit)
-			{
-				offset = (raycast.distance - margin - hitboxRadius) * offset.Normalized();
-				
-				direction = direction.Reflected(raycast.normal);
-				physics.currentAngle = Math::VecToAngle(direction);
-				physics.velocity = physics.speed * direction;
-			}
-
-			transform.Move(offset);
-		});*/
+			physics.interpolationTime = Math::Max(0.f, physics.interpolationTime - (float)delta);
+			float t = 1 - physics.interpolationTime / (float)Time::FixedDelta();
+			Vec3f position = Math::Lerp(physics.prevPosition, physics.nextPosition, t);
+			transform.SetPosition(position);
+		});
 
 
 }
