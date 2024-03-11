@@ -91,10 +91,10 @@ namespace Sandbox
 		/// @param object object to call the member function upon
 		/// @param ...args arguments
 		/// @return return of the function
-		Ret Call(void* const object, Args&... args)
+		/*Ret Call(void* const object, Args&... args)
 		{
 			return m_callable->CallWithObject(object, std::forward<Args>(args)...);
-		}
+		}*/
 
 		/// @brief Call the member function on object with arguments provided in the delegate's constructor.
 		/// The behaviour is undefined if no arguments were provided in the delegate's constructor
@@ -123,8 +123,8 @@ namespace Sandbox
 			virtual ~Callable() {};
 			virtual Ret CallWithObject(void* const object, Args&&... args) = 0;
 			virtual Ret Call(Args&&... args) = 0;
-			virtual Ret CallWithObject(void* const object, Args&... args) = 0;
-			virtual Ret Call(Args&... args) = 0;
+		//	virtual Ret CallWithObject(void* const object, Args&... args) = 0;
+			//virtual Ret Call(Args&... args) = 0;
 			virtual bool IsSameFunction(Ret(*function)(Args...)) const = 0;
 		};
 
@@ -146,18 +146,18 @@ namespace Sandbox
 			{
 				return (static_cast<Obj*>(object)->*m_function)(std::forward<Args>(args)...);
 			}
-			Ret CallWithObject(void* const object, Args&... args) override
+		/*	Ret CallWithObject(void* const object, Args&... args) override
 			{
 				return (static_cast<Obj*>(object)->*m_function)(std::forward<Args>(args)...);
-			}
+			}*/
 			Ret Call(Args&&... args) override
 			{
 				return (m_object->*m_function)(std::forward<Args>(args)...);
 			}
-			Ret Call(Args&... args) override
+			/*Ret Call(Args&... args) override
 			{
 				return (m_object->*m_function)(std::forward<Args>(args)...);
-			}
+			}*/
 			bool IsSameFunction(Ret(*function)(Args...)) const override
 			{
 				return false;
@@ -183,10 +183,10 @@ namespace Sandbox
 			{
 				return (*m_function)(std::forward<Args>(args)...);
 			}
-			Ret Call(Args&... args) override
+			/*Ret Call(Args&... args) override
 			{
 				return (*m_function)(std::forward<Args>(args)...);
-			}
+			}*/
 			Ret CallWithObject(void* const object, Args&&... args) override
 			{
 				//no object of free function
