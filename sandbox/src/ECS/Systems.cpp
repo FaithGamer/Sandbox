@@ -16,7 +16,7 @@
 namespace Sandbox
 {
 	Systems::Systems() :
-		m_fixedUpdateTime(0.030f),
+		m_fixedUpdateTime(0.032f),
 		m_pushCount(0),
 		m_maxFixedUpdate(10),
 		m_events(0),

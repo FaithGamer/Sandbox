@@ -3,6 +3,7 @@
 
 #include "Systems/GameManager.h"
 #include "Systems/ColonistSystem.h"
+#include "Systems/ZisYSystem.h"
 
 using namespace Sandbox;
 
@@ -25,6 +26,7 @@ int main(int argv, char** argc)
 
 	//Systems
 	Systems::Push<ColonistSystem>();
+	Systems::Push<ZisYSystem>();
 	Systems::Push<GameManager>();
 
 

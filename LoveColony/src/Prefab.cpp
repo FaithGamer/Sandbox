@@ -2,6 +2,7 @@
 #include "Prefab.h"
 #include "Sandbox/ECS/Systems.h"
 #include "Systems/ColonistSystem.h"
+#include "Systems/ZisYSystem.h"
 #include "Sandbox/PhysicsEngine.h"
 #include "Components/Colonist.h"
 
@@ -30,6 +31,7 @@ namespace Prefab
 		//Colonist components
 		colonist.AddComponent<ColonistBrain>();
 		colonist.AddComponent<ColonistPhysics>();
+		colonist.AddComponent<ZisY>();
 
 		return colonist;
 	}
@@ -48,6 +50,7 @@ namespace Prefab
 		SpriteRender* render = wall.AddComponent<SpriteRender>();
 		render->SetSprite(Assets::Get<Sprite>("Obstacles.png_0_2").Ptr()); //todo, optimize by having Prefab as a class and holding on the assets it needs
 
+		wall.AddComponent<ZisY>();
 		return wall;
 	}
 }

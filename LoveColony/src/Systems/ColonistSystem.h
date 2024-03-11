@@ -11,6 +11,7 @@ public:
 	ColonistSystem();
 	void OnStart() override;
 	void OnUpdate(Time delta) override;
+	void OnFixedUpdate(Time delta) override;
 
 	int GetUsedMethod() override;
 

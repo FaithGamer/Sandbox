@@ -147,6 +147,7 @@
     <ClCompile Include="src\Prefab.cpp" />
     <ClCompile Include="src\Systems\GameManager.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Systems\ZisYSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Settings\ColonistSettings.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="src\Components\Colonist.h" />
     <ClInclude Include="src\Systems\GameManager.h" />
     <ClInclude Include="src\Prefab.h" />
+    <ClInclude Include="src\Systems\ZisYSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sandbox\sandbox.vcxproj">
@@ -170,6 +172,10 @@
     <None Include="assets\shaders\line.vert" />
     <None Include="assets\shaders\wire.frag" />
     <None Include="assets\shaders\wire.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="doneLoveColony.txt" />
+    <Text Include="todoLoveColony.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

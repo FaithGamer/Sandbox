@@ -237,3 +237,4 @@ so OnAddComponent method of system works even before engine::init if they are ca
 
 -Transform matrix in the shader is not efficient at all
 >Entity child must not be able to have parent as child!
+

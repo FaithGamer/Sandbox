@@ -27,6 +27,9 @@
     <ClCompile Include="src\Systems\ColonistSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Systems\ZisYSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Systems\GameManager.h">
@@ -44,6 +47,9 @@
     <ClInclude Include="src\Settings\ColonistSettings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Systems\ZisYSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\default_layer.vert" />
@@ -55,5 +61,9 @@
     <None Include="assets\shaders\line.vert" />
     <None Include="assets\shaders\wire.frag" />
     <None Include="assets\shaders\wire.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="todoLoveColony.txt" />
+    <Text Include="doneLoveColony.txt" />
   </ItemGroup>
 </Project>
