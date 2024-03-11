@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "ColonistSystem.h"
-
+#include "Prefab.h"
 
 ColonistSystem::ColonistSystem()
 {
@@ -25,12 +25,23 @@ void ColonistSystem::OnUpdate(Time delta)
 	/*Bitmask wallMask = Physics::GetLayerMask("Walls", "Scent");
 	float hitboxRadius = 0.2f;
 	float margin = 0.01f;*/
-	ForeachComponents<ColonistPhysics, Transform>([&](ColonistPhysics& physics, Transform& transform)
+	ForeachEntities<ColonistPhysics, Transform>([&](Entity entity, ColonistPhysics& physics, Transform& transform)
 		{
 			physics.interpolationTime = Math::Max(0.f, physics.interpolationTime - (float)delta);
 			float t = 1 - physics.interpolationTime / (float)Time::FixedDelta();
 			Vec3f position = Math::Lerp(physics.prevPosition, physics.nextPosition, t);
 			transform.SetPosition(position);
+
+			if (Random::Range(0.f, 1.f) > 0.95f)
+			{
+				entity.Destroy();
+				LOG_INFO("Destroy");
+			}
+			if (Random::Range(0.f, 1.f) > 0.95f)
+			{
+				Prefab::Colonist();
+				LOG_INFO("Create");
+			}
 		});
 
 
@@ -69,12 +80,11 @@ void ColonistSystem::OnAddColonistBrain(ComponentSignal signal)
 
 void ColonistSystem::AIUpdate()
 {
-	std::cout << "caca boudin" << std::endl;
-	ForeachComponents<ColonistBrain, Transform>([](ColonistBrain& brain, Transform& transform)
+	/*ForeachComponents<ColonistBrain, Transform>([](ColonistBrain& brain, Transform& transform)
 		{
-			LOG_INFO("AI task");
-		});
 
+		});*/
+	//if(Systems::IsPlaying)
 	m_aiThread.QueueTask(m_aiTask);
 }
 
@@ -116,4 +126,9 @@ void ColonistSystem::MoveAndCollide(
 	physics.prevPosition = physics.nextPosition;
 	physics.nextPosition = offset + position;
 	physics.interpolationTime = (float)delta;
+}
+
+void DestroyColonist(Entity colonist)
+{
+
 }

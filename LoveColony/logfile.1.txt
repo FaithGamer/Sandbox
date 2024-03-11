@@ -1,240 +1,240 @@
-[2024-03-11 13:01:37.826] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-11 13:01:37.828] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-11 13:01:37.828] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-11 13:01:37.833] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-11 13:01:37.849] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-11 13:01:37.857] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-11 13:01:37.861] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-11 13:01:37.870] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-11 13:01:37.874] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-11 13:01:37.883] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-11 13:01:37.891] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-11 13:01:37.894] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-11 13:01:37.896] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-11 13:01:37.896] [SANDBOX] [info] Compiling shaders...
-[2024-03-11 13:01:37.908] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-11 16:14:16.548] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-11 16:14:16.549] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-11 16:14:16.549] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-11 16:14:16.549] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-11 16:14:16.549] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-11 16:14:16.550] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-11 16:14:16.550] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-11 16:14:16.550] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-11 16:14:16.550] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-11 16:14:16.550] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-11 16:14:16.550] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-11 16:14:16.551] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-11 16:14:16.551] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-11 16:14:16.551] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-11 16:14:16.553] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-11 16:14:16.565] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-11 16:14:16.571] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-11 16:14:16.576] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-11 16:14:16.582] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-11 16:14:16.586] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-11 16:14:16.595] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-11 16:14:16.603] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-11 16:14:16.606] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-11 16:14:16.607] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-11 16:14:16.607] [SANDBOX] [info] Compiling shaders...
-[2024-03-11 16:14:16.614] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-11 16:15:41.380] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-11 16:15:41.381] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-11 16:15:41.381] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-11 16:15:41.381] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-11 16:15:41.381] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-11 16:15:41.382] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-11 16:15:41.382] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-11 16:15:41.382] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-11 16:15:41.382] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-11 16:15:41.382] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-11 16:15:41.383] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-11 16:15:41.383] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-11 16:15:41.383] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-11 16:15:41.383] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-11 16:15:41.386] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-11 16:15:41.398] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-11 16:15:41.405] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-11 16:15:41.409] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-11 16:15:41.416] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-11 16:15:41.420] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-11 16:15:41.429] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-11 16:15:41.439] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-11 16:15:41.442] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-11 16:15:41.444] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-11 16:15:41.444] [SANDBOX] [info] Compiling shaders...
-[2024-03-11 16:15:41.452] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-11 16:21:45.864] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-11 16:21:45.865] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-11 16:21:45.865] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-11 16:21:45.865] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-11 16:21:45.865] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-11 16:21:45.865] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-11 16:21:45.865] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-11 16:21:45.865] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-11 16:21:45.866] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-11 16:21:45.866] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-11 16:21:45.866] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-11 16:21:45.866] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-11 16:21:45.866] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-11 16:21:45.866] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-11 16:21:45.869] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-11 16:21:45.880] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-11 16:21:45.887] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-11 16:21:45.892] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-11 16:21:45.898] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-11 16:21:45.902] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-11 16:21:45.912] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-11 16:21:45.921] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-11 16:21:45.924] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-11 16:21:45.926] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-11 16:21:45.926] [SANDBOX] [info] Compiling shaders...
-[2024-03-11 16:21:45.934] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-11 16:23:38.152] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-11 16:23:38.153] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-11 16:23:38.153] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-11 16:23:38.153] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-11 16:23:38.153] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-11 16:23:38.154] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-11 16:23:38.154] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-11 16:23:38.154] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-11 16:23:38.154] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-11 16:23:38.155] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-11 16:23:38.155] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-11 16:23:38.155] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-11 16:23:38.155] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-11 16:23:38.155] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-11 16:23:38.158] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-11 16:23:38.171] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-11 16:23:38.179] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-11 16:23:38.185] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-11 16:23:38.193] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-11 16:23:38.197] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-11 16:23:38.209] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-11 16:23:38.219] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-11 16:23:38.222] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-11 16:23:38.223] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-11 16:23:38.224] [SANDBOX] [info] Compiling shaders...
-[2024-03-11 16:23:38.230] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-11 16:26:09.133] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-11 16:26:09.134] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-11 16:26:09.134] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-11 16:26:09.134] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-11 16:26:09.135] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-11 16:26:09.135] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-11 16:26:09.135] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-11 16:26:09.136] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-11 16:26:09.136] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-11 16:26:09.136] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-11 16:26:09.136] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-11 16:26:09.136] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-11 16:26:09.136] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-11 16:26:09.136] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-11 16:26:09.139] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-11 16:26:09.151] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-11 16:26:09.158] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-11 16:26:09.163] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-11 16:26:09.170] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-11 16:26:09.174] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-11 16:26:09.184] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-11 16:26:09.191] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-11 16:26:09.194] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-11 16:26:09.195] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-11 16:26:09.196] [SANDBOX] [info] Compiling shaders...
-[2024-03-11 16:26:09.203] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-11 17:43:07.018] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-11 17:43:07.019] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-11 17:43:07.019] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-11 17:43:07.019] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-11 17:43:07.020] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-11 17:43:07.020] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-11 17:43:07.020] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-11 17:43:07.020] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-11 17:43:07.021] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-11 17:43:07.021] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-11 17:43:07.021] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-11 17:43:07.021] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-11 17:43:07.021] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-11 17:43:07.021] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-11 17:43:07.024] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-11 17:43:07.035] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-11 17:43:07.042] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-11 17:43:07.047] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-11 17:43:07.053] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-11 17:43:07.056] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-11 17:43:07.065] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-11 17:43:07.072] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-11 17:43:07.075] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-11 17:43:07.077] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-11 17:43:07.077] [SANDBOX] [info] Compiling shaders...
-[2024-03-11 17:43:07.084] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-11 18:00:09.367] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-11 18:00:09.368] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-11 18:00:09.369] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-11 18:00:09.369] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-11 18:00:09.369] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-11 18:00:09.369] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-11 18:00:09.369] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-11 18:00:09.370] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-11 18:00:09.370] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-11 18:00:09.370] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-11 18:00:09.371] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-11 18:00:09.371] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-11 18:00:09.371] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-11 18:00:09.371] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-11 18:00:09.374] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-11 18:00:09.385] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-11 18:00:09.393] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-11 18:00:09.398] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-11 18:00:09.405] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-11 18:00:09.409] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-11 18:00:09.420] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-11 18:00:09.428] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-11 18:00:09.431] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-11 18:00:09.433] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-11 18:00:09.433] [SANDBOX] [info] Compiling shaders...
-[2024-03-11 18:00:09.441] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-11 18:01:35.362] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-11 18:01:35.363] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-11 18:01:35.363] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-11 18:01:35.363] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-11 18:01:35.363] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-11 18:01:35.364] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-11 18:01:35.364] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-11 18:01:35.364] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-11 18:01:35.364] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-11 18:01:35.364] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-11 18:01:35.364] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-11 18:01:35.365] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-11 18:01:35.365] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-11 18:01:35.365] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-11 18:01:35.367] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-11 18:01:35.378] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-11 18:01:35.383] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-11 18:01:35.388] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-11 18:01:35.394] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-11 18:01:35.397] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-11 18:01:35.407] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-11 18:01:35.415] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-11 18:01:35.417] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-11 18:01:35.419] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-11 18:01:35.419] [SANDBOX] [info] Compiling shaders...
-[2024-03-11 18:01:35.425] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-11 18:03:01.388] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-11 18:03:01.389] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-11 18:03:01.389] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-11 18:03:01.389] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-11 18:03:01.389] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-11 18:03:01.390] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-11 18:03:01.390] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-11 18:03:01.390] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-11 18:03:01.390] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-11 18:03:01.390] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-11 18:03:01.391] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-11 18:03:01.391] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-11 18:03:01.391] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-11 18:03:01.391] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-11 18:03:01.393] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-11 18:03:01.404] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-11 18:03:01.411] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-11 18:03:01.416] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-11 18:03:01.449] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-11 18:03:01.452] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-11 18:03:01.462] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-11 18:03:01.470] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-11 18:03:01.473] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-11 18:03:01.475] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-11 18:03:01.475] [SANDBOX] [info] Compiling shaders...
+[2024-03-11 18:03:01.483] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-11 18:21:20.607] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-11 18:21:20.609] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-11 18:21:20.609] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-11 18:21:20.610] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-11 18:21:20.610] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-11 18:21:20.610] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-11 18:21:20.611] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-11 18:21:20.611] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-11 18:21:20.611] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-11 18:21:20.611] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-11 18:21:20.612] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-11 18:21:20.612] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-11 18:21:20.612] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-11 18:21:20.612] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-11 18:21:20.615] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-11 18:21:20.628] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-11 18:21:20.638] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-11 18:21:20.642] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-11 18:21:20.649] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-11 18:21:20.654] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-11 18:21:20.663] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-11 18:21:20.670] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-11 18:21:20.673] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-11 18:21:20.675] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-11 18:21:20.676] [SANDBOX] [info] Compiling shaders...
+[2024-03-11 18:21:20.684] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-11 18:23:28.525] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-11 18:23:28.526] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-11 18:23:28.526] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-11 18:23:28.526] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-11 18:23:28.527] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-11 18:23:28.527] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-11 18:23:28.527] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-11 18:23:28.528] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-11 18:23:28.528] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-11 18:23:28.528] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-11 18:23:28.528] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-11 18:23:28.528] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-11 18:23:28.529] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-11 18:23:28.529] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-11 18:23:28.531] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-11 18:23:28.543] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-11 18:23:28.549] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-11 18:23:28.554] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-11 18:23:28.560] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-11 18:23:28.564] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-11 18:23:28.573] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-11 18:23:28.581] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-11 18:23:28.584] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-11 18:23:28.586] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-11 18:23:28.586] [SANDBOX] [info] Compiling shaders...
+[2024-03-11 18:23:28.592] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-11 18:23:59.297] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-11 18:23:59.298] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-11 18:23:59.298] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-11 18:23:59.299] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-11 18:23:59.299] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-11 18:23:59.299] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-11 18:23:59.299] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-11 18:23:59.300] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-11 18:23:59.300] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-11 18:23:59.300] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-11 18:23:59.300] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-11 18:23:59.300] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-11 18:23:59.301] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-11 18:23:59.301] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-11 18:23:59.303] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-11 18:23:59.313] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-11 18:23:59.323] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-11 18:23:59.327] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-11 18:23:59.333] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-11 18:23:59.336] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-11 18:23:59.346] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-11 18:23:59.353] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-11 18:23:59.356] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-11 18:23:59.357] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-11 18:23:59.358] [SANDBOX] [info] Compiling shaders...
+[2024-03-11 18:23:59.365] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-11 18:25:05.563] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-11 18:25:05.563] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-11 18:25:05.564] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-11 18:25:05.564] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-11 18:25:05.564] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-11 18:25:05.564] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-11 18:25:05.565] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-11 18:25:05.565] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-11 18:25:05.565] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-11 18:25:05.565] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-11 18:25:05.565] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-11 18:25:05.566] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-11 18:25:05.566] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-11 18:25:05.566] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-11 18:25:05.568] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-11 18:25:05.580] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-11 18:25:05.588] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-11 18:25:05.593] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-11 18:25:05.599] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-11 18:25:05.603] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-11 18:25:05.612] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-11 18:25:05.619] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-11 18:25:05.622] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-11 18:25:05.624] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-11 18:25:05.624] [SANDBOX] [info] Compiling shaders...
+[2024-03-11 18:25:05.631] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-11 18:25:45.695] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-11 18:25:45.696] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-11 18:25:45.696] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-11 18:25:45.696] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-11 18:25:45.696] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-11 18:25:45.697] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-11 18:25:45.697] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-11 18:25:45.697] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-11 18:25:45.697] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-11 18:25:45.697] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-11 18:25:45.698] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-11 18:25:45.698] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-11 18:25:45.698] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-11 18:25:45.698] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-11 18:25:45.701] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-11 18:25:45.712] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-11 18:25:45.718] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-11 18:25:45.722] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-11 18:25:45.729] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-11 18:25:45.733] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-11 18:25:45.742] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-11 18:25:45.750] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-11 18:25:45.752] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-11 18:25:45.755] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-11 18:25:45.755] [SANDBOX] [info] Compiling shaders...
+[2024-03-11 18:25:45.762] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-11 18:33:22.956] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-11 18:33:22.957] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-11 18:33:22.957] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-11 18:33:22.958] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-11 18:33:22.958] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-11 18:33:22.958] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-11 18:33:22.958] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-11 18:33:22.958] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-11 18:33:22.959] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-11 18:33:22.959] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-11 18:33:22.959] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-11 18:33:22.959] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-11 18:33:22.959] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-11 18:33:22.959] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-11 18:33:22.962] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-11 18:33:22.972] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-11 18:33:22.979] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-11 18:33:22.983] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-11 18:33:22.991] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-11 18:33:22.996] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-11 18:33:23.009] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-11 18:33:23.019] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-11 18:33:23.022] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-11 18:33:23.032] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-11 18:33:23.032] [SANDBOX] [info] Compiling shaders...
+[2024-03-11 18:33:23.041] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-11 18:34:51.331] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-11 18:34:51.332] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-11 18:34:51.332] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-11 18:34:51.332] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-11 18:34:51.332] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-11 18:34:51.333] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-11 18:34:51.333] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-11 18:34:51.333] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-11 18:34:51.334] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-11 18:34:51.334] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-11 18:34:51.334] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-11 18:34:51.334] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-11 18:34:51.334] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-11 18:34:51.335] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-11 18:34:51.339] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-11 18:34:51.351] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-11 18:34:51.361] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-11 18:34:51.366] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-11 18:34:51.373] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-11 18:34:51.376] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-11 18:34:51.386] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-11 18:34:51.394] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-11 18:34:51.397] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-11 18:34:51.399] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-11 18:34:51.399] [SANDBOX] [info] Compiling shaders...
+[2024-03-11 18:34:51.407] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-11 19:34:01.888] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-11 19:34:01.890] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-11 19:34:01.890] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-11 19:34:01.890] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-11 19:34:01.891] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-11 19:34:01.891] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-11 19:34:01.891] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-11 19:34:01.891] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-11 19:34:01.892] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-11 19:34:01.892] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-11 19:34:01.892] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-11 19:34:01.892] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-11 19:34:01.892] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-11 19:34:01.892] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-11 19:34:01.900] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-11 19:34:01.928] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-11 19:34:01.947] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-11 19:34:01.961] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-11 19:34:01.976] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-11 19:34:01.984] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-11 19:34:01.997] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-11 19:34:02.010] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-11 19:34:02.018] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-11 19:34:02.024] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-11 19:34:02.025] [SANDBOX] [info] Compiling shaders...
+[2024-03-11 19:34:02.071] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-11 19:35:52.651] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-11 19:35:52.652] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-11 19:35:52.653] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-11 19:35:52.653] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-11 19:35:52.653] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-11 19:35:52.653] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-11 19:35:52.653] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-11 19:35:52.654] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-11 19:35:52.654] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-11 19:35:52.654] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-11 19:35:52.654] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-11 19:35:52.654] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-11 19:35:52.654] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-11 19:35:52.655] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-11 19:35:52.657] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-11 19:35:52.667] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-11 19:35:52.673] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-11 19:35:52.677] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-11 19:35:52.683] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-11 19:35:52.686] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-11 19:35:52.696] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-11 19:35:52.704] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-11 19:35:52.707] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png

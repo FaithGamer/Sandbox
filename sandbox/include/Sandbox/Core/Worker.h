@@ -20,6 +20,7 @@ namespace Sandbox
 		void StartThread();
 		void StopThread();
 		void QueueTask(sptr<OpaqueTask> taskdata);
+		bool HaveTask();
 
 	private:
 		void Thread();
@@ -36,6 +37,7 @@ namespace Sandbox
 		std::thread m_thread;
 		bool m_currentQueue;
 		bool m_taskAvailable;
+		std::atomic<bool> m_haveTask;
 		std::atomic<bool> m_threadRunning;
 	};
 

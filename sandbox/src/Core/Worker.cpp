@@ -6,7 +6,8 @@ namespace Sandbox
 	WorkerThread::WorkerThread() :
 		m_currentQueue(false),
 		m_threadRunning(false),
-		m_taskAvailable(false)
+		m_taskAvailable(false),
+		m_haveTask(false)
 	{
 
 	}
@@ -36,7 +37,7 @@ namespace Sandbox
 		std::unique_lock queueLock(m_queueMutex[!m_currentQueue]);
 		std::unique_lock waiterLock(m_waiterMutex);
 
-		m_queue[!m_currentQueue].emplace_back(task);
+		m_queue[(size_t)!m_currentQueue].emplace_back(task);
 
 		m_taskAvailable = true;
 
@@ -44,6 +45,11 @@ namespace Sandbox
 		waiterLock.unlock();
 
 		m_waiter.notify_one();
+	}
+
+	bool WorkerThread::HaveTask()
+	{
+		return m_haveTask;
 	}
 
 	void WorkerThread::Thread()
@@ -56,14 +62,15 @@ namespace Sandbox
 			m_taskAvailable = false;
 			waiterLock.unlock();
 
-			std::lock_guard queueLock(m_queueMutex[m_currentQueue]);
-
-			for (auto& task : m_queue[m_currentQueue])
+			std::lock_guard queueLock(m_queueMutex[(size_t)m_currentQueue]);
+			m_haveTask = true;
+			for (auto& task : m_queue[(size_t)m_currentQueue])
 			{
 				task->Perform();
 			}
 
 			m_queue[m_currentQueue].clear();
+			m_haveTask = m_queue[0].empty() && m_queue[1].empty();
 		}
 	}
 }

@@ -22,6 +22,9 @@ public:
 	ColonistSettings settings;
 
 	void AIUpdate();
+	void SyncPoint();
+	void DestroyColonist(Entity colonist);
+
 
 private:
 	inline void AIDirection();
@@ -32,6 +35,8 @@ private:
 		const float margin,
 		const float hitboxRadius);
 private:
+	std::mutex m_syncMutex;
+	std::vector<Entity> m_destroy;
 	WorkerThread m_aiThread;
 	sptr<Task<void>> m_aiTask;
 };
