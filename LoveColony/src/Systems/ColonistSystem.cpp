@@ -19,10 +19,10 @@ void ColonistSystem::OnStart()
 
 void ColonistSystem::OnUpdate(Time delta)
 {
-	Bitmask wallMask = Physics::GetLayerMask("Walls", "Scent");
+	/*Bitmask wallMask = Physics::GetLayerMask("Walls", "Scent");
 	float hitboxRadius = 0.2f;
 	float margin = 0.01f;
-	/*ForeachComponents<ColonistPhysics, Transform>([&](ColonistPhysics& physics, Transform& transform)
+	ForeachComponents<ColonistPhysics, Transform>([&](ColonistPhysics& physics, Transform& transform)
 		{
 			//Move, collide and reflect velocity
 			Vec3f position = transform.GetPosition();
@@ -53,6 +53,8 @@ void ColonistSystem::OnUpdate(Time delta)
 
 			transform.Move(offset);
 		});*/
+
+
 }
 
 void ColonistSystem::OnFixedUpdate(Time delta)

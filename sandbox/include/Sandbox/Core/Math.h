@@ -70,6 +70,23 @@ namespace Sandbox
 			return min * (1 - t) + max * t;
 		}
 
+		template <typename T>
+		inline Vec2<T> Lerp(const Vec2<T> min, const Vec2<T> max, float t)
+		{
+			return Vec2<T>(
+				min.x * (1 - t) + max.x * t,
+				min.y * (1 - t) + max.y * t);
+		}
+
+		template <typename T>
+		inline Vec3<T> Lerp(const Vec3<T> min, const Vec3<T> max, float t)
+		{
+			return Vec3<T>(
+				min.x * (1 - t) + max.x * t,
+				min.y * (1 - t) + max.y * t,
+				min.z * (1 - t) + max.z * t);
+		}
+
 		inline float Clamp(float value, float min, float max)
 		{
 			const float t = value < min ? min : value;
