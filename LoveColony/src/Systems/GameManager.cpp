@@ -2,6 +2,7 @@
 #include "GameManager.h"
 #include "Prefab.h"
 
+
 GameManager::GameManager()
 {
 }
@@ -32,19 +33,59 @@ Entity CreateBox(Vec2f position, Vec2f dimensions)
 	return box;
 
 }
+int mapHeight = 20;
+int mapWidth = 50;
+Vec2f GridToWorld(int x, int y)
+{
+	return Vec2f(
+		x - mapWidth * 0.5f,
+		y - mapHeight * 0.5f
+	);
+}
 void GameManager::CreateMap()
 {
-	//Create walls
+	//Create world edges
 	CreateBox(Vec2f(25, 0), Vec2f(4, 40));
 	CreateBox(Vec2f(-25, 0), Vec2f(4, 40));
 	CreateBox(Vec2f(0, 14), Vec2f(50, 4));
 	CreateBox(Vec2f(0, -14), Vec2f(50, 4));
+
+	
+	//Create walls
+
+	float density = 0.4f;
+
+	for (int y = 0; y < mapHeight; y++)
+	{
+		for (int x = 0; x < mapWidth; x++)
+		{
+			float noise = Noise::Noise2D((float)x, (float)y, 0.4);
+			if (noise < density)
+			{
+				Entity wall = Prefab::Wall();
+				wall.GetComponent<Transform>()->SetPosition(GridToWorld(x, y));
+			}
+		}
+	}
 }
 
 void GameManager::CreateEntities()
 {
-	for (int i = 0; i < 1000; i++)
+	for (int i = 0; i < 10000; i++)
 	{
 		Prefab::Colonist();
 	}
+
+	//Simulate presence of scent
+	/*for (int i = 0; i < 10000; i++)
+	{
+		auto scent = Entity::Create();
+		
+		scent.AddComponent<Transform>()->SetPosition(Random::Range(-25.f, 25.f), Random::Range(-10.f, 10.f), 0);
+		auto body = scent.AddComponent<Body>(Body::Type::Static, Physics::GetLayerMask("Scent"));
+
+		body->AddCollider(makesptr<Circle2D>(0.1f));
+	}*/
+
+	
 }

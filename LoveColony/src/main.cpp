@@ -18,9 +18,10 @@ int main(int argv, char** argc)
 
 	//Physics layers
 	Physics::AddLayer("Colonist");
+	Physics::AddLayer("Scent");
 	Physics::AddLayer("Walls");
 
-	Physics::DrawColliders(true);
+	//Physics::DrawColliders(true);
 
 	//Systems
 	Systems::Push<ColonistSystem>();

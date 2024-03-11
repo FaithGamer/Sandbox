@@ -1,0 +1,17 @@
+{
+    "ImportSettings": {
+        "Filtering": "Linear",
+        "KeepData": false,
+        "Mipmaps": true,
+        "PixelPerUnit": 100,
+        "Wrapping": "Clamp"
+    },
+    "Spritesheet": {
+        "Height": 140,
+        "Origin": [
+            0.0,
+            0.0
+        ],
+        "Width": 100
+    }
+}

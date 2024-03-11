@@ -19,7 +19,7 @@ void ColonistSystem::OnStart()
 
 void ColonistSystem::OnUpdate(Time delta)
 {
-	Bitmask wallMask = Physics::GetLayerMask("Walls");
+	Bitmask wallMask = Physics::GetLayerMask("Walls", "Scent");
 	float hitboxRadius = 0.2f;
 	float margin = 0.01f;
 	ForeachComponents<ColonistPhysics, Transform>([&](ColonistPhysics& physics, Transform& transform)
@@ -62,7 +62,7 @@ int ColonistSystem::GetUsedMethod()
 
 void ColonistSystem::OnAddColonistPhysics(ComponentSignal signal)
 {
-	Entity(signal.entity).GetComponent<ColonistPhysics>()->currentAngle = Random::Range(0, 360);
+	Entity(signal.entity).GetComponent<ColonistPhysics>()->currentAngle = Random::Range(0.f, 360.f);
 }
 
 void ColonistSystem::OnAddColonistBrain(ComponentSignal signal)

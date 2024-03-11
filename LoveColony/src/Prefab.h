@@ -6,4 +6,5 @@ using namespace Sandbox;
 namespace Prefab
 {
 	Entity Colonist();
+	Entity Wall();
 }

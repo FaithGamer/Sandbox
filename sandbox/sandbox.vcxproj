@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Core\Noise.cpp" />
     <ClCompile Include="src\ECS\WireRenderSystem.cpp" />
     <ClCompile Include="src\Physics\PhysicsSystem.cpp" />
     <ClCompile Include="src\Render\WireRender.cpp" />
@@ -84,6 +85,7 @@
     <ClInclude Include="include\cute\cute_c2.h" />
     <ClInclude Include="include\earcut\mapbox\earcut.hpp" />
     <ClInclude Include="include\Sandbox\Core\Assets.h" />
+    <ClInclude Include="include\Sandbox\Core\Noise.h" />
     <ClInclude Include="include\Sandbox\ECS.h" />
     <ClInclude Include="include\Sandbox\ECS\EntityId.h" />
     <ClInclude Include="include\Sandbox\ECS\LineRendererSystem.h" />

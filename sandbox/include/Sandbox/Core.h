@@ -7,6 +7,7 @@
 #include "Sandbox/Core/Files.h"
 #include "Sandbox/Core/Log.h"
 #include "Sandbox/Core/Math.h"
+#include "Sandbox/Core/Noise.h"
 #include "Sandbox/Core/Print.h"
 #include "Sandbox/Core/Random.h"
 #include "Sandbox/Core/Serialization.h"
