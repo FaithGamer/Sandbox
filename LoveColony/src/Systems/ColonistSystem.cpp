@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "ColonistSystem.h"
-#include "Prefab.h"
+#include "Systems/ZisYSystem.h"
 
 ColonistSystem::ColonistSystem()
 {
@@ -22,29 +22,38 @@ void ColonistSystem::OnStart()
 
 void ColonistSystem::OnUpdate(Time delta)
 {
-	/*Bitmask wallMask = Physics::GetLayerMask("Walls", "Scent");
-	float hitboxRadius = 0.2f;
-	float margin = 0.01f;*/
+
+	//When the thread that's working on colonist is not processing
+	if (!m_aiThread.HaveTask())
+	{
+		//This is the time to delete and create new colonists
+		SyncPoint();
+		//Then keep the thread running, one task at a time.
+		m_aiThread.QueueTask(m_aiTask);
+	}
+
+	//Interpolate colonist position
 	ForeachEntities<ColonistPhysics, Transform>([&](Entity entity, ColonistPhysics& physics, Transform& transform)
 		{
+			if (physics.dead)
+				return;
+
 			physics.interpolationTime = Math::Max(0.f, physics.interpolationTime - (float)delta);
 			float t = 1 - physics.interpolationTime / (float)Time::FixedDelta();
 			Vec3f position = Math::Lerp(physics.prevPosition, physics.nextPosition, t);
 			transform.SetPosition(position);
 
-			if (Random::Range(0.f, 1.f) > 0.95f)
+			if (Random::Range(0.f, 1.f) > 0.98f)
 			{
-				entity.Destroy();
+				DestroyColonist(entity);
 				LOG_INFO("Destroy");
 			}
-			if (Random::Range(0.f, 1.f) > 0.95f)
+			if (Random::Range(0.f, 1.f) > 0.98f)
 			{
-				Prefab::Colonist();
+				CreateColonist(ColonistInit(Vec2f(0, 0)));
 				LOG_INFO("Create");
 			}
 		});
-
-
 }
 
 void ColonistSystem::OnFixedUpdate(Time delta)
@@ -53,8 +62,12 @@ void ColonistSystem::OnFixedUpdate(Time delta)
 	float hitboxRadius = 0.2f;
 	float margin = 0.01f;
 
+	//Colonist movement and collisions
 	ForeachComponents<ColonistPhysics, Transform>([&](ColonistPhysics& physics, Transform& transform)
 		{
+			if (physics.dead)
+				return;
+
 			MoveAndCollide(physics, transform, wallMask, (float)delta, margin, hitboxRadius);
 		});
 }
@@ -80,20 +93,45 @@ void ColonistSystem::OnAddColonistBrain(ComponentSignal signal)
 
 void ColonistSystem::AIUpdate()
 {
-	/*ForeachComponents<ColonistBrain, Transform>([](ColonistBrain& brain, Transform& transform)
+	ForeachComponents<ColonistBrain, Transform>([](ColonistBrain& brain, Transform& transform)
 		{
+			brain.lastFollowedScent = EntityId(Random::Range(0, 199));
+		});
 
-		});*/
-	//if(Systems::IsPlaying)
-	m_aiThread.QueueTask(m_aiTask);
+}
+
+void ColonistSystem::DestroyColonist(Entity colonist)
+{
+	colonist.GetComponent<ColonistPhysics>()->dead = true;
+	//to do: I'm pretty sure we can safely delete SpriteRenderer
+	m_destroy.emplace_back(colonist);
+}
+
+void ColonistSystem::CreateColonist(const ColonistInit& init)
+{
+	m_create.emplace_back(init);
+}
+
+void ColonistSystem::SyncPoint()
+{
+	for (int i = 0; i < m_destroy.size(); i++)
+	{
+		m_destroy[i].Destroy();
+	}
+	for (int i = 0; i < m_create.size(); i++)
+	{
+		InstanceColonist(m_create[i]);
+	}
+	m_destroy.clear();
+	m_create.clear();
 }
 
 void ColonistSystem::MoveAndCollide(
-	ColonistPhysics& physics, 
-	Transform& transform, 
-	const Bitmask wallMask, 
-	const float delta, 
-	const float margin, 
+	ColonistPhysics& physics,
+	Transform& transform,
+	const Bitmask wallMask,
+	const float delta,
+	const float margin,
 	const float hitboxRadius)
 {
 	//Move, collide and reflect velocity
@@ -128,7 +166,22 @@ void ColonistSystem::MoveAndCollide(
 	physics.interpolationTime = (float)delta;
 }
 
-void DestroyColonist(Entity colonist)
+void ColonistSystem::InstanceColonist(const ColonistInit& init)
 {
 
+	//Create entity
+	Entity colonist = Entity::Create();
+	colonist.AddComponent<Transform>();
+
+	//Create render 
+	SpriteRender* render = colonist.AddComponent<SpriteRender>();
+	render->SetSprite(Assets::Get<Sprite>("Colonists.png_0_2").Ptr()); //todo, optimize by having Prefab as a class and holding on the assets it needs
+
+	//Colonist components
+	colonist.AddComponent<ColonistBrain>();
+	colonist.AddComponent<ColonistPhysics>();
+
+	//Sprite render ordering
+	colonist.AddComponent<ZisY>();
 }
+

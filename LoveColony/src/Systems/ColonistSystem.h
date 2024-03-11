@@ -22,11 +22,18 @@ public:
 	ColonistSettings settings;
 
 	void AIUpdate();
-	void SyncPoint();
+	/// @brief This must be the ONLY way to destroy a colonist
+	/// expect crash with multithreading otherwise
+	/// @param colonist 
 	void DestroyColonist(Entity colonist);
+	/// @brief This must be the ONLY way to create a colonist
+	/// expect crash with multithreading otherwise
+	/// @param init 
+	void CreateColonist(const ColonistInit& init);
 
 
 private:
+	inline void SyncPoint();
 	inline void AIDirection();
 	inline void MoveAndCollide(ColonistPhysics& physics,
 		Transform& transform,
@@ -34,9 +41,12 @@ private:
 		const float delta,
 		const float margin,
 		const float hitboxRadius);
+
+	void InstanceColonist(const ColonistInit& init);
 private:
 	std::mutex m_syncMutex;
 	std::vector<Entity> m_destroy;
+	std::vector<ColonistInit> m_create;
 	WorkerThread m_aiThread;
 	sptr<Task<void>> m_aiTask;
 };

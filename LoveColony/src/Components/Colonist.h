@@ -13,6 +13,11 @@ enum ColonistState : int
 	Interacting
 };
 
+struct ColonistInit
+{
+	Vec2f position = 0;
+};
+
 struct ColonistPhysics
 {
 	float wanderDirection = 0;
@@ -28,6 +33,9 @@ struct ColonistPhysics
 	Vec2f prevPosition = 0;
 	Vec2f nextPosition = 0;
 	float interpolationTime = 0;
+
+	//Queued for deletion
+	bool dead = false;
 };
 
 struct ColonistBrain

@@ -40,7 +40,7 @@ namespace Sandbox
 		m_queue[(size_t)!m_currentQueue].emplace_back(task);
 
 		m_taskAvailable = true;
-
+		m_haveTask = true;
 		queueLock.unlock();
 		waiterLock.unlock();
 
@@ -59,18 +59,19 @@ namespace Sandbox
 			std::unique_lock waiterLock(m_waiterMutex);
 			m_waiter.wait(waiterLock, [this] {return m_taskAvailable; });
 			m_currentQueue = !m_currentQueue;
+			m_haveTask = true;
 			m_taskAvailable = false;
 			waiterLock.unlock();
 
 			std::lock_guard queueLock(m_queueMutex[(size_t)m_currentQueue]);
-			m_haveTask = true;
+			
 			for (auto& task : m_queue[(size_t)m_currentQueue])
 			{
 				task->Perform();
 			}
 
 			m_queue[m_currentQueue].clear();
-			m_haveTask = m_queue[0].empty() && m_queue[1].empty();
+			m_haveTask = !(m_queue[0].empty() && m_queue[1].empty());
 		}
 	}
 }

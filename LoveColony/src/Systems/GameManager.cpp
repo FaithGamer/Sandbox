@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "GameManager.h"
 #include "Prefab.h"
-
+#include "Systems/ColonistSystem.h"
 
 GameManager::GameManager()
 {
@@ -73,7 +73,7 @@ void GameManager::CreateEntities()
 {
 	for (int i = 0; i < 10000; i++)
 	{
-		Prefab::Colonist();
+		Systems::Get<ColonistSystem>()->CreateColonist(ColonistInit(Vec2f(0, 0)));
 	}
 
 	//Simulate presence of scent
