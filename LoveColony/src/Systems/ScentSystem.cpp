@@ -96,7 +96,7 @@ void ScentSystem::CreateTrackScent(const ScentInit& init)
 	scent->poiDistance = init.poiDistance;
 	scent->type = init.type;
 
-	auto body = entity.AddComponent<Body>(Body::Type::Static, Physics::GetLayerMask("Scent"));
+	auto body = entity.AddComponent<StaticBody>(init.position, Physics::GetLayerMask("Scent"));
 	body->AddCollider(makesptr<Circle2D>(trackSettings.radius));
 
 	if (m_showScent)

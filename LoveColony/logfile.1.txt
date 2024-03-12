@@ -1,304 +1,240 @@
-[2024-03-12 17:48:37.466] [SANDBOX] [info] prout 131.103073
-[2024-03-12 17:48:37.469] [SANDBOX] [info] prout 135.584106
-[2024-03-12 17:48:37.469] [SANDBOX] [info] prout 132.480194
-[2024-03-12 17:48:37.469] [SANDBOX] [info] prout 133.962662
-[2024-03-12 17:48:37.498] [SANDBOX] [info] prout 131.010651
-[2024-03-12 17:48:37.498] [SANDBOX] [info] prout 135.155914
-[2024-03-12 17:48:37.499] [SANDBOX] [info] prout 132.285309
-[2024-03-12 17:48:37.499] [SANDBOX] [info] prout 133.656754
-[2024-03-12 17:48:37.530] [SANDBOX] [info] prout 130.964340
-[2024-03-12 17:48:37.530] [SANDBOX] [info] prout 134.783737
-[2024-03-12 17:48:37.530] [SANDBOX] [info] prout 132.139664
-[2024-03-12 17:48:37.531] [SANDBOX] [info] prout 133.403320
-[2024-03-12 17:48:37.562] [SANDBOX] [info] prout 129.946838
-[2024-03-12 17:48:37.562] [SANDBOX] [info] prout 130.966080
-[2024-03-12 17:48:37.562] [SANDBOX] [info] prout 134.463150
-[2024-03-12 17:48:37.563] [SANDBOX] [info] prout 132.043030
-[2024-03-12 17:48:37.563] [SANDBOX] [info] prout 133.200104
-[2024-03-12 17:48:37.594] [SANDBOX] [info] prout 130.088593
-[2024-03-12 17:48:37.594] [SANDBOX] [info] prout 131.017029
-[2024-03-12 17:48:37.595] [SANDBOX] [info] prout 131.996979
-[2024-03-12 17:48:37.595] [SANDBOX] [info] prout 133.048996
-[2024-03-12 17:48:37.626] [SANDBOX] [info] prout 130.278763
-[2024-03-12 17:48:37.626] [SANDBOX] [info] prout 131.117569
-[2024-03-12 17:48:37.626] [SANDBOX] [info] prout 132.001938
-[2024-03-12 17:48:37.627] [SANDBOX] [info] prout 132.950562
-[2024-03-12 17:48:37.659] [SANDBOX] [info] prout 130.525360
-[2024-03-12 17:48:37.659] [SANDBOX] [info] prout 131.274597
-[2024-03-12 17:48:37.659] [SANDBOX] [info] prout 132.063385
-[2024-03-12 17:48:37.659] [SANDBOX] [info] prout 132.908661
-[2024-03-12 17:48:37.691] [SANDBOX] [info] prout 130.816589
-[2024-03-12 17:48:37.691] [SANDBOX] [info] prout 131.478226
-[2024-03-12 17:48:37.691] [SANDBOX] [info] prout 130.177444
-[2024-03-12 17:48:37.691] [SANDBOX] [info] prout 132.173920
-[2024-03-12 17:48:37.691] [SANDBOX] [info] prout 132.918747
-[2024-03-12 17:48:37.722] [SANDBOX] [info] prout 131.155853
-[2024-03-12 17:48:37.722] [SANDBOX] [info] prout 131.731659
-[2024-03-12 17:48:37.722] [SANDBOX] [info] prout 130.599335
-[2024-03-12 17:48:37.723] [SANDBOX] [info] prout 132.336411
-[2024-03-12 17:48:37.754] [SANDBOX] [info] prout 131.560654
-[2024-03-12 17:48:37.754] [SANDBOX] [info] prout 132.048737
-[2024-03-12 17:48:37.755] [SANDBOX] [info] prout 131.088867
-[2024-03-12 17:48:37.755] [SANDBOX] [info] prout 132.560883
-[2024-03-12 17:48:37.786] [SANDBOX] [info] prout 132.023575
-[2024-03-12 17:48:37.787] [SANDBOX] [info] prout 132.424301
-[2024-03-12 17:48:37.787] [SANDBOX] [info] prout 131.636139
-[2024-03-12 17:48:37.787] [SANDBOX] [info] prout 132.844452
-[2024-03-12 17:48:37.818] [SANDBOX] [info] prout 132.544128
-[2024-03-12 17:48:37.818] [SANDBOX] [info] prout 132.858261
-[2024-03-12 17:48:37.818] [SANDBOX] [info] prout 131.946167
-[2024-03-12 17:48:37.819] [SANDBOX] [info] prout 132.240326
-[2024-03-12 17:48:37.819] [SANDBOX] [info] prout 133.187378
-[2024-03-12 17:48:37.851] [SANDBOX] [info] prout -42.956196
-[2024-03-12 17:48:37.851] [SANDBOX] [info] prout -43.199619
-[2024-03-12 17:48:37.851] [SANDBOX] [info] prout -42.504032
-[2024-03-12 17:48:37.852] [SANDBOX] [info] prout -42.724953
-[2024-03-12 17:48:37.883] [SANDBOX] [info] prout -42.295364
-[2024-03-12 17:48:37.883] [SANDBOX] [info] prout -42.608902
-[2024-03-12 17:48:37.883] [SANDBOX] [info] prout -42.541130
-[2024-03-12 17:48:37.883] [SANDBOX] [info] prout -42.058624
-[2024-03-12 17:48:37.915] [SANDBOX] [info] prout -41.794895
-[2024-03-12 17:48:37.915] [SANDBOX] [info] prout -42.129944
-[2024-03-12 17:48:37.915] [SANDBOX] [info] prout -126.064148
-[2024-03-12 17:48:37.915] [SANDBOX] [info] prout -41.752411
-[2024-03-12 17:48:37.915] [SANDBOX] [info] prout -42.570740
-[2024-03-12 17:48:37.947] [SANDBOX] [info] prout -41.591187
-[2024-03-12 17:48:37.947] [SANDBOX] [info] prout -41.837082
-[2024-03-12 17:48:37.947] [SANDBOX] [info] prout 146.568207
-[2024-03-12 17:48:37.947] [SANDBOX] [info] prout -42.349751
-[2024-03-12 17:48:37.948] [SANDBOX] [info] prout -42.328735
-[2024-03-12 17:48:37.979] [SANDBOX] [info] prout -41.942253
-[2024-03-12 17:48:37.979] [SANDBOX] [info] prout -41.853676
-[2024-03-12 17:48:37.979] [SANDBOX] [info] prout 146.808701
-[2024-03-12 17:48:37.980] [SANDBOX] [info] prout -45.739147
-[2024-03-12 17:48:37.980] [SANDBOX] [info] prout -42.326237
-[2024-03-12 17:48:38.011] [SANDBOX] [info] prout -43.413307
-[2024-03-12 17:48:38.011] [SANDBOX] [info] prout -42.380077
-[2024-03-12 17:48:38.011] [SANDBOX] [info] prout 148.148621
-[2024-03-12 17:48:38.011] [SANDBOX] [info] prout -66.759781
-[2024-03-12 17:48:38.011] [SANDBOX] [info] prout -42.688187
-[2024-03-12 17:48:38.043] [SANDBOX] [info] prout -47.519997
-[2024-03-12 17:48:38.043] [SANDBOX] [info] prout -43.814922
-[2024-03-12 17:48:38.043] [SANDBOX] [info] prout 149.854767
-[2024-03-12 17:48:38.043] [SANDBOX] [info] prout -177.450134
-[2024-03-12 17:48:38.044] [SANDBOX] [info] prout -43.639256
-[2024-03-12 17:48:38.074] [SANDBOX] [info] prout -59.218197
-[2024-03-12 17:48:38.074] [SANDBOX] [info] prout -46.910645
-[2024-03-12 17:48:38.074] [SANDBOX] [info] prout 151.701538
-[2024-03-12 17:48:38.075] [SANDBOX] [info] prout 165.036942
-[2024-03-12 17:48:38.075] [SANDBOX] [info] prout -45.533325
-[2024-03-12 17:48:38.107] [SANDBOX] [info] prout -103.520126
-[2024-03-12 17:48:38.107] [SANDBOX] [info] prout -54.026497
-[2024-03-12 17:48:38.107] [SANDBOX] [info] prout 153.857742
-[2024-03-12 17:48:38.107] [SANDBOX] [info] prout 162.307220
-[2024-03-12 17:48:38.108] [SANDBOX] [info] prout -49.329674
-[2024-03-12 17:48:38.108] [SANDBOX] [info] prout -49.250591
-[2024-03-12 17:48:38.138] [SANDBOX] [info] prout -161.488159
-[2024-03-12 17:48:38.139] [SANDBOX] [info] prout -71.138275
-[2024-03-12 17:48:38.139] [SANDBOX] [info] prout 156.057144
-[2024-03-12 17:48:38.139] [SANDBOX] [info] prout 162.333572
-[2024-03-12 17:48:38.139] [SANDBOX] [info] prout -56.759357
-[2024-03-12 17:48:38.139] [SANDBOX] [info] prout -54.851711
-[2024-03-12 17:48:38.171] [SANDBOX] [info] prout -179.107224
-[2024-03-12 17:48:38.171] [SANDBOX] [info] prout -112.867821
-[2024-03-12 17:48:38.171] [SANDBOX] [info] prout 158.460526
-[2024-03-12 17:48:38.172] [SANDBOX] [info] prout 163.400253
-[2024-03-12 17:48:38.172] [SANDBOX] [info] prout -73.267517
-[2024-03-12 17:48:38.172] [SANDBOX] [info] prout -65.981934
-[2024-03-12 17:48:38.203] [SANDBOX] [info] prout 164.956589
-[2024-03-12 17:48:38.204] [SANDBOX] [info] prout 175.637177
-[2024-03-12 17:48:38.204] [SANDBOX] [info] prout -153.652054
-[2024-03-12 17:48:38.204] [SANDBOX] [info] prout 160.958939
-[2024-03-12 17:48:38.204] [SANDBOX] [info] prout -107.254234
-[2024-03-12 17:48:38.204] [SANDBOX] [info] prout -88.326607
-[2024-03-12 17:48:38.235] [SANDBOX] [info] prout 164.349121
-[2024-03-12 17:48:38.235] [SANDBOX] [info] prout 163.489578
-[2024-03-12 17:48:38.235] [SANDBOX] [info] prout 166.755341
-[2024-03-12 17:48:38.235] [SANDBOX] [info] prout 174.032410
-[2024-03-12 17:48:38.235] [SANDBOX] [info] prout -170.186584
-[2024-03-12 17:48:38.235] [SANDBOX] [info] prout -143.898346
-[2024-03-12 17:48:38.235] [SANDBOX] [info] prout -122.576294
-[2024-03-12 17:48:38.266] [SANDBOX] [info] prout 166.952057
-[2024-03-12 17:48:38.267] [SANDBOX] [info] prout 166.120850
-[2024-03-12 17:48:38.267] [SANDBOX] [info] prout 168.753616
-[2024-03-12 17:48:38.267] [SANDBOX] [info] prout 173.898880
-[2024-03-12 17:48:38.267] [SANDBOX] [info] prout -176.879288
-[2024-03-12 17:48:38.267] [SANDBOX] [info] prout -163.446686
-[2024-03-12 17:48:38.267] [SANDBOX] [info] prout -150.667831
-[2024-03-12 17:48:38.298] [SANDBOX] [info] prout 169.594971
-[2024-03-12 17:48:38.299] [SANDBOX] [info] prout 168.839478
-[2024-03-12 17:48:38.299] [SANDBOX] [info] prout 170.894714
-[2024-03-12 17:48:38.299] [SANDBOX] [info] prout 174.528961
-[2024-03-12 17:48:38.299] [SANDBOX] [info] prout -179.757446
-[2024-03-12 17:48:38.299] [SANDBOX] [info] prout -172.377213
-[2024-03-12 17:48:38.299] [SANDBOX] [info] prout -165.453979
-[2024-03-12 17:48:38.331] [SANDBOX] [info] prout 173.190567
-[2024-03-12 17:48:38.332] [SANDBOX] [info] prout 175.641998
-[2024-03-12 17:48:38.332] [SANDBOX] [info] prout 179.145233
-[2024-03-12 17:48:38.332] [SANDBOX] [info] prout 172.318054
-[2024-03-12 17:48:38.332] [SANDBOX] [info] prout 171.689453
-[2024-03-12 17:48:38.332] [SANDBOX] [info] prout -176.710281
-[2024-03-12 17:48:38.332] [SANDBOX] [info] prout -172.952850
-[2024-03-12 17:48:38.363] [SANDBOX] [info] prout 175.233826
-[2024-03-12 17:48:38.363] [SANDBOX] [info] prout 175.445480
-[2024-03-12 17:48:38.363] [SANDBOX] [info] prout 176.957718
-[2024-03-12 17:48:38.363] [SANDBOX] [info] prout 178.973557
-[2024-03-12 17:48:38.364] [SANDBOX] [info] prout 174.920654
-[2024-03-12 17:48:38.364] [SANDBOX] [info] prout 174.459686
-[2024-03-12 17:48:38.364] [SANDBOX] [info] prout -178.783051
-[2024-03-12 17:48:38.395] [SANDBOX] [info] prout 177.706467
-[2024-03-12 17:48:38.396] [SANDBOX] [info] prout 177.775833
-[2024-03-12 17:48:38.396] [SANDBOX] [info] prout 178.467484
-[2024-03-12 17:48:38.396] [SANDBOX] [info] prout 179.340286
-[2024-03-12 17:48:38.396] [SANDBOX] [info] prout 177.545563
-[2024-03-12 17:48:38.396] [SANDBOX] [info] prout 177.300751
-[2024-03-12 17:48:38.396] [SANDBOX] [info] prout -179.732178
-[2024-03-12 17:48:38.426] [SANDBOX] [info] prout -179.980377
-[2024-03-12 17:48:38.427] [SANDBOX] [info] prout -179.980713
-[2024-03-12 17:48:38.427] [SANDBOX] [info] prout -179.986404
-[2024-03-12 17:48:38.427] [SANDBOX] [info] prout -179.993301
-[2024-03-12 17:48:38.427] [SANDBOX] [info] prout -179.978912
-[2024-03-12 17:48:38.427] [SANDBOX] [info] prout -179.976639
-[2024-03-12 17:48:38.427] [SANDBOX] [info] prout 179.999634
-[2024-03-12 17:48:38.459] [SANDBOX] [info] prout -177.638977
-[2024-03-12 17:48:38.459] [SANDBOX] [info] prout -177.648224
-[2024-03-12 17:48:38.459] [SANDBOX] [info] prout -178.311935
-[2024-03-12 17:48:38.459] [SANDBOX] [info] prout -179.087219
-[2024-03-12 17:48:38.459] [SANDBOX] [info] prout -177.452957
-[2024-03-12 17:48:38.459] [SANDBOX] [info] prout -177.154892
-[2024-03-12 17:48:38.460] [SANDBOX] [info] prout -179.862076
-[2024-03-12 17:48:38.490] [SANDBOX] [info] prout -175.805252
-[2024-03-12 17:48:38.491] [SANDBOX] [info] prout -175.434723
-[2024-03-12 17:48:38.491] [SANDBOX] [info] prout -175.395004
-[2024-03-12 17:48:38.491] [SANDBOX] [info] prout -176.646454
-[2024-03-12 17:48:38.491] [SANDBOX] [info] prout -178.067444
-[2024-03-12 17:48:38.491] [SANDBOX] [info] prout -175.055939
-[2024-03-12 17:48:38.491] [SANDBOX] [info] prout -174.436005
-[2024-03-12 17:48:38.491] [SANDBOX] [info] prout -179.457672
-[2024-03-12 17:48:38.523] [SANDBOX] [info] prout -173.864319
-[2024-03-12 17:48:38.523] [SANDBOX] [info] prout -173.293701
-[2024-03-12 17:48:38.523] [SANDBOX] [info] prout -173.152298
-[2024-03-12 17:48:38.523] [SANDBOX] [info] prout -174.953598
-[2024-03-12 17:48:38.523] [SANDBOX] [info] prout -176.951263
-[2024-03-12 17:48:38.523] [SANDBOX] [info] prout -172.709396
-[2024-03-12 17:48:38.523] [SANDBOX] [info] prout -178.871964
-[2024-03-12 17:48:38.555] [SANDBOX] [info] prout -172.051895
-[2024-03-12 17:48:38.555] [SANDBOX] [info] prout -171.275909
-[2024-03-12 17:48:38.555] [SANDBOX] [info] prout -170.986816
-[2024-03-12 17:48:38.555] [SANDBOX] [info] prout -173.291718
-[2024-03-12 17:48:38.555] [SANDBOX] [info] prout -175.798782
-[2024-03-12 17:48:38.555] [SANDBOX] [info] prout -170.480438
-[2024-03-12 17:48:38.587] [SANDBOX] [info] prout -170.316254
-[2024-03-12 17:48:38.588] [SANDBOX] [info] prout -169.324463
-[2024-03-12 17:48:38.588] [SANDBOX] [info] prout -171.627869
-[2024-03-12 17:48:38.588] [SANDBOX] [info] prout -174.606979
-[2024-03-12 17:48:38.588] [SANDBOX] [info] prout -168.307465
-[2024-03-12 17:48:38.619] [SANDBOX] [info] prout -169.957306
-[2024-03-12 17:48:38.619] [SANDBOX] [info] prout -168.747498
-[2024-03-12 17:48:38.619] [SANDBOX] [info] prout -167.541855
-[2024-03-12 17:48:38.619] [SANDBOX] [info] prout -166.305679
-[2024-03-12 17:48:38.651] [SANDBOX] [info] prout -169.783768
-[2024-03-12 17:48:38.651] [SANDBOX] [info] prout -168.628571
-[2024-03-12 17:48:38.651] [SANDBOX] [info] prout -167.408737
-[2024-03-12 17:48:38.651] [SANDBOX] [info] prout -166.146500
-[2024-03-12 17:48:38.683] [SANDBOX] [info] prout -169.575623
-[2024-03-12 17:48:38.684] [SANDBOX] [info] prout -168.477264
-[2024-03-12 17:48:38.684] [SANDBOX] [info] prout -167.255066
-[2024-03-12 17:48:38.684] [SANDBOX] [info] prout -165.973999
-[2024-03-12 17:48:38.715] [SANDBOX] [info] prout -169.362671
-[2024-03-12 17:48:38.715] [SANDBOX] [info] prout -168.313065
-[2024-03-12 17:48:38.715] [SANDBOX] [info] prout -167.094772
-[2024-03-12 17:48:38.716] [SANDBOX] [info] prout -165.800491
-[2024-03-12 17:48:38.747] [SANDBOX] [info] prout -169.505127
-[2024-03-12 17:48:38.748] [SANDBOX] [info] prout -169.142197
-[2024-03-12 17:48:38.748] [SANDBOX] [info] prout -168.132874
-[2024-03-12 17:48:38.748] [SANDBOX] [info] prout -166.920853
-[2024-03-12 17:48:38.748] [SANDBOX] [info] prout -165.616211
-[2024-03-12 17:48:38.779] [SANDBOX] [info] prout -169.290436
-[2024-03-12 17:48:38.779] [SANDBOX] [info] prout -168.929413
-[2024-03-12 17:48:38.779] [SANDBOX] [info] prout -167.952621
-[2024-03-12 17:48:38.779] [SANDBOX] [info] prout -166.748093
-[2024-03-12 17:48:38.811] [SANDBOX] [info] prout -169.075562
-[2024-03-12 17:48:38.811] [SANDBOX] [info] prout -168.714218
-[2024-03-12 17:48:38.811] [SANDBOX] [info] prout -167.764618
-[2024-03-12 17:48:38.811] [SANDBOX] [info] prout -166.567841
-[2024-03-12 17:48:38.844] [SANDBOX] [info] prout -168.860672
-[2024-03-12 17:48:38.844] [SANDBOX] [info] prout -168.496704
-[2024-03-12 17:48:38.844] [SANDBOX] [info] prout -167.568741
-[2024-03-12 17:48:38.844] [SANDBOX] [info] prout -166.378677
-[2024-03-12 17:48:38.875] [SANDBOX] [info] prout -168.963470
-[2024-03-12 17:48:38.875] [SANDBOX] [info] prout -168.657761
-[2024-03-12 17:48:38.876] [SANDBOX] [info] prout -168.290192
-[2024-03-12 17:48:38.876] [SANDBOX] [info] prout -167.380142
-[2024-03-12 17:48:38.876] [SANDBOX] [info] prout -166.196732
-[2024-03-12 17:48:38.907] [SANDBOX] [info] prout -168.772186
-[2024-03-12 17:48:38.907] [SANDBOX] [info] prout -168.458267
-[2024-03-12 17:48:38.907] [SANDBOX] [info] prout -168.086227
-[2024-03-12 17:48:38.907] [SANDBOX] [info] prout -167.190903
-[2024-03-12 17:48:38.939] [SANDBOX] [info] prout -168.587341
-[2024-03-12 17:48:38.939] [SANDBOX] [info] prout -168.265106
-[2024-03-12 17:48:38.939] [SANDBOX] [info] prout -167.887970
-[2024-03-12 17:48:38.939] [SANDBOX] [info] prout -167.004501
-[2024-03-12 17:48:38.971] [SANDBOX] [info] prout -168.405090
-[2024-03-12 17:48:38.971] [SANDBOX] [info] prout -168.074570
-[2024-03-12 17:48:38.971] [SANDBOX] [info] prout -167.691757
-[2024-03-12 17:48:38.971] [SANDBOX] [info] prout -166.818008
-[2024-03-12 17:50:50.005] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-12 17:50:50.006] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-12 17:50:50.006] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-12 17:50:50.007] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-12 17:50:50.007] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-12 17:50:50.008] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-12 17:50:50.008] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-12 17:50:50.008] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-12 17:50:50.008] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-12 17:50:50.009] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-12 17:50:50.009] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-12 17:50:50.009] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-12 17:50:50.009] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-12 17:50:50.010] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-12 17:50:50.017] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-12 17:50:50.023] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
-[2024-03-12 17:50:50.046] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-12 17:50:50.056] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-12 17:50:50.067] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-12 17:50:50.084] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-12 17:50:50.088] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-12 17:50:50.121] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-12 17:50:50.137] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-12 17:50:50.140] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-12 17:50:50.142] [SANDBOX] [info] Asset loaded assets/textures/Square.png
-[2024-03-12 17:50:50.145] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-12 17:50:50.145] [SANDBOX] [info] Compiling shaders...
-[2024-03-12 17:50:50.159] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-12 17:53:22.855] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-12 17:53:22.857] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-12 17:53:22.857] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-12 17:53:22.858] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-12 17:53:22.858] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-12 17:53:22.858] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-12 17:53:22.859] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-12 17:53:22.859] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-12 17:53:22.859] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-12 17:53:22.859] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-12 17:53:22.859] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-12 17:53:22.860] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-12 17:53:22.860] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-12 17:53:22.860] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-12 17:53:22.863] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-12 17:53:22.868] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
-[2024-03-12 17:53:22.876] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-12 17:53:22.881] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-12 17:53:22.886] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-12 17:53:22.892] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-12 17:53:22.895] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-12 17:53:22.904] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-12 17:53:22.912] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-12 17:53:22.915] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-12 17:53:22.916] [SANDBOX] [info] Asset loaded assets/textures/Square.png
-[2024-03-12 17:53:22.919] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-12 17:53:22.920] [SANDBOX] [info] Compiling shaders...
-[2024-03-12 17:53:22.933] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-12 17:55:21.853] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-12 17:55:21.854] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-12 17:55:21.854] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-12 17:55:21.854] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-12 17:55:21.857] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-12 17:55:21.857] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-12 17:55:21.858] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-12 17:55:21.858] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-12 17:55:21.858] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-12 17:55:21.859] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-12 17:55:21.859] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-12 17:55:21.859] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-12 17:55:21.859] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-12 17:55:21.860] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-12 17:55:21.862] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-12 17:55:21.868] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
+[2024-03-12 17:55:21.875] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-12 17:55:21.880] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-12 17:55:21.885] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-12 17:55:21.891] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-12 17:55:21.895] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-12 17:55:21.904] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-12 17:55:21.913] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-12 17:55:21.916] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-12 17:55:21.917] [SANDBOX] [info] Asset loaded assets/textures/Square.png
+[2024-03-12 17:55:21.919] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-12 17:55:21.919] [SANDBOX] [info] Compiling shaders...
+[2024-03-12 17:55:21.928] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-12 17:56:20.397] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-12 17:56:20.398] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-12 17:56:20.399] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-12 17:56:20.399] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-12 17:56:20.399] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-12 17:56:20.399] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-12 17:56:20.399] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-12 17:56:20.400] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-12 17:56:20.400] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-12 17:56:20.400] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-12 17:56:20.401] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-12 17:56:20.401] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-12 17:56:20.401] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-12 17:56:20.402] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-12 17:56:20.404] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-12 17:56:20.410] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
+[2024-03-12 17:56:20.417] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-12 17:56:20.422] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-12 17:56:20.427] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-12 17:56:20.434] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-12 17:56:20.438] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-12 17:56:20.448] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-12 17:56:20.456] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-12 17:56:20.459] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-12 17:56:20.460] [SANDBOX] [info] Asset loaded assets/textures/Square.png
+[2024-03-12 17:56:20.462] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-12 17:56:20.462] [SANDBOX] [info] Compiling shaders...
+[2024-03-12 17:56:20.471] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-12 17:57:16.545] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-12 17:57:16.546] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-12 17:57:16.546] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-12 17:57:16.547] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-12 17:57:16.547] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-12 17:57:16.547] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-12 17:57:16.548] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-12 17:57:16.548] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-12 17:57:16.548] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-12 17:57:16.548] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-12 17:57:16.548] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-12 17:57:16.549] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-12 17:57:16.549] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-12 17:57:16.549] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-12 17:57:16.551] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-12 17:57:16.557] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
+[2024-03-12 17:57:16.565] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-12 17:57:16.570] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-12 17:57:16.575] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-12 17:57:16.581] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-12 17:57:16.584] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-12 17:57:16.594] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-12 17:57:16.602] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-12 17:57:16.605] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-12 17:57:16.606] [SANDBOX] [info] Asset loaded assets/textures/Square.png
+[2024-03-12 17:57:16.608] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-12 17:57:16.609] [SANDBOX] [info] Compiling shaders...
+[2024-03-12 17:57:16.616] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-12 18:00:20.896] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-12 18:00:20.897] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-12 18:00:20.897] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-12 18:00:20.897] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-12 18:00:20.897] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-12 18:00:20.898] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-12 18:00:20.898] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-12 18:00:20.899] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-12 18:00:20.899] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-12 18:00:20.899] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-12 18:00:20.899] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-12 18:00:20.899] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-12 18:00:20.900] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-12 18:00:20.900] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-12 18:00:20.902] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-12 18:00:20.909] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
+[2024-03-12 18:00:20.917] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-12 18:00:20.922] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-12 18:00:20.927] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-12 18:00:20.933] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-12 18:00:20.937] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-12 18:00:20.946] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-12 18:00:20.953] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-12 18:00:20.956] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-12 18:00:20.957] [SANDBOX] [info] Asset loaded assets/textures/Square.png
+[2024-03-12 18:00:20.959] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-12 18:00:20.959] [SANDBOX] [info] Compiling shaders...
+[2024-03-12 18:00:20.968] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-12 18:01:08.590] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-12 18:01:08.590] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-12 18:01:08.591] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-12 18:01:08.591] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-12 18:01:08.591] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-12 18:01:08.591] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-12 18:01:08.592] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-12 18:01:08.592] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-12 18:01:08.592] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-12 18:01:08.592] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-12 18:01:08.592] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-12 18:01:08.594] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-12 18:01:08.594] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-12 18:01:08.594] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-12 18:01:08.596] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-12 18:01:08.602] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
+[2024-03-12 18:01:08.609] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-12 18:01:08.614] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-12 18:01:08.618] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-12 18:01:08.623] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-12 18:01:08.627] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-12 18:01:08.636] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-12 18:01:08.643] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-12 18:01:08.646] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-12 18:01:08.647] [SANDBOX] [info] Asset loaded assets/textures/Square.png
+[2024-03-12 18:01:08.649] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-12 18:01:08.649] [SANDBOX] [info] Compiling shaders...
+[2024-03-12 18:01:08.658] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-12 18:02:59.500] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-12 18:02:59.501] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-12 18:02:59.501] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-12 18:02:59.501] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-12 18:02:59.501] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-12 18:02:59.502] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-12 18:02:59.502] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-12 18:02:59.502] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-12 18:02:59.502] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-12 18:02:59.503] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-12 18:02:59.503] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-12 18:02:59.503] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-12 18:02:59.503] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-12 18:02:59.504] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-12 18:02:59.506] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-12 18:02:59.512] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
+[2024-03-12 18:02:59.520] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-12 18:02:59.525] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-12 18:02:59.531] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-12 18:02:59.539] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-12 18:02:59.542] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-12 18:02:59.555] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-12 18:02:59.563] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-12 18:02:59.566] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-12 18:02:59.567] [SANDBOX] [info] Asset loaded assets/textures/Square.png
+[2024-03-12 18:02:59.569] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-12 18:02:59.569] [SANDBOX] [info] Compiling shaders...
+[2024-03-12 18:02:59.579] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-12 18:04:08.721] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-12 18:04:08.722] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-12 18:04:08.722] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-12 18:04:08.722] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-12 18:04:08.722] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-12 18:04:08.723] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-12 18:04:08.723] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-12 18:04:08.724] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-12 18:04:08.724] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-12 18:04:08.725] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-12 18:04:08.725] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-12 18:04:08.725] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-12 18:04:08.726] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-12 18:04:08.726] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-12 18:04:08.729] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-12 18:04:08.737] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
+[2024-03-12 18:04:08.745] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-12 18:04:08.750] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-12 18:04:08.755] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-12 18:04:08.761] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-12 18:04:08.765] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-12 18:04:08.775] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-12 18:04:08.783] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-12 18:04:08.786] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-12 18:04:08.787] [SANDBOX] [info] Asset loaded assets/textures/Square.png
+[2024-03-12 18:04:08.789] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-12 18:04:08.789] [SANDBOX] [info] Compiling shaders...
+[2024-03-12 18:04:08.798] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-12 18:08:00.332] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-12 18:08:00.334] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-12 18:08:00.334] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-12 18:08:00.334] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-12 18:08:00.334] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-12 18:08:00.336] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-12 18:08:00.336] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-12 18:08:00.336] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-12 18:08:00.336] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-12 18:08:00.337] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-12 18:08:00.337] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-12 18:08:00.338] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-12 18:08:00.338] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-12 18:08:00.338] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-12 18:08:00.362] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-12 18:08:00.375] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
+[2024-03-12 18:08:00.398] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-12 18:08:00.408] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-12 18:08:00.420] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-12 18:08:00.439] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-12 18:08:00.443] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-12 18:08:00.478] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-12 18:08:00.492] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-12 18:08:00.496] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-12 18:08:00.497] [SANDBOX] [info] Asset loaded assets/textures/Square.png
+[2024-03-12 18:08:00.501] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-12 18:08:00.501] [SANDBOX] [info] Compiling shaders...
+[2024-03-12 18:08:00.791] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-12 18:24:38.785] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-12 18:24:38.787] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-12 18:24:38.787] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-12 18:24:38.787] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-12 18:24:38.787] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-12 18:24:38.788] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-12 18:24:38.788] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-12 18:24:38.789] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-12 18:24:38.789] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-12 18:24:38.789] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-12 18:24:38.790] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-12 18:24:38.790] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-12 18:24:38.790] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-12 18:24:38.790] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-12 18:24:38.798] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-12 18:24:38.805] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
+[2024-03-12 18:24:38.828] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-12 18:24:38.838] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-12 18:24:38.849] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png

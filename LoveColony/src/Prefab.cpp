@@ -7,14 +7,14 @@
 
 namespace Prefab
 {
-	Entity Wall()
+	Entity Wall(Vec2f position)
 	{
 		//Create entity
 		Entity wall = Entity::Create();
-		wall.AddComponent<Transform>();
+		wall.AddComponent<Transform>()->SetPosition(position);
 
 		//Create Body
-		Body* body = wall.AddComponent<Body>(Body::Type::Static, Physics::GetLayerMask("Walls"));
+		StaticBody* body = wall.AddComponent<StaticBody>(position, Physics::GetLayerMask("Walls"));
 		sptr<Box2D> collider = makesptr<Box2D>(Vec2f(1, 1));
 		body->AddCollider(collider);
 

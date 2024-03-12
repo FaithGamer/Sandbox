@@ -6,5 +6,5 @@ using namespace Sandbox;
 namespace Prefab
 {
 	Entity Colonist();
-	Entity Wall();
+	Entity Wall(Vec2f position);
 }

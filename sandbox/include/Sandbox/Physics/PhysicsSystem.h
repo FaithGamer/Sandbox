@@ -11,7 +11,8 @@ namespace Sandbox
 		void OnStart() override;
 		void OnUpdate(Time deltaTime) override;
 		int GetUsedMethod() override;
-		void OnAddBody(ComponentSignal signal);
+		void OnAddKinematicBody(ComponentSignal signal);
+		void OnAddStaticBody(ComponentSignal signal);
 
 	};
 }

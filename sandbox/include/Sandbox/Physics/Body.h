@@ -58,7 +58,7 @@ namespace Sandbox
 			Static, Kinematic, Dynamic
 		};
 
-		Body(Type type = Type::Kinematic, Bitmask layer = 1);
+		Body(Bitmask layer = 1);
 		Body(Body&& body) noexcept;
 		~Body();
 		/// @brief Set the layers it's on. 
@@ -94,7 +94,6 @@ namespace Sandbox
 
 		Bitmask GetLayer() const;
 		Bitmask GetLayerMask() const;
-		Type GetType() const;
 		b2Body* GetB2Body();
 		const std::vector<sptr<Collider>>* GetColliders();
 		b2AABB GetAABB();
@@ -105,18 +104,31 @@ namespace Sandbox
 
 		Collider::UserData userData;
 
-	private:
+	protected:
 
 
 		friend PhysicsSystem;
 		b2Filter GetB2Filter();
 
 		std::vector<sptr<Collider>> m_colliders;
-		Type m_type;
 		Bitmask m_layer;
 		Bitmask m_mask;
 		b2Body* m_b2Body;
 
 		bool m_YisZ;
+	};
+	/// @brief Will not move with the transform
+	class StaticBody : public Body
+	{
+	public:
+		StaticBody(Vec2f position, Bitmask layer = 1);
+		StaticBody(StaticBody&& body) noexcept;
+	};
+	/// @brief Automatically update position with transform component thanks to PhysicsSystem
+	class KinematicBody : public Body
+	{
+	public:
+		KinematicBody(Bitmask layer = 1);
+		KinematicBody(KinematicBody&& body) noexcept;
 	};
 }

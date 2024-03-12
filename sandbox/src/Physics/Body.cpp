@@ -6,35 +6,18 @@
 namespace Sandbox
 {
 	Body::Body(Body&& body) noexcept
-		: m_type(body.m_type), 
+		:
 		m_layer(body.m_layer),
-		m_mask(body.m_mask), 
-		m_YisZ(body.m_YisZ), 
-		m_b2Body(body.m_b2Body), 
+		m_mask(body.m_mask),
+		m_YisZ(body.m_YisZ),
+		m_b2Body(body.m_b2Body),
 		m_colliders(body.m_colliders)
 	{
 
 	}
-	Body::Body(Type type, Bitmask layer) : m_type(type), m_layer(layer), m_mask(65535), m_YisZ(false)
+	Body::Body(Bitmask layer) : m_layer(layer), m_mask(65535), m_YisZ(false), m_b2Body(nullptr)
 	{
-		b2BodyDef def;
 
-		switch (type)
-		{
-		case Type::Static:
-			def.type = b2BodyType::b2_staticBody;
-			break;
-		case Type::Kinematic:
-			def.type = b2BodyType::b2_kinematicBody;
-			break;
-		case Type::Dynamic:
-			LOG_ERROR("Dynamic body not implemented");
-			//def.type = b2BodyType::b2_dynamicBody;
-			break;
-		}
-
-		m_b2Body = Physics::GetB2World()->CreateBody(&def);
-		m_b2Body->SetTransform(Vec2f(0, 0), 0);
 	}
 
 	Body::~Body()
@@ -116,11 +99,6 @@ namespace Sandbox
 		return m_mask;
 	}
 
-	Body::Type Body::GetType() const
-	{
-		return m_type;
-	}
-
 	b2Body* Body::GetB2Body()
 	{
 		return m_b2Body;
@@ -156,6 +134,40 @@ namespace Sandbox
 				aabb.upperBound.y = caabb.upperBound.y;
 		}
 		return aabb;
+	}
+
+	StaticBody::StaticBody(Vec2f position, Bitmask layer) : Body(layer)
+	{
+		b2BodyDef def;
+
+
+		def.type = b2BodyType::b2_staticBody;
+		m_b2Body = Physics::GetB2World()->CreateBody(&def);
+		m_b2Body->SetTransform(position, 0);
+	}
+	StaticBody::StaticBody(StaticBody&& body) noexcept
+	{
+		m_layer = body.m_layer;
+		m_mask = body.m_mask;
+		m_YisZ = body.m_YisZ;
+		m_b2Body = body.m_b2Body;
+		m_colliders = body.m_colliders;
+	}
+	KinematicBody::KinematicBody(Bitmask layer) : Body(layer)
+	{
+		b2BodyDef def;
+		def.type = b2BodyType::b2_kinematicBody;
+		m_b2Body = Physics::GetB2World()->CreateBody(&def);
+		m_b2Body->SetTransform(Vec2f(0, 0), 0);
+	}
+	KinematicBody::KinematicBody(KinematicBody&& body) noexcept
+
+	{
+		m_layer = body.m_layer;
+		m_mask = body.m_mask;
+		m_YisZ = body.m_YisZ;
+		m_b2Body = body.m_b2Body;
+		m_colliders = body.m_colliders;
 	}
 
 }
