@@ -1,240 +1,279 @@
-[2024-03-12 17:55:21.854] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-12 17:55:21.857] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-12 17:55:21.857] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-12 17:55:21.858] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-12 17:55:21.858] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-12 17:55:21.858] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-12 17:55:21.859] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-12 17:55:21.859] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-12 17:55:21.859] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-12 17:55:21.859] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-12 17:55:21.860] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-12 17:55:21.862] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-12 17:55:21.868] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
-[2024-03-12 17:55:21.875] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-12 17:55:21.880] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-12 17:55:21.885] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-12 17:55:21.891] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-12 17:55:21.895] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-12 17:55:21.904] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-12 17:55:21.913] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-12 17:55:21.916] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-12 17:55:21.917] [SANDBOX] [info] Asset loaded assets/textures/Square.png
-[2024-03-12 17:55:21.919] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-12 17:55:21.919] [SANDBOX] [info] Compiling shaders...
-[2024-03-12 17:55:21.928] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-12 17:56:20.397] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-12 17:56:20.398] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-12 17:56:20.399] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-12 17:56:20.399] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-12 17:56:20.399] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-12 17:56:20.399] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-12 17:56:20.399] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-12 17:56:20.400] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-12 17:56:20.400] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-12 17:56:20.400] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-12 17:56:20.401] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-12 17:56:20.401] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-12 17:56:20.401] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-12 17:56:20.402] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-12 17:56:20.404] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-12 17:56:20.410] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
-[2024-03-12 17:56:20.417] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-12 17:56:20.422] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-12 17:56:20.427] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-12 17:56:20.434] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-12 17:56:20.438] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-12 17:56:20.448] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-12 17:56:20.456] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-12 17:56:20.459] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-12 17:56:20.460] [SANDBOX] [info] Asset loaded assets/textures/Square.png
-[2024-03-12 17:56:20.462] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-12 17:56:20.462] [SANDBOX] [info] Compiling shaders...
-[2024-03-12 17:56:20.471] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-12 17:57:16.545] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-12 17:57:16.546] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-12 17:57:16.546] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-12 17:57:16.547] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-12 17:57:16.547] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-12 17:57:16.547] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-12 17:57:16.548] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-12 17:57:16.548] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-12 17:57:16.548] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-12 17:57:16.548] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-12 17:57:16.548] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-12 17:57:16.549] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-12 17:57:16.549] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-12 17:57:16.549] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-12 17:57:16.551] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-12 17:57:16.557] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
-[2024-03-12 17:57:16.565] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-12 17:57:16.570] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-12 17:57:16.575] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-12 17:57:16.581] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-12 17:57:16.584] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-12 17:57:16.594] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-12 17:57:16.602] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-12 17:57:16.605] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-12 17:57:16.606] [SANDBOX] [info] Asset loaded assets/textures/Square.png
-[2024-03-12 17:57:16.608] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-12 17:57:16.609] [SANDBOX] [info] Compiling shaders...
-[2024-03-12 17:57:16.616] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-12 18:00:20.896] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-12 18:00:20.897] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-12 18:00:20.897] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-12 18:00:20.897] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-12 18:00:20.897] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-12 18:00:20.898] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-12 18:00:20.898] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-12 18:00:20.899] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-12 18:00:20.899] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-12 18:00:20.899] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-12 18:00:20.899] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-12 18:00:20.899] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-12 18:00:20.900] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-12 18:00:20.900] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-12 18:00:20.902] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-12 18:00:20.909] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
-[2024-03-12 18:00:20.917] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-12 18:00:20.922] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-12 18:00:20.927] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-12 18:00:20.933] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-12 18:00:20.937] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-12 18:00:20.946] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-12 18:00:20.953] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-12 18:00:20.956] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-12 18:00:20.957] [SANDBOX] [info] Asset loaded assets/textures/Square.png
-[2024-03-12 18:00:20.959] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-12 18:00:20.959] [SANDBOX] [info] Compiling shaders...
-[2024-03-12 18:00:20.968] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-12 18:01:08.590] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-12 18:01:08.590] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-12 18:01:08.591] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-12 18:01:08.591] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-12 18:01:08.591] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-12 18:01:08.591] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-12 18:01:08.592] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-12 18:01:08.592] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-12 18:01:08.592] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-12 18:01:08.592] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-12 18:01:08.592] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-12 18:01:08.594] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-12 18:01:08.594] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-12 18:01:08.594] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-12 18:01:08.596] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-12 18:01:08.602] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
-[2024-03-12 18:01:08.609] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-12 18:01:08.614] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-12 18:01:08.618] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-12 18:01:08.623] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-12 18:01:08.627] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-12 18:01:08.636] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-12 18:01:08.643] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-12 18:01:08.646] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-12 18:01:08.647] [SANDBOX] [info] Asset loaded assets/textures/Square.png
-[2024-03-12 18:01:08.649] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-12 18:01:08.649] [SANDBOX] [info] Compiling shaders...
-[2024-03-12 18:01:08.658] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-12 18:02:59.500] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-12 18:02:59.501] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-12 18:02:59.501] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-12 18:02:59.501] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-12 18:02:59.501] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-12 18:02:59.502] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-12 18:02:59.502] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-12 18:02:59.502] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-12 18:02:59.502] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-12 18:02:59.503] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-12 18:02:59.503] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-12 18:02:59.503] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-12 18:02:59.503] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-12 18:02:59.504] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-12 18:02:59.506] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-12 18:02:59.512] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
-[2024-03-12 18:02:59.520] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-12 18:02:59.525] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-12 18:02:59.531] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-12 18:02:59.539] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-12 18:02:59.542] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-12 18:02:59.555] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-12 18:02:59.563] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-12 18:02:59.566] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-12 18:02:59.567] [SANDBOX] [info] Asset loaded assets/textures/Square.png
-[2024-03-12 18:02:59.569] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-12 18:02:59.569] [SANDBOX] [info] Compiling shaders...
-[2024-03-12 18:02:59.579] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-12 18:04:08.721] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-12 18:04:08.722] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-12 18:04:08.722] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-12 18:04:08.722] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-12 18:04:08.722] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-12 18:04:08.723] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-12 18:04:08.723] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-12 18:04:08.724] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-12 18:04:08.724] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-12 18:04:08.725] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-12 18:04:08.725] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-12 18:04:08.725] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-12 18:04:08.726] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-12 18:04:08.726] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-12 18:04:08.729] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-12 18:04:08.737] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
-[2024-03-12 18:04:08.745] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-12 18:04:08.750] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-12 18:04:08.755] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-12 18:04:08.761] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-12 18:04:08.765] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-12 18:04:08.775] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-12 18:04:08.783] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-12 18:04:08.786] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-12 18:04:08.787] [SANDBOX] [info] Asset loaded assets/textures/Square.png
-[2024-03-12 18:04:08.789] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-12 18:04:08.789] [SANDBOX] [info] Compiling shaders...
-[2024-03-12 18:04:08.798] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-12 18:08:00.332] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-12 18:08:00.334] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-12 18:08:00.334] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-12 18:08:00.334] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-12 18:08:00.334] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-12 18:08:00.336] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-12 18:08:00.336] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-12 18:08:00.336] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-12 18:08:00.336] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-12 18:08:00.337] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-12 18:08:00.337] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-12 18:08:00.338] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-12 18:08:00.338] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-12 18:08:00.338] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-12 18:08:00.362] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-12 18:08:00.375] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
-[2024-03-12 18:08:00.398] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-12 18:08:00.408] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-12 18:08:00.420] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
-[2024-03-12 18:08:00.439] [SANDBOX] [info] Asset loaded assets/textures/Player.png
-[2024-03-12 18:08:00.443] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
-[2024-03-12 18:08:00.478] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
-[2024-03-12 18:08:00.492] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
-[2024-03-12 18:08:00.496] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
-[2024-03-12 18:08:00.497] [SANDBOX] [info] Asset loaded assets/textures/Square.png
-[2024-03-12 18:08:00.501] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
-[2024-03-12 18:08:00.501] [SANDBOX] [info] Compiling shaders...
-[2024-03-12 18:08:00.791] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
-[2024-03-12 18:24:38.785] [SANDBOX] [info] OpenGL Loaded.
-[2024-03-12 18:24:38.787] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
-[2024-03-12 18:24:38.787] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
-[2024-03-12 18:24:38.787] [SANDBOX] [info] Vendor: NVIDIA Corporation
-[2024-03-12 18:24:38.787] [SANDBOX] [info] Max. Vertex attributes: 16
-[2024-03-12 18:24:38.788] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
-[2024-03-12 18:24:38.788] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
-[2024-03-12 18:24:38.789] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
-[2024-03-12 18:24:38.789] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
-[2024-03-12 18:24:38.789] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
-[2024-03-12 18:24:38.790] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
-[2024-03-12 18:24:38.790] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
-[2024-03-12 18:24:38.790] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
-[2024-03-12 18:24:38.790] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
-[2024-03-12 18:24:38.798] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
-[2024-03-12 18:24:38.805] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
-[2024-03-12 18:24:38.828] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
-[2024-03-12 18:24:38.838] [SANDBOX] [info] Asset loaded assets/textures/Food.png
-[2024-03-12 18:24:38.849] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-12 21:45:33.248] [SANDBOX] [info] fixed update time: 0.019720
+[2024-03-12 21:45:33.280] [SANDBOX] [info] fixed update time: 0.019851
+[2024-03-12 21:45:33.313] [SANDBOX] [info] fixed update time: 0.020083
+[2024-03-12 21:45:33.345] [SANDBOX] [info] fixed update time: 0.020438
+[2024-03-12 21:45:33.378] [SANDBOX] [info] fixed update time: 0.020674
+[2024-03-12 21:45:33.409] [SANDBOX] [info] fixed update time: 0.020402
+[2024-03-12 21:45:33.441] [SANDBOX] [info] fixed update time: 0.019846
+[2024-03-12 21:45:33.472] [SANDBOX] [info] fixed update time: 0.019597
+[2024-03-12 21:45:33.504] [SANDBOX] [info] fixed update time: 0.019702
+[2024-03-12 21:45:33.536] [SANDBOX] [info] fixed update time: 0.019835
+[2024-03-12 21:45:33.568] [SANDBOX] [info] fixed update time: 0.019683
+[2024-03-12 21:45:33.600] [SANDBOX] [info] fixed update time: 0.019594
+[2024-03-12 21:45:33.632] [SANDBOX] [info] fixed update time: 0.019802
+[2024-03-12 21:45:33.664] [SANDBOX] [info] fixed update time: 0.019708
+[2024-03-12 21:45:33.697] [SANDBOX] [info] fixed update time: 0.019853
+[2024-03-12 21:45:33.729] [SANDBOX] [info] fixed update time: 0.019665
+[2024-03-12 21:45:33.760] [SANDBOX] [info] fixed update time: 0.019399
+[2024-03-12 21:45:33.792] [SANDBOX] [info] fixed update time: 0.019597
+[2024-03-12 21:45:33.824] [SANDBOX] [info] fixed update time: 0.019703
+[2024-03-12 21:45:33.837] [SANDBOX] [info] Scent Count: 4000
+[2024-03-12 21:45:33.857] [SANDBOX] [info] fixed update time: 0.019772
+[2024-03-12 21:45:33.888] [SANDBOX] [info] fixed update time: 0.019311
+[2024-03-12 21:45:33.921] [SANDBOX] [info] fixed update time: 0.019689
+[2024-03-12 21:45:33.952] [SANDBOX] [info] fixed update time: 0.019577
+[2024-03-12 21:45:33.984] [SANDBOX] [info] fixed update time: 0.019434
+[2024-03-12 21:45:34.016] [SANDBOX] [info] fixed update time: 0.019738
+[2024-03-12 21:45:34.048] [SANDBOX] [info] fixed update time: 0.019841
+[2024-03-12 21:45:34.080] [SANDBOX] [info] fixed update time: 0.019622
+[2024-03-12 21:45:34.112] [SANDBOX] [info] fixed update time: 0.019562
+[2024-03-12 21:45:34.144] [SANDBOX] [info] fixed update time: 0.019353
+[2024-03-12 21:45:34.176] [SANDBOX] [info] fixed update time: 0.019251
+[2024-03-12 21:45:34.208] [SANDBOX] [info] fixed update time: 0.019248
+[2024-03-12 21:45:34.240] [SANDBOX] [info] fixed update time: 0.019790
+[2024-03-12 21:45:34.272] [SANDBOX] [info] fixed update time: 0.019435
+[2024-03-12 21:45:34.304] [SANDBOX] [info] fixed update time: 0.019256
+[2024-03-12 21:45:34.336] [SANDBOX] [info] fixed update time: 0.019572
+[2024-03-12 21:45:34.368] [SANDBOX] [info] fixed update time: 0.019322
+[2024-03-12 21:45:34.400] [SANDBOX] [info] fixed update time: 0.019285
+[2024-03-12 21:45:34.432] [SANDBOX] [info] fixed update time: 0.019268
+[2024-03-12 21:45:34.465] [SANDBOX] [info] fixed update time: 0.019863
+[2024-03-12 21:45:34.497] [SANDBOX] [info] fixed update time: 0.019389
+[2024-03-12 21:45:34.528] [SANDBOX] [info] fixed update time: 0.019328
+[2024-03-12 21:45:34.560] [SANDBOX] [info] fixed update time: 0.019450
+[2024-03-12 21:45:34.592] [SANDBOX] [info] fixed update time: 0.019404
+[2024-03-12 21:45:34.624] [SANDBOX] [info] fixed update time: 0.019264
+[2024-03-12 21:45:34.657] [SANDBOX] [info] fixed update time: 0.020256
+[2024-03-12 21:45:34.689] [SANDBOX] [info] fixed update time: 0.020092
+[2024-03-12 21:45:34.721] [SANDBOX] [info] fixed update time: 0.019736
+[2024-03-12 21:45:34.753] [SANDBOX] [info] fixed update time: 0.019623
+[2024-03-12 21:45:34.785] [SANDBOX] [info] fixed update time: 0.019655
+[2024-03-12 21:45:34.817] [SANDBOX] [info] fixed update time: 0.019506
+[2024-03-12 21:45:34.848] [SANDBOX] [info] fixed update time: 0.019359
+[2024-03-12 21:45:34.861] [SANDBOX] [info] Scent Count: 4000
+[2024-03-12 21:45:34.881] [SANDBOX] [info] fixed update time: 0.019877
+[2024-03-12 21:45:34.913] [SANDBOX] [info] fixed update time: 0.019603
+[2024-03-12 21:45:34.945] [SANDBOX] [info] fixed update time: 0.019476
+[2024-03-12 21:45:34.976] [SANDBOX] [info] fixed update time: 0.019410
+[2024-03-12 21:45:35.009] [SANDBOX] [info] fixed update time: 0.019654
+[2024-03-12 21:45:35.041] [SANDBOX] [info] fixed update time: 0.019481
+[2024-03-12 21:45:35.072] [SANDBOX] [info] fixed update time: 0.019488
+[2024-03-12 21:45:35.105] [SANDBOX] [info] fixed update time: 0.019641
+[2024-03-12 21:45:35.137] [SANDBOX] [info] fixed update time: 0.019818
+[2024-03-12 21:45:35.169] [SANDBOX] [info] fixed update time: 0.019702
+[2024-03-12 21:45:35.201] [SANDBOX] [info] fixed update time: 0.019701
+[2024-03-12 21:45:35.233] [SANDBOX] [info] fixed update time: 0.019734
+[2024-03-12 21:45:35.265] [SANDBOX] [info] fixed update time: 0.019871
+[2024-03-12 21:45:35.298] [SANDBOX] [info] fixed update time: 0.020096
+[2024-03-12 21:45:35.329] [SANDBOX] [info] fixed update time: 0.019929
+[2024-03-12 21:45:35.361] [SANDBOX] [info] fixed update time: 0.019691
+[2024-03-12 21:45:35.393] [SANDBOX] [info] fixed update time: 0.019763
+[2024-03-12 21:45:35.425] [SANDBOX] [info] fixed update time: 0.019811
+[2024-03-12 21:45:35.457] [SANDBOX] [info] fixed update time: 0.019801
+[2024-03-12 21:45:35.490] [SANDBOX] [info] fixed update time: 0.020667
+[2024-03-12 21:45:35.522] [SANDBOX] [info] fixed update time: 0.020384
+[2024-03-12 21:45:35.554] [SANDBOX] [info] fixed update time: 0.019972
+[2024-03-12 21:45:35.585] [SANDBOX] [info] fixed update time: 0.020003
+[2024-03-12 21:45:35.617] [SANDBOX] [info] fixed update time: 0.019990
+[2024-03-12 21:45:35.649] [SANDBOX] [info] fixed update time: 0.019913
+[2024-03-12 21:45:35.682] [SANDBOX] [info] fixed update time: 0.020044
+[2024-03-12 21:45:35.714] [SANDBOX] [info] fixed update time: 0.020182
+[2024-03-12 21:45:35.745] [SANDBOX] [info] fixed update time: 0.019758
+[2024-03-12 21:45:35.777] [SANDBOX] [info] fixed update time: 0.019932
+[2024-03-12 21:45:35.810] [SANDBOX] [info] fixed update time: 0.020009
+[2024-03-12 21:45:35.842] [SANDBOX] [info] fixed update time: 0.020141
+[2024-03-12 21:45:35.873] [SANDBOX] [info] fixed update time: 0.019794
+[2024-03-12 21:45:35.886] [SANDBOX] [info] Scent Count: 4000
+[2024-03-12 21:45:35.906] [SANDBOX] [info] fixed update time: 0.020151
+[2024-03-12 21:45:35.937] [SANDBOX] [info] fixed update time: 0.019646
+[2024-03-12 21:45:35.969] [SANDBOX] [info] fixed update time: 0.019814
+[2024-03-12 21:45:36.001] [SANDBOX] [info] fixed update time: 0.019933
+[2024-03-12 21:45:36.033] [SANDBOX] [info] fixed update time: 0.019991
+[2024-03-12 21:45:36.066] [SANDBOX] [info] fixed update time: 0.020185
+[2024-03-12 21:45:36.098] [SANDBOX] [info] fixed update time: 0.020132
+[2024-03-12 21:45:36.129] [SANDBOX] [info] fixed update time: 0.020115
+[2024-03-12 21:45:36.161] [SANDBOX] [info] fixed update time: 0.019686
+[2024-03-12 21:45:36.193] [SANDBOX] [info] fixed update time: 0.019770
+[2024-03-12 21:45:36.225] [SANDBOX] [info] fixed update time: 0.019740
+[2024-03-12 21:45:36.257] [SANDBOX] [info] fixed update time: 0.019833
+[2024-03-12 21:45:36.289] [SANDBOX] [info] fixed update time: 0.019708
+[2024-03-12 21:45:36.321] [SANDBOX] [info] fixed update time: 0.019867
+[2024-03-12 21:45:36.353] [SANDBOX] [info] fixed update time: 0.019634
+[2024-03-12 21:45:36.385] [SANDBOX] [info] fixed update time: 0.019608
+[2024-03-12 21:45:36.418] [SANDBOX] [info] fixed update time: 0.019674
+[2024-03-12 21:45:36.449] [SANDBOX] [info] fixed update time: 0.019570
+[2024-03-12 21:45:36.481] [SANDBOX] [info] fixed update time: 0.019519
+[2024-03-12 21:45:36.513] [SANDBOX] [info] fixed update time: 0.019804
+[2024-03-12 21:45:36.546] [SANDBOX] [info] fixed update time: 0.020230
+[2024-03-12 21:45:36.577] [SANDBOX] [info] fixed update time: 0.019414
+[2024-03-12 21:45:36.609] [SANDBOX] [info] fixed update time: 0.019443
+[2024-03-12 21:45:36.641] [SANDBOX] [info] fixed update time: 0.019578
+[2024-03-12 21:45:36.673] [SANDBOX] [info] fixed update time: 0.019454
+[2024-03-12 21:45:36.706] [SANDBOX] [info] fixed update time: 0.019539
+[2024-03-12 21:45:36.737] [SANDBOX] [info] fixed update time: 0.019926
+[2024-03-12 21:45:36.769] [SANDBOX] [info] fixed update time: 0.019543
+[2024-03-12 21:45:36.801] [SANDBOX] [info] fixed update time: 0.019438
+[2024-03-12 21:45:36.834] [SANDBOX] [info] fixed update time: 0.019685
+[2024-03-12 21:45:36.865] [SANDBOX] [info] fixed update time: 0.019638
+[2024-03-12 21:45:36.897] [SANDBOX] [info] fixed update time: 0.019643
+[2024-03-12 21:45:36.910] [SANDBOX] [info] Scent Count: 4000
+[2024-03-12 21:45:36.930] [SANDBOX] [info] fixed update time: 0.019799
+[2024-03-12 21:45:36.962] [SANDBOX] [info] fixed update time: 0.020190
+[2024-03-12 21:45:36.994] [SANDBOX] [info] fixed update time: 0.019659
+[2024-03-12 21:45:37.025] [SANDBOX] [info] fixed update time: 0.019425
+[2024-03-12 21:45:37.057] [SANDBOX] [info] fixed update time: 0.019758
+[2024-03-12 21:45:37.089] [SANDBOX] [info] fixed update time: 0.019723
+[2024-03-12 21:45:37.121] [SANDBOX] [info] fixed update time: 0.019475
+[2024-03-12 21:45:37.153] [SANDBOX] [info] fixed update time: 0.019715
+[2024-03-12 21:45:37.185] [SANDBOX] [info] fixed update time: 0.019432
+[2024-03-12 21:45:37.218] [SANDBOX] [info] fixed update time: 0.019956
+[2024-03-12 21:45:37.249] [SANDBOX] [info] fixed update time: 0.019698
+[2024-03-12 21:45:37.281] [SANDBOX] [info] fixed update time: 0.019456
+[2024-03-12 21:45:37.314] [SANDBOX] [info] fixed update time: 0.019488
+[2024-03-12 21:45:37.346] [SANDBOX] [info] fixed update time: 0.019863
+[2024-03-12 21:45:37.378] [SANDBOX] [info] fixed update time: 0.020125
+[2024-03-12 21:45:37.409] [SANDBOX] [info] fixed update time: 0.019657
+[2024-03-12 21:45:37.441] [SANDBOX] [info] fixed update time: 0.019374
+[2024-03-12 21:45:37.473] [SANDBOX] [info] fixed update time: 0.019548
+[2024-03-12 21:45:37.504] [SANDBOX] [info] fixed update time: 0.000270
+[2024-03-12 21:45:37.518] [SANDBOX] [info] fixed update time: 0.000302
+[2024-03-12 21:45:37.550] [SANDBOX] [info] fixed update time: 0.000317
+[2024-03-12 21:45:37.582] [SANDBOX] [info] fixed update time: 0.000302
+[2024-03-12 21:45:37.614] [SANDBOX] [info] fixed update time: 0.000296
+[2024-03-12 21:45:37.646] [SANDBOX] [info] fixed update time: 0.000298
+[2024-03-12 21:45:37.678] [SANDBOX] [info] fixed update time: 0.000352
+[2024-03-12 21:45:37.710] [SANDBOX] [info] fixed update time: 0.000306
+[2024-03-12 21:45:37.742] [SANDBOX] [info] fixed update time: 0.000283
+[2024-03-12 21:45:37.774] [SANDBOX] [info] fixed update time: 0.000294
+[2024-03-12 21:45:37.806] [SANDBOX] [info] fixed update time: 0.000294
+[2024-03-12 21:45:37.838] [SANDBOX] [info] fixed update time: 0.000304
+[2024-03-12 21:45:37.870] [SANDBOX] [info] fixed update time: 0.000309
+[2024-03-12 21:45:37.902] [SANDBOX] [info] fixed update time: 0.000295
+[2024-03-12 21:45:37.934] [SANDBOX] [info] Scent Count: 0
+[2024-03-12 21:45:37.935] [SANDBOX] [info] fixed update time: 0.000299
+[2024-03-12 21:45:37.966] [SANDBOX] [info] fixed update time: 0.000314
+[2024-03-12 21:45:37.998] [SANDBOX] [info] fixed update time: 0.000311
+[2024-03-12 21:45:38.030] [SANDBOX] [info] fixed update time: 0.000298
+[2024-03-12 21:45:38.063] [SANDBOX] [info] fixed update time: 0.000289
+[2024-03-12 21:45:38.095] [SANDBOX] [info] fixed update time: 0.000361
+[2024-03-12 21:45:38.126] [SANDBOX] [info] fixed update time: 0.000305
+[2024-03-12 21:45:38.158] [SANDBOX] [info] fixed update time: 0.000315
+[2024-03-12 21:45:38.191] [SANDBOX] [info] fixed update time: 0.000329
+[2024-03-12 21:45:38.223] [SANDBOX] [info] fixed update time: 0.000308
+[2024-03-12 21:45:38.255] [SANDBOX] [info] fixed update time: 0.000310
+[2024-03-12 21:45:38.286] [SANDBOX] [info] fixed update time: 0.000303
+[2024-03-12 21:45:38.318] [SANDBOX] [info] fixed update time: 0.000315
+[2024-03-12 21:45:38.351] [SANDBOX] [info] fixed update time: 0.000312
+[2024-03-12 21:45:38.382] [SANDBOX] [info] fixed update time: 0.000309
+[2024-03-12 21:45:38.415] [SANDBOX] [info] fixed update time: 0.000311
+[2024-03-12 21:45:38.447] [SANDBOX] [info] fixed update time: 0.000306
+[2024-03-12 21:45:38.479] [SANDBOX] [info] fixed update time: 0.000301
+[2024-03-12 21:45:38.511] [SANDBOX] [info] fixed update time: 0.000302
+[2024-03-12 21:45:38.543] [SANDBOX] [info] fixed update time: 0.000303
+[2024-03-12 21:45:38.575] [SANDBOX] [info] fixed update time: 0.000310
+[2024-03-12 21:45:38.607] [SANDBOX] [info] fixed update time: 0.000313
+[2024-03-12 21:45:38.639] [SANDBOX] [info] fixed update time: 0.000287
+[2024-03-12 21:45:38.671] [SANDBOX] [info] fixed update time: 0.000306
+[2024-03-12 21:45:38.703] [SANDBOX] [info] fixed update time: 0.000307
+[2024-03-12 21:45:38.735] [SANDBOX] [info] fixed update time: 0.000311
+[2024-03-12 21:45:38.767] [SANDBOX] [info] fixed update time: 0.000313
+[2024-03-12 21:45:38.799] [SANDBOX] [info] fixed update time: 0.000310
+[2024-03-12 21:45:38.831] [SANDBOX] [info] fixed update time: 0.000320
+[2024-03-12 21:45:38.863] [SANDBOX] [info] fixed update time: 0.000319
+[2024-03-12 21:45:38.895] [SANDBOX] [info] fixed update time: 0.000309
+[2024-03-12 21:45:38.927] [SANDBOX] [info] fixed update time: 0.000315
+[2024-03-12 21:45:38.959] [SANDBOX] [info] Scent Count: 0
+[2024-03-12 21:45:38.959] [SANDBOX] [info] fixed update time: 0.000310
+[2024-03-12 21:45:38.991] [SANDBOX] [info] fixed update time: 0.000310
+[2024-03-12 21:45:39.023] [SANDBOX] [info] fixed update time: 0.000319
+[2024-03-12 21:45:39.055] [SANDBOX] [info] fixed update time: 0.000306
+[2024-03-12 21:45:39.087] [SANDBOX] [info] fixed update time: 0.000302
+[2024-03-12 21:45:39.119] [SANDBOX] [info] fixed update time: 0.000304
+[2024-03-12 21:45:39.152] [SANDBOX] [info] fixed update time: 0.000314
+[2024-03-12 21:45:39.184] [SANDBOX] [info] fixed update time: 0.000303
+[2024-03-12 21:45:39.215] [SANDBOX] [info] fixed update time: 0.000291
+[2024-03-12 21:45:39.248] [SANDBOX] [info] fixed update time: 0.000299
+[2024-03-12 21:45:39.279] [SANDBOX] [info] fixed update time: 0.000300
+[2024-03-12 21:45:39.312] [SANDBOX] [info] fixed update time: 0.000302
+[2024-03-12 21:45:39.343] [SANDBOX] [info] fixed update time: 0.000306
+[2024-03-12 21:45:39.376] [SANDBOX] [info] fixed update time: 0.000320
+[2024-03-12 21:45:39.407] [SANDBOX] [info] fixed update time: 0.000307
+[2024-03-12 21:45:39.440] [SANDBOX] [info] fixed update time: 0.000311
+[2024-03-12 21:45:39.472] [SANDBOX] [info] fixed update time: 0.000306
+[2024-03-12 21:45:39.504] [SANDBOX] [info] fixed update time: 0.000311
+[2024-03-12 21:45:39.536] [SANDBOX] [info] fixed update time: 0.000311
+[2024-03-12 21:45:39.568] [SANDBOX] [info] fixed update time: 0.000306
+[2024-03-12 21:45:39.600] [SANDBOX] [info] fixed update time: 0.000311
+[2024-03-12 21:45:39.635] [SANDBOX] [info] fixed update time: 0.000294
+[2024-03-12 21:45:39.664] [SANDBOX] [info] fixed update time: 0.000318
+[2024-03-12 21:45:39.696] [SANDBOX] [info] fixed update time: 0.000302
+[2024-03-12 21:45:39.728] [SANDBOX] [info] fixed update time: 0.000307
+[2024-03-12 21:45:39.760] [SANDBOX] [info] fixed update time: 0.000311
+[2024-03-12 21:45:39.792] [SANDBOX] [info] fixed update time: 0.000303
+[2024-03-12 21:45:39.824] [SANDBOX] [info] fixed update time: 0.000299
+[2024-03-12 21:45:39.856] [SANDBOX] [info] fixed update time: 0.000324
+[2024-03-12 21:45:39.888] [SANDBOX] [info] fixed update time: 0.000308
+[2024-03-12 21:45:39.920] [SANDBOX] [info] fixed update time: 0.000317
+[2024-03-12 21:45:39.952] [SANDBOX] [info] fixed update time: 0.000306
+[2024-03-12 21:45:39.984] [SANDBOX] [info] Scent Count: 0
+[2024-03-12 21:45:39.984] [SANDBOX] [info] fixed update time: 0.000364
+[2024-03-12 21:45:40.016] [SANDBOX] [info] fixed update time: 0.000306
+[2024-03-12 21:45:40.048] [SANDBOX] [info] fixed update time: 0.000325
+[2024-03-12 21:45:40.080] [SANDBOX] [info] fixed update time: 0.000302
+[2024-03-12 21:45:40.113] [SANDBOX] [info] fixed update time: 0.000285
+[2024-03-12 21:45:40.144] [SANDBOX] [info] fixed update time: 0.000298
+[2024-03-12 21:45:40.176] [SANDBOX] [info] fixed update time: 0.000308
+[2024-03-12 21:45:40.208] [SANDBOX] [info] fixed update time: 0.000298
+[2024-03-12 21:45:40.240] [SANDBOX] [info] fixed update time: 0.000298
+[2024-03-12 21:45:40.273] [SANDBOX] [info] fixed update time: 0.000299
+[2024-03-12 21:45:40.305] [SANDBOX] [info] fixed update time: 0.000306
+[2024-03-12 21:45:40.337] [SANDBOX] [info] fixed update time: 0.000306
+[2024-03-12 21:45:40.369] [SANDBOX] [info] fixed update time: 0.000310
+[2024-03-12 21:45:40.401] [SANDBOX] [info] fixed update time: 0.000321
+[2024-03-12 21:45:40.433] [SANDBOX] [info] fixed update time: 0.000301
+[2024-03-12 21:45:40.465] [SANDBOX] [info] fixed update time: 0.000316
+[2024-03-12 21:45:40.497] [SANDBOX] [info] fixed update time: 0.000298
+[2024-03-12 21:45:40.529] [SANDBOX] [info] fixed update time: 0.000307
+[2024-03-12 21:45:40.561] [SANDBOX] [info] fixed update time: 0.000308
+[2024-03-12 21:45:40.593] [SANDBOX] [info] fixed update time: 0.000323
+[2024-03-12 21:45:40.625] [SANDBOX] [info] fixed update time: 0.000308
+[2024-03-12 21:45:40.657] [SANDBOX] [info] fixed update time: 0.000311
+[2024-03-12 21:45:40.689] [SANDBOX] [info] fixed update time: 0.000306
+[2024-03-12 21:45:40.721] [SANDBOX] [info] fixed update time: 0.000304
+[2024-03-12 21:45:40.753] [SANDBOX] [info] fixed update time: 0.000312
+[2024-03-12 21:45:40.785] [SANDBOX] [info] fixed update time: 0.000313
+[2024-03-12 21:45:40.817] [SANDBOX] [info] fixed update time: 0.000307
+[2024-03-12 21:45:40.849] [SANDBOX] [info] fixed update time: 0.000305
+[2024-03-12 21:45:40.881] [SANDBOX] [info] fixed update time: 0.000326
+[2024-03-12 21:45:40.913] [SANDBOX] [info] fixed update time: 0.000327
+[2024-03-12 21:45:40.945] [SANDBOX] [info] fixed update time: 0.000315
+[2024-03-12 21:45:40.977] [SANDBOX] [info] fixed update time: 0.000313
+[2024-03-12 21:45:41.009] [SANDBOX] [info] Scent Count: 0
+[2024-03-12 21:45:41.009] [SANDBOX] [info] fixed update time: 0.000330
+[2024-03-12 21:45:41.041] [SANDBOX] [info] fixed update time: 0.000314
+[2024-03-12 21:45:41.073] [SANDBOX] [info] fixed update time: 0.000321
+[2024-03-12 21:45:41.105] [SANDBOX] [info] fixed update time: 0.000369
+[2024-03-12 21:45:41.137] [SANDBOX] [info] fixed update time: 0.000377
+[2024-03-12 21:45:41.169] [SANDBOX] [info] fixed update time: 0.000326
+[2024-03-12 21:45:41.202] [SANDBOX] [info] fixed update time: 0.000293
+[2024-03-12 21:45:41.233] [SANDBOX] [info] fixed update time: 0.000381
+[2024-03-12 21:45:41.265] [SANDBOX] [info] fixed update time: 0.000329
+[2024-03-12 21:45:41.298] [SANDBOX] [info] fixed update time: 0.000315
+[2024-03-12 21:45:41.329] [SANDBOX] [info] fixed update time: 0.000377
+[2024-03-12 21:45:41.362] [SANDBOX] [info] fixed update time: 0.000365
+[2024-03-12 21:45:41.394] [SANDBOX] [info] fixed update time: 0.000310
+[2024-03-12 21:45:41.426] [SANDBOX] [info] fixed update time: 0.000376
+[2024-03-12 21:45:41.458] [SANDBOX] [info] fixed update time: 0.000316
+[2024-03-12 21:45:41.490] [SANDBOX] [info] fixed update time: 0.000309
+[2024-03-12 21:45:41.522] [SANDBOX] [info] fixed update time: 0.000305
+[2024-03-12 21:45:41.554] [SANDBOX] [info] fixed update time: 0.000306
+[2024-03-12 21:45:41.586] [SANDBOX] [info] fixed update time: 0.000307
+[2024-03-12 21:45:41.618] [SANDBOX] [info] fixed update time: 0.000311
+[2024-03-12 21:45:41.650] [SANDBOX] [info] fixed update time: 0.000321
+[2024-03-12 21:45:41.682] [SANDBOX] [info] fixed update time: 0.000309
+[2024-03-12 21:45:41.714] [SANDBOX] [info] fixed update time: 0.000318
+[2024-03-12 21:45:41.746] [SANDBOX] [info] fixed update time: 0.000329
+[2024-03-12 21:45:41.778] [SANDBOX] [info] fixed update time: 0.000311
+[2024-03-12 21:45:41.810] [SANDBOX] [info] fixed update time: 0.000320
+[2024-03-12 21:45:41.842] [SANDBOX] [info] fixed update time: 0.000288
+[2024-03-12 21:45:41.874] [SANDBOX] [info] fixed update time: 0.000320

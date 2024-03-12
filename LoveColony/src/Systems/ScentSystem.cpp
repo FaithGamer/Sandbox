@@ -3,15 +3,20 @@
 #include "Sandbox/Physics/Physics.h"
 #include "Sandbox/Render.h"
 #include "Sandbox/Core/Assets.h"
+#include "Sandbox/Core/Random.h"
 
 void ScentSystem::OnStart()
 {
 	m_scentMask = Physics::GetLayerMask("Scent");
+	timerCount = 0;
 }
 void ScentSystem::OnFixedUpdate(Time delta)
 {
+	int count = 0;
+	timerCount += (float)delta;
 	ForeachEntities<Scent>([&](Entity& entity, Scent& scent)
 		{
+			count++;
 			//Scent decay over time
 			scent.timeRemaining -= (float)delta;
 			if (scent.timeRemaining <= 0)
@@ -26,35 +31,59 @@ void ScentSystem::OnFixedUpdate(Time delta)
 
 			float opacity = scent.timeRemaining / trackSettings.time;
 			entity.GetComponent<SpriteRender>()->color.a = opacity;
+
+
 		});
+
+	if (timerCount >= 1.f)
+	{
+		LOG_INFO("Scent Count: " + std::to_string(count));
+		timerCount = 0;
+	}
+
+
 }
 
-void ScentSystem::TryCreateTrackScent(const ScentInit& init)
+void ScentSystem::TryCreateTrackScent(const ScentInit& init, std::vector<OverlapResult>& results)
 {
 	//Check for overlapping scent
-	std::vector<OverlapResult> results;
-	Physics::CircleOverlap(results, init.position, trackSettings.radius, m_scentMask);
+	//std::vector<OverlapResult> results;
+	//Physics::CircleOverlap(results, init.position, trackSettings.radius, m_scentMask);
 
+	//if (Random::Range(0.f, 1.f) < 0.9f)
+	//	return;
+
+	bool overlap = false;
+	EntityId closestScent = EntityId(0);
 	if (!results.empty())
 	{
-	
+
 		float closest = 99999.f;
-		EntityId closestScent = EntityId(0);
+
 
 		//Closest overlapping scent of same type
 		for (int i = 0; i < results.size(); i++)
 		{
+			if (results[i].distance > trackSettings.radius * 2)
+				continue;
+
 			Entity scent = Entity(results[i].entityId);
-			if (scent.GetComponent<Scent>()->type == init.type
+			if (scent.GetComponentNoCheck<Scent>()->type == init.type
 				&& results[i].distance < closest)
 			{
+				overlap = true;
 				closest = results[i].distance;
 				closestScent = results[i].entityId;
 			}
 		}
 
 		//Reset closest overlapping scent's timer
-		Entity(closestScent).GetComponent<Scent>()->timeRemaining = trackSettings.time;
+
+	}
+
+	if (overlap)
+	{
+		Entity(closestScent).GetComponentNoCheck<Scent>()->timeRemaining = trackSettings.time;
 	}
 	else
 	{

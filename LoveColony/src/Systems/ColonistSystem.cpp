@@ -19,6 +19,7 @@ void ColonistSystem::OnStart()
 	m_aiTask = makesptr<Task<void>>(aiUpdate);
 	m_aiThread.QueueTask(m_aiTask);
 	m_aiThread.StartThread();
+	m_scentSystem = Systems::Get<ScentSystem>();
 }
 
 void ColonistSystem::OnUpdate(Time delta)
@@ -51,7 +52,7 @@ void ColonistSystem::OnFixedUpdate(Time delta)
 {
 
 	//Every physics queries happens here
-
+	Clock clock;
 	Bitmask wallMask = Physics::GetLayerMask("Walls");
 	Bitmask scentMask = Physics::GetLayerMask("Scent");
 	float hitboxRadius = 0.2f;
@@ -66,23 +67,11 @@ void ColonistSystem::OnFixedUpdate(Time delta)
 			//Colonist movement and collisions
 			MoveAndCollide(physics, transform, wallMask, (float)delta, margin, hitboxRadius);
 
-			//Scent dropping
-			if (physics.scentDropper)
-			{
-				physics.distanceFromLastScentDrop += physics.prevPosition.Distance(physics.nextPosition);
-				if (physics.distanceFromLastScentDrop >= settings.scentDistance)
-				{
-					ScentInit scent(Scent::Type::Food, physics.prevPosition, 0);
-					Systems::Get<ScentSystem>()->TryCreateTrackScent(scent);
-					physics.distanceFromLastScentDrop = 0;
-				}
-			}
-
 			//Scent detection
 			std::vector<OverlapResult> overlaps;
 			Physics::CircleOverlap(overlaps, transform.GetPosition(), settings.sensorRadius, scentMask);
 			Vec2f sensorPosition = physics.nextPosition;
-			
+
 			//Every scent in a radius around the colonist
 			for (int i = 0; i < overlaps.size(); i++)
 			{
@@ -94,7 +83,7 @@ void ColonistSystem::OnFixedUpdate(Time delta)
 				{
 					auto scentTransform = scentEntity.GetComponent<Transform>();
 					Vec2f sensorDirection = (Vec2f)scentTransform->GetPosition() - sensorPosition;
-	
+
 					//Check if scent is within the cone of detection
 					float angle = Math::Abs(physics.velocity.Normalized().Angle(sensorDirection.Normalized()));
 					if (angle < settings.sensorAngle / 2)
@@ -111,7 +100,22 @@ void ColonistSystem::OnFixedUpdate(Time delta)
 					}
 				}
 			}
+
+			//Scent dropping
+			if (false && physics.scentDropper)
+			{
+				physics.distanceFromLastScentDrop += physics.prevPosition.Distance(physics.nextPosition);
+				if (physics.distanceFromLastScentDrop >= settings.scentDistance)
+				{
+					ScentInit scent(Scent::Type::Food, physics.prevPosition, 0);
+					m_scentSystem->TryCreateTrackScent(scent, overlaps);
+					physics.distanceFromLastScentDrop = 0;
+				}
+			}
+
+			
 		});
+	LOG_INFO("fixed update time: " + std::to_string(clock.GetElapsed()));
 }
 
 int ColonistSystem::GetUsedMethod()
@@ -140,6 +144,11 @@ void ColonistSystem::AIUpdate()
 		{
 			Steering(physics, brain);
 		});
+}
+
+void ColonistSystem::PhysicsUpdate()
+{
+
 }
 
 void ColonistSystem::DestroyColonist(Entity colonist)
@@ -257,7 +266,7 @@ void ColonistSystem::InstanceColonist(const ColonistInit& init)
 	//render->SetLayer(Renderer2D::GetLayerId("Map"));
 	//Colonist components
 	colonist.AddComponent<ColonistBrain>();
-	colonist.AddComponent<ColonistPhysics>()->scentDropper = true;// Random::Range(0.f, 1.f) >= 0.9f;
+	colonist.AddComponent<ColonistPhysics>()->scentDropper = Random::Range(0.f, 1.f) >= 0.9f;
 
 	//Sprite render ordering
 	colonist.AddComponent<ZisY>();

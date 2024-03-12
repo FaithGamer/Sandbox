@@ -31,8 +31,8 @@ int main(int argv, char** argc)
 	Renderer2D::AddLayer("Map");
 
 	//Systems
-	Systems::Push<ColonistSystem>();
 	Systems::Push<ScentSystem>();
+	Systems::Push<ColonistSystem>();
 	Systems::Push<ZisYSystem>();
 	Systems::Push<GameManager>();
 

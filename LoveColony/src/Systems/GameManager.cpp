@@ -73,8 +73,15 @@ void GameManager::CreateMap()
 
 void GameManager::CreateEntities()
 {
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 1000; i++)
 	{
 		Systems::Get<ColonistSystem>()->CreateColonist(ColonistInit(Vec2f(Random::Range(-25.f, 25.f), Random::Range(-10.f, 10.f))));
+	}
+
+	for (int i = 0; i <4000; i++)
+	{
+		auto pos = Vec2f(Random::Range(-25.f, 25.f), Random::Range(-10.f, 10.f));
+		std::vector<OverlapResult> dummy;
+		Systems::Get<ScentSystem>()->TryCreateTrackScent(ScentInit(Scent::Type::Food, pos, 0), dummy);
 	}
 }

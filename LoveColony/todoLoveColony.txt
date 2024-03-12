@@ -1,2 +1,2 @@
 -have an entity with id 0 that's always there and represent the absence of entity
--try getcomponentnocheck to see if faster
+-imgui to check if the slow down comes from the scent count

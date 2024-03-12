@@ -6,7 +6,7 @@
 #include "Components/Scent.h"
 
 using namespace Sandbox;
-
+class ScentSystem;
 
 class ColonistSystem : public System
 {
@@ -49,6 +49,9 @@ private:
 	std::mutex m_syncMutex;
 	std::vector<Entity> m_destroy;
 	std::vector<ColonistInit> m_create;
+	ScentSystem* m_scentSystem;
 	WorkerThread m_aiThread;
+	WorkerThread m_physicsThread;
 	sptr<Task<void>> m_aiTask;
+	sptr<Task<void>> m_physicsTask;
 };
