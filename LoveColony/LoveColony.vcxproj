@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Settings\ColonistSettings.cpp" />
     <ClCompile Include="src\Systems\ColonistSystem.cpp" />
     <ClCompile Include="src\Prefab.cpp" />
     <ClCompile Include="src\Systems\GameManager.cpp" />

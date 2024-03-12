@@ -1,0 +1,26 @@
+#include "pch.h"
+#include "ColonistSettings.h"
+
+ColonistSettings::ColonistSettings()
+	: maxSpeed(4.f),
+	acceleration(10.f),
+	steeringSpeed(45.f),
+	wanderPower(75.f),
+	wanderTimeMin(0.2f),
+	wanderTimeMax(2.f)
+{
+
+}
+void ColonistSettings::Deserialize(Serialized& config)
+{
+	maxSpeed = config.GetFloat("maxSpeed");
+}
+
+Serialized ColonistSettings::Serialize()
+{
+	Serialized config;
+
+	config["maxSpeed"] = maxSpeed;
+
+	return config;
+}

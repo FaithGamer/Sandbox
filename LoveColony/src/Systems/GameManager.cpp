@@ -53,7 +53,7 @@ void GameManager::CreateMap()
 	
 	//Create walls
 
-	float density = 0.4f;
+	float density = 0.3f;
 
 	for (int y = 0; y < mapHeight; y++)
 	{
@@ -71,7 +71,7 @@ void GameManager::CreateMap()
 
 void GameManager::CreateEntities()
 {
-	for (int i = 0; i < 10000; i++)
+	for (int i = 0; i < 100; i++)
 	{
 		Systems::Get<ColonistSystem>()->CreateColonist(ColonistInit(Vec2f(0, 0)));
 	}

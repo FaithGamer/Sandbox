@@ -30,6 +30,9 @@
     <ClCompile Include="src\Systems\ZisYSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Settings\ColonistSettings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Systems\GameManager.h">

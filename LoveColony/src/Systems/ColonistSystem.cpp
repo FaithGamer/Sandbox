@@ -43,16 +43,16 @@ void ColonistSystem::OnUpdate(Time delta)
 			Vec3f position = Math::Lerp(physics.prevPosition, physics.nextPosition, t);
 			transform.SetPosition(position);
 
-			if (Random::Range(0.f, 1.f) > 0.98f)
+			/*if (Random::Range(0.f, 1.f) > 0.98f)
 			{
 				DestroyColonist(entity);
-				LOG_INFO("Destroy");
+				//LOG_INFO("Destroy");
 			}
 			if (Random::Range(0.f, 1.f) > 0.98f)
 			{
 				CreateColonist(ColonistInit(Vec2f(0, 0)));
-				LOG_INFO("Create");
-			}
+				//LOG_INFO("Create");
+			}*/
 		});
 }
 
@@ -93,11 +93,10 @@ void ColonistSystem::OnAddColonistBrain(ComponentSignal signal)
 
 void ColonistSystem::AIUpdate()
 {
-	ForeachComponents<ColonistBrain, Transform>([](ColonistBrain& brain, Transform& transform)
+	ForeachComponents <ColonistBrain, ColonistPhysics>([&](ColonistBrain& brain, ColonistPhysics& physics)
 		{
-			brain.lastFollowedScent = EntityId(Random::Range(0, 199));
+			Steering(physics, brain);
 		});
-
 }
 
 void ColonistSystem::DestroyColonist(Entity colonist)
@@ -126,6 +125,30 @@ void ColonistSystem::SyncPoint()
 	m_create.clear();
 }
 
+void ColonistSystem::Steering(ColonistPhysics& physics, ColonistBrain& brain)
+{
+	float delta = (float)Time::Delta();
+
+	//Wandering direction
+	brain.wanderTimer += delta;
+	if (brain.wanderTimer > brain.nextWanderTime)
+	{
+		brain.wanderTimer = 0;
+		brain.wanderDirection = Random::Range(-1.f, 1.f);
+		brain.nextWanderTime = Random::Range(settings.wanderTimeMin, settings.wanderTimeMax);
+	}
+	
+	//Computing target angle (currently wander direction)
+	float targetAngle = physics.currentAngle;
+
+	//Wandering
+	targetAngle = Math::MoveTowardsAngle(targetAngle, targetAngle + brain.wanderDirection * settings.wanderPower * delta, 999);
+	//Steering toward target angle
+	float c = Math::MoveTowardsAngle(physics.currentAngle, targetAngle, settings.steeringSpeed * settings.maxSpeed * 100 * delta);
+	physics.currentAngle = c;
+
+}
+
 void ColonistSystem::MoveAndCollide(
 	ColonistPhysics& physics,
 	Transform& transform,
@@ -139,6 +162,7 @@ void ColonistSystem::MoveAndCollide(
 	Vec2f direction = Math::AngleToVec(physics.currentAngle);
 
 	//Acceleration
+
 	physics.speed += settings.acceleration * (float)delta;
 	physics.speed = Math::Clamp(physics.speed, 0, settings.maxSpeed);
 
@@ -168,7 +192,6 @@ void ColonistSystem::MoveAndCollide(
 
 void ColonistSystem::InstanceColonist(const ColonistInit& init)
 {
-
 	//Create entity
 	Entity colonist = Entity::Create();
 	colonist.AddComponent<Transform>();

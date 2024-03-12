@@ -5,28 +5,19 @@ using namespace Sandbox;
 struct ColonistSettings : public Serializable
 {
 	//Default constructor
-	ColonistSettings()
-		: maxSpeed(10.f), acceleration(10.f)
-	{
-
-	}
+	ColonistSettings();
 
 	//Serialization
-	void Deserialize(Serialized& config) override
-	{
-		maxSpeed = config.GetFloat("maxSpeed");
-	}
-	Serialized Serialize() override
-	{
-		Serialized config;
-
-		config["maxSpeed"] = maxSpeed;
-
-		return config;
-	}
+	void Deserialize(Serialized& config) override;
+	Serialized Serialize() override;
 
 	//Data
 
 	float maxSpeed;
 	float acceleration;
+	float steeringSpeed;
+	float wanderPower;
+	float wanderTimeMin;
+	float wanderTimeMax;
+
 };

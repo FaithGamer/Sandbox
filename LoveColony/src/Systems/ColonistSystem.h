@@ -34,7 +34,7 @@ public:
 
 private:
 	inline void SyncPoint();
-	inline void AIDirection();
+	inline void Steering(ColonistPhysics& physics, ColonistBrain& brain);
 	inline void MoveAndCollide(ColonistPhysics& physics,
 		Transform& transform,
 		const Bitmask wallMask,
