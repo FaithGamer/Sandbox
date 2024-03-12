@@ -16,24 +16,18 @@ ColonistSystem::ColonistSystem()
 void ColonistSystem::OnStart()
 {
 	Delegate<void> aiUpdate(&ColonistSystem::AIUpdate, this);
+	Delegate<void> physicsUpdate(&ColonistSystem::PhysicsUpdate, this);
 	m_aiTask = makesptr<Task<void>>(aiUpdate);
+	m_physicsTask = makesptr<Task<void>>(physicsUpdate);
+
 	m_aiThread.QueueTask(m_aiTask);
 	m_aiThread.StartThread();
+	m_physicsThread.StartThread();
 	m_scentSystem = Systems::Get<ScentSystem>();
 }
 
 void ColonistSystem::OnUpdate(Time delta)
 {
-
-	//When the thread that's working on colonist is not processing
-	if (!m_aiThread.HaveTask())
-	{
-		//This is the time to delete and create new colonists
-		SyncPoint();
-		//Then keep the thread running, one task at a time.
-		m_aiThread.QueueTask(m_aiTask);
-	}
-
 	//Interpolate colonist position
 	ForeachComponents<ColonistPhysics, Transform>([&](ColonistPhysics& physics, Transform& transform)
 		{
@@ -52,6 +46,47 @@ void ColonistSystem::OnFixedUpdate(Time delta)
 {
 
 	//Every physics queries happens here
+	if (!m_physicsThread.HaveTask() && !m_aiThread.HaveTask())
+	{
+		//This is the time to delete and create new colonists
+		SyncPoint();
+
+		//Then keep the threads running, one task at a time.
+		m_physicsThread.QueueTask(m_physicsTask);
+		m_aiThread.QueueTask(m_aiTask);
+	}
+}
+
+int ColonistSystem::GetUsedMethod()
+{
+	return System::Method::Update | System::Method::FixedUpdate;
+}
+
+void ColonistSystem::OnAddColonistPhysics(ComponentSignal signal)
+{
+	auto entity = Entity(signal.entity);
+	auto physics = entity.GetComponent<ColonistPhysics>();
+	physics->currentAngle = Random::Range(0.f, 360.f);
+	physics->nextPosition = entity.GetComponent<Transform>()->GetPosition();
+	physics->prevPosition = entity.GetComponent<Transform>()->GetPosition();
+}
+
+void ColonistSystem::OnAddColonistBrain(ComponentSignal signal)
+{
+	//Initialize colonist brain
+}
+
+void ColonistSystem::AIUpdate()
+{
+
+	ForeachComponents <ColonistBrain, ColonistPhysics>([&](ColonistBrain& brain, ColonistPhysics& physics)
+		{
+			Steering(physics, brain);
+		});
+}
+
+void ColonistSystem::PhysicsUpdate()
+{
 	Clock clock;
 	Bitmask wallMask = Physics::GetLayerMask("Walls");
 	Bitmask scentMask = Physics::GetLayerMask("Scent");
@@ -65,7 +100,7 @@ void ColonistSystem::OnFixedUpdate(Time delta)
 				return;
 
 			//Colonist movement and collisions
-			MoveAndCollide(physics, transform, wallMask, (float)delta, margin, hitboxRadius);
+			MoveAndCollide(physics, transform, wallMask, (float)Time::FixedDelta(), margin, hitboxRadius);
 
 			//Scent detection
 			std::vector<OverlapResult> overlaps;
@@ -102,7 +137,7 @@ void ColonistSystem::OnFixedUpdate(Time delta)
 			}
 
 			//Scent dropping
-			if (false && physics.scentDropper)
+			if (true || physics.scentDropper)
 			{
 				physics.distanceFromLastScentDrop += physics.prevPosition.Distance(physics.nextPosition);
 				if (physics.distanceFromLastScentDrop >= settings.scentDistance)
@@ -113,42 +148,9 @@ void ColonistSystem::OnFixedUpdate(Time delta)
 				}
 			}
 
-			
+
 		});
-	LOG_INFO("fixed update time: " + std::to_string(clock.GetElapsed()));
-}
-
-int ColonistSystem::GetUsedMethod()
-{
-	return System::Method::Update | System::Method::FixedUpdate;
-}
-
-void ColonistSystem::OnAddColonistPhysics(ComponentSignal signal)
-{
-	auto entity = Entity(signal.entity);
-	auto physics = entity.GetComponent<ColonistPhysics>();
-	physics->currentAngle = Random::Range(0.f, 360.f);
-	physics->nextPosition = entity.GetComponent<Transform>()->GetPosition();
-	physics->prevPosition = entity.GetComponent<Transform>()->GetPosition();
-}
-
-void ColonistSystem::OnAddColonistBrain(ComponentSignal signal)
-{
-	//Initialize colonist brain
-}
-
-void ColonistSystem::AIUpdate()
-{
-
-	ForeachComponents <ColonistBrain, ColonistPhysics>([&](ColonistBrain& brain, ColonistPhysics& physics)
-		{
-			Steering(physics, brain);
-		});
-}
-
-void ColonistSystem::PhysicsUpdate()
-{
-
+	LOG_INFO("physics update time: " + std::to_string(clock.GetElapsed()));
 }
 
 void ColonistSystem::DestroyColonist(Entity colonist)
@@ -179,7 +181,7 @@ void ColonistSystem::SyncPoint()
 
 void ColonistSystem::Steering(ColonistPhysics& physics, ColonistBrain& brain)
 {
-	float delta = (float)Time::Delta();
+	float delta = (float)Time::FixedDelta();
 
 	//Wandering direction
 	brain.wanderTimer += delta;

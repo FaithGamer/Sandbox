@@ -24,6 +24,7 @@ public:
 	ColonistSettings settings;
 
 	void AIUpdate();
+	void PhysicsUpdate();
 	/// @brief This must be the ONLY way to destroy a colonist
 	/// expect crash with multithreading otherwise
 	/// @param colonist 

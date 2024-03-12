@@ -1,279 +1,274 @@
-[2024-03-12 21:45:24.606] [SANDBOX] [info] fixed update time: 0.020058
-[2024-03-12 21:45:24.619] [SANDBOX] [info] Scent Count: 4000
-[2024-03-12 21:45:24.639] [SANDBOX] [info] fixed update time: 0.020304
-[2024-03-12 21:45:24.670] [SANDBOX] [info] fixed update time: 0.019723
-[2024-03-12 21:45:24.704] [SANDBOX] [info] fixed update time: 0.021402
-[2024-03-12 21:45:24.734] [SANDBOX] [info] fixed update time: 0.020349
-[2024-03-12 21:45:24.766] [SANDBOX] [info] fixed update time: 0.020288
-[2024-03-12 21:45:24.799] [SANDBOX] [info] fixed update time: 0.020148
-[2024-03-12 21:45:24.830] [SANDBOX] [info] fixed update time: 0.020043
-[2024-03-12 21:45:24.862] [SANDBOX] [info] fixed update time: 0.019819
-[2024-03-12 21:45:24.894] [SANDBOX] [info] fixed update time: 0.020154
-[2024-03-12 21:45:24.926] [SANDBOX] [info] fixed update time: 0.019943
-[2024-03-12 21:45:24.958] [SANDBOX] [info] fixed update time: 0.020002
-[2024-03-12 21:45:24.990] [SANDBOX] [info] fixed update time: 0.019864
-[2024-03-12 21:45:25.022] [SANDBOX] [info] fixed update time: 0.019823
-[2024-03-12 21:45:25.054] [SANDBOX] [info] fixed update time: 0.019587
-[2024-03-12 21:45:25.086] [SANDBOX] [info] fixed update time: 0.019803
-[2024-03-12 21:45:25.118] [SANDBOX] [info] fixed update time: 0.019869
-[2024-03-12 21:45:25.150] [SANDBOX] [info] fixed update time: 0.019728
-[2024-03-12 21:45:25.182] [SANDBOX] [info] fixed update time: 0.019714
-[2024-03-12 21:45:25.214] [SANDBOX] [info] fixed update time: 0.020032
-[2024-03-12 21:45:25.246] [SANDBOX] [info] fixed update time: 0.019920
-[2024-03-12 21:45:25.278] [SANDBOX] [info] fixed update time: 0.019740
-[2024-03-12 21:45:25.310] [SANDBOX] [info] fixed update time: 0.019921
-[2024-03-12 21:45:25.343] [SANDBOX] [info] fixed update time: 0.019953
-[2024-03-12 21:45:25.374] [SANDBOX] [info] fixed update time: 0.019744
-[2024-03-12 21:45:25.406] [SANDBOX] [info] fixed update time: 0.019499
-[2024-03-12 21:45:25.438] [SANDBOX] [info] fixed update time: 0.019621
-[2024-03-12 21:45:25.471] [SANDBOX] [info] fixed update time: 0.020528
-[2024-03-12 21:45:25.502] [SANDBOX] [info] fixed update time: 0.019553
-[2024-03-12 21:45:25.535] [SANDBOX] [info] fixed update time: 0.020012
-[2024-03-12 21:45:25.567] [SANDBOX] [info] fixed update time: 0.019941
-[2024-03-12 21:45:25.598] [SANDBOX] [info] fixed update time: 0.019665
-[2024-03-12 21:45:25.630] [SANDBOX] [info] fixed update time: 0.019782
-[2024-03-12 21:45:25.643] [SANDBOX] [info] Scent Count: 4000
-[2024-03-12 21:45:25.663] [SANDBOX] [info] fixed update time: 0.020122
-[2024-03-12 21:45:25.695] [SANDBOX] [info] fixed update time: 0.019968
-[2024-03-12 21:45:25.727] [SANDBOX] [info] fixed update time: 0.020288
-[2024-03-12 21:45:25.759] [SANDBOX] [info] fixed update time: 0.020210
-[2024-03-12 21:45:25.790] [SANDBOX] [info] fixed update time: 0.019726
-[2024-03-12 21:45:25.823] [SANDBOX] [info] fixed update time: 0.019958
-[2024-03-12 21:45:25.854] [SANDBOX] [info] fixed update time: 0.019548
-[2024-03-12 21:45:25.886] [SANDBOX] [info] fixed update time: 0.019759
-[2024-03-12 21:45:25.918] [SANDBOX] [info] fixed update time: 0.019635
-[2024-03-12 21:45:25.951] [SANDBOX] [info] fixed update time: 0.020128
-[2024-03-12 21:45:25.982] [SANDBOX] [info] fixed update time: 0.019863
-[2024-03-12 21:45:26.015] [SANDBOX] [info] fixed update time: 0.019864
-[2024-03-12 21:45:26.047] [SANDBOX] [info] fixed update time: 0.020047
-[2024-03-12 21:45:26.078] [SANDBOX] [info] fixed update time: 0.019751
-[2024-03-12 21:45:26.111] [SANDBOX] [info] fixed update time: 0.019543
-[2024-03-12 21:45:26.143] [SANDBOX] [info] fixed update time: 0.019815
-[2024-03-12 21:45:26.175] [SANDBOX] [info] fixed update time: 0.019810
-[2024-03-12 21:45:26.207] [SANDBOX] [info] fixed update time: 0.019734
-[2024-03-12 21:45:26.239] [SANDBOX] [info] fixed update time: 0.019742
-[2024-03-12 21:45:26.271] [SANDBOX] [info] fixed update time: 0.019870
-[2024-03-12 21:45:26.302] [SANDBOX] [info] fixed update time: 0.019522
-[2024-03-12 21:45:26.334] [SANDBOX] [info] fixed update time: 0.019431
-[2024-03-12 21:45:26.367] [SANDBOX] [info] fixed update time: 0.019908
-[2024-03-12 21:45:26.398] [SANDBOX] [info] fixed update time: 0.019520
-[2024-03-12 21:45:26.430] [SANDBOX] [info] fixed update time: 0.019947
-[2024-03-12 21:45:26.463] [SANDBOX] [info] fixed update time: 0.019820
-[2024-03-12 21:45:26.495] [SANDBOX] [info] fixed update time: 0.019870
-[2024-03-12 21:45:26.526] [SANDBOX] [info] fixed update time: 0.019552
-[2024-03-12 21:45:26.558] [SANDBOX] [info] fixed update time: 0.019793
-[2024-03-12 21:45:26.591] [SANDBOX] [info] fixed update time: 0.019859
-[2024-03-12 21:45:26.622] [SANDBOX] [info] fixed update time: 0.019842
-[2024-03-12 21:45:26.655] [SANDBOX] [info] fixed update time: 0.019671
-[2024-03-12 21:45:26.667] [SANDBOX] [info] Scent Count: 4000
-[2024-03-12 21:45:26.687] [SANDBOX] [info] fixed update time: 0.019905
-[2024-03-12 21:45:26.718] [SANDBOX] [info] fixed update time: 0.019573
-[2024-03-12 21:45:26.751] [SANDBOX] [info] fixed update time: 0.019836
-[2024-03-12 21:45:26.783] [SANDBOX] [info] fixed update time: 0.020012
-[2024-03-12 21:45:26.815] [SANDBOX] [info] fixed update time: 0.019537
-[2024-03-12 21:45:26.846] [SANDBOX] [info] fixed update time: 0.019504
-[2024-03-12 21:45:26.878] [SANDBOX] [info] fixed update time: 0.019508
-[2024-03-12 21:45:26.910] [SANDBOX] [info] fixed update time: 0.019422
-[2024-03-12 21:45:26.943] [SANDBOX] [info] fixed update time: 0.019376
-[2024-03-12 21:45:26.974] [SANDBOX] [info] fixed update time: 0.019656
-[2024-03-12 21:45:27.006] [SANDBOX] [info] fixed update time: 0.019729
-[2024-03-12 21:45:27.038] [SANDBOX] [info] fixed update time: 0.019617
-[2024-03-12 21:45:27.071] [SANDBOX] [info] fixed update time: 0.019905
-[2024-03-12 21:45:27.103] [SANDBOX] [info] fixed update time: 0.019791
-[2024-03-12 21:45:27.134] [SANDBOX] [info] fixed update time: 0.019489
-[2024-03-12 21:45:27.167] [SANDBOX] [info] fixed update time: 0.019628
-[2024-03-12 21:45:27.199] [SANDBOX] [info] fixed update time: 0.020115
-[2024-03-12 21:45:27.231] [SANDBOX] [info] fixed update time: 0.019789
-[2024-03-12 21:45:27.263] [SANDBOX] [info] fixed update time: 0.019776
-[2024-03-12 21:45:27.295] [SANDBOX] [info] fixed update time: 0.019662
-[2024-03-12 21:45:27.327] [SANDBOX] [info] fixed update time: 0.019896
-[2024-03-12 21:45:27.358] [SANDBOX] [info] fixed update time: 0.019596
-[2024-03-12 21:45:27.392] [SANDBOX] [info] fixed update time: 0.020250
-[2024-03-12 21:45:27.423] [SANDBOX] [info] fixed update time: 0.020187
-[2024-03-12 21:45:27.455] [SANDBOX] [info] fixed update time: 0.019654
-[2024-03-12 21:45:27.487] [SANDBOX] [info] fixed update time: 0.019942
-[2024-03-12 21:45:27.519] [SANDBOX] [info] fixed update time: 0.020051
-[2024-03-12 21:45:27.551] [SANDBOX] [info] fixed update time: 0.019469
-[2024-03-12 21:45:27.583] [SANDBOX] [info] fixed update time: 0.019959
-[2024-03-12 21:45:27.615] [SANDBOX] [info] fixed update time: 0.020084
-[2024-03-12 21:45:27.647] [SANDBOX] [info] fixed update time: 0.019889
-[2024-03-12 21:45:27.679] [SANDBOX] [info] fixed update time: 0.019816
-[2024-03-12 21:45:27.691] [SANDBOX] [info] Scent Count: 4000
-[2024-03-12 21:45:27.711] [SANDBOX] [info] fixed update time: 0.019742
-[2024-03-12 21:45:27.743] [SANDBOX] [info] fixed update time: 0.019833
-[2024-03-12 21:45:27.775] [SANDBOX] [info] fixed update time: 0.019788
-[2024-03-12 21:45:27.807] [SANDBOX] [info] fixed update time: 0.019885
-[2024-03-12 21:45:27.840] [SANDBOX] [info] fixed update time: 0.021038
-[2024-03-12 21:45:27.872] [SANDBOX] [info] fixed update time: 0.020349
-[2024-03-12 21:45:27.903] [SANDBOX] [info] fixed update time: 0.020337
-[2024-03-12 21:45:27.935] [SANDBOX] [info] fixed update time: 0.020067
-[2024-03-12 21:45:27.967] [SANDBOX] [info] fixed update time: 0.019669
-[2024-03-12 21:45:27.999] [SANDBOX] [info] fixed update time: 0.019879
-[2024-03-12 21:45:28.031] [SANDBOX] [info] fixed update time: 0.019873
-[2024-03-12 21:45:28.063] [SANDBOX] [info] fixed update time: 0.019633
-[2024-03-12 21:45:28.095] [SANDBOX] [info] fixed update time: 0.019863
-[2024-03-12 21:45:28.127] [SANDBOX] [info] fixed update time: 0.019960
-[2024-03-12 21:45:28.158] [SANDBOX] [info] fixed update time: 0.019506
-[2024-03-12 21:45:28.191] [SANDBOX] [info] fixed update time: 0.019649
-[2024-03-12 21:45:28.224] [SANDBOX] [info] fixed update time: 0.020028
-[2024-03-12 21:45:28.255] [SANDBOX] [info] fixed update time: 0.019911
-[2024-03-12 21:45:28.287] [SANDBOX] [info] fixed update time: 0.019933
-[2024-03-12 21:45:28.319] [SANDBOX] [info] fixed update time: 0.019897
-[2024-03-12 21:45:28.351] [SANDBOX] [info] fixed update time: 0.019643
-[2024-03-12 21:45:28.383] [SANDBOX] [info] fixed update time: 0.019670
-[2024-03-12 21:45:28.415] [SANDBOX] [info] fixed update time: 0.019947
-[2024-03-12 21:45:28.447] [SANDBOX] [info] fixed update time: 0.019994
-[2024-03-12 21:45:28.479] [SANDBOX] [info] fixed update time: 0.019528
-[2024-03-12 21:45:28.511] [SANDBOX] [info] fixed update time: 0.019718
-[2024-03-12 21:45:28.543] [SANDBOX] [info] fixed update time: 0.019357
-[2024-03-12 21:45:28.575] [SANDBOX] [info] fixed update time: 0.019359
-[2024-03-12 21:45:28.607] [SANDBOX] [info] fixed update time: 0.019334
-[2024-03-12 21:45:28.639] [SANDBOX] [info] fixed update time: 0.019653
-[2024-03-12 21:45:28.671] [SANDBOX] [info] fixed update time: 0.019679
-[2024-03-12 21:45:28.703] [SANDBOX] [info] fixed update time: 0.019406
-[2024-03-12 21:45:28.716] [SANDBOX] [info] Scent Count: 4000
-[2024-03-12 21:45:28.735] [SANDBOX] [info] fixed update time: 0.019567
-[2024-03-12 21:45:28.767] [SANDBOX] [info] fixed update time: 0.019653
-[2024-03-12 21:45:28.799] [SANDBOX] [info] fixed update time: 0.019421
-[2024-03-12 21:45:28.831] [SANDBOX] [info] fixed update time: 0.019820
-[2024-03-12 21:45:28.863] [SANDBOX] [info] fixed update time: 0.019900
-[2024-03-12 21:45:28.895] [SANDBOX] [info] fixed update time: 0.019498
-[2024-03-12 21:45:28.927] [SANDBOX] [info] fixed update time: 0.019315
-[2024-03-12 21:45:28.959] [SANDBOX] [info] fixed update time: 0.019640
-[2024-03-12 21:45:28.991] [SANDBOX] [info] fixed update time: 0.019563
-[2024-03-12 21:45:29.023] [SANDBOX] [info] fixed update time: 0.019671
-[2024-03-12 21:45:29.055] [SANDBOX] [info] fixed update time: 0.019903
-[2024-03-12 21:45:29.087] [SANDBOX] [info] fixed update time: 0.019580
-[2024-03-12 21:45:29.119] [SANDBOX] [info] fixed update time: 0.019673
-[2024-03-12 21:45:29.151] [SANDBOX] [info] fixed update time: 0.019705
-[2024-03-12 21:45:29.183] [SANDBOX] [info] fixed update time: 0.019384
-[2024-03-12 21:45:29.215] [SANDBOX] [info] fixed update time: 0.019475
-[2024-03-12 21:45:29.248] [SANDBOX] [info] fixed update time: 0.019683
-[2024-03-12 21:45:29.280] [SANDBOX] [info] fixed update time: 0.020016
-[2024-03-12 21:45:29.311] [SANDBOX] [info] fixed update time: 0.019557
-[2024-03-12 21:45:29.343] [SANDBOX] [info] fixed update time: 0.019386
-[2024-03-12 21:45:29.375] [SANDBOX] [info] fixed update time: 0.019442
-[2024-03-12 21:45:29.407] [SANDBOX] [info] fixed update time: 0.019608
-[2024-03-12 21:45:29.439] [SANDBOX] [info] fixed update time: 0.019460
-[2024-03-12 21:45:29.471] [SANDBOX] [info] fixed update time: 0.019604
-[2024-03-12 21:45:29.503] [SANDBOX] [info] fixed update time: 0.019823
-[2024-03-12 21:45:29.535] [SANDBOX] [info] fixed update time: 0.019631
-[2024-03-12 21:45:29.567] [SANDBOX] [info] fixed update time: 0.019706
-[2024-03-12 21:45:29.600] [SANDBOX] [info] fixed update time: 0.019607
-[2024-03-12 21:45:29.632] [SANDBOX] [info] fixed update time: 0.019926
-[2024-03-12 21:45:29.663] [SANDBOX] [info] fixed update time: 0.019670
-[2024-03-12 21:45:29.696] [SANDBOX] [info] fixed update time: 0.019997
-[2024-03-12 21:45:29.727] [SANDBOX] [info] fixed update time: 0.019301
-[2024-03-12 21:45:29.740] [SANDBOX] [info] Scent Count: 4000
-[2024-03-12 21:45:29.759] [SANDBOX] [info] fixed update time: 0.019619
-[2024-03-12 21:45:29.791] [SANDBOX] [info] fixed update time: 0.019505
-[2024-03-12 21:45:29.823] [SANDBOX] [info] fixed update time: 0.019521
-[2024-03-12 21:45:29.855] [SANDBOX] [info] fixed update time: 0.019336
-[2024-03-12 21:45:29.887] [SANDBOX] [info] fixed update time: 0.019627
-[2024-03-12 21:45:29.920] [SANDBOX] [info] fixed update time: 0.019540
-[2024-03-12 21:45:29.951] [SANDBOX] [info] fixed update time: 0.019560
-[2024-03-12 21:45:29.983] [SANDBOX] [info] fixed update time: 0.019636
-[2024-03-12 21:45:30.015] [SANDBOX] [info] fixed update time: 0.019432
-[2024-03-12 21:45:30.048] [SANDBOX] [info] fixed update time: 0.019585
-[2024-03-12 21:45:30.080] [SANDBOX] [info] fixed update time: 0.019742
-[2024-03-12 21:45:30.112] [SANDBOX] [info] fixed update time: 0.020074
-[2024-03-12 21:45:30.143] [SANDBOX] [info] fixed update time: 0.019531
-[2024-03-12 21:45:30.176] [SANDBOX] [info] fixed update time: 0.019658
-[2024-03-12 21:45:30.207] [SANDBOX] [info] fixed update time: 0.019720
-[2024-03-12 21:45:30.239] [SANDBOX] [info] fixed update time: 0.019619
-[2024-03-12 21:45:30.271] [SANDBOX] [info] fixed update time: 0.019648
-[2024-03-12 21:45:30.304] [SANDBOX] [info] fixed update time: 0.019834
-[2024-03-12 21:45:30.335] [SANDBOX] [info] fixed update time: 0.019461
-[2024-03-12 21:45:30.367] [SANDBOX] [info] fixed update time: 0.019408
-[2024-03-12 21:45:30.399] [SANDBOX] [info] fixed update time: 0.019530
-[2024-03-12 21:45:30.431] [SANDBOX] [info] fixed update time: 0.019470
-[2024-03-12 21:45:30.463] [SANDBOX] [info] fixed update time: 0.019552
-[2024-03-12 21:45:30.496] [SANDBOX] [info] fixed update time: 0.019388
-[2024-03-12 21:45:30.527] [SANDBOX] [info] fixed update time: 0.019616
-[2024-03-12 21:45:30.560] [SANDBOX] [info] fixed update time: 0.019405
-[2024-03-12 21:45:30.592] [SANDBOX] [info] fixed update time: 0.019613
-[2024-03-12 21:45:30.623] [SANDBOX] [info] fixed update time: 0.019127
-[2024-03-12 21:45:30.655] [SANDBOX] [info] fixed update time: 0.019493
-[2024-03-12 21:45:30.687] [SANDBOX] [info] fixed update time: 0.019253
-[2024-03-12 21:45:30.720] [SANDBOX] [info] fixed update time: 0.019760
-[2024-03-12 21:45:30.751] [SANDBOX] [info] fixed update time: 0.019332
-[2024-03-12 21:45:30.764] [SANDBOX] [info] Scent Count: 4000
-[2024-03-12 21:45:30.784] [SANDBOX] [info] fixed update time: 0.019292
-[2024-03-12 21:45:30.816] [SANDBOX] [info] fixed update time: 0.019423
-[2024-03-12 21:45:30.847] [SANDBOX] [info] fixed update time: 0.019151
-[2024-03-12 21:45:30.879] [SANDBOX] [info] fixed update time: 0.019294
-[2024-03-12 21:45:30.911] [SANDBOX] [info] fixed update time: 0.019122
-[2024-03-12 21:45:30.944] [SANDBOX] [info] fixed update time: 0.019457
-[2024-03-12 21:45:30.975] [SANDBOX] [info] fixed update time: 0.019115
-[2024-03-12 21:45:31.007] [SANDBOX] [info] fixed update time: 0.019220
-[2024-03-12 21:45:31.040] [SANDBOX] [info] fixed update time: 0.019246
-[2024-03-12 21:45:31.071] [SANDBOX] [info] fixed update time: 0.019293
-[2024-03-12 21:45:31.103] [SANDBOX] [info] fixed update time: 0.019084
-[2024-03-12 21:45:31.136] [SANDBOX] [info] fixed update time: 0.019657
-[2024-03-12 21:45:31.167] [SANDBOX] [info] fixed update time: 0.019157
-[2024-03-12 21:45:31.199] [SANDBOX] [info] fixed update time: 0.018993
-[2024-03-12 21:45:31.231] [SANDBOX] [info] fixed update time: 0.019290
-[2024-03-12 21:45:31.263] [SANDBOX] [info] fixed update time: 0.019113
-[2024-03-12 21:45:31.295] [SANDBOX] [info] fixed update time: 0.019424
-[2024-03-12 21:45:31.327] [SANDBOX] [info] fixed update time: 0.019163
-[2024-03-12 21:45:31.359] [SANDBOX] [info] fixed update time: 0.019339
-[2024-03-12 21:45:31.391] [SANDBOX] [info] fixed update time: 0.019180
-[2024-03-12 21:45:31.423] [SANDBOX] [info] fixed update time: 0.019329
-[2024-03-12 21:45:31.456] [SANDBOX] [info] fixed update time: 0.019433
-[2024-03-12 21:45:31.488] [SANDBOX] [info] fixed update time: 0.019322
-[2024-03-12 21:45:31.520] [SANDBOX] [info] fixed update time: 0.019566
-[2024-03-12 21:45:31.552] [SANDBOX] [info] fixed update time: 0.020034
-[2024-03-12 21:45:31.584] [SANDBOX] [info] fixed update time: 0.019596
-[2024-03-12 21:45:31.616] [SANDBOX] [info] fixed update time: 0.019826
-[2024-03-12 21:45:31.648] [SANDBOX] [info] fixed update time: 0.019657
-[2024-03-12 21:45:31.680] [SANDBOX] [info] fixed update time: 0.019679
-[2024-03-12 21:45:31.712] [SANDBOX] [info] fixed update time: 0.019689
-[2024-03-12 21:45:31.744] [SANDBOX] [info] fixed update time: 0.019393
-[2024-03-12 21:45:31.776] [SANDBOX] [info] fixed update time: 0.019733
-[2024-03-12 21:45:31.788] [SANDBOX] [info] Scent Count: 4000
-[2024-03-12 21:45:31.808] [SANDBOX] [info] fixed update time: 0.019688
-[2024-03-12 21:45:31.840] [SANDBOX] [info] fixed update time: 0.019900
-[2024-03-12 21:45:31.872] [SANDBOX] [info] fixed update time: 0.019728
-[2024-03-12 21:45:31.904] [SANDBOX] [info] fixed update time: 0.019674
-[2024-03-12 21:45:31.936] [SANDBOX] [info] fixed update time: 0.019796
-[2024-03-12 21:45:31.969] [SANDBOX] [info] fixed update time: 0.020407
-[2024-03-12 21:45:32.000] [SANDBOX] [info] fixed update time: 0.019625
-[2024-03-12 21:45:32.032] [SANDBOX] [info] fixed update time: 0.019905
-[2024-03-12 21:45:32.064] [SANDBOX] [info] fixed update time: 0.019840
-[2024-03-12 21:45:32.097] [SANDBOX] [info] fixed update time: 0.019880
-[2024-03-12 21:45:32.129] [SANDBOX] [info] fixed update time: 0.019928
-[2024-03-12 21:45:32.161] [SANDBOX] [info] fixed update time: 0.019962
-[2024-03-12 21:45:32.192] [SANDBOX] [info] fixed update time: 0.019909
-[2024-03-12 21:45:32.224] [SANDBOX] [info] fixed update time: 0.019769
-[2024-03-12 21:45:32.257] [SANDBOX] [info] fixed update time: 0.019972
-[2024-03-12 21:45:32.288] [SANDBOX] [info] fixed update time: 0.019844
-[2024-03-12 21:45:32.320] [SANDBOX] [info] fixed update time: 0.019747
-[2024-03-12 21:45:32.353] [SANDBOX] [info] fixed update time: 0.019935
-[2024-03-12 21:45:32.385] [SANDBOX] [info] fixed update time: 0.020367
-[2024-03-12 21:45:32.417] [SANDBOX] [info] fixed update time: 0.019966
-[2024-03-12 21:45:32.449] [SANDBOX] [info] fixed update time: 0.020032
-[2024-03-12 21:45:32.480] [SANDBOX] [info] fixed update time: 0.020123
-[2024-03-12 21:45:32.512] [SANDBOX] [info] fixed update time: 0.019983
-[2024-03-12 21:45:32.545] [SANDBOX] [info] fixed update time: 0.019888
-[2024-03-12 21:45:32.576] [SANDBOX] [info] fixed update time: 0.019976
-[2024-03-12 21:45:32.608] [SANDBOX] [info] fixed update time: 0.019780
-[2024-03-12 21:45:32.640] [SANDBOX] [info] fixed update time: 0.019593
-[2024-03-12 21:45:32.672] [SANDBOX] [info] fixed update time: 0.019950
-[2024-03-12 21:45:32.704] [SANDBOX] [info] fixed update time: 0.019828
-[2024-03-12 21:45:32.736] [SANDBOX] [info] fixed update time: 0.019807
-[2024-03-12 21:45:32.769] [SANDBOX] [info] fixed update time: 0.019828
-[2024-03-12 21:45:32.800] [SANDBOX] [info] fixed update time: 0.019999
-[2024-03-12 21:45:32.812] [SANDBOX] [info] Scent Count: 4000
-[2024-03-12 21:45:32.832] [SANDBOX] [info] fixed update time: 0.019597
-[2024-03-12 21:45:32.864] [SANDBOX] [info] fixed update time: 0.019863
-[2024-03-12 21:45:32.896] [SANDBOX] [info] fixed update time: 0.019845
-[2024-03-12 21:45:32.929] [SANDBOX] [info] fixed update time: 0.019751
-[2024-03-12 21:45:32.960] [SANDBOX] [info] fixed update time: 0.019897
-[2024-03-12 21:45:32.993] [SANDBOX] [info] fixed update time: 0.020290
-[2024-03-12 21:45:33.024] [SANDBOX] [info] fixed update time: 0.019525
-[2024-03-12 21:45:33.056] [SANDBOX] [info] fixed update time: 0.019552
-[2024-03-12 21:45:33.088] [SANDBOX] [info] fixed update time: 0.019797
-[2024-03-12 21:45:33.120] [SANDBOX] [info] fixed update time: 0.019739
-[2024-03-12 21:45:33.152] [SANDBOX] [info] fixed update time: 0.019648
-[2024-03-12 21:45:33.184] [SANDBOX] [info] fixed update time: 0.020112
-[2024-03-12 21:45:33.217] [SANDBOX] [info] fixed update time: 0.020033
+[2024-03-12 22:01:34.921] [SANDBOX] [info] fixed update time: 0.015500
+[2024-03-12 22:01:34.953] [SANDBOX] [info] fixed update time: 0.015541
+[2024-03-12 22:01:34.987] [SANDBOX] [info] fixed update time: 0.017037
+[2024-03-12 22:01:35.018] [SANDBOX] [info] fixed update time: 0.016468
+[2024-03-12 22:01:35.051] [SANDBOX] [info] fixed update time: 0.017078
+[2024-03-12 22:01:35.082] [SANDBOX] [info] fixed update time: 0.016238
+[2024-03-12 22:01:35.114] [SANDBOX] [info] fixed update time: 0.015818
+[2024-03-12 22:01:35.146] [SANDBOX] [info] fixed update time: 0.016741
+[2024-03-12 22:01:35.177] [SANDBOX] [info] fixed update time: 0.015261
+[2024-03-12 22:01:35.210] [SANDBOX] [info] fixed update time: 0.016019
+[2024-03-12 22:01:35.243] [SANDBOX] [info] fixed update time: 0.016832
+[2024-03-12 22:01:35.273] [SANDBOX] [info] fixed update time: 0.015272
+[2024-03-12 22:01:35.306] [SANDBOX] [info] fixed update time: 0.015893
+[2024-03-12 22:01:35.408] [SANDBOX] [info] fixed update time: 0.017119
+[2024-03-12 22:01:35.433] [SANDBOX] [info] fixed update time: 0.015431
+[2024-03-12 22:01:35.466] [SANDBOX] [info] fixed update time: 0.015612
+[2024-03-12 22:01:35.498] [SANDBOX] [info] fixed update time: 0.015413
+[2024-03-12 22:01:35.514] [SANDBOX] [info] Scent Count: 10141
+[2024-03-12 22:01:35.530] [SANDBOX] [info] fixed update time: 0.015616
+[2024-03-12 22:01:35.562] [SANDBOX] [info] fixed update time: 0.016297
+[2024-03-12 22:01:35.594] [SANDBOX] [info] fixed update time: 0.016043
+[2024-03-12 22:01:35.627] [SANDBOX] [info] fixed update time: 0.017407
+[2024-03-12 22:01:35.658] [SANDBOX] [info] fixed update time: 0.016028
+[2024-03-12 22:01:35.691] [SANDBOX] [info] fixed update time: 0.016403
+[2024-03-12 22:01:35.723] [SANDBOX] [info] fixed update time: 0.016156
+[2024-03-12 22:01:35.757] [SANDBOX] [info] fixed update time: 0.018593
+[2024-03-12 22:01:35.790] [SANDBOX] [info] fixed update time: 0.019737
+[2024-03-12 22:01:35.818] [SANDBOX] [info] fixed update time: 0.015782
+[2024-03-12 22:01:35.853] [SANDBOX] [info] fixed update time: 0.018174
+[2024-03-12 22:01:35.884] [SANDBOX] [info] fixed update time: 0.016841
+[2024-03-12 22:01:35.914] [SANDBOX] [info] fixed update time: 0.015729
+[2024-03-12 22:01:35.946] [SANDBOX] [info] fixed update time: 0.015352
+[2024-03-12 22:01:35.979] [SANDBOX] [info] fixed update time: 0.016160
+[2024-03-12 22:01:36.010] [SANDBOX] [info] fixed update time: 0.015735
+[2024-03-12 22:01:36.042] [SANDBOX] [info] fixed update time: 0.015726
+[2024-03-12 22:01:36.074] [SANDBOX] [info] fixed update time: 0.015460
+[2024-03-12 22:01:36.107] [SANDBOX] [info] fixed update time: 0.015554
+[2024-03-12 22:01:36.138] [SANDBOX] [info] fixed update time: 0.015341
+[2024-03-12 22:01:36.170] [SANDBOX] [info] fixed update time: 0.015634
+[2024-03-12 22:01:36.203] [SANDBOX] [info] fixed update time: 0.015961
+[2024-03-12 22:01:36.235] [SANDBOX] [info] fixed update time: 0.015577
+[2024-03-12 22:01:36.266] [SANDBOX] [info] fixed update time: 0.015327
+[2024-03-12 22:01:36.298] [SANDBOX] [info] fixed update time: 0.015866
+[2024-03-12 22:01:36.330] [SANDBOX] [info] fixed update time: 0.015616
+[2024-03-12 22:01:36.363] [SANDBOX] [info] fixed update time: 0.015520
+[2024-03-12 22:01:36.395] [SANDBOX] [info] fixed update time: 0.016456
+[2024-03-12 22:01:36.426] [SANDBOX] [info] fixed update time: 0.015184
+[2024-03-12 22:01:36.459] [SANDBOX] [info] fixed update time: 0.015604
+[2024-03-12 22:01:36.491] [SANDBOX] [info] fixed update time: 0.015776
+[2024-03-12 22:01:36.523] [SANDBOX] [info] fixed update time: 0.015830
+[2024-03-12 22:01:36.539] [SANDBOX] [info] Scent Count: 10222
+[2024-03-12 22:01:36.555] [SANDBOX] [info] fixed update time: 0.015721
+[2024-03-12 22:01:36.587] [SANDBOX] [info] fixed update time: 0.016237
+[2024-03-12 22:01:36.620] [SANDBOX] [info] fixed update time: 0.016378
+[2024-03-12 22:01:36.651] [SANDBOX] [info] fixed update time: 0.015838
+[2024-03-12 22:01:36.683] [SANDBOX] [info] fixed update time: 0.015607
+[2024-03-12 22:01:36.714] [SANDBOX] [info] fixed update time: 0.015184
+[2024-03-12 22:01:36.747] [SANDBOX] [info] fixed update time: 0.015469
+[2024-03-12 22:01:36.779] [SANDBOX] [info] fixed update time: 0.015598
+[2024-03-12 22:01:36.811] [SANDBOX] [info] fixed update time: 0.015869
+[2024-03-12 22:01:36.844] [SANDBOX] [info] fixed update time: 0.016517
+[2024-03-12 22:01:36.875] [SANDBOX] [info] fixed update time: 0.015721
+[2024-03-12 22:01:36.907] [SANDBOX] [info] fixed update time: 0.015789
+[2024-03-12 22:01:36.939] [SANDBOX] [info] fixed update time: 0.015253
+[2024-03-12 22:01:36.972] [SANDBOX] [info] fixed update time: 0.016422
+[2024-03-12 22:01:37.005] [SANDBOX] [info] fixed update time: 0.017626
+[2024-03-12 22:01:37.035] [SANDBOX] [info] fixed update time: 0.015788
+[2024-03-12 22:01:37.066] [SANDBOX] [info] fixed update time: 0.015101
+[2024-03-12 22:01:37.100] [SANDBOX] [info] fixed update time: 0.016112
+[2024-03-12 22:01:37.131] [SANDBOX] [info] fixed update time: 0.015273
+[2024-03-12 22:01:37.163] [SANDBOX] [info] fixed update time: 0.015874
+[2024-03-12 22:01:37.195] [SANDBOX] [info] fixed update time: 0.015351
+[2024-03-12 22:01:37.227] [SANDBOX] [info] fixed update time: 0.015790
+[2024-03-12 22:01:37.260] [SANDBOX] [info] fixed update time: 0.016283
+[2024-03-12 22:01:37.292] [SANDBOX] [info] fixed update time: 0.015779
+[2024-03-12 22:01:37.323] [SANDBOX] [info] fixed update time: 0.015618
+[2024-03-12 22:01:37.355] [SANDBOX] [info] fixed update time: 0.015694
+[2024-03-12 22:01:37.387] [SANDBOX] [info] fixed update time: 0.015589
+[2024-03-12 22:01:37.419] [SANDBOX] [info] fixed update time: 0.015698
+[2024-03-12 22:01:37.451] [SANDBOX] [info] fixed update time: 0.015764
+[2024-03-12 22:01:37.483] [SANDBOX] [info] fixed update time: 0.015225
+[2024-03-12 22:01:37.515] [SANDBOX] [info] fixed update time: 0.015185
+[2024-03-12 22:01:37.547] [SANDBOX] [info] fixed update time: 0.015382
+[2024-03-12 22:01:37.564] [SANDBOX] [info] Scent Count: 10291
+[2024-03-12 22:01:37.579] [SANDBOX] [info] fixed update time: 0.015218
+[2024-03-12 22:01:37.611] [SANDBOX] [info] fixed update time: 0.015507
+[2024-03-12 22:01:37.644] [SANDBOX] [info] fixed update time: 0.015267
+[2024-03-12 22:01:37.676] [SANDBOX] [info] fixed update time: 0.016026
+[2024-03-12 22:01:37.708] [SANDBOX] [info] fixed update time: 0.015588
+[2024-03-12 22:01:37.739] [SANDBOX] [info] fixed update time: 0.015643
+[2024-03-12 22:01:37.772] [SANDBOX] [info] fixed update time: 0.015504
+[2024-03-12 22:01:37.804] [SANDBOX] [info] fixed update time: 0.015682
+[2024-03-12 22:01:37.835] [SANDBOX] [info] fixed update time: 0.015253
+[2024-03-12 22:01:37.868] [SANDBOX] [info] fixed update time: 0.015789
+[2024-03-12 22:01:37.900] [SANDBOX] [info] fixed update time: 0.015471
+[2024-03-12 22:01:37.931] [SANDBOX] [info] fixed update time: 0.015404
+[2024-03-12 22:01:37.963] [SANDBOX] [info] fixed update time: 0.015267
+[2024-03-12 22:01:37.996] [SANDBOX] [info] fixed update time: 0.015368
+[2024-03-12 22:01:38.028] [SANDBOX] [info] fixed update time: 0.015810
+[2024-03-12 22:01:38.061] [SANDBOX] [info] fixed update time: 0.017038
+[2024-03-12 22:01:38.091] [SANDBOX] [info] fixed update time: 0.015284
+[2024-03-12 22:01:38.123] [SANDBOX] [info] fixed update time: 0.015306
+[2024-03-12 22:01:38.156] [SANDBOX] [info] fixed update time: 0.015289
+[2024-03-12 22:01:38.189] [SANDBOX] [info] fixed update time: 0.016196
+[2024-03-12 22:01:38.220] [SANDBOX] [info] fixed update time: 0.015380
+[2024-03-12 22:01:38.252] [SANDBOX] [info] fixed update time: 0.015814
+[2024-03-12 22:01:38.285] [SANDBOX] [info] fixed update time: 0.016886
+[2024-03-12 22:01:38.316] [SANDBOX] [info] fixed update time: 0.015549
+[2024-03-12 22:01:38.348] [SANDBOX] [info] fixed update time: 0.015278
+[2024-03-12 22:01:38.380] [SANDBOX] [info] fixed update time: 0.015568
+[2024-03-12 22:01:38.412] [SANDBOX] [info] fixed update time: 0.015294
+[2024-03-12 22:01:38.444] [SANDBOX] [info] fixed update time: 0.015456
+[2024-03-12 22:01:38.479] [SANDBOX] [info] fixed update time: 0.017074
+[2024-03-12 22:01:38.508] [SANDBOX] [info] fixed update time: 0.015437
+[2024-03-12 22:01:38.540] [SANDBOX] [info] fixed update time: 0.015235
+[2024-03-12 22:01:38.572] [SANDBOX] [info] fixed update time: 0.015314
+[2024-03-12 22:01:38.589] [SANDBOX] [info] Scent Count: 10462
+[2024-03-12 22:01:38.606] [SANDBOX] [info] fixed update time: 0.016209
+[2024-03-12 22:01:38.637] [SANDBOX] [info] fixed update time: 0.015642
+[2024-03-12 22:01:38.669] [SANDBOX] [info] fixed update time: 0.016122
+[2024-03-12 22:01:38.700] [SANDBOX] [info] fixed update time: 0.015134
+[2024-03-12 22:01:38.732] [SANDBOX] [info] fixed update time: 0.015348
+[2024-03-12 22:01:38.764] [SANDBOX] [info] fixed update time: 0.015245
+[2024-03-12 22:01:38.796] [SANDBOX] [info] fixed update time: 0.015384
+[2024-03-12 22:01:38.828] [SANDBOX] [info] fixed update time: 0.015305
+[2024-03-12 22:01:38.860] [SANDBOX] [info] fixed update time: 0.015064
+[2024-03-12 22:01:38.895] [SANDBOX] [info] fixed update time: 0.016508
+[2024-03-12 22:01:38.925] [SANDBOX] [info] fixed update time: 0.015267
+[2024-03-12 22:01:38.957] [SANDBOX] [info] fixed update time: 0.015192
+[2024-03-12 22:01:38.989] [SANDBOX] [info] fixed update time: 0.015244
+[2024-03-12 22:01:39.021] [SANDBOX] [info] fixed update time: 0.015748
+[2024-03-12 22:01:39.053] [SANDBOX] [info] fixed update time: 0.015880
+[2024-03-12 22:01:39.085] [SANDBOX] [info] fixed update time: 0.015256
+[2024-03-12 22:01:39.117] [SANDBOX] [info] fixed update time: 0.015298
+[2024-03-12 22:01:39.149] [SANDBOX] [info] fixed update time: 0.015381
+[2024-03-12 22:01:39.181] [SANDBOX] [info] fixed update time: 0.015171
+[2024-03-12 22:01:39.213] [SANDBOX] [info] fixed update time: 0.015368
+[2024-03-12 22:01:39.247] [SANDBOX] [info] fixed update time: 0.017474
+[2024-03-12 22:01:39.277] [SANDBOX] [info] fixed update time: 0.015134
+[2024-03-12 22:02:14.095] [SANDBOX] [info] OpenGL Loaded.
+[2024-03-12 22:02:14.095] [SANDBOX] [info] Version: 3.3.0 NVIDIA 528.24
+[2024-03-12 22:02:14.096] [SANDBOX] [info] Renderer: NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2
+[2024-03-12 22:02:14.096] [SANDBOX] [info] Vendor: NVIDIA Corporation
+[2024-03-12 22:02:14.096] [SANDBOX] [info] Max. Vertex attributes: 16
+[2024-03-12 22:02:14.096] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.frag
+[2024-03-12 22:02:14.097] [SANDBOX] [info] Asset loaded assets/shaders/batch_renderer.vert
+[2024-03-12 22:02:14.097] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.frag
+[2024-03-12 22:02:14.097] [SANDBOX] [info] Asset loaded assets/shaders/default_layer.vert
+[2024-03-12 22:02:14.097] [SANDBOX] [info] Asset loaded assets/shaders/line.frag
+[2024-03-12 22:02:14.097] [SANDBOX] [info] Asset loaded assets/shaders/line.geom
+[2024-03-12 22:02:14.098] [SANDBOX] [info] Asset loaded assets/shaders/line.vert
+[2024-03-12 22:02:14.098] [SANDBOX] [info] Asset loaded assets/shaders/wire.frag
+[2024-03-12 22:02:14.098] [SANDBOX] [info] Asset loaded assets/shaders/wire.vert
+[2024-03-12 22:02:14.101] [SANDBOX] [info] Asset loaded assets/textures/Chest.png
+[2024-03-12 22:02:14.107] [SANDBOX] [info] Asset loaded assets/textures/Circle.png
+[2024-03-12 22:02:14.116] [SANDBOX] [info] Asset loaded assets/textures/Colonists.png
+[2024-03-12 22:02:14.121] [SANDBOX] [info] Asset loaded assets/textures/Food.png
+[2024-03-12 22:02:14.126] [SANDBOX] [info] Asset loaded assets/textures/Obstacles.png
+[2024-03-12 22:02:14.132] [SANDBOX] [info] Asset loaded assets/textures/Player.png
+[2024-03-12 22:02:14.136] [SANDBOX] [info] Asset loaded assets/textures/projectile.png
+[2024-03-12 22:02:14.146] [SANDBOX] [info] Asset loaded assets/textures/Rewards.png
+[2024-03-12 22:02:14.155] [SANDBOX] [info] Asset loaded assets/textures/Shelter.png
+[2024-03-12 22:02:14.158] [SANDBOX] [info] Asset loaded assets/textures/SlimeVfx.png
+[2024-03-12 22:02:14.159] [SANDBOX] [info] Asset loaded assets/textures/Square.png
+[2024-03-12 22:02:14.160] [SANDBOX] [info] Asset loaded assets/textures/Thoughts.png
+[2024-03-12 22:02:14.160] [SANDBOX] [info] Compiling shaders...
+[2024-03-12 22:02:14.168] [SANDBOX] [info] Particle System size, for 50000 particles max: 8800 ko
+[2024-03-12 22:02:14.206] [SANDBOX] [info] physics update time: 0.003425
+[2024-03-12 22:02:14.236] [SANDBOX] [info] physics update time: 0.003371
+[2024-03-12 22:02:14.265] [SANDBOX] [info] physics update time: 0.003545
+[2024-03-12 22:02:14.298] [SANDBOX] [info] physics update time: 0.003698
+[2024-03-12 22:02:14.329] [SANDBOX] [info] physics update time: 0.003532
+[2024-03-12 22:02:14.361] [SANDBOX] [info] physics update time: 0.003715
+[2024-03-12 22:02:14.393] [SANDBOX] [info] physics update time: 0.003777
+[2024-03-12 22:02:14.431] [SANDBOX] [info] physics update time: 0.006938
+[2024-03-12 22:02:14.466] [SANDBOX] [info] physics update time: 0.011676
+[2024-03-12 22:02:14.679] [SANDBOX] [info] physics update time: 0.189644
+[2024-03-12 22:02:14.940] [SANDBOX] [info] physics update time: 0.228911
+[2024-03-12 22:02:15.190] [SANDBOX] [info] Scent Count: 2848
+[2024-03-12 22:02:15.193] [SANDBOX] [info] physics update time: 0.225865
+[2024-03-12 22:02:15.449] [SANDBOX] [info] physics update time: 0.225983
+[2024-03-12 22:02:15.704] [SANDBOX] [info] physics update time: 0.225071
+[2024-03-12 22:02:15.981] [SANDBOX] [info] physics update time: 0.246245
+[2024-03-12 22:02:16.214] [SANDBOX] [info] Scent Count: 3465
+[2024-03-12 22:02:16.250] [SANDBOX] [info] physics update time: 0.259402
+[2024-03-12 22:02:16.539] [SANDBOX] [info] physics update time: 0.259741
+[2024-03-12 22:02:16.825] [SANDBOX] [info] physics update time: 0.257792
+[2024-03-12 22:02:17.124] [SANDBOX] [info] physics update time: 0.269614
+[2024-03-12 22:02:17.239] [SANDBOX] [info] Scent Count: 3838
+[2024-03-12 22:02:17.421] [SANDBOX] [info] physics update time: 0.277608
+[2024-03-12 22:02:17.707] [SANDBOX] [info] physics update time: 0.277109
+[2024-03-12 22:02:17.997] [SANDBOX] [info] physics update time: 0.277129
+[2024-03-12 22:02:18.263] [SANDBOX] [info] Scent Count: 4086
+[2024-03-12 22:02:18.297] [SANDBOX] [info] physics update time: 0.289088
+[2024-03-12 22:02:18.594] [SANDBOX] [info] physics update time: 0.295991
+[2024-03-12 22:02:18.905] [SANDBOX] [info] physics update time: 0.289844
+[2024-03-12 22:02:19.210] [SANDBOX] [info] physics update time: 0.292025
+[2024-03-12 22:02:19.304] [SANDBOX] [info] Scent Count: 4191
+[2024-03-12 22:02:19.538] [SANDBOX] [info] physics update time: 0.299426
+[2024-03-12 22:02:19.866] [SANDBOX] [info] physics update time: 0.306123
+[2024-03-12 22:02:20.185] [SANDBOX] [info] physics update time: 0.305486
+[2024-03-12 22:02:20.327] [SANDBOX] [info] Scent Count: 4353
+[2024-03-12 22:02:20.503] [SANDBOX] [info] physics update time: 0.305076
+[2024-03-12 22:02:20.830] [SANDBOX] [info] physics update time: 0.310054
+[2024-03-12 22:02:21.154] [SANDBOX] [info] physics update time: 0.312976
+[2024-03-12 22:02:21.351] [SANDBOX] [info] Scent Count: 4528
+[2024-03-12 22:02:21.476] [SANDBOX] [info] physics update time: 0.315988
+[2024-03-12 22:02:21.794] [SANDBOX] [info] physics update time: 0.314733
+[2024-03-12 22:02:22.119] [SANDBOX] [info] physics update time: 0.318750
+[2024-03-12 22:02:22.375] [SANDBOX] [info] Scent Count: 4668
+[2024-03-12 22:02:22.473] [SANDBOX] [info] physics update time: 0.322179
+[2024-03-12 22:02:22.827] [SANDBOX] [info] physics update time: 0.323257
+[2024-03-12 22:02:23.179] [SANDBOX] [info] physics update time: 0.322805
+[2024-03-12 22:02:23.399] [SANDBOX] [info] Scent Count: 4751
+[2024-03-12 22:02:23.531] [SANDBOX] [info] physics update time: 0.325137
+[2024-03-12 22:02:23.884] [SANDBOX] [info] physics update time: 0.325415
+[2024-03-12 22:02:24.237] [SANDBOX] [info] physics update time: 0.324911
+[2024-03-12 22:02:24.424] [SANDBOX] [info] Scent Count: 4807
+[2024-03-12 22:02:24.590] [SANDBOX] [info] physics update time: 0.325701
+[2024-03-12 22:02:24.942] [SANDBOX] [info] physics update time: 0.326695
+[2024-03-12 22:02:25.295] [SANDBOX] [info] physics update time: 0.327642
+[2024-03-12 22:02:25.448] [SANDBOX] [info] Scent Count: 4937
+[2024-03-12 22:02:25.648] [SANDBOX] [info] physics update time: 0.327909
+[2024-03-12 22:02:25.998] [SANDBOX] [info] physics update time: 0.326429
+[2024-03-12 22:02:26.353] [SANDBOX] [info] physics update time: 0.328864
+[2024-03-12 22:02:26.472] [SANDBOX] [info] Scent Count: 5053
+[2024-03-12 22:02:26.707] [SANDBOX] [info] physics update time: 0.330859
+[2024-03-12 22:02:27.059] [SANDBOX] [info] physics update time: 0.331066
+[2024-03-12 22:02:27.410] [SANDBOX] [info] physics update time: 0.330463
+[2024-03-12 22:02:27.495] [SANDBOX] [info] Scent Count: 5095
+[2024-03-12 22:02:27.764] [SANDBOX] [info] physics update time: 0.332781
+[2024-03-12 22:02:28.116] [SANDBOX] [info] physics update time: 0.330458
+[2024-03-12 22:02:28.468] [SANDBOX] [info] physics update time: 0.332284
+[2024-03-12 22:02:28.521] [SANDBOX] [info] Scent Count: 5188
+[2024-03-12 22:02:28.820] [SANDBOX] [info] physics update time: 0.331501
+[2024-03-12 22:02:29.173] [SANDBOX] [info] physics update time: 0.332584
+[2024-03-12 22:02:29.529] [SANDBOX] [info] physics update time: 0.335178
+[2024-03-12 22:02:29.545] [SANDBOX] [info] Scent Count: 5284
+[2024-03-12 22:02:29.880] [SANDBOX] [info] physics update time: 0.334540
+[2024-03-12 22:02:30.229] [SANDBOX] [info] physics update time: 0.333147
+[2024-03-12 22:02:30.568] [SANDBOX] [info] Scent Count: 5380
+[2024-03-12 22:02:30.582] [SANDBOX] [info] physics update time: 0.333642
+[2024-03-12 22:02:30.935] [SANDBOX] [info] physics update time: 0.334944
+[2024-03-12 22:02:31.286] [SANDBOX] [info] physics update time: 0.334614
+[2024-03-12 22:02:31.593] [SANDBOX] [info] Scent Count: 5403
+[2024-03-12 22:02:31.640] [SANDBOX] [info] physics update time: 0.333910
+[2024-03-12 22:02:31.992] [SANDBOX] [info] physics update time: 0.334312
+[2024-03-12 22:02:32.345] [SANDBOX] [info] physics update time: 0.336506
+[2024-03-12 22:02:32.617] [SANDBOX] [info] Scent Count: 5514
+[2024-03-12 22:02:32.696] [SANDBOX] [info] physics update time: 0.335740
+[2024-03-12 22:02:33.047] [SANDBOX] [info] physics update time: 0.334398
+[2024-03-12 22:02:33.400] [SANDBOX] [info] physics update time: 0.334862
+[2024-03-12 22:02:33.642] [SANDBOX] [info] Scent Count: 5624
+[2024-03-12 22:02:33.754] [SANDBOX] [info] physics update time: 0.335898
+[2024-03-12 22:02:34.108] [SANDBOX] [info] physics update time: 0.337050
+[2024-03-12 22:02:34.458] [SANDBOX] [info] physics update time: 0.336517
+[2024-03-12 22:02:34.664] [SANDBOX] [info] Scent Count: 5682
+[2024-03-12 22:02:34.811] [SANDBOX] [info] physics update time: 0.336986
+[2024-03-12 22:02:35.163] [SANDBOX] [info] physics update time: 0.336358
+[2024-03-12 22:02:35.513] [SANDBOX] [info] physics update time: 0.336535
+[2024-03-12 22:02:35.691] [SANDBOX] [info] Scent Count: 5707
+[2024-03-12 22:02:35.866] [SANDBOX] [info] physics update time: 0.337227
+[2024-03-12 22:02:36.218] [SANDBOX] [info] physics update time: 0.336362
+[2024-03-12 22:02:36.571] [SANDBOX] [info] physics update time: 0.336678
+[2024-03-12 22:02:36.714] [SANDBOX] [info] Scent Count: 5791
+[2024-03-12 22:02:36.922] [SANDBOX] [info] physics update time: 0.335642
+[2024-03-12 22:02:37.274] [SANDBOX] [info] physics update time: 0.335188
+[2024-03-12 22:02:37.626] [SANDBOX] [info] physics update time: 0.336265
+[2024-03-12 22:02:37.738] [SANDBOX] [info] Scent Count: 5887
+[2024-03-12 22:02:37.979] [SANDBOX] [info] physics update time: 0.338190
+[2024-03-12 22:02:38.333] [SANDBOX] [info] physics update time: 0.337554
+[2024-03-12 22:02:38.687] [SANDBOX] [info] physics update time: 0.340601
+[2024-03-12 22:02:38.762] [SANDBOX] [info] Scent Count: 5917
+[2024-03-12 22:02:39.038] [SANDBOX] [info] physics update time: 0.339316
