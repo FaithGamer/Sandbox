@@ -14,5 +14,4 @@ struct ScentSettings : Serializable
 	float radius;
 	float time;
 	bool repulsive;
-	Vec4f debugColor;
 };

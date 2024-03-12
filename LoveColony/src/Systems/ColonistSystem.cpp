@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "ColonistSystem.h"
 #include "Systems/ZisYSystem.h"
+#include "ScentSystem.h"
 
 ColonistSystem::ColonistSystem()
 {
@@ -65,12 +66,50 @@ void ColonistSystem::OnFixedUpdate(Time delta)
 			//Colonist movement and collisions
 			MoveAndCollide(physics, transform, wallMask, (float)delta, margin, hitboxRadius);
 
+			//Scent dropping
+			if (physics.scentDropper)
+			{
+				physics.distanceFromLastScentDrop += physics.prevPosition.Distance(physics.nextPosition);
+				if (physics.distanceFromLastScentDrop >= settings.scentDistance)
+				{
+					ScentInit scent(Scent::Type::Food, physics.prevPosition, 0);
+					Systems::Get<ScentSystem>()->TryCreateTrackScent(scent);
+					physics.distanceFromLastScentDrop = 0;
+				}
+			}
+
 			//Scent detection
 			std::vector<OverlapResult> overlaps;
-			Physics::CircleOverlap(overlaps, transform.GetPosition(), 1.f, scentMask);
+			Physics::CircleOverlap(overlaps, transform.GetPosition(), settings.sensorRadius, scentMask);
+			Vec2f sensorPosition = physics.nextPosition;
+			
+			//Every scent in a radius around the colonist
 			for (int i = 0; i < overlaps.size(); i++)
 			{
-				auto var = overlaps[i].entityId;
+				Entity scentEntity = Entity(overlaps[i].entityId);
+				auto scent = scentEntity.GetComponent<Scent>();
+
+				//Check if scent is interesting
+				if (ScentMatch(physics.state, scent->type))
+				{
+					auto scentTransform = scentEntity.GetComponent<Transform>();
+					Vec2f sensorDirection = (Vec2f)scentTransform->GetPosition() - sensorPosition;
+	
+					//Check if scent is within the cone of detection
+					float angle = Math::Abs(physics.velocity.Normalized().Angle(sensorDirection.Normalized()));
+					if (angle < settings.sensorAngle / 2)
+					{
+						//Scent is followed
+						physics.lastFollowedScent = overlaps[i].entityId;
+
+						//Set the scent sprite white
+						auto sprite = scentEntity.GetComponent<SpriteRender>();
+						if (sprite != nullptr)
+						{
+							sprite->color = Vec4f(1);
+						}
+					}
+				}
 			}
 		});
 }
@@ -100,8 +139,6 @@ void ColonistSystem::AIUpdate()
 	ForeachComponents <ColonistBrain, ColonistPhysics>([&](ColonistBrain& brain, ColonistPhysics& physics)
 		{
 			Steering(physics, brain);
-
-			
 		});
 }
 
@@ -196,19 +233,31 @@ void ColonistSystem::MoveAndCollide(
 	physics.interpolationTime = (float)delta;
 }
 
+bool ColonistSystem::ScentMatch(ColonistState state, Scent::Type scentType) const
+{
+	switch (state)
+	{
+	case ColonistState::SearchingFood:
+		return scentType == Scent::Type::Food;
+	case ColonistState::SearchingShelter:
+		return scentType == Scent::Type::Shelter;
+	}
+	return false;
+}
+
 void ColonistSystem::InstanceColonist(const ColonistInit& init)
 {
 	//Create entity
 	Entity colonist = Entity::Create();
-	colonist.AddComponent<Transform>();
+	colonist.AddComponent<Transform>()->SetPosition(init.position);
 
 	//Create render 
 	SpriteRender* render = colonist.AddComponent<SpriteRender>();
 	render->SetSprite(Assets::Get<Sprite>("Colonists.png_0_2").Ptr()); //todo, optimize by having Prefab as a class and holding on the assets it needs
-	render->SetLayer(Renderer2D::GetLayerId("Map"));
+	//render->SetLayer(Renderer2D::GetLayerId("Map"));
 	//Colonist components
 	colonist.AddComponent<ColonistBrain>();
-	colonist.AddComponent<ColonistPhysics>();
+	colonist.AddComponent<ColonistPhysics>()->scentDropper = true;// Random::Range(0.f, 1.f) >= 0.9f;
 
 	//Sprite render ordering
 	colonist.AddComponent<ZisY>();

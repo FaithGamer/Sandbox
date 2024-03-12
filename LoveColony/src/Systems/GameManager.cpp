@@ -2,6 +2,7 @@
 #include "GameManager.h"
 #include "Prefab.h"
 #include "Systems/ColonistSystem.h"
+#include "Systems/ScentSystem.h"
 
 GameManager::GameManager()
 {
@@ -10,6 +11,7 @@ GameManager::GameManager()
 void GameManager::OnStart()
 {
 	StartGame();
+	Systems::Get<ScentSystem>()->DebugShowScent(true);
 }
 
 void GameManager::OnUpdate(Time delta)
@@ -28,6 +30,7 @@ Entity CreateBox(Vec2f position, Vec2f dimensions)
 	auto transform = box.AddComponent<Transform>();
 	transform->SetPosition(position);
 	auto body = box.AddComponent<Body>(Body::Type::Kinematic, Physics::GetLayerMask("Walls"));
+	body->SetLayerMask(Bitmask(333));
 	body->AddCollider(makesptr<Box2D>(dimensions));
 
 	return box;
@@ -71,13 +74,13 @@ void GameManager::CreateMap()
 
 void GameManager::CreateEntities()
 {
-	for (int i = 0; i < 10000; i++)
+	for (int i = 0; i < 100; i++)
 	{
-		Systems::Get<ColonistSystem>()->CreateColonist(ColonistInit(Vec2f(0, 0)));
+		Systems::Get<ColonistSystem>()->CreateColonist(ColonistInit(Vec2f(Random::Range(-25.f, 25.f), Random::Range(-10.f, 10.f))));
 	}
 
 	//Simulate presence of scent
-	for (int i = 0; i < 2000; i++)
+	/*for (int i = 0; i < 200; i++)
 	{
 		auto scent = Entity::Create();
 		
@@ -85,7 +88,7 @@ void GameManager::CreateEntities()
 		auto body = scent.AddComponent<Body>(Body::Type::Static, Physics::GetLayerMask("Scent"));
 
 		body->AddCollider(makesptr<Circle2D>(0.2f));
-	}
+	}*/
 
 	
 }

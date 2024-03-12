@@ -13,11 +13,17 @@ struct ColonistSettings : public Serializable
 
 	//Data
 
+	//Movement
 	float maxSpeed;
 	float acceleration;
 	float steeringSpeed;
 	float wanderPower;
 	float wanderTimeMin;
 	float wanderTimeMax;
+
+	//Scent
+	float sensorRadius;
+	float sensorAngle;
+	float scentDistance;
 
 };

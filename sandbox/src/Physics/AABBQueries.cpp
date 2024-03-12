@@ -134,6 +134,7 @@ namespace Sandbox
 		//User data in the fixture's body
 		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetUserData().pointer));
 
+		//to do add distance
 		results->emplace_back(OverlapResult(data->entityId));
 
 		// Continue the query.
@@ -162,6 +163,7 @@ namespace Sandbox
 		//User data in the fixture's body
 		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetUserData().pointer));
 
+		//to do add distance
 		results->emplace_back(OverlapResult(data->entityId));
 
 		// Continue the query.

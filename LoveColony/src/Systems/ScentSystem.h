@@ -4,6 +4,7 @@
 #include "Sandbox/ECS/System.h"
 #include "Components/Scent.h"
 #include "Settings/ScentSettings.h"
+#include "Sandbox/Physics/Bitmask.h"
 
 using namespace Sandbox;
 
@@ -12,11 +13,17 @@ class ScentSystem : public System
 public:
 	void OnStart() override;
 	void OnFixedUpdate(Time delta) override;
-	void TryCreateTrackScent(Vec2f position, Scent::Type type);
+	/// @brief Create scent track (the one that colonists drop) or reset timer of closest overlaping one
+	void TryCreateTrackScent(const ScentInit& init);
+	void DebugShowScent(bool show);
+private:
+	inline void CreateTrackScent(const ScentInit& init);
+	inline Vec4f ScentDebugColor(Scent::Type type);
+	inline void AddScentRenderer(Entity scent, Scent::Type type);
 public:
-	void CreateTrackScent(Vec2f position, Scent::Type type);
 	ScentSettings trackSettings;
 private:
 	Bitmask m_scentMask;
+	bool m_showScent = false;
 
 };

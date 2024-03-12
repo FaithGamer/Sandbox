@@ -1,0 +1,1 @@
+-have an entity with id 0 that's always there and represent the absence of entity

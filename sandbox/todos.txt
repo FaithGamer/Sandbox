@@ -21,9 +21,11 @@
 
 -transform optimize the matrix computation for children
 -try computing matrix in shader
-
+- move bitmask from physics to core
 BIG TASKS:
 
+- semi transparency doesnt work on custom render layer
+https://stackoverflow.com/questions/24346585/opengl-render-to-texture-with-partial-transparancy-translucency-and-then-rende
 - fixed aspect ratio for render layers
 - animator for transform and sprite render
 - collisions
@@ -32,6 +34,8 @@ BIG TASKS:
 - destroy children entities -> transform system
 
 PHYSICS:
+
+- add distance in every overlap
 
 - raycast with use direction + distance
 -add Body raycast/overlap that ignores itslef

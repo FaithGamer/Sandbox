@@ -20,6 +20,10 @@ struct ColonistInit
 
 struct ColonistPhysics
 {
+	//State
+	ColonistState state = SearchingFood;
+
+	//Movement
 	float wanderDirection = 0;
 	float currentAngle = 0;
 	float speed = 0;
@@ -33,14 +37,17 @@ struct ColonistPhysics
 	Vec2f nextPosition = 0;
 	float interpolationTime = 0;
 
+	//Scent
+	float distanceFromLastScentDrop = 0;
+	EntityId lastFollowedScent = EntityId(0);
+	bool scentDropper = true;
+
 	//Queued for deletion
 	bool dead = false;
 };
 
 struct ColonistBrain
 {
-	ColonistState state = SearchingFood;
-	EntityId lastFollowedScent = EntityId(0);
 	float wanderTimer = 0;
 	float nextWanderTime = 0;
 	float wanderDirection = 0;

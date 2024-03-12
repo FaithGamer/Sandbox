@@ -1,10 +1,13 @@
 #pragma once
 
+#include "Sandbox/Core/Vec.h"
 #include "Sandbox/ECS/EntityId.h"
+
+using namespace Sandbox;
 
 struct Scent
 {
-	enum Type : int
+	enum class Type : int
 	{
 		Food = 0,
 		Shelter,
@@ -12,8 +15,16 @@ struct Scent
 		Player
 	};
 
-	EntityId poi;
-	float poiDistance;
-	float timeRemaining;
-	Type type;
+	EntityId poi = EntityId(0);
+	float poiDistance = 0;
+	float timeRemaining = 0;
+	Type type = Scent::Type::Food;
+};
+struct ScentInit
+{
+	Scent::Type type = Scent::Type::Food;
+	Vec2f position = 0;
+	float poiDistance = 0;
+	
+	
 };

@@ -4,8 +4,7 @@
 ScentSettings::ScentSettings() :
 	radius(0.2f),
 	time(20.f),
-	repulsive(false),
-	debugColor({0, 0, 1, 1})
+	repulsive(false)
 	
 {
 }
@@ -14,4 +13,5 @@ void ScentSettings::Deserialize(Serialized& config)
 }
 Serialized ScentSettings::Serialize()
 {
+	return Serialized();
 }

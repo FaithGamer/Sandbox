@@ -3,6 +3,8 @@
 #include "Sandbox/Sandbox.h"
 #include "Settings/ColonistSettings.h"
 #include "Components/Colonist.h"
+#include "Components/Scent.h"
+
 using namespace Sandbox;
 
 
@@ -41,7 +43,7 @@ private:
 		const float delta,
 		const float margin,
 		const float hitboxRadius);
-
+	bool ScentMatch(ColonistState state, Scent::Type scentType) const;
 	void InstanceColonist(const ColonistInit& init);
 private:
 	std::mutex m_syncMutex;
