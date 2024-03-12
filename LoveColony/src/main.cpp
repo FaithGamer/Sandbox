@@ -24,6 +24,11 @@ int main(int argv, char** argc)
 
 	//Physics::DrawColliders(true);
 
+	//Render layers
+
+	Renderer2D::AddLayer("Terrain");
+	Renderer2D::AddLayer("Map");
+
 	//Systems
 	Systems::Push<ColonistSystem>();
 	Systems::Push<ZisYSystem>();

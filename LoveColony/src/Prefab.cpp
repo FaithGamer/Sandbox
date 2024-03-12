@@ -1,10 +1,9 @@
 #include "pch.h"
 #include "Prefab.h"
 #include "Sandbox/ECS/Systems.h"
-#include "Systems/ColonistSystem.h"
 #include "Systems/ZisYSystem.h"
-#include "Sandbox/PhysicsEngine.h"
-#include "Components/Colonist.h"
+#include "Sandbox/Physics/Body.h"
+#include "Components/Scent.h"
 
 namespace Prefab
 {
@@ -21,8 +20,9 @@ namespace Prefab
 
 		SpriteRender* render = wall.AddComponent<SpriteRender>();
 		render->SetSprite(Assets::Get<Sprite>("Obstacles.png_0_2").Ptr()); //todo, optimize by having Prefab as a class and holding on the assets it needs
-
+		render->SetLayer(Renderer2D::GetLayerId("Terrain"));
 		wall.AddComponent<ZisY>();
 		return wall;
 	}
+
 }

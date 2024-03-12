@@ -28,6 +28,7 @@ struct ColonistPhysics
 	Vec2f offset = 0;
 
 	//Interpolation
+	Vec2f position = 0;
 	Vec2f prevPosition = 0;
 	Vec2f nextPosition = 0;
 	float interpolationTime = 0;

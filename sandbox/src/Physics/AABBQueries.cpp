@@ -85,14 +85,17 @@ namespace Sandbox
 			return true;
 
 		b2Transform identity(b2Vec2(0, 0), b2Rot(0));
-		if (!b2TestOverlap(m_shape, 0, fixture->GetShape(), 0, identity, fixture->GetBody()->GetTransform()))
+		auto transform = fixture->GetBody()->GetTransform();
+		if (!b2TestOverlap(m_shape, 0, fixture->GetShape(), 0, identity, transform))
 			return true; //No overlap
+
+		//Compute distance between circle center and shape position
+		float distance = Vec::Distance((Vec2f)transform.p, (Vec2f)static_cast<b2CircleShape*>(m_shape)->m_p);
 
 		//User data in the fixture's body
 		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetUserData().pointer));
 
-		results->emplace_back(OverlapResult(data->entityId));
-
+		results->emplace_back(OverlapResult(data->entityId, distance));
 
 		// Continue the query.
 		return true;

@@ -33,7 +33,7 @@ void ColonistSystem::OnUpdate(Time delta)
 	}
 
 	//Interpolate colonist position
-	ForeachEntities<ColonistPhysics, Transform>([&](Entity entity, ColonistPhysics& physics, Transform& transform)
+	ForeachComponents<ColonistPhysics, Transform>([&](ColonistPhysics& physics, Transform& transform)
 		{
 			if (physics.dead)
 				return;
@@ -43,32 +43,35 @@ void ColonistSystem::OnUpdate(Time delta)
 			Vec3f position = Math::Lerp(physics.prevPosition, physics.nextPosition, t);
 			transform.SetPosition(position);
 
-			/*if (Random::Range(0.f, 1.f) > 0.98f)
-			{
-				DestroyColonist(entity);
-				//LOG_INFO("Destroy");
-			}
-			if (Random::Range(0.f, 1.f) > 0.98f)
-			{
-				CreateColonist(ColonistInit(Vec2f(0, 0)));
-				//LOG_INFO("Create");
-			}*/
 		});
 }
 
 void ColonistSystem::OnFixedUpdate(Time delta)
 {
-	Bitmask wallMask = Physics::GetLayerMask("Walls", "Scent");
+
+	//Every physics queries happens here
+
+	Bitmask wallMask = Physics::GetLayerMask("Walls");
+	Bitmask scentMask = Physics::GetLayerMask("Scent");
 	float hitboxRadius = 0.2f;
 	float margin = 0.01f;
 
-	//Colonist movement and collisions
+
 	ForeachComponents<ColonistPhysics, Transform>([&](ColonistPhysics& physics, Transform& transform)
 		{
 			if (physics.dead)
 				return;
 
+			//Colonist movement and collisions
 			MoveAndCollide(physics, transform, wallMask, (float)delta, margin, hitboxRadius);
+
+			//Scent detection
+			std::vector<OverlapResult> overlaps;
+			Physics::CircleOverlap(overlaps, transform.GetPosition(), 1.f, scentMask);
+			for (int i = 0; i < overlaps.size(); i++)
+			{
+				auto var = overlaps[i].entityId;
+			}
 		});
 }
 
@@ -93,9 +96,12 @@ void ColonistSystem::OnAddColonistBrain(ComponentSignal signal)
 
 void ColonistSystem::AIUpdate()
 {
+
 	ForeachComponents <ColonistBrain, ColonistPhysics>([&](ColonistBrain& brain, ColonistPhysics& physics)
 		{
 			Steering(physics, brain);
+
+			
 		});
 }
 
@@ -199,7 +205,7 @@ void ColonistSystem::InstanceColonist(const ColonistInit& init)
 	//Create render 
 	SpriteRender* render = colonist.AddComponent<SpriteRender>();
 	render->SetSprite(Assets::Get<Sprite>("Colonists.png_0_2").Ptr()); //todo, optimize by having Prefab as a class and holding on the assets it needs
-
+	render->SetLayer(Renderer2D::GetLayerId("Map"));
 	//Colonist components
 	colonist.AddComponent<ColonistBrain>();
 	colonist.AddComponent<ColonistPhysics>();

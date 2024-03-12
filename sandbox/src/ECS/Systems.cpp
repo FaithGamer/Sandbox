@@ -18,7 +18,7 @@ namespace Sandbox
 	Systems::Systems() :
 		m_fixedUpdateTime(0.032f),
 		m_pushCount(0),
-		m_maxFixedUpdate(10),
+		m_maxFixedUpdate(1),
 		m_events(0),
 		m_imGuiEnabled(true)
 	{
@@ -113,6 +113,8 @@ namespace Sandbox
 				//To do: decide behaviour
 				//breaking here would not make the simulation perfeclty reproductible.
 				//Not breaking could lead to crash the application in case of overload
+				m_fixedUpdateAccumulator = 0;
+				break;
 			}
 		}
 

@@ -29,6 +29,7 @@ namespace Sandbox
 	struct OverlapResult
 	{
 		EntityId entityId;
+		float distance;
 	};
 
 	struct CollisionLayer

@@ -412,6 +412,11 @@ namespace Sandbox
 			return Vec3<T>(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z).Magnitude();
 		}
 		template <class T>
+		inline static float Distance(Vec2<T> lhs, Vec2<T> rhs)
+		{
+			return Vec2<T>(lhs.x - rhs.x, lhs.y - rhs.y).Magnitude();
+		}
+		template <class T>
 		inline static Vec3<T> Lerp(Vec3<T> min, Vec3<T> max, float t)
 		{
 

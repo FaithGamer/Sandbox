@@ -71,21 +71,21 @@ void GameManager::CreateMap()
 
 void GameManager::CreateEntities()
 {
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 10000; i++)
 	{
 		Systems::Get<ColonistSystem>()->CreateColonist(ColonistInit(Vec2f(0, 0)));
 	}
 
 	//Simulate presence of scent
-	/*for (int i = 0; i < 10000; i++)
+	for (int i = 0; i < 2000; i++)
 	{
 		auto scent = Entity::Create();
 		
 		scent.AddComponent<Transform>()->SetPosition(Random::Range(-25.f, 25.f), Random::Range(-10.f, 10.f), 0);
 		auto body = scent.AddComponent<Body>(Body::Type::Static, Physics::GetLayerMask("Scent"));
 
-		body->AddCollider(makesptr<Circle2D>(0.1f));
-	}*/
+		body->AddCollider(makesptr<Circle2D>(0.2f));
+	}
 
 	
 }
