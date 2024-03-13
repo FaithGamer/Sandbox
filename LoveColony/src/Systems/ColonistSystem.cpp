@@ -22,6 +22,10 @@ void ColonistSystem::OnStart()
 
 	m_poiLayer = Physics::GetLayerMask("POI").flags;
 	m_wallLayer = Physics::GetLayerMask("Walls").flags;
+
+	m_spriteCarry = Assets::Get<Sprite>("Colonists.png_1_2");
+	m_spriteEmpty = Assets::Get<Sprite>("Colonists.png_0_4");
+
 }
 
 void ColonistSystem::OnUpdate(Time delta)
@@ -89,7 +93,17 @@ void ColonistSystem::OnUpdate(Time delta)
 void ColonistSystem::OnFixedUpdate(Time delta)
 {
 
-
+	ForeachComponents<ColonistPhysics, SpriteRender>([&](ColonistPhysics& physics, SpriteRender& render)
+		{
+			if (physics.foodCarried > 0)
+			{
+				render.SetSprite(m_spriteCarry.Ptr());
+			}
+			else
+			{
+				render.SetSprite(m_spriteEmpty.Ptr());
+			}
+		});
 }
 
 int ColonistSystem::GetUsedMethod()

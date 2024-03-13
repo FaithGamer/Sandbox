@@ -67,7 +67,7 @@ POIInteractionResult POISystem::InteractFood(Food* food, ColonistPhysics& coloni
     }
     if (food->foodCount < 1)
     {
-        return POIInteractionResult(ColonistState::SearchingFood, false);
+        return POIInteractionResult(ColonistState::SearchingShelter, false);
     }
     else
     {

@@ -16,7 +16,7 @@ void GameManager::OnStart()
 	StartGame();
 	m_aiThread.StartThread();
 	m_physicsThread.StartThread();
-	Systems::Get<ScentSystem>()->DebugShowScent(true);
+	//Systems::Get<ScentSystem>()->DebugShowScent(true);
 }
 
 void GameManager::OnUpdate(Time delta)
@@ -130,7 +130,7 @@ void GameManager::CreateMap()
 void GameManager::CreateEntities()
 {
 	//Create test entities
-	for (int i = 0; i < 39; i++)
+	for (int i = 0; i < 2000; i++)
 	{
 		auto init = makesptr<ColonistInit>();
 		init->position = Vec2f(Random::Range(-25.f, 25.f), Random::Range(-10.f, 10.f));
@@ -138,7 +138,7 @@ void GameManager::CreateEntities()
 	}
 
 	//Create test food
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		auto init = makesptr<POIInit>();
 		init->position = Vec2f(Random::Range(-25.f, 25.f), Random::Range(-11.f, 11.f));
@@ -149,7 +149,7 @@ void GameManager::CreateEntities()
 	}
 
 	//Create test shelters
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		auto init = makesptr<POIInit>();
 		init->position = Vec2f(Random::Range(-25.f, 25.f), Random::Range(-11.f, 11.f));

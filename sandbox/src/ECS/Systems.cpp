@@ -359,7 +359,6 @@ namespace Sandbox
 		return Instance()->m_mainCamera;
 	}
 
-
 	Vec2f Systems::GetMouseWorldPos()
 	{
 		Camera* camera = Instance()->m_mainCamera;

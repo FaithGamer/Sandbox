@@ -51,4 +51,7 @@ private:
 
 	uint16_t m_poiLayer;
 	uint16_t m_wallLayer;
+
+	Asset<Sprite> m_spriteCarry;
+	Asset<Sprite> m_spriteEmpty;
 };
