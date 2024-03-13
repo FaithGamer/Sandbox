@@ -4,10 +4,12 @@
 #include "Settings/ColonistSettings.h"
 #include "Components/Colonist.h"
 #include "Components/Scent.h"
+#include "Components/POI.h"
 #include "GameManager.h"
 
 using namespace Sandbox;
 class ScentSystem;
+class POISystem;
 
 class ColonistSystem : public System
 {
@@ -31,15 +33,21 @@ public:
 
 private:
 	inline void Steering(ColonistPhysics& physics, ColonistBrain& brain, float delta);
+	inline void POIInteraction(ColonistPhysics& physics, ColonistBrain& brain);
 	inline void MoveAndCollide(ColonistPhysics& physics,
 		const Bitmask wallMask,
 		const float delta,
 		const float margin,
 		const float hitboxRadius);
-	bool ScentMatch(ColonistState state, Scent::Type scentType) const;
+	inline bool ScentMatch(ColonistState state, Scent::Type scentType) const;
+	inline bool POIMatch(ColonistState state, POIType poiType) const;
 
 private:
 
 	ScentSystem* m_scentSystem;
+	POISystem* m_poiSystem;
 	GameManager* m_gameManager;
+
+	uint16_t m_poiLayer;
+	uint16_t m_wallLayer;
 };

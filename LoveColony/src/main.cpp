@@ -8,6 +8,10 @@
 
 using namespace Sandbox;
 
+struct NullEntity
+{
+	int tag;
+};
 int main(int argv, char** argc)
 {
 	Engine::Init();
@@ -17,6 +21,9 @@ int main(int argv, char** argc)
 	camera.worldToScreenRatio = 0.04f;
 	Systems::SetMainCamera(&camera);
 	Window::GetResizeSignal()->AddListener(&Camera::SetAspectRatio, &camera);
+
+	//Null entity
+	Entity::Create().AddComponent<NullEntity>();
 
 	//Physics layers
 	Physics::AddLayer("Colonist");
@@ -37,6 +44,7 @@ int main(int argv, char** argc)
 	Systems::Push<ZisYSystem>();
 	Systems::Push<GameManager>();
 
+	
 
 	Engine::Launch();
 

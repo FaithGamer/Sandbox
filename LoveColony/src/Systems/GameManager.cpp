@@ -3,7 +3,9 @@
 #include "Prefab.h"
 #include "Components/Colonist.h"
 #include "Components/Scent.h"
+#include "Components/POI.h"
 #include "Systems/ScentSystem.h"
+
 
 GameManager::GameManager()
 {
@@ -19,12 +21,12 @@ void GameManager::OnStart()
 
 void GameManager::OnUpdate(Time delta)
 {
-	m_threadAccumulator += (float)delta;
+
 }
 
 void GameManager::OnFixedUpdate(Time delta)
 {
-
+	m_threadAccumulator += (float)delta;
 	if (!m_aiThread.HaveTask() && !m_physicsThread.HaveTask())
 	{
 		//Create and destroy entity when only the main thread is running
@@ -127,10 +129,33 @@ void GameManager::CreateMap()
 
 void GameManager::CreateEntities()
 {
+	//Create test entities
 	for (int i = 0; i < 20; i++)
 	{
 		auto init = makesptr<ColonistInit>();
 		init->position = Vec2f(Random::Range(-25.f, 25.f), Random::Range(-10.f, 10.f));
+		CreateEntity(init);
+	}
+
+	//Create test food
+	for (int i = 0; i < 4; i++)
+	{
+		auto init = makesptr<POIInit>();
+		init->position = Vec2f(Random::Range(-25.f, 25.f), Random::Range(-10.f, 10.f));
+		init->type = POIType::Food;
+		init->hitboxRadius = 2.f;
+		init->startCount = 40;
+		CreateEntity(init);
+	}
+
+	//Create test shelters
+	for (int i = 0; i < 4; i++)
+	{
+		auto init = makesptr<POIInit>();
+		init->position = Vec2f(Random::Range(-25.f, 25.f), Random::Range(-10.f, 10.f));
+		init->type = POIType::Shelter;
+		init->hitboxRadius = 2.f;
+		init->startCount = 0;
 		CreateEntity(init);
 	}
 

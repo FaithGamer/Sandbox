@@ -27,4 +27,7 @@ struct ColonistSettings : public Serializable
 	float sensorAngle;
 	float scentDistance;
 
+	//Poi
+	float interactionTime;
+
 };

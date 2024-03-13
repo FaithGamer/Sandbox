@@ -3,3 +3,4 @@
 -thread system in game manager
 -add init parameters in scent system 'try create'
 -find how not to have crash when exit with thread
+-check if remove component is called when entity destroyed

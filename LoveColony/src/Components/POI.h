@@ -18,12 +18,13 @@ public:
 	unsigned int startCount;
 	Vec2f position;
 	POIType type;
+	float hitboxRadius;
 
 };
 
 struct POI
 {
-	int tag;
+	POIType type;
 };
 
 struct Shelter

@@ -1,6 +1,8 @@
 #include "pch.h"
-#include "POI.h"
+
 #include "Sandbox/Sandbox.h"
+#include "POI.h"
+#include "Systems/ZisYSystem.h"
 
 void POIInit::CreateEntity()
 {
@@ -8,6 +10,7 @@ void POIInit::CreateEntity()
 
 	entity.AddComponent<Transform>()->SetPosition(position);
 	sptr<Sprite> sprite;
+	entity.AddComponent<POI>()->type = type;
 
 	switch (type)
 	{
@@ -27,7 +30,13 @@ void POIInit::CreateEntity()
 	break;
 	}
 
-	if(sprite != nullptr)
+	auto body = entity.AddComponent<StaticBody>(position);
+	body->SetLayer(Physics::GetLayerMask("POI"));
+	body->AddCollider(makesptr<Circle2D>(hitboxRadius));
+
+	if (sprite != nullptr)
 		entity.AddComponent<SpriteRender>()->SetSprite(sprite);
+
+	entity.AddComponent<ZisY>();
 
 }

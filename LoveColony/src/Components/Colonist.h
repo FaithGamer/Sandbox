@@ -1,8 +1,9 @@
 #pragma once
 
 #include "Sandbox/Core/Vec.h"
-#include "Sandbox/ECS/EntityId.h"
+#include "Sandbox/ECS/Entity.h"
 #include "Init.h"
+#include "POI.h"
 
 using namespace Sandbox;
 
@@ -23,7 +24,8 @@ struct ColonistInit : public Init
 struct ColonistPhysics
 {
 	//State
-	ColonistState state = SearchingFood;
+	ColonistState state = SearchingFood; // state write value is AI thread responsability only
+	unsigned int foodCarried = 0;
 
 	//Movement
 	float wanderDirection = 0;
@@ -44,6 +46,13 @@ struct ColonistPhysics
 	float distanceFromLastScentDrop = 0;
 	EntityId lastFollowedScent = EntityId(0);
 
+	//POI
+	Entity lastInteractedPOI;
+	Entity interactingPOI;
+	POIType interactingPOIType;
+	Entity lastEncounteredPOI;
+	float interactionTimer = 0;
+
 	//Queued for deletion
 	bool dead = false;
 };
@@ -53,4 +62,5 @@ struct ColonistBrain
 	float wanderTimer = 0;
 	float nextWanderTime = 0;
 	float wanderDirection = 0;
+
 };

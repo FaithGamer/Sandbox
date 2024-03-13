@@ -6,6 +6,11 @@
 
 using namespace Sandbox;
 
+struct POIInteractionResult
+{
+	ColonistState colonistState = SearchingFood;
+	bool proceeded = false;
+};
 class POISystem : public System
 {
 public:
@@ -15,7 +20,14 @@ public:
 	void OnRemoveShelter(ComponentSignal signal);
 	void OnRemoveFood(ComponentSignal signal);
 
-	void InteractShelter(Shelter& shelter, ColonistBrain& brain, ColonistPhysics& physics);
-	void InteractFood(Food& shelter, ColonistBrain& brain, ColonistPhysics& physics);
+	POIInteractionResult InteractPOI(Entity& poi, ColonistPhysics& colonist);
 private:
+	//POI interaction
+	POIInteractionResult InteractShelter(Shelter* shelter, ColonistPhysics& colonist);
+	POIInteractionResult InteractFood(Food* food, ColonistPhysics& colonist);
+	
+	//Shelter
+	void IncrementShelterFood(Shelter* shelter, int count);
+	void SetShelterLevel(Shelter* shelter, unsigned int level);
+	void ComputeShelterSpawnRate(Shelter* shelter);
 };
