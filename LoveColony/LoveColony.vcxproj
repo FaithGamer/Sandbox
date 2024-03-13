@@ -143,6 +143,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Components\Colonist.cpp" />
+    <ClCompile Include="src\Components\Scent.cpp" />
     <ClCompile Include="src\Settings\ColonistSettings.cpp" />
     <ClCompile Include="src\Settings\ScentSettings.cpp" />
     <ClCompile Include="src\Systems\ColonistSystem.cpp" />
@@ -153,6 +155,7 @@
     <ClCompile Include="src\Systems\ZisYSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Components\Init.h" />
     <ClInclude Include="src\Components\Scent.h" />
     <ClInclude Include="src\Settings\ColonistSettings.h" />
     <ClInclude Include="src\Settings\ScentSettings.h" />

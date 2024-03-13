@@ -4,6 +4,7 @@
 #include "Sandbox/Render.h"
 #include "Sandbox/Core/Assets.h"
 #include "Sandbox/Core/Random.h"
+#include "GameManager.h"
 
 void ScentSystem::OnStart()
 {
@@ -21,7 +22,7 @@ void ScentSystem::OnFixedUpdate(Time delta)
 			scent.timeRemaining -= (float)delta;
 			if (scent.timeRemaining <= 0)
 			{
-				entity.Destroy();
+				Systems::Get<GameManager>()->DestroyEntity(entity);
 				return;
 			}
 
@@ -44,7 +45,7 @@ void ScentSystem::OnFixedUpdate(Time delta)
 
 }
 
-void ScentSystem::TryCreateTrackScent(const ScentInit& init, std::vector<OverlapResult>& results)
+void ScentSystem::TryCreateTrackScent(sptr<ScentInit> init, std::vector<OverlapResult>& results)
 {
 	//Check for overlapping scent
 	//std::vector<OverlapResult> results;
@@ -68,7 +69,7 @@ void ScentSystem::TryCreateTrackScent(const ScentInit& init, std::vector<Overlap
 				continue;
 
 			Entity scent = Entity(results[i].entityId);
-			if (scent.GetComponentNoCheck<Scent>()->type == init.type
+			if (scent.GetComponentNoCheck<Scent>()->type == init->type
 				&& results[i].distance < closest)
 			{
 				overlap = true;
@@ -78,7 +79,6 @@ void ScentSystem::TryCreateTrackScent(const ScentInit& init, std::vector<Overlap
 		}
 
 		//Reset closest overlapping scent's timer
-
 	}
 
 	if (overlap)
@@ -88,11 +88,14 @@ void ScentSystem::TryCreateTrackScent(const ScentInit& init, std::vector<Overlap
 	else
 	{
 		//Create a new scent
-		CreateTrackScent(init);
+		if (m_showScent)
+			init->draw = true;
+
+		Systems::Get<GameManager>()->CreateEntity(init);
 	}
 }
 void ScentSystem::DebugShowScent(bool show)
-{
+{	
 	//Show/Hide scent
 	if (!show && m_showScent)
 	{
@@ -113,27 +116,6 @@ void ScentSystem::DebugShowScent(bool show)
 	m_showScent = show;
 }
 
-void ScentSystem::CreateTrackScent(const ScentInit& init)
-{
-	Entity entity = Entity::Create();
-
-	auto transform = entity.AddComponent<Transform>();
-	transform->SetPosition(init.position.x, init.position.y, 100);
-	transform->SetScale(trackSettings.radius * 2);
-	Scent* scent = entity.AddComponent<Scent>();
-	scent->timeRemaining = trackSettings.time;
-	scent->poiDistance = init.poiDistance;
-	scent->type = init.type;
-
-	auto body = entity.AddComponent<StaticBody>(init.position, Physics::GetLayerMask("Scent"));
-	body->AddCollider(makesptr<Circle2D>(trackSettings.radius));
-
-	if (m_showScent)
-	{
-		AddScentRenderer(entity, scent->type);
-	}
-}
-
 Vec4f ScentSystem::ScentDebugColor(Scent::Type type)
 {
 	switch (type)
@@ -151,5 +133,4 @@ inline void ScentSystem::AddScentRenderer(Entity scent, Scent::Type type)
 	auto render = scent.AddComponent<SpriteRender>();
 	render->SetSprite(Assets::Get<Sprite>("Circle.png_0_0").Ptr());
 	render->color = ScentDebugColor(type);
-	//render->SetLayer(Renderer2D::GetLayerId("Terrain"));
 }

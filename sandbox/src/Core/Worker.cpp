@@ -49,6 +49,7 @@ namespace Sandbox
 
 	bool WorkerThread::HaveTask()
 	{
+		std::unique_lock waiterLock(m_waiterMutex);
 		return m_haveTask;
 	}
 

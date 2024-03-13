@@ -9,5 +9,8 @@ and interpolation in update
 
 -scent
 -getcomponentnocheck faster
+-log in multiple thread can lead to app block?!
 
->
+13
+
+>small entities (transform parameters transfered from scent to colonist)

@@ -2,6 +2,7 @@
 
 #include "Sandbox/Core/Vec.h"
 #include "Sandbox/ECS/EntityId.h"
+#include "Init.h"
 
 using namespace Sandbox;
 
@@ -13,8 +14,9 @@ enum ColonistState : int
 	Interacting
 };
 
-struct ColonistInit
+struct ColonistInit : public Init
 {
+	void CreateEntity() override;
 	Vec2f position = 0;
 };
 
@@ -36,11 +38,11 @@ struct ColonistPhysics
 	Vec2f prevPosition = 0;
 	Vec2f nextPosition = 0;
 	float interpolationTime = 0;
+	float interpolationTimer = 0;
 
 	//Scent
 	float distanceFromLastScentDrop = 0;
 	EntityId lastFollowedScent = EntityId(0);
-	bool scentDropper = true;
 
 	//Queued for deletion
 	bool dead = false;

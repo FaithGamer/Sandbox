@@ -1,281 +1,275 @@
-[2024-03-12 22:02:39.390] [SANDBOX] [info] physics update time: 0.341103
-[2024-03-12 22:02:39.744] [SANDBOX] [info] physics update time: 0.340950
-[2024-03-12 22:02:39.785] [SANDBOX] [info] Scent Count: 6006
-[2024-03-12 22:02:40.094] [SANDBOX] [info] physics update time: 0.339537
-[2024-03-12 22:02:40.449] [SANDBOX] [info] physics update time: 0.341247
-[2024-03-12 22:02:40.801] [SANDBOX] [info] physics update time: 0.343787
-[2024-03-12 22:02:40.809] [SANDBOX] [info] Scent Count: 6108
-[2024-03-12 22:02:41.148] [SANDBOX] [info] physics update time: 0.339033
-[2024-03-12 22:02:41.502] [SANDBOX] [info] physics update time: 0.340451
-[2024-03-12 22:02:41.836] [SANDBOX] [info] Scent Count: 6181
-[2024-03-12 22:02:41.856] [SANDBOX] [info] physics update time: 0.341846
-[2024-03-12 22:02:42.208] [SANDBOX] [info] physics update time: 0.340615
-[2024-03-12 22:02:42.562] [SANDBOX] [info] physics update time: 0.341355
-[2024-03-12 22:02:42.862] [SANDBOX] [info] Scent Count: 6186
-[2024-03-12 22:02:42.916] [SANDBOX] [info] physics update time: 0.344195
-[2024-03-12 22:02:43.269] [SANDBOX] [info] physics update time: 0.344711
-[2024-03-12 22:02:43.615] [SANDBOX] [info] physics update time: 0.341405
-[2024-03-12 22:02:43.884] [SANDBOX] [info] Scent Count: 6281
-[2024-03-12 22:02:43.985] [SANDBOX] [info] physics update time: 0.359677
-[2024-03-12 22:02:44.355] [SANDBOX] [info] physics update time: 0.344372
-[2024-03-12 22:02:44.707] [SANDBOX] [info] physics update time: 0.343155
-[2024-03-12 22:02:44.908] [SANDBOX] [info] Scent Count: 6375
-[2024-03-12 22:02:45.077] [SANDBOX] [info] physics update time: 0.361352
-[2024-03-12 22:02:45.453] [SANDBOX] [info] physics update time: 0.351335
-[2024-03-12 22:02:45.847] [SANDBOX] [info] physics update time: 0.362258
-[2024-03-12 22:02:45.930] [SANDBOX] [info] Scent Count: 6389
-[2024-03-12 22:02:46.229] [SANDBOX] [info] physics update time: 0.360679
-[2024-03-12 22:02:46.607] [SANDBOX] [info] physics update time: 0.354908
-[2024-03-12 22:02:46.955] [SANDBOX] [info] Scent Count: 6463
-[2024-03-12 22:02:46.980] [SANDBOX] [info] physics update time: 0.344977
-[2024-03-12 22:02:47.329] [SANDBOX] [info] physics update time: 0.342010
-[2024-03-12 22:02:47.686] [SANDBOX] [info] physics update time: 0.344790
-[2024-03-12 22:02:47.981] [SANDBOX] [info] Scent Count: 6539
-[2024-03-12 22:02:48.034] [SANDBOX] [info] physics update time: 0.343518
-[2024-03-12 22:02:48.386] [SANDBOX] [info] physics update time: 0.342567
-[2024-03-12 22:02:48.743] [SANDBOX] [info] physics update time: 0.344955
-[2024-03-12 22:02:49.005] [SANDBOX] [info] Scent Count: 6607
-[2024-03-12 22:02:49.092] [SANDBOX] [info] physics update time: 0.344371
-[2024-03-12 22:02:49.441] [SANDBOX] [info] physics update time: 0.341254
-[2024-03-12 22:02:49.793] [SANDBOX] [info] physics update time: 0.342573
-[2024-03-12 22:02:50.029] [SANDBOX] [info] Scent Count: 6643
-[2024-03-12 22:02:50.145] [SANDBOX] [info] physics update time: 0.341937
-[2024-03-12 22:02:50.498] [SANDBOX] [info] physics update time: 0.341857
-[2024-03-12 22:02:50.854] [SANDBOX] [info] physics update time: 0.346546
-[2024-03-12 22:02:51.052] [SANDBOX] [info] Scent Count: 6720
-[2024-03-12 22:02:51.201] [SANDBOX] [info] physics update time: 0.342890
-[2024-03-12 22:02:51.554] [SANDBOX] [info] physics update time: 0.342130
-[2024-03-12 22:02:51.905] [SANDBOX] [info] physics update time: 0.340377
-[2024-03-12 22:02:52.075] [SANDBOX] [info] Scent Count: 6781
-[2024-03-12 22:02:52.254] [SANDBOX] [info] physics update time: 0.338603
-[2024-03-12 22:02:52.605] [SANDBOX] [info] physics update time: 0.337788
-[2024-03-12 22:02:52.959] [SANDBOX] [info] physics update time: 0.338184
-[2024-03-12 22:02:53.102] [SANDBOX] [info] Scent Count: 6816
-[2024-03-12 22:02:53.310] [SANDBOX] [info] physics update time: 0.338774
-[2024-03-12 22:02:53.664] [SANDBOX] [info] physics update time: 0.338544
-[2024-03-12 22:02:54.014] [SANDBOX] [info] physics update time: 0.338529
-[2024-03-12 22:02:54.124] [SANDBOX] [info] Scent Count: 6834
-[2024-03-12 22:02:54.364] [SANDBOX] [info] physics update time: 0.336449
-[2024-03-12 22:02:54.717] [SANDBOX] [info] physics update time: 0.337279
-[2024-03-12 22:02:55.070] [SANDBOX] [info] physics update time: 0.338019
-[2024-03-12 22:02:55.148] [SANDBOX] [info] Scent Count: 6900
-[2024-03-12 22:02:55.425] [SANDBOX] [info] physics update time: 0.340124
-[2024-03-12 22:02:55.775] [SANDBOX] [info] physics update time: 0.338008
-[2024-03-12 22:02:56.127] [SANDBOX] [info] physics update time: 0.339273
-[2024-03-12 22:02:56.173] [SANDBOX] [info] Scent Count: 6979
-[2024-03-12 22:02:56.480] [SANDBOX] [info] physics update time: 0.337750
-[2024-03-12 22:02:56.831] [SANDBOX] [info] physics update time: 0.336318
-[2024-03-12 22:02:57.181] [SANDBOX] [info] physics update time: 0.336234
-[2024-03-12 22:02:57.196] [SANDBOX] [info] Scent Count: 6979
-[2024-03-12 22:02:57.534] [SANDBOX] [info] physics update time: 0.337473
-[2024-03-12 22:02:57.886] [SANDBOX] [info] physics update time: 0.337551
-[2024-03-12 22:02:58.221] [SANDBOX] [info] Scent Count: 7036
-[2024-03-12 22:02:58.237] [SANDBOX] [info] physics update time: 0.336384
-[2024-03-12 22:02:58.590] [SANDBOX] [info] physics update time: 0.337151
-[2024-03-12 22:02:58.943] [SANDBOX] [info] physics update time: 0.336982
-[2024-03-12 22:02:59.245] [SANDBOX] [info] Scent Count: 7096
-[2024-03-12 22:02:59.291] [SANDBOX] [info] physics update time: 0.335141
-[2024-03-12 22:02:59.646] [SANDBOX] [info] physics update time: 0.335627
-[2024-03-12 22:02:59.997] [SANDBOX] [info] physics update time: 0.335326
-[2024-03-12 22:03:00.271] [SANDBOX] [info] Scent Count: 7165
-[2024-03-12 22:03:00.348] [SANDBOX] [info] physics update time: 0.335602
-[2024-03-12 22:03:00.704] [SANDBOX] [info] physics update time: 0.337124
-[2024-03-12 22:03:01.058] [SANDBOX] [info] physics update time: 0.339212
-[2024-03-12 22:03:01.293] [SANDBOX] [info] Scent Count: 7172
-[2024-03-12 22:03:01.405] [SANDBOX] [info] physics update time: 0.334601
-[2024-03-12 22:03:01.757] [SANDBOX] [info] physics update time: 0.336264
-[2024-03-12 22:03:02.112] [SANDBOX] [info] physics update time: 0.336417
-[2024-03-12 22:03:02.318] [SANDBOX] [info] Scent Count: 7212
-[2024-03-12 22:03:02.461] [SANDBOX] [info] physics update time: 0.335493
-[2024-03-12 22:03:02.813] [SANDBOX] [info] physics update time: 0.333535
-[2024-03-12 22:03:03.163] [SANDBOX] [info] physics update time: 0.333664
-[2024-03-12 22:03:03.341] [SANDBOX] [info] Scent Count: 7257
-[2024-03-12 22:03:03.515] [SANDBOX] [info] physics update time: 0.333801
-[2024-03-12 22:03:03.868] [SANDBOX] [info] physics update time: 0.334323
-[2024-03-12 22:03:04.219] [SANDBOX] [info] physics update time: 0.331499
-[2024-03-12 22:03:04.367] [SANDBOX] [info] Scent Count: 7302
-[2024-03-12 22:03:04.572] [SANDBOX] [info] physics update time: 0.334816
-[2024-03-12 22:03:04.923] [SANDBOX] [info] physics update time: 0.332387
-[2024-03-12 22:03:05.273] [SANDBOX] [info] physics update time: 0.331535
-[2024-03-12 22:03:05.391] [SANDBOX] [info] Scent Count: 7326
-[2024-03-12 22:03:05.625] [SANDBOX] [info] physics update time: 0.330989
-[2024-03-12 22:03:05.980] [SANDBOX] [info] physics update time: 0.331985
-[2024-03-12 22:03:06.330] [SANDBOX] [info] physics update time: 0.332207
-[2024-03-12 22:03:06.415] [SANDBOX] [info] Scent Count: 7413
-[2024-03-12 22:03:06.680] [SANDBOX] [info] physics update time: 0.328888
-[2024-03-12 22:03:07.030] [SANDBOX] [info] physics update time: 0.328576
-[2024-03-12 22:03:07.385] [SANDBOX] [info] physics update time: 0.328945
-[2024-03-12 22:03:07.438] [SANDBOX] [info] Scent Count: 7506
-[2024-03-12 22:03:07.737] [SANDBOX] [info] physics update time: 0.328880
-[2024-03-12 22:03:08.086] [SANDBOX] [info] physics update time: 0.328426
-[2024-03-12 22:03:08.437] [SANDBOX] [info] physics update time: 0.327153
-[2024-03-12 22:03:08.462] [SANDBOX] [info] Scent Count: 7452
-[2024-03-12 22:03:08.790] [SANDBOX] [info] physics update time: 0.328180
-[2024-03-12 22:03:09.142] [SANDBOX] [info] physics update time: 0.326784
-[2024-03-12 22:03:09.487] [SANDBOX] [info] Scent Count: 7502
-[2024-03-12 22:03:09.494] [SANDBOX] [info] physics update time: 0.325218
-[2024-03-12 22:03:09.843] [SANDBOX] [info] physics update time: 0.323439
-[2024-03-12 22:03:10.196] [SANDBOX] [info] physics update time: 0.326107
-[2024-03-12 22:03:10.511] [SANDBOX] [info] Scent Count: 7557
-[2024-03-12 22:03:10.553] [SANDBOX] [info] physics update time: 0.328617
-[2024-03-12 22:03:10.910] [SANDBOX] [info] physics update time: 0.330696
-[2024-03-12 22:03:11.252] [SANDBOX] [info] physics update time: 0.324952
-[2024-03-12 22:03:11.538] [SANDBOX] [info] Scent Count: 7618
-[2024-03-12 22:03:11.607] [SANDBOX] [info] physics update time: 0.328026
-[2024-03-12 22:03:11.962] [SANDBOX] [info] physics update time: 0.328340
-[2024-03-12 22:03:12.310] [SANDBOX] [info] physics update time: 0.327033
-[2024-03-12 22:03:12.561] [SANDBOX] [info] Scent Count: 7581
-[2024-03-12 22:03:12.662] [SANDBOX] [info] physics update time: 0.325771
-[2024-03-12 22:03:13.015] [SANDBOX] [info] physics update time: 0.327584
-[2024-03-12 22:03:13.366] [SANDBOX] [info] physics update time: 0.325497
-[2024-03-12 22:03:13.584] [SANDBOX] [info] Scent Count: 7615
-[2024-03-12 22:03:13.716] [SANDBOX] [info] physics update time: 0.325760
-[2024-03-12 22:03:14.068] [SANDBOX] [info] physics update time: 0.324260
-[2024-03-12 22:03:14.418] [SANDBOX] [info] physics update time: 0.322749
-[2024-03-12 22:03:14.608] [SANDBOX] [info] Scent Count: 7672
-[2024-03-12 22:03:14.773] [SANDBOX] [info] physics update time: 0.324500
-[2024-03-12 22:03:15.123] [SANDBOX] [info] physics update time: 0.322314
-[2024-03-12 22:03:15.475] [SANDBOX] [info] physics update time: 0.321987
-[2024-03-12 22:03:15.631] [SANDBOX] [info] Scent Count: 7669
-[2024-03-12 22:03:15.826] [SANDBOX] [info] physics update time: 0.321677
-[2024-03-12 22:03:16.184] [SANDBOX] [info] physics update time: 0.326525
-[2024-03-12 22:03:16.531] [SANDBOX] [info] physics update time: 0.322217
-[2024-03-12 22:03:16.657] [SANDBOX] [info] Scent Count: 7656
-[2024-03-12 22:03:16.879] [SANDBOX] [info] physics update time: 0.319211
-[2024-03-12 22:03:17.201] [SANDBOX] [info] physics update time: 0.320609
-[2024-03-12 22:03:17.523] [SANDBOX] [info] physics update time: 0.321409
-[2024-03-12 22:03:17.683] [SANDBOX] [info] Scent Count: 7718
-[2024-03-12 22:03:17.879] [SANDBOX] [info] physics update time: 0.325346
-[2024-03-12 22:03:18.227] [SANDBOX] [info] physics update time: 0.321667
-[2024-03-12 22:03:18.580] [SANDBOX] [info] physics update time: 0.323547
-[2024-03-12 22:03:18.705] [SANDBOX] [info] Scent Count: 7822
-[2024-03-12 22:03:18.935] [SANDBOX] [info] physics update time: 0.326896
-[2024-03-12 22:03:19.295] [SANDBOX] [info] physics update time: 0.334083
-[2024-03-12 22:03:19.631] [SANDBOX] [info] physics update time: 0.319555
-[2024-03-12 22:03:19.728] [SANDBOX] [info] Scent Count: 7745
-[2024-03-12 22:03:19.985] [SANDBOX] [info] physics update time: 0.320868
-[2024-03-12 22:03:20.338] [SANDBOX] [info] physics update time: 0.320709
-[2024-03-12 22:03:20.691] [SANDBOX] [info] physics update time: 0.320781
-[2024-03-12 22:03:20.753] [SANDBOX] [info] Scent Count: 7782
-[2024-03-12 22:03:21.039] [SANDBOX] [info] physics update time: 0.318975
-[2024-03-12 22:03:21.361] [SANDBOX] [info] physics update time: 0.318866
-[2024-03-12 22:03:21.681] [SANDBOX] [info] physics update time: 0.318899
-[2024-03-12 22:03:21.777] [SANDBOX] [info] Scent Count: 7859
-[2024-03-12 22:03:22.000] [SANDBOX] [info] physics update time: 0.317878
-[2024-03-12 22:03:22.318] [SANDBOX] [info] physics update time: 0.317167
-[2024-03-12 22:03:22.638] [SANDBOX] [info] physics update time: 0.316758
-[2024-03-12 22:03:22.801] [SANDBOX] [info] Scent Count: 7960
-[2024-03-12 22:03:22.960] [SANDBOX] [info] physics update time: 0.318378
-[2024-03-12 22:03:23.312] [SANDBOX] [info] physics update time: 0.318173
-[2024-03-12 22:03:23.629] [SANDBOX] [info] physics update time: 0.316789
-[2024-03-12 22:03:23.826] [SANDBOX] [info] Scent Count: 7941
-[2024-03-12 22:03:23.951] [SANDBOX] [info] physics update time: 0.317948
-[2024-03-12 22:03:24.272] [SANDBOX] [info] physics update time: 0.317578
-[2024-03-12 22:03:24.591] [SANDBOX] [info] physics update time: 0.317605
-[2024-03-12 22:03:24.851] [SANDBOX] [info] Scent Count: 7936
-[2024-03-12 22:03:24.911] [SANDBOX] [info] physics update time: 0.318000
-[2024-03-12 22:03:25.234] [SANDBOX] [info] physics update time: 0.317649
-[2024-03-12 22:03:25.583] [SANDBOX] [info] physics update time: 0.318641
-[2024-03-12 22:03:25.874] [SANDBOX] [info] Scent Count: 8038
-[2024-03-12 22:03:25.902] [SANDBOX] [info] physics update time: 0.316969
-[2024-03-12 22:03:26.223] [SANDBOX] [info] physics update time: 0.318391
-[2024-03-12 22:03:26.544] [SANDBOX] [info] physics update time: 0.318370
-[2024-03-12 22:03:26.865] [SANDBOX] [info] physics update time: 0.318813
-[2024-03-12 22:03:26.898] [SANDBOX] [info] Scent Count: 8139
-[2024-03-12 22:03:27.219] [SANDBOX] [info] physics update time: 0.320710
-[2024-03-12 22:03:27.573] [SANDBOX] [info] physics update time: 0.321538
-[2024-03-12 22:03:27.921] [SANDBOX] [info] Scent Count: 8148
-[2024-03-12 22:03:27.923] [SANDBOX] [info] physics update time: 0.320769
-[2024-03-12 22:03:28.274] [SANDBOX] [info] physics update time: 0.320599
-[2024-03-12 22:03:28.627] [SANDBOX] [info] physics update time: 0.320416
-[2024-03-12 22:03:28.946] [SANDBOX] [info] Scent Count: 8089
-[2024-03-12 22:03:28.980] [SANDBOX] [info] physics update time: 0.322043
-[2024-03-12 22:03:29.332] [SANDBOX] [info] physics update time: 0.320809
-[2024-03-12 22:03:29.687] [SANDBOX] [info] physics update time: 0.325252
-[2024-03-12 22:03:29.970] [SANDBOX] [info] Scent Count: 8221
-[2024-03-12 22:03:30.038] [SANDBOX] [info] physics update time: 0.323012
-[2024-03-12 22:03:30.389] [SANDBOX] [info] physics update time: 0.321476
-[2024-03-12 22:03:30.740] [SANDBOX] [info] physics update time: 0.320417
-[2024-03-12 22:03:30.994] [SANDBOX] [info] Scent Count: 8259
-[2024-03-12 22:03:31.091] [SANDBOX] [info] physics update time: 0.320220
-[2024-03-12 22:03:31.445] [SANDBOX] [info] physics update time: 0.321459
-[2024-03-12 22:03:31.795] [SANDBOX] [info] physics update time: 0.320697
-[2024-03-12 22:03:32.019] [SANDBOX] [info] Scent Count: 8250
-[2024-03-12 22:03:32.123] [SANDBOX] [info] physics update time: 0.328423
-[2024-03-12 22:03:32.470] [SANDBOX] [info] physics update time: 0.322316
-[2024-03-12 22:03:32.823] [SANDBOX] [info] physics update time: 0.324962
-[2024-03-12 22:03:33.042] [SANDBOX] [info] Scent Count: 8261
-[2024-03-12 22:03:33.175] [SANDBOX] [info] physics update time: 0.323279
-[2024-03-12 22:03:33.525] [SANDBOX] [info] physics update time: 0.323142
-[2024-03-12 22:03:33.879] [SANDBOX] [info] physics update time: 0.324337
-[2024-03-12 22:03:34.067] [SANDBOX] [info] Scent Count: 8401
-[2024-03-12 22:03:34.232] [SANDBOX] [info] physics update time: 0.324633
-[2024-03-12 22:03:34.582] [SANDBOX] [info] physics update time: 0.322349
-[2024-03-12 22:03:34.935] [SANDBOX] [info] physics update time: 0.323511
-[2024-03-12 22:03:35.092] [SANDBOX] [info] Scent Count: 8413
-[2024-03-12 22:03:35.285] [SANDBOX] [info] physics update time: 0.323066
-[2024-03-12 22:03:35.639] [SANDBOX] [info] physics update time: 0.322929
-[2024-03-12 22:03:35.991] [SANDBOX] [info] physics update time: 0.323419
-[2024-03-12 22:03:36.114] [SANDBOX] [info] Scent Count: 8350
-[2024-03-12 22:03:36.342] [SANDBOX] [info] physics update time: 0.322489
-[2024-03-12 22:03:36.693] [SANDBOX] [info] physics update time: 0.323107
-[2024-03-12 22:03:37.047] [SANDBOX] [info] physics update time: 0.324203
-[2024-03-12 22:03:37.139] [SANDBOX] [info] Scent Count: 8414
-[2024-03-12 22:03:37.401] [SANDBOX] [info] physics update time: 0.324538
-[2024-03-12 22:03:37.753] [SANDBOX] [info] physics update time: 0.324500
-[2024-03-12 22:03:38.104] [SANDBOX] [info] physics update time: 0.324324
-[2024-03-12 22:03:38.165] [SANDBOX] [info] Scent Count: 8511
-[2024-03-12 22:03:38.455] [SANDBOX] [info] physics update time: 0.323821
-[2024-03-12 22:03:38.809] [SANDBOX] [info] physics update time: 0.324550
-[2024-03-12 22:03:39.159] [SANDBOX] [info] physics update time: 0.323148
-[2024-03-12 22:03:39.189] [SANDBOX] [info] Scent Count: 8495
-[2024-03-12 22:03:39.513] [SANDBOX] [info] physics update time: 0.323369
-[2024-03-12 22:03:39.865] [SANDBOX] [info] physics update time: 0.324041
-[2024-03-12 22:03:40.213] [SANDBOX] [info] Scent Count: 8415
-[2024-03-12 22:03:40.218] [SANDBOX] [info] physics update time: 0.324546
-[2024-03-12 22:03:40.568] [SANDBOX] [info] physics update time: 0.324740
-[2024-03-12 22:03:40.921] [SANDBOX] [info] physics update time: 0.324021
-[2024-03-12 22:03:41.238] [SANDBOX] [info] Scent Count: 8530
-[2024-03-12 22:03:41.272] [SANDBOX] [info] physics update time: 0.324173
-[2024-03-12 22:03:41.624] [SANDBOX] [info] physics update time: 0.323427
-[2024-03-12 22:03:41.977] [SANDBOX] [info] physics update time: 0.322844
-[2024-03-12 22:03:42.260] [SANDBOX] [info] Scent Count: 8609
-[2024-03-12 22:03:42.327] [SANDBOX] [info] physics update time: 0.323214
-[2024-03-12 22:03:42.680] [SANDBOX] [info] physics update time: 0.323639
-[2024-03-12 22:03:43.035] [SANDBOX] [info] physics update time: 0.323566
-[2024-03-12 22:03:43.284] [SANDBOX] [info] Scent Count: 8563
-[2024-03-12 22:03:43.384] [SANDBOX] [info] physics update time: 0.323890
-[2024-03-12 22:03:43.736] [SANDBOX] [info] physics update time: 0.323583
-[2024-03-12 22:03:44.091] [SANDBOX] [info] physics update time: 0.326080
-[2024-03-12 22:03:44.309] [SANDBOX] [info] Scent Count: 8501
-[2024-03-12 22:03:44.442] [SANDBOX] [info] physics update time: 0.323545
-[2024-03-12 22:03:44.795] [SANDBOX] [info] physics update time: 0.324933
-[2024-03-12 22:03:45.145] [SANDBOX] [info] physics update time: 0.322314
-[2024-03-12 22:03:45.334] [SANDBOX] [info] Scent Count: 8582
-[2024-03-12 22:03:45.497] [SANDBOX] [info] physics update time: 0.323030
-[2024-03-12 22:03:45.848] [SANDBOX] [info] physics update time: 0.323479
-[2024-03-12 22:03:46.199] [SANDBOX] [info] physics update time: 0.322658
-[2024-03-12 22:03:46.356] [SANDBOX] [info] Scent Count: 8676
-[2024-03-12 22:03:46.553] [SANDBOX] [info] physics update time: 0.324561
-[2024-03-12 22:03:46.904] [SANDBOX] [info] physics update time: 0.323603
-[2024-03-12 22:03:47.258] [SANDBOX] [info] physics update time: 0.323396
-[2024-03-12 22:03:47.382] [SANDBOX] [info] Scent Count: 8627
-[2024-03-12 22:03:47.610] [SANDBOX] [info] physics update time: 0.324605
-[2024-03-12 22:03:47.961] [SANDBOX] [info] physics update time: 0.322093
-[2024-03-12 22:03:48.312] [SANDBOX] [info] physics update time: 0.322374
-[2024-03-12 22:03:48.406] [SANDBOX] [info] Scent Count: 8620
-[2024-03-12 22:03:48.665] [SANDBOX] [info] physics update time: 0.322883
-[2024-03-12 22:03:49.018] [SANDBOX] [info] physics update time: 0.325091
-[2024-03-12 22:03:49.373] [SANDBOX] [info] physics update time: 0.326681
-[2024-03-12 22:03:49.429] [SANDBOX] [info] Scent Count: 8687
-[2024-03-12 22:03:49.716] [SANDBOX] [info] physics update time: 0.319867
-[2024-03-12 22:03:50.041] [SANDBOX] [info] physics update time: 0.322502
-[2024-03-12 22:03:50.391] [SANDBOX] [info] physics update time: 0.321098
-[2024-03-12 22:03:50.455] [SANDBOX] [info] Scent Count: 8784
-[2024-03-12 22:03:50.744] [SANDBOX] [info] physics update time: 0.322754
-[2024-03-12 22:03:51.102] [SANDBOX] [info] physics update time: 0.327490
-[2024-03-12 22:03:51.457] [SANDBOX] [info] physics update time: 0.332681
-[2024-03-12 22:03:51.478] [SANDBOX] [info] Scent Count: 8653
-[2024-03-12 22:03:51.802] [SANDBOX] [info] physics update time: 0.323811
-[2024-03-12 22:03:52.152] [SANDBOX] [info] physics update time: 0.321797
-[2024-03-12 22:03:52.501] [SANDBOX] [info] Scent Count: 8681
+[2024-03-13 12:12:08.133] [SANDBOX] [info] thread accumulator: 0.029905
+[2024-03-13 12:12:08.163] [SANDBOX] [info] thread accumulator: 0.029866
+[2024-03-13 12:12:08.193] [SANDBOX] [info] thread accumulator: 0.030453
+[2024-03-13 12:12:08.223] [SANDBOX] [info] thread accumulator: 0.029692
+[2024-03-13 12:12:08.254] [SANDBOX] [info] thread accumulator: 0.030373
+[2024-03-13 12:12:08.284] [SANDBOX] [info] thread accumulator: 0.029890
+[2024-03-13 12:12:08.314] [SANDBOX] [info] thread accumulator: 0.030174
+[2024-03-13 12:12:08.343] [SANDBOX] [info] thread accumulator: 0.029627
+[2024-03-13 12:12:08.373] [SANDBOX] [info] thread accumulator: 0.029842
+[2024-03-13 12:12:08.404] [SANDBOX] [info] thread accumulator: 0.030298
+[2024-03-13 12:12:08.433] [SANDBOX] [info] thread accumulator: 0.029957
+[2024-03-13 12:12:08.463] [SANDBOX] [info] thread accumulator: 0.029836
+[2024-03-13 12:12:08.493] [SANDBOX] [info] thread accumulator: 0.030132
+[2024-03-13 12:12:08.524] [SANDBOX] [info] thread accumulator: 0.029863
+[2024-03-13 12:12:08.554] [SANDBOX] [info] thread accumulator: 0.030067
+[2024-03-13 12:12:08.584] [SANDBOX] [info] thread accumulator: 0.029861
+[2024-03-13 12:12:08.614] [SANDBOX] [info] thread accumulator: 0.030568
+[2024-03-13 12:12:08.644] [SANDBOX] [info] thread accumulator: 0.029895
+[2024-03-13 12:12:08.674] [SANDBOX] [info] thread accumulator: 0.029693
+[2024-03-13 12:12:08.705] [SANDBOX] [info] thread accumulator: 0.030350
+[2024-03-13 12:12:08.734] [SANDBOX] [info] thread accumulator: 0.029693
+[2024-03-13 12:12:08.764] [SANDBOX] [info] thread accumulator: 0.030160
+[2024-03-13 12:12:08.794] [SANDBOX] [info] thread accumulator: 0.029790
+[2024-03-13 12:12:08.824] [SANDBOX] [info] thread accumulator: 0.030033
+[2024-03-13 12:12:08.834] [SANDBOX] [info] Scent Count: 4969
+[2024-03-13 12:12:08.855] [SANDBOX] [info] thread accumulator: 0.029867
+[2024-03-13 12:12:08.884] [SANDBOX] [info] thread accumulator: 0.030481
+[2024-03-13 12:12:08.914] [SANDBOX] [info] thread accumulator: 0.029741
+[2024-03-13 12:12:08.944] [SANDBOX] [info] thread accumulator: 0.030194
+[2024-03-13 12:12:08.974] [SANDBOX] [info] thread accumulator: 0.029937
+[2024-03-13 12:12:09.005] [SANDBOX] [info] thread accumulator: 0.029934
+[2024-03-13 12:12:09.034] [SANDBOX] [info] thread accumulator: 0.029574
+[2024-03-13 12:12:09.064] [SANDBOX] [info] thread accumulator: 0.030302
+[2024-03-13 12:12:09.094] [SANDBOX] [info] thread accumulator: 0.030064
+[2024-03-13 12:12:09.124] [SANDBOX] [info] thread accumulator: 0.030018
+[2024-03-13 12:12:09.155] [SANDBOX] [info] thread accumulator: 0.029728
+[2024-03-13 12:12:09.184] [SANDBOX] [info] thread accumulator: 0.030239
+[2024-03-13 12:12:09.215] [SANDBOX] [info] thread accumulator: 0.030149
+[2024-03-13 12:12:09.244] [SANDBOX] [info] thread accumulator: 0.029706
+[2024-03-13 12:12:09.274] [SANDBOX] [info] thread accumulator: 0.029762
+[2024-03-13 12:12:09.305] [SANDBOX] [info] thread accumulator: 0.030471
+[2024-03-13 12:12:09.334] [SANDBOX] [info] thread accumulator: 0.029832
+[2024-03-13 12:12:09.364] [SANDBOX] [info] thread accumulator: 0.029963
+[2024-03-13 12:12:09.394] [SANDBOX] [info] thread accumulator: 0.029820
+[2024-03-13 12:12:09.424] [SANDBOX] [info] thread accumulator: 0.030341
+[2024-03-13 12:12:09.455] [SANDBOX] [info] thread accumulator: 0.030116
+[2024-03-13 12:12:09.484] [SANDBOX] [info] thread accumulator: 0.029859
+[2024-03-13 12:12:09.514] [SANDBOX] [info] thread accumulator: 0.029375
+[2024-03-13 12:12:09.544] [SANDBOX] [info] thread accumulator: 0.030414
+[2024-03-13 12:12:09.575] [SANDBOX] [info] thread accumulator: 0.030214
+[2024-03-13 12:12:09.605] [SANDBOX] [info] thread accumulator: 0.029741
+[2024-03-13 12:12:09.634] [SANDBOX] [info] thread accumulator: 0.030122
+[2024-03-13 12:12:09.665] [SANDBOX] [info] thread accumulator: 0.030269
+[2024-03-13 12:12:09.695] [SANDBOX] [info] thread accumulator: 0.030069
+[2024-03-13 12:12:09.725] [SANDBOX] [info] thread accumulator: 0.029345
+[2024-03-13 12:12:09.756] [SANDBOX] [info] thread accumulator: 0.030693
+[2024-03-13 12:12:09.785] [SANDBOX] [info] thread accumulator: 0.029990
+[2024-03-13 12:12:09.815] [SANDBOX] [info] thread accumulator: 0.029932
+[2024-03-13 12:12:09.845] [SANDBOX] [info] Scent Count: 4916
+[2024-03-13 12:12:09.845] [SANDBOX] [info] thread accumulator: 0.029887
+[2024-03-13 12:12:09.875] [SANDBOX] [info] thread accumulator: 0.030124
+[2024-03-13 12:12:09.906] [SANDBOX] [info] thread accumulator: 0.030035
+[2024-03-13 12:12:09.935] [SANDBOX] [info] thread accumulator: 0.029567
+[2024-03-13 12:12:09.965] [SANDBOX] [info] thread accumulator: 0.030093
+[2024-03-13 12:12:09.995] [SANDBOX] [info] thread accumulator: 0.030021
+[2024-03-13 12:12:10.025] [SANDBOX] [info] thread accumulator: 0.030056
+[2024-03-13 12:12:10.056] [SANDBOX] [info] thread accumulator: 0.029985
+[2024-03-13 12:12:10.085] [SANDBOX] [info] thread accumulator: 0.029734
+[2024-03-13 12:12:10.115] [SANDBOX] [info] thread accumulator: 0.030419
+[2024-03-13 12:12:10.145] [SANDBOX] [info] thread accumulator: 0.029846
+[2024-03-13 12:12:10.175] [SANDBOX] [info] thread accumulator: 0.030222
+[2024-03-13 12:12:10.206] [SANDBOX] [info] thread accumulator: 0.029636
+[2024-03-13 12:12:10.235] [SANDBOX] [info] thread accumulator: 0.030164
+[2024-03-13 12:12:10.265] [SANDBOX] [info] thread accumulator: 0.030065
+[2024-03-13 12:12:10.296] [SANDBOX] [info] thread accumulator: 0.030150
+[2024-03-13 12:12:10.325] [SANDBOX] [info] thread accumulator: 0.029698
+[2024-03-13 12:12:10.356] [SANDBOX] [info] thread accumulator: 0.030004
+[2024-03-13 12:12:10.385] [SANDBOX] [info] thread accumulator: 0.029938
+[2024-03-13 12:12:10.415] [SANDBOX] [info] thread accumulator: 0.030180
+[2024-03-13 12:12:10.445] [SANDBOX] [info] thread accumulator: 0.029869
+[2024-03-13 12:12:10.475] [SANDBOX] [info] thread accumulator: 0.029825
+[2024-03-13 12:12:10.506] [SANDBOX] [info] thread accumulator: 0.030247
+[2024-03-13 12:12:10.535] [SANDBOX] [info] thread accumulator: 0.029959
+[2024-03-13 12:12:10.565] [SANDBOX] [info] thread accumulator: 0.030046
+[2024-03-13 12:12:10.595] [SANDBOX] [info] thread accumulator: 0.029788
+[2024-03-13 12:12:10.626] [SANDBOX] [info] thread accumulator: 0.030405
+[2024-03-13 12:12:10.656] [SANDBOX] [info] thread accumulator: 0.029494
+[2024-03-13 12:12:10.685] [SANDBOX] [info] thread accumulator: 0.030020
+[2024-03-13 12:12:10.716] [SANDBOX] [info] thread accumulator: 0.030515
+[2024-03-13 12:12:10.746] [SANDBOX] [info] thread accumulator: 0.030057
+[2024-03-13 12:12:10.776] [SANDBOX] [info] thread accumulator: 0.029736
+[2024-03-13 12:12:10.807] [SANDBOX] [info] thread accumulator: 0.030015
+[2024-03-13 12:12:10.835] [SANDBOX] [info] thread accumulator: 0.029807
+[2024-03-13 12:12:10.856] [SANDBOX] [info] Scent Count: 4922
+[2024-03-13 12:12:10.866] [SANDBOX] [info] thread accumulator: 0.030110
+[2024-03-13 12:12:10.896] [SANDBOX] [info] thread accumulator: 0.030162
+[2024-03-13 12:12:10.926] [SANDBOX] [info] thread accumulator: 0.029891
+[2024-03-13 12:12:10.957] [SANDBOX] [info] thread accumulator: 0.030248
+[2024-03-13 12:12:10.986] [SANDBOX] [info] thread accumulator: 0.029922
+[2024-03-13 12:12:11.016] [SANDBOX] [info] thread accumulator: 0.030043
+[2024-03-13 12:12:11.046] [SANDBOX] [info] thread accumulator: 0.029595
+[2024-03-13 12:12:11.076] [SANDBOX] [info] thread accumulator: 0.030336
+[2024-03-13 12:12:11.107] [SANDBOX] [info] thread accumulator: 0.029829
+[2024-03-13 12:12:11.136] [SANDBOX] [info] thread accumulator: 0.029929
+[2024-03-13 12:12:11.166] [SANDBOX] [info] thread accumulator: 0.030315
+[2024-03-13 12:12:11.196] [SANDBOX] [info] thread accumulator: 0.029594
+[2024-03-13 12:12:11.226] [SANDBOX] [info] thread accumulator: 0.030132
+[2024-03-13 12:12:11.257] [SANDBOX] [info] thread accumulator: 0.030126
+[2024-03-13 12:12:11.286] [SANDBOX] [info] thread accumulator: 0.029714
+[2024-03-13 12:12:11.316] [SANDBOX] [info] thread accumulator: 0.030300
+[2024-03-13 12:12:11.346] [SANDBOX] [info] thread accumulator: 0.030133
+[2024-03-13 12:12:11.376] [SANDBOX] [info] thread accumulator: 0.029769
+[2024-03-13 12:12:11.407] [SANDBOX] [info] thread accumulator: 0.030274
+[2024-03-13 12:12:11.436] [SANDBOX] [info] thread accumulator: 0.029520
+[2024-03-13 12:12:11.466] [SANDBOX] [info] thread accumulator: 0.029935
+[2024-03-13 12:12:11.496] [SANDBOX] [info] thread accumulator: 0.030316
+[2024-03-13 12:12:11.526] [SANDBOX] [info] thread accumulator: 0.030073
+[2024-03-13 12:12:11.557] [SANDBOX] [info] thread accumulator: 0.029871
+[2024-03-13 12:12:11.586] [SANDBOX] [info] thread accumulator: 0.029985
+[2024-03-13 12:12:11.616] [SANDBOX] [info] thread accumulator: 0.030205
+[2024-03-13 12:12:11.646] [SANDBOX] [info] thread accumulator: 0.029594
+[2024-03-13 12:12:11.677] [SANDBOX] [info] thread accumulator: 0.030300
+[2024-03-13 12:12:11.708] [SANDBOX] [info] thread accumulator: 0.030187
+[2024-03-13 12:12:11.736] [SANDBOX] [info] thread accumulator: 0.029711
+[2024-03-13 12:12:11.766] [SANDBOX] [info] thread accumulator: 0.029967
+[2024-03-13 12:12:11.796] [SANDBOX] [info] thread accumulator: 0.029900
+[2024-03-13 12:12:11.826] [SANDBOX] [info] thread accumulator: 0.030071
+[2024-03-13 12:12:11.857] [SANDBOX] [info] thread accumulator: 0.030040
+[2024-03-13 12:12:11.866] [SANDBOX] [info] Scent Count: 4901
+[2024-03-13 12:12:11.886] [SANDBOX] [info] thread accumulator: 0.029825
+[2024-03-13 12:12:11.916] [SANDBOX] [info] thread accumulator: 0.030185
+[2024-03-13 12:12:11.946] [SANDBOX] [info] thread accumulator: 0.029967
+[2024-03-13 12:12:11.976] [SANDBOX] [info] thread accumulator: 0.029863
+[2024-03-13 12:12:12.007] [SANDBOX] [info] thread accumulator: 0.030259
+[2024-03-13 12:12:12.036] [SANDBOX] [info] thread accumulator: 0.029809
+[2024-03-13 12:12:12.067] [SANDBOX] [info] thread accumulator: 0.030306
+[2024-03-13 12:12:12.097] [SANDBOX] [info] thread accumulator: 0.029851
+[2024-03-13 12:12:12.126] [SANDBOX] [info] thread accumulator: 0.029783
+[2024-03-13 12:12:12.158] [SANDBOX] [info] thread accumulator: 0.030339
+[2024-03-13 12:12:12.187] [SANDBOX] [info] thread accumulator: 0.030038
+[2024-03-13 12:12:12.217] [SANDBOX] [info] thread accumulator: 0.029958
+[2024-03-13 12:12:12.247] [SANDBOX] [info] thread accumulator: 0.030003
+[2024-03-13 12:12:12.277] [SANDBOX] [info] thread accumulator: 0.029701
+[2024-03-13 12:12:12.308] [SANDBOX] [info] thread accumulator: 0.030367
+[2024-03-13 12:12:12.337] [SANDBOX] [info] thread accumulator: 0.029976
+[2024-03-13 12:12:12.367] [SANDBOX] [info] thread accumulator: 0.029646
+[2024-03-13 12:12:12.397] [SANDBOX] [info] thread accumulator: 0.030349
+[2024-03-13 12:12:12.427] [SANDBOX] [info] thread accumulator: 0.029602
+[2024-03-13 12:12:12.458] [SANDBOX] [info] thread accumulator: 0.029829
+[2024-03-13 12:12:12.487] [SANDBOX] [info] thread accumulator: 0.030575
+[2024-03-13 12:12:12.517] [SANDBOX] [info] thread accumulator: 0.029700
+[2024-03-13 12:12:12.547] [SANDBOX] [info] thread accumulator: 0.029994
+[2024-03-13 12:12:12.577] [SANDBOX] [info] thread accumulator: 0.029755
+[2024-03-13 12:12:12.608] [SANDBOX] [info] thread accumulator: 0.030406
+[2024-03-13 12:12:12.637] [SANDBOX] [info] thread accumulator: 0.029842
+[2024-03-13 12:12:12.667] [SANDBOX] [info] thread accumulator: 0.029971
+[2024-03-13 12:12:12.697] [SANDBOX] [info] thread accumulator: 0.030348
+[2024-03-13 12:12:12.727] [SANDBOX] [info] thread accumulator: 0.029579
+[2024-03-13 12:12:12.758] [SANDBOX] [info] thread accumulator: 0.029919
+[2024-03-13 12:12:12.787] [SANDBOX] [info] thread accumulator: 0.029845
+[2024-03-13 12:12:12.817] [SANDBOX] [info] thread accumulator: 0.030278
+[2024-03-13 12:12:12.847] [SANDBOX] [info] thread accumulator: 0.030121
+[2024-03-13 12:12:12.877] [SANDBOX] [info] Scent Count: 4897
+[2024-03-13 12:12:12.877] [SANDBOX] [info] thread accumulator: 0.029858
+[2024-03-13 12:12:12.908] [SANDBOX] [info] thread accumulator: 0.030287
+[2024-03-13 12:12:12.937] [SANDBOX] [info] thread accumulator: 0.029797
+[2024-03-13 12:12:12.967] [SANDBOX] [info] thread accumulator: 0.030315
+[2024-03-13 12:12:12.997] [SANDBOX] [info] thread accumulator: 0.029716
+[2024-03-13 12:12:13.027] [SANDBOX] [info] thread accumulator: 0.029917
+[2024-03-13 12:12:13.058] [SANDBOX] [info] thread accumulator: 0.030105
+[2024-03-13 12:12:13.087] [SANDBOX] [info] thread accumulator: 0.029895
+[2024-03-13 12:12:13.118] [SANDBOX] [info] thread accumulator: 0.030246
+[2024-03-13 12:12:13.147] [SANDBOX] [info] thread accumulator: 0.029687
+[2024-03-13 12:12:13.177] [SANDBOX] [info] thread accumulator: 0.030010
+[2024-03-13 12:12:13.208] [SANDBOX] [info] thread accumulator: 0.030093
+[2024-03-13 12:12:13.238] [SANDBOX] [info] thread accumulator: 0.030212
+[2024-03-13 12:12:13.268] [SANDBOX] [info] thread accumulator: 0.030067
+[2024-03-13 12:12:13.297] [SANDBOX] [info] thread accumulator: 0.029876
+[2024-03-13 12:12:13.327] [SANDBOX] [info] thread accumulator: 0.029792
+[2024-03-13 12:12:13.359] [SANDBOX] [info] thread accumulator: 0.030303
+[2024-03-13 12:12:13.388] [SANDBOX] [info] thread accumulator: 0.029975
+[2024-03-13 12:12:13.418] [SANDBOX] [info] thread accumulator: 0.029844
+[2024-03-13 12:12:13.448] [SANDBOX] [info] thread accumulator: 0.030119
+[2024-03-13 12:12:13.478] [SANDBOX] [info] thread accumulator: 0.029835
+[2024-03-13 12:12:13.508] [SANDBOX] [info] thread accumulator: 0.029593
+[2024-03-13 12:12:13.537] [SANDBOX] [info] thread accumulator: 0.030071
+[2024-03-13 12:12:13.568] [SANDBOX] [info] thread accumulator: 0.030508
+[2024-03-13 12:12:13.598] [SANDBOX] [info] thread accumulator: 0.029824
+[2024-03-13 12:12:13.628] [SANDBOX] [info] thread accumulator: 0.029971
+[2024-03-13 12:12:13.658] [SANDBOX] [info] thread accumulator: 0.029693
+[2024-03-13 12:12:13.688] [SANDBOX] [info] thread accumulator: 0.030208
+[2024-03-13 12:12:13.718] [SANDBOX] [info] thread accumulator: 0.029915
+[2024-03-13 12:12:13.748] [SANDBOX] [info] thread accumulator: 0.029983
+[2024-03-13 12:12:13.778] [SANDBOX] [info] thread accumulator: 0.030108
+[2024-03-13 12:12:13.809] [SANDBOX] [info] thread accumulator: 0.030311
+[2024-03-13 12:12:13.838] [SANDBOX] [info] thread accumulator: 0.030058
+[2024-03-13 12:12:13.868] [SANDBOX] [info] thread accumulator: 0.029837
+[2024-03-13 12:12:13.888] [SANDBOX] [info] Scent Count: 4889
+[2024-03-13 12:12:13.898] [SANDBOX] [info] thread accumulator: 0.030159
+[2024-03-13 12:12:13.928] [SANDBOX] [info] thread accumulator: 0.029772
+[2024-03-13 12:12:13.959] [SANDBOX] [info] thread accumulator: 0.029763
+[2024-03-13 12:12:13.988] [SANDBOX] [info] thread accumulator: 0.030486
+[2024-03-13 12:12:14.018] [SANDBOX] [info] thread accumulator: 0.029633
+[2024-03-13 12:12:14.048] [SANDBOX] [info] thread accumulator: 0.030116
+[2024-03-13 12:12:14.078] [SANDBOX] [info] thread accumulator: 0.030102
+[2024-03-13 12:12:14.109] [SANDBOX] [info] thread accumulator: 0.030023
+[2024-03-13 12:12:14.138] [SANDBOX] [info] thread accumulator: 0.029884
+[2024-03-13 12:12:14.168] [SANDBOX] [info] thread accumulator: 0.029983
+[2024-03-13 12:12:14.198] [SANDBOX] [info] thread accumulator: 0.029883
+[2024-03-13 12:12:14.228] [SANDBOX] [info] thread accumulator: 0.030124
+[2024-03-13 12:12:14.259] [SANDBOX] [info] thread accumulator: 0.029937
+[2024-03-13 12:12:14.288] [SANDBOX] [info] thread accumulator: 0.029959
+[2024-03-13 12:12:14.318] [SANDBOX] [info] thread accumulator: 0.030100
+[2024-03-13 12:12:14.349] [SANDBOX] [info] thread accumulator: 0.030125
+[2024-03-13 12:12:14.378] [SANDBOX] [info] thread accumulator: 0.029856
+[2024-03-13 12:12:14.409] [SANDBOX] [info] thread accumulator: 0.030234
+[2024-03-13 12:12:14.438] [SANDBOX] [info] thread accumulator: 0.029789
+[2024-03-13 12:12:14.468] [SANDBOX] [info] thread accumulator: 0.029875
+[2024-03-13 12:12:14.499] [SANDBOX] [info] thread accumulator: 0.030366
+[2024-03-13 12:12:14.528] [SANDBOX] [info] thread accumulator: 0.029591
+[2024-03-13 12:12:14.559] [SANDBOX] [info] thread accumulator: 0.029950
+[2024-03-13 12:12:14.588] [SANDBOX] [info] thread accumulator: 0.030019
+[2024-03-13 12:12:14.619] [SANDBOX] [info] thread accumulator: 0.030428
+[2024-03-13 12:12:14.649] [SANDBOX] [info] thread accumulator: 0.029961
+[2024-03-13 12:12:14.678] [SANDBOX] [info] thread accumulator: 0.029400
+[2024-03-13 12:12:14.710] [SANDBOX] [info] thread accumulator: 0.030647
+[2024-03-13 12:12:14.739] [SANDBOX] [info] thread accumulator: 0.030007
+[2024-03-13 12:12:14.768] [SANDBOX] [info] thread accumulator: 0.029419
+[2024-03-13 12:12:14.799] [SANDBOX] [info] thread accumulator: 0.030345
+[2024-03-13 12:12:14.829] [SANDBOX] [info] thread accumulator: 0.029933
+[2024-03-13 12:12:14.860] [SANDBOX] [info] thread accumulator: 0.030228
+[2024-03-13 12:12:14.889] [SANDBOX] [info] thread accumulator: 0.029992
+[2024-03-13 12:12:14.899] [SANDBOX] [info] Scent Count: 4903
+[2024-03-13 12:12:14.919] [SANDBOX] [info] thread accumulator: 0.029997
+[2024-03-13 12:12:14.949] [SANDBOX] [info] thread accumulator: 0.030049
+[2024-03-13 12:12:14.979] [SANDBOX] [info] thread accumulator: 0.029572
+[2024-03-13 12:12:15.010] [SANDBOX] [info] thread accumulator: 0.030332
+[2024-03-13 12:12:15.039] [SANDBOX] [info] thread accumulator: 0.030052
+[2024-03-13 12:12:15.069] [SANDBOX] [info] thread accumulator: 0.029908
+[2024-03-13 12:12:15.099] [SANDBOX] [info] thread accumulator: 0.029732
+[2024-03-13 12:12:15.129] [SANDBOX] [info] thread accumulator: 0.029828
+[2024-03-13 12:12:15.160] [SANDBOX] [info] thread accumulator: 0.030451
+[2024-03-13 12:12:15.189] [SANDBOX] [info] thread accumulator: 0.029832
+[2024-03-13 12:12:15.219] [SANDBOX] [info] thread accumulator: 0.029992
+[2024-03-13 12:12:15.249] [SANDBOX] [info] thread accumulator: 0.030014
+[2024-03-13 12:12:15.279] [SANDBOX] [info] thread accumulator: 0.030244
+[2024-03-13 12:12:15.310] [SANDBOX] [info] thread accumulator: 0.029855
+[2024-03-13 12:12:15.339] [SANDBOX] [info] thread accumulator: 0.029924
+[2024-03-13 12:12:15.369] [SANDBOX] [info] thread accumulator: 0.029870
+[2024-03-13 12:12:15.399] [SANDBOX] [info] thread accumulator: 0.029908
+[2024-03-13 12:12:15.429] [SANDBOX] [info] thread accumulator: 0.030393
+[2024-03-13 12:12:15.460] [SANDBOX] [info] thread accumulator: 0.029821
+[2024-03-13 12:12:15.489] [SANDBOX] [info] thread accumulator: 0.030074
+[2024-03-13 12:12:15.519] [SANDBOX] [info] thread accumulator: 0.029941
+[2024-03-13 12:12:15.549] [SANDBOX] [info] thread accumulator: 0.029803
+[2024-03-13 12:12:15.579] [SANDBOX] [info] thread accumulator: 0.030120
+[2024-03-13 12:12:15.610] [SANDBOX] [info] thread accumulator: 0.029942
+[2024-03-13 12:12:15.639] [SANDBOX] [info] thread accumulator: 0.029738
+[2024-03-13 12:12:15.669] [SANDBOX] [info] thread accumulator: 0.030297
+[2024-03-13 12:12:15.699] [SANDBOX] [info] thread accumulator: 0.029942
+[2024-03-13 12:12:15.730] [SANDBOX] [info] thread accumulator: 0.030260
+[2024-03-13 12:12:15.760] [SANDBOX] [info] thread accumulator: 0.029833
+[2024-03-13 12:12:15.789] [SANDBOX] [info] thread accumulator: 0.029673
+[2024-03-13 12:12:15.820] [SANDBOX] [info] thread accumulator: 0.030536
+[2024-03-13 12:12:15.849] [SANDBOX] [info] thread accumulator: 0.029583
+[2024-03-13 12:12:15.880] [SANDBOX] [info] thread accumulator: 0.030405
+[2024-03-13 12:12:15.910] [SANDBOX] [info] Scent Count: 4934
+[2024-03-13 12:12:15.911] [SANDBOX] [info] thread accumulator: 0.029917
+[2024-03-13 12:12:15.940] [SANDBOX] [info] thread accumulator: 0.030109
+[2024-03-13 12:12:15.969] [SANDBOX] [info] thread accumulator: 0.029399
+[2024-03-13 12:12:15.999] [SANDBOX] [info] thread accumulator: 0.030193
+[2024-03-13 12:12:16.029] [SANDBOX] [info] thread accumulator: 0.029743
+[2024-03-13 12:12:16.060] [SANDBOX] [info] thread accumulator: 0.030219
+[2024-03-13 12:12:16.090] [SANDBOX] [info] thread accumulator: 0.030097
+[2024-03-13 12:12:16.120] [SANDBOX] [info] thread accumulator: 0.030263

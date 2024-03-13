@@ -5,7 +5,6 @@
 
 ColonistSystem::ColonistSystem()
 {
-
 	ListenAddComponent<ColonistPhysics>(&ColonistSystem::OnAddColonistPhysics);
 	ListenAddComponent<ColonistBrain>(&ColonistSystem::OnAddColonistBrain);
 
@@ -15,46 +14,65 @@ ColonistSystem::ColonistSystem()
 
 void ColonistSystem::OnStart()
 {
-	Delegate<void> aiUpdate(&ColonistSystem::AIUpdate, this);
-	Delegate<void> physicsUpdate(&ColonistSystem::PhysicsUpdate, this);
-	m_aiTask = makesptr<Task<void>>(aiUpdate);
-	m_physicsTask = makesptr<Task<void>>(physicsUpdate);
-
-	m_aiThread.QueueTask(m_aiTask);
-	m_aiThread.StartThread();
-	m_physicsThread.StartThread();
 	m_scentSystem = Systems::Get<ScentSystem>();
+	m_gameManager = Systems::Get<GameManager>();
+	m_gameManager->threadSyncSignal.AddListener(&ColonistSystem::OnSyncThread, this);
 }
 
 void ColonistSystem::OnUpdate(Time delta)
 {
+	EntityId deletechance = EntityId(0);
 	//Interpolate colonist position
-	ForeachComponents<ColonistPhysics, Transform>([&](ColonistPhysics& physics, Transform& transform)
+	ForeachEntities<ColonistPhysics, Transform>([&](Entity& entity, ColonistPhysics& physics, Transform& transform)
 		{
 			if (physics.dead)
 				return;
 
-			physics.interpolationTime = Math::Max(0.f, physics.interpolationTime - (float)delta);
-			float t = 1 - physics.interpolationTime / (float)Time::FixedDelta();
+			physics.interpolationTimer = Math::Max(0.f, physics.interpolationTimer - (float)delta);
+			float t = Math::Clamp01(1 - physics.interpolationTimer / physics.interpolationTime);
 			Vec3f position = Math::Lerp(physics.prevPosition, physics.nextPosition, t);
 			transform.SetPosition(position);
 
+
+
+			/*if (Random::Range(0.f, 1.f) > 0.98f)
+			{
+				m_gameManager->DestroyEntity(entity);
+			}*/
+			deletechance = entity.GetId();
+
 		});
+
+	/*if (Random::Range(0.f, 1.f) > 0.9f)
+	{
+		auto init = makesptr<ColonistInit>();
+		init->position = Vec2f(Random::Range(-25.f, 25.f), Random::Range(-10.f, 10.f));
+		m_gameManager->CreateEntity(init);
+	}*/
+
+	/*if (Random::Range(0.f, 1.f) > 0.93f && deletechance != EntityId(0))
+	{
+		//m_gameManager->DestroyEntity(Entity(deletechance));
+	}
+
+	if (Random::Range(0.f, 1.f) > 0.01f)
+	{
+		auto pos = Vec2f(Random::Range(-25.f, 25.f), Random::Range(-10.f, 10.f));
+		auto init = makesptr <ScentInit>();
+		init->type = Scent::Type::Food;
+		init->position = pos;
+		init->poiDistance = 0;
+		m_gameManager->CreateEntity(init);
+	}*/
+
+
+	
 }
 
 void ColonistSystem::OnFixedUpdate(Time delta)
 {
 
-	//Every physics queries happens here
-	if (!m_physicsThread.HaveTask() && !m_aiThread.HaveTask())
-	{
-		//This is the time to delete and create new colonists
-		SyncPoint();
 
-		//Then keep the threads running, one task at a time.
-		m_physicsThread.QueueTask(m_physicsTask);
-		m_aiThread.QueueTask(m_aiTask);
-	}
 }
 
 int ColonistSystem::GetUsedMethod()
@@ -69,6 +87,7 @@ void ColonistSystem::OnAddColonistPhysics(ComponentSignal signal)
 	physics->currentAngle = Random::Range(0.f, 360.f);
 	physics->nextPosition = entity.GetComponent<Transform>()->GetPosition();
 	physics->prevPosition = entity.GetComponent<Transform>()->GetPosition();
+	physics->interpolationTime = 1;
 }
 
 void ColonistSystem::OnAddColonistBrain(ComponentSignal signal)
@@ -76,16 +95,25 @@ void ColonistSystem::OnAddColonistBrain(ComponentSignal signal)
 	//Initialize colonist brain
 }
 
-void ColonistSystem::AIUpdate()
+void ColonistSystem::OnSyncThread(ThreadSyncSignal signal)
+{
+	//Create tasks for thread
+	auto aiDelegate = Delegate<void, float>(&ColonistSystem::AIUpdate, this, signal.delta);
+	auto physicsDelegate = Delegate<void, float>(&ColonistSystem::PhysicsUpdate, this, signal.delta);
+	m_gameManager->QueueAITask(makesptr<Task<void, float>>(aiDelegate));
+	m_gameManager->QueuePhysicsTask(makesptr<Task<void, float>>(physicsDelegate));
+}
+
+void ColonistSystem::AIUpdate(float delta)
 {
 
 	ForeachComponents <ColonistBrain, ColonistPhysics>([&](ColonistBrain& brain, ColonistPhysics& physics)
 		{
-			Steering(physics, brain);
+			Steering(physics, brain, delta);
 		});
 }
 
-void ColonistSystem::PhysicsUpdate()
+void ColonistSystem::PhysicsUpdate(float delta)
 {
 	Clock clock;
 	Bitmask wallMask = Physics::GetLayerMask("Walls");
@@ -93,30 +121,29 @@ void ColonistSystem::PhysicsUpdate()
 	float hitboxRadius = 0.2f;
 	float margin = 0.01f;
 
-
-	ForeachComponents<ColonistPhysics, Transform>([&](ColonistPhysics& physics, Transform& transform)
+	ForeachComponents<ColonistPhysics>([&](ColonistPhysics& physics)
 		{
 			if (physics.dead)
 				return;
 
 			//Colonist movement and collisions
-			MoveAndCollide(physics, transform, wallMask, (float)Time::FixedDelta(), margin, hitboxRadius);
+			MoveAndCollide(physics, wallMask, delta, margin, hitboxRadius);
 
 			//Scent detection
 			std::vector<OverlapResult> overlaps;
-			Physics::CircleOverlap(overlaps, transform.GetPosition(), settings.sensorRadius, scentMask);
+			Physics::CircleOverlap(overlaps, physics.prevPosition, settings.sensorRadius, scentMask);
 			Vec2f sensorPosition = physics.nextPosition;
 
 			//Every scent in a radius around the colonist
 			for (int i = 0; i < overlaps.size(); i++)
 			{
 				Entity scentEntity = Entity(overlaps[i].entityId);
-				auto scent = scentEntity.GetComponent<Scent>();
+				auto scent = scentEntity.GetComponentNoCheck<Scent>();
 
 				//Check if scent is interesting
 				if (ScentMatch(physics.state, scent->type))
 				{
-					auto scentTransform = scentEntity.GetComponent<Transform>();
+					auto scentTransform = scentEntity.GetComponentNoCheck<Transform>();
 					Vec2f sensorDirection = (Vec2f)scentTransform->GetPosition() - sensorPosition;
 
 					//Check if scent is within the cone of detection
@@ -137,52 +164,21 @@ void ColonistSystem::PhysicsUpdate()
 			}
 
 			//Scent dropping
-			if (true || physics.scentDropper)
+			physics.distanceFromLastScentDrop += physics.prevPosition.Distance(physics.nextPosition);
+			if (physics.distanceFromLastScentDrop >= settings.scentDistance)
 			{
-				physics.distanceFromLastScentDrop += physics.prevPosition.Distance(physics.nextPosition);
-				if (physics.distanceFromLastScentDrop >= settings.scentDistance)
-				{
-					ScentInit scent(Scent::Type::Food, physics.prevPosition, 0);
-					m_scentSystem->TryCreateTrackScent(scent, overlaps);
-					physics.distanceFromLastScentDrop = 0;
-				}
+				auto scent = makesptr<ScentInit>();
+				scent->position = physics.prevPosition;
+				m_scentSystem->TryCreateTrackScent(scent, overlaps);
+				physics.distanceFromLastScentDrop = 0;
 			}
-
-
 		});
-	LOG_INFO("physics update time: " + std::to_string(clock.GetElapsed()));
+	
 }
 
-void ColonistSystem::DestroyColonist(Entity colonist)
-{
-	colonist.GetComponent<ColonistPhysics>()->dead = true;
-	//to do: I'm pretty sure we can safely delete SpriteRenderer
-	m_destroy.emplace_back(colonist);
-}
 
-void ColonistSystem::CreateColonist(const ColonistInit& init)
+void ColonistSystem::Steering(ColonistPhysics& physics, ColonistBrain& brain, float delta)
 {
-	m_create.emplace_back(init);
-}
-
-void ColonistSystem::SyncPoint()
-{
-	for (int i = 0; i < m_destroy.size(); i++)
-	{
-		m_destroy[i].Destroy();
-	}
-	for (int i = 0; i < m_create.size(); i++)
-	{
-		InstanceColonist(m_create[i]);
-	}
-	m_destroy.clear();
-	m_create.clear();
-}
-
-void ColonistSystem::Steering(ColonistPhysics& physics, ColonistBrain& brain)
-{
-	float delta = (float)Time::FixedDelta();
-
 	//Wandering direction
 	brain.wanderTimer += delta;
 	if (brain.wanderTimer > brain.nextWanderTime)
@@ -191,7 +187,7 @@ void ColonistSystem::Steering(ColonistPhysics& physics, ColonistBrain& brain)
 		brain.wanderDirection = Random::Range(-1.f, 1.f);
 		brain.nextWanderTime = Random::Range(settings.wanderTimeMin, settings.wanderTimeMax);
 	}
-	
+
 	//Computing target angle (currently wander direction)
 	float targetAngle = physics.currentAngle;
 
@@ -205,14 +201,14 @@ void ColonistSystem::Steering(ColonistPhysics& physics, ColonistBrain& brain)
 
 void ColonistSystem::MoveAndCollide(
 	ColonistPhysics& physics,
-	Transform& transform,
 	const Bitmask wallMask,
 	const float delta,
 	const float margin,
 	const float hitboxRadius)
 {
 	//Move, collide and reflect velocity
-	Vec2f position = (Vec2f)transform.GetPosition();
+	physics.prevPosition = physics.nextPosition;
+	auto position = physics.prevPosition;
 	Vec2f direction = Math::AngleToVec(physics.currentAngle);
 
 	//Acceleration
@@ -239,9 +235,10 @@ void ColonistSystem::MoveAndCollide(
 		physics.velocity = physics.speed * direction;
 	}
 
-	physics.prevPosition = physics.nextPosition;
+	
 	physics.nextPosition = offset + position;
 	physics.interpolationTime = (float)delta;
+	physics.interpolationTimer = (float)delta;
 }
 
 bool ColonistSystem::ScentMatch(ColonistState state, Scent::Type scentType) const
@@ -254,23 +251,5 @@ bool ColonistSystem::ScentMatch(ColonistState state, Scent::Type scentType) cons
 		return scentType == Scent::Type::Shelter;
 	}
 	return false;
-}
-
-void ColonistSystem::InstanceColonist(const ColonistInit& init)
-{
-	//Create entity
-	Entity colonist = Entity::Create();
-	colonist.AddComponent<Transform>()->SetPosition(init.position);
-
-	//Create render 
-	SpriteRender* render = colonist.AddComponent<SpriteRender>();
-	render->SetSprite(Assets::Get<Sprite>("Colonists.png_0_2").Ptr()); //todo, optimize by having Prefab as a class and holding on the assets it needs
-	//render->SetLayer(Renderer2D::GetLayerId("Map"));
-	//Colonist components
-	colonist.AddComponent<ColonistBrain>();
-	colonist.AddComponent<ColonistPhysics>()->scentDropper = Random::Range(0.f, 1.f) >= 0.9f;
-
-	//Sprite render ordering
-	colonist.AddComponent<ZisY>();
 }
 
