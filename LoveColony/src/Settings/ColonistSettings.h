@@ -22,6 +22,7 @@ struct ColonistSettings : public Serializable
 	float wanderTimeMax;
 
 	//Scent
+	float sensorDistance;
 	float sensorRadius;
 	float sensorAngle;
 	float scentDistance;

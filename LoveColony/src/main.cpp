@@ -22,6 +22,7 @@ int main(int argv, char** argc)
 	Physics::AddLayer("Colonist");
 	Physics::AddLayer("Scent");
 	Physics::AddLayer("Walls");
+	Physics::AddLayer("POI");
 
 	//Physics::DrawColliders(true);
 

@@ -132,7 +132,9 @@ void ColonistSystem::PhysicsUpdate(float delta)
 			//Scent detection
 			std::vector<OverlapResult> overlaps;
 			Physics::CircleOverlap(overlaps, physics.prevPosition, settings.sensorRadius, scentMask);
-			Vec2f sensorPosition = physics.nextPosition;
+			Vec2f sensorPosition = physics.prevPosition 
+				+ Vec2f(Math::AngleToVec(physics.currentAngle)).Normalized()
+				* settings.sensorDistance;
 
 			//Every scent in a radius around the colonist
 			for (int i = 0; i < overlaps.size(); i++)

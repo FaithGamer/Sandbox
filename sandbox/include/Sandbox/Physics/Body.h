@@ -19,6 +19,7 @@ namespace Sandbox
 		Vec2f normal = 0;
 		float distance = 0;
 		bool hit = false;
+		Bitmask layer;
 
 		operator bool()
 		{
@@ -30,6 +31,7 @@ namespace Sandbox
 	{
 		EntityId entityId;
 		float distance;
+		Bitmask layer;
 	};
 
 	struct CollisionLayer

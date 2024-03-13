@@ -16,3 +16,11 @@ void POISystem::OnRemoveShelter(ComponentSignal signal)
 void POISystem::OnRemoveFood(ComponentSignal signal)
 {
 }
+
+void POISystem::InteractShelter(, ColonistBrain& brain, ColonistPhysics& physics)
+{
+}
+
+void POISystem::InteractFood(Food& shelter, ColonistBrain& brain, ColonistPhysics& physics)
+{
+}

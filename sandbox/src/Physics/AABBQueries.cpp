@@ -18,7 +18,8 @@ namespace Sandbox
 	float QueryRaycastCallbackClosest::ReportFixture(b2Fixture* fixture, const b2Vec2& point, const b2Vec2& normal, float fraction)
 	{
 		//Fixture's body is not contained in the collision mask
-		if (!m_mask.Contains(fixture->GetFilterData().categoryBits))
+		uint16 layer = fixture->GetFilterData().categoryBits;
+		if (!m_mask.Contains(layer))
 			return 1.0f;
 
 		//UserData contains entity id of fixture's body's entity
@@ -30,6 +31,7 @@ namespace Sandbox
 		result->normal = normal;
 		result->distance = Math::Abs(Vec2f((Vec2f)point - m_start).Magnitude()) * fraction;
 		result->hit = true;
+		result->layer = layer;
 
 		return fraction;
 	}
@@ -48,7 +50,8 @@ namespace Sandbox
 	float QueryRaycastCallbackAll::ReportFixture(b2Fixture* fixture, const b2Vec2& point, const b2Vec2& normal, float fraction)
 	{
 		//Fixture's body is not contained in the collision mask
-		if (!m_mask.Contains(fixture->GetFilterData().categoryBits))
+		uint16 layer = fixture->GetFilterData().categoryBits;
+		if (!m_mask.Contains(layer))
 			return 1.0f;
 
 		//UserData contains entity id of fixture's body's entity
@@ -60,7 +63,8 @@ namespace Sandbox
 			point,
 			normal,
 			Math::Abs(Vec2f((Vec2f)point - m_start).Magnitude()) * fraction,
-			true
+			true,
+			Bitmask(layer)
 		);
 
 		results->emplace_back(result);
@@ -81,7 +85,8 @@ namespace Sandbox
 	bool QueryB2ShapeOverlapAll::ReportFixture(b2Fixture* fixture)
 	{
 		//Layer mask
-		if (!m_mask.Contains(fixture->GetFilterData().categoryBits))
+		uint16 layer = fixture->GetFilterData().categoryBits;
+		if (!m_mask.Contains(layer))
 			return true;
 
 		b2Transform identity(b2Vec2(0, 0), b2Rot(0));
@@ -95,7 +100,7 @@ namespace Sandbox
 		//User data in the fixture's body
 		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetUserData().pointer));
 
-		results->emplace_back(OverlapResult(data->entityId, distance));
+		results->emplace_back(OverlapResult(data->entityId, distance, Bitmask(layer)));
 
 		// Continue the query.
 		return true;
@@ -116,7 +121,8 @@ namespace Sandbox
 	bool QueryBodyOverlapAll::ReportFixture(b2Fixture* fixture)
 	{
 		//Layer mask
-		if (!m_mask.Contains(fixture->GetFilterData().categoryBits))
+		uint16 layer = fixture->GetFilterData().categoryBits;
+		if (!m_mask.Contains(layer))
 			return true;
 
 		auto colliders = m_body->GetColliders();
@@ -133,9 +139,10 @@ namespace Sandbox
 			return true;
 		//User data in the fixture's body
 		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetUserData().pointer));
+		float distance = Vec::Distance((Vec2f)m_body->GetB2Body()->GetTransform().p, (Vec2f)transform.p);
 
 		//to do add distance
-		results->emplace_back(OverlapResult(data->entityId));
+		results->emplace_back(OverlapResult(data->entityId, distance, layer));
 
 		// Continue the query.
 		return true;
@@ -155,7 +162,8 @@ namespace Sandbox
 	bool QueryPointInsideAll::ReportFixture(b2Fixture* fixture)
 	{
 		//Layer mask
-		if (!m_mask.Contains(fixture->GetFilterData().categoryBits))
+		uint16 layer = fixture->GetFilterData().categoryBits;
+		if (!m_mask.Contains(layer))
 			return true;
 		//Is point inside fixture
 		if (!fixture->TestPoint(m_point))

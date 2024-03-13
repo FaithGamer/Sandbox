@@ -8,6 +8,7 @@ ColonistSettings::ColonistSettings()
 	wanderPower(75.f),
 	wanderTimeMin(0.2f),
 	wanderTimeMax(2.f),
+	sensorDistance(0.2f),
 	sensorRadius(1.f),
 	sensorAngle(180.f),
 	scentDistance(0.5f)
