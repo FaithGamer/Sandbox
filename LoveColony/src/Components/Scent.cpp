@@ -11,10 +11,13 @@ void ScentInit::CreateEntity()
 	auto transform = entity.AddComponent<Transform>();
 	transform->SetPosition(position.x, position.y, 100);
 	transform->SetScale(sc->trackSettings.radius * 2);
+
 	Scent* scent = entity.AddComponent<Scent>();
 	scent->timeRemaining = sc->trackSettings.time;
 	scent->poiDistance = poiDistance;
 	scent->type = type;
+	scent->poi = poi;
+	scent->position = position;
 
 	auto body = entity.AddComponent<StaticBody>(position, Physics::GetLayerMask("Scent"));
 	body->AddCollider(makesptr<Circle2D>(sc->trackSettings.radius));

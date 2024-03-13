@@ -3,7 +3,7 @@
 
 ScentSettings::ScentSettings() :
 	radius(0.2f),
-	time(3.f),
+	time(15.f),
 	repulsive(false)
 	
 {

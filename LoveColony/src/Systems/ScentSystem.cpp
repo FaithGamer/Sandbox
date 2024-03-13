@@ -19,15 +19,18 @@ void ScentSystem::OnFixedUpdate(Time delta)
 		{
 			count++;
 			//Scent decay over time
-			scent.timeRemaining -= (float)delta;
-			if (scent.timeRemaining <= 0)
+			if (!scent.poi)
 			{
-				Systems::Get<GameManager>()->DestroyEntity(entity);
-				return;
+				scent.timeRemaining -= (float)delta;
+				if (scent.timeRemaining <= 0)
+				{
+					Systems::Get<GameManager>()->DestroyEntity(entity);
+					return;
+				}
 			}
 
 			//Debug color
-			if (!m_showScent)
+			if (!m_showScent || scent.poi)
 				return;
 
 			float opacity = scent.timeRemaining / trackSettings.time;
@@ -45,7 +48,7 @@ void ScentSystem::OnFixedUpdate(Time delta)
 
 }
 
-void ScentSystem::TryCreateTrackScent(sptr<ScentInit> init, std::vector<OverlapResult>& results)
+void ScentSystem::TryCreateTrackScent(sptr<ScentInit> init, const std::vector<OverlapResult>& results)
 {
 	//Check for overlapping scent
 	//std::vector<OverlapResult> results;
@@ -58,9 +61,7 @@ void ScentSystem::TryCreateTrackScent(sptr<ScentInit> init, std::vector<OverlapR
 	EntityId closestScent = EntityId(0);
 	if (!results.empty())
 	{
-
 		float closest = 99999.f;
-
 
 		//Closest overlapping scent of same type
 		for (int i = 0; i < results.size(); i++)
@@ -116,19 +117,19 @@ void ScentSystem::DebugShowScent(bool show)
 	m_showScent = show;
 }
 
-Vec4f ScentSystem::ScentDebugColor(Scent::Type type)
+Vec4f ScentSystem::ScentDebugColor(POIType type)
 {
 	switch (type)
 	{
-	case Scent::Type::Food:
+	case POIType::Food:
 		return Vec4f(0, 1, 0, 1);
-	case Scent::Type::Shelter:
-		return Vec4f(0, 1, 0, 1);
+	case POIType::Shelter:
+		return Vec4f(0, 0, 1, 1);
 	}
 	return Vec4f(1);
 }
 
-inline void ScentSystem::AddScentRenderer(Entity scent, Scent::Type type)
+inline void ScentSystem::AddScentRenderer(Entity scent, POIType type)
 {
 	auto render = scent.AddComponent<SpriteRender>();
 	render->SetSprite(Assets::Get<Sprite>("Circle.png_0_0").Ptr());

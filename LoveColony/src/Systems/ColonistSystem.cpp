@@ -44,6 +44,7 @@ void ColonistSystem::OnUpdate(Time delta)
 					physics.interactionTimer = 0.f;
 					auto result = m_poiSystem->InteractPOI(physics.interactingPOI, physics);
 					physics.state = result.colonistState;
+					physics.currentAngle = Math::MoveTowardsAngle(physics.currentAngle, physics.currentAngle + 180.f, 180.f);
 				}
 			}
 			else
@@ -152,59 +153,137 @@ void ColonistSystem::PhysicsUpdate(float delta)
 			//Colonist movement and collisions
 			MoveAndCollide(physics, wallMask, delta, margin, hitboxRadius);
 
-			//Scent detection
+			//Overlapping scent around (both for scent detection, and scent dropping)
 			std::vector<OverlapResult> overlaps;
 			Physics::CircleOverlap(overlaps, physics.prevPosition, settings.sensorRadius, scentMask);
-			Vec2f sensorPosition = physics.prevPosition
-				+ Vec2f(Math::AngleToVec(physics.currentAngle)).Normalized()
-				* settings.sensorDistance;
 
-			//Every scent in a radius around the colonist
-			for (int i = 0; i < overlaps.size(); i++)
-			{
-				Entity scentEntity = Entity(overlaps[i].entityId);
-				auto scent = scentEntity.GetComponentNoCheck<Scent>();
+			//Scent detection
+			FollowScent(physics, overlaps);
 
-				//Check if scent is interesting
-				if (ScentMatch(physics.state, scent->type))
-				{
-					auto scentTransform = scentEntity.GetComponentNoCheck<Transform>();
-					Vec2f sensorDirection = (Vec2f)scentTransform->GetPosition() - sensorPosition;
+			//Scent dropping 
+			DropScent(physics, overlaps);
 
-					//Check if scent is within the cone of detection
-					float angle = Math::Abs(physics.velocity.Normalized().Angle(sensorDirection.Normalized()));
-					if (angle < settings.sensorAngle / 2)
-					{
-						//Scent is followed
-						physics.lastFollowedScent = overlaps[i].entityId;
-
-						//Set the scent sprite white
-						auto sprite = scentEntity.GetComponent<SpriteRender>();
-						if (sprite != nullptr)
-						{
-							sprite->color = Vec4f(1);
-						}
-					}
-				}
-			}
-
-			//Scent dropping
-			physics.distanceFromLastScentDrop += physics.prevPosition.Distance(physics.nextPosition);
-			if (physics.distanceFromLastScentDrop >= settings.scentDistance)
-			{
-				auto scent = makesptr<ScentInit>();
-				scent->position = physics.prevPosition;
-				m_scentSystem->TryCreateTrackScent(scent, overlaps);
-				physics.distanceFromLastScentDrop = 0;
-			}
 		});
 
 }
 
+void ColonistSystem::FollowScent(ColonistPhysics& physics, const std::vector<OverlapResult>& overlaps)
+{
+	Vec2f sensorPosition = physics.prevPosition
+		+ Vec2f(Math::AngleToVec(physics.currentAngle)).Normalized()
+		* settings.sensorDistance;
+
+	Entity trackScent;
+	Entity poiScent;
+	float closest = 9999.f;
+
+	//Every scent in a radius around the colonist
+	for (int i = 0; i < overlaps.size(); i++)
+	{
+		Entity scentEntity = Entity(overlaps[i].entityId);
+		auto scent = scentEntity.GetComponentNoCheck<Scent>();
+
+		//Check if scent is interesting
+		if (POIMatch(physics.state, scent->type))
+		{
+			auto scentTransform = scentEntity.GetComponentNoCheck<Transform>();
+			Vec2f sensorDirection = (Vec2f)scentTransform->GetPosition() - sensorPosition;
+
+			//Check if scent is within the cone of detection
+			float angle = Math::Abs(physics.velocity.Normalized().Angle(sensorDirection.Normalized()));
+			if (angle < settings.sensorAngle / 2)
+			{
+				Entity scentt = Entity(overlaps[i].entityId);
+
+				auto scent = scentt.GetComponentNoCheck<Scent>();
+
+				if (scent->poi)
+				{
+					//Scent is poi
+					poiScent = scentt;
+				}
+				else if (scent->poiDistance < closest)
+				{
+					//Scent is track
+					trackScent = scentt;
+					closest = scent->poiDistance;
+				}
+			}
+		}
+	}
+
+	//Avoid any concurrent access to tracked scent
+	//And reduce contention to minimum
+	std::lock_guard lock(*physics.scentMutex);
+	physics.trackScent = trackScent;
+	physics.poiScent = poiScent;
+
+}
+
+void ColonistSystem::DropScent(ColonistPhysics& physics, const std::vector<OverlapResult>& overlaps)
+{
+	physics.distanceFromLastScentDrop += physics.prevPosition.Distance(physics.nextPosition);
+	if (physics.distanceFromLastScentDrop >= settings.scentDistance && physics.lastEncounteredPOI.Valid())
+	{
+		//Ensure the existence of the last visited POI
+		auto poi = physics.lastEncounteredPOI.GetComponent<POI>();
+		if (poi == nullptr)
+			return;
+
+		//Create scent
+		auto scent = makesptr<ScentInit>();
+		scent->poi = false;
+		scent->type = poi->type;
+		scent->position = physics.prevPosition;
+		scent->poiDistance = physics.poiDistance;
+		m_scentSystem->TryCreateTrackScent(scent, overlaps);
+		physics.distanceFromLastScentDrop = 0;
+	}
+}
 
 void ColonistSystem::Steering(ColonistPhysics& physics, ColonistBrain& brain, float delta)
 {
-	//Wandering direction
+
+	//Picking scent to follow
+	float scentAngle = 0;
+	float power = 0.f;
+	Scent* scent = nullptr;
+
+	//Reducing contention by working with copies.
+	//We are in the AI thread, the Physics thread take care of finding scents to follow.
+	Entity trackScent;
+	Entity poiScent;
+	std::unique_lock lock(*physics.scentMutex);
+	trackScent = physics.trackScent;
+	poiScent = physics.poiScent;
+	lock.unlock();
+
+	//Check if we have a scent to follow
+	if (poiScent.Valid())
+	{
+		//Priority to POI scent
+		scent = poiScent.GetComponent<Scent>();
+	}
+	else if (trackScent.Valid())
+	{
+		//Then track scent
+		scent = trackScent.GetComponent<Scent>();
+	}
+
+	if (scent != nullptr)
+	{
+		//We have a scent to follow, get it's angle relative to the colonist
+		scentAngle = Math::VecToAngle(scent->position - physics.prevPosition);
+		//Set the following power
+		power = 1.f;
+	}
+
+	//Computing target angle (current angle if no scent, scent angle otherwise)
+	//to do: simplify theses two lines with a simple condition
+	float diffAngle = Math::Abs(scentAngle - physics.currentAngle);
+	float targetAngle = Math::MoveTowardsAngle(physics.currentAngle, scentAngle, diffAngle * power);
+
+	//Adding some wandering
 	brain.wanderTimer += delta;
 	if (brain.wanderTimer > brain.nextWanderTime)
 	{
@@ -212,12 +291,8 @@ void ColonistSystem::Steering(ColonistPhysics& physics, ColonistBrain& brain, fl
 		brain.wanderDirection = Random::Range(-1.f, 1.f);
 		brain.nextWanderTime = Random::Range(settings.wanderTimeMin, settings.wanderTimeMax);
 	}
-
-	//Computing target angle (currently wander direction)
-	float targetAngle = physics.currentAngle;
-
-	//Wandering
 	targetAngle = Math::MoveTowardsAngle(targetAngle, targetAngle + brain.wanderDirection * settings.wanderPower * delta, 999);
+
 	//Steering toward target angle
 	float c = Math::MoveTowardsAngle(physics.currentAngle, targetAngle, settings.steeringSpeed * settings.maxSpeed * 100 * delta);
 	physics.currentAngle = c;
@@ -270,9 +345,13 @@ void ColonistSystem::MoveAndCollide(
 			//Entering a POI interaction zone
 			if (raycast.entityId != physics.lastEncounteredPOI)
 			{
-				//Check if POI is matching colonist intereset
+				//Set last visited poi
 				physics.lastEncounteredPOI = Entity(raycast.entityId);
+				//Reset distance from last poi for scent dropping
+				physics.poiDistance = 0.f;
 				Entity poi = Entity(raycast.entityId);
+
+				//Check if POI is matching colonist intereset
 				if (POIMatch(physics.state, poi.GetComponentNoCheck<POI>()->type))
 				{
 					//Start interacting with this POI
@@ -283,22 +362,10 @@ void ColonistSystem::MoveAndCollide(
 		}
 	}
 
-
+	physics.poiDistance += offset.Magnitude();
 	physics.nextPosition = offset + position;
 	physics.interpolationTime = (float)delta;
 	physics.interpolationTimer = (float)delta;
-}
-
-bool ColonistSystem::ScentMatch(ColonistState state, Scent::Type scentType) const
-{
-	switch (state)
-	{
-	case ColonistState::SearchingFood:
-		return scentType == Scent::Type::Food;
-	case ColonistState::SearchingShelter:
-		return scentType == Scent::Type::Shelter;
-	}
-	return false;
 }
 
 bool ColonistSystem::POIMatch(ColonistState state, POIType poiType) const

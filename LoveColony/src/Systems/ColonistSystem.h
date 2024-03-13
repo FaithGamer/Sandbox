@@ -32,15 +32,16 @@ public:
 
 
 private:
+	inline void FollowScent(ColonistPhysics& physics, const std::vector<OverlapResult>& overlaps);
+	inline void DropScent(ColonistPhysics& physics, const std::vector<OverlapResult>& overlaps);
 	inline void Steering(ColonistPhysics& physics, ColonistBrain& brain, float delta);
-	inline void POIInteraction(ColonistPhysics& physics, ColonistBrain& brain);
 	inline void MoveAndCollide(ColonistPhysics& physics,
 		const Bitmask wallMask,
 		const float delta,
 		const float margin,
 		const float hitboxRadius);
-	inline bool ScentMatch(ColonistState state, Scent::Type scentType) const;
 	inline bool POIMatch(ColonistState state, POIType poiType) const;
+	
 
 private:
 

@@ -121,7 +121,7 @@ void GameManager::CreateMap()
 			float noise = Noise::Noise2D((float)x, (float)y, 0.4);
 			if (noise < density)
 			{
-				Entity wall = Prefab::Wall(GridToWorld(x, y));
+				//Entity wall = Prefab::Wall(GridToWorld(x, y));
 			}
 		}
 	}
@@ -130,7 +130,7 @@ void GameManager::CreateMap()
 void GameManager::CreateEntities()
 {
 	//Create test entities
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 39; i++)
 	{
 		auto init = makesptr<ColonistInit>();
 		init->position = Vec2f(Random::Range(-25.f, 25.f), Random::Range(-10.f, 10.f));
@@ -138,23 +138,23 @@ void GameManager::CreateEntities()
 	}
 
 	//Create test food
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 2; i++)
 	{
 		auto init = makesptr<POIInit>();
-		init->position = Vec2f(Random::Range(-25.f, 25.f), Random::Range(-10.f, 10.f));
+		init->position = Vec2f(Random::Range(-25.f, 25.f), Random::Range(-11.f, 11.f));
 		init->type = POIType::Food;
-		init->hitboxRadius = 2.f;
-		init->startCount = 40;
+		init->hitboxRadius = 1.f;
+		init->startCount = 4000;
 		CreateEntity(init);
 	}
 
 	//Create test shelters
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 2; i++)
 	{
 		auto init = makesptr<POIInit>();
-		init->position = Vec2f(Random::Range(-25.f, 25.f), Random::Range(-10.f, 10.f));
+		init->position = Vec2f(Random::Range(-25.f, 25.f), Random::Range(-11.f, 11.f));
 		init->type = POIType::Shelter;
-		init->hitboxRadius = 2.f;
+		init->hitboxRadius = 1.f;
 		init->startCount = 0;
 		CreateEntity(init);
 	}

@@ -1,9 +1,11 @@
 #pragma once
-
+#include <thread>
+#include <mutex>
 #include "Sandbox/Core/Vec.h"
 #include "Sandbox/ECS/Entity.h"
 #include "Init.h"
 #include "POI.h"
+
 
 using namespace Sandbox;
 
@@ -44,7 +46,10 @@ struct ColonistPhysics
 
 	//Scent
 	float distanceFromLastScentDrop = 0;
-	EntityId lastFollowedScent = EntityId(0);
+	Entity lastFollowedScent;
+	Entity trackScent;
+	Entity poiScent;
+	sptr<std::mutex> scentMutex;
 
 	//POI
 	Entity lastInteractedPOI;
@@ -52,6 +57,7 @@ struct ColonistPhysics
 	POIType interactingPOIType;
 	Entity lastEncounteredPOI;
 	float interactionTimer = 0;
+	float poiDistance;
 
 	//Queued for deletion
 	bool dead = false;

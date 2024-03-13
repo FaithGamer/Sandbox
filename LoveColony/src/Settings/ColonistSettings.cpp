@@ -10,7 +10,7 @@ ColonistSettings::ColonistSettings()
 	wanderTimeMax(2.f),
 	sensorDistance(0.2f),
 	sensorRadius(1.f),
-	sensorAngle(180.f),
+	sensorAngle(200.f),
 	scentDistance(0.5f),
 	interactionTime(1.4f)
 {

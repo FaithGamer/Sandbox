@@ -15,11 +15,11 @@ public:
 	void OnStart() override;
 	void OnFixedUpdate(Time delta) override;
 	/// @brief Create scent track (the one that colonists drop) or reset timer of closest overlaping one
-	void TryCreateTrackScent(sptr<ScentInit> init, std::vector<OverlapResult>& results);
+	void TryCreateTrackScent(sptr<ScentInit> init, const std::vector<OverlapResult>& results);
 	void DebugShowScent(bool show);
-	inline void AddScentRenderer(Entity scent, Scent::Type type);
+	inline void AddScentRenderer(Entity scent, POIType type);
 private:
-	inline Vec4f ScentDebugColor(Scent::Type type);
+	inline Vec4f ScentDebugColor(POIType type);
 
 public:
 	ScentSettings trackSettings;

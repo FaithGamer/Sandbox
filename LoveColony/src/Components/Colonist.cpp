@@ -21,7 +21,8 @@ void ColonistInit::CreateEntity()
 	//render->SetLayer(Renderer2D::GetLayerId("Map"));
 	//Colonist components
 	colonist.AddComponent<ColonistBrain>();
-	colonist.AddComponent<ColonistPhysics>();
+	auto physics  = colonist.AddComponent<ColonistPhysics>();
+	physics->scentMutex = makesptr<std::mutex>();
 
 	//Sprite render ordering
 	colonist.AddComponent<ZisY>();
