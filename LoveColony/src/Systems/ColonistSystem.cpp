@@ -83,10 +83,10 @@ int ColonistSystem::GetUsedMethod()
 void ColonistSystem::OnAddColonistPhysics(ComponentSignal signal)
 {
 	auto entity = Entity(signal.entity);
-	auto physics = entity.GetComponent<ColonistPhysics>();
+	auto physics = entity.GetComponentNoCheck<ColonistPhysics>();
 	physics->currentAngle = Random::Range(0.f, 360.f);
-	physics->nextPosition = entity.GetComponent<Transform>()->GetPosition();
-	physics->prevPosition = entity.GetComponent<Transform>()->GetPosition();
+	physics->nextPosition = entity.GetComponentNoCheck<Transform>()->GetPosition();
+	physics->prevPosition = entity.GetComponentNoCheck<Transform>()->GetPosition();
 	physics->interpolationTime = 1;
 }
 

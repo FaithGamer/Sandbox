@@ -2,4 +2,8 @@ bin/
 bin-int/
 *.dll
 *.lib
+logfile.txt
+logfile.1.txt
+logfile.2.txt
+logfile.3.txt
 .vs

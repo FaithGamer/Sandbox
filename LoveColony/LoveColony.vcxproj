@@ -144,17 +144,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Components\Colonist.cpp" />
+    <ClCompile Include="src\Components\POI.cpp" />
     <ClCompile Include="src\Components\Scent.cpp" />
     <ClCompile Include="src\Settings\ColonistSettings.cpp" />
+    <ClCompile Include="src\Settings\POISettings.cpp" />
     <ClCompile Include="src\Settings\ScentSettings.cpp" />
     <ClCompile Include="src\Systems\ColonistSystem.cpp" />
     <ClCompile Include="src\Prefab.cpp" />
     <ClCompile Include="src\Systems\GameManager.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Systems\POISystem.cpp" />
     <ClCompile Include="src\Systems\ScentSystem.cpp" />
     <ClCompile Include="src\Systems\ZisYSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Components\POI.h" />
+    <ClInclude Include="src\Settings\POISettings.h" />
+    <ClInclude Include="src\Systems\POISystem.h" />
     <ClInclude Include="src\Components\Init.h" />
     <ClInclude Include="src\Components\Scent.h" />
     <ClInclude Include="src\Settings\ColonistSettings.h" />
