@@ -81,7 +81,7 @@ namespace Sandbox
 
 	Circle2D::Circle2D()
 	{
-		m_shape.m_radius = 1;
+		m_shape.m_radius = 1.f;
 	}
 	Circle2D::Circle2D(float radius)
 	{

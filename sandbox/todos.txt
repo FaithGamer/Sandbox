@@ -22,6 +22,8 @@
 -transform optimize the matrix computation for children
 -try computing matrix in shader
 - move bitmask from physics to core
+-class for random instead of free function and namespace, so we can actually set the seed
+
 BIG TASKS:
 
 - semi transparency doesnt work on custom render layer
@@ -35,6 +37,7 @@ https://stackoverflow.com/questions/24346585/opengl-render-to-texture-with-parti
 
 PHYSICS:
 
+- circle radius is in fact diameter
 - add distance in every overlap
 
 - raycast with use direction + distance
@@ -46,3 +49,9 @@ PHYSICS:
 
 -check if collision render wire draw correctly
 -check if aspect ratio for wire is needed
+
+BREAKING BUG:
+
+-when deleting entity with body and debug transform enabled: transform m_haveParent is true but parent have no transform component
+I think this is because the wirerenderdebug is created OnUpdate and out of sync with the thread of love colony.
+fix this by enabling wireRenderDebug to be manually called for wire render creation
