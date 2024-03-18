@@ -29,6 +29,7 @@
 #include "Editor/EntryPoint.h"
 #include "Tests/RaycastTest.h"
 #include "Tests/PhysicsQueries.h"
+#include "Tests/LayerBlending.h"
 
 #include <random>
 #include <iostream>
@@ -65,7 +66,9 @@ int main(int argc, char** argv)
 	//RaycastTest();
 	//ECSTest();
 
-	PhysicsQueries();
+	//PhysicsQueries();
+
+	LayerBlending();
 
 	return 0;
 }

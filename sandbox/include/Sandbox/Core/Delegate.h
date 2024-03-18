@@ -192,11 +192,11 @@ namespace Sandbox
 				//no object of free function
 				return (*m_function)(std::forward<Args>(args)...);
 			}
-			Ret CallWithObject(void* const object, Args&... args) override
+			/*Ret CallWithObject(void* const object, Args&... args) override
 			{
 				//no object of free function
 				return (*m_function)(std::forward<Args>(args)...);
-			}
+			}*/
 			bool IsSameFunction(Ret(*function)(Args...)) const override
 			{
 				return m_function == function;

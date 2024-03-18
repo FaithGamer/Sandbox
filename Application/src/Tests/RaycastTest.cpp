@@ -215,7 +215,7 @@ void RaycastTest()
 
 	Entity bodyEntity = Entity::Create();
 
-	auto body = bodyEntity.AddComponent<Body>(Body::Type::Kinematic, 1);
+	auto body = bodyEntity.AddComponent<KinematicBody>(1);
 	body->AddCollider(makesptr<Box2D>(7, 7));
 	auto trans = bodyEntity.AddComponent<Transform>();
 	trans->SetRotationZ(50);
@@ -227,7 +227,7 @@ void RaycastTest()
 
 	circleEntity.AddComponent<MouseTag>();
 	circleEntity.AddComponent<Transform>();
-	auto bo = circleEntity.AddComponent<Body>(Body::Type::Kinematic, 4);
+	auto bo = circleEntity.AddComponent<KinematicBody>(4);
 
 	bo->AddCollider(makesptr<Circle2D>(3));
 

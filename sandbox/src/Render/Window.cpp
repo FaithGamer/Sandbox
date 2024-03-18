@@ -62,7 +62,6 @@ namespace Sandbox
 		glEnable(GL_DEPTH_TEST);
 
 		//Standard blending parameters for most case uses
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ZERO);
 
 		SDL_GL_SetSwapInterval(0);

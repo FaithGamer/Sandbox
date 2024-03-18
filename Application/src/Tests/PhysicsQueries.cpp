@@ -33,7 +33,7 @@ public:
 
 		mouseCircle.AddComponent<FollowMouse>();
 		mouseCircle.AddComponent<Transform>();
-		Body* circleBody = mouseCircle.AddComponent<Body>(Body::Type::Kinematic, collisionLayers.GetMask("Layer1"));
+		Body* circleBody = mouseCircle.AddComponent<KinematicBody>(collisionLayers.GetMask("Layer1"));
 
 		circleBody->AddCollider(makesptr<Circle2D>(2.f));
 
@@ -41,7 +41,7 @@ public:
 		Entity box = Entity::Create();
 
 		box.AddComponent<Transform>();
-		Body* boxBody = box.AddComponent<Body>(Body::Type::Kinematic, collisionLayers.GetMask("Layer2"));
+		Body* boxBody = box.AddComponent<KinematicBody>(collisionLayers.GetMask("Layer2"));
 		boxBody->SetLayerMask(collisionLayers.GetMask("Layer1"));
 		boxBody->AddCollider(makesptr<Box2D>(Vec2f(4, 4)));
 		SpriteRender* sprite = box.AddComponent<SpriteRender>();
@@ -59,7 +59,7 @@ public:
 			});
 
 		//Check if circle overlap box
-		ForeachComponents<Body, SpriteRender>([&](Body& body, SpriteRender& sprite)
+		ForeachComponents<KinematicBody, SpriteRender>([&](KinematicBody& body, SpriteRender& sprite)
 			{
 				std::vector<OverlapResult> results;
 				//Physics::BodyOverlap(results, &body, collisionLayers.GetMask("Layer1"));
@@ -99,7 +99,7 @@ public:
 		Entity box = Entity::Create();
 
 		box.AddComponent<Transform>()->SetPosition(8, 5, 0);
-		Body* boxBody = box.AddComponent<Body>(Body::Type::Kinematic, collisionLayers.GetMask("Layer2"));
+		Body* boxBody = box.AddComponent<KinematicBody>(collisionLayers.GetMask("Layer2"));
 		boxBody->SetLayerMask(collisionLayers.GetMask("Layer1"));
 		boxBody->AddCollider(makesptr<Box2D>(Vec2f(4, 4)));
 		SpriteRender* sprite = box.AddComponent<SpriteRender>();
@@ -155,7 +155,7 @@ public:
 		Entity box = Entity::Create();
 
 		box.AddComponent<Transform>()->SetPosition(position);
-		Body* boxBody = box.AddComponent<Body>(Body::Type::Kinematic, collisionLayers.GetMask("Layer2"));
+		Body* boxBody = box.AddComponent<KinematicBody>(collisionLayers.GetMask("Layer2"));
 		boxBody->SetLayerMask(collisionLayers.GetMask("Layer1"));
 		boxBody->AddCollider(makesptr<Box2D>(Vec2f(4, 4)));
 		SpriteRender* sprite = box.AddComponent<SpriteRender>();

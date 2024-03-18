@@ -156,6 +156,7 @@
     <ClCompile Include="src\Editor\Game.cpp" />
     <ClCompile Include="src\Editor\Hierarchy.cpp" />
     <ClCompile Include="src\Editor\Layout.cpp" />
+    <ClCompile Include="src\Tests\LayerBlending.cpp" />
     <ClCompile Include="src\Tests\LineRenderTest.cpp" />
     <ClCompile Include="src\Editor\Menu.cpp" />
     <ClCompile Include="src\Editor\SandboxEditorUtils.cpp" />
@@ -184,6 +185,7 @@
     <ClCompile Include="src\Tests\UniformBlockTest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Tests\LayerBlending.h" />
     <ClInclude Include="src\Tests\EarcutTest.h" />
     <ClInclude Include="src\Tests\LineRenderTest.h" />
     <ClInclude Include="src\Tests\AssetsTest.h" />
