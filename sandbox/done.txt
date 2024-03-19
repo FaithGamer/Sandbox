@@ -241,3 +241,7 @@ so OnAddComponent method of system works even before engine::init if they are ca
 15
 
 - Noise is now a class and seed can be customized
+
+19
+
+- Fixed transform operator= not copying parent

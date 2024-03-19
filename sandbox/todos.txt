@@ -37,6 +37,7 @@ https://stackoverflow.com/questions/24346585/opengl-render-to-texture-with-parti
 
 PHYSICS:
 
+- remove debug collider render if component body is removed without ldeleting entity
 - circle radius is in fact diameter
 - add distance in every overlap
 

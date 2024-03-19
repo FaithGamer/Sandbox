@@ -81,6 +81,12 @@ namespace Sandbox
 
 	struct ColliderRender
 	{
+
+		ColliderRender(ColliderRender&& collider)  noexcept :
+			wire(collider.wire)
+		{
+
+		}
 		ColliderRender(Collider* collider)
 		{
 			collider->SetupRender(this);

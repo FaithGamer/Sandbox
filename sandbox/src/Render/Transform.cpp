@@ -8,6 +8,18 @@
 #include "Sandbox/ECS/Entity.h"
 namespace Sandbox
 {
+	Transform::Transform(Transform&& transform) noexcept :
+		m_localPosition(transform.m_localPosition),
+		m_localScale(transform.m_localScale),
+		m_localRotation(transform.m_localRotation),
+		m_haveParent(transform.m_haveParent),
+		m_parent(transform.m_parent),
+		m_transformMatrix(transform.m_transformMatrix),
+		needCompute(transform.needCompute),
+		matrixUpdated(transform.matrixUpdated)
+	{
+
+	}
 	Transform::Transform() :
 		m_localPosition(0.f),
 		m_localScale(1.f),
@@ -28,6 +40,7 @@ namespace Sandbox
 		m_transformMatrix(1.f),
 		needCompute(true),
 		matrixUpdated(true),
+		m_haveParent(false),
 		m_parent(EntityId(0))
 
 	{
@@ -174,8 +187,10 @@ namespace Sandbox
 		m_localPosition = trans.m_localPosition;
 		m_localScale = trans.m_localScale;
 		m_localRotation = trans.m_localRotation;
+		m_haveParent = trans.m_haveParent;
+		m_parent = trans.m_parent;
+		m_transformMatrix = trans.m_transformMatrix;
 
-		needCompute = true;
 
 		return *this;
 	}

@@ -151,6 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Editor\AssetBrowser.cpp" />
+    <ClCompile Include="src\Tests\ColliderDebug.cpp" />
     <ClCompile Include="src\Tests\EarcutTest.cpp" />
     <ClCompile Include="src\Editor\EditorSystem.cpp" />
     <ClCompile Include="src\Editor\Game.cpp" />
@@ -185,6 +186,7 @@
     <ClCompile Include="src\Tests\UniformBlockTest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Tests\ColliderDebug.h" />
     <ClInclude Include="src\Tests\LayerBlending.h" />
     <ClInclude Include="src\Tests\EarcutTest.h" />
     <ClInclude Include="src\Tests\LineRenderTest.h" />

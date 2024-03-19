@@ -30,6 +30,7 @@
 #include "Tests/RaycastTest.h"
 #include "Tests/PhysicsQueries.h"
 #include "Tests/LayerBlending.h"
+#include "Tests/ColliderDebug.h"
 
 #include <random>
 #include <iostream>
@@ -68,7 +69,7 @@ int main(int argc, char** argv)
 
 	//PhysicsQueries();
 
-	LayerBlending();
-
+	//LayerBlending();
+	ColliderDebug();
 	return 0;
 }

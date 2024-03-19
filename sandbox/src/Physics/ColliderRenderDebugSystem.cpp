@@ -6,6 +6,16 @@
 
 namespace Sandbox
 {
+
+	ColliderRenderDebugSystem::ColliderRenderDebugSystem() : m_debugLayer(0), m_updateQueueAuto(true)
+	{
+		SetPriority(-9999);
+
+		//Will add a collider render for each new body
+		ListenAddComponent<KinematicBody>(&ColliderRenderDebugSystem::OnAddKinematicBody);
+		ListenAddComponent<StaticBody>(&ColliderRenderDebugSystem::OnAddStaticBody);
+	}
+
 	void AddColliderRender(Entity bodyEntt, KinematicBody* body)
 	{
 		auto colliders = body->GetColliders();
@@ -23,20 +33,12 @@ namespace Sandbox
 		auto colliders = body->GetColliders();
 		for (int i = 0; i < colliders->size(); i++)
 		{
+			
 			Entity wireEntt = Entity::Create();
 			wireEntt.AddComponent<ColliderRender>(&*(*colliders)[i]);
 			wireEntt.AddComponent<Transform>();
 			bodyEntt.AddChild(wireEntt);
 		}
-	}
-
-	ColliderRenderDebugSystem::ColliderRenderDebugSystem() : m_debugLayer(0)
-	{
-		SetPriority(-9999);
-
-		//Will add a collider render for each new body
-		ListenAddComponent<KinematicBody>(&ColliderRenderDebugSystem::OnAddKinematicBody);
-		ListenAddComponent<StaticBody>(&ColliderRenderDebugSystem::OnAddStaticBody);
 	}
 
 	void ColliderRenderDebugSystem::OnStart()
@@ -56,24 +58,15 @@ namespace Sandbox
 
 	void ColliderRenderDebugSystem::OnUpdate(Time delta)
 	{
-		for (auto it = m_newKinematicBodies.begin(); it != m_newKinematicBodies.end(); it++)
-		{
-			Entity entity(*it);
-			AddColliderRender(entity, entity.GetComponentNoCheck<KinematicBody>());
-		}
-		for (auto it = m_newStaticBodies.begin(); it != m_newStaticBodies.end(); it++)
-		{
-			Entity entity(*it);
-			AddColliderRender(entity, entity.GetComponentNoCheck<StaticBody>());
-		}
-		m_newKinematicBodies.clear();
-		m_newStaticBodies.clear();
+		if (!m_updateQueueAuto)
+			return;
+		UpdateQueue();
 	}
 
 	void ColliderRenderDebugSystem::OnRender()
 	{
 		sptr<Renderer2D> renderer = Renderer2D::Instance();
-		ForeachComponents<ColliderRender, Transform>([&](ColliderRender& collider, Transform& transform)
+		ForeachEntities<ColliderRender, Transform>([&](Entity entity, ColliderRender& collider, Transform& transform)
 			{
 				renderer->DrawWire(*collider.wire, transform, m_debugLayer);
 			});
@@ -91,6 +84,29 @@ namespace Sandbox
 			{
 				entity.Destroy();
 			});
+	}
+
+	void ColliderRenderDebugSystem::UpdateQueue()
+	{
+		for (auto it = m_newKinematicBodies.begin(); it != m_newKinematicBodies.end(); it++)
+		{
+			Entity entity(*it);
+			if (entity.Valid())
+				AddColliderRender(entity, entity.GetComponentNoCheck<KinematicBody>());
+		}
+		for (auto it = m_newStaticBodies.begin(); it != m_newStaticBodies.end(); it++)
+		{
+			Entity entity(*it);
+			if(entity.Valid())
+				AddColliderRender(entity, entity.GetComponentNoCheck<StaticBody>());
+		}
+		m_newKinematicBodies.clear();
+		m_newStaticBodies.clear();
+	}
+
+	void ColliderRenderDebugSystem::UpdateQueueAuto(bool updateQueueAuto)
+	{
+		m_updateQueueAuto = updateQueueAuto;
 	}
 
 	void ColliderRenderDebugSystem::OnAddKinematicBody(ComponentSignal signal)
