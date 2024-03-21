@@ -53,7 +53,7 @@ namespace Sandbox
 
 		m_whiteTexture = makesptr<Texture>();
 
-		m_defaultShader = Assets::Get<Shader>("batch_renderer.shader").Ptr();
+		m_batchShader = Assets::Get<Shader>("batch_renderer.shader").Ptr();
 
 		m_defaultRenderOptions = makesptr<RenderOptions>();
 		m_defaultRenderOptionsLayer = makesptr<RenderOptions>();
@@ -306,7 +306,7 @@ namespace Sandbox
 	void Renderer2D::SetupQuadBatch(QuadBatch& batch, RenderLayer& layer, sptr<Shader> shader, sptr<RenderOptions> renderOptions)
 	{
 		if (shader == nullptr)
-			shader = m_defaultShader;
+			shader = m_batchShader;
 		if (renderOptions == nullptr)
 			renderOptions = m_defaultRenderOptions;
 
@@ -671,6 +671,11 @@ namespace Sandbox
 		wire.Bind();
 
 		glDrawArrays(GL_LINE_STRIP, 0, (GLsizei)wire.GetPointCount());
+	}
+
+	void Renderer2D::SetBatchRenderShader(sptr<Shader> shader)
+	{
+		Instance()->m_batchShader = shader;
 	}
 
 	Vec3f Renderer2D::VertexPosition(Vec4f pos, const Transform& transform, const Sprite& sprite)

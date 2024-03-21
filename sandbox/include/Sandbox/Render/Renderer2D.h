@@ -110,6 +110,10 @@ namespace Sandbox
 		void DrawLine(LineRenderer& line, Transform& transform, uint32_t layer);
 		void DrawWire(WireRender& wire, Transform& transform, uint32_t layer);
 
+		/// @brief Set the default shader used when rendering quads
+		/// @param shader 
+		static void SetBatchRenderShader(sptr<Shader> shader);
+
 		/// @brief Add a layer on the bottom of the render queue.
 		/// The order cannot be changed ever again, and the layers cannot be removed.
 		/// @param name A friendly identifier.
@@ -186,7 +190,7 @@ namespace Sandbox
 		uint32_t m_maxTextureSlots;
 		uint32_t m_maxOffscreenLayers;
 
-		sptr<Shader> m_defaultShader;
+		sptr<Shader> m_batchShader;
 		sptr<RenderOptions> m_defaultRenderOptions;
 		sptr<RenderOptions> m_defaultRenderOptionsLayer;
 		sptr<Texture> m_whiteTexture;
