@@ -12,6 +12,10 @@ namespace Sandbox
 		Rect(float Left, float Top, float Width, float Height)
 			: left(Left), top(Top), width(Width), height(Height)
 		{}
+		bool PointInside(Vec2f point) const;
+		bool PointInside(float x, float y) const;
+
+	public:
 
 		float left;
 		float top;

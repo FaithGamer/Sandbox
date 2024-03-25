@@ -245,3 +245,4 @@ so OnAddComponent method of system works even before engine::init if they are ca
 19
 
 - Fixed transform operator= not copying parent
+>
