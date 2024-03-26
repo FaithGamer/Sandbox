@@ -30,6 +30,11 @@ namespace Sandbox
 	void WorkerThread::StopThread()
 	{
 		m_threadRunning = false;
+		std::unique_lock waiterLock(m_waiterMutex);
+		m_taskAvailable = true;
+		waiterLock.unlock();
+		m_waiter.notify_one();
+		m_thread.join();
 	}
 
 	void WorkerThread::QueueTask(sptr<OpaqueTask> task)

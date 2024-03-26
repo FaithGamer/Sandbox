@@ -7,14 +7,14 @@ namespace Sandbox
 {
 	namespace Easing
 	{
-		inline float SineInOut(float t);
-		inline float SineIn(float t);
-		inline float SineOut(float t);
-		inline float QuadInOut(float t);
-		inline float QuadIn(float t);
-		inline float QuadOut(float t);
-		inline float CubicInOut(float t);
-		inline float CubicIn(float t);
-		inline float CubicOut(float t);
+		float SineInOut(float t);
+		float SineIn(float t);
+		float SineOut(float t);
+		float QuadInOut(float t);
+		float QuadIn(float t);
+		float QuadOut(float t);
+		float CubicInOut(float t);
+		float CubicIn(float t);
+		float CubicOut(float t);
 	}
 }

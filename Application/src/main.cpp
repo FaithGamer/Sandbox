@@ -40,6 +40,7 @@ namespace sb = Sandbox;
 #include "Sandbox/ECS/Entity.h"
 #include "Sandbox/Core/Log.h"
 #include "Sandbox/Core/Signal.h"
+#include "Sandbox/Core/Easing.h"
 
 void foo(int const* s)
 {
@@ -70,6 +71,9 @@ int main(int argc, char** argv)
 	//PhysicsQueries();
 
 	//LayerBlending();
+	float b = sb::Easing::CubicInOut(.4f);
 	ColliderDebug();
+
+	
 	return 0;
 }

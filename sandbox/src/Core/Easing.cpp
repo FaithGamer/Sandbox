@@ -3,6 +3,7 @@
 
 namespace Sandbox
 {
+
 	float Easing::SineInOut(float t)
 	{
 		return 0.5 * (1 + sin(3.1415926 * (t - 0.5)));
