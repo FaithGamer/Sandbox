@@ -7,9 +7,14 @@ namespace Sandbox
 {
 	namespace Easing
 	{
-		inline float SineInOut(float t)
-		{
-			return -0.5 * (cos(PI * t) - 1.0);
-		}
+		inline float SineInOut(float t);
+		inline float SineIn(float t);
+		inline float SineOut(float t);
+		inline float QuadInOut(float t);
+		inline float QuadIn(float t);
+		inline float QuadOut(float t);
+		inline float CubicInOut(float t);
+		inline float CubicIn(float t);
+		inline float CubicOut(float t);
 	}
 }
