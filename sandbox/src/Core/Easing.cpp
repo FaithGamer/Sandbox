@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "Sandbox/Core/Easing.h"
-
 namespace Sandbox
 {
 
@@ -40,5 +39,22 @@ namespace Sandbox
 	float Easing::CubicOut(float t)
 	{
 		return 1 + (--t) * t * t;
+	}
+	float Easing::CircInOut(float t)
+	{
+		if (t < 0.5) {
+			return (1 - sqrt(1 - 2 * t)) * 0.5;
+		}
+		else {
+			return (1 + sqrt(2 * t - 1)) * 0.5;
+		}
+	}
+	float Easing::CircIn(float t)
+	{
+		return 1 - sqrt(1 - t);
+	}
+	float Easing::CircOut(float t)
+	{
+		return sqrt(t);
 	}
 }

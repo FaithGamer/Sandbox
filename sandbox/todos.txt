@@ -23,6 +23,7 @@
 -try computing matrix in shader
 - move bitmask from physics to core
 -class for random instead of free function and namespace, so we can actually set the seed
+-
 
 BIG TASKS:
 

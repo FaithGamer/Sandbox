@@ -16,5 +16,8 @@ namespace Sandbox
 		float CubicInOut(float t);
 		float CubicIn(float t);
 		float CubicOut(float t);
+		float CircInOut(float t);
+		float CircIn(float t);
+		float CircOut(float t);
 	}
 }
