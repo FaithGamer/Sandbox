@@ -3,44 +3,44 @@
 namespace Sandbox
 {
 
-	float Easing::SineInOut(float t)
+	double Easing::SineInOut(double t)
 	{
 		return 0.5 * (1 + sin(3.1415926 * (t - 0.5)));
 
 	}
-	float Easing::SineIn(float t)
+	double Easing::SineIn(double t)
 	{
 		return sin(1.5707963 * t);
 	}
-	float Easing::SineOut(float t)
+	double Easing::SineOut(double t)
 	{
 		return 1 + sin(1.5707963 * (--t));
 	}
-	float Easing::QuadInOut(float t)
+	double Easing::QuadInOut(double t)
 	{
 		return t < 0.5 ? 2 * t * t : t * (4 - 2 * t) - 1;
 	}
-	float Easing::QuadIn(float t)
+	double Easing::QuadIn(double t)
 	{
 		return t * t;
 	}
-	float Easing::QuadOut(float t)
+	double Easing::QuadOut(double t)
 	{
 		return t * (2 - t);
 	}
-	float Easing::CubicInOut(float t)
+	double Easing::CubicInOut(double t)
 	{
 		return t < 0.5 ? 4 * t * t * t : 1 + (--t) * (2 * (--t)) * (2 * t);
 	}
-	float Easing::CubicIn(float t)
+	double Easing::CubicIn(double t)
 	{
 		return t * t * t;
 	}
-	float Easing::CubicOut(float t)
+	double Easing::CubicOut(double t)
 	{
 		return 1 + (--t) * t * t;
 	}
-	float Easing::CircInOut(float t)
+	double Easing::CircInOut(double t)
 	{
 		if (t < 0.5) {
 			return (1 - sqrt(1 - 2 * t)) * 0.5;
@@ -49,12 +49,29 @@ namespace Sandbox
 			return (1 + sqrt(2 * t - 1)) * 0.5;
 		}
 	}
-	float Easing::CircIn(float t)
+	double Easing::CircIn(double t)
 	{
 		return 1 - sqrt(1 - t);
 	}
-	float Easing::CircOut(float t)
+	double Easing::CircOut(double t)
 	{
 		return sqrt(t);
 	}
+	double Easing::ExpoInOut(double t) {
+		if (t < 0.5) {
+			return (pow(2, 16 * t) - 1) / 510;
+		}
+		else {
+			return 1 - 0.5 * pow(2, -16 * (t - 0.5));
+		}
+	}
+	double Easing::ExpoIn(double t) {
+		return (pow(2, 8 * t) - 1) / 255;
+	}
+
+	double Easing::ExpoOut(double t) {
+		return 1 - pow(2, -8 * t);
+	}
+
+	
 }
