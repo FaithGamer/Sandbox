@@ -210,8 +210,11 @@ namespace Sandbox
 	}
 	Vec2f Camera::WorldToScreen(Vec3f worldPosition, Vec2u screenSize) const
 	{
-		Vec4f screenNorm = GetViewMatrix() * Vec4f(worldPosition.x, worldPosition.y, worldPosition.z, 1);
-		return Vec2f(screenNorm.x + 0.5f * screenSize.x, screenNorm.y + 0.5f * screenSize.y);
+		float ratio = worldToScreenRatio;
+		if (m_orthographic)
+			ratio *= m_orthographicZoom;
+		Vec4f screenNorm = GetViewMatrix() * Vec4f(worldPosition.x  / m_aspectRatio * ratio, worldPosition.y * ratio, worldPosition.z * ratio, 1);
+		return Vec2f((-screenNorm.x + 0.5f) * screenSize.x, (-screenNorm.y + 0.5f) * screenSize.y);
 	}
 	Vec3f Camera::ScreenToWorld(Vec2f screenPosition, Vec2u screenSize) const
 	{
