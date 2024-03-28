@@ -44,6 +44,7 @@ namespace Sandbox
 		Mat4 GetProjectionMatrix() const;
 		Mat4 GetTargetViewMatrix() const;
 
+		Vec2f WorldToScreen(Vec3f worldPosition, Vec2u screenSize) const;
 		Vec3f ScreenToWorld(Vec2f screenPosition, Vec2u screenSize) const;
 
 		float worldToScreenRatio;
