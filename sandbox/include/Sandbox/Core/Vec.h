@@ -68,6 +68,8 @@ namespace Sandbox
 		inline Vec3<T> Normalized() const
 		{
 			float mag = Magnitude();
+			if (mag == 0)
+				return;
 			return Vec3<T>(x / mag, y / mag, z / mag);
 		}
 		/// @brief Reflected vector off the plane defined by a normal
@@ -120,6 +122,8 @@ namespace Sandbox
 		inline void Normalize()
 		{
 			float mag = Magnitude();
+			if (mag == 0)
+				return;
 			x = x / mag;
 			y = y / mag;
 			z = z / mag;
@@ -225,6 +229,8 @@ namespace Sandbox
 		inline Vec2<T> Normalized() const
 		{
 			float mag = Magnitude();
+			if (mag == 0)
+				return Vec2<T>(x, y);
 			return Vec2<T>(x / mag, y / mag);
 		}
 		/// @brief Reflected vector off the plane defined by a normal
@@ -269,6 +275,8 @@ namespace Sandbox
 		inline void Normalize()
 		{
 			float mag = Magnitude();
+			if (mag == 0)
+				return;
 			x = x / mag;
 			y = y / mag;
 		}
