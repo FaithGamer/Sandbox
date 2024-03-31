@@ -39,6 +39,7 @@ namespace Sandbox
 		void SetPitch(float pitch);
 		void SetRoll(float roll);
 		
+		Vec3f GetPosition() const;
 		float GetAspectRatio() const;
 		Mat4 GetViewMatrix() const;
 		Mat4 GetProjectionMatrix() const;

@@ -179,7 +179,10 @@ namespace Sandbox
 		ComputeDirection();
 		m_needComputeViewMatrix = true;
 	}
-
+	Vec3f Camera::GetPosition() const
+	{
+		return m_position;
+	}
 	float Camera::GetAspectRatio() const
 	{
 		return m_aspectRatio;
