@@ -210,11 +210,22 @@ namespace Sandbox
 	}
 	Vec2f Camera::WorldToScreen(Vec3f worldPosition, Vec2u screenSize) const
 	{
-		float ratio = worldToScreenRatio;
 		if (m_orthographic)
+		{
+			float ratio = worldToScreenRatio;
+
 			ratio *= m_orthographicZoom;
-		Vec4f screenNorm = GetViewMatrix() * Vec4f(worldPosition.x  / m_aspectRatio * ratio, worldPosition.y * ratio, worldPosition.z * ratio, 1);
-		return Vec2f((-screenNorm.x + 0.5f) * screenSize.x, (-screenNorm.y + 0.5f) * screenSize.y);
+			Vec2f screenNorm =
+				Vec2f(-worldPosition.x / m_aspectRatio * ratio, worldPosition.y * ratio)
+				- Vec2f(-m_position.x / m_aspectRatio * ratio, m_position.y * ratio);
+			return Vec2f((-screenNorm.x + 0.5f) * screenSize.x, (-screenNorm.y + 0.5f) * screenSize.y);
+		}
+		else
+		{
+			LOG_WARN("WorldToScreen not implemented for perspective camera");
+			return Vec2f(0, 0);
+		}
+
 	}
 	Vec3f Camera::ScreenToWorld(Vec2f screenPosition, Vec2u screenSize) const
 	{
