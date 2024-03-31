@@ -5,7 +5,8 @@
 
 namespace Sandbox
 {
-	DirectionalInput::DirectionalInput(std::string name) : m_name(name), m_triggerDeadzone(0.1f), m_stickDeadzone(0.1f)
+	DirectionalInput::DirectionalInput(std::string name) 
+		: m_name(name), m_triggerDeadzone(0.1f), m_stickDeadzone(0.1f), m_mouseWheel(false)
 	{
 	}
 
@@ -48,6 +49,12 @@ namespace Sandbox
 			return;
 		}
 		m_bindings.directions.push_back(Direction(buttons));
+		UpdateEventListened();
+	}
+
+	void DirectionalInput::SetMouseWheel(bool mouseWheel)
+	{
+		m_mouseWheel = mouseWheel;
 		UpdateEventListened();
 	}
 
@@ -221,6 +228,21 @@ namespace Sandbox
 		}
 		return false;
 	}
+	bool DirectionalInput::MouseWheelMoved(const SDL_Event& e)
+	{
+		//Do not change state, just send signal right away
+		DirectionalInputState state;
+		if (e.wheel.y > 0)
+		{
+			state.direction = Vec2f(0, 1);
+		}
+		else if (e.wheel.y < 0)
+		{
+			state.direction = Vec2f(0, -1);
+		}
+		signal.SendSignal(&state);
+		return true;
+	}
 	bool DirectionalInput::ControllerButtonPressed(const SDL_Event& e)
 	{
 		bool mustComputeState = false;
@@ -365,6 +387,10 @@ namespace Sandbox
 				}
 			}
 		}
+		if (m_mouseWheel)
+		{
+			listened.mouseWheel = true;
+		}
 		if (m_eventsListened != listened)
 		{
 			m_eventsListened = listened;
@@ -395,6 +421,8 @@ namespace Sandbox
 				sum += direction.stick.currentDirection;
 			}
 		}
+
+		sum.Normalize();
 
 		if (m_state.direction != sum)
 		{

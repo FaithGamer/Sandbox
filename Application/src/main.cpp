@@ -31,6 +31,7 @@
 #include "Tests/PhysicsQueries.h"
 #include "Tests/LayerBlending.h"
 #include "Tests/ColliderDebug.h"
+#include "Tests/MouseWheelTest.h"
 
 #include <random>
 #include <iostream>
@@ -71,8 +72,8 @@ int main(int argc, char** argv)
 	//PhysicsQueries();
 
 	//LayerBlending();
-	float b = sb::Easing::CubicInOut(.4f);
-	ColliderDebug();
+	//ColliderDebug();
+	MouseWheelTest();
 
 	
 	return 0;

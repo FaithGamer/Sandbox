@@ -63,11 +63,8 @@ namespace Sandbox
 		}
 	}
 
-	bool InputMap::OnEvent(const SDL_Event& e, bool handledByImGui)
+	bool InputMap::OnEvent(const SDL_Event& e)
 	{
-		if (handledByImGui && !m_passThroughImGui)
-			return false;
-
 		if (m_mustUpdate)
 			UpdateInputsEvents();
 
@@ -99,6 +96,13 @@ namespace Sandbox
 			for (auto& input : m_byEvents[(int)EventType::MouseBtn])
 			{
 				if (input->MouseButtonReleased(e))
+					eventHandled = true;
+			}
+			break;
+		case SDL_MOUSEWHEEL:
+			for (auto& input : m_byEvents[(int)EventType::MouseWheel])
+			{
+				if (input->MouseWheelMoved(e))
 					eventHandled = true;
 			}
 			break;
@@ -251,6 +255,15 @@ namespace Sandbox
 			else if (!events.mouseMovement)
 			{
 				Container::Remove(m_byEvents[(int)EventType::MouseMove], input);
+			}
+
+			if (events.mouseWheel && !Container::Contains(m_byEvents[(int)EventType::MouseWheel], input))
+			{
+				m_byEvents[(int)EventType::MouseWheel].push_back(input);
+			}
+			else if (!events.mouseMovement)
+			{
+				Container::Remove(m_byEvents[(int)EventType::MouseWheel], input);
 			}
 
 			if (events.controllerButton && !Container::Contains(m_byEvents[(int)EventType::ControllerBtn], input))

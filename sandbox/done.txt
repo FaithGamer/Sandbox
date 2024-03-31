@@ -245,4 +245,8 @@ so OnAddComponent method of system works even before engine::init if they are ca
 19
 
 - Fixed transform operator= not copying parent
->
+
+31
+
+- Changed System::OnEvent signature, no longer receive handled by im gui (bc it was wrong)
+- added scroll input type to directional input

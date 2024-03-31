@@ -15,6 +15,7 @@ namespace Sandbox
 		Text,
 		MouseBtn,
 		MouseMove,
+		MouseWheel,
 		ControllerBtn,
 		ControllerStick,
 		ControllerTrigger,
@@ -43,7 +44,7 @@ namespace Sandbox
 		/// @param name Name of the Input to delete
 		void DestroyInput(std::string name);
 
-		bool OnEvent(const SDL_Event& e, bool handledByImGui);
+		bool OnEvent(const SDL_Event& e);
 		void OnInputEventModified(sptr<Input> input);
 
 		/// @brief Should this input map be used or not.

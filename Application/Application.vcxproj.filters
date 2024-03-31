@@ -117,6 +117,9 @@
     <ClCompile Include="src\Tests\ColliderDebug.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Tests\MouseWheelTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Tests\SignalTest.h">
@@ -219,6 +222,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Tests\ColliderDebug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tests\MouseWheelTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -26,6 +26,7 @@ namespace Sandbox
 		bool keyButton = false;
 		bool keyText = false;
 		bool mouseButton = false;
+		bool mouseWheel = false;
 		bool mouseMovement = false;
 		bool controllerButton = false;
 		bool controllerStick = false;
@@ -87,6 +88,7 @@ namespace Sandbox
 		virtual bool KeyReleased(const SDL_Event& e) { return false; }
 		virtual bool MouseButtonPressed(const SDL_Event& e) { return false; }
 		virtual bool MouseButtonReleased(const SDL_Event& e) { return false; }
+		virtual bool MouseWheelMoved(const SDL_Event& e) { return false; }
 		virtual bool MouseMoved(const SDL_Event& e) { return false; }
 		virtual bool ControllerButtonPressed(const SDL_Event& e) { return false; }
 		virtual bool ControllerButtonReleased(const SDL_Event& e) { return false; }

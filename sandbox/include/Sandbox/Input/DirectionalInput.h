@@ -40,6 +40,9 @@ namespace Sandbox
 		/// When multiple buttons are being pressed at the same time, the final state is the sum of all the pressed buttons
 	    /// and sticks direction vectors, where each axis (x, y) is clamped from 0 ot 1.
 		void AddButtons(std::vector<DirectionalButton> buttons);
+		/// @brief Mouse wheel will trigger Y axis 1 or -1
+		/// @param mouseWheel set true to listen to mouse wheel, set to fals by default.
+		void SetMouseWheel(bool mouseWheel);
 		/// @brief Set a specific binding's stick
 		/// @param version Binding version
 		void SetStick(ControllerStick stick, int version);
@@ -75,6 +78,7 @@ namespace Sandbox
 		virtual bool KeyReleased(const SDL_Event& e) override;
 		virtual bool MouseButtonPressed(const SDL_Event& e) override;
 		virtual bool MouseButtonReleased(const SDL_Event& e) override;
+		virtual bool MouseWheelMoved(const SDL_Event& e) override;
 		virtual bool ControllerButtonPressed(const SDL_Event& e) override;
 		virtual bool ControllerButtonReleased(const SDL_Event& e) override;
 		virtual bool ControllerTriggerMoved(const SDL_Event& e) override;
@@ -92,6 +96,7 @@ namespace Sandbox
 		std::string m_name;
 		DirectionalBindings m_bindings;
 		DirectionalInputState m_state;
+		bool m_mouseWheel;
 		float m_triggerDeadzone;
 		float m_stickDeadzone;
 

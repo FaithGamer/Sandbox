@@ -87,12 +87,11 @@ namespace Sandbox
 
 #ifdef SANDBOX_IMGUI
 			if (m_imGuiEnabled)
-				imGuiEventHandled = ImGui_ImplSDL2_ProcessEvent(&m_events);
+				ImGui_ImplSDL2_ProcessEvent(&m_events);
 #endif
-
 			for (auto& eventSystem : m_eventSystems)
 			{
-				if (eventSystem.system->OnEvent(m_events, imGuiEventHandled))
+				if (eventSystem.system->OnEvent(m_events))
 				{
 					break;
 				}

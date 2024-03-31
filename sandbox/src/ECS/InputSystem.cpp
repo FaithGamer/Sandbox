@@ -10,7 +10,7 @@ namespace Sandbox
 		SetPriority(-10000);
 	}
 
-	bool InputSystem::OnEvent(SDL_Event& event, bool handledByImGui)
+	bool InputSystem::OnEvent(SDL_Event& event)
 	{
 		bool eventConsumed = false;
 		for(auto& inputMap : Inputs::GetInputMaps())
@@ -18,7 +18,7 @@ namespace Sandbox
 			if (!inputMap->IsActive())
 				continue;
 
-			eventConsumed = inputMap->OnEvent(event, handledByImGui);
+			eventConsumed = inputMap->OnEvent(event);
 		}
 		return eventConsumed;
 	}

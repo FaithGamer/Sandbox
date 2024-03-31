@@ -12,6 +12,7 @@ namespace Sandbox
 			|| keyText != other.keyText
 			|| mouseButton != other.mouseButton
 			|| mouseMovement != other.mouseMovement
+			|| mouseWheel != other.mouseWheel
 			|| controllerButton != other.controllerButton
 			|| controllerStick != other.controllerStick
 			|| controllerTrigger != other.controllerTrigger)
@@ -26,6 +27,7 @@ namespace Sandbox
 			|| keyText != other.keyText
 			|| mouseButton != other.mouseButton
 			|| mouseMovement != other.mouseMovement
+			|| mouseWheel != other.mouseWheel
 			|| controllerButton != other.controllerButton
 			|| controllerStick != other.controllerStick
 			|| controllerTrigger != other.controllerTrigger)

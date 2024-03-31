@@ -69,7 +69,7 @@ namespace Sandbox
 		{
 			float mag = Magnitude();
 			if (mag == 0)
-				return;
+				return Vec3<T>(x, y, z);
 			return Vec3<T>(x / mag, y / mag, z / mag);
 		}
 		/// @brief Reflected vector off the plane defined by a normal

@@ -18,12 +18,16 @@
 -test if we can draw a line between two sprites (Z depth)
 -rename spriteRender to SpriteRenderer
 -Add mouse position from systems and camera
-
+- rename Container, Array
 -transform optimize the matrix computation for children
 -try computing matrix in shader
 - move bitmask from physics to core
 -class for random instead of free function and namespace, so we can actually set the seed
 -
+
+CONCERNING PROBLEMS:
+
+-input handled by imgui return true even without imgui window
 
 BIG TASKS:
 
