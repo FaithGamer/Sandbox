@@ -181,6 +181,9 @@ namespace Sandbox
 	}
 	Vec3f Camera::GetPosition() const
 	{
+		//
+		// turn Vec3f(m_position.x * m_aspectRatio *worldToScreenRatio, m_position.y * worldToScreenRatio, m_position.z * worldToScreenRatio);
+
 		return m_position;
 	}
 	float Camera::GetAspectRatio() const
