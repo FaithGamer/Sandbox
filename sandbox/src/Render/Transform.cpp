@@ -137,7 +137,6 @@ namespace Sandbox
 
 	void Transform::Scale(Vec3f scale)
 	{
-		auto prev = m_localScale;
 		m_localScale *= scale;
 		needCompute = true;
 	}

@@ -341,21 +341,24 @@ namespace Sandbox
 	{
 		return Vec3<float>(lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z);
 	}
-	inline Vec3<float> operator*=(Vec3<float> vec3, const float f)
+	inline Vec3<float> operator*=(Vec3<float>& vec3, const float f)
 	{
-		return Vec3<float>(vec3.x * f, vec3.y * f, vec3.z * f);
+		vec3 = Vec3<float>(vec3.x * f, vec3.y * f, vec3.z * f);
+		return vec3;
 	}
-	inline Vec3<float> operator*=(Vec3<float> lhs, Vec3<float> rhs)
+	inline Vec3<float> operator*=(Vec3<float>& lhs, Vec3<float> rhs)
 	{
-		return Vec3<float>(lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z);
+		lhs = Vec3<float>(lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z);
+		return lhs;
 	}
 	inline Vec3<float> operator/(Vec3<float> vec3, const float f)
 	{
 		return Vec3<float>(vec3.x / f, vec3.y / f, vec3.z / f);
 	}
-	inline Vec3<float> operator/=(Vec3<float> vec3, const float f)
+	inline Vec3<float> operator/=(Vec3<float>& vec3, const float f)
 	{
-		return Vec3<float>(vec3.x / f, vec3.y / f, vec3.z / f);
+		vec3 = Vec3<float>(vec3.x / f, vec3.y / f, vec3.z / f);
+		return vec3;
 	}
 	inline bool operator==(Vec3<float> lhs, Vec3<float> rhs)
 	{
@@ -384,21 +387,24 @@ namespace Sandbox
 	{
 		return Vec2<float>(lhs.x * rhs.x, lhs.y * rhs.y);
 	}
-	inline Vec2<float> operator*=(Vec2<float> vec3, const float f)
+	inline Vec2<float> operator*=(Vec2<float>& vec2, const float f)
 	{
-		return Vec2<float>(vec3.x * f, vec3.y * f);
+		vec2 = Vec2<float>(vec2.x * f, vec2.y * f);
+		return vec2;
 	}
-	inline Vec2<float> operator*=(Vec2<float> lhs, Vec2<float> rhs)
+	inline Vec2<float> operator*=(Vec2<float>& lhs, Vec2<float> rhs)
 	{
-		return Vec2<float>(lhs.x * rhs.x, lhs.y * rhs.y);
+		lhs = Vec2<float>(lhs.x * rhs.x, lhs.y * rhs.y);
+		return lhs;
 	}
-	inline Vec2<float> operator/(Vec2<float> vec3, const float f)
+	inline Vec2<float> operator/(Vec2<float> vec2, const float f)
 	{
-		return Vec2<float>(vec3.x / f, vec3.y / f);
+		return Vec2<float>(vec2.x / f, vec2.y / f);
 	}
-	inline Vec2<float> operator/=(Vec2<float> vec3, const float f)
+	inline Vec2<float> operator/=(Vec2<float>& vec2, const float f)
 	{
-		return Vec2<float>(vec3.x / f, vec3.y / f);
+		vec2 = Vec2<float>(vec2.x / f, vec2.y / f);
+		return vec2;
 	}
 	inline bool operator==(Vec2<float> lhs, Vec2<float> rhs)
 	{
