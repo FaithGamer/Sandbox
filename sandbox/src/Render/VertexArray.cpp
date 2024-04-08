@@ -63,6 +63,8 @@ namespace Sandbox
 	void VertexArray::Bind()
 	{
 		glBindVertexArray(m_id);
+		if (m_indexBuffer)
+			m_indexBuffer->Bind();
 	}
 
 	const sptr<IndexBuffer>& VertexArray::GetIndexBuffer() const

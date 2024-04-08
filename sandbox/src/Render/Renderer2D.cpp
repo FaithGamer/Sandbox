@@ -656,7 +656,7 @@ namespace Sandbox
 		line.Bind();
 		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		glDrawElements(GL_LINE_STRIP_ADJACENCY, (GLsizei)line.GetPointCount()+2, GL_UNSIGNED_INT, 0);
-		///glDrawArrays(GL_LINE_STRIP_ADJACENCY, 0, line.GetPointCount()*2);
+		//glDrawArrays(GL_LINE_STRIP_ADJACENCY, 0, line.GetPointCount()*2);
 	}
 
 	void Renderer2D::DrawWire(WireRender& wire, Transform& transform, uint32_t layer)

@@ -64,7 +64,7 @@ int main(int argc, char** argv)
 
 	//AssetsTest();
 	//EarcutTest();
-	//LineRenderTest();
+	LineRenderTest();
 
 	//RaycastTest();
 	//ECSTest();
@@ -73,7 +73,7 @@ int main(int argc, char** argv)
 
 	//LayerBlending();
 	//ColliderDebug();
-	MouseWheelTest();
+	//MouseWheelTest();
 
 	
 	return 0;
