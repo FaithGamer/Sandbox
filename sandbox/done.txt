@@ -256,3 +256,5 @@ April
 08
 
 -Vertex array now properly bind IndexBuffer if it has one
+-fixed line renderer index buffer being twice the size needed
+-fixed line renderer pop point and reverse function

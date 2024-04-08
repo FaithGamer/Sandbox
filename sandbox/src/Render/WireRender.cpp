@@ -10,7 +10,7 @@ namespace Sandbox
 		m_layer(0),
 		m_color({ 1, 1, 1, 1 })
 	{
-
+		m_vertexArray = makesptr<VertexArray>();
 	}
 	WireRender::WireRender(unsigned int maxPoints) :
 		m_needUpdateBuffer(true),
@@ -23,8 +23,10 @@ namespace Sandbox
 		AttributeLayout layout({
 				{ ShaderDataType::Vec3f, "aPosition" },
 			});
+		
 		m_vertexBuffer->SetLayout(layout);
-		m_vertexArray.AddVertexBuffer(m_vertexBuffer);
+		m_vertexArray = makesptr<VertexArray>();
+		m_vertexArray->AddVertexBuffer(m_vertexBuffer);
 	}
 
 	void WireRender::AddPoint(Vec3f point)
@@ -71,7 +73,7 @@ namespace Sandbox
 			UpdateBuffer();
 			m_needUpdateBuffer = false;
 		}
-		m_vertexArray.Bind();
+		m_vertexArray->Bind();
 	}
 
 	uint32_t WireRender::GetLayer() const

@@ -49,7 +49,7 @@ namespace Sandbox
 		};
 		void UpdateBuffer();
 		sptr<VertexBuffer> m_vertexBuffer;
-		VertexArray m_vertexArray;
+		sptr<VertexArray> m_vertexArray;
 		std::vector<LinePoint> m_points;
 		std::vector<uint32_t> m_indices;
 		uint32_t m_layer;

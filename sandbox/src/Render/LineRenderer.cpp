@@ -6,7 +6,7 @@
 
 namespace Sandbox
 {
-	LineRenderer::LineRenderer(unsigned int maxPoints) : 
+	LineRenderer::LineRenderer(unsigned int maxPoints) :
 		m_needUpdateBuffer(true), 
 		m_maxPoints(maxPoints), 
 		m_layer(0), 
@@ -35,8 +35,9 @@ namespace Sandbox
 		auto indexBuffer = makesptr<IndexBuffer>(indices, maxPoints+2);
 		delete[] indices;
 
-		m_vertexArray.SetIndexBuffer(indexBuffer);
-		m_vertexArray.AddVertexBuffer(m_vertexBuffer);
+		m_vertexArray = makesptr<VertexArray>();
+		m_vertexArray->SetIndexBuffer(indexBuffer);
+		m_vertexArray->AddVertexBuffer(m_vertexBuffer);
 
 		for (int i = 0; i < LINE_WIDTH_INDICES; i++)
 		{
@@ -68,12 +69,12 @@ namespace Sandbox
 
 	void LineRenderer::PopPoint()
 	{
-		if (m_points.size() < 1)
+		if (m_points.size() < 3)
 			return;
 
+		//Keep the two last point that must remain the same.
 		m_points.pop_back();
-		//two last points must be the same for the shader
-		m_points[m_points.size() - 2] = m_points.back();
+		m_points[m_points.size() - 1] = m_points[m_points.size() - 2];
 		m_needUpdateBuffer = true;
 	}
 
@@ -124,7 +125,7 @@ namespace Sandbox
 			UpdateBuffer();
 			m_needUpdateBuffer = false;
 		}
-		m_vertexArray.Bind();
+		m_vertexArray->Bind();
 	}
 
 	uint32_t LineRenderer::GetLayer() const
@@ -139,12 +140,18 @@ namespace Sandbox
 
 	void LineRenderer::Reverse()
 	{
-		if (m_points.size() > 2)
+		if (m_points.size() < 2)
 			return;
 	
 		//keep that the two last points are the same
 		m_points.pop_back(); 
 		std::reverse(m_points.begin(), m_points.end());
+
+		//Keep the index order
+		for (int i = 0; i < m_points.size(); i++)
+		{
+			m_points[i].index = (float)i;
+		}
 		m_points.push_back(m_points.back());
 
 		m_needUpdateBuffer = true;
