@@ -154,6 +154,14 @@ namespace Sandbox
 		}
 		m_points.push_back(m_points.back());
 
+		
+		for (int i = 0; i < LINE_WIDTH_INDICES/2; i++)
+		{
+			float swap = m_width[(LINE_WIDTH_INDICES - 1) - i];
+			m_width[(LINE_WIDTH_INDICES - 1) - i] = m_width[i];
+			m_width[i] = swap;
+		}
+
 		m_needUpdateBuffer = true;
 	}
 
