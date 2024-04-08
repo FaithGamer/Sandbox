@@ -643,6 +643,8 @@ namespace Sandbox
 
 	void Renderer2D::DrawLine(LineRenderer& line, Transform& transform, uint32_t layer)
 	{
+		if (line.GetPointCount() < 2)
+			return;
 		m_layers[layer].target->Bind();
 		m_layers[layer].active = true;
 		m_defaultLineShader->SetUniform("aTransform", transform.GetTransformMatrix());
@@ -661,6 +663,8 @@ namespace Sandbox
 
 	void Renderer2D::DrawWire(WireRender& wire, Transform& transform, uint32_t layer)
 	{
+		if (wire.GetPointCount() < 2)
+			return;
 		m_layers[layer].target->Bind();
 		m_layers[layer].active = true;
 		m_defaultWireShader->SetUniform("aTransform", transform.GetTransformMatrix());

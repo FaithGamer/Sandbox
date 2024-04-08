@@ -250,3 +250,9 @@ so OnAddComponent method of system works even before engine::init if they are ca
 
 - Changed System::OnEvent signature, no longer receive handled by im gui (bc it was wrong)
 - added scroll input type to directional input
+
+April
+
+08
+
+-Vertex array now properly bind IndexBuffer if it has one
