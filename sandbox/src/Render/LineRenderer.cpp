@@ -32,7 +32,7 @@ namespace Sandbox
 
 		indices[maxPoints +1] = maxPoints -1;
 
-		auto indexBuffer = makesptr<IndexBuffer>(indices, maxPoints*2);
+		auto indexBuffer = makesptr<IndexBuffer>(indices, maxPoints+2);
 		delete[] indices;
 
 		m_vertexArray.SetIndexBuffer(indexBuffer);
@@ -68,6 +68,9 @@ namespace Sandbox
 
 	void LineRenderer::PopPoint()
 	{
+		if (m_points.size() < 1)
+			return;
+
 		m_points.pop_back();
 		//two last points must be the same for the shader
 		m_points[m_points.size() - 2] = m_points.back();
@@ -136,15 +139,14 @@ namespace Sandbox
 
 	void LineRenderer::Reverse()
 	{
-		std::vector<LinePoint> line;
-		m_points.pop_back();
-		for (int i = 0; i < m_points.size(); i++)
-		{
-			Vec3f point = m_points[m_points.size() - 1 - i].point;
-			m_points[i] = LinePoint(point, i);
-		}
-		m_points.emplace_back(m_points.back());
-		m_points = line;
+		if (m_points.size() > 2)
+			return;
+	
+		//keep that the two last points are the same
+		m_points.pop_back(); 
+		std::reverse(m_points.begin(), m_points.end());
+		m_points.push_back(m_points.back());
+
 		m_needUpdateBuffer = true;
 	}
 
