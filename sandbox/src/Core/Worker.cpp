@@ -13,12 +13,7 @@ namespace Sandbox
 	}
 	WorkerThread::~WorkerThread()
 	{
-		m_threadRunning = false;
-		std::unique_lock lock(m_waiterMutex);
-		m_taskAvailable = true;
-		lock.unlock();
-		m_waiter.notify_one();
-		m_thread.join();
+		StopThread();
 	}
 
 	void WorkerThread::StartThread()
@@ -30,11 +25,12 @@ namespace Sandbox
 	void WorkerThread::StopThread()
 	{
 		m_threadRunning = false;
-		std::unique_lock waiterLock(m_waiterMutex);
+		std::unique_lock lock(m_waiterMutex);
 		m_taskAvailable = true;
-		waiterLock.unlock();
+		lock.unlock();
 		m_waiter.notify_one();
-		m_thread.join();
+		if (m_thread.joinable())
+			m_thread.join();
 	}
 
 	void WorkerThread::QueueTask(sptr<OpaqueTask> task)
