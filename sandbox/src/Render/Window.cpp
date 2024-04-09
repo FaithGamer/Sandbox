@@ -27,7 +27,7 @@ namespace Sandbox
 		SDL_GL_SetAttribute(SDL_GL_SHARE_WITH_CURRENT_CONTEXT, 1);
 
 		//Creating SDL Window
-		m_window = SDL_CreateWindow(name.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, size.x, size.y, 
+		m_window = SDL_CreateWindow(name.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, size.x, size.y,
 			SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
 		ASSERT_LOG_ERROR(m_window, LogSDLError("Cannot create SDL window"));
 
@@ -74,6 +74,38 @@ namespace Sandbox
 		Window::Instance()->SetSize(size);
 	}
 
+	void Window::SetFullScreen(bool fullscreen)
+	{
+		SDL_Window* window = Instance()->m_window;
+		if (fullscreen)
+		{
+			SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+		}
+		else
+		{
+			SDL_SetWindowFullscreen(window, 0);
+		}
+	}
+
+	void Window::SetVsync(bool vsync)
+	{
+		if (!vsync)
+		{
+			SDL_GL_SetSwapInterval(0);
+			return;
+		}
+		
+		if (SDL_GL_SetSwapInterval(-1) != 0)
+		{
+			LOG_WARN("Adaptative V-sync unsupported.");
+			if (SDL_GL_SetSwapInterval(1) != 0)
+			{
+				LOG_WARN("V-sync unsupported.");
+				SDL_GL_SetSwapInterval(0);
+			}
+		}
+	}
+
 	void Window::ClearWindow()
 	{
 		Window::Instance()->Clear();
@@ -87,6 +119,14 @@ namespace Sandbox
 	void Window::SetSize(float width, float height)
 	{
 		Window::Instance()->SetSize(Vec2u(width, height));
+	}
+
+	void Window::ShowCursor(bool showCursor)
+	{
+		if (showCursor)
+			SDL_ShowCursor(SDL_ENABLE);
+		else
+			SDL_ShowCursor(SDL_DISABLE);
 	}
 
 	bool Window::IsInitialized()

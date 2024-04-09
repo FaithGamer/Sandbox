@@ -34,8 +34,10 @@ namespace Sandbox
 		String GetWritePath() const;
 
 		/// @brief Return true if any of the Get method couldn't find a parameter.
-		/// @return 
 		bool HadGetError() const;
+
+		/// @brief Return true if it had error when loading from disk
+		bool HadLoadError() const;
 
 
 		template <class T>
@@ -106,6 +108,7 @@ namespace Sandbox
 		String m_wpath;
 		Json m_json;
 		bool m_hadGetError;
+		bool m_hadLoadError;
 	};
 
 	class Serializable

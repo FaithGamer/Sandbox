@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="src\Core\Noise.cpp" />
     <ClCompile Include="src\ECS\WireRenderSystem.cpp" />
+    <ClCompile Include="src\EngineParameters.cpp" />
     <ClCompile Include="src\Physics\PhysicsSystem.cpp" />
     <ClCompile Include="src\Render\Rect.cpp" />
     <ClCompile Include="src\Render\WireRender.cpp" />

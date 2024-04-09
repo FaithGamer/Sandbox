@@ -23,34 +23,45 @@ namespace Sandbox
 
 	void Engine::Init()
 	{
-		EngineParameters params;
-		Engine::Init(params);
-	}
-
-	void Engine::Init(const EngineParameters& parameters)
-	{
-
 		Log::Init();
 
-		Window::Instance()->Init(parameters.appName, parameters.startupWindowResolution);
+		EngineParameters params;
+		Serialized paramsJson("assets/config/application.config");
+
+		if (paramsJson.HadLoadError())
+		{
+			LOG_WARN("Couldn't load engine parameters, creating one with default values.");
+
+			Serialized parametersWriteOnDisk = params.Serialize();
+			parametersWriteOnDisk.WriteOnDisk("assets/config/application.config");
+		}
+		else
+		{
+			params = EngineParameters(paramsJson);
+		}
+
+		Window::Instance()->Init(params.appName, params.startupWindowResolution);
+		Window::SetFullScreen(params.fullscreen);
 		Assets::Instance();
 		Renderer2D::Instance();
 		Renderer2D::AddLayer("DebugLayer");
 		Systems::Instance()->CreateWorld();
+		Systems::SetFixedUpdateTime(params.fixedUpdateTimeStep);
 		Physics::Instance();
 
+#ifdef SANDBOX_IMGUI
 		LoadImGui(Window::GetSDLWindow(), Window::GetSDL_GLContext());
-	
-		if (parameters.useEngineSystems)
-		{
-			Systems::Push<InputSystem>();
-			Systems::Push<SpriteRenderSystem>();
-			Systems::Push<LineRendererSystem>();
-			Systems::Push<WireRenderSystem>();
-			Systems::Push<ParticleSystem>();
-			Systems::Push<PhysicsSystem>();
-		}
+#endif
+
+		//Default systems
+		Systems::Push<InputSystem>();
+		Systems::Push<SpriteRenderSystem>();
+		Systems::Push<LineRendererSystem>();
+		Systems::Push<WireRenderSystem>();
+		Systems::Push<ParticleSystem>();
+		Systems::Push<PhysicsSystem>();
 	}
+
 
 	void Engine::Launch()
 	{
@@ -71,29 +82,5 @@ namespace Sandbox
 	{
 		play = false;
 	}
-
-	EngineParameters::EngineParameters(Serialized settings)
-	{
-		Deserialize(settings);
-	}
-
-	void EngineParameters::Deserialize(Serialized& settings)
-	{
-		appName = settings.GetString("AppName");
-
-		startupWindowResolution.x = settings.GetArray<int>("Resolution")[0];
-		startupWindowResolution.y = settings.GetArray<int>("Resolution")[1];
-
-		enableImGui = settings.GetBool("EnableImGui");
-		imGuiLightTheme = settings.GetBool("ImGuiLightTheme");
-		fixedUpdateTimeStep = settings.GetFloat("FixedTimeStep");
-		useEngineSystems = settings.GetBool("UseEngineSystems");
-	}
-
-	Serialized EngineParameters::Serialize()
-	{
-		return Serialized();
-	}
-
 }
 

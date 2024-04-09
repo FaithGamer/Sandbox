@@ -16,9 +16,12 @@ namespace Sandbox
 	{
 	public:
 		static void SetWindowSize(Vec2u size);
+		static void SetFullScreen(bool fullscreen);
+		static void SetVsync(bool vsync);
 		static void ClearWindow();
 		static void RenderWindow();
 		static void SetSize(float width, float height);
+		static void ShowCursor(bool showCursor);
 		static bool IsInitialized();
 		static Vec2u GetSize();
 		static float GetAspectRatio();

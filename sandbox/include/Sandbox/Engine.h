@@ -1,6 +1,6 @@
 #pragma once
 
-#include "EngineParameters.h"
+#define SANDBOX_IMGUI
 
 namespace Sandbox
 {
@@ -8,7 +8,6 @@ namespace Sandbox
 	{
 	public:
 		static void Init();
-		static void Init(const EngineParameters& parameters);
 		static void Launch();
 		static void Stop();
 	private:

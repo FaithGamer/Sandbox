@@ -4,7 +4,7 @@
 
 namespace Sandbox
 {
-	Serialized::Serialized() : m_hadGetError(false)
+	Serialized::Serialized() : m_hadGetError(false), m_hadLoadError(false)
 	{
 
 	}
@@ -16,11 +16,15 @@ namespace Sandbox
 
 	void Serialized::LoadFromDisk(String path)
 	{
+		m_hadLoadError = false;
+
 		m_rpath = path;
 		auto file = std::ifstream(path);
 		if (!file.is_open())
 		{
-			LOG_ERROR("Cannot load config from path: " + path);
+			m_hadLoadError = true;
+			LOG_ERROR("Cannot load Serialized from path: " + path);
+			return;
 		}
 		try {
 
@@ -28,6 +32,7 @@ namespace Sandbox
 		}
 		catch (Json::exception& exception)
 		{
+			m_hadLoadError = true;
 			String errorMsg = "Serialized error when parsing: " + path + "\n";
 			errorMsg += "json exception: " + std::to_string(exception.id) + ", ";
 			errorMsg += *exception.what() + "\n";
@@ -49,6 +54,7 @@ namespace Sandbox
 		if (!file.is_open())
 		{
 			LOG_ERROR("Cannot write config to path: " + path);
+			return;
 		}
 		try {
 
@@ -163,6 +169,11 @@ namespace Sandbox
 	bool Serialized::HadGetError() const
 	{
 		return m_hadGetError;
+	}
+
+	bool Serialized::HadLoadError() const
+	{
+		return m_hadLoadError;
 	}
 	
 }

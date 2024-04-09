@@ -210,6 +210,9 @@
     <ClCompile Include="src\Render\Rect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\EngineParameters.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Sandbox\Core\Log.h">

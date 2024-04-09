@@ -258,3 +258,22 @@ April
 -Vertex array now properly bind IndexBuffer if it has one
 -fixed line renderer index buffer being twice the size needed
 -fixed line renderer pop point and reverse function
+
+09
+
+-enable disable vsync
+-system method to change fixed update time
+-removed engine init with custom param, use json instead.
+-engine parameters removed imgui theme
+-engine parameters serialization and deserialization from a specific path (asset/config/application.config)
+-engine parameters deserialization
+-engine parameters simplification
+-engine parameters fullscreen
+-fixed update time from engine parameters
+-fixed update time is kept only in time and no doublon in system
+-window can be set in fullscreen (borderless)
+-imgui no longer control cursor
+-window can show or hide the cursor
+-serialized object can tell if they failed loading from disk
+-serialized object returns when cannot read a path
+-Time delta and fixed delta are now initialized

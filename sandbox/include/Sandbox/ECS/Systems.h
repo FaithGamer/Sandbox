@@ -107,7 +107,6 @@ namespace Sandbox
 
 		static void EnableImGui(bool enabled);
 		static bool IsImGuiEnabled();
-		static Time GetFixedUpdateTime();
 
 		/// @brief Create and store a World, usually you will have only one World
 		/// Default World name will be World_0, 1, 2, 3....
@@ -127,6 +126,10 @@ namespace Sandbox
 		/// @brief Label a world as being main. This will be the world you get from GetMainWorld.
 		/// @param world 
 		static void SetMainWorld(World* world);
+
+		/// @brief Set the interval between two FixedUpdate call
+		/// @param seconds Interval in seconds
+		static void SetFixedUpdateTime(float seconds);
 
 		/// @brief The world wich is set as main, by default it is the first created world
 		/// @return World pointer.
@@ -172,7 +175,6 @@ namespace Sandbox
 		Clock m_updateClock;
 		Clock m_fixedUpdateClock;
 		Time m_fixedUpdateAccumulator;
-		Time m_fixedUpdateTime;
 		int m_maxFixedUpdate;
 
 		Worlds m_worlds;

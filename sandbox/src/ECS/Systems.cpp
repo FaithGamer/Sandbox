@@ -11,12 +11,9 @@
 #include "Sandbox/Render/Camera.h"
 #include "Sandbox/Input/Mouse.h"
 
-#define SANDBOX_IMGUI
-
 namespace Sandbox
 {
 	Systems::Systems() :
-		m_fixedUpdateTime(0.01f),
 		m_pushCount(0),
 		m_maxFixedUpdate(3),
 		m_events(0),
@@ -68,7 +65,6 @@ namespace Sandbox
 	{
 		Time delta = m_updateClock.Restart();
 		Time::delta = delta;
-		Time::fixedDelta = m_fixedUpdateTime;
 		//Making sure at least one microseconds has elapsed.
 		if (delta < 0.000001f)
 		{
@@ -100,12 +96,12 @@ namespace Sandbox
 
 		m_fixedUpdateAccumulator += m_fixedUpdateClock.Restart();
 		int i = 0;
-		while (m_fixedUpdateAccumulator >= m_fixedUpdateTime)
+		while (m_fixedUpdateAccumulator >= Time::fixedDelta)
 		{
-			m_fixedUpdateAccumulator -= m_fixedUpdateTime;
+			m_fixedUpdateAccumulator -= Time::fixedDelta;
 			for (auto& system : m_fixedUpdateSystems)
 			{
-				system.system->OnFixedUpdate(m_fixedUpdateTime);
+				system.system->OnFixedUpdate(Time::fixedDelta);
 			}
 			if (++i > m_maxFixedUpdate)
 			{
@@ -292,11 +288,6 @@ namespace Sandbox
 		return Systems::Instance()->m_imGuiEnabled;
 	}
 
-	Time Systems::GetFixedUpdateTime()
-	{
-		return Systems::Instance()->m_fixedUpdateTime;
-	}
-
 	World* Systems::CreateWorld()
 	{
 		return CreateWorld("World_" + std::to_string(Instance()->m_worlds.pointers.size()));
@@ -335,6 +326,11 @@ namespace Sandbox
 	{
 		auto instance = Instance();
 		instance->m_worlds.main = world;
+	}
+
+	void Systems::SetFixedUpdateTime(float seconds)
+	{
+		Time::fixedDelta = seconds;
 	}
 
 	World* Systems::GetWorld(std::string name)

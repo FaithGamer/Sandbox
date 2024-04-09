@@ -5,8 +5,8 @@
 
 namespace Sandbox
 {
-	Time Time::delta;
-	Time Time::fixedDelta;
+	Time Time::delta = 0;
+	Time Time::fixedDelta = 0.1f;
 	////////////////////////////
 	/// Time ///////////////////
 	////////////////////////////
