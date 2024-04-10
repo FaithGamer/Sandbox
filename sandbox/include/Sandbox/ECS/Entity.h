@@ -1,6 +1,7 @@
 #pragma once
 #include "Sandbox/Core/std_macros.h"
 #include "EntityId.h"
+#include "Sandbox/Core/Log.h"
 
 namespace Sandbox
 {
@@ -47,6 +48,11 @@ namespace Sandbox
 		template <typename ComponentType, typename... Args>
 		ComponentType* AddComponent(Args&&... args)
 		{
+			if (!Valid())
+			{
+				LOG_WARN("Trying to add a component to an invalid entity!");
+				return nullptr;
+			}
 			return &m_registry->get_or_emplace<ComponentType>(m_id, std::forward<Args>(args)...);
 		}
 		/// @brief Remove a component

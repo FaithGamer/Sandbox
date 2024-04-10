@@ -277,3 +277,4 @@ April
 -serialized object can tell if they failed loading from disk
 -serialized object returns when cannot read a path
 -Time delta and fixed delta are now initialized
+- fixed worker thread cleanup
