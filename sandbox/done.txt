@@ -278,3 +278,12 @@ April
 -serialized object returns when cannot read a path
 -Time delta and fixed delta are now initialized
 - fixed worker thread cleanup
+
+10
+
+- added warning message if adding a component to a invalid entity
+- bitmask: remove flag
+- fixed (?) parent/child relation (there was fucked up things in there lol)
+
+>collider render debug system is wrong: it doesnt remove child in case of simply removing the body
+( this lead to having a lot of child on one entity in love colony mouse cursor hitbox)

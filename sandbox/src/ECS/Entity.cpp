@@ -61,7 +61,8 @@ namespace Sandbox
 			return;
 		}
 
-		entity.JustUnparent();
+		entity.Unparent();
+		entity.AddComponent<Parent>()->parent = m_id;
 
 		auto children = AddComponent<Children>();
 		children->children.insert(entity.m_id);
@@ -88,12 +89,7 @@ namespace Sandbox
 			return;
 		}
 
-		Entity(*find_it, m_registry).JustUnparent();
-
-		if (children->children.empty())
-		{
-			RemoveComponent<Children>();
-		}
+		Entity(*find_it, m_registry).Unparent();
 	}
 
 	void Entity::Unparent()
@@ -102,7 +98,6 @@ namespace Sandbox
 		if (transform != nullptr)
 		{
 			transform->RemoveParent();
-			return;
 		}
 		auto parent = GetComponent<Parent>();
 		if (parent != nullptr)
@@ -120,6 +115,33 @@ namespace Sandbox
 
 	void Entity::Destroy()
 	{
+		if (!Valid())
+		{
+			LOG_WARN("Trying to destroy an invalid entity.");
+			return;
+		}
+
+		auto children = GetComponent<Children>();
+		if (children != nullptr)
+		{
+			for (auto& child : children->children)
+			{
+				Entity(child, m_registry).DestroyFromParent();
+			}
+		}
+		Unparent();
+		m_valid = false;
+		m_registry->destroy(m_id);
+	}
+
+	void Entity::DestroyFromParent()
+	{
+		if (!Valid())
+		{
+			LOG_WARN("Child of destoying parent invalid.");
+			return;
+		}
+
 		auto children = GetComponent<Children>();
 		if (children != nullptr)
 		{
@@ -128,11 +150,7 @@ namespace Sandbox
 				Entity(child, m_registry).Destroy();
 			}
 		}
-		auto parent = GetComponent<Parent>();
-		if (parent != nullptr)
-		{
-			Entity(parent->parent).JustRemoveChild(m_id);
-		}
+
 		m_valid = false;
 		m_registry->destroy(m_id);
 	}

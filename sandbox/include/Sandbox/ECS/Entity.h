@@ -96,6 +96,7 @@ namespace Sandbox
 		}
 
 	private:
+		void DestroyFromParent();
 		/// @brief Called by remove child
 		void JustUnparent();
 		/// @brief Called by remove parent
