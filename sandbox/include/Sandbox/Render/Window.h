@@ -21,6 +21,7 @@ namespace Sandbox
 		static void ClearWindow();
 		static void RenderWindow();
 		static void SetSize(float width, float height);
+		static void SetClearColor(Vec4f color);
 		static void ShowCursor(bool showCursor);
 		static bool IsInitialized();
 		static Vec2u GetSize();
@@ -42,6 +43,7 @@ namespace Sandbox
 		bool m_initialized;
 		SDL_Window* m_window;
 		SDL_GLContext m_glContext;
+		Vec4f m_clearColor;
 
 		Vec2u m_size;
 	};

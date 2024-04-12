@@ -66,6 +66,8 @@ namespace Sandbox
 
 		SDL_GL_SetSwapInterval(0);
 
+		m_clearColor = Vec4f(0.1, 0.1, 0.1, 1);
+
 		m_initialized = true;
 	}
 
@@ -121,6 +123,11 @@ namespace Sandbox
 		Window::Instance()->SetSize(Vec2u(width, height));
 	}
 
+	void Window::SetClearColor(Vec4f color)
+	{
+		Instance()->m_clearColor = color;
+	}
+
 	void Window::ShowCursor(bool showCursor)
 	{
 		if (showCursor)
@@ -163,7 +170,7 @@ namespace Sandbox
 	void Window::Clear()
 	{
 		Bind();
-		glClearColor(0.1f, 0.1f, 0.1f, 1.f);
+		glClearColor(m_clearColor.r, m_clearColor.g, m_clearColor.b, m_clearColor.a);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 	}
 
