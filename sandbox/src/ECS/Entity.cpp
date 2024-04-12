@@ -147,7 +147,7 @@ namespace Sandbox
 		{
 			for (auto& child : children->children)
 			{
-				Entity(child, m_registry).Destroy();
+				Entity(child, m_registry).DestroyFromParent();
 			}
 		}
 
