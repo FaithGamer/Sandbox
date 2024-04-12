@@ -29,7 +29,7 @@ namespace Sandbox
 		}
 		void RemoveFlag(uint16_t flag)
 		{
-			flags = flag & ~flag;
+			flags = flags & ~flag;
 		}
 		bool Contains(uint16_t flag)
 		{
