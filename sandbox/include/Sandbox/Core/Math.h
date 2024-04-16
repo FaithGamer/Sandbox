@@ -1,6 +1,7 @@
 #pragma once
 #include <math.h>
 #include "Sandbox/Core/Vec.h"
+#include "Sandbox/Core/Log.h"
 
 namespace Sandbox
 {
@@ -55,24 +56,21 @@ namespace Sandbox
 			Vec2f l1d = (l1e - l1s).Normalized();
 			Vec2f l2d = (l2e - l2s).Normalized();
 
-				// Calculate determinant
-				double det = l1d.x * l2d.y - l2d.x * l1d.y;
+			// Calculate determinant
+			double det = l1d.x * l2d.y - l2d.x * l1d.y;
 
-				// If determinant is zero, lines are parallel
-				if (det == 0) {
-					LOG_WARN("No intersection between parallel lines");
-					return { 0, 0 }; // Indicate no intersection
-				}
+			// If determinant is zero, lines are parallel
+			if (det == 0) {
+				LOG_WARN("No intersection between parallel lines");
+				return { 0, 0 }; // Indicate no intersection
+			}
 
-				// Calculate parameter for each line
-				double t1 = (l2d.y * (l2s.x - l1s.x) + l2d.x * (l1s.y - l2s.y)) / det;
-				double t2 = (l1d.x * (l2s.y - l1s.y) + l1d.y * (l1s.x - l2s.x)) / det;
+			// Calculate parameter for each line
+			double t1 = (l2d.y * (l2s.x - l1s.x) + l2d.x * (l1s.y - l2s.y)) / det;
+			double t2 = (l1d.x * (l2s.y - l1s.y) + l1d.y * (l1s.x - l2s.x)) / det;
 
-				// Calculate intersection point
-				double intersectionX = l1s.x + t1 * l1d.x;
-				double intersectionY = l1s.y + t1 * l1d.y;
-
-				return { intersectionX, intersectionY };
+			// Calculate intersection point
+			return Vec2f(l1s.x + t1 * l1d.x, l1s.y + t1 * l1d.y);
 		}
 		template <typename T>
 		inline constexpr T Min(T lhs, T rhs)

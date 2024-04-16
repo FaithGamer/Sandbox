@@ -131,6 +131,9 @@ namespace Sandbox
 		/// @param seconds Interval in seconds
 		static void SetFixedUpdateTime(float seconds);
 
+		/// @brief Set a multiplier to the deltaTime and fixedDeltaTime
+		static void SetTimeScale(float scale);
+
 		/// @brief The world wich is set as main, by default it is the first created world
 		/// @return World pointer.
 		static World* GetMainWorld();

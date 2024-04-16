@@ -27,11 +27,14 @@ namespace Sandbox
 
 		static Time Delta();
 		static Time FixedDelta();
+		static Time UnscaledDelta();
+		static Time UnscaledFixedDelta();
 
 	private:
 		friend Systems;
 		static Time delta;
 		static Time fixedDelta;
+		static float timeScale;
 
 		std::chrono::microseconds m_microseconds;
 

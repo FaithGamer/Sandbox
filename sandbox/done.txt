@@ -287,3 +287,7 @@ April
 
 >collider render debug system is wrong: it doesnt remove child in case of simply removing the body
 ( this lead to having a lot of child on one entity in love colony mouse cursor hitbox)
+
+16
+
+- added timescale

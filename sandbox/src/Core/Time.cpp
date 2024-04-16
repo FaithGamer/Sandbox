@@ -7,6 +7,7 @@ namespace Sandbox
 {
 	Time Time::delta = 0;
 	Time Time::fixedDelta = 0.1f;
+	float Time::timeScale = 1.f;
 	////////////////////////////
 	/// Time ///////////////////
 	////////////////////////////
@@ -15,6 +16,16 @@ namespace Sandbox
 		return delta;
 	}
 	Time Time::FixedDelta()
+	{
+		return (float)fixedDelta * timeScale;
+	}
+
+	Time Time::UnscaledDelta()
+	{
+		return (float)delta / timeScale;
+	}
+
+	Time Time::UnscaledFixedDelta()
 	{
 		return fixedDelta;
 	}
@@ -47,7 +58,7 @@ namespace Sandbox
 		return (float)m_microseconds.count() / 1000000.f;
 	}
 
-	
+
 	Time& operator+=(Time& l, const Time& r)
 	{
 		return l = Time(l.m_microseconds + r.m_microseconds);

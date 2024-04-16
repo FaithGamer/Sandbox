@@ -19,7 +19,6 @@ namespace Sandbox
 		m_events(0),
 		m_imGuiEnabled(true)
 	{
-
 	}
 
 	Systems::~Systems()
@@ -63,8 +62,9 @@ namespace Sandbox
 
 	void Systems::Update()
 	{
-		Time delta = m_updateClock.Restart();
+		Time delta = (float)m_updateClock.Restart() * Time::timeScale;
 		Time::delta = delta;
+
 		//Making sure at least one microseconds has elapsed.
 		if (delta < 0.000001f)
 		{
@@ -98,10 +98,11 @@ namespace Sandbox
 		int i = 0;
 		while (m_fixedUpdateAccumulator >= Time::fixedDelta)
 		{
+			Time scaledFixedDelta = (float)Time::fixedDelta * Time::timeScale;
 			m_fixedUpdateAccumulator -= Time::fixedDelta;
 			for (auto& system : m_fixedUpdateSystems)
 			{
-				system.system->OnFixedUpdate(Time::fixedDelta);
+				system.system->OnFixedUpdate(scaledFixedDelta);
 			}
 			if (++i > m_maxFixedUpdate)
 			{
@@ -331,6 +332,11 @@ namespace Sandbox
 	void Systems::SetFixedUpdateTime(float seconds)
 	{
 		Time::fixedDelta = seconds;
+	}
+
+	void Systems::SetTimeScale(float scale)
+	{
+		Time::timeScale = scale;
 	}
 
 	World* Systems::GetWorld(std::string name)
