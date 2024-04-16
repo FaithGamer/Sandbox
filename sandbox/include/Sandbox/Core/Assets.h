@@ -51,7 +51,7 @@ namespace Sandbox
 	public:
 
 		Assets();
-
+		void Init();
 
 		void HotReload();
 
@@ -90,10 +90,11 @@ namespace Sandbox
 				LOG_ERROR("More than one asset with the same filename: " + filename + ", only one could be loaded.");
 			}
 		}
-
+		void CreateAnimations();
 		void GenerateSprites(String filename, Serialized& spritesheet, sptr<Texture> texture);
 		Serialized CreateDefaultTextureImportSettings();
 		Serialized CreateDefaultSpritesheet(sptr<Texture> texture);
+		void AddAnimation(String filename, String path);
 		void AddTexture(String filename, String path);
 		void AddConfig(String filename, String path);
 		void AddFragmentShader(String filename, String path);
@@ -124,5 +125,6 @@ namespace Sandbox
 		std::unordered_map<String, Delegate<void, String, String>> m_addAssetFunctions;
 		std::unordered_map<String, ShaderSources> m_shadersPath;
 		TextureImportSettings m_defaultImportSettings;
+		std::vector<std::pair<String, Serialized>> m_animations;
 	};
 }

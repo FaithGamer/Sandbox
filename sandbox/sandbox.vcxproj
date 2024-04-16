@@ -15,6 +15,7 @@
     <ClCompile Include="src\ECS\WireRenderSystem.cpp" />
     <ClCompile Include="src\EngineParameters.cpp" />
     <ClCompile Include="src\Physics\PhysicsSystem.cpp" />
+    <ClCompile Include="src\Render\AnimationSystem.cpp" />
     <ClCompile Include="src\Render\Rect.cpp" />
     <ClCompile Include="src\Render\WireRender.cpp" />
     <ClCompile Include="src\Core\Assets.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="include\Sandbox\Input\TextualInput.h" />
     <ClInclude Include="include\Sandbox\Core\Task.h" />
     <ClInclude Include="include\Sandbox\Physics\Bitmask.h" />
+    <ClInclude Include="include\Sandbox\Render\AnimationSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\batch_renderer.frag" />

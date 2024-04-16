@@ -32,6 +32,7 @@
 #include "Tests/LayerBlending.h"
 #include "Tests/ColliderDebug.h"
 #include "Tests/MouseWheelTest.h"
+#include "Tests/AnimTest.h"
 
 #include <random>
 #include <iostream>
@@ -64,7 +65,7 @@ int main(int argc, char** argv)
 
 	//AssetsTest();
 	//EarcutTest();
-	LineRenderTest();
+	//LineRenderTest();
 
 	//RaycastTest();
 	//ECSTest();
@@ -74,6 +75,8 @@ int main(int argc, char** argv)
 	//LayerBlending();
 	//ColliderDebug();
 	//MouseWheelTest();
+
+	AnimTest();
 
 	
 	return 0;

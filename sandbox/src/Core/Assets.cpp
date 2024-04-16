@@ -7,12 +7,21 @@
 #include "Sandbox/Render/Shader.h"
 #include "Sandbox/Render/Sprite.h"
 #include "Sandbox/Core/Math.h"
+#include "Sandbox/Render/AnimationSystem.h"
 
 #define TEXTURE_IMPORT_SETTING_IS_ERROR
 #define SPRITESHEET_IS_ERROR
 
 namespace Sandbox
 {
+	void Assets::CreateAnimations()
+	{
+		for (int i = 0; i < m_animations.size(); i++)
+		{
+			InsertAsset(m_animations[i].first, MakeAsset<Animation>(m_animations[i].second));
+		}
+		m_animations.clear();
+	}
 	void Assets::GenerateSprites(String filename, Serialized& spritesheet, sptr<Texture> texture)
 	{
 		int width = Math::Max(1, spritesheet.GetInt("Width"));
@@ -70,6 +79,10 @@ namespace Sandbox
 
 		return spritesheet;
 
+	}
+	void Assets::AddAnimation(String filename, String path)
+	{
+		m_animations.emplace_back(std::make_pair(filename, Serialized(path)));
 	}
 	void Assets::AddTexture(String filename, String path)
 	{
@@ -167,19 +180,24 @@ namespace Sandbox
 
 	Assets::Assets()
 	{
+		
+	}
+	void Assets::Init()
+	{
+		//Can't be done in constructor because of recursion
 		InitAddAssetFunctions();
 		LoadAssets();
 		CompileShaders();
+		CreateAnimations();
 	}
-
 	void Assets::InitAddAssetFunctions()
 	{
+		m_addAssetFunctions.insert(std::make_pair(".anim", Delegate(&Assets::AddAnimation, this)));
 		m_addAssetFunctions.insert(std::make_pair(".png", Delegate(&Assets::AddTexture, this)));
 		m_addAssetFunctions.insert(std::make_pair(".config", Delegate(&Assets::AddConfig, this)));
 		m_addAssetFunctions.insert(std::make_pair(".vert", Delegate(&Assets::AddVertexShader, this)));
 		m_addAssetFunctions.insert(std::make_pair(".frag", Delegate(&Assets::AddFragmentShader, this)));
 		m_addAssetFunctions.insert(std::make_pair(".geom", Delegate(&Assets::AddGeometryShader, this)));
-		//m_addAssetFunctions.insert(std::make_pair(".spritesheet", &AddSprites));
 	}
 
 	void Assets::LoadAssets()

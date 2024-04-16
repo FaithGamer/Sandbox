@@ -291,3 +291,6 @@ April
 16
 
 - added timescale
+
+>create animation system and component with serialization
+>create asset anim

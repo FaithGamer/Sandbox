@@ -8,6 +8,7 @@
 #include "Sandbox/Internal/ImGuiLoader.h"
 #include "Sandbox/ECS/InputSystem.h"
 #include "Sandbox/Render/Renderer2D.h"
+#include "Sandbox/Render/AnimationSystem.h"
 #include "Sandbox/Core/Assets.h"
 #include "Sandbox/ECS/SpriteRenderSystem.h"
 #include "Sandbox/ECS/LineRendererSystem.h"
@@ -42,7 +43,7 @@ namespace Sandbox
 
 		Window::Instance()->Init(params.appName, params.startupWindowResolution);
 		Window::SetFullScreen(params.fullscreen);
-		Assets::Instance();
+		Assets::Instance()->Init();
 		Renderer2D::Instance();
 		Renderer2D::AddLayer("DebugLayer");
 		Systems::Instance()->CreateWorld();
@@ -60,8 +61,8 @@ namespace Sandbox
 		Systems::Push<WireRenderSystem>();
 		Systems::Push<ParticleSystem>();
 		Systems::Push<PhysicsSystem>();
+		Systems::Push<AnimationSystem>();
 	}
-
 
 	void Engine::Launch()
 	{

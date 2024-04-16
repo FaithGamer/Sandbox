@@ -1,0 +1,11 @@
+{
+    "frame_per_second": 60,
+    "frames":[
+        {
+            "sprite":"hero.png_0_0"
+        },
+        {
+            "sprite":"pig.png_0_0"
+        }
+    ]
+}

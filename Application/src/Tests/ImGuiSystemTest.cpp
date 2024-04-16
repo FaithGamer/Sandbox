@@ -13,8 +13,7 @@ using namespace Sandbox;
 
 void ImGuiSystemTest()
 {
-	EngineParameters parameters;
-	parameters.appName = "Sandbox Imgui System Test";
+
 	Engine::Init();
 	Camera camera;
 	Systems::SetMainCamera(&camera);

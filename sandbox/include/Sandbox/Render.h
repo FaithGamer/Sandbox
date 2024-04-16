@@ -17,5 +17,6 @@
 #include "Sandbox/Render/RenderOptions.h"
 #include "Sandbox/Render/RenderTexture.h"
 #include "Sandbox/Render/Particle.h"
+#include "Sandbox/Render/AnimationSystem.h"
 
 

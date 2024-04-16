@@ -12,9 +12,7 @@ using namespace Sandbox;
 void Editor()
 {
 	//Initialize
-	EngineParameters params;
-	params.startupWindowResolution = { 1600, 900 };
-	Engine::Init(params);
+	Engine::Init();
 
 	//World
 	Systems::CreateWorld();
