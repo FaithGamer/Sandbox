@@ -66,7 +66,7 @@ namespace Sandbox
 	}
 
 	//Animator
-	Animator::Animator() : accumulator(0), currentState(nullptr), nextFrame(0), currentKeyFrame(0)
+	Animator::Animator() : accumulator(0), currentState(nullptr), nextFrame(0), currentKeyFrame(0), speed(1)
 	{
 
 	}
@@ -118,7 +118,7 @@ namespace Sandbox
 				}
 
 				sprite.SetSprite(anim->frames[frame].sprite);
-				animator.accumulator += (float)delta;
+				animator.accumulator += (float)delta * animator.speed;
 				//to do, evaluate transform
 			});
 	}

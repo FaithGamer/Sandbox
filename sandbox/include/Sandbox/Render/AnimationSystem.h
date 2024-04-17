@@ -39,6 +39,7 @@ namespace Sandbox
 		float accumulator;
 		int currentKeyFrame;
 		float nextFrame;
+		float speed;
 	};
 	class AnimationSystem : public System
 	{
