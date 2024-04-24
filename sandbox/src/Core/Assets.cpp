@@ -29,6 +29,9 @@ namespace Sandbox
 		Vec2f origin;
 		origin.x = spritesheet.GetArray<float>("Origin")[0];
 		origin.y = spritesheet.GetArray<float>("Origin")[1];
+		Vec2f padding = 0;
+		padding.x = spritesheet.GetArray<float>("Padding")[0];
+		padding.y = spritesheet.GetArray<float>("Padding")[1];
 
 		int offsetx = 0;
 		int offsety = 0;
@@ -51,8 +54,8 @@ namespace Sandbox
 			for (int x = 0; x < columns; x++)
 			{
 				Rect texRect;
-				texRect.left = x * width;
-				texRect.top = y * height;
+				texRect.left = x * width + padding.x + padding.x * 2 * x;
+				texRect.top = y * height + padding.y + padding.y * 2 * y;
 				texRect.width = width;
 				texRect.height = height;
 
@@ -76,6 +79,7 @@ namespace Sandbox
 		spritesheet["Width"] = texture->GetSize().x;
 		spritesheet["Height"] = texture->GetSize().y;
 		spritesheet["Origin"] = { 0.f,0.f };
+		spritesheet["Padding"] = { 0.f, 0.f };
 
 		return spritesheet;
 

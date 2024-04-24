@@ -24,7 +24,6 @@ public:
 				});
 			t = 0;
 		}
-
 	}
 	float t = 0;
 };
