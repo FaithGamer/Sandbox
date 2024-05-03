@@ -33,6 +33,7 @@
 #include "Tests/ColliderDebug.h"
 #include "Tests/MouseWheelTest.h"
 #include "Tests/AnimTest.h"
+#include "Tests/AudioTest.h"
 
 #include <random>
 #include <iostream>
@@ -76,7 +77,8 @@ int main(int argc, char** argv)
 	//ColliderDebug();
 	//MouseWheelTest();
 
-	AnimTest();
+	//AnimTest();
+	AudioTest();
 
 	
 	return 0;

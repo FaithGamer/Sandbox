@@ -16,7 +16,7 @@ namespace Sandbox
 	Systems::Systems() :
 		m_pushCount(0),
 		m_maxFixedUpdate(3),
-		m_eventsènènéèn(0),
+		m_events(0),
 		m_imGuiEnabled(true)
 	{
 	}

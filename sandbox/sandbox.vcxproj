@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="include\Sandbox\Audio\Sound.cpp" />
+    <ClCompile Include="src\Audio\Audio.cpp" />
     <ClCompile Include="src\Core\Noise.cpp" />
     <ClCompile Include="src\ECS\WireRenderSystem.cpp" />
     <ClCompile Include="src\EngineParameters.cpp" />
@@ -93,6 +95,7 @@
     <ClCompile Include="src\Core\Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Sandbox\Audio\Sound.h" />
     <ClInclude Include="include\Sandbox\Core.h" />
     <ClInclude Include="include\cute\cute_c2.h" />
     <ClInclude Include="include\earcut\mapbox\earcut.hpp" />
@@ -160,6 +163,7 @@
     <ClInclude Include="include\Sandbox\Render\Buffer.h" />
     <ClInclude Include="include\Sandbox\Render\SpriteRender.h" />
     <ClInclude Include="include\Sandbox\Physics\Physics.h" />
+    <ClInclude Include="include\Sandbox\Audio\Audio.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="include\Sandbox\Render\Shader.h" />
     <ClInclude Include="include\Sandbox\Core\std_macros.h" />

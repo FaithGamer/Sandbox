@@ -46,6 +46,8 @@ namespace Sandbox
 		LOG_INFO("Loading window...");
 		Window::Instance()->Init(params.appName, params.startupWindowResolution);
 		Window::SetFullScreen(params.fullscreen);
+		LOG_INFO("Loading audio...");
+		Audio::Instance()->Init();
 		LOG_INFO("Loading assets...");
 		Assets::Instance()->Init();
 		LOG_INFO("Loading renderer...");

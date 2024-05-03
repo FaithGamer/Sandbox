@@ -8,6 +8,7 @@
 #include "Sandbox/Render/Sprite.h"
 #include "Sandbox/Core/Math.h"
 #include "Sandbox/Render/AnimationSystem.h"
+#include "Sandbox/Audio/Audio.h"
 
 #define TEXTURE_IMPORT_SETTING_IS_ERROR
 #define SPRITESHEET_IS_ERROR
@@ -182,10 +183,16 @@ namespace Sandbox
 		m_shadersPath[shadername].geometry = path;
 	}
 
+	void Assets::AddAudio(String filename, String path)
+	{
+		Audio::Instance()->LoadSound(path);
+	}
+
 	Assets::Assets()
 	{
 		
 	}
+
 	void Assets::Init()
 	{
 		//Can't be done in constructor because of recursion
@@ -202,6 +209,8 @@ namespace Sandbox
 		m_addAssetFunctions.insert(std::make_pair(".vert", Delegate(&Assets::AddVertexShader, this)));
 		m_addAssetFunctions.insert(std::make_pair(".frag", Delegate(&Assets::AddFragmentShader, this)));
 		m_addAssetFunctions.insert(std::make_pair(".geom", Delegate(&Assets::AddGeometryShader, this)));
+		m_addAssetFunctions.insert(std::make_pair(".mp3", Delegate(&Assets::AddAudio, this)));
+		m_addAssetFunctions.insert(std::make_pair(".wav", Delegate(&Assets::AddAudio, this)));
 	}
 
 	void Assets::LoadAssets()

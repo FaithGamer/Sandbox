@@ -101,6 +101,7 @@ namespace Sandbox
 		void AddVertexShader(String filename, String path);
 		void AddGeometryShader(String filename, String path);
 		void AddMaterial(String filename, String path);
+		void AddAudio(String filename, String path);
 
 		template <class T>
 		Asset<T> GetPrivate(String name)
