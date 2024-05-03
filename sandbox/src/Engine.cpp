@@ -16,6 +16,7 @@
 #include "Sandbox/ECS/ParticleSystem.h"
 #include "Sandbox/Physics/PhysicsSystem.h"
 #include "Sandbox/Physics/Physics.h"
+#include "Sandbox/Audio/Audio.h"
 
 
 namespace Sandbox
@@ -26,6 +27,7 @@ namespace Sandbox
 	{
 		Log::Init();
 
+		LOG_INFO("Engine start.");
 		EngineParameters params;
 		Serialized paramsJson("assets/config/application.config");
 
@@ -41,14 +43,20 @@ namespace Sandbox
 			params = EngineParameters(paramsJson);
 		}
 
+		LOG_INFO("Loading window...");
 		Window::Instance()->Init(params.appName, params.startupWindowResolution);
 		Window::SetFullScreen(params.fullscreen);
+		LOG_INFO("Loading assets...");
 		Assets::Instance()->Init();
+		LOG_INFO("Loading renderer...");
 		Renderer2D::Instance();
 		Renderer2D::AddLayer("DebugLayer");
+		LOG_INFO("Loading Physics...");
+		Physics::Instance();
+		LOG_INFO("Creating world...");
 		Systems::Instance()->CreateWorld();
 		Systems::SetFixedUpdateTime(params.fixedUpdateTimeStep);
-		Physics::Instance();
+		
 
 #ifdef SANDBOX_IMGUI
 		LoadImGui(Window::GetSDLWindow(), Window::GetSDL_GLContext());
