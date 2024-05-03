@@ -291,6 +291,11 @@ April
 16
 
 - added timescale
+-create animation system and component with serialization
+-create asset anim
 
->create animation system and component with serialization
->create asset anim
+24
+
+-Padding spritesheet
+-Disabled imgui.ini
+>update warning is for sprite crop size not fitting texture size when padding is enabled
