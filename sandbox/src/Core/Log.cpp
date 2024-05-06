@@ -16,7 +16,7 @@ namespace Sandbox
 
 	void Log::Init(bool logfile)
 	{
-
+#ifndef SANDBOX_NO_LOGGING
 		spdlog::set_pattern("%^[%T] %n: %v%$");
 
 		std::vector<spdlog::sink_ptr> sinks;
@@ -30,7 +30,7 @@ namespace Sandbox
 #endif
 		m_logger = makesptr<spdlog::logger>("SANDBOX", begin(sinks), end(sinks));
 		m_logger->set_level(spdlog::level::trace);
-
+#endif
 	}
 
 	std::shared_ptr<spdlog::logger> Log::GetLogger()
