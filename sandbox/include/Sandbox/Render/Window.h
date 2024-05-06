@@ -24,6 +24,7 @@ namespace Sandbox
 		static void SetClearColor(Vec4f color);
 		static void ShowCursor(bool showCursor);
 		static bool IsInitialized();
+		static bool GetVSync();
 		static Vec2u GetSize();
 		static float GetAspectRatio();
 		static SDL_GLContext GetSDL_GLContext();

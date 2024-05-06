@@ -16,20 +16,24 @@ namespace Sandbox
 		}
 	};
 
-	SpriteRenderSystem::SpriteRenderSystem() : m_ySort(true)
+	SpriteRenderSystem::SpriteRenderSystem() : m_zSort(true)
 	{
 		SetPriority(10000);
 	}
 
-	void SpriteRenderSystem::YSort(bool sort)
+	void SpriteRenderSystem::SetZSort(bool sort)
 	{
-		m_ySort = sort;
+		m_zSort = sort;
+	}
+	bool SpriteRenderSystem::GetZSort()
+	{
+		return m_zSort;
 	}
 	void SpriteRenderSystem::OnRender()
 	{
 		sptr<Renderer2D> renderer = Renderer2D::Instance();
 
-		if (!m_ySort)
+		if (!m_zSort)
 		{
 			ForeachComponents<SpriteRender, Transform>([renderer](SpriteRender& sprite, Transform& transform)
 				{
