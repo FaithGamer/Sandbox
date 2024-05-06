@@ -13,7 +13,7 @@ namespace Sandbox
 	{
 
 	public:
-		static void Init();
+		static void Init(bool logging);
 		static sptr<spdlog::logger> GetLogger();
 	private:
 		Log();
@@ -21,7 +21,7 @@ namespace Sandbox
 		static sptr<spdlog::logger> m_logger;
 	};
 }
-#ifdef SANDBOX_LOGGING
+#ifndef SANDBOX_NO_LOGGING
 #define ASSERT_LOG_ERROR(condition, ...) if(!condition){Log::GetLogger()->error(__VA_ARGS__); assert(condition);}
 
 #define LOG_ERROR(...) Log::GetLogger()->error(__VA_ARGS__)

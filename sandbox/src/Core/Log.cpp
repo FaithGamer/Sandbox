@@ -14,9 +14,9 @@ namespace Sandbox
 
 	sptr<spdlog::logger> Log::m_logger;
 
-	void Log::Init()
+	void Log::Init(bool logfile)
 	{
-#ifdef SANDBOX_LOGGING
+
 		spdlog::set_pattern("%^[%T] %n: %v%$");
 
 		std::vector<spdlog::sink_ptr> sinks;
@@ -25,11 +25,12 @@ namespace Sandbox
 		sinks.push_back(makesptr<spdlog::sinks::stdout_color_sink_mt>());
 #endif
 #ifndef SANDBOX_NO_LOGFILE
-		sinks.push_back(makesptr<spdlog::sinks::rotating_file_sink_mt>("logfile.txt", 20000, 3));
+		if(logfile)
+			sinks.push_back(makesptr<spdlog::sinks::rotating_file_sink_mt>("logfile.txt", 20000, 3));
 #endif
 		m_logger = makesptr<spdlog::logger>("SANDBOX", begin(sinks), end(sinks));
 		m_logger->set_level(spdlog::level::trace);
-#endif
+
 	}
 
 	std::shared_ptr<spdlog::logger> Log::GetLogger()

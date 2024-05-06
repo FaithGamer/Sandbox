@@ -23,9 +23,9 @@ namespace Sandbox
 {
 	bool Engine::play = true;
 
-	void Engine::Init()
+	void Engine::Init(bool logging)
 	{
-		Log::Init();
+		Log::Init(logging);
 
 		LOG_INFO("Engine start.");
 		EngineParameters params;

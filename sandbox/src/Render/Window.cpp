@@ -37,7 +37,7 @@ namespace Sandbox
 		ASSERT_LOG_ERROR(m_glContext, LogSDLError("Cannot create OpenGL Context"));
 
 		//Loading OpenGL Functions addresses
-		bool loadGlag = (bool)gladLoadGLLoader(SDL_GL_GetProcAddress);
+		bool loadGlad = (bool)gladLoadGLLoader(SDL_GL_GetProcAddress);
 		ASSERT_LOG_ERROR(loadGlad, "Couldn't initialize GLAD");
 
 		//Logging additional information
