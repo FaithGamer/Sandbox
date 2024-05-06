@@ -310,6 +310,9 @@ April
 -created distrib build, without console
 -macro SANDBOX_NO_CONSOLE and SANDBOX_NO_LOGFILE
 -disabled stdout_color_sink_mt in distrib build 
+- SANDBOX_LOGGING instead of _CONSOLE
 
 >change ysort for z sort and have get/set
 >have get vsync
+>clear consol from useless message like warning for non supporte asset type.
+>only one log file, but up to 5mb

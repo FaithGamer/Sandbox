@@ -21,7 +21,7 @@ namespace Sandbox
 		static sptr<spdlog::logger> m_logger;
 	};
 }
-#ifdef _CONSOLE
+#ifdef SANDBOX_LOGGING
 #define ASSERT_LOG_ERROR(condition, ...) if(!condition){Log::GetLogger()->error(__VA_ARGS__); assert(condition);}
 
 #define LOG_ERROR(...) Log::GetLogger()->error(__VA_ARGS__)
