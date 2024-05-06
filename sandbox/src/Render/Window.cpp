@@ -14,8 +14,8 @@ namespace Sandbox
 	void Window::Init(std::string name, Vec2u size)
 	{
 		//Initializing SDL
-		ASSERT_LOG_ERROR((SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER) == 0),
-			LogSDLError("Couldn't initialize SDL"));
+		int SDLinit = SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER);
+		ASSERT_LOG_ERROR(SDLinit == 0, LogSDLError("Couldn't initialize SDL"));
 
 		m_size = size;
 
@@ -37,7 +37,8 @@ namespace Sandbox
 		ASSERT_LOG_ERROR(m_glContext, LogSDLError("Cannot create OpenGL Context"));
 
 		//Loading OpenGL Functions addresses
-		ASSERT_LOG_ERROR((bool)(gladLoadGLLoader(SDL_GL_GetProcAddress)), "Couldn't initialize GLAD");
+		bool loadGlag = (bool)gladLoadGLLoader(SDL_GL_GetProcAddress);
+		ASSERT_LOG_ERROR(loadGlad, "Couldn't initialize GLAD");
 
 		//Logging additional information
 		auto c = glGetString(GL_VENDOR);
@@ -53,7 +54,6 @@ namespace Sandbox
 
 		//Viewport size and clear color
 		glViewport(0, 0, size.x, size.y);
-
 
 		//Enabling blending
 		glEnable(GL_BLEND);
