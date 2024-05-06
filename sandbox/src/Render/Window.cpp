@@ -141,6 +141,21 @@ namespace Sandbox
 		return Window::Instance()->m_initialized;
 	}
 
+	bool Window::GetVSync()
+	{
+		int r = SDL_GL_GetSwapInterval();
+		switch (r)
+		{
+		case 0:
+			return false;
+		case 1:
+			return true;
+		case -1:
+			return true;
+		}
+		return false;
+	}
+
 	Vec2u Window::GetSize()
 	{
 		return Window::Instance()->m_size;

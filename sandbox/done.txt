@@ -303,3 +303,13 @@ April
 03
 
 -implemented basic audio module with miniaudio.
+-shipped with v0.15
+
+05
+
+-created distrib build, without console
+-macro SANDBOX_NO_CONSOLE and SANDBOX_NO_LOGFILE
+-disabled stdout_color_sink_mt in distrib build 
+
+>change ysort for z sort and have get/set
+>have get vsync
