@@ -299,3 +299,7 @@ April
 -Padding spritesheet
 -Disabled imgui.ini
 >update warning is for sprite crop size not fitting texture size when padding is enabled
+
+03
+
+-implemented basic audio module with miniaudio.
