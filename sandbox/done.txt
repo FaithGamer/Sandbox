@@ -313,7 +313,7 @@ April
 - SANDBOX_LOGGING instead of _CONSOLE
 -change ysort for z sort and have get/set
 -have get vsync
-
+- added third build option with no logging at all
 >Log  method for logging
 
 >clear consol from useless message like warning for non supporte asset type.

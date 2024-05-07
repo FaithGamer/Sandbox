@@ -26,7 +26,7 @@ namespace Sandbox
 #endif
 #ifndef SANDBOX_NO_LOGFILE
 		if(logfile)
-			sinks.push_back(makesptr<spdlog::sinks::rotating_file_sink_mt>("logfile.txt", 20000, 3));
+			sinks.push_back(makesptr<spdlog::sinks::rotating_file_sink_mt>("logfile.txt", 5000000, 0));
 #endif
 		m_logger = makesptr<spdlog::logger>("SANDBOX", begin(sinks), end(sinks));
 		m_logger->set_level(spdlog::level::trace);
