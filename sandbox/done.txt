@@ -320,6 +320,6 @@ April
 
 - build option with no sound
 
->Log  method for logging
+
 
 >clear consol from useless message like warning for non supporte asset type.
