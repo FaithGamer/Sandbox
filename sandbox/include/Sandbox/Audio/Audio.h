@@ -2,7 +2,9 @@
 
 #include "Sandbox/Internal/Singleton.h"
 
+#ifndef SANDBOX_NO_AUDIO
 #include "miniaudio/miniaudio.h"
+#endif
 #include "Sandbox/Audio/Sound.h"
 
 namespace Sandbox
@@ -29,8 +31,9 @@ namespace Sandbox
 	private:
 		friend sptr<Audio> Singleton<Audio>::Instance();
 		friend void Singleton<Audio>::Kill();
-
+#ifndef SANDBOX_NO_AUDIO
 		ma_engine* m_engine;
 		std::vector<ma_sound*> m_sounds;
+#endif
 	};
 }

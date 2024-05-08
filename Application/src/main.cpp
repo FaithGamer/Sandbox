@@ -77,8 +77,8 @@ int main(int argc, char** argv)
 	//ColliderDebug();
 	//MouseWheelTest();
 
-	AnimTest();
-	//AudioTest();
+	//AnimTest();
+	AudioTest();
 
 	
 	return 0;
