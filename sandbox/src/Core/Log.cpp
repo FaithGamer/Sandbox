@@ -12,8 +12,6 @@ namespace Sandbox
 		return std::string("SDL error: " + str + " " + SDL_GetError());
 	}
 
-	sptr<spdlog::logger> Log::m_logger;
-
 	void Log::Init(bool logfile)
 	{
 #ifndef SANDBOX_NO_LOGGING

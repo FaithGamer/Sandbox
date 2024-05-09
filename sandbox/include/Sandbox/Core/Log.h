@@ -2,6 +2,7 @@
 #include <string>
 #include <spdlog/spdlog.h>
 
+#include "Sandbox/Internal/Singleton.h"
 #include "Sandbox/Core/std_macros.h"
 
 
@@ -9,25 +10,27 @@ namespace Sandbox
 {
 	std::string LogSDLError(std::string str);
 
-	class Log
+	class Log : public Singleton<Log>
 	{
 
 	public:
-		static void Init(bool logging);
-		static sptr<spdlog::logger> GetLogger();
+		void Init(bool logging);
+		sptr<spdlog::logger> GetLogger();
 	private:
-		Log();
+		friend sptr<Log> Singleton<Log>::Instance();
+		friend void Singleton<Log>::Kill();
+		Log() = default;
 
-		static sptr<spdlog::logger> m_logger;
+		sptr<spdlog::logger> m_logger = nullptr;
 	};
 }
 #ifndef SANDBOX_NO_LOGGING
-#define ASSERT_LOG_ERROR(condition, ...) if(!condition){Log::GetLogger()->error(__VA_ARGS__); assert(condition);}
+#define ASSERT_LOG_ERROR(condition, ...) if(!condition){Log::Instance()->GetLogger()->error(__VA_ARGS__); assert(condition);}
 
-#define LOG_ERROR(...) Log::GetLogger()->error(__VA_ARGS__)
-#define LOG_WARN(...) Log::GetLogger()->warn(__VA_ARGS__)
-#define LOG_INFO(...) Log::GetLogger()->info(__VA_ARGS__)
-#define LOG_TRACE(...) Log::GetLogger()->trace(__VA_ARGS__)
+#define LOG_ERROR(...) Log::Instance()->GetLogger()->error(__VA_ARGS__)
+#define LOG_WARN(...) Log::Instance()->GetLogger()->warn(__VA_ARGS__)
+#define LOG_INFO(...) Log::Instance()->GetLogger()->info(__VA_ARGS__)
+#define LOG_TRACE(...) Log::Instance()->GetLogger()->trace(__VA_ARGS__)
 #else
 #define ASSERT_LOG_ERROR(...)
 #define LOG_ERROR(...) 
