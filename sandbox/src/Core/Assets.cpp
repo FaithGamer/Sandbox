@@ -201,6 +201,9 @@ namespace Sandbox
 		CompileShaders();
 		CreateAnimations();
 	}
+	void Assets::HotReload()
+	{
+	}
 	void Assets::InitAddAssetFunctions()
 	{
 		m_addAssetFunctions.insert(std::make_pair(".anim", Delegate(&Assets::AddAnimation, this)));
