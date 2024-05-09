@@ -56,7 +56,8 @@ namespace Sandbox
 		LOG_INFO("Loading Physics...");
 		Physics::Instance();
 		LOG_INFO("Creating world...");
-		Systems::Instance()->CreateWorld();
+		auto system = Systems::Instance();
+		system->CreateWorld();
 		Systems::SetFixedUpdateTime(params.fixedUpdateTimeStep);
 		
 

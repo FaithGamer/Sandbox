@@ -321,5 +321,6 @@ April
 - build option with no sound
 
 
-
+>log into singleton
+>chase all static field
 >clear consol from useless message like warning for non supporte asset type.

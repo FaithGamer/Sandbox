@@ -453,6 +453,7 @@
       <PreprocessorDefinitions>SANDBOX_NO_CONSOLE;_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
     </ClCompile>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)bin\imgui\x64-Release;$(SolutionDir)bin\box2d\x64-Release;$(SolutionDir)bin\SDL2\x64-Release;$(SolutionDir)bin\SDL2main\x64-Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
