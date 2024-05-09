@@ -46,10 +46,19 @@ namespace Sandbox
 		LOG_INFO("Loading window...");
 		Window::Instance()->Init(params.appName, params.startupWindowResolution);
 		Window::SetFullScreen(params.fullscreen);
+#ifndef SANDBOX_NO_AUDIO
 		LOG_INFO("Loading audio...");
 		Audio::Instance()->Init();
+#endif
+#ifndef SANDBOX_NO_ASSETS
 		LOG_INFO("Loading assets...");
 		Assets::Instance()->Init();
+#else
+		for (int i = 0; i < 100; i++)
+		{
+			LOG_INFO("Console test.");
+		}
+#endif
 		LOG_INFO("Loading renderer...");
 		Renderer2D::Instance();
 		Renderer2D::AddLayer("DebugLayer");
