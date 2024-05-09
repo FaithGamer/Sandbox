@@ -44,8 +44,9 @@ namespace Sandbox
 		if (play)
 			ma_sound_start(masound);
 		return Sound(masound);
-#endif
+#else
 		return Sound();
+#endif
 	}
 
 	Audio::~Audio()
