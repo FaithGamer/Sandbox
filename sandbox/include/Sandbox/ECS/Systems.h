@@ -189,7 +189,7 @@ namespace Sandbox
 		std::vector<SystemIdPriority> m_imGuiSystems;
 		std::vector<SystemIdPriority> m_renderSystems;
 
-		Camera* m_mainCamera;
+		Camera* m_mainCamera = nullptr;
 
 		std::vector<SystemIdPriority> m_pendingSystemIn;
 		std::vector<int32_t> m_pendingSystemOut;

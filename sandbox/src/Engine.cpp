@@ -25,7 +25,7 @@ namespace Sandbox
 
 	void Engine::Init(bool logging)
 	{
-		Log::Init(logging);
+		Log::Instance()->Init(logging);
 
 		LOG_INFO("Engine start.");
 		EngineParameters params;
