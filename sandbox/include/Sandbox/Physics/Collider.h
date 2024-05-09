@@ -40,7 +40,7 @@ namespace mapbox {
 
 namespace Sandbox
 {
-	class Body;
+	struct Body;
 
 	struct Triangle
 	{
@@ -49,7 +49,7 @@ namespace Sandbox
 		Vec2f c;
 	};
 
-	class ColliderRender;
+	struct ColliderRender;
 
 	/// @brief Interface class for colliders, need to be added to a Body
 	/// Can be any type of shape.
