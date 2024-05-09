@@ -15,7 +15,6 @@ public:
 				{
 					if (animator.currentStateName == "basic")
 					{
-						LOG_INFO("info");
 						animator.speed = 4.f;
 					}
 					else if (animator.currentStateName == "speed")

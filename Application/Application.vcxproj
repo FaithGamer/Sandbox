@@ -358,6 +358,7 @@
     <ClCompile Include="src\Tests\AnimTest.cpp" />
     <ClCompile Include="src\Tests\AudioTest.cpp" />
     <ClCompile Include="src\Tests\ColliderDebug.cpp" />
+    <ClCompile Include="src\Tests\CrashDebug.cpp" />
     <ClCompile Include="src\Tests\EarcutTest.cpp" />
     <ClCompile Include="src\Editor\EditorSystem.cpp" />
     <ClCompile Include="src\Editor\Game.cpp" />
@@ -395,6 +396,7 @@
   <ItemGroup>
     <ClInclude Include="src\Tests\AnimTest.h" />
     <ClInclude Include="src\Tests\AudioTest.h" />
+    <ClInclude Include="src\Tests\CrashDebug.h" />
     <ClInclude Include="src\Tests\MouseWheelTest.h" />
     <ClInclude Include="src\Tests\ColliderDebug.h" />
     <ClInclude Include="src\Tests\LayerBlending.h" />

@@ -76,7 +76,7 @@ namespace Sandbox
 		m_batchShader = makesptr<Shader>(LSSFF("assets/shaders/batch_renderer.vert"), LSSFF("assets/shaders/batch_renderer.frag"));
 		m_defaultLayerShader = makesptr<Shader>(LSSFF("assets/shaders/default_layer.vert"), LSSFF("assets/shaders/default_layer.frag"));
 		m_defaultLineShader = makesptr<Shader>(LSSFF("assets/shaders/line.vert"), LSSFF("assets/shaders/line.geom"), LSSFF("assets/shaders/line.frag"));
-		m_defaultWireShader = makesptr<Shader>(LSSFF("assets/shaders/wire.vert"), LSSFF("assets/shaders/wire.geom"), LSSFF("assets/shaders/wire.frag"));
+		m_defaultWireShader = makesptr<Shader>(LSSFF("assets/shaders/wire.vert"), LSSFF("assets/shaders/wire.frag"));
 #endif
 
 		std::vector<Vec2f> screenSpace{ {-1, -1}, { 1, -1 }, { 1, 1 }, { -1, 1 } };
