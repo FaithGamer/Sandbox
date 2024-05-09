@@ -102,8 +102,8 @@ namespace Sandbox
 		/// @brief Called by remove parent
 		void JustRemoveChild(EntityId id);
 		Entity(EntityId, entt::registry* registry);
-		EntityId m_id;
-		entt::registry* m_registry;
-		bool m_valid;
+		EntityId m_id = EntityId(0);
+		entt::registry* m_registry = nullptr;
+		bool m_valid = false;
 	};
 }

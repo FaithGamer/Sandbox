@@ -6,12 +6,6 @@
 
 namespace Sandbox
 {
-	Entity::Entity() : m_valid(false), m_registry(nullptr)
-	{
-
-
-	}
-
 	Entity::Entity(EntityId entityId) : m_id(entityId)
 	{
 		m_registry = &Systems::GetMainWorld()->registry;
