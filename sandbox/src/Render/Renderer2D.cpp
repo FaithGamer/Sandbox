@@ -10,8 +10,12 @@
 #include "Sandbox/Render/Window.h"
 #include "Sandbox/Render/SpriteRender.h"
 #include "Sandbox/Core/Container.h"
+#ifndef SANDBOX_NO_ASSETS
 #include "Sandbox/Core/Assets.h"
+#endif
 #include "Sandbox/Core/Print.h"
+
+
 namespace Sandbox
 {
 	Renderer2D::Renderer2D()
@@ -53,7 +57,6 @@ namespace Sandbox
 
 		m_whiteTexture = makesptr<Texture>();
 
-		m_batchShader = Assets::Get<Shader>("batch_renderer.shader").Ptr();
 
 		m_defaultRenderOptions = makesptr<RenderOptions>();
 		m_defaultRenderOptionsLayer = makesptr<RenderOptions>();
@@ -62,9 +65,19 @@ namespace Sandbox
 
 		//m_camera = Mat4(1);
 
+#ifndef SANDBOX_NO_ASSETS
+		m_batchShader = Assets::Get<Shader>("batch_renderer.shader").Ptr();
 		m_defaultLayerShader = Assets::Get<Shader>("default_layer.shader").Ptr();
 		m_defaultLineShader = Assets::Get<Shader>("line.shader").Ptr();
 		m_defaultWireShader = Assets::Get<Shader>("wire.shader").Ptr();
+#else
+#define LSSFF(...) Shader::LoadShaderSourceFromFile(__VA_ARGS__)
+
+		m_batchShader = makesptr<Shader>(LSSFF("assets/shaders/batch_renderer.vert"), LSSFF("assets/shaders/batch_renderer.frag"));
+		m_defaultLayerShader = makesptr<Shader>(LSSFF("assets/shaders/default_layer.vert"), LSSFF("assets/shaders/default_layer.frag"));
+		m_defaultLineShader = makesptr<Shader>(LSSFF("assets/shaders/line.vert"), LSSFF("assets/shaders/line.geom"), LSSFF("assets/shaders/line.frag"));
+		m_defaultWireShader = makesptr<Shader>(LSSFF("assets/shaders/wire.vert"), LSSFF("assets/shaders/wire.geom"), LSSFF("assets/shaders/wire.frag"));
+#endif
 
 		std::vector<Vec2f> screenSpace{ {-1, -1}, { 1, -1 }, { 1, 1 }, { -1, 1 } };
 		sptr<VertexArray> defaultLayerVertexArray = GenerateLayerVertexArray(screenSpace);
