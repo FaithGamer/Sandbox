@@ -196,10 +196,12 @@ namespace Sandbox
 	void Assets::Init()
 	{
 		//Can't be done in constructor because of recursion
+#ifndef SANDBOX_NO_ASSETS
 		InitAddAssetFunctions();
 		LoadAssets();
 		CompileShaders();
 		CreateAnimations();
+#endif
 	}
 	void Assets::HotReload()
 	{
@@ -290,7 +292,7 @@ namespace Sandbox
 
 		if (find_it == m_addAssetFunctions.end())
 		{
-			LOG_WARN("Asset file extension not supported, " + path);
+			//LOG_WARN("Asset file extension not supported, " + path);
 			return;
 		}
 
