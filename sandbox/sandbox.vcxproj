@@ -9,8 +9,8 @@
       <Configuration>Distrib_Demo</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Distrib_NoAudio|x64">
-      <Configuration>Distrib_NoAudio</Configuration>
+    <ProjectConfiguration Include="Distrib_Debug|x64">
+      <Configuration>Distrib_Debug</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Distrib_Nolog|x64">
@@ -86,7 +86,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Distrib_Demo|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pch.h</PrecompiledHeaderFile>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Distrib|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Distrib_NoAudio|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Distrib_Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Distrib_Nolog|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Core\Log.cpp" />
@@ -272,7 +272,7 @@
     <PlatformToolset>v143</PlatformToolset>
     <ConfigurationType>StaticLibrary</ConfigurationType>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distrib_NoAudio|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distrib_Debug|x64'" Label="Configuration">
     <PlatformToolset>v143</PlatformToolset>
     <ConfigurationType>StaticLibrary</ConfigurationType>
   </PropertyGroup>
@@ -311,7 +311,7 @@
     <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Platform)-$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin-int\$(ProjectName)\$(Platform)-$(Configuration)\</IntDir>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distrib_NoAudio|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distrib_Debug|x64'">
     <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Platform)-$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin-int\$(ProjectName)\$(Platform)-$(Configuration)\</IntDir>
   </PropertyGroup>
@@ -404,7 +404,7 @@
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
     </ClCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distrib_NoAudio|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distrib_Debug|x64'">
     <ClCompile>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
     </ClCompile>
@@ -419,7 +419,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
     </ClCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distrib_NoAudio|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distrib_Debug|x64'">
     <ClCompile>
       <IntrinsicFunctions>true</IntrinsicFunctions>
     </ClCompile>
@@ -434,7 +434,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distrib_NoAudio|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distrib_Debug|x64'">
     <ClCompile>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
@@ -459,7 +459,7 @@
       <AdditionalDependencies>imgui.lib;box2d.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distrib_NoAudio|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distrib_Debug|x64'">
     <ClCompile>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <LanguageStandard>stdcpp20</LanguageStandard>
