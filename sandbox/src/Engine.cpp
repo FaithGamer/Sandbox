@@ -43,9 +43,11 @@ namespace Sandbox
 			params = EngineParameters(paramsJson);
 		}
 
+#ifndef SANDBOX_NO_WINDOW
 		LOG_INFO("Loading window...");
 		Window::Instance()->Init(params.appName, params.startupWindowResolution);
 		Window::SetFullScreen(params.fullscreen);
+#endif
 #ifndef SANDBOX_NO_AUDIO
 		LOG_INFO("Loading audio...");
 		Audio::Instance()->Init();
@@ -60,8 +62,10 @@ namespace Sandbox
 		}
 #endif
 		LOG_INFO("Loading renderer...");
+#ifndef SANDBOX_NO_WINDOW
 		Renderer2D::Instance();
 		Renderer2D::AddLayer("DebugLayer");
+#endif
 		LOG_INFO("Loading Physics...");
 		Physics::Instance();
 		LOG_INFO("Creating world...");
@@ -69,19 +73,22 @@ namespace Sandbox
 		system->CreateWorld();
 		Systems::SetFixedUpdateTime(params.fixedUpdateTimeStep);
 		
-
+#ifndef SANDBOX_NO_WINDOW
 #ifdef SANDBOX_IMGUI
 		LoadImGui(Window::GetSDLWindow(), Window::GetSDL_GLContext());
+#endif
 #endif
 
 		//Default systems
 		Systems::Push<InputSystem>();
+#ifndef SANDBOX_NO_WINDOW
 		Systems::Push<SpriteRenderSystem>();
 		Systems::Push<LineRendererSystem>();
 		Systems::Push<WireRenderSystem>();
 		Systems::Push<ParticleSystem>();
-		Systems::Push<PhysicsSystem>();
 		Systems::Push<AnimationSystem>();
+#endif
+		Systems::Push<PhysicsSystem>();
 	}
 
 	void Engine::Launch()

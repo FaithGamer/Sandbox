@@ -80,10 +80,11 @@ namespace Sandbox
 		{
 			HandleWindowEvents(m_events);
 			bool imGuiEventHandled = false;
-
+#ifndef SANDBOX_NO_WINDOW
 #ifdef SANDBOX_IMGUI
 			if (m_imGuiEnabled)
 				ImGui_ImplSDL2_ProcessEvent(&m_events);
+#endif
 #endif
 			for (auto& eventSystem : m_eventSystems)
 			{
@@ -120,7 +121,7 @@ namespace Sandbox
 			//the m_updateClock.Restart increment doesn't accurately describe time passing by.
 			system.system->OnUpdate(delta);
 		}
-
+#ifndef SANDBOX_NO_WINDOW
 		if (m_mainCamera != nullptr)
 		{
 			Window::ClearWindow();
@@ -146,6 +147,7 @@ namespace Sandbox
 
 			Window::RenderWindow();
 		}
+#endif
 
 
 	}
