@@ -1,16 +1,4 @@
 #include "pch.h"
-#include "Sandbox/Engine.h"
-
-
-#include "entt/entt.hpp"
-#include "Sandbox/Core/Vec.h"
-#include "Sandbox/Core/Time.h"
-#include "Sandbox/ECS.h"
-#include "Sandbox/Input/Inputs.h"
-#include "Sandbox/Input/Input.h"
-#include "Sandbox/Input/InputMap.h"
-#include "Sandbox/Input/ButtonInput.h"
-#include "Sandbox/Core/std_macros.h"
 
 #include "Tests/ImGuiSystemTest.h"
 #include "Tests/ECSTest.h"
@@ -35,20 +23,7 @@
 #include "Tests/AnimTest.h"
 #include "Tests/AudioTest.h"
 
-#include <random>
-#include <iostream>
 
-namespace sb = Sandbox;
-
-#include "Sandbox/ECS/Entity.h"
-#include "Sandbox/Core/Log.h"
-#include "Sandbox/Core/Signal.h"
-#include "Sandbox/Core/Easing.h"
-
-void foo(int const* s)
-{
-	std::cout << *s << std::endl;
-}
 int main(int argc, char** argv)
 {
 	//UniformBlockTest();
@@ -78,6 +53,7 @@ int main(int argc, char** argv)
 	//MouseWheelTest();
 
 	AnimTest();
+
 	//AudioTest();
 
 	
