@@ -1,5 +1,5 @@
 #include "pch.h"
-#include <glad/glad.h>
+
 #include "Sandbox/Core/Log.h"
 #include "Sandbox/Render/Window.h"
 

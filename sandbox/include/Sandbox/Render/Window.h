@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <glad/glad.h>
 #include <SDL/SDL.h>
 #include <SDL/SDL_opengl.h>
 #include "Sandbox/Internal/Singleton.h"

@@ -24,7 +24,7 @@ namespace Sandbox
 	public:
 
 		/// @brief An invalid entity handle, use it to store an entity later and check validity
-		Entity();
+		Entity() = default;
 		/// @brief Create a handle to an existing entity of the main world
 		Entity(EntityId entityId);
 		/// @brief Create a handle to an existing entity of a specific world
