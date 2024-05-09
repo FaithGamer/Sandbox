@@ -1,15 +1,11 @@
 #include "pch.h"
-
+#include <glad/glad.h>
 #include "Sandbox/Core/Log.h"
 #include "Sandbox/Render/Window.h"
 
 
 namespace Sandbox
 {
-	Window::Window() : m_initialized(false)
-	{
-
-	}
 
 	void Window::Init(std::string name, Vec2u size)
 	{
