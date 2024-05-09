@@ -1,7 +1,6 @@
 #pragma once
 
 #include <string>
-#include <glad/glad.h>
 #include <SDL/SDL.h>
 #include <SDL/SDL_opengl.h>
 #include "Sandbox/Internal/Singleton.h"
@@ -39,13 +38,13 @@ namespace Sandbox
 	private:
 		friend Engine;
 		friend Singleton<Window>;
-		Window();
+		Window() = default;
 		void Init(std::string name, Vec2u size);
-		bool m_initialized;
-		SDL_Window* m_window;
-		SDL_GLContext m_glContext;
-		Vec4f m_clearColor;
+		bool m_initialized = false;
+		SDL_Window* m_window = nullptr;
+		SDL_GLContext m_glContext = nullptr;
+		Vec4f m_clearColor = { 0, 0, 0, 1 };
 
-		Vec2u m_size;
+		Vec2u m_size = { 100, 100 };
 	};
 }
