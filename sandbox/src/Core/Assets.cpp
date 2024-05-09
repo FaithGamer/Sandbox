@@ -249,16 +249,6 @@ namespace Sandbox
 		}
 	}
 
-	std::string LoadShaderSourceFromFile(std::string path)
-	{
-		std::ifstream shaderFile(path);
-		if (!shaderFile.is_open())
-		{
-			LOG_ERROR("Unable to open the shader: " + path);
-		}
-		return Files::IfstreamToString(shaderFile);
-	}
-
 	void Assets::CompileShaders()
 	{
 		LOG_INFO("Compiling shaders...");
@@ -274,9 +264,9 @@ namespace Sandbox
 				continue;
 			}
 
-			String vertSrc = LoadShaderSourceFromFile(vertPath);
-			String fragSrc = LoadShaderSourceFromFile(fragPath);
-			String geomSrc = geomPath == "" ? "" : LoadShaderSourceFromFile(geomPath);
+			String vertSrc = Shader::LoadShaderSourceFromFile(vertPath);
+			String fragSrc = Shader::LoadShaderSourceFromFile(fragPath);
+			String geomSrc = geomPath == "" ? "" : Shader::LoadShaderSourceFromFile(geomPath);
 
 			auto shaderAsset = geomSrc == "" ? MakeAsset<Shader>(vertSrc, fragSrc) : MakeAsset<Shader>(vertSrc, geomSrc, fragSrc);
 			String path = vertPath;

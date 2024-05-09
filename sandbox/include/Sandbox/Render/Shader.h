@@ -45,6 +45,7 @@ namespace Sandbox
 
 		GLuint GetGLID();
 		uint32_t GetID();
+		static std::string LoadShaderSourceFromFile(std::string path);
 	private:
 		static uint32_t m_currentId;
 		GLuint m_glid;

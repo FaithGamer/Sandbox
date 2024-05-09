@@ -23,16 +23,7 @@ namespace Sandbox
 {
 	uint32_t Shader::m_currentId = 0;
 
-	std::string loadShaderSourceFromFile(std::string path)
-	{
-		std::ifstream shaderFile;
-		shaderFile.open(path);
-		if (!shaderFile.is_open())
-		{
-			LOG_ERROR("Unable to open the shader: " + path);
-		}
-		return Files::IfstreamToString(shaderFile);
-	}
+	
 
 	void shaderCompilationError(uint32_t shader)
 	{
@@ -235,5 +226,14 @@ namespace Sandbox
 		return m_id;
 	}
 
-
+	std::string Shader::LoadShaderSourceFromFile(std::string path)
+	{
+		std::ifstream shaderFile;
+		shaderFile.open(path);
+		if (!shaderFile.is_open())
+		{
+			LOG_ERROR("Unable to open the shader: " + path);
+		}
+		return Files::IfstreamToString(shaderFile);
+	}
 }
