@@ -87,13 +87,18 @@ namespace Sandbox
 		}
 	}
 
-	void Animator::AddAnimation(String stateName, String animation)
+	void Animator::AddAnimation(String stateName, sptr<Animation> animation)
 	{
 		AnimationState state;
-		state.animation = Assets::Get<Animation>(animation).Ptr();
+		state.animation = animation;
 		state.looping = true;
 		state.transition = stateName;
 		animations.insert(std::make_pair(stateName, state.animation));
+	}
+
+	void Animator::AddAnimation(String stateName, String animation)
+	{
+		AddAnimation(stateName, Assets::Get<Animation>(animation).Ptr());
 	}
 
 	//Animation System
