@@ -24,10 +24,10 @@ namespace Sandbox
 
 	struct QuadVertex
 	{
-		Vec3f position;
-		Vec4f color;
-		Vec2f texCoords;
-		float texIndex;
+		Vec3f position = { 0, 0, 0 };
+		Vec4f color = { 0, 0, 0, 0 };
+		Vec2f texCoords = { 0, 0 };
+		float texIndex = 0;
 	};
 
 	struct RenderLayer
