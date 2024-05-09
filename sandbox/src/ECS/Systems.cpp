@@ -326,7 +326,7 @@ namespace Sandbox
 	void Systems::SetMainWorld(World* world)
 	{
 		auto instance = Instance();
-		instance->m_worlds.main = world;
+		instance->m_worlds.mainWorld = world;
 	}
 
 	void Systems::SetFixedUpdateTime(float seconds)
@@ -347,7 +347,7 @@ namespace Sandbox
 	World* Systems::GetMainWorld()
 	{
 		//To do, error handling
-		return Systems::Instance()->m_worlds.main;
+		return Systems::Instance()->m_worlds.mainWorld;
 	}
 
 	std::vector<World*>& Systems::GetWorlds()
@@ -380,7 +380,7 @@ namespace Sandbox
 		pointers.emplace_back(world);
 		names.emplace_back(world->GetName());
 		if (pointers.size() == 1)
-			main = world;
+			mainWorld = world;
 	}
 
 	void Systems::Worlds::Destroy(std::string name)

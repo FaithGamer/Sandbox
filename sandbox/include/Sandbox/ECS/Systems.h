@@ -163,7 +163,7 @@ namespace Sandbox
 			World* Get(std::string name);
 			std::vector<World*> pointers;
 			std::vector<std::string> names;
-			World* main;
+			World* mainWorld = nullptr;
 		};
 		friend Engine;
 		Systems();
