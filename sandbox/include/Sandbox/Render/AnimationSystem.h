@@ -24,9 +24,9 @@ namespace Sandbox
 	};
 	struct AnimationState
 	{
-		sptr<Animation> animation;
-		bool looping;
-		String transition;
+		sptr<Animation> animation = nullptr;
+		bool looping = false;
+		String transition = "";
 	};
 	struct Animator
 	{
