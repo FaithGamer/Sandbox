@@ -61,7 +61,6 @@ namespace Sandbox
 			return Instance()->GetPrivate<T>(name);
 		}
 
-
 	private:
 		friend sptr<Assets> Singleton<Assets>::Instance();
 		friend void Singleton<Assets>::Kill();
@@ -100,7 +99,6 @@ namespace Sandbox
 		void AddFragmentShader(String filename, String path);
 		void AddVertexShader(String filename, String path);
 		void AddGeometryShader(String filename, String path);
-		void AddMaterial(String filename, String path);
 		void AddAudio(String filename, String path);
 
 		template <class T>
