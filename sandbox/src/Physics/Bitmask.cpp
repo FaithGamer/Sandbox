@@ -16,7 +16,7 @@ namespace Sandbox
 		}
 		else
 		{
-			auto flag = std::pow(2, m_flags.size());
+			uint16_t flag = (uint16_t)std::pow(2, m_flags.size());
 			if (!m_flags.insert(MakePair(name, flag)).second)
 			{
 				LOG_WARN("Filter flag already exists: " + name);
