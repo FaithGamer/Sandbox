@@ -32,12 +32,13 @@ namespace Sandbox
 
 		if (success == GL_FALSE)
 		{
-			GLint maxLength = 0;
+			GLint maxLength = 9999;
 			glGetProgramiv(shader, GL_INFO_LOG_LENGTH, &maxLength);
 
 			std::vector<GLchar> infoLog(maxLength);
 			glGetShaderInfoLog(shader, maxLength, &maxLength, &infoLog[0]);
-			LOG_ERROR("Shader compilation failed " + std::string(&infoLog[0]));
+			ASSERT_LOG_ERROR(false, "Shader compilation failed " + std::string(&infoLog[0]));
+			Log::Instance()->GetLogger()->flush();
 		}
 	}
 
@@ -48,12 +49,13 @@ namespace Sandbox
 
 		if (success == GL_FALSE)
 		{
-			GLint maxLength = 0;
+			GLint maxLength = 9999;
 			glGetProgramiv(program, GL_INFO_LOG_LENGTH, &maxLength);
 
 			std::vector<GLchar> infoLog(maxLength);
 			glGetProgramInfoLog(program, maxLength, &maxLength, &infoLog[0]);
-			LOG_ERROR("Shader program linkage failed " + std::string(&infoLog[0]));
+			ASSERT_LOG_ERROR(false, "Shader program linkage failed " + std::string(&infoLog[0]));
+			Log::Instance()->GetLogger()->flush();
 
 		}
 	}
