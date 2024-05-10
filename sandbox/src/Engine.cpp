@@ -85,7 +85,6 @@ namespace Sandbox
 		Systems::Push<SpriteRenderSystem>();
 		Systems::Push<LineRendererSystem>();
 		Systems::Push<WireRenderSystem>();
-		Systems::Push<ParticleSystem>();
 		Systems::Push<AnimationSystem>();
 #endif
 		Systems::Push<PhysicsSystem>();
