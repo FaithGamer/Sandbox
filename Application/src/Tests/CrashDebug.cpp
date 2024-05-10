@@ -1,10 +1,9 @@
 #include "pch.h"
 #include "Sandbox/Sandbox.h"
 
-#define SANDBOX_NO_WINDOW
 
 using namespace Sandbox;
-
+#define SANDBOX_NO_WINDOW
 class Sysss : public System
 {
 public:
