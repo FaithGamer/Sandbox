@@ -70,7 +70,7 @@ namespace Sandbox
 			double t2 = (l1d.x * (l2s.y - l1s.y) + l1d.y * (l1s.x - l2s.x)) / det;
 
 			// Calculate intersection point
-			return Vec2f(l1s.x + t1 * l1d.x, l1s.y + t1 * l1d.y);
+			return Vec2f(l1s.x + (float)t1 * l1d.x, l1s.y + (float)t1 * l1d.y);
 		}
 		template <typename T>
 		inline constexpr T Min(T lhs, T rhs)

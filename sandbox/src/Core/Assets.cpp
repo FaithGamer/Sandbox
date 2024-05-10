@@ -57,8 +57,8 @@ namespace Sandbox
 				Rect texRect;
 				texRect.left = x * width + padding.x + padding.x * 2 * x;
 				texRect.top = y * height + padding.y + padding.y * 2 * y;
-				texRect.width = width;
-				texRect.height = height;
+				texRect.width = (float)width;
+				texRect.height = (float)height;
 
 				sptr<Asset<Sprite>> sprite = MakeAsset<Sprite>(texture, texRect, origin);
 				String spriteName = filename + "_" + std::to_string(y) + "_" + std::to_string(x);

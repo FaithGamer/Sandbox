@@ -116,7 +116,7 @@ namespace Sandbox
 
 	void Window::SetSize(float width, float height)
 	{
-		Window::Instance()->SetSize(Vec2u(width, height));
+		Window::Instance()->SetSize(Vec2u((unsigned int)width, (unsigned int)height));
 	}
 
 	void Window::SetClearColor(Vec4f color)

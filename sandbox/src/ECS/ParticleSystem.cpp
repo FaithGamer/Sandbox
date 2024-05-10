@@ -55,8 +55,8 @@ namespace Sandbox
 			if (!generator.emitting)
 				return;
 
-			int count = floor((float)generator.internalClock / (float)generator.particleFrequency);
-			for (int i = 0; i < count * generator.countByInstance - generator.instancedCount; i++)
+			int count = (int)floor((float)generator.internalClock / (float)generator.particleFrequency);
+			for (unsigned int i = 0; i < count * generator.countByInstance - generator.instancedCount; i++)
 			{
 				InstanceParticle(generator, entity.GetId());
 			}
@@ -84,7 +84,7 @@ namespace Sandbox
 			}
 		}
 
-		for (int i = m_lastParticle - 1; i > 0; i--)
+		for (size_t i = m_lastParticle - 1; i > 0; i--)
 		{
 			if (m_particles[i].alive)
 				break;

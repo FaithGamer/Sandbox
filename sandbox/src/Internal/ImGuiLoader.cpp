@@ -48,7 +48,7 @@ namespace Sandbox
 	void EndImGui(Vec2u windowSize)
 	{
 		ImGuiIO& io = ImGui::GetIO();
-		io.DisplaySize = ImVec2(windowSize.x, windowSize.y);
+		io.DisplaySize = ImVec2((float)windowSize.x, (float)windowSize.y);
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	}

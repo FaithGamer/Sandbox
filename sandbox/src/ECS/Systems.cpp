@@ -163,7 +163,7 @@ namespace Sandbox
 		{
 			if (event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED || event.window.event == SDL_WINDOWEVENT_RESIZED)
 			{
-				Window::SetSize(event.window.data1, event.window.data2);
+				Window::SetSize((float)event.window.data1, (float)event.window.data2);
 			}
 		}
 	}

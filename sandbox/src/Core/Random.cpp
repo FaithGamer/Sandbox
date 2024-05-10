@@ -21,7 +21,7 @@ namespace Sandbox
 		float Range(float min, float max)
 		{
 			static std::default_random_engine generator;
-			std::uniform_int_distribution<int64_t> dist(min * 10000, max * 10000);
+			std::uniform_int_distribution<int64_t> dist((int64_t)min * 10000, (int64_t)max * 10000);
 			return (float)dist(generator) * 0.0001f;
 		}
 	}

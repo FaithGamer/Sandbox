@@ -10,17 +10,17 @@ namespace Sandbox
 		Noise();
 		/// @brief Get noise value for this coordinate
 		/// @return noise value between 0 and 1
-		float Get(float x, float y);
+		double Get(double x, double y);
 		/// @brief Set the noise frequency
 		/// @param frequency range between 0 (big dense blocks) and 1 (little sparse blocks)
-		void SetFrequency(float frequency);
+		void SetFrequency(double frequency);
 		/// @brief Set the seed for RNG
 		void Seed(unsigned int seed);
 		/// @brief Generate noise with a static generator
 		/// @return noise value between 0 and 1
-		static float Noise2D(float x, float y, float frequency);
+		static double Noise2D(double x, double y, double frequency);
 	private:
 		siv::PerlinNoise m_generator;
-		float m_frequency;
+		double m_frequency;
 	};
 }

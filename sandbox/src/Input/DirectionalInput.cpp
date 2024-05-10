@@ -140,7 +140,7 @@ namespace Sandbox
 
 	int DirectionalInput::GetBindingsCount() const
 	{
-		return m_bindings.directions.size();
+		return (int)m_bindings.directions.size();
 	}
 
 	bool DirectionalInput::KeyPressed(const SDL_Event& e)

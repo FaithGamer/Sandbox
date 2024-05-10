@@ -11,7 +11,7 @@ namespace Sandbox
 	{
 	}
 
-	Animation::Animation() : frequency(0.1666)
+	Animation::Animation() : frequency(0.1666f)
 	{
 	}
 

@@ -85,10 +85,10 @@ namespace Sandbox
 		template <typename T, typename V>
 		int64_t FindIndex(std::vector<T>& container, const V& value)
 		{
-			for (int64_t i = 0; i < container.size(); i++)
+			for (size_t i = 0; i < container.size(); i++)
 			{
 				if (container[i] == value)
-					return i;
+					return (int64_t)i;
 			}
 			return -1;
 		}

@@ -104,6 +104,6 @@ namespace Sandbox
 	void WireRender::UpdateBuffer()
 	{
 		//Index buffer
-		m_vertexBuffer->SetData(&m_points[0], sizeof(LinePoint) * m_points.size());
+		m_vertexBuffer->SetData(&m_points[0], (GLuint)sizeof(LinePoint) * (GLuint)m_points.size());
 	}
 }

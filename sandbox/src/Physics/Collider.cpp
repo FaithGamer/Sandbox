@@ -228,10 +228,10 @@ namespace Sandbox
 	b2AABB Polygon2D::GetAABB()
 	{
 		b2AABB aabb;
-		aabb.lowerBound.x = -99999999;
-		aabb.lowerBound.y = -99999999;
-		aabb.upperBound.x = 99999999;
-		aabb.upperBound.y = 99999999;
+		aabb.lowerBound.x = -99999999.f;
+		aabb.lowerBound.y = -99999999.f;
+		aabb.upperBound.x = 99999999.f;
+		aabb.upperBound.y = 99999999.f;
 		for (int i = 1; i < m_shapes.size(); i++)
 		{
 			b2AABB saabb;

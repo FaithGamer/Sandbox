@@ -64,7 +64,7 @@ namespace Sandbox
 			LOG_WARN("ButtonInput::AddKey -> binding already exists, no binding added");
 			return;
 		}
-		int version = m_bindings.buttons.size();
+		size_t version = m_bindings.buttons.size();
 		m_bindings.buttons.push_back(Button());
 		m_bindings.buttons[version].key = keyButton;
 		UpdateEventListened();
@@ -77,7 +77,7 @@ namespace Sandbox
 			LOG_WARN("ButtonInput::AddMouse -> binding already exists, no binding added");
 			return;
 		}
-		int version = m_bindings.buttons.size();
+		size_t version = m_bindings.buttons.size();
 		m_bindings.buttons.push_back(Button());
 		m_bindings.buttons[version].mouse = mouseButton;
 		UpdateEventListened();
@@ -90,7 +90,7 @@ namespace Sandbox
 			LOG_WARN("ButtonInput::AddControllerButton -> binding already exists, no binding added");
 			return;
 		}
-		int version = m_bindings.buttons.size();
+		size_t version = m_bindings.buttons.size();
 		m_bindings.buttons.push_back(Button());
 		m_bindings.buttons[version].controller = controllerButton;
 		UpdateEventListened();
@@ -103,7 +103,7 @@ namespace Sandbox
 			LOG_WARN("ButtonInput::AddControllerTrigger -> binding already exists, no binding added");
 			return;
 		}
-		int version = m_bindings.buttons.size();
+		size_t version = m_bindings.buttons.size();
 		m_bindings.buttons.push_back(Button());
 		m_bindings.buttons[version].trigger = trigger;
 		UpdateEventListened();
@@ -181,7 +181,7 @@ namespace Sandbox
 
 	int ButtonInput::GetBindingsCount() const
 	{
-		return m_bindings.buttons.size();
+		return (int)m_bindings.buttons.size();
 	}
 
 	ButtonBindings& ButtonInput::GetBindings()

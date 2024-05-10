@@ -25,7 +25,7 @@ namespace Sandbox
 
 		indices[0] = 0;
 		int j = 0;
-		for (int i = 1; i < maxPoints +2; i++)
+		for (unsigned int i = 1; i < maxPoints +2; i++)
 		{
 			indices[i] = i-1;
 		}
@@ -47,14 +47,14 @@ namespace Sandbox
 
 	void LineRenderer::AddPoint(Vec3f point)
 	{
-		int index = (int)m_points.size();
+		unsigned int index = (unsigned int)m_points.size();
 		if (index > 0)
 		{
 			m_points.pop_back();
 		}
 		if (index < m_maxPoints)
 		{
-			index = (int)m_points.size();
+			index = (unsigned int)m_points.size();
 			//two last points must be the same for the shader
 			m_points.emplace_back(point, (float)index);
 			m_points.emplace_back(point, (float)index);
@@ -201,11 +201,11 @@ namespace Sandbox
 
 		float curProg = (distance - (prev * increment)) / increment;
 
-		return Math::Lerp(m_width[int(prev)], m_width[int(next)], Easing::SineInOut(curProg));
+		return Math::Lerp(m_width[int(prev)], m_width[int(next)], (float)Easing::SineInOut(curProg));
 	}
 
 	void LineRenderer::UpdateBuffer()
 	{
-		m_vertexBuffer->SetData(&m_points[0], sizeof(LinePoint) * m_points.size());
+		m_vertexBuffer->SetData(&m_points[0], (GLuint)sizeof(LinePoint) * (GLuint)m_points.size());
 	}
 }

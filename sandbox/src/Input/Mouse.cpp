@@ -43,6 +43,6 @@ namespace Sandbox
 		int x;
 		int y;
 		SDL_GetMouseState(&x, &y);
-		return Vec2f(x, y);
+		return Vec2f((float)x, (float)y);
 	}
 }
