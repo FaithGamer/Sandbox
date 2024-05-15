@@ -27,6 +27,10 @@ namespace Sandbox
 		/// @play Play the sound right away or not.
 		/// @return Handle to the sound being played.
 		static Sound MakeSound(String path, bool play = true);
+		static Sound MakeSound(String path, unsigned int channel, bool play = true);
+		static unsigned int AddChannel(String channel);
+		static unsigned int GetChannel(String channel);
+		static void SetChannelVolume(unsigned int channel, float volume);
 
 	private:
 		friend sptr<Audio> Singleton<Audio>::Instance();
@@ -34,6 +38,8 @@ namespace Sandbox
 #ifndef SANDBOX_NO_AUDIO
 		ma_engine* m_engine;
 		std::vector<ma_sound*> m_sounds;
+		std::vector<String> m_channelNames;
+		std::vector<ma_sound_group*> m_channels;
 #endif
 	};
 }
