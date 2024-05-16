@@ -53,11 +53,11 @@ int main(int argc, char** argv)
 	//ColliderDebug();
 	//MouseWheelTest();
 
-	//AnimTest();
+	AnimTest();
 
 	//AudioTest();
 
-	CrashDebug();
+	//CrashDebug();
 	
 	return 0;
 }

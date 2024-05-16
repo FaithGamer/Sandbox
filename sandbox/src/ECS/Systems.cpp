@@ -122,35 +122,35 @@ namespace Sandbox
 			system.system->OnUpdate(delta);
 		}
 #ifndef SANDBOX_NO_WINDOW
-		if (m_mainCamera != nullptr)
+		if (m_mainCamera == nullptr)
+			return;
+		if (!Window::GetRenderWhenMinimized() && Window::GetMinimized())
+			return;
+
+		Window::ClearWindow();
+		Renderer2D::Instance()->SetRenderTarget(Window::Instance());
+		Renderer2D::Instance()->Begin(*m_mainCamera);
+		for (auto& system : m_renderSystems)
 		{
-			Window::ClearWindow();
-			Renderer2D::Instance()->SetRenderTarget(Window::Instance());
-			Renderer2D::Instance()->Begin(*m_mainCamera);
-			for (auto& system : m_renderSystems)
-			{
-				system.system->OnRender();
-			}
-			Renderer2D::Instance()->End();
+			system.system->OnRender();
+		}
+		Renderer2D::Instance()->End();
 
 #ifdef SANDBOX_IMGUI
-			if (m_imGuiEnabled)
+		if (m_imGuiEnabled)
+		{
+			BeginImGui();
+			for (auto& system : m_imGuiSystems)
 			{
-				BeginImGui();
-				for (auto& system : m_imGuiSystems)
-				{
-					system.system->OnImGui();
-				}
-				EndImGui(Window::GetSize());
+				system.system->OnImGui();
 			}
-#endif
-
-			Window::RenderWindow();
+			EndImGui(Window::GetSize());
 		}
 #endif
 
-
+		Window::RenderWindow();
 	}
+#endif
 
 	void Systems::HandleWindowEvents(SDL_Event& event)
 	{
@@ -161,10 +161,28 @@ namespace Sandbox
 		}
 		else if (event.type == SDL_WINDOWEVENT)
 		{
-			if (event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED || event.window.event == SDL_WINDOWEVENT_RESIZED)
+			switch (event.window.event)
 			{
+			case SDL_WINDOWEVENT_SIZE_CHANGED:
 				Window::SetSize((float)event.window.data1, (float)event.window.data2);
+				break;
+			case SDL_WINDOWEVENT_RESIZED:
+				Window::SetSize((float)event.window.data1, (float)event.window.data2);
+				break;
+			case SDL_WINDOWEVENT_FOCUS_GAINED:
+				Window::Instance()->FocusSignal.SendSignal(true);
+				break;
+			case SDL_WINDOWEVENT_FOCUS_LOST:
+				Window::Instance()->FocusSignal.SendSignal(false);
+				break;
+			case SDL_WINDOWEVENT_MINIMIZED:
+				Window::Instance()->MinimizedSignal.SendSignal(true);
+				break;
+			case SDL_WINDOWEVENT_RESTORED:
+				Window::Instance()->MinimizedSignal.SendSignal(false);
+				break;
 			}
+
 		}
 	}
 

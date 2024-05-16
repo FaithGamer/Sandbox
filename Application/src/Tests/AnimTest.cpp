@@ -6,6 +6,34 @@ Entity entity;
 class Sys : public System
 {
 public:
+	void OnStart() override
+	{
+		Window::GetFocusSignal()->AddListener(&Sys::OnWindowFocus, this);
+		Window::GetMinimizedSignal()->AddListener(&Sys::OnWindowMinimized, this);
+		Window::SetRenderWhenMinimized(false);
+	}
+	void OnWindowFocus(bool focus)
+	{
+		if (focus)
+		{
+			LOG_INFO("Focus gained");
+		}
+		else
+		{
+			LOG_INFO("Focus Lost");
+		}
+	}
+	void OnWindowMinimized(bool focus)
+	{
+		if (!focus)
+		{
+			LOG_INFO("maximized!");
+		}
+		else
+		{
+			LOG_INFO("minimized.");
+		}
+	}
 	void OnUpdate(Time delta) override
 	{
 		t += (float)delta;

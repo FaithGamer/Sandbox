@@ -132,6 +132,12 @@ namespace Sandbox
 			SDL_ShowCursor(SDL_DISABLE);
 	}
 
+	void Window::SetRenderWhenMinimized(bool renderWhenMinimized)
+	{
+		auto i = Instance();
+		i->m_renderWhenMiminized = renderWhenMinimized;
+	}
+
 	bool Window::IsInitialized()
 	{
 		return Window::Instance()->m_initialized;
@@ -149,6 +155,17 @@ namespace Sandbox
 		case -1:
 			return true;
 		}
+		return false;
+	}
+
+	bool Window::GetFullScreen()
+	{
+		auto i = Instance();
+		Uint32 flags = SDL_GetWindowFlags(i->m_window);
+		if ((flags & SDL_WINDOW_FULLSCREEN_DESKTOP) == SDL_WINDOW_FULLSCREEN_DESKTOP)
+			return true;
+		if ((flags & SDL_WINDOW_FULLSCREEN) == SDL_WINDOW_FULLSCREEN)
+			return true;
 		return false;
 	}
 
@@ -176,6 +193,35 @@ namespace Sandbox
 	SignalSender<Vec2u>* Window::GetResizeSignal()
 	{
 		return &Window::Instance()->ResizeSignal;
+	}
+
+	bool Window::GetRenderWhenMinimized()
+	{
+		return Instance()->m_renderWhenMiminized;
+	}
+
+	bool Window::GetMinimized()
+	{
+		Uint32 flags = SDL_GetWindowFlags(Instance()->m_window);
+
+		return (flags & SDL_WINDOW_MINIMIZED) == SDL_WINDOW_MINIMIZED;
+	}
+
+	bool Window::GetFocus()
+	{
+		Uint32 flags = SDL_GetWindowFlags(Instance()->m_window);
+
+		return (flags & SDL_WINDOW_MOUSE_FOCUS) == SDL_WINDOW_MOUSE_FOCUS;
+
+	}
+	SignalSender<bool>* Window::GetFocusSignal()
+	{
+		return &Window::Instance()->FocusSignal;
+	}
+
+	SignalSender<bool>* Window::GetMinimizedSignal()
+	{
+		return &Window::Instance()->MinimizedSignal;
 	}
 
 	void Window::Clear()
