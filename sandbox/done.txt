@@ -321,6 +321,14 @@ April
 - build option with no sound
 
 
->log into singleton
->chase all static field
+16
+
+- window more options
+
+
+19
+
+- animator can loop or not
+
+
 >clear consol from useless message like warning for non supporte asset type.

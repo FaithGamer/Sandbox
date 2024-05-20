@@ -66,10 +66,6 @@ namespace Sandbox
 	}
 
 	//Animator
-	Animator::Animator() : accumulator(0), currentState(nullptr), nextFrame(0), currentKeyFrame(0), speed(1)
-	{
-
-	}
 
 	void Animator::SetAnimation(String animation)
 	{
@@ -117,7 +113,7 @@ namespace Sandbox
 				if (animator.accumulator > frameTime)
 				{
 					//Go to next frame, or go back to frame 0
-					frame = frame >= anim->frames.size() - 1 ? 0 : frame + 1;
+					frame = frame >= anim->frames.size() - 1 ? animator.loop ? 0 : frame : frame + 1;
 					//Reset frame timer
 					animator.accumulator -= frameTime;
 				}

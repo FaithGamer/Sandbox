@@ -30,17 +30,17 @@ namespace Sandbox
 	};
 	struct Animator
 	{
-		Animator();
 		void SetAnimation(String animation);
 		void AddAnimation(String stateName, sptr<Animation> animation);
 		void AddAnimation(String stateName, String animation);
 		std::map<String, AnimationState> animations;
-		AnimationState* currentState;
+		AnimationState* currentState = nullptr;
 		String currentStateName;
-		float accumulator;
-		int currentKeyFrame;
-		float nextFrame;
-		float speed;
+		float accumulator = 0;
+		int currentKeyFrame = 0;
+		float nextFrame = 0;
+		float speed = 1;
+		bool loop = true;
 	};
 	class AnimationSystem : public System
 	{
