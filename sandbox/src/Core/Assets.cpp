@@ -300,6 +300,6 @@ namespace Sandbox
 		i = path.find_last_of("/") + 1;
 		String filename = path.substr(i, path.size() - i);
 		find_it->second.Call(filename, pathtmp);
-		LOG_INFO("Asset loaded " + path);
+		//LOG_INFO("Asset loaded " + path);
 	}
 }
