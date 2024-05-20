@@ -131,7 +131,7 @@ namespace Sandbox
 	{
 		if (!Valid())
 		{
-			LOG_WARN("Child of destoying parent invalid.");
+			LOG_WARN("Child of destroying parent invalid.");
 			return;
 		}
 
