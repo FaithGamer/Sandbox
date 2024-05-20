@@ -83,7 +83,7 @@ namespace Sandbox
 			return;
 		}
 
-		Entity(*find_it, m_registry).Unparent();
+		Entity(*find_it, m_registry).JustUnparent();
 	}
 
 	void Entity::Unparent()
@@ -97,9 +97,8 @@ namespace Sandbox
 		if (parent != nullptr)
 		{
 			Entity(parent->parent).JustRemoveChild(m_id);
+			RemoveComponent<Parent>();
 		}
-		RemoveComponent<Parent>();
-
 	}
 
 	bool Entity::Valid()
