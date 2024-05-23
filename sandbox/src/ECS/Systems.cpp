@@ -62,13 +62,13 @@ namespace Sandbox
 
 	void Systems::Update()
 	{
-		Time delta = (float)m_updateClock.Restart() * Time::timeScale;
-		Time::delta = delta;
+		Time::delta = (float)m_updateClock.Restart();
+		float deltaScaled = (float)Time::delta * Time::timeScale;
 
 		//Making sure at least one microseconds has elapsed.
-		if (delta < 0.000001f)
+		if (deltaScaled < 0.000001f)
 		{
-			delta = 0.000001f;
+			deltaScaled = 0.000001f;
 		}
 
 		if (!m_pendingSystemIn.empty())
@@ -119,7 +119,8 @@ namespace Sandbox
 		{
 			//If less than one microseconds elapse between two call
 			//the m_updateClock.Restart increment doesn't accurately describe time passing by.
-			system.system->OnUpdate(delta);
+			
+			system.system->OnUpdate(deltaScaled);
 		}
 #ifndef SANDBOX_NO_WINDOW
 		if (m_mainCamera == nullptr)

@@ -13,7 +13,7 @@ namespace Sandbox
 	////////////////////////////
 	Time Time::Delta()
 	{
-		return delta;
+		return (float)delta * timeScale;
 	}
 	Time Time::FixedDelta()
 	{
@@ -22,7 +22,7 @@ namespace Sandbox
 
 	Time Time::UnscaledDelta()
 	{
-		return (float)delta / timeScale;
+		return delta;
 	}
 
 	Time Time::UnscaledFixedDelta()

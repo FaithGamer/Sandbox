@@ -39,15 +39,17 @@ namespace Sandbox
 
 		auto texSize = texture->GetSize();
 
-		int columns = texSize.x / width + texSize.x % width;
-		int rows = texSize.y / height + texSize.y % height;
-		if (texSize.x % width > 0)
+		int totalWidth = (width + (int)padding.x * 2);
+		int totalHeight = (height + (int)padding.y * 2);
+		int columns = texSize.x / totalWidth + texSize.x % totalWidth;
+		int rows = texSize.y / totalHeight + texSize.y % totalHeight;
+		if (texSize.x % totalWidth > 0)
 		{
-			LOG_WARN("Sprite crop size doesn't fit perfectly texture width: " + filename);
+			LOG_WARN("Sprite crop+padding doesn't fit perfectly texture width: " + filename);
 		}
-		if (texSize.y % height > 0)
+		if (texSize.y % totalHeight > 0)
 		{
-			LOG_WARN("Sprite crop size doesn't fit perfectly texture height: " + filename);
+			LOG_WARN("Sprite crop+padding doesn't fit perfectly texture height: " + filename);
 		}
 
 		for (int y = 0; y < rows; y++)
@@ -190,7 +192,7 @@ namespace Sandbox
 
 	Assets::Assets()
 	{
-		
+
 	}
 
 	void Assets::Init()
