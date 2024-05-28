@@ -25,8 +25,10 @@ namespace Sandbox
 	}
 	void Assets::GenerateSprites(String filename, Serialized& spritesheet, sptr<Texture> texture)
 	{
-		int width = Math::Max(1, spritesheet.GetInt("Width"));
-		int height = Math::Max(1, spritesheet.GetInt("Height"));
+		int w = (int)spritesheet.GetInt("Width");
+		int h = (int)spritesheet.GetInt("Height");
+		int width = Math::Max(1, w);
+		int height = Math::Max(1, h);
 		Vec2f origin;
 		origin.x = spritesheet.GetArray<float>("Origin")[0];
 		origin.y = spritesheet.GetArray<float>("Origin")[1];

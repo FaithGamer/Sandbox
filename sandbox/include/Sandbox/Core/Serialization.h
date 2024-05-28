@@ -18,11 +18,14 @@ namespace Sandbox
 		Serialized(String path);
 
 		void LoadFromDisk(String path);
-		void SetJson(Json json);
+		void SetJson(Json& json);
+		void SetJson(Json& json, String rpath);
+		void SetJson(Json&& json);
+		void SetJson(Json&& json, String rpath);
 		void WriteOnDisk(String path);
 
 		float GetFloat(String name);
-		int GetInt(String name);
+		int64_t GetInt(String name);
 		bool GetBool(String name);
 		String GetString(String name);
 		Serialized GetObj(String name);

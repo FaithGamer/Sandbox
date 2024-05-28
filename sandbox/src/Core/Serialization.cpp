@@ -41,10 +41,31 @@ namespace Sandbox
 		}
 
 	}
-	void Serialized::SetJson(Json json)
+	void Serialized::SetJson(Json& json)
 	{
 		m_hadGetError = false;
-		m_rpath = "";
+		m_rpath = "child_object";
+		m_wpath = "";
+		m_json = json;
+	}
+	void Serialized::SetJson(Json& json, String rpath)
+	{
+		m_hadGetError = false;
+		m_rpath = rpath;
+		m_wpath = "";
+		m_json = json;
+	}
+	void Serialized::SetJson(Json&& json)
+	{
+		m_hadGetError = false;
+		m_rpath = "child_object";
+		m_wpath = "";
+		m_json = json;
+	}
+	void Serialized::SetJson(Json&& json, String rpath)
+	{
+		m_hadGetError = false;
+		m_rpath = rpath;
 		m_wpath = "";
 		m_json = json;
 	}
@@ -83,10 +104,10 @@ namespace Sandbox
 		}
 	}
 
-	int Serialized::GetInt(String name)
+	int64_t Serialized::GetInt(String name)
 	{
-		int value;
-		if (SafeGet<int>(name, value))
+		int64_t value;
+		if (SafeGet<int64_t>(name, value))
 		{
 			return value;
 		}
