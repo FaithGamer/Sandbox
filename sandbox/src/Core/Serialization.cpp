@@ -142,6 +142,7 @@ namespace Sandbox
 		{
 			try {
 				value = m_json.at(name);
+				value.m_rpath = m_rpath;
 				return true;
 			}
 			catch (Json::exception& exception)
