@@ -112,8 +112,9 @@ namespace Sandbox
 
 				if (animator.accumulator > frameTime)
 				{
-					//Go to next frame, or go back to frame 0
-					frame = frame >= anim->frames.size() - 1 ? animator.loop ? 0 : frame : frame + 1;
+					//Go to next frame, or go back to frame 0, or stay and last frame
+					int frameMax = anim->frames.size() - 1;
+					frame = frame >= frameMax ? animator.loop ? 0 : frameMax : frame + 1;
 					//Reset frame timer
 					animator.accumulator -= frameTime;
 				}
