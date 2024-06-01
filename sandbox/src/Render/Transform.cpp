@@ -20,6 +20,18 @@ namespace Sandbox
 	{
 
 	}
+	/*Transform::Transform(Transform& transform):
+		m_localPosition(transform.m_localPosition),
+		m_localScale(transform.m_localScale),
+		m_localRotation(transform.m_localRotation),
+		m_haveParent(transform.m_haveParent),
+		m_parent(transform.m_parent),
+		m_transformMatrix(transform.m_transformMatrix),
+		needCompute(false),
+		matrixUpdated(false)
+	{
+
+	}*/
 	Transform::Transform() :
 		m_localPosition(0.f),
 		m_localScale(1.f),
@@ -188,6 +200,8 @@ namespace Sandbox
 		m_localRotation = trans.m_localRotation;
 		m_haveParent = trans.m_haveParent;
 		m_parent = trans.m_parent;
+		needCompute = trans.needCompute;
+		matrixUpdated = trans.matrixUpdated;
 		m_transformMatrix = trans.m_transformMatrix;
 
 

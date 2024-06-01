@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SDL/SDL.h>
-#include <entt/entt.hpp>
+#include "Sandbox/Entt.h"
 
 #include "Sandbox/Core/Log.h"
 #include "Sandbox/Core/Signal.h"

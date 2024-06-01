@@ -119,6 +119,7 @@
     <ClInclude Include="include\Sandbox\ECS\SpriteRenderSystem.h" />
     <ClInclude Include="include\Sandbox\ECS\WireRenderSystem.h" />
     <ClInclude Include="include\Sandbox\ECS\World.h" />
+    <ClInclude Include="include\Sandbox\Entt.h" />
     <ClInclude Include="include\Sandbox\Internal\ImGuiLoader.h" />
     <ClInclude Include="include\Sandbox\Input.h" />
     <ClInclude Include="include\Sandbox\Input\Inputs.h" />
@@ -175,6 +176,7 @@
     <ClInclude Include="include\Sandbox\Render\SpriteRender.h" />
     <ClInclude Include="include\Sandbox\Physics\Physics.h" />
     <ClInclude Include="include\Sandbox\Audio\Audio.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="include\Sandbox\Render\Shader.h" />
     <ClInclude Include="include\Sandbox\Core\std_macros.h" />

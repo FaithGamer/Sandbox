@@ -2,7 +2,7 @@
 #include "Sandbox/Engine.h"
 #include "Sandbox/ECS/InputSystem.h"
 #include "ImGuiSystemTest.h"
-#include "entt/entt.hpp"
+#include "Sandbox/Entt.h"
 #include "Sandbox/Core/Time.h"
 
 #include <random>

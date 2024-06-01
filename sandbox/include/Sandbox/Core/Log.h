@@ -25,12 +25,12 @@ namespace Sandbox
 	};
 }
 #ifndef SANDBOX_NO_LOGGING
-#define ASSERT_LOG_ERROR(condition, ...) if(!condition){Log::Instance()->GetLogger()->error(__VA_ARGS__); assert(condition); Log::Instance()->GetLogger()->flush();}
+#define ASSERT_LOG_ERROR(condition, ...) if(!condition){Sandbox::Log::Instance()->GetLogger()->error(__VA_ARGS__); Sandbox::Log::Instance()->GetLogger()->flush(); assert(condition);}
 
-#define LOG_ERROR(...) Log::Instance()->GetLogger()->error(__VA_ARGS__); Log::Instance()->GetLogger()->flush();
-#define LOG_WARN(...) Log::Instance()->GetLogger()->warn(__VA_ARGS__); Log::Instance()->GetLogger()->flush();
-#define LOG_INFO(...) Log::Instance()->GetLogger()->info(__VA_ARGS__)
-#define LOG_TRACE(...) Log::Instance()->GetLogger()->trace(__VA_ARGS__)
+#define LOG_ERROR(...) Sandbox::Log::Instance()->GetLogger()->error(__VA_ARGS__); Sandbox::Log::Instance()->GetLogger()->flush();
+#define LOG_WARN(...) Sandbox::Log::Instance()->GetLogger()->warn(__VA_ARGS__); Sandbox::Log::Instance()->GetLogger()->flush();
+#define LOG_INFO(...) Sandbox::Log::Instance()->GetLogger()->info(__VA_ARGS__)
+#define LOG_TRACE(...) Sandbox::Log::Instance()->GetLogger()->trace(__VA_ARGS__)
 #else
 #define ASSERT_LOG_ERROR(...)
 #define LOG_ERROR(...) 

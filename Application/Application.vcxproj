@@ -354,6 +354,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Tests\EnttAssertTest.cpp" />
     <ClCompile Include="src\Editor\AssetBrowser.cpp" />
     <ClCompile Include="src\Tests\AnimTest.cpp" />
     <ClCompile Include="src\Tests\AudioTest.cpp" />
@@ -397,6 +398,7 @@
     <ClInclude Include="src\Tests\AnimTest.h" />
     <ClInclude Include="src\Tests\AudioTest.h" />
     <ClInclude Include="src\Tests\CrashDebug.h" />
+    <ClInclude Include="src\Tests\EnttAssertTest.h" />
     <ClInclude Include="src\Tests\MouseWheelTest.h" />
     <ClInclude Include="src\Tests\ColliderDebug.h" />
     <ClInclude Include="src\Tests\LayerBlending.h" />

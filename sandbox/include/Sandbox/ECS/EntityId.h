@@ -1,5 +1,5 @@
 #pragma once
 
-#include <entt/entt.hpp>
+#include "Sandbox/Entt.h"
 
 typedef entt::entity EntityId;

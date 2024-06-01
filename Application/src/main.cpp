@@ -23,6 +23,7 @@
 #include "Tests/AnimTest.h"
 #include "Tests/AudioTest.h"
 #include "Tests/CrashDebug.h"
+#include "Tests/EnttAssertTest.h"
 
 
 int main(int argc, char** argv)
@@ -53,7 +54,8 @@ int main(int argc, char** argv)
 	//ColliderDebug();
 	//MouseWheelTest();
 
-	AnimTest();
+	//AnimTest();
+	EnttAssertTest();
 
 	//AudioTest();
 

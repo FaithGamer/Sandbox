@@ -11,6 +11,7 @@ namespace Sandbox
 	{
 	public:
 		Transform(Transform&& transform) noexcept;
+		//Transform(Transform& transform);
 		Transform();
 		Transform(Vec3f translation, Vec3f scale, float angle);
 		Transform(Vec3f translation, Vec3f scale, Vec3f angles);

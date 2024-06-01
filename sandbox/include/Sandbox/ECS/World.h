@@ -1,6 +1,6 @@
 #pragma once
 
-#include "entt/entt.hpp"
+#include "Sandbox/Entt.h"
 #include "Sandbox/Core/TypeId.h"
 #include "Sandbox/Core/Signal.h"
 #include "Sandbox/ECS/Entity.h"
