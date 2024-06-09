@@ -330,5 +330,5 @@ April
 
 - animator can loop or not
 
-
+>renderer must verify if sprite is null
 >clear consol from useless message like warning for non supporte asset type.
