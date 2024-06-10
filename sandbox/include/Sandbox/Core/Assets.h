@@ -120,6 +120,8 @@ namespace Sandbox
 			String fragment;
 		};
 
+	private:
+		bool m_reloading = false;
 		std::unordered_map<String, sptr<OpaqueAsset>> m_assets;
 		std::unordered_map<String, Delegate<void, String, String>> m_addAssetFunctions;
 		std::unordered_map<String, ShaderSources> m_shadersPath;

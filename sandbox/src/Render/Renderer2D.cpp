@@ -9,6 +9,8 @@
 #include "Sandbox/Render/RenderOptions.h"
 #include "Sandbox/Render/Window.h"
 #include "Sandbox/Render/SpriteRender.h"
+#include "Sandbox/ECS/SpriteRenderSystem.h"
+#include "Sandbox/ECS/Systems.h"
 #include "Sandbox/Core/Container.h"
 #ifndef SANDBOX_NO_ASSETS
 #include "Sandbox/Core/Assets.h"
@@ -375,6 +377,16 @@ namespace Sandbox
 	void Renderer2D::FreeQuadBatch(uint32_t batch)
 	{
 		m_freeQuadBatchs.push_back(batch);
+	}
+
+	void Renderer2D::ClearBatches()
+	{
+		auto i = Instance();
+		i->m_freeQuadBatchs.clear();
+		i->m_quadBatchs.clear();
+		i->m_quadBatchFinder.clear();
+		//to do, make this a signal
+		Systems::Get<SpriteRenderSystem>()->OnClearBatches();
 	}
 
 	void Renderer2D::Begin(const Camera& camera)

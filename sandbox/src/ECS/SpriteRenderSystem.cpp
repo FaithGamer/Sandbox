@@ -29,6 +29,13 @@ namespace Sandbox
 	{
 		return m_zSort;
 	}
+	void SpriteRenderSystem::OnClearBatches()
+	{
+		ForeachComponents<SpriteRender>([&](SpriteRender& sprite)
+			{
+				sprite.needUpdateRenderBatch = true;
+			});
+	}
 	void SpriteRenderSystem::OnRender()
 	{
 		sptr<Renderer2D> renderer = Renderer2D::Instance();
@@ -43,7 +50,7 @@ namespace Sandbox
 						sprite.needUpdateRenderBatch = false;
 					}
 					renderer->DrawSprite(transform, sprite, sprite.renderBatch);
-				});
+				}); 
 		}
 		else
 		{

@@ -9,6 +9,7 @@
 #include "Sandbox/Core/Math.h"
 #include "Sandbox/Render/AnimationSystem.h"
 #include "Sandbox/Audio/Audio.h"
+#include "Sandbox/Render/Renderer2D.h"
 
 #define TEXTURE_IMPORT_SETTING_IS_ERROR
 #define SPRITESHEET_IS_ERROR
@@ -133,9 +134,18 @@ namespace Sandbox
 
 		}
 
+		if (m_reloading)
+		{
+			//Reload the rexture
+			static_pointer_cast<Asset<Texture>>(m_assets[filename])->m_ptr->Reload(path, importSettings);
+			//Do not generate sprites
+			return; 
+		}
+
 		//Create the texture with the import settings
 		auto texture = MakeAsset<Texture>(path, importSettings);
 		InsertAsset(filename, texture);
+
 
 		//Load sprite sheet from settings
 		auto spritesheet = settings.GetObj("Spritesheet");
@@ -209,6 +219,10 @@ namespace Sandbox
 	}
 	void Assets::HotReload()
 	{
+		Renderer2D::ClearBatches();
+		m_reloading = true;
+		LoadAssets();
+		m_reloading = false;
 	}
 	void Assets::InitAddAssetFunctions()
 	{
@@ -288,6 +302,10 @@ namespace Sandbox
 	{
 		size_t i = path.find_last_of(".");
 		String extension = path.substr(i, path.size() - i);
+
+		//Atm reloading affect only textures
+		if (m_reloading && extension != ".png")
+			return;
 
 		if (extension == ".texture")
 			return;

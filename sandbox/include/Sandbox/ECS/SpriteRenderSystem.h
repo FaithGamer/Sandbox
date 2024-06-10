@@ -14,6 +14,7 @@ namespace Sandbox
 		void SetZSort(bool sort);
 		bool GetZSort();
 		void OnRender() override;
+		void OnClearBatches();
 		int GetUsedMethod() override;
 	private:
 		bool m_zSort;

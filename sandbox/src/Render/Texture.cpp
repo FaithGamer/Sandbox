@@ -13,6 +13,44 @@ namespace Sandbox
 	{
 		m_importSettings.pixelPerUnit = 1.f / m_importSettings.pixelPerUnit;
 	}
+	void Texture::Load(std::string path, TextureImportSettings importSettings)
+	{
+		//Load image data
+		m_pixels = stbi_load(path.c_str(), &m_size.x, &m_size.y, &m_nbChannels, 4);
+
+		ASSERT_LOG_ERROR(m_pixels, "Failed to load texture: " + path);
+
+		//Generate and bind an OpenGL texture
+		glGenTextures(1, &m_id);
+		glBindTexture(GL_TEXTURE_2D, m_id);
+
+		//Send the texture data to OpenGL
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)m_size.x, (GLsizei)m_size.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_pixels);
+
+		//Texture Wrapping
+		GLfloat borderColor[] = { 0.0f, 0.0f, 0.0f, 0.0f }; // transparent
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, importSettings.wrapping);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, importSettings.wrapping);
+		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, borderColor);
+
+		//Texture filtering
+		GLint minFilter = importSettings.useMipmaps ? GL_LINEAR_MIPMAP_LINEAR : importSettings.filtering;
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, minFilter);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, importSettings.filtering);
+
+		if (importSettings.useMipmaps)
+		{
+			glGenerateMipmap(GL_TEXTURE_2D);
+		}
+
+		if (!importSettings.keepData)
+		{
+			stbi_image_free(m_pixels);
+		}
+
+		//Unbind since we are done configuring this texture
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
 	void Texture::Create1x1White()
 	{
 		//generate 1x1 white texture
@@ -53,43 +91,18 @@ namespace Sandbox
 			Create1x1White();
 			return;
 		}
-		//Load image data
-		m_pixels = stbi_load(path.c_str(), &m_size.x, &m_size.y, &m_nbChannels, 4);
+		
+		Load(path, importSettings);
+	}
 
-
-		ASSERT_LOG_ERROR(m_pixels, "Failed to load texture: " + path);
-
-		//Generate and bind an OpenGL texture
-		glGenTextures(1, &m_id);
-		glBindTexture(GL_TEXTURE_2D, m_id);
-
-		//Send the texture data to OpenGL
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)m_size.x, (GLsizei)m_size.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_pixels);
-
-		//Texture Wrapping
-		GLfloat borderColor[] = { 0.0f, 0.0f, 0.0f, 0.0f }; // transparent
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, importSettings.wrapping);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, importSettings.wrapping);
-		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, borderColor);
-
-		//Texture filtering
-		GLint minFilter = importSettings.useMipmaps ? GL_LINEAR_MIPMAP_LINEAR : importSettings.filtering;
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, minFilter);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, importSettings.filtering);
-
-		if (importSettings.useMipmaps)
-		{
-			glGenerateMipmap(GL_TEXTURE_2D);
-		}
-
-		if (!importSettings.keepData)
+	void Texture::Reload(std::string path, TextureImportSettings importSettings)
+	{
+		glDeleteTextures(1, &m_id);
+		if (m_importSettings.keepData)
 		{
 			stbi_image_free(m_pixels);
 		}
-
-		//Unbind since we are done configuring this texture
-		glBindTexture(GL_TEXTURE_2D, 0);
-
+		Load(path, importSettings);
 	}
 
 

@@ -145,6 +145,8 @@ namespace Sandbox
 		/// @brief Use with care only if you know what you are doing, as every attempt to draw using this batch will result in undefined behaviour
 		/// @param batch 
 		void FreeQuadBatch(uint32_t batch);
+		/// @brief remove all batches.
+		static void ClearBatches();
 		
 		/// @brief Get a layer id from it's name
 		/// @param name 
