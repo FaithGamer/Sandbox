@@ -65,12 +65,6 @@ namespace Sandbox
 		Time::delta = (float)m_updateClock.Restart();
 		float deltaScaled = (float)Time::delta * Time::timeScale;
 
-		//Making sure at least one microseconds has elapsed.
-		if (deltaScaled < 0.000001f)
-		{
-			deltaScaled = 0.000001f;
-		}
-
 		if (!m_pendingSystemIn.empty())
 			IntegratePending();
 		if (!m_pendingSystemOut.empty())
