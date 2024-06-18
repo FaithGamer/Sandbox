@@ -91,6 +91,10 @@ namespace Sandbox
 		}
 		file.close();
 	}
+	bool Serialized::HaveField(String name)
+	{
+		return m_json.find(name) != m_json.end();
+	}
 	float Serialized::GetFloat(String name)
 	{
 		float value;

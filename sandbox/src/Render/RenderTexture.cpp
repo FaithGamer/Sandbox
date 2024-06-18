@@ -1,7 +1,9 @@
+
 #include "pch.h"
 #include "Sandbox/Core/Log.h"
 #include "Sandbox/Render/RenderTexture.h"
 #include "Sandbox/Render/Texture.h"
+#include "stb/stb_image_write.h"
 
 namespace Sandbox
 {

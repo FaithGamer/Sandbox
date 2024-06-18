@@ -39,8 +39,10 @@ namespace Sandbox
 		float pixelPerUnit = 1;
 		bool useMipmaps = true;
 		bool keepData = false;
-
+		int lodMin = -1000;
+		int lodMax = 1000;
 		bool valid = true;
+
 
 	};
 

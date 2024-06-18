@@ -24,6 +24,10 @@ namespace Sandbox
 		void SetJson(Json&& json, String rpath);
 		void WriteOnDisk(String path);
 
+		/// @brief Check if an object exists
+		/// @param name Name of the object
+		/// @return true if it exists
+		bool HaveField(String name);
 		float GetFloat(String name);
 		int64_t GetInt(String name);
 		bool GetBool(String name);

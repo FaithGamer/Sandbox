@@ -40,6 +40,8 @@ namespace Sandbox
 
 		if (importSettings.useMipmaps)
 		{
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_LOD, importSettings.lodMax);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_LOD, importSettings.lodMin);
 			glGenerateMipmap(GL_TEXTURE_2D);
 		}
 
@@ -186,7 +188,10 @@ namespace Sandbox
 		pixelPerUnit = parameters.GetFloat("PixelPerUnit");
 		useMipmaps = parameters.GetBool("Mipmaps");
 		keepData = parameters.GetBool("KeepData");
-
+		if(parameters.HaveField("LodMin"))
+			lodMin = parameters.GetInt("LodMin");
+		if(parameters.HaveField("LodMax"))
+			lodMax = parameters.GetInt("LodMax");
 		valid = parameters.HadGetError();
 	}
 	Serialized TextureImportSettings::Serialize()
