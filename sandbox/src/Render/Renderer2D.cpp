@@ -601,7 +601,8 @@ namespace Sandbox
 		SpriteRender& spriteRender,
 		uint32_t batchIndex)
 	{
-
+		if (!spriteRender.GetSprite())
+			return;
 		constexpr size_t quadVertexCount = 4;
 
 		auto& batch = m_quadBatchs[batchIndex];
