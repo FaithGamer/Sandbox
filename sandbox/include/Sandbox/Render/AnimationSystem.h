@@ -31,8 +31,8 @@ namespace Sandbox
 	struct Animator
 	{
 		void SetAnimation(String animation);
-		void AddAnimation(String stateName, sptr<Animation> animation);
-		void AddAnimation(String stateName, String animation);
+		void AddAnimation(String stateName, sptr<Animation> animation, String transition = "");
+		void AddAnimation(String stateName, String animation, String transition = "");
 		std::map<String, AnimationState> animations;
 		AnimationState* currentState = nullptr;
 		String currentStateName;

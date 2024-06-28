@@ -48,7 +48,7 @@ namespace Sandbox
 			{
 				sprite = Assets::Get<Sprite>(sprite_it->get<String>()).Ptr();
 			}
-		
+
 			float timeToNext = 1.f * frequency;
 
 			//Set custom time if any
@@ -83,18 +83,18 @@ namespace Sandbox
 		}
 	}
 
-	void Animator::AddAnimation(String stateName, sptr<Animation> animation)
+	void Animator::AddAnimation(String stateName, sptr<Animation> animation, String transition)
 	{
 		AnimationState state;
 		state.animation = animation;
 		state.looping = true;
-		state.transition = stateName;
-		animations.insert(std::make_pair(stateName, state.animation));
+		state.transition = transition;
+		animations.insert(std::make_pair(stateName, state));
 	}
 
-	void Animator::AddAnimation(String stateName, String animation)
+	void Animator::AddAnimation(String stateName, String animation, String transition)
 	{
-		AddAnimation(stateName, Assets::Get<Animation>(animation).Ptr());
+		AddAnimation(stateName, Assets::Get<Animation>(animation).Ptr(), transition);
 	}
 
 	//Animation System
@@ -105,16 +105,33 @@ namespace Sandbox
 
 				if (animator.currentState == nullptr)
 					return;
-			
+
 				auto& anim = animator.currentState->animation;
 				auto& frame = animator.currentKeyFrame;
 				float frameTime = anim->frames[frame].timeToNext;
 
-				if (animator.accumulator > frameTime)
+				while (animator.accumulator > frameTime)
 				{
 					//Go to next frame, or go back to frame 0, or stay and last frame
 					int frameMax = anim->frames.size() - 1;
-					frame = frame >= frameMax ? animator.loop ? 0 : frameMax : frame + 1;
+
+					if (frame >= frameMax)
+					{
+						if (animator.currentState->transition.size() > 0)
+						{
+							animator.SetAnimation(animator.currentState->transition);
+							frame = 0;
+						}
+						else
+						{
+							frame = animator.loop ? 0 : frameMax;
+						}
+					}
+					else
+					{
+						frame++;
+					}
+
 					//Reset frame timer
 					animator.accumulator -= frameTime;
 				}

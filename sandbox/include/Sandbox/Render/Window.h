@@ -15,6 +15,7 @@ namespace Sandbox
 	class Window : public Singleton<Window>, public RenderTarget
 	{
 	public:
+		~Window();
 		static void SetWindowSize(Vec2u size);
 		static void SetFullScreen(bool fullscreen);
 		static void SetVsync(bool vsync);
@@ -26,10 +27,14 @@ namespace Sandbox
 		static void SetRenderWhenMinimized(bool renderWhenMinimized);
 		static bool IsInitialized();
 		static bool GetVSync();
+		static void Maximize();
 		/// @brief Makes no difference between fullscren and desktop fullscreen
 		/// @return True if window is fullscreen
 		static bool GetFullScreen();
 		static Vec2u GetSize();
+		/// @brief Return the monitor resolution, if multiple monitors, return the monitor where the center of the window lies.
+		/// @return Screen resolution
+		static Vec2i GetScreenSize();
 		static float GetAspectRatio();
 		static SDL_GLContext GetSDL_GLContext();
 		static SDL_Window* GetSDLWindow();

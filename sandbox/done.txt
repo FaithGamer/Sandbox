@@ -332,3 +332,9 @@ April
 
 >renderer must verify if sprite is null
 >clear consol from useless message like warning for non supporte asset type.
+
+june
+
+28
+
+-added sdl quit and destroy gl context in window destructor

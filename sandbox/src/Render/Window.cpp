@@ -6,7 +6,12 @@
 
 namespace Sandbox
 {
-
+	Window::~Window()
+	{
+		SDL_GL_DeleteContext(m_glContext);
+		SDL_DestroyWindow(m_window);
+		SDL_Quit();
+	}
 	void Window::Init(std::string name, Vec2u size)
 	{
 		//Initializing SDL
@@ -158,6 +163,11 @@ namespace Sandbox
 		return false;
 	}
 
+	void Window::Maximize()
+	{
+		SDL_MaximizeWindow(Instance()->m_window);
+	}
+
 	bool Window::GetFullScreen()
 	{
 		auto i = Instance();
@@ -173,7 +183,13 @@ namespace Sandbox
 	{
 		return Window::Instance()->m_size;
 	}
-
+	Vec2i Window::GetScreenSize()
+	{
+		SDL_DisplayMode dp;
+		int index = SDL_GetWindowDisplayIndex(Instance()->m_window);
+		SDL_GetDesktopDisplayMode(index, &dp);
+		return Vec2i(dp.w, dp.h);
+	}
 	float Window::GetAspectRatio()
 	{
 		auto window = Window::Instance();
