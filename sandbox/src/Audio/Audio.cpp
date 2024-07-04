@@ -83,6 +83,7 @@ namespace Sandbox
 			LOG_ERROR("Can't initialize sound channel, {0}", channel);
 			return 0;
 		}
+		return 0;
 	}
 
 	unsigned int Audio::GetChannel(String channel)
