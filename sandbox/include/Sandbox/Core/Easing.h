@@ -22,5 +22,6 @@ namespace Sandbox
 		double ExpoInOut(double t);
 		double ExpoIn(double t);
 		double ExpoOut(double t);
+		double ElasticOut(double t);
 	}
 }

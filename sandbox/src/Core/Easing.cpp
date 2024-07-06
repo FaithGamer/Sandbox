@@ -73,5 +73,14 @@ namespace Sandbox
 		return 1 - pow(2, -8 * t);
 	}
 
+	double Easing::ElasticOut(double t) {
+		if (t == 0) return 0;
+		if (t == 1) return 1;
+
+		const double c4 = (2 * PI) / 3;
+		return pow(2, -10 * t) * sin((t * 10 - 0.75) * c4) + 1;
+	}
+
+
 	
 }
