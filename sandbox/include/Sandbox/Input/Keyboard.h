@@ -258,6 +258,14 @@ namespace Sandbox
 		ScancodeNumber = SDL_NUM_SCANCODES,
 	};
 
+	/// @brief Name of the key on the user keyboard that correspond to the given scancode
+	/// (example Q scancode on azerty keyboard return A)
+	/// @param key Scancode
+	/// @return intelligible keycode
 	std::string KeycodeNameFromScancode(KeyScancode key);
+	/// @brief Return a string that represent the scancode
+	/// @param key Scancode
+	/// @return intelligible scancode
+	std::string ScancodeName(KeyScancode key);
 	KeyScancode KeyScancodeFromName(std::string name);
 }

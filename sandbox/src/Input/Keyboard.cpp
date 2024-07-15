@@ -4,18 +4,24 @@
 
 namespace Sandbox
 {
-	std::string KeycodeNameFromScancode(KeyScancode keyButton)
+	std::string KeycodeNameFromScancode(KeyScancode key)
 	{
-		if ((int)keyButton < 0 || (int)keyButton >= SDL_NUM_SCANCODES)
+		if ((int)key < 0 || (int)key >= SDL_NUM_SCANCODES)
 		{
-			LOG_ERROR("Trying to get the name of an out of bound Key Scancode: " + std::to_string((int)keyButton));
+			LOG_ERROR("Trying to get the name of an out of bound Key Scancode: " + std::to_string((int)key));
 			return "UnknowKey";
 		}
-		//this return the scancode, not the key on the user keyboard
-		//return std::string(SDL_GetKeyName(SDL_SCANCODE_TO_KEYCODE((SDL_Scancode)keyButton)));
-		return std::string(SDL_GetKeyName(SDL_GetKeyFromScancode((SDL_Scancode)keyButton)));
+		return std::string(SDL_GetKeyName(SDL_GetKeyFromScancode((SDL_Scancode)key)));
 	}
-
+	std::string ScancodeName(KeyScancode key)
+	{
+		if ((int)key < 0 || (int)key >= SDL_NUM_SCANCODES)
+		{
+			LOG_ERROR("Trying to get the name of an out of bound Key Scancode: " + std::to_string((int)key));
+			return "UnknowKey";
+		}
+		return std::string(SDL_GetKeyName(SDL_SCANCODE_TO_KEYCODE((SDL_Scancode)key)));
+	}
 	KeyScancode KeyScancodeFromName(std::string name)
 	{
 		KeyScancode scancode = (KeyScancode)SDL_GetScancodeFromName(name.c_str());

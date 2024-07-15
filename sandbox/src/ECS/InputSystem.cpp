@@ -63,6 +63,10 @@ namespace Sandbox
 	{
 		return !(m_rebind == nullptr);
 	}
+	sptr<Input> InputSystem::RebindingInput()
+	{
+		return m_rebind;
+	}
 	void InputSystem::Rebind(SDL_Event& e)
 	{
 		switch (m_rebind->GetType())

@@ -28,6 +28,7 @@ namespace Sandbox
 		void EndRebind();
 		int GetUsedMethod();
 		bool IsRebinding();
+		sptr<Input> RebindingInput();
 	private:
 		void Rebind(SDL_Event& e);
 	private:

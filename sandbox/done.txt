@@ -343,8 +343,9 @@ July
 
 -got rid of Input::ListenAndRebind
 -input system can now rebind button inputs (to be verified)
+-scancode to keycode text 
+-scancode text
 
->scancode to keycode text is not keycode but scancode
 
 >serialize directional binding/button binding
 >InputSystem.h should be in Input folder and part of Input.h
