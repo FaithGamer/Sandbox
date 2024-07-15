@@ -338,3 +338,14 @@ june
 28
 
 -added sdl quit and destroy gl context in window destructor
+
+July
+
+-got rid of Input::ListenAndRebind
+-input system can now rebind button inputs (to be verified)
+
+>scancode to keycode text is not keycode but scancode
+
+>serialize directional binding/button binding
+>InputSystem.h should be in Input folder and part of Input.h
+>add capacity of receiving an intelligible string from an input for it's binding, either controller or m&k, and what version (default 0)

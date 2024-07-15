@@ -258,6 +258,6 @@ namespace Sandbox
 		ScancodeNumber = SDL_NUM_SCANCODES,
 	};
 
-	std::string KeyScancodeName(KeyScancode key);
+	std::string KeycodeNameFromScancode(KeyScancode key);
 	KeyScancode KeyScancodeFromName(std::string name);
 }

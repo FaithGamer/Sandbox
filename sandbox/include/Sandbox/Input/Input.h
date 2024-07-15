@@ -70,9 +70,6 @@ namespace Sandbox
 	{
 	public:
 		virtual ~Input() {};
-
-		virtual void ListenEventAndBind(const SDL_Event& e, int version = 0) = 0;
-
 		virtual std::string GetName() const = 0;
 		virtual InputType GetType() const = 0;
 

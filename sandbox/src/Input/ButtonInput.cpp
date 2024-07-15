@@ -13,34 +13,6 @@ namespace Sandbox
 
 	}
 
-
-
-	void ButtonInput::ListenEventAndBind(const SDL_Event& e, int version)
-	{
-
-		// To do
-
-		/*if (version == -1)
-		{
-			version = m_bindings.buttons.size();
-			m_bindings.buttons.push_back(Button());
-		}
-		if (version >= m_bindings.buttons.size())
-		{
-			LOG_WARN("ButtonInput::ListenEventAndBind -> Button binding version does not exists.");
-			return;
-		}
-		if (e.type == SDL_KEYUP)
-		{
-			m_bindings.buttons[version].key = (KeyScancode)e.key.keysym.scancode;
-		}
-		//Controller
-		else if (e.type == SDL_CONTROLLERBUTTONUP)
-		{
-			m_bindings.buttons[version].controller = (ControllerButton)e.cbutton.button;
-		}*/
-	}
-
 	void ButtonInput::SetBindings(const ButtonBindings& bindings)
 	{
 		m_bindings = bindings;

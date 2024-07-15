@@ -23,7 +23,6 @@ namespace Sandbox
 	public:
 		DirectionalInput(std::string name);
 
-		virtual void ListenEventAndBind(const SDL_Event& e, int version = 0) override;
 		/// @brief Set all the versions of the various keys, controller buttons, controller triggers, mouse buttons
 		/// and their corresponding directions, as well as the controller analog sticks, that are bound to this input.
 		/// @param bindings 

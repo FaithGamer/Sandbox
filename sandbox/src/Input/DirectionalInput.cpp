@@ -10,11 +10,6 @@ namespace Sandbox
 	{
 	}
 
-	void DirectionalInput::ListenEventAndBind(const SDL_Event& e, int version)
-	{
-		//To do
-	}
-
 	void DirectionalInput::SetBindings(const DirectionalBindings& bindings)
 	{
 		m_bindings = bindings;

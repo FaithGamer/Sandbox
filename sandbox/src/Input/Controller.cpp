@@ -19,14 +19,14 @@ namespace Sandbox
 	{
 	}
 
-	std::string ControllerButtonName(SDL_GameControllerButton button)
+	std::string ControllerButtonName(ControllerButton button)
 	{
 		if ((int)button < 0 || (int)button >= SDL_CONTROLLER_BUTTON_MAX)
 		{
 			LOG_ERROR("Trying to get the name of an incorrect Controller Button: " + std::to_string((int)button));
 			return "UnknowControllerButton";
 		}
-		return std::string(SDL_GameControllerGetStringForButton(button));
+		return std::string(SDL_GameControllerGetStringForButton((SDL_GameControllerButton)button));
 	}
 
 	std::string ControllerStickName(ControllerStick stick)

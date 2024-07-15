@@ -29,7 +29,6 @@ namespace Sandbox
 	public:
 		ButtonInput(std::string name);
 
-		virtual void ListenEventAndBind(const SDL_Event& e, int version = 0) override;
 		/// @brief Set all the versions of the keys, controller buttons, controller triggers, mouse buttons, that are bound to this input.
 		/// @param bindings 
 		virtual void SetBindings(const ButtonBindings& bindings);

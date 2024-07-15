@@ -70,7 +70,7 @@ namespace Sandbox
 		static const ControllerStick Right;
 	};
 
-	std::string ControllerButtonName(SDL_GameControllerButton button);
+	std::string ControllerButtonName(ControllerButton button);
 	std::string ControllerStickName(ControllerStick stick);
 	std::string ControllerTriggerName(ControllerTrigger trigger);
 
