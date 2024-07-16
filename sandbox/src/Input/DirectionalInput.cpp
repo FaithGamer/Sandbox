@@ -345,12 +345,12 @@ namespace Sandbox
 		}
 		else
 		{
-			absValue = 0.f;
+			value = 0.f;
 		}
 		if (x)
-			direction.stick.currentDirection.x = absValue;
+			direction.stick.currentDirection.x = value;
 		else
-			direction.stick.currentDirection.y = absValue;
+			direction.stick.currentDirection.y = value;
 		ComputeState();
 	}
 

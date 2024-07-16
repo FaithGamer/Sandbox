@@ -104,11 +104,10 @@ namespace Sandbox
 		case InputType::Button:
 		{
 			auto buttonInput = static_pointer_cast<ButtonInput>(m_rebind);
-
+			int version = m_rebindVersion;
 			if (m_rebindVersion >= buttonInput->GetBindingsCount())
 			{
-				LOG_WARN("InputSystem::Rebind: Button binding version {0} does not exists in input {1}.", m_rebindVersion, buttonInput->GetName());
-				return false;
+				version = -1;
 			}
 
 			if ((m_rebindPeripherals & PeripheralFlag::Mouse) == PeripheralFlag::Mouse)
@@ -117,7 +116,7 @@ namespace Sandbox
 				switch (e.type)
 				{
 				case SDL_MOUSEBUTTONUP:
-					if (m_rebindVersion == -1)
+					if (version == -1)
 					{
 						buttonInput->AddMouse((MouseButton)e.button.button);
 						EndRebind();
@@ -125,7 +124,7 @@ namespace Sandbox
 					}
 					else
 					{
-						buttonInput->SetMouse(m_rebindVersion, (MouseButton)e.button.button);
+						buttonInput->SetMouse(version, (MouseButton)e.button.button);
 						EndRebind();
 						return true;
 					}
@@ -139,7 +138,7 @@ namespace Sandbox
 				switch (e.type)
 				{
 				case SDL_KEYUP:
-					if (m_rebindVersion == -1)
+					if (version == -1)
 					{
 						buttonInput->AddKey((KeyScancode)e.key.keysym.scancode);
 						EndRebind();
@@ -147,7 +146,7 @@ namespace Sandbox
 					}
 					else
 					{
-						buttonInput->SetKey(m_rebindVersion, (KeyScancode)e.key.keysym.scancode);
+						buttonInput->SetKey(version, (KeyScancode)e.key.keysym.scancode);
 						EndRebind();
 						return true;
 					}
@@ -161,7 +160,7 @@ namespace Sandbox
 				switch (e.type)
 				{
 				case SDL_CONTROLLERBUTTONUP:
-					if (m_rebindVersion == -1)
+					if (version == -1)
 					{
 						buttonInput->AddControllerButton((ControllerButton)e.cbutton.button);
 						EndRebind();
@@ -169,13 +168,13 @@ namespace Sandbox
 					}
 					else
 					{
-						buttonInput->SetControllerButton(m_rebindVersion, (ControllerButton)e.cbutton.button);
+						buttonInput->SetControllerButton(version, (ControllerButton)e.cbutton.button);
 						EndRebind();
 						return true;
 					}
 					break;
 				case SDL_CONTROLLER_AXIS_TRIGGERLEFT:
-					if (m_rebindVersion == -1)
+					if (version == -1)
 					{
 						buttonInput->AddControllerTrigger(ControllerTrigger::Left);
 						EndRebind();
@@ -183,13 +182,13 @@ namespace Sandbox
 					}
 					else
 					{
-						buttonInput->SetControllerTrigger(m_rebindVersion, ControllerTrigger::Left);
+						buttonInput->SetControllerTrigger(version, ControllerTrigger::Left);
 						EndRebind();
 						return true;
 					}
 					break;
 				case SDL_CONTROLLER_AXIS_TRIGGERRIGHT:
-					if (m_rebindVersion == -1)
+					if (version == -1)
 					{
 						buttonInput->AddControllerTrigger(ControllerTrigger::Right);
 						EndRebind();
@@ -197,7 +196,7 @@ namespace Sandbox
 					}
 					else
 					{
-						buttonInput->SetControllerTrigger(m_rebindVersion, ControllerTrigger::Right);
+						buttonInput->SetControllerTrigger(version, ControllerTrigger::Right);
 						EndRebind();
 						return true;
 					}

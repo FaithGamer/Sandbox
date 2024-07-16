@@ -34,11 +34,11 @@ namespace Sandbox
 		static std::vector<sptr<InputMap>>& GetInputMaps();
 		static sptr<InputMap> GetInputMap(std::string name);
 		static std::vector<std::string> GetInputMapNameList();
-
+		/// @brief Used to check what peripheral has been used last, mouse&keyboard or controller
+		bool controllerUsedLast = false; 
 	private:
 		friend Engine;
 		InputMapContainer m_inputMaps;
-		std::vector<SDL_Joystick*> m_controllers;
 		
 	};
 }

@@ -3,7 +3,7 @@
 #include "Sandbox/Core/Container.h"
 #include "Sandbox/Input/ButtonInput.h"
 #include "Sandbox/Input/DirectionalInput.h"
-
+#include "Sandbox/Input/Inputs.h"
 namespace Sandbox
 {
 	InputMap::InputMap(std::string name) : m_name(name), m_mustUpdate(false), m_isActive(true), m_passThroughImGui(false)
@@ -167,6 +167,7 @@ namespace Sandbox
 				if (input->KeyPressed(e))
 					eventHandled = true;
 			}
+			Inputs::Instance()->controllerUsedLast = false;
 			break;
 		case SDL_KEYUP:
 			for (auto& input : m_byEvents[(int)EventType::Key])
@@ -174,6 +175,7 @@ namespace Sandbox
 				if (input->KeyReleased(e))
 					eventHandled = true;
 			}
+			Inputs::Instance()->controllerUsedLast = false;
 			break;
 		case SDL_MOUSEBUTTONDOWN:
 			for (auto& input : m_byEvents[(int)EventType::MouseBtn])
@@ -181,6 +183,7 @@ namespace Sandbox
 				if (input->MouseButtonPressed(e))
 					eventHandled = true;
 			}
+			Inputs::Instance()->controllerUsedLast = false;
 			break;
 		case SDL_MOUSEBUTTONUP:
 			for (auto& input : m_byEvents[(int)EventType::MouseBtn])
@@ -188,6 +191,7 @@ namespace Sandbox
 				if (input->MouseButtonReleased(e))
 					eventHandled = true;
 			}
+			Inputs::Instance()->controllerUsedLast = false;
 			break;
 		case SDL_MOUSEWHEEL:
 			for (auto& input : m_byEvents[(int)EventType::MouseWheel])
@@ -195,6 +199,7 @@ namespace Sandbox
 				if (input->MouseWheelMoved(e))
 					eventHandled = true;
 			}
+			Inputs::Instance()->controllerUsedLast = false;
 			break;
 		case SDL_MOUSEMOTION:
 			for (auto& input : m_byEvents[(int)EventType::MouseMove])
@@ -202,6 +207,7 @@ namespace Sandbox
 				if (input->MouseMoved(e))
 					eventHandled = true;
 			}
+			Inputs::Instance()->controllerUsedLast = false;
 			break;
 		case SDL_CONTROLLERBUTTONDOWN:
 			for (auto& input : m_byEvents[(int)EventType::ControllerBtn])
@@ -209,6 +215,7 @@ namespace Sandbox
 				if (input->ControllerButtonPressed(e))
 					eventHandled = true;
 			}
+			Inputs::Instance()->controllerUsedLast = true;
 			break;
 		case SDL_CONTROLLERBUTTONUP:
 			for (auto& input : m_byEvents[(int)EventType::ControllerBtn])
@@ -216,6 +223,7 @@ namespace Sandbox
 				if (input->ControllerButtonReleased(e))
 					eventHandled = true;
 			}
+			Inputs::Instance()->controllerUsedLast = true;
 			break;
 		case SDL_CONTROLLERAXISMOTION:
 
@@ -229,6 +237,10 @@ namespace Sandbox
 					if (input->ControllerStickMoved(e))
 						eventHandled = true;
 				}
+				if (e.caxis.value / 32767.f > 0.15f)
+				{
+					Inputs::Instance()->controllerUsedLast = true;
+				}
 			}
 			else
 			{
@@ -236,6 +248,10 @@ namespace Sandbox
 				{
 					if (input->ControllerTriggerMoved(e))
 						eventHandled = true;
+				}
+				if (e.caxis.value / 32767.f > 0.15f)
+				{
+					Inputs::Instance()->controllerUsedLast = true;
 				}
 			}
 			break;
@@ -245,6 +261,9 @@ namespace Sandbox
 				if (input->TextEntered(e))
 					eventHandled = true;
 			}
+		
+			Inputs::Instance()->controllerUsedLast = false;
+			
 			break;
 
 		case SDL_TEXTEDITING:
