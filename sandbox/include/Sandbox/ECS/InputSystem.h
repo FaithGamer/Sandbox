@@ -29,7 +29,7 @@ namespace Sandbox
 		void EndRebind();
 		int GetUsedMethod();
 		bool IsRebinding();
-		sptr<Input> RebindingInput();
+		sptr<Input> GetRebindingInput();
 	private:
 		bool Rebind(SDL_Event& e);
 		void InitController(int id);

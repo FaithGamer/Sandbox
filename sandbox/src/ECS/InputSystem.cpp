@@ -93,7 +93,7 @@ namespace Sandbox
 	{
 		return !(m_rebind == nullptr);
 	}
-	sptr<Input> InputSystem::RebindingInput()
+	sptr<Input> InputSystem::GetRebindingInput()
 	{
 		return m_rebind;
 	}
@@ -115,7 +115,7 @@ namespace Sandbox
 				//Mouse
 				switch (e.type)
 				{
-				case SDL_MOUSEBUTTONUP:
+				case SDL_MOUSEBUTTONDOWN:
 					if (version == -1)
 					{
 						buttonInput->AddMouse((MouseButton)e.button.button);
@@ -137,7 +137,7 @@ namespace Sandbox
 				//Keyboard
 				switch (e.type)
 				{
-				case SDL_KEYUP:
+				case SDL_KEYDOWN:
 					if (version == -1)
 					{
 						buttonInput->AddKey((KeyScancode)e.key.keysym.scancode);
@@ -159,7 +159,7 @@ namespace Sandbox
 				//Controller
 				switch (e.type)
 				{
-				case SDL_CONTROLLERBUTTONUP:
+				case SDL_CONTROLLERBUTTONDOWN:
 					if (version == -1)
 					{
 						buttonInput->AddControllerButton((ControllerButton)e.cbutton.button);
