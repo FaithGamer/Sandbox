@@ -91,6 +91,14 @@ namespace Sandbox
 		}
 		file.close();
 	}
+	void Serialized::AddObj(String name, Serialized& serialized)
+	{
+		m_json[name] = serialized.m_json;
+	}
+	void Serialized::AddObj(String name, Serialized&& serialized)
+	{
+		m_json[name] = serialized.m_json;
+	}
 	bool Serialized::HaveField(String name)
 	{
 		return m_json.find(name) != m_json.end();

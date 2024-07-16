@@ -348,6 +348,7 @@ July
 -all plugged controller are initialized in input system
 -input system plug/unplug controller works
 -event consumed on rebind (input system)
+-Serialized AddObj
 
 >serialize directional binding/button binding
 >InputSystem.h should be in Input folder and part of Input.h

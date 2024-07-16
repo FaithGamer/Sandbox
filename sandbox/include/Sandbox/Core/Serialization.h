@@ -8,7 +8,7 @@ namespace Sandbox
 {
 	using Json = nlohmann::json;
 
-
+	
 	/// @brief Serialized version of an object.
 	/// Wrapper around json object and fstream functions
 	class Serialized
@@ -23,6 +23,11 @@ namespace Sandbox
 		void SetJson(Json&& json);
 		void SetJson(Json&& json, String rpath);
 		void WriteOnDisk(String path);
+
+		/// @brief Write another serialized into this serialized
+		/// @param serialized 
+		void AddObj(String name, Serialized& serialized);
+		void AddObj(String name, Serialized&& serialized);
 
 		/// @brief Check if an object exists
 		/// @param name Name of the object
@@ -124,8 +129,8 @@ namespace Sandbox
 		virtual ~Serializable() {};
 		virtual void Deserialize(Serialized& config) = 0;
 		virtual Serialized Serialize() = 0;
-		/// @brief Should return false if the deserialization process hasn't been successful
-		virtual bool DeserializationError() { return true; }
+		/// @brief Should return true if the deserialization process hasn't been successful
+		virtual bool DeserializationError() { return false; }
 	};
 
 }

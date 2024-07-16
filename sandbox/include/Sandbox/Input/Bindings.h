@@ -4,19 +4,24 @@
 #include "Sandbox/Input/Controller.h"
 #include "Sandbox/Input/Mouse.h"
 #include "Sandbox/Core/Vec.h"
+#include "Sandbox/Core/Serialization.h"
 
 /// @brief Every possible bindings, can be used to set binding on an Input wich will ignore the adequate fields
 namespace Sandbox
 {
 	//To do: serialization
 
-	struct Button
+	struct Button : Serializable
 	{
 		Button() {}
 		Button(KeyScancode Key) : key(Key) {}
 		Button(MouseButton Mouse) : mouse(Mouse) {}
 		Button(ControllerButton Controller) : controller(Controller) {}
 		Button(ControllerTrigger Trigger) : trigger(Trigger) {}
+
+		//Serializable
+		void Deserialize(Serialized& config) override;
+		Serialized Serialize() override;
 
 		MouseButton mouse = MouseButton::Invalid;
 		KeyScancode key = KeyScancode::Unknown;// scancode is a physical position on the keyboard.
@@ -71,8 +76,12 @@ namespace Sandbox
 		std::vector<Direction> directions;
 	};
 
-	struct ButtonBindings
+	struct ButtonBindings : Serializable
 	{
+		//Serializable
+		void Deserialize(Serialized& config) override;
+		Serialized Serialize() override;
+
 		std::vector<Button> buttons;
 	};
 }
