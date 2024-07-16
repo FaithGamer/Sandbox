@@ -5,7 +5,7 @@
 
 namespace Sandbox
 {
-	DirectionalInput::DirectionalInput(std::string name) 
+	DirectionalInput::DirectionalInput(std::string name)
 		: m_name(name), m_triggerDeadzone(0.1f), m_stickDeadzone(0.1f), m_mouseWheel(false)
 	{
 	}
@@ -342,14 +342,16 @@ namespace Sandbox
 				value = -absValue;
 			else
 				value = absValue;
-
-			if (x)
-				direction.stick.currentDirection.x = value;
-			else
-				direction.stick.currentDirection.y = value;
-
-			ComputeState();
 		}
+		else
+		{
+			absValue = 0.f;
+		}
+		if (x)
+			direction.stick.currentDirection.x = absValue;
+		else
+			direction.stick.currentDirection.y = absValue;
+		ComputeState();
 	}
 
 	void DirectionalInput::UpdateEventListened()

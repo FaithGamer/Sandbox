@@ -345,7 +345,9 @@ July
 -input system can now rebind button inputs (to be verified)
 -scancode to keycode text 
 -scancode text
-
+-all plugged controller are initialized in input system
+-input system plug/unplug controller works
+-event consumed on rebind (input system)
 
 >serialize directional binding/button binding
 >InputSystem.h should be in Input folder and part of Input.h

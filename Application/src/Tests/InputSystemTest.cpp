@@ -108,6 +108,7 @@ void InitInputs()
 	};
 	move->AddButtons(buttons);
 	move->AddStick(ControllerStick::Left);
+	move->SetStickDeadZone(0.3f);
 
 	//Trying to create an already existing map
 	sptr<InputMap> inputs3 = Inputs::CreateInputMap("Player1");
@@ -122,6 +123,7 @@ void InputSystemTest()
 
 	Engine::Init();
 	Systems::CreateWorld();
+
 
 	InitInputs();
 

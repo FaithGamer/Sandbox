@@ -15,7 +15,7 @@ namespace Sandbox
 	void Window::Init(std::string name, Vec2u size)
 	{
 		//Initializing SDL
-		int SDLinit = SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER);
+		int SDLinit = SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_GAMECONTROLLER);
 		ASSERT_LOG_ERROR(SDLinit == 0, LogSDLError("Couldn't initialize SDL"));
 
 		m_size = size;

@@ -116,6 +116,7 @@ namespace Sandbox
 		case SDL_CONTROLLERBUTTONDOWN:
 			for (auto& input : m_byEvents[(int)EventType::ControllerBtn])
 			{
+				LOG_INFO("contrler btn press2");
 				if (input->ControllerButtonPressed(e))
 					eventHandled = true;
 			}

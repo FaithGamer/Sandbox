@@ -252,10 +252,12 @@ namespace Sandbox
 
 	bool ButtonInput::ControllerButtonPressed(const SDL_Event& e)
 	{
+		LOG_INFO("button ctrn press");
 		for (auto& button : m_bindings.buttons)
 		{
 			if ((SDL_GameControllerButton)e.cbutton.button == (SDL_GameControllerButton)button.controller)
 			{
+				LOG_INFO("btn");
 				return PressButton();
 			}
 		}

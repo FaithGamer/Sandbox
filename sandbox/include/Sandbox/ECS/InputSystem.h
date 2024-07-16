@@ -16,6 +16,7 @@ namespace Sandbox
 		};
 	public:
 		InputSystem();
+		void OnStart() override;
 		bool OnEvent(SDL_Event& event);
 		/// @brief Every subsequent keyboard/mouse/controller event will try to bind to this input
 		/// Call EndRebind()  when you're done.
@@ -30,7 +31,8 @@ namespace Sandbox
 		bool IsRebinding();
 		sptr<Input> RebindingInput();
 	private:
-		void Rebind(SDL_Event& e);
+		bool Rebind(SDL_Event& e);
+		void InitController(int id);
 	private:
 		//Rebinding
 		sptr<Input> m_rebind;
