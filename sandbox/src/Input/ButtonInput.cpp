@@ -161,6 +161,16 @@ namespace Sandbox
 		return m_bindings;
 	}
 
+	bool ButtonInput::GetSendSignalOnPress()
+	{
+		return m_sendSignalOnPress;
+	}
+
+	bool ButtonInput::GetSendSignalOnRelease()
+	{
+		return m_sendSignalOnRelease;
+	}
+
 	bool ButtonInput::HaveBinding(KeyScancode key)
 	{
 		for (auto& button : m_bindings.buttons)
@@ -252,12 +262,10 @@ namespace Sandbox
 
 	bool ButtonInput::ControllerButtonPressed(const SDL_Event& e)
 	{
-		LOG_INFO("button ctrn press");
 		for (auto& button : m_bindings.buttons)
 		{
 			if ((SDL_GameControllerButton)e.cbutton.button == (SDL_GameControllerButton)button.controller)
 			{
-				LOG_INFO("btn");
 				return PressButton();
 			}
 		}
@@ -304,21 +312,21 @@ namespace Sandbox
 
 	void ButtonInput::UpdateEventListened()
 	{
-		InputEvent newEvents;
+		int newEvents = 0;
 
 		for (auto& button : m_bindings.buttons)
 		{
 			if (button.key != KeyScancode::Unknown)
-				newEvents.keyButton = true;
+				newEvents |= Input::KeyButtonFlag;
 
 			if (button.mouse != MouseButton::Invalid)
-				newEvents.mouseButton = true;
+				newEvents |= Input::MouseButtonFlag;
 
 			if (button.controller != ControllerButton::Invalid)
-				newEvents.controllerButton = true;
+				newEvents |= Input::ControllerButtonFlag;
 
 			if (button.trigger != ControllerTrigger::Undefined)
-				newEvents.controllerTrigger = true;
+				newEvents |= Input::ControllerTriggerFlag;
 		}
 		if (m_eventsListened != newEvents)
 		{

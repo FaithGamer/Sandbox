@@ -20,22 +20,6 @@ namespace Sandbox
 		Textual
 	};
 
-	/// @brief What events does an input listen to
-	struct InputEvent
-	{
-		bool keyButton = false;
-		bool keyText = false;
-		bool mouseButton = false;
-		bool mouseWheel = false;
-		bool mouseMovement = false;
-		bool controllerButton = false;
-		bool controllerStick = false;
-		bool controllerTrigger = false;
-
-		bool operator==(const InputEvent& other);
-		bool operator!=(const InputEvent& other);
-	};
-
 	/// @brief Parent class for data sent by input when they are triggered.
 	class InputSignal
 	{
@@ -69,6 +53,19 @@ namespace Sandbox
 	class Input : public std::enable_shared_from_this<Input>
 	{
 	public:
+		/// @brief What events does an input listen to
+		enum InputEventFlag : int
+		{
+			KeyButtonFlag = 1,
+			KeyTextFlag = 2,
+			MouseButtonFlag = 4,
+			MouseWheelFlag = 8,
+			MouseMovementFlag = 16,
+			ControllerButtonFlag = 32,
+			ControllerStickFlag = 64,
+			ControllerTriggerFlag = 128
+		};
+	public:
 		virtual ~Input() {};
 		virtual std::string GetName() const = 0;
 		virtual InputType GetType() const = 0;
@@ -95,7 +92,7 @@ namespace Sandbox
 
 		virtual void UpdateEventListened() = 0;
 		void OnEventListenedUpdated();
-		InputEvent m_eventsListened;
+		int m_eventsListened; //flags
 
 	private:
 

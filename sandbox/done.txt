@@ -349,7 +349,7 @@ July
 -input system plug/unplug controller works
 -event consumed on rebind (input system)
 -Serialized AddObj
+-serialize button binding
 
->serialize directional binding/button binding
 >InputSystem.h should be in Input folder and part of Input.h
 >add capacity of receiving an intelligible string from an input for it's binding, either controller or m&k, and what version (default 0)

@@ -6,37 +6,6 @@
 namespace Sandbox
 {
 
-	bool InputEvent::operator==(const InputEvent& other)
-	{
-		if (keyButton != other.keyButton
-			|| keyText != other.keyText
-			|| mouseButton != other.mouseButton
-			|| mouseMovement != other.mouseMovement
-			|| mouseWheel != other.mouseWheel
-			|| controllerButton != other.controllerButton
-			|| controllerStick != other.controllerStick
-			|| controllerTrigger != other.controllerTrigger)
-		{
-			return false;
-		}
-		return true;
-	}
-	bool InputEvent::operator!=(const InputEvent& other)
-	{
-		if (keyButton != other.keyButton
-			|| keyText != other.keyText
-			|| mouseButton != other.mouseButton
-			|| mouseMovement != other.mouseMovement
-			|| mouseWheel != other.mouseWheel
-			|| controllerButton != other.controllerButton
-			|| controllerStick != other.controllerStick
-			|| controllerTrigger != other.controllerTrigger)
-		{
-			return true;
-		}
-		return false;
-	}
-
 	std::string InputTypeName(InputType type)
 	{
 		switch (type)

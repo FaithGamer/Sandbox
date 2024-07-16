@@ -356,41 +356,36 @@ namespace Sandbox
 
 	void DirectionalInput::UpdateEventListened()
 	{
-		InputEvent listened;
+		int newEvents = 0;
 
 		for (auto& direction : m_bindings.directions)
 		{
 			if (direction.stick.stick != ControllerStick::None)
 			{
-				listened.controllerStick = true;
+				newEvents |= Input::ControllerStickFlag;
 			}
 			for (auto& button : direction.buttons)
 			{
 				if (button.button.key != KeyScancode::Unknown)
-				{
-					listened.keyButton = true;
-				}
+					newEvents |= Input::KeyButtonFlag;
+
 				if (button.button.mouse != MouseButton::Invalid)
-				{
-					listened.mouseButton = true;
-				}
+					newEvents |= Input::MouseButtonFlag;
+
 				if (button.button.controller != ControllerButton::Invalid)
-				{
-					listened.controllerButton = true;
-				}
+					newEvents |= Input::ControllerButtonFlag;
+
 				if (button.button.trigger != ControllerTrigger::Undefined)
-				{
-					listened.controllerTrigger = true;
-				}
+					newEvents |= Input::ControllerTriggerFlag;
 			}
 		}
 		if (m_mouseWheel)
 		{
-			listened.mouseWheel = true;
+			newEvents |= Input::MouseWheelFlag;
 		}
-		if (m_eventsListened != listened)
+		if (m_eventsListened != newEvents)
 		{
-			m_eventsListened = listened;
+			m_eventsListened = newEvents;
 			OnEventListenedUpdated();
 		}
 	}

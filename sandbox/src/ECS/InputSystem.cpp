@@ -214,7 +214,6 @@ namespace Sandbox
 	}
 	void InputSystem::InitController(int id)
 	{
-		LOG_INFO("init controller");
 		SDL_GameController* controller = SDL_GameControllerOpen(id);
 		if (controller == NULL)
 		{

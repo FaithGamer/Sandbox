@@ -16,6 +16,96 @@ namespace Sandbox
 
 	}
 
+	void InputMap::Deserialize(Serialized& config)
+	{
+		String name = config.GetString("name");
+		m_passThroughImGui = config.GetBool("pass_through_imgui");
+		if (name != m_name)
+		{
+			LOG_WARN("InputMap deserialization with a different name. Maybe you loaded the wrong InputMap? The previous name has been kept.");
+		}
+
+		//Load buttons inputs
+		std::vector<Json> jbuttonInputs = config.GetArray<Json>("button_inputs");
+		for (auto& jinput : jbuttonInputs)
+		{
+			Serialized cinput;
+			cinput.SetJson(jinput);
+			String name = cinput.GetString("name");
+
+			//Load bindings
+			ButtonBindings bindings;
+			Serialized cbindings = cinput.GetObj("bindings");
+			bindings.Deserialize(cbindings);
+
+			//Look if input already exists
+			auto input_it = m_byNames.find(name);
+			if (input_it != m_byNames.end())
+			{
+				//In which case we override it's bindings
+				if (input_it->second->GetType() != InputType::Button)
+				{
+					//An input of another type exists with the same name
+					LOG_ERROR("InputMap Deserialization: input of type other than button already have the name {0}", name);
+					continue;
+				}
+
+				//Override
+				auto buttonInput = static_pointer_cast<ButtonInput>(input_it->second);
+				buttonInput->SetBindings(bindings);
+				m_modified.insert(buttonInput);
+				m_mustUpdate = true;
+			}
+			else
+			{
+				//Otherwise create a new input
+				auto buttonInput = CreateButtonInput(name);
+				buttonInput->SetBindings(bindings);
+			}
+		}
+	}
+
+	Serialized InputMap::Serialize()
+	{
+		Serialized config;
+
+		//Input map settings
+		config["name"] = m_name;
+		config["pass_through_imgui"] = m_passThroughImGui;
+
+		std::vector<Json> jbuttonInputs;
+
+		//Write all the inputs
+		for (auto& inputKvp : m_byNames)
+		{
+			Serialized cInput;
+			String name = inputKvp.first;
+			sptr<Input> input = inputKvp.second;
+			switch (input->GetType())
+			{
+			case InputType::Button:
+			{
+				//Add a button input, it's bindings and parameters
+				auto buttonInput = static_pointer_cast<ButtonInput>(input);
+				cInput["name"] = name;
+				cInput["send_signal_on_press"] = buttonInput->GetSendSignalOnPress();
+				cInput["send_signal_on_release"] = buttonInput->GetSendSignalOnRelease();
+				cInput.AddObj("bindings", buttonInput->GetBindings().Serialize());
+				jbuttonInputs.push_back(cInput);
+			}
+			break;
+			//To do consider other input type (directional)
+			default:
+				break;
+			}
+		
+		}
+
+		config["button_inputs"] = jbuttonInputs;
+
+		return config;
+	}
+
 	sptr<ButtonInput> InputMap::CreateButtonInput(std::string name)
 	{
 		if (CheckHaveInputAndDisplayWarning(name))
@@ -116,7 +206,6 @@ namespace Sandbox
 		case SDL_CONTROLLERBUTTONDOWN:
 			for (auto& input : m_byEvents[(int)EventType::ControllerBtn])
 			{
-				LOG_INFO("contrler btn press2");
 				if (input->ControllerButtonPressed(e))
 					eventHandled = true;
 			}
@@ -219,77 +308,78 @@ namespace Sandbox
 		m_toDelete.clear();
 		for (auto& input : m_modified)
 		{
-			const InputEvent& events = input->m_eventsListened;
+			const int& events = input->m_eventsListened;
 			const std::string& name = input->GetName();
 
-			if (events.keyButton && !Container::Contains(m_byEvents[(int)EventType::Key], input))
+			//Key button
+			if ((events & Input::KeyButtonFlag) == Input::KeyButtonFlag && !Container::Contains(m_byEvents[(int)EventType::Key], input))
 			{
 				m_byEvents[(int)EventType::Key].push_back(input);
 			}
-			else if (!events.keyButton)
+			else if ((events & Input::KeyButtonFlag) != Input::KeyButtonFlag)
 			{
 				Container::Remove(m_byEvents[(int)EventType::Key], input);
 			}
-
-			if (events.keyText && !Container::Contains(m_byEvents[(int)EventType::Text], input))
+			//Textual
+			if ((events & Input::KeyTextFlag) == Input::KeyTextFlag && !Container::Contains(m_byEvents[(int)EventType::Text], input))
 			{
 				m_byEvents[(int)EventType::Text].push_back(input);
 			}
-			else if (!events.keyText)
+			else if ((events & Input::KeyTextFlag) != Input::KeyTextFlag)
 			{
 				Container::Remove(m_byEvents[(int)EventType::Text], input);
 			}
-
-			if (events.mouseButton && !Container::Contains(m_byEvents[(int)EventType::MouseBtn], input))
+			//Mouse button
+			if ((events & Input::MouseButtonFlag) == Input::MouseButtonFlag && !Container::Contains(m_byEvents[(int)EventType::MouseBtn], input))
 			{
 				m_byEvents[(int)EventType::MouseBtn].push_back(input);
 			}
-			else if (!events.mouseButton)
+			else if ((events & Input::MouseButtonFlag) != Input::MouseButtonFlag)
 			{
 				Container::Remove(m_byEvents[(int)EventType::MouseBtn], input);
 			}
-
-			if (events.mouseMovement && !Container::Contains(m_byEvents[(int)EventType::MouseMove], input))
+			//Mouse movement
+			if ((events & Input::MouseMovementFlag) == Input::MouseMovementFlag && !Container::Contains(m_byEvents[(int)EventType::MouseMove], input))
 			{
 				m_byEvents[(int)EventType::MouseMove].push_back(input);
 			}
-			else if (!events.mouseMovement)
+			else if ((events & Input::MouseMovementFlag) != Input::MouseMovementFlag)
 			{
 				Container::Remove(m_byEvents[(int)EventType::MouseMove], input);
 			}
-
-			if (events.mouseWheel && !Container::Contains(m_byEvents[(int)EventType::MouseWheel], input))
+			//Mouse wheel
+			if ((events & Input::MouseWheelFlag) == Input::MouseWheelFlag && !Container::Contains(m_byEvents[(int)EventType::MouseWheel], input))
 			{
 				m_byEvents[(int)EventType::MouseWheel].push_back(input);
 			}
-			else if (!events.mouseMovement)
+			else if ((events & Input::MouseWheelFlag) != Input::MouseWheelFlag)
 			{
 				Container::Remove(m_byEvents[(int)EventType::MouseWheel], input);
 			}
-
-			if (events.controllerButton && !Container::Contains(m_byEvents[(int)EventType::ControllerBtn], input))
+			//Controller button
+			if ((events & Input::ControllerButtonFlag) == Input::ControllerButtonFlag && !Container::Contains(m_byEvents[(int)EventType::ControllerBtn], input))
 			{
 				m_byEvents[(int)EventType::ControllerBtn].push_back(input);
 			}
-			else if (!events.controllerButton)
+			else if ((events & Input::ControllerButtonFlag) != Input::ControllerButtonFlag)
 			{
 				Container::Remove(m_byEvents[(int)EventType::ControllerBtn], input);
 			}
-
-			if (events.controllerStick && !Container::Contains(m_byEvents[(int)EventType::ControllerStick], input))
+			//Controller stick
+			if ((events & Input::ControllerStickFlag) == Input::ControllerStickFlag && !Container::Contains(m_byEvents[(int)EventType::ControllerStick], input))
 			{
 				m_byEvents[(int)EventType::ControllerStick].push_back(input);
 			}
-			else if (!events.controllerStick)
+			else if ((events & Input::ControllerStickFlag) != Input::ControllerStickFlag)
 			{
 				Container::Remove(m_byEvents[(int)EventType::ControllerStick], input);
 			}
-
-			if (events.controllerTrigger && !Container::Contains(m_byEvents[(int)EventType::ControllerTrigger], input))
+			//Controller trigger
+			if ((events & Input::ControllerTriggerFlag) == Input::ControllerTriggerFlag && !Container::Contains(m_byEvents[(int)EventType::ControllerTrigger], input))
 			{
 				m_byEvents[(int)EventType::ControllerTrigger].push_back(input);
 			}
-			else if (!events.controllerTrigger)
+			else if ((events & Input::ControllerTriggerFlag) != Input::ControllerTriggerFlag)
 			{
 				Container::Remove(m_byEvents[(int)EventType::ControllerTrigger], input);
 			}
@@ -298,7 +388,7 @@ namespace Sandbox
 		m_mustUpdate = false;
 	}
 
-	
+
 	bool InputMap::CheckHaveInputAndDisplayWarning(std::string name) const
 	{
 		if (HaveInput(name))

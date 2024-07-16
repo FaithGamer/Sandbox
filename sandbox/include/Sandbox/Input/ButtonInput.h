@@ -88,6 +88,9 @@ namespace Sandbox
 		/// @brief Get the bindings
 		ButtonBindings& GetBindings();
 
+		bool GetSendSignalOnPress();
+		bool GetSendSignalOnRelease();
+
 		bool HaveBinding(KeyScancode key);
 		bool HaveBinding(MouseButton mouse);
 		bool HaveBinding(ControllerButton button);

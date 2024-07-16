@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Sandbox/Input/Input.h"
+#include "Sandbox/Core/Serialization.h"
 
 namespace Sandbox
 {
@@ -24,11 +25,22 @@ namespace Sandbox
 
 	//To do: enable serialization/deserialization
 	//To do: take into consideration JoyId for multiple controller connected
-	class InputMap
+	class InputMap : Serializable
 	{
 	public:
 		InputMap(std::string name);
 		~InputMap();
+
+		//Serializable
+
+		/// @brief Load from a serialized.
+		/// It will override bindings of already existing inputs, add new ones, but won't remove the inputs already in place.
+		/// Only works for ButtonInput atm
+		/// @param config 
+		void Deserialize(Serialized& config) override;
+		/// @brief Only works for ButtonInput atm
+		Serialized Serialize() override;
+
 		/// @brief Create a ButtonInput 
 		/// @param name input name
 		/// @return shared_ptr to the created input
