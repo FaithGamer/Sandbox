@@ -5,6 +5,7 @@
 #include "Sandbox/Input/ButtonInput.h"
 #include "Sandbox/Input/DirectionalInput.h"
 #include "Sandbox/Core/Log.h"
+#include "Sandbox/Core/Container.h"
 
 namespace Sandbox
 {
@@ -17,7 +18,7 @@ namespace Sandbox
 	{
 		//Open one game controller
 
-		for(int i = 0; i < SDL_NumJoysticks(); i++) 
+		for (int i = 0; i < SDL_NumJoysticks(); i++)
 		{
 			InitController(i);
 		}
@@ -31,7 +32,7 @@ namespace Sandbox
 			//Rebinding is occuring
 			eventConsumed = Rebind(event);
 		}
-		else
+		if(!eventConsumed)
 		{
 			//Normal usage of inputs
 			for (auto& inputMap : Inputs::GetInputMaps())
@@ -57,7 +58,7 @@ namespace Sandbox
 			SDL_GameController* controller = SDL_GameControllerFromInstanceID(event.cdevice.which);
 			SDL_GameControllerClose(controller);
 		}
-			break;
+		break;
 		default:
 			break;
 		}
@@ -67,6 +68,11 @@ namespace Sandbox
 
 	void InputSystem::StartRebind(sptr<Input> input, int peripherals, int version)
 	{
+		m_forbiddenKeys.clear();
+		m_forbiddenButtons.clear();
+		m_forbiddenTriggers.clear();
+		m_forbiddenMouses.clear();
+
 		m_rebind = input;
 		m_rebindVersion = version;
 		m_rebindPeripherals = peripherals;
@@ -79,9 +85,30 @@ namespace Sandbox
 
 	void InputSystem::EndRebind()
 	{
+		m_forbiddenKeys.clear();
+		m_forbiddenButtons.clear();
+		m_forbiddenTriggers.clear();
+		m_forbiddenMouses.clear();
+
 		m_rebind = nullptr;
 		m_rebindVersion = 0;
 		m_rebindPeripherals = 0;
+	}
+	void InputSystem::AddForbiddenBinding(KeyScancode key)
+	{
+		m_forbiddenKeys.push_back(key);
+	}
+	void InputSystem::AddForbiddenBinding(ControllerButton button)
+	{
+		m_forbiddenButtons.push_back(button);
+	}
+	void InputSystem::AddForbiddenBinding(ControllerTrigger trigger)
+	{
+		m_forbiddenTriggers.push_back(trigger);
+	}
+	void InputSystem::AddForbiddenBinding(MouseButton mouse)
+	{
+		m_forbiddenMouses.push_back(mouse);
 	}
 
 	int InputSystem::GetUsedMethod()
@@ -116,6 +143,9 @@ namespace Sandbox
 				switch (e.type)
 				{
 				case SDL_MOUSEBUTTONDOWN:
+					if (Container::Contains(m_forbiddenMouses, (MouseButton)e.button.button))
+						return false;
+
 					if (version == -1)
 					{
 						buttonInput->AddMouse((MouseButton)e.button.button);
@@ -138,6 +168,9 @@ namespace Sandbox
 				switch (e.type)
 				{
 				case SDL_KEYDOWN:
+					if(Container::Contains(m_forbiddenKeys, (KeyScancode)e.key.keysym.scancode))
+						return false;
+
 					if (version == -1)
 					{
 						buttonInput->AddKey((KeyScancode)e.key.keysym.scancode);
@@ -160,6 +193,9 @@ namespace Sandbox
 				switch (e.type)
 				{
 				case SDL_CONTROLLERBUTTONDOWN:
+					if (Container::Contains(m_forbiddenButtons, (ControllerButton)e.cbutton.button))
+						return false;
+
 					if (version == -1)
 					{
 						buttonInput->AddControllerButton((ControllerButton)e.cbutton.button);
@@ -174,6 +210,9 @@ namespace Sandbox
 					}
 					break;
 				case SDL_CONTROLLER_AXIS_TRIGGERLEFT:
+					if (Container::Contains(m_forbiddenTriggers, ControllerTrigger::Left))
+						return false;
+
 					if (version == -1)
 					{
 						buttonInput->AddControllerTrigger(ControllerTrigger::Left);
@@ -188,6 +227,9 @@ namespace Sandbox
 					}
 					break;
 				case SDL_CONTROLLER_AXIS_TRIGGERRIGHT:
+					if (Container::Contains(m_forbiddenTriggers, ControllerTrigger::Right))
+						return false;
+
 					if (version == -1)
 					{
 						buttonInput->AddControllerTrigger(ControllerTrigger::Right);
