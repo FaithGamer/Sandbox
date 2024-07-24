@@ -9,6 +9,7 @@ namespace Sandbox
 	public:
 		LineRendererSystem();
 		void OnRender() override;
+		void Render();
 		int GetUsedMethod() override;
 	};
 }

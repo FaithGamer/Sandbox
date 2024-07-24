@@ -16,6 +16,7 @@
 #include "Sandbox/Core/Assets.h"
 #endif
 #include "Sandbox/Core/Print.h"
+#include "Sandbox/ECS/LineRendererSystem.h"
 
 
 namespace Sandbox
@@ -28,7 +29,7 @@ namespace Sandbox
 		//How much game unit are needed to fill the screen height
 		m_worldToScreenRatio = 0.02f;
 		//Limitations
-		m_maxQuads = 1000;
+		m_maxQuads = 100000;
 		m_maxVertices = m_maxQuads * 4;
 		m_maxIndices = m_maxQuads * 6;
 		m_maxTextureSlots = 16;
@@ -427,6 +428,7 @@ namespace Sandbox
 	{
 		for (auto& batch : m_quadBatchs)
 			Flush(batch.index);
+		Systems::Get<LineRendererSystem>()->Render();
 		RenderLayers();
 		m_rendering = false;
 	}
@@ -496,7 +498,7 @@ namespace Sandbox
 	void Renderer2D::DrawQuad(const Transform& transform, const Vec4f& color, uint32_t batchIndex)
 	{
 		constexpr size_t quadVertexCount = 4;
-		constexpr Vec2f texCoords[4]{ Vec2f( 0.0f, 1.0f ), Vec2f( 1.0f, 1.0f ), Vec2f( 1.0f, 0.0f ), Vec2f( 0.0f, 0.0f ) };
+		constexpr Vec2f texCoords[4]{ Vec2f(0.0f, 1.0f), Vec2f(1.0f, 1.0f), Vec2f(1.0f, 0.0f), Vec2f(0.0f, 0.0f) };
 		auto& batch = m_quadBatchs[batchIndex];
 		//Check if we still have space in the batch for more indices
 		if (batch.quadIndexCount >= m_maxIndices)
@@ -645,8 +647,8 @@ namespace Sandbox
 		{
 			/*if (reComputePosition)
 			{*/
-				batch.quadVertexPtr->position = VertexPosition(batch.quadVertexPosition[i]-sprite->GetOrigin(), transform, *sprite);
-				spriteRender.preComputedPosition[i] = batch.quadVertexPtr->position;
+			batch.quadVertexPtr->position = VertexPosition(batch.quadVertexPosition[i] - sprite->GetOrigin(), transform, *sprite);
+			spriteRender.preComputedPosition[i] = batch.quadVertexPtr->position;
 			/*}
 			else
 			{
@@ -680,10 +682,10 @@ namespace Sandbox
 		m_defaultLineShader->SetUniform("uColor", line.GetColor());
 		m_defaultLineShader->BindUniformBlock("camera", 0);
 		m_defaultLineShader->Bind();
-		
+
 		line.Bind();
 		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-		glDrawElements(GL_LINE_STRIP_ADJACENCY, (GLsizei)line.GetPointCount()+2, GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_LINE_STRIP_ADJACENCY, (GLsizei)line.GetPointCount() + 2, GL_UNSIGNED_INT, 0);
 		//glDrawArrays(GL_LINE_STRIP_ADJACENCY, 0, line.GetPointCount()*2);
 	}
 

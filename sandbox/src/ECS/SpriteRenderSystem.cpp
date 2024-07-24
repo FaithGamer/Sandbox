@@ -18,7 +18,7 @@ namespace Sandbox
 
 	SpriteRenderSystem::SpriteRenderSystem() : m_zSort(true)
 	{
-		SetPriority(10000);
+		SetPriority(9999);
 	}
 
 	void SpriteRenderSystem::SetZSort(bool sort)
