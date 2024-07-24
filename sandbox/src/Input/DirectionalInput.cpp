@@ -350,7 +350,7 @@ namespace Sandbox
 		if (x)
 			direction.stick.currentDirection.x = value;
 		else
-			direction.stick.currentDirection.y = value;
+			direction.stick.currentDirection.y = -value;
 		ComputeState();
 	}
 
@@ -413,8 +413,6 @@ namespace Sandbox
 				sum += direction.stick.currentDirection;
 			}
 		}
-
-		sum.Normalize();
 
 		if (m_state.direction != sum)
 		{

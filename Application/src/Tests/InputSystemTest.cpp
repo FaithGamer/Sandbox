@@ -48,6 +48,7 @@ class Controller : public System
 	void OnMove(InputSignal* signal)
 	{
 		Vec2f dir = signal->GetVec2f();
+		LOG_INFO("DIR: {0}, {1}", dir.x, dir.y);
 
 		ForeachComponents<PlayerControlled, Body>(
 			[dir](PlayerControlled& component, Body& body)
@@ -67,7 +68,7 @@ public:
 protected:
 	void OnFixedUpdate(Time time) override
 	{
-		ForeachEntities(&PhysicsSystem::Gravity);
+		//ForeachEntities(&PhysicsSystem::Gravity);
 	}
 
 	void Gravity(Entity entity, Body& body)
