@@ -154,10 +154,13 @@ namespace Sandbox
 					}
 					else
 					{
+						buttonInput->SetKey(version, KeyScancode::Unknown);
 						buttonInput->SetMouse(version, (MouseButton)e.button.button);
 						EndRebind();
 						return true;
 					}
+					break;
+				default:
 					break;
 				}
 			}
@@ -179,10 +182,13 @@ namespace Sandbox
 					}
 					else
 					{
+						buttonInput->SetMouse(version, MouseButton::Invalid);
 						buttonInput->SetKey(version, (KeyScancode)e.key.keysym.scancode);
 						EndRebind();
 						return true;
 					}
+					break;
+				default:
 					break;
 				}
 			}
@@ -242,6 +248,8 @@ namespace Sandbox
 						EndRebind();
 						return true;
 					}
+					break;
+				default:
 					break;
 				}
 			}
