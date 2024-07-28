@@ -9,7 +9,7 @@
 
 namespace Sandbox
 {
-	void LoadImGui(SDL_Window* sdlWindow, SDL_GLContext sdlGlContext, bool lightTheme)
+	void LoadImGui(SDL_Window* sdlWindow, SDL_GLContext sdlGlContext)
 	{
 		// Setup Dear ImGui context
 		IMGUI_CHECKVERSION();
@@ -20,11 +20,6 @@ namespace Sandbox
 	//	io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 		io.ConfigFlags |= ImGuiConfigFlags_NoMouseCursorChange; // Imgui does not control mouse visibility
 		
-		// Setup Dear ImGui style
-		if (!lightTheme)
-			ImGui::StyleColorsDark();
-		else
-			ImGui::StyleColorsLight();
 
 		// Setup Platform/Renderer backends
 		ImGui_ImplSDL2_InitForOpenGL(sdlWindow, sdlGlContext);

@@ -7,6 +7,6 @@ namespace Sandbox
 {
 	void BeginImGui();
 	void EndImGui(Vec2u windowSize);
-	void LoadImGui(SDL_Window* sdlWindow, SDL_GLContext sdlGlContext, bool lightTheme = false);
+	void LoadImGui(SDL_Window* sdlWindow, SDL_GLContext sdlGlContext);
 	void ExitImGui();
 }

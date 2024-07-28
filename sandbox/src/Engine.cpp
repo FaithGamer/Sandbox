@@ -46,25 +46,28 @@ namespace Sandbox
 #ifndef SANDBOX_NO_WINDOW
 		LOG_INFO("Loading window...");
 		Window::Instance()->Init(params.appName, params.startupWindowResolution);
-		Window::SetFullScreen(params.fullscreen);
+		
 #endif
-#ifndef SANDBOX_NO_AUDIO
-		LOG_INFO("Loading audio...");
-		Audio::Instance()->Init();
+#ifndef SANDBOX_NO_WINDOW
+		LOG_INFO("Loading renderer...");
+		Renderer2D::Instance()->Init();
+		while (!Renderer2D::Instance()->threadInitDone);
+		Renderer2D::AddLayer("DebugLayer");
+		Window::SetFullScreen(params.fullscreen);
 #endif
 #ifndef SANDBOX_NO_ASSETS
 		LOG_INFO("Loading assets...");
 		Assets::Instance()->Init();
-#else
-		for (int i = 0; i < 100; i++)
-		{
-			LOG_INFO("Console test.");
-		}
+		/*Delegate<void> del(&Assets::Init, &*Assets::Instance());
+		auto assetInitTask = makesptr<Task<void>>(del);
+		Renderer2D::Instance()->thread.QueueTask(assetInitTask);
+		std::this_thread::sleep_for(std::chrono::milliseconds(300));*/
 #endif
-		LOG_INFO("Loading renderer...");
-#ifndef SANDBOX_NO_WINDOW
-		Renderer2D::Instance();
-		Renderer2D::AddLayer("DebugLayer");
+		
+
+#ifndef SANDBOX_NO_AUDIO
+		LOG_INFO("Loading audio...");
+		Audio::Instance()->Init();
 #endif
 		LOG_INFO("Loading Physics...");
 		Physics::Instance();
@@ -72,10 +75,10 @@ namespace Sandbox
 		auto system = Systems::Instance();
 		system->CreateWorld();
 		Systems::SetFixedUpdateTime(params.fixedUpdateTimeStep);
-		
+
 #ifndef SANDBOX_NO_WINDOW
 #ifdef SANDBOX_IMGUI
-		LoadImGui(Window::GetSDLWindow(), Window::GetSDL_GLContext());
+		LoadImGui(Window::GetSDLWindow(), Window::GetSDL_GLRenderContext());
 #endif
 #endif
 

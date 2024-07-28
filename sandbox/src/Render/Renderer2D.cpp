@@ -23,6 +23,53 @@ namespace Sandbox
 {
 	Renderer2D::Renderer2D()
 	{
+
+	}
+	void Renderer2D::Init()
+	{
+		//To call after window init
+		thread.StartThread();
+		auto del = Delegate<void>(&Renderer2D::InitThread, this);
+		auto task = makesptr<Task<void>>(del);
+		thread.QueueTask(task);
+	}
+	void Renderer2D::InitThread()
+	{
+		//Logging additional information
+		if (SDL_GL_MakeCurrent(Window::GetSDLWindow(), Window::GetSDL_GLRenderContext()) != 0)
+		{
+			LOG_ERROR(LogSDLError("Cannot set the context."));
+		}
+		//Loading OpenGL Functions addresses
+		bool loadGlad = (bool)gladLoadGLLoader(SDL_GL_GetProcAddress);
+		ASSERT_LOG_ERROR(loadGlad, "Couldn't initialize GLAD");
+
+		auto c = glGetString(GL_VENDOR);
+		LOG_INFO("OpenGL Loaded.");
+		LOG_INFO("Version: " + std::string((const char*)glGetString(GL_VERSION)));
+		LOG_INFO("Renderer: " + std::string((const char*)glGetString(GL_RENDERER)));
+		LOG_INFO("Vendor: " + std::string((const char*)glGetString(GL_VENDOR)));
+
+		int maxVertAttrib = 0;
+		glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &maxVertAttrib);
+
+		LOG_INFO("Max. Vertex attributes: " + std::to_string(maxVertAttrib));
+
+		//Viewport size and clear color
+		auto size = Window::GetSize();
+		glViewport(0, 0, size.x, size.y);
+
+		//Enabling blending
+		glEnable(GL_BLEND);
+
+		//Enabling depth test
+		glEnable(GL_DEPTH_TEST);
+
+		//Standard blending parameters for most case uses
+		glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ZERO);
+
+		SDL_GL_SetSwapInterval(0);
+
 		ASSERT_LOG_ERROR(Window::IsInitialized(), "Cannot create Renderer2D before Window is initialized.");
 
 		m_rendering = false;
@@ -68,19 +115,19 @@ namespace Sandbox
 
 		//m_camera = Mat4(1);
 
-#ifndef SANDBOX_NO_ASSETS
+/*#ifndef SANDBOX_NO_ASSETS
 		m_batchShader = Assets::Get<Shader>("batch_renderer.shader").Ptr();
 		m_defaultLayerShader = Assets::Get<Shader>("default_layer.shader").Ptr();
 		m_defaultLineShader = Assets::Get<Shader>("line.shader").Ptr();
 		m_defaultWireShader = Assets::Get<Shader>("wire.shader").Ptr();
-#else
+#else*/
 #define LSSFF(...) Shader::LoadShaderSourceFromFile(__VA_ARGS__)
 
 		m_batchShader = makesptr<Shader>(LSSFF("assets/shaders/batch_renderer.vert"), LSSFF("assets/shaders/batch_renderer.frag"));
 		m_defaultLayerShader = makesptr<Shader>(LSSFF("assets/shaders/default_layer.vert"), LSSFF("assets/shaders/default_layer.frag"));
 		m_defaultLineShader = makesptr<Shader>(LSSFF("assets/shaders/line.vert"), LSSFF("assets/shaders/line.geom"), LSSFF("assets/shaders/line.frag"));
 		m_defaultWireShader = makesptr<Shader>(LSSFF("assets/shaders/wire.vert"), LSSFF("assets/shaders/wire.frag"));
-#endif
+		//#endif
 
 		std::vector<Vec2f> screenSpace{ {-1, -1}, { 1, -1 }, { 1, 1 }, { -1, 1 } };
 		sptr<VertexArray> defaultLayerVertexArray = GenerateLayerVertexArray(screenSpace);
@@ -97,12 +144,12 @@ namespace Sandbox
 
 		//Set render target to be the window by default
 		SetRenderTarget(window);
-	}
 
+		threadInitDone = true;
+	}
 	Renderer2D::~Renderer2D()
 	{
 		//To do
-
 	}
 
 	void Renderer2D::SetShaderUniformSampler(sptr<Shader> shader, uint32_t count)
@@ -392,7 +439,23 @@ namespace Sandbox
 
 	void Renderer2D::Begin(const Camera& camera)
 	{
+		//BeginPrivate(camera);
+		Delegate<void, const Camera> del(&Renderer2D::BeginPrivate, this, camera);
+		auto task = makesptr<Task<void, const Camera>>(del);
+		thread.QueueTask(task);
+	}
+
+	void Renderer2D::BeginPrivate(const Camera camera)
+	{
 		m_rendering = true;
+
+		//Window::ClearWindow();
+		//Clear layers
+		for (auto& layer : m_layers)
+		{
+			layer.target->Clear();
+		}
+		SetRenderTarget(Window::Instance());
 
 		for (auto& layer : m_layers)
 		{
@@ -408,11 +471,7 @@ namespace Sandbox
 
 		m_defaultLineShader->SetUniform("uAspectRatio", m_aspectRatio);
 
-		//Clear layers
-		for (auto& layer : m_layers)
-		{
-			layer.target->Clear();
-		}
+		
 
 		//ResetStats
 		m_stats.drawCalls = 0;
@@ -422,13 +481,21 @@ namespace Sandbox
 		{
 			StartBatch(batch.index);
 		}
+
+		finishBegin = true;
 	}
 
 	void Renderer2D::End()
 	{
+		Delegate<void> del(&Renderer2D::EndPrivate, this);
+		auto task = makesptr<Task<void>>(del);
+		thread.QueueTask(task);
+	}
+	void Renderer2D::EndPrivate()
+	{
 		for (auto& batch : m_quadBatchs)
 			Flush(batch.index);
-		Systems::Get<LineRendererSystem>()->Render();
+		//Systems::Get<LineRendererSystem>()->Render();
 		RenderLayers();
 		m_rendering = false;
 	}
@@ -597,7 +664,72 @@ namespace Sandbox
 		batch.quadIndexCount += 6;
 		m_stats.quadCount++;
 	}
+	void Renderer2D::DrawSprite(SpriteRender spriteRender, Mat4 matrix)
+	{
+		Delegate<void, SpriteRender, Mat4> del(&Renderer2D::DrawSpritePrivate, this, spriteRender, matrix);
+		auto task = makesptr < Task<void, SpriteRender, Mat4>>(del);
+		thread.QueueTask(task);
+	}
+	void Renderer2D::DrawSpritePrivate(SpriteRender spriteRender, Mat4 matrix)
+	{
+		if (spriteRender.needUpdateRenderBatch)
+		{
+			spriteRender.renderBatch = GetBatchId(spriteRender.GetLayer(), spriteRender.GetShader(), nullptr);
+		}
 
+		auto sprite = spriteRender.GetSprite();
+		if (sprite == nullptr)
+			return;
+		constexpr size_t quadVertexCount = 4;
+
+		auto& batch = m_quadBatchs[spriteRender.renderBatch];
+
+		//Check if we still have space in the batch for more indices
+		if (batch.quadIndexCount >= m_maxIndices)
+			NextBatch(spriteRender.renderBatch);
+
+		float textureIndex = 0.0f;
+		sptr<Texture> texture = sprite->GetTexture();
+		//Find if the texture has been used in the current batch
+		for (uint32_t i = 1; i < batch.textureSlotIndex; i++)
+		{
+			if (batch.textureSlots[i] == texture)
+			{
+				textureIndex = (float)i;
+				break;
+			}
+		}
+
+		if (textureIndex == 0.0f)
+		{
+			//Check if there is still space for a texture
+			if (batch.textureSlotIndex >= m_maxTextureSlots)
+				NextBatch(spriteRender.renderBatch);
+
+			//Set the current texture index
+			textureIndex = (float)batch.textureSlotIndex;
+			//Add the texture in the appropriate slot
+			batch.textureSlots[batch.textureSlotIndex] = texture;
+			//Increment the current index
+			batch.textureSlotIndex++;
+		}
+		if (sprite == nullptr)
+			LOG_INFO("oups");
+		//Input the vertex data to CPU within the quad vertex array
+		for (int i = 0; i < quadVertexCount; i++)
+		{
+			batch.quadVertexPtr->position = VertexPosition(batch.quadVertexPosition[i] - sprite->GetOrigin(), matrix, *sprite);
+			batch.quadVertexPtr->texCoords = sprite->GetTextureCoords(i);
+			batch.quadVertexPtr->texIndex = textureIndex;
+			batch.quadVertexPtr->color = spriteRender.color;
+
+			//Incrementing the pointed value of the quad vertex array
+			batch.quadVertexPtr++;
+		}
+
+		batch.quadIndexCount += 6;
+		m_stats.quadCount++;
+	}
 	void Renderer2D::DrawSprite(
 		Transform& transform,
 		SpriteRender& spriteRender,
@@ -663,8 +795,6 @@ namespace Sandbox
 			batch.quadVertexPtr++;
 		}
 
-		spriteRender.spriteDimensionsChanged = false;
-		transform.matrixUpdated = false;
 		batch.quadIndexCount += 6;
 		m_stats.quadCount++;
 	}
@@ -716,6 +846,14 @@ namespace Sandbox
 		pos.y *= sprite.GetDimensions().y;
 
 		return (Vec3f)(transform.GetTransformMatrix() * pos);
+	}
+
+	Vec3f Renderer2D::VertexPosition(Vec4f pos, const Mat4& transform, const Sprite& sprite)
+	{
+		pos.x *= sprite.GetDimensions().x;
+		pos.y *= sprite.GetDimensions().y;
+
+		return (Vec3f)(transform * pos);
 	}
 
 	Vec3f Renderer2D::VertexPosition(Vec4f pos, const Transform& transform, Vec2f texDim, float ppu, float width, float height)

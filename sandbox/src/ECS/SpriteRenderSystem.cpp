@@ -44,12 +44,10 @@ namespace Sandbox
 		{
 			ForeachComponents<SpriteRender, Transform>([renderer](SpriteRender& sprite, Transform& transform)
 				{
-					if (sprite.needUpdateRenderBatch)
-					{
-						sprite.renderBatch = renderer->GetBatchId(sprite.GetLayer(), sprite.GetShader(), nullptr);
-						sprite.needUpdateRenderBatch = false;
-					}
-					renderer->DrawSprite(transform, sprite, sprite.renderBatch);
+					Mat4 matrix = transform.GetTransformMatrix();
+
+					renderer->DrawSprite(sprite, matrix);
+					sprite.needUpdateRenderBatch = false;
 				}); 
 		}
 		else
@@ -66,12 +64,8 @@ namespace Sandbox
 
 			for (auto& sprite : ordered)
 			{
-				if (sprite.sprite->needUpdateRenderBatch)
-				{
-					sprite.sprite->renderBatch = renderer->GetBatchId(sprite.sprite->GetLayer(), sprite.sprite->GetShader(), nullptr);
-					sprite.sprite->needUpdateRenderBatch = false;
-				}
-				renderer->DrawSprite(*sprite.transform, *sprite.sprite, sprite.sprite->renderBatch);
+				renderer->DrawSprite(*sprite.sprite, sprite.transform->GetTransformMatrix());
+				sprite.sprite->needUpdateRenderBatch = false;
 			}
 		}
 	}

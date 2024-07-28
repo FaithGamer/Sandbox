@@ -3,6 +3,7 @@
 #include <unordered_map>
 #include "Sandbox/Core/std_macros.h"
 #include "Sandbox/Core/Vec.h"
+#include "Sandbox/Core/Worker.h"
 #include "Sandbox/Render/Buffer.h"
 #include "Sandbox/Render/VertexArray.h"
 #include "Sandbox/Render/Camera.h"
@@ -91,13 +92,20 @@ namespace Sandbox
 		};
 
 		~Renderer2D();
+		void Init();
 		void SetRenderTarget(sptr<RenderTarget> target);
 
 		/// @brief To be called before attempting to use any of the Draw method
 		/// @param camera 
 		void Begin(const Camera& camera);
+	private:
+		void BeginPrivate(const Camera camera);
+	public:
 		/// @brief To be called when you are done Drawing. Will Render everything on the RenderTarget (default screen)
 		void End();
+	private:
+		void EndPrivate();
+	public:
 		void Flush(uint32_t batchIndex);
 
 		void DrawQuad(const Vec3f& position, const Vec2f& scale, const Vec4f& color = Vec4f(1), uint32_t batchIndex = 0);
@@ -107,6 +115,10 @@ namespace Sandbox
 		void DrawTexturedQuad(const Transform& transform, sptr<Texture>& texture, const std::vector<Vec2f>& texCoords, const Vec4f& color = Vec4f(1),
 			uint32_t batchIndex = 0);
 		void DrawSprite(Transform& transform, SpriteRender& sprite, uint32_t batchIndex);
+		void DrawSprite(SpriteRender spriteRender, Mat4 matrix);
+	private:
+		void DrawSpritePrivate(SpriteRender spriteRender, Mat4 matrix);
+	public:
 		void DrawLine(LineRenderer& line, Transform& transform, uint32_t layer);
 		void DrawWire(WireRender& wire, Transform& transform, uint32_t layer);
 
@@ -128,7 +140,7 @@ namespace Sandbox
 		/// @param sampler2DIndex Wich index the texture will be available in the sampler2D uniform.
 		/// Must be comprised in between 1 and 15.
 		static uint32_t AddOffscreenLayer(std::string name, uint32_t sampler2DIndex);
-	
+
 		/// @brief Set the space the layer take up on the screen,
 		/// @param screenSpace  normalized screen space (vector must be of size 4)
 		static void SetLayerScreenSpace(uint32_t layer, const std::vector<Vec2f>& screenSpace);
@@ -147,7 +159,7 @@ namespace Sandbox
 		void FreeQuadBatch(uint32_t batch);
 		/// @brief remove all batches.
 		static void ClearBatches();
-		
+
 		/// @brief Get a layer id from it's name
 		/// @param name 
 		/// @return LayerId
@@ -155,6 +167,7 @@ namespace Sandbox
 		/// @brief Get Every layers id
 		static std::vector<uint32_t> GetLayers();
 		/// @brief Get a batch based on what layer/shader/render options is used. nullptr = default shader/render options
+		/// WARNING! Use only from the rendering thread
 		/// @return BatchId
 		static uint32_t GetBatchId(uint32_t layerIndex, sptr<Shader> shader = nullptr, sptr<RenderOptions> renderOptions = nullptr);
 		/// @brief Give you some stats about the current rendering batch.
@@ -165,7 +178,7 @@ namespace Sandbox
 		friend Engine;
 		friend Singleton<Renderer2D>;
 		Renderer2D();
-
+		void InitThread();
 		void StartBatch(uint32_t batchIndex);
 		void NextBatch(uint32_t batchIndex);
 
@@ -177,7 +190,12 @@ namespace Sandbox
 		void SetShaderUniformSampler(sptr<Shader> shader, uint32_t count);
 		Vec3f VertexPosition(Vec4f pos, const Transform& transform, Vec2f texDim, float ppu, float width, float height);
 		Vec3f VertexPosition(Vec4f pos, const Transform& transform, const Sprite& sprite);
+		Vec3f VertexPosition(Vec4f pos, const Mat4& transform, const Sprite& sprite);
 		sptr<VertexArray> GenerateLayerVertexArray(const std::vector<Vec2f>& screenSpace);
+	public:
+		WorkerThread thread;
+		std::atomic<bool> threadInitDone = false;
+		std::atomic<bool> finishBegin = false;
 	private:
 
 		// Batched Quads
@@ -206,7 +224,7 @@ namespace Sandbox
 		};
 
 		CameraBufferData m_cameraUniform;
-		
+
 
 		//Layers
 		sptr<RenderTarget> m_target;
@@ -227,5 +245,6 @@ namespace Sandbox
 		Statistics m_stats;
 		float m_worldToScreenRatio;
 		float m_aspectRatio;
+
 	};
 }

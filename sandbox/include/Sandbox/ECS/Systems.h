@@ -154,6 +154,9 @@ namespace Sandbox
 		/// @brief Return the mouse position in wolrd unit relative to the main camera
 		/// @return mouse position
 		static Vec2f GetMouseWorldPos();
+
+	/// @brief Internal use only
+		void Render();
 	private:
 
 		struct Worlds

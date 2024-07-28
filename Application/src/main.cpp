@@ -33,7 +33,7 @@ int main(int argc, char** argv)
 	//RendererTest();
 	//SpriteRenderTest();
 	//ImGuiSystemTest();
-	InputSystemTest();
+	//InputSystemTest();
 
 	//Editor();
 	//BlendingTest();
@@ -41,7 +41,7 @@ int main(int argc, char** argv)
 	//JsonTest();
 
 
-	//AssetsTest();
+	AssetsTest();
 	//EarcutTest();
 	//LineRenderTest();
 

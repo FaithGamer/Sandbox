@@ -7,6 +7,7 @@
 #include "Sandbox/Core/Serialization.h"
 #include "Sandbox/ECS.h"
 #include "Sandbox/Core/Math.h"
+#include <imgui/imgui.h>
 
 using namespace Sandbox;
 
@@ -29,6 +30,10 @@ Entity CreateEntity(Vec3f pos, Asset<Sprite> sprite)
 class TransformSystem : public System
 {
 public:
+	void OnImGui() override
+	{
+		ImGui::ShowDemoWindow();
+	}
 	void OnUpdate(Time deltaTime) override
 	{
 		time += (float)deltaTime * 100;

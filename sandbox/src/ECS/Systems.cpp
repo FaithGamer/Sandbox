@@ -113,17 +113,26 @@ namespace Sandbox
 		{
 			//If less than one microseconds elapse between two call
 			//the m_updateClock.Restart increment doesn't accurately describe time passing by.
-			
+
 			system.system->OnUpdate(deltaScaled);
 		}
+
+		if (Renderer2D::Instance()->thread.HaveTask())
+			return;
+
+
+		Render();
+
+	}
+	void Systems::Render()
+	{
+
 #ifndef SANDBOX_NO_WINDOW
 		if (m_mainCamera == nullptr)
 			return;
 		if (!Window::GetRenderWhenMinimized() && Window::GetMinimized())
 			return;
-
-		Window::ClearWindow();
-		Renderer2D::Instance()->SetRenderTarget(Window::Instance());
+		//Window::ClearWindow();
 		Renderer2D::Instance()->Begin(*m_mainCamera);
 		for (auto& system : m_renderSystems)
 		{
@@ -139,14 +148,18 @@ namespace Sandbox
 			{
 				system.system->OnImGui();
 			}
-			EndImGui(Window::GetSize());
+			Delegate<void, Vec2u> del2(&EndImGui, Window::GetSize());
+			auto task2 = makesptr<Task<void, Vec2u>>(del2);
+			Renderer2D::Instance()->thread.QueueTask(task2);
 		}
 #endif
 
-		Window::RenderWindow();
-	}
-#endif
+		Delegate<void> del3(&Window::RenderWindow);
+		auto task3 = makesptr<Task<void>>(del3);
+		Renderer2D::Instance()->thread.QueueTask(task3);
 
+#endif
+	}
 	void Systems::HandleWindowEvents(SDL_Event& event)
 	{
 		if (event.type == SDL_QUIT)
