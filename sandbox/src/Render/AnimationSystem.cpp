@@ -3,7 +3,6 @@
 #include "Sandbox/Render/SpriteRender.h"
 #include "Sandbox/Core/Assets.h"
 
-
 namespace Sandbox
 {
 	//Keyframe
@@ -102,41 +101,35 @@ namespace Sandbox
 	{
 		ForeachComponents<Animator, SpriteRender, Transform>([&](Animator& animator, SpriteRender& sprite, Transform& transform)
 			{
-
 				if (animator.currentState == nullptr)
 					return;
 
-				auto& anim = animator.currentState->animation;
-				auto& frame = animator.currentKeyFrame;
-				float frameTime = anim->frames[frame].timeToNext;
+				auto anim = animator.currentState->animation;
+				auto* frame = &animator.currentKeyFrame;
+				float frameTime = anim->frames[*frame].timeToNext;
 
 				while (animator.accumulator > frameTime)
 				{
 					//Go to next frame, or go back to frame 0, or stay and last frame
 					int frameMax = anim->frames.size() - 1;
-
-					if (frame >= frameMax)
+					(*frame)++;
+					if (*frame > frameMax)
 					{
 						if (animator.currentState->transition.size() > 0)
 						{
 							animator.SetAnimation(animator.currentState->transition);
-							frame = 0;
+							anim = animator.currentState->animation;
+							frame = &animator.currentKeyFrame;
 						}
 						else
 						{
-							frame = animator.loop ? 0 : frameMax;
+							*frame = animator.loop ? 0 : frameMax;
 						}
 					}
-					else
-					{
-						frame++;
-					}
-
 					//Reset frame timer
-					animator.accumulator -= frameTime;
+					animator.accumulator = std::max(animator.accumulator - frameTime, 0.f);
 				}
-
-				sprite.SetSprite(anim->frames[frame].sprite);
+				sprite.SetSprite(anim->frames[*frame].sprite);
 				animator.accumulator += (float)delta * animator.speed;
 				//to do, evaluate transform
 			});
