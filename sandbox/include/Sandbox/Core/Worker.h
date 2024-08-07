@@ -21,6 +21,7 @@ namespace Sandbox
 		void StopThread();
 		void QueueTask(sptr<OpaqueTask> taskdata);
 		bool HaveTask();
+		size_t TaskCount();
 
 	private:
 		void Thread();

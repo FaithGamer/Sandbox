@@ -54,6 +54,11 @@ namespace Sandbox
 		return m_haveTask;
 	}
 
+	size_t WorkerThread::TaskCount()
+	{
+		return m_queue[0].size() + m_queue[1].size();
+	}
+
 	void WorkerThread::Thread()
 	{
 		while (m_threadRunning)
