@@ -170,7 +170,7 @@ February
 
 11
 
-- Bitmask
+- Bitmask16
 - custom filters
 - fixed transform parenting problem by removing optimization of precomputed position for non modified transform
 - parenting entity and destroying children when destroying parent
@@ -356,3 +356,14 @@ July
 
 >InputSystem.h should be in Input folder and part of Input.h
 >add capacity of receiving an intelligible string from an input for it's binding, either controller or m&k, and what version (default 0)
+
+
+August:
+
+-only one static Random generator  for seeding
+-accept more type of int type
+-
+
+October
+
+-audio channel can have parent

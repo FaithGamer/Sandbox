@@ -72,15 +72,25 @@ namespace Sandbox
 #endif
 	}
 
-	unsigned int Audio::AddChannel(String channel)
+	unsigned int Audio::AddChannel(String channel, String parent)
 	{
 		auto i = Instance();
 		i->m_channels.push_back(new ma_sound_group);
 		i->m_channelNames.push_back(channel);
-		auto r = ma_sound_group_init(i->m_engine, 0, NULL, i->m_channels.back());
+		ma_sound_group* parentPtr = NULL;
+		if (parent != "")
+		{
+			auto parentIt = i->GetChannel(parent);
+			if (i->m_channels.size() <= parentIt)
+			{
+				LOG_ERROR("Cannot add audio channel {0}, because parent {1}, doesn't exist.", channel, parent);
+			}
+			parentPtr = i->m_channels[parentIt];
+		}
+		auto r = ma_sound_group_init(i->m_engine, 0, parentPtr, i->m_channels.back());
 		if (r != MA_SUCCESS)
 		{
-			LOG_ERROR("Can't initialize sound channel, {0}", channel);
+			LOG_ERROR("Can't initialize audio channel, {0}", channel);
 			return 0;
 		}
 		return 0;
@@ -94,8 +104,8 @@ namespace Sandbox
 			if (ins->m_channelNames[i] == channel)
 				return i;
 		}
-		LOG_WARN("Cannot find audio channel, {0}, default channel returned");
-		return 0;
+		LOG_WARN("Cannot find audio channel {0}, channel 99 returned", channel);
+		return 99;
 	}
 
 	void Audio::SetChannelVolume(unsigned int channel, float volume)

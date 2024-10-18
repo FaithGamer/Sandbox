@@ -15,7 +15,7 @@ namespace Sandbox
 	{
 
 	}
-	Body::Body(Bitmask layer) : m_layer(layer), m_mask(65535), m_YisZ(false), m_b2Body(nullptr)
+	Body::Body(Bitmask16 layer) : m_layer(layer), m_mask(65535), m_YisZ(false), m_b2Body(nullptr)
 	{
 
 	}
@@ -26,12 +26,12 @@ namespace Sandbox
 		m_b2Body->GetWorld()->DestroyBody(m_b2Body);
 	}
 
-	void Body::SetLayer(Bitmask layer)
+	void Body::SetLayer(Bitmask16 layer)
 	{
 		m_layer = layer;
 	}
 
-	void Body::SetLayerMask(Bitmask mask)
+	void Body::SetLayerMask(Bitmask16 mask)
 	{
 		m_mask = mask;
 	}
@@ -89,12 +89,12 @@ namespace Sandbox
 		m_YisZ = yIsZ;
 	}
 
-	Bitmask Body::GetLayer() const
+	Bitmask16 Body::GetLayer() const
 	{
 		return m_layer;
 	}
 
-	Bitmask Body::GetLayerMask() const
+	Bitmask16 Body::GetLayerMask() const
 	{
 		return m_mask;
 	}
@@ -136,7 +136,7 @@ namespace Sandbox
 		return aabb;
 	}
 
-	StaticBody::StaticBody(Vec2f position, Bitmask layer) : Body(layer)
+	StaticBody::StaticBody(Vec2f position, Bitmask16 layer) : Body(layer)
 	{
 		b2BodyDef def;
 
@@ -153,7 +153,7 @@ namespace Sandbox
 		m_b2Body = body.m_b2Body;
 		m_colliders = body.m_colliders;
 	}
-	KinematicBody::KinematicBody(Bitmask layer) : Body(layer)
+	KinematicBody::KinematicBody(Bitmask16 layer) : Body(layer)
 	{
 		b2BodyDef def;
 		def.type = b2BodyType::b2_kinematicBody;

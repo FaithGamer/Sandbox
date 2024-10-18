@@ -28,7 +28,7 @@ namespace Sandbox
 		/// @return Handle to the sound being played.
 		static Sound MakeSound(String path, bool play = true);
 		static Sound MakeSound(String path, unsigned int channel, bool play = true);
-		static unsigned int AddChannel(String channel);
+		static unsigned int AddChannel(String channel, String parent = "");
 		static unsigned int GetChannel(String channel);
 		static void SetChannelVolume(unsigned int channel, float volume);
 

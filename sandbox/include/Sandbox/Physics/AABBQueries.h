@@ -14,7 +14,7 @@ namespace Sandbox
 	class QueryRaycastCallbackClosest : public b2RayCastCallback
 	{
 	public:
-		QueryRaycastCallbackClosest(Vec2f start, Bitmask mask, RaycastResult* result);
+		QueryRaycastCallbackClosest(Vec2f start, Bitmask16 mask, RaycastResult* result);
 		float ReportFixture(b2Fixture* fixture, const b2Vec2& point, const b2Vec2& normal, float fraction) override;
 
 	public:
@@ -22,14 +22,14 @@ namespace Sandbox
 
 	private:
 		Vec2f m_start;
-		Bitmask m_mask;
+		Bitmask16 m_mask;
 	};
 
 	/// @brief For internal use
 	class QueryRaycastCallbackAll : public b2RayCastCallback
 	{
 	public:
-		QueryRaycastCallbackAll(Vec2f start, Bitmask mask, std::vector<RaycastResult>* Results);
+		QueryRaycastCallbackAll(Vec2f start, Bitmask16 mask, std::vector<RaycastResult>* Results);
 		float ReportFixture(b2Fixture* fixture, const b2Vec2& point, const b2Vec2& normal, float fraction) override;
 
 	public:
@@ -37,21 +37,21 @@ namespace Sandbox
 
 	private:
 		Vec2f m_start;
-		Bitmask m_mask;
+		Bitmask16 m_mask;
 	};
 
 	/// @brief For internal use
 	class QueryB2ShapeOverlapAll : public b2QueryCallback
 	{
 	public:
-		QueryB2ShapeOverlapAll(b2Shape* shape, Bitmask mask, std::vector<OverlapResult>* Results);
+		QueryB2ShapeOverlapAll(b2Shape* shape, Bitmask16 mask, std::vector<OverlapResult>* Results);
 		bool ReportFixture(b2Fixture* fixture) override;
 
 	public:
 		std::vector<OverlapResult>* results;
 
 	private:
-		Bitmask m_mask;
+		Bitmask16 m_mask;
 		b2Shape* m_shape;
 	};
 
@@ -59,14 +59,14 @@ namespace Sandbox
 	class QueryBodyOverlapAll : public b2QueryCallback
 	{
 	public:
-		QueryBodyOverlapAll(Body* body, Bitmask mask, std::vector<OverlapResult>* Results);
+		QueryBodyOverlapAll(Body* body, Bitmask16 mask, std::vector<OverlapResult>* Results);
 		bool ReportFixture(b2Fixture* fixture) override;
 
 	public:
 		std::vector<OverlapResult>* results;
 
 	private:
-		Bitmask m_mask;
+		Bitmask16 m_mask;
 		Body* m_body;
 	};
 
@@ -74,14 +74,14 @@ namespace Sandbox
 	class QueryBodyRaycastAll : public b2RayCastCallback
 	{
 	public:
-		QueryBodyRaycastAll(Body* body, Bitmask mask, std::vector<OverlapResult>* Results);
+		QueryBodyRaycastAll(Body* body, Bitmask16 mask, std::vector<OverlapResult>* Results);
 		float ReportFixture(b2Fixture* fixture, const b2Vec2& point, const b2Vec2& normal, float fraction) override;
 
 	public:
 		std::vector<OverlapResult>* results;
 
 	private:
-		Bitmask m_mask;
+		Bitmask16 m_mask;
 		Body* m_body;
 	};
 
@@ -89,7 +89,7 @@ namespace Sandbox
 	class QueryPointInsideAll : public b2QueryCallback
 	{
 	public:
-		QueryPointInsideAll(Vec2f point, Bitmask mask, std::vector<OverlapResult>* Results);
+		QueryPointInsideAll(Vec2f point, Bitmask16 mask, std::vector<OverlapResult>* Results);
 		bool ReportFixture(b2Fixture* fixture) override;
 
 	public:
@@ -97,7 +97,7 @@ namespace Sandbox
 
 	private:
 		Vec2f m_point;
-		Bitmask m_mask;
+		Bitmask16 m_mask;
 	};
 
 }

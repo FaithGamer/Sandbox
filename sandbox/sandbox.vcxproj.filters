@@ -189,7 +189,7 @@
     <ClCompile Include="src\Physics\Body.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Physics\Bitmask.cpp">
+    <ClCompile Include="src\Physics\Bitmask16.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Render\WireRender.cpp">

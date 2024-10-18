@@ -15,19 +15,19 @@ namespace Sandbox
 	{
 		delete m_world;
 	}
-	void Physics::RaycastClosest(RaycastResult& result, Vec2f start, Vec2f end, Bitmask mask)
+	void Physics::RaycastClosest(RaycastResult& result, Vec2f start, Vec2f end, Bitmask16 mask)
 	{
 		auto ins = Instance();
 		QueryRaycastCallbackClosest query(start, mask, &result);
 		ins->m_world->RayCast(&query, start, end);
 	}
-	void Physics::RaycastAll(std::vector<RaycastResult>& results, Vec2f start, Vec2f end, Bitmask mask)
+	void Physics::RaycastAll(std::vector<RaycastResult>& results, Vec2f start, Vec2f end, Bitmask16 mask)
 	{
 		auto ins = Instance();
 		QueryRaycastCallbackAll query(start, mask, &results);
 		ins->m_world->RayCast(&query, start, end);
 	}
-	void Physics::BodyOverlap(std::vector<OverlapResult>& results, Body* body, Bitmask mask)
+	void Physics::BodyOverlap(std::vector<OverlapResult>& results, Body* body, Bitmask16 mask)
 	{
 		//to do TEST
 		auto ins = Instance();
@@ -38,7 +38,7 @@ namespace Sandbox
 
 		ins->m_world->QueryAABB(&query, aabb);
 	}
-	void Physics::CircleOverlap(std::vector<OverlapResult>& results, Vec2f pos, float radius, Bitmask mask)
+	void Physics::CircleOverlap(std::vector<OverlapResult>& results, Vec2f pos, float radius, Bitmask16 mask)
 	{
 		auto ins = Instance();
 			
@@ -59,7 +59,7 @@ namespace Sandbox
 		//Results are now stored 
 	}
 
-	void Physics::PointInside(std::vector<OverlapResult>& results, Vec2f pos, Bitmask mask)
+	void Physics::PointInside(std::vector<OverlapResult>& results, Vec2f pos, Bitmask16 mask)
 	{
 		auto ins = Instance();
 

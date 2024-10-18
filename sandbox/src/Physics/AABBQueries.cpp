@@ -10,7 +10,7 @@ namespace Sandbox
 	//
 	//
 
-	QueryRaycastCallbackClosest::QueryRaycastCallbackClosest(Vec2f start, Bitmask mask, RaycastResult* Result) 
+	QueryRaycastCallbackClosest::QueryRaycastCallbackClosest(Vec2f start, Bitmask16 mask, RaycastResult* Result) 
 		: m_start(start), m_mask(mask), result(Result)
 	{
 
@@ -42,7 +42,7 @@ namespace Sandbox
 	//
 	//
 
-	QueryRaycastCallbackAll::QueryRaycastCallbackAll(Vec2f start, Bitmask mask, std::vector<RaycastResult>* Results) 
+	QueryRaycastCallbackAll::QueryRaycastCallbackAll(Vec2f start, Bitmask16 mask, std::vector<RaycastResult>* Results) 
 		: m_start(start), m_mask(mask), results(Results)
 	{
 
@@ -64,7 +64,7 @@ namespace Sandbox
 			normal,
 			Math::Abs(Vec2f((Vec2f)point - m_start).Magnitude()) * fraction,
 			true,
-			Bitmask(layer)
+			Bitmask16(layer)
 		);
 
 		results->emplace_back(result);
@@ -78,7 +78,7 @@ namespace Sandbox
 	//
 	//
 
-	QueryB2ShapeOverlapAll::QueryB2ShapeOverlapAll(b2Shape* shape, Bitmask mask, std::vector<OverlapResult>* Results)
+	QueryB2ShapeOverlapAll::QueryB2ShapeOverlapAll(b2Shape* shape, Bitmask16 mask, std::vector<OverlapResult>* Results)
 		: m_mask(mask), m_shape(shape), results(Results)
 	{
 	}
@@ -100,7 +100,7 @@ namespace Sandbox
 		//User data in the fixture's body
 		auto data = static_cast<Collider::UserData*>((void*)(fixture->GetUserData().pointer));
 
-		results->emplace_back(OverlapResult(data->entityId, distance, Bitmask(layer)));
+		results->emplace_back(OverlapResult(data->entityId, distance, Bitmask16(layer)));
 
 		// Continue the query.
 		return true;
@@ -112,7 +112,7 @@ namespace Sandbox
 	//
 	//
 
-	QueryBodyOverlapAll::QueryBodyOverlapAll(Body* body, Bitmask mask, std::vector<OverlapResult>* Results)
+	QueryBodyOverlapAll::QueryBodyOverlapAll(Body* body, Bitmask16 mask, std::vector<OverlapResult>* Results)
 		: m_body(body), m_mask(mask), results(Results)
 	{
 
@@ -154,7 +154,7 @@ namespace Sandbox
 	//
 	//
 
-	QueryPointInsideAll::QueryPointInsideAll(Vec2f point, Bitmask mask, std::vector<OverlapResult>* Results)
+	QueryPointInsideAll::QueryPointInsideAll(Vec2f point, Bitmask16 mask, std::vector<OverlapResult>* Results)
 		: m_point(point), m_mask(mask), results(Results)
 	{
 
@@ -183,7 +183,7 @@ namespace Sandbox
 	// Body raycast
 	//
 	//
-	QueryBodyRaycastAll::QueryBodyRaycastAll(Body* body, Bitmask mask, std::vector<OverlapResult>* Results)
+	QueryBodyRaycastAll::QueryBodyRaycastAll(Body* body, Bitmask16 mask, std::vector<OverlapResult>* Results)
 	{
 	}
 	float QueryBodyRaycastAll::ReportFixture(b2Fixture* fixture, const b2Vec2& point, const b2Vec2& normal, float fraction)

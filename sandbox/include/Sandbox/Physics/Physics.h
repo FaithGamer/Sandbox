@@ -15,11 +15,11 @@ namespace Sandbox
 		Physics();
 		~Physics();
 
-		static void RaycastClosest(RaycastResult& result, Vec2f start, Vec2f end, Bitmask mask = 65535);
-		static void RaycastAll(std::vector<RaycastResult>& results, Vec2f start, Vec2f end, Bitmask mask = 65535);
-		static void CircleOverlap(std::vector<OverlapResult>& results, Vec2f pos, float radius, Bitmask mask = 65535);
-		static void PointInside(std::vector<OverlapResult>& results, Vec2f pos, Bitmask mask = 65535);
-		static void BodyOverlap(std::vector<OverlapResult>& results, Body* body, Bitmask mask = 65535);
+		static void RaycastClosest(RaycastResult& result, Vec2f start, Vec2f end, Bitmask16 mask = 65535);
+		static void RaycastAll(std::vector<RaycastResult>& results, Vec2f start, Vec2f end, Bitmask16 mask = 65535);
+		static void CircleOverlap(std::vector<OverlapResult>& results, Vec2f pos, float radius, Bitmask16 mask = 65535);
+		static void PointInside(std::vector<OverlapResult>& results, Vec2f pos, Bitmask16 mask = 65535);
+		static void BodyOverlap(std::vector<OverlapResult>& results, Body* body, Bitmask16 mask = 65535);
 		//static float BodyDistance(Body& lhs, Body& rhs);
 
 		/// @brief Add a collision layer with a custom name
@@ -31,9 +31,9 @@ namespace Sandbox
 		}
 		/// @brief Create a bitmask for the given collision layers. 
 		/// Layers must have been added first using AddLayer.
-		/// @return Bitmask of layers
+		/// @return Bitmask16 of layers
 		template <typename ...Str>
-		static Bitmask GetLayerMask(Str... layers)
+		static Bitmask16 GetLayerMask(Str... layers)
 		{
 			return Instance()->m_layers.GetMask(layers...);
 		}
@@ -46,6 +46,6 @@ namespace Sandbox
 
 		b2World* m_world;
 		friend Singleton<Physics>;
-		Filter m_layers;
+		Filter16 m_layers;
 	};
 }

@@ -19,7 +19,7 @@ namespace Sandbox
 		Vec2f normal = 0;
 		float distance = 0;
 		bool hit = false;
-		Bitmask layer;
+		Bitmask16 layer;
 
 		operator bool()
 		{
@@ -31,7 +31,7 @@ namespace Sandbox
 	{
 		EntityId entityId;
 		float distance;
-		Bitmask layer;
+		Bitmask16 layer;
 	};
 
 	struct CollisionLayer
@@ -60,17 +60,17 @@ namespace Sandbox
 			Static, Kinematic, Dynamic
 		};
 
-		Body(Bitmask layer = 1);
+		Body(Bitmask16 layer = 1);
 		Body(Body&& body) noexcept;
 		~Body();
 		/// @brief Set the layers it's on. 
 		/// Warning: Must be set BEFORE adding colliders, (this will change in the future)
 		/// @param layer 
-		void SetLayer(Bitmask layer);
+		void SetLayer(Bitmask16 layer);
 		/// @brief Set the layers it collide with. 
 		/// Warning: Must be set BEFORE adding colliders, (this will change in the future)
 		/// @param mask 
-		void SetLayerMask(Bitmask mask);
+		void SetLayerMask(Bitmask16 mask);
 		/// @brief Add a collider, 
 		/// Warning: collider cannot be changed after being added. Make sure it's properly initialized
 		/// (i.e : Polygon2D SetPoints before adding )
@@ -94,8 +94,8 @@ namespace Sandbox
 		/// @param yIsZ 
 		void SetYisZ(bool yIsZ);
 
-		Bitmask GetLayer() const;
-		Bitmask GetLayerMask() const;
+		Bitmask16 GetLayer() const;
+		Bitmask16 GetLayerMask() const;
 		b2Body* GetB2Body();
 		const std::vector<sptr<Collider>>* GetColliders();
 		b2AABB GetAABB();
@@ -113,8 +113,8 @@ namespace Sandbox
 		b2Filter GetB2Filter();
 
 		std::vector<sptr<Collider>> m_colliders;
-		Bitmask m_layer;
-		Bitmask m_mask;
+		Bitmask16 m_layer;
+		Bitmask16 m_mask;
 		b2Body* m_b2Body;
 
 		bool m_YisZ;
@@ -123,14 +123,14 @@ namespace Sandbox
 	class StaticBody : public Body
 	{
 	public:
-		StaticBody(Vec2f position, Bitmask layer = 1);
+		StaticBody(Vec2f position, Bitmask16 layer = 1);
 		StaticBody(StaticBody&& body) noexcept;
 	};
 	/// @brief Automatically update position with transform component thanks to PhysicsSystem
 	class KinematicBody : public Body
 	{
 	public:
-		KinematicBody(Bitmask layer = 1);
+		KinematicBody(Bitmask16 layer = 1);
 		KinematicBody(KinematicBody&& body) noexcept;
 	};
 }
