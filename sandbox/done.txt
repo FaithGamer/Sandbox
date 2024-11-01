@@ -369,3 +369,4 @@ October
 >camera, make near and far plane customizable
 >InputSystem.h should be in Input folder and part of Input.h
 >add capacity of receiving an intelligible string from an input for it's binding, either controller or m&k, and what version (default 0)
+>m_listeners (signalsender) shouldn't be a multi set but a set, to not allow multiple time listening with the same callabck;

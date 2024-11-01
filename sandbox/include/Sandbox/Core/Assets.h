@@ -54,6 +54,7 @@ namespace Sandbox
 		void Init();
 
 		void HotReload();
+		void GenerateSprites(String filename, Serialized& spritesheet, sptr<Texture> texture);
 
 		template <class T>
 		static Asset<T> Get(String name)
@@ -90,7 +91,6 @@ namespace Sandbox
 			}
 		}
 		void CreateAnimations();
-		void GenerateSprites(String filename, Serialized& spritesheet, sptr<Texture> texture);
 		Serialized CreateDefaultTextureImportSettings();
 		Serialized CreateDefaultSpritesheet(sptr<Texture> texture);
 		void AddAnimation(String filename, String path);
