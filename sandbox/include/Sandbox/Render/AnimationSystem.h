@@ -5,11 +5,17 @@
 
 namespace Sandbox
 {
+	struct KeyframeSignal
+	{
+		String stateName;
+		int frame = 0;
+	};
 	struct Keyframe
 	{
 		Keyframe();
 		sptr<Sprite> sprite;
 		float timeToNext;
+		bool sendSignal = false;
 	};
 	struct Animation : public Serializable
 	{
@@ -18,15 +24,30 @@ namespace Sandbox
 		float GetTime();
 		Serialized Serialize() override;
 		void Deserialize(Serialized& config);
-
+		std::vector<SignalSender<KeyframeSignal>> signalsTemplate;
 		std::vector<Keyframe> frames;
 		float frequency; // 1/fps
 	};
 	struct AnimationState
 	{
+		template <typename ListenerType, typename SignalType>
+		bool ListenFrame(int frame, void (ListenerType::* callback)(SignalType), ListenerType* const listener, SignalPriority priority = SignalPriority::medium)
+		{
+			if (signals.size() <= frame)
+				return false;
+			signals[frame].AddListener(callback, listener, priority);
+		}
+		template <typename SignalType>
+		bool AddListener(int frame, void (*callback)(SignalType), SignalPriority priority = SignalPriority::medium)
+		{
+			if (signals.size() <= frame)
+				return false;
+			signals[frame].AddListener(callback, priority);
+		}
 		sptr<Animation> animation = nullptr;
 		bool looping = false;
 		String transition = "";
+		std::vector<SignalSender<KeyframeSignal>> signals;
 	};
 	struct Animator
 	{

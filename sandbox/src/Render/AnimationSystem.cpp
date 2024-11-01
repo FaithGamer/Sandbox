@@ -5,7 +5,8 @@
 
 namespace Sandbox
 {
-	//Keyframe
+	//---Keyframe---
+
 	Keyframe::Keyframe() : timeToNext(0)
 	{
 	}
@@ -24,7 +25,8 @@ namespace Sandbox
 		return frequency * frames.size();
 	}
 
-	//Animation
+	//---Animation---
+
 	Serialized Animation::Serialize()
 	{
 		LOG_WARN("Cannot serialize animation.");
@@ -37,6 +39,7 @@ namespace Sandbox
 
 		int currentFrame = 0;
 		sptr<Sprite> lastSprite;
+		bool signal = false;
 		for (auto& frame : config["frames"])
 		{
 			sptr<Sprite> sprite;
@@ -60,11 +63,19 @@ namespace Sandbox
 			Keyframe keyframe;
 			keyframe.sprite = sprite;
 			keyframe.timeToNext = timeToNext;
+			keyframe.sendSignal = frame.find("signal") != frame.end() ? frame.at("signal").get<bool>() : false;
+			if (keyframe.sendSignal)
+				signal = true;
 			frames.push_back(keyframe);
+		}
+		if (signal)
+		{
+			signalsTemplate.resize(frames.size());
 		}
 	}
 
-	//Animator
+
+	//---Animator---
 
 	void Animator::SetAnimation(String animation)
 	{
@@ -88,6 +99,7 @@ namespace Sandbox
 		state.animation = animation;
 		state.looping = true;
 		state.transition = transition;
+		state.signals = animation->signalsTemplate;
 		animations.insert(std::make_pair(stateName, state));
 	}
 
@@ -113,6 +125,7 @@ namespace Sandbox
 					//Go to next frame, or go back to frame 0, or stay and last frame
 					int frameMax = anim->frames.size() - 1;
 					(*frame)++;
+					
 					if (*frame > frameMax)
 					{
 						if (animator.currentState->transition.size() > 0)
@@ -125,6 +138,10 @@ namespace Sandbox
 						{
 							*frame = animator.loop ? 0 : frameMax;
 						}
+					}
+					if (anim->frames[*frame].sendSignal)
+					{
+						animator.currentState->signals[*frame].SendSignal(KeyframeSignal(animator.currentStateName, *frame));
 					}
 					//Reset frame timer
 					animator.accumulator = std::max(animator.accumulator - frameTime, 0.f);
@@ -144,4 +161,5 @@ namespace Sandbox
 	{
 		return Keyframe();
 	}
+	
 }
