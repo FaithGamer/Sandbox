@@ -13,13 +13,46 @@ namespace Sandbox
 	{
 		m_importSettings.pixelPerUnit = 1.f / m_importSettings.pixelPerUnit;
 	}
-	void Texture::Load(std::string path, TextureImportSettings importSettings)
+
+	Texture::Texture(std::string path, TextureImportSettings importSettings)
+		: m_size(0, 0), m_nbChannels(0), m_pixels(nullptr), m_id(0), m_importSettings(importSettings)
 	{
-		//Load image data
+		//Texture from file
+		m_importSettings.pixelPerUnit = 1.f / m_importSettings.pixelPerUnit;
+
+		if (path == "white")
+		{
+			Create1x1White();
+			return;
+		}
+
+		LoadFromFile(path);
+		Generate(importSettings);
+	}
+
+	Texture::Texture(unsigned char* buffer, int size, TextureImportSettings importSettings)
+		: m_size(0, 0), m_nbChannels(0), m_pixels(nullptr), m_id(0), m_importSettings(importSettings)
+	{
+		//Texture from memory
+		m_importSettings.pixelPerUnit = 1.f / m_importSettings.pixelPerUnit;
+		LoadFromMemory(buffer, size);
+		Generate(importSettings);
+	}
+
+	inline void Texture::LoadFromMemory(unsigned char* buffer, int size)
+	{
+		m_pixels = stbi_load_from_memory(buffer, size, &m_size.x, &m_size.y, &m_nbChannels, 4);
+		ASSERT_LOG_ERROR(m_pixels, "Failed to load a texture from memory.");
+	}
+
+	inline void Texture::LoadFromFile(std::string path)
+	{
 		m_pixels = stbi_load(path.c_str(), &m_size.x, &m_size.y, &m_nbChannels, 4);
-
 		ASSERT_LOG_ERROR(m_pixels, "Failed to load texture: " + path);
-
+	}
+	
+	inline void Texture::Generate(TextureImportSettings importSettings)
+	{
 		//Generate and bind an OpenGL texture
 		glGenTextures(1, &m_id);
 		glBindTexture(GL_TEXTURE_2D, m_id);
@@ -83,19 +116,7 @@ namespace Sandbox
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	Texture::Texture(std::string path, TextureImportSettings importSettings)
-		: m_size(0, 0), m_nbChannels(0), m_pixels(nullptr), m_id(0), m_importSettings(importSettings)
-	{
-		m_importSettings.pixelPerUnit = 1.f / m_importSettings.pixelPerUnit;
 
-		if (path == "white")
-		{
-			Create1x1White();
-			return;
-		}
-		
-		Load(path, importSettings);
-	}
 
 	void Texture::Reload(std::string path, TextureImportSettings importSettings)
 	{
@@ -104,7 +125,8 @@ namespace Sandbox
 		{
 			stbi_image_free(m_pixels);
 		}
-		Load(path, importSettings);
+		LoadFromFile(path);
+		Generate(importSettings);
 	}
 
 

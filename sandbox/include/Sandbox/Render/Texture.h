@@ -42,8 +42,6 @@ namespace Sandbox
 		int lodMin = -1000;
 		int lodMax = 1000;
 		bool valid = true;
-
-
 	};
 
 	class RenderTexture;
@@ -53,6 +51,7 @@ namespace Sandbox
 	public:
 		Texture();
 		Texture(std::string path, TextureImportSettings importSettings = TextureImportSettings());
+		Texture(unsigned char* buffer, int size, TextureImportSettings importSettings = TextureImportSettings());
 		void Reload(std::string path, TextureImportSettings importSettings = TextureImportSettings());
 		~Texture();
 
@@ -67,7 +66,10 @@ namespace Sandbox
 		float GetPixelPerUnit() const;
 
 	private:
-		inline void Load(std::string path, TextureImportSettings importSettings);
+		inline void LoadFromMemory(unsigned char* buffer, int size);
+		inline void LoadFromFile(std::string paths);
+		inline void Generate(TextureImportSettings importSettings);
+		
 		void Create1x1White();
 		friend RenderTexture;
 		TextureImportSettings m_importSettings;
