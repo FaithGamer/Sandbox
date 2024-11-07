@@ -26,7 +26,9 @@ namespace Sandbox
 		void SetAspectRatio(float aspectRatio);
 		void SetAspectRatio(Vec2u xOverY);
 		void SetNearClippingPlane(float nearClippingPlane);
-		void SetFarClippingPlace(float farClippingPlane);
+		void SetFarClippingPlane(float farClippingPlane);
+		float GetNearClippingPlane();
+		float GetFarClippingPlane();
 
 		void MoveWorld(Vec3f offset);
 		void MoveWorld(float x, float y, float z);

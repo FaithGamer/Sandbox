@@ -411,6 +411,8 @@ namespace Sandbox
 		//Clear layers
 		for (auto& layer : m_layers)
 		{
+			if (layer.index == 0)
+				continue;
 			layer.target->Clear();
 		}
 

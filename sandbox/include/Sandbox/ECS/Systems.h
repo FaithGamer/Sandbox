@@ -7,6 +7,7 @@
 #include "Sandbox/Core/Container.h"
 #include "Sandbox/Core/TypeId.h"
 #include "Sandbox/Core/Vec.h"
+#include "Sandbox/Core/Signal.h"
 
 namespace Sandbox
 {
@@ -52,7 +53,7 @@ namespace Sandbox
 		friend void Singleton<Systems>::Kill();
 
 	public:
-		
+
 		~Systems();
 
 		/// @brief Add a system to the game logic.
@@ -142,7 +143,7 @@ namespace Sandbox
 		/// @param World's name 
 		/// @return The game world, nullptr if doesn't exists.
 		static World* GetWorld(std::string name);
-		
+
 		/// @brief Access all the game worlds
 		/// @return Reference to the Worlds vector.
 		static std::vector<World*>& GetWorlds();
@@ -154,6 +155,8 @@ namespace Sandbox
 		/// @brief Return the mouse position in wolrd unit relative to the main camera
 		/// @return mouse position
 		static Vec2f GetMouseWorldPos();
+	public:
+		SignalSender<int> lateRenderSignal;
 	private:
 
 		struct Worlds
@@ -167,7 +170,7 @@ namespace Sandbox
 		};
 		friend Engine;
 		Systems();
-		
+
 		void Update();
 		void HandleWindowEvents(SDL_Event& event);
 		void IntegratePending();

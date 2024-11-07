@@ -29,6 +29,11 @@ namespace Sandbox
 		return InputType::Button;
 	}
 
+	void ButtonInput::RemoveAllBindings()
+	{
+		m_bindings.buttons.clear();
+	}
+
 	void ButtonInput::AddKey(KeyScancode keyButton)
 	{
 		if (HaveBinding(keyButton))

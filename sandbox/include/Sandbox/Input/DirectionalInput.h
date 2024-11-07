@@ -29,7 +29,8 @@ namespace Sandbox
 		virtual void SetBindings(const DirectionalBindings& bindings);
 
 		virtual std::string GetName() const override;
-		InputType GetType() const override;
+		virtual InputType GetType() const override;
+		virtual void RemoveAllBindings() override;
 
 		/// @brief Add binding to a stick
 		/// @param stick The controller stick

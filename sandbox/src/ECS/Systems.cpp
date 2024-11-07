@@ -142,7 +142,7 @@ namespace Sandbox
 			EndImGui(Window::GetSize());
 		}
 #endif
-
+		lateRenderSignal.SendSignal(0);
 		Window::RenderWindow();
 	}
 #endif

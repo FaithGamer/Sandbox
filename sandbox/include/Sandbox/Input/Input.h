@@ -69,6 +69,7 @@ namespace Sandbox
 		virtual ~Input() {};
 		virtual std::string GetName() const = 0;
 		virtual InputType GetType() const = 0;
+		virtual void RemoveAllBindings() = 0;
 
 		SignalSender<InputSignal*> signal;
 

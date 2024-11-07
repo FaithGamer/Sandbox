@@ -35,6 +35,7 @@ namespace Sandbox
 
 		virtual std::string GetName() const override;
 		virtual InputType GetType() const override;
+		virtual void RemoveAllBindings() override;
 
 	public:
 

@@ -25,6 +25,11 @@ namespace Sandbox
 		return InputType::Directional;
 	}
 
+	void DirectionalInput::RemoveAllBindings()
+	{
+		m_bindings.directions.clear();
+	}
+
 	void DirectionalInput::AddStick(ControllerStick stick)
 	{
 		if (HaveBinding(stick))
