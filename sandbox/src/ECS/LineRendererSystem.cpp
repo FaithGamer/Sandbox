@@ -7,7 +7,7 @@ namespace Sandbox
 {
 	LineRendererSystem::LineRendererSystem()
 	{
-		SetPriority(10000);
+		SetPriority(9998);
 	}
 
 	void LineRendererSystem::OnRender()

@@ -221,9 +221,6 @@
     <None Include="Vec.tpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="vendor\box2d-2.4.1\build\src\box2d.vcxproj">
-      <Project>{bcd408d3-7efa-3de0-9b06-3a415d8b30dd}</Project>
-    </ProjectReference>
     <ProjectReference Include="vendor\glad\glad.vcxproj">
       <Project>{3a4323e7-9de1-4f77-a00a-826acb74f7c6}</Project>
     </ProjectReference>
@@ -480,7 +477,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)src;$(ProjectDir)include;$(ProjectDir)vendor\entt\src;$(ProjectDir)vendor\json\single_include;$(ProjectDir)vendor\;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\glm;$(ProjectDir)vendor\glad\include;$(ProjectDir)vendor\SDL_image;$(ProjectDir)vendor\SDL\include</AdditionalIncludeDirectories>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>SANDBOX_NO_CONSOLE;_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SANDBOX_DISTRIB;SANDBOX_NO_CONSOLE;_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>

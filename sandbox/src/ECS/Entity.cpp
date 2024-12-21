@@ -110,7 +110,9 @@ namespace Sandbox
 	{
 		if (!Valid())
 		{
-			LOG_WARN("Trying to destroy an invalid entity.");
+#ifndef SANDBOX_DISTRIB
+			//LOG_WARN("Trying to destroy an invalid entity.");
+#endif
 			return;
 		}
 

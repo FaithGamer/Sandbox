@@ -59,7 +59,9 @@ namespace Sandbox
 
 
 	}
-
+#ifndef DISTRIB
+#define SANDBOX_PROFILING
+#endif
 	void Systems::Update()
 	{
 		Time::delta = (float)m_updateClock.Restart();
@@ -91,13 +93,26 @@ namespace Sandbox
 
 		m_fixedUpdateAccumulator += m_fixedUpdateClock.Restart();
 		int i = 0;
+		int j = 0;
 		while (m_fixedUpdateAccumulator >= Time::fixedDelta)
 		{
 			Time scaledFixedDelta = (float)Time::fixedDelta * Time::timeScale;
 			m_fixedUpdateAccumulator -= Time::fixedDelta;
 			for (auto& system : m_fixedUpdateSystems)
 			{
+
+#ifdef SANDBOX_PROFILING
+				Clock timer;
 				system.system->OnFixedUpdate(scaledFixedDelta);
+				auto seconds = (float)timer.GetElapsed();
+				if (seconds > 0.032)
+				{
+					LOG_INFO("FixedUpdate exceeding 0.032 seconds, system n°{0}, {1}", j, system.system->DebugName());
+				}
+				j++;
+#else
+				system.system->OnFixedUpdate(scaledFixedDelta);
+#endif
 			}
 			if (++i > m_maxFixedUpdate)
 			{
@@ -109,12 +124,25 @@ namespace Sandbox
 			}
 		}
 
+		i = 0;
+
 		for (auto& system : m_updateSystems)
 		{
 			//If less than one microseconds elapse between two call
 			//the m_updateClock.Restart increment doesn't accurately describe time passing by.
 			
+#ifdef SANDBOX_PROFILING
+			Clock timer;
 			system.system->OnUpdate(deltaScaled);
+			auto seconds = (float)timer.GetElapsed();
+			if (seconds > 0.032)
+			{
+				LOG_INFO("Update exceeding 0.032 seconds, system n°{0}, {1}", i, system.system->DebugName());
+			}
+			i++;
+#else
+			system.system->OnUpdate(deltaScaled);
+#endif
 		}
 #ifndef SANDBOX_NO_WINDOW
 		if (m_mainCamera == nullptr)

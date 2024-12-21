@@ -38,6 +38,12 @@ namespace Sandbox
 
 		ins->m_world->QueryAABB(&query, aabb);
 	}
+	int Physics::GetBodyCount()
+	{
+		auto ins = Instance();
+		return ins->m_world->GetBodyCount();
+
+	}
 	void Physics::CircleOverlap(std::vector<OverlapResult>& results, Vec2f pos, float radius, Bitmask16 mask)
 	{
 		auto ins = Instance();

@@ -100,12 +100,16 @@ namespace Sandbox
 
 	void Camera::SetNearClippingPlane(float nearClippingPlane)
 	{
+		//Range recommended for compatibility with AMD 6750XT
+		//-96 to +96 = 0.2 min distance for Z buffer)
 		m_nearClippingPlane = nearClippingPlane;
 		m_needComputeProjectionMatrix = true;
 	}
 
 	void Camera::SetFarClippingPlane(float farClippingPlane)
 	{
+		//Range recommended for compatibility with AMD 6750XT
+		//-96 to +96 = 0.2 min distance for Z buffer)
 		m_farClippingPlane = farClippingPlane;
 		m_needComputeProjectionMatrix = true;
 	}

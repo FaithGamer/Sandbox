@@ -14,7 +14,7 @@
 -line renderer width take transform into account
 -line antialiasing ?
 -test line renderer reverse (must reverse width aswell i think)
--vec operator take references
+-vec operator take referencese
 -test if we can draw a line between two sprites (Z depth)
 -rename spriteRender to SpriteRenderer
 -Add mouse position from systems and camera

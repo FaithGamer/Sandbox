@@ -20,6 +20,7 @@ namespace Sandbox
 		static void CircleOverlap(std::vector<OverlapResult>& results, Vec2f pos, float radius, Bitmask16 mask = 65535);
 		static void PointInside(std::vector<OverlapResult>& results, Vec2f pos, Bitmask16 mask = 65535);
 		static void BodyOverlap(std::vector<OverlapResult>& results, Body* body, Bitmask16 mask = 65535);
+		static int GetBodyCount();
 		//static float BodyDistance(Body& lhs, Body& rhs);
 
 		/// @brief Add a collision layer with a custom name

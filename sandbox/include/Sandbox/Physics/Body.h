@@ -102,8 +102,6 @@ namespace Sandbox
 
 	public:
 		/// @brief Used internally to keep data about the body within box2D
-
-
 		Collider::UserData userData;
 
 	protected:
