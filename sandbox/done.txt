@@ -368,6 +368,15 @@ October
 -audio channel can have parent
 
 
+2025 
+January
+
+21
+
+-removed useless submodule (they are include only project)
+-fixed box2D configuration
+-
+
 >rotation Math::VecToAngle/VecToAngle should match with Transform rotation
 >camera, make near and far plane customizable
 >InputSystem.h should be in Input folder and part of Input.h
