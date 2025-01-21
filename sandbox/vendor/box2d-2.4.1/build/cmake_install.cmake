@@ -1,4 +1,4 @@
-# Install script for directory: C:/dev/Sandbox/Sandbox/vendor/box2d-2.4.1
+# Install script for directory: C:/dev/Sandbox/sandbox/vendor/box2d-2.4.1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -32,29 +32,41 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "C:/dev/Sandbox/Sandbox/vendor/box2d-2.4.1/include/box2d")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "C:/dev/Sandbox/sandbox/vendor/box2d-2.4.1/include/box2d")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/dev/Sandbox/Sandbox/vendor/box2d-2.4.1/build/src/cmake_install.cmake")
-  include("C:/dev/Sandbox/Sandbox/vendor/box2d-2.4.1/build/unit-test/cmake_install.cmake")
-  include("C:/dev/Sandbox/Sandbox/vendor/box2d-2.4.1/build/extern/glad/cmake_install.cmake")
-  include("C:/dev/Sandbox/Sandbox/vendor/box2d-2.4.1/build/extern/glfw/cmake_install.cmake")
-  include("C:/dev/Sandbox/Sandbox/vendor/box2d-2.4.1/build/extern/imgui/cmake_install.cmake")
-  include("C:/dev/Sandbox/Sandbox/vendor/box2d-2.4.1/build/extern/sajson/cmake_install.cmake")
-  include("C:/dev/Sandbox/Sandbox/vendor/box2d-2.4.1/build/testbed/cmake_install.cmake")
+  include("C:/dev/Sandbox/sandbox/vendor/box2d-2.4.1/build/src/cmake_install.cmake")
+  include("C:/dev/Sandbox/sandbox/vendor/box2d-2.4.1/build/unit-test/cmake_install.cmake")
+  include("C:/dev/Sandbox/sandbox/vendor/box2d-2.4.1/build/extern/glad/cmake_install.cmake")
+  include("C:/dev/Sandbox/sandbox/vendor/box2d-2.4.1/build/extern/glfw/cmake_install.cmake")
+  include("C:/dev/Sandbox/sandbox/vendor/box2d-2.4.1/build/extern/imgui/cmake_install.cmake")
+  include("C:/dev/Sandbox/sandbox/vendor/box2d-2.4.1/build/extern/sajson/cmake_install.cmake")
+  include("C:/dev/Sandbox/sandbox/vendor/box2d-2.4.1/build/testbed/cmake_install.cmake")
 
-endif()
-
-if(CMAKE_INSTALL_COMPONENT)
-  set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
-else()
-  set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/dev/Sandbox/Sandbox/vendor/box2d-2.4.1/build/${CMAKE_INSTALL_MANIFEST}"
+if(CMAKE_INSTALL_LOCAL_ONLY)
+  file(WRITE "C:/dev/Sandbox/sandbox/vendor/box2d-2.4.1/build/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
+endif()
+if(CMAKE_INSTALL_COMPONENT)
+  if(CMAKE_INSTALL_COMPONENT MATCHES "^[a-zA-Z0-9_.+-]+$")
+    set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
+  else()
+    string(MD5 CMAKE_INST_COMP_HASH "${CMAKE_INSTALL_COMPONENT}")
+    set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INST_COMP_HASH}.txt")
+    unset(CMAKE_INST_COMP_HASH)
+  endif()
+else()
+  set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  file(WRITE "C:/dev/Sandbox/sandbox/vendor/box2d-2.4.1/build/${CMAKE_INSTALL_MANIFEST}"
+     "${CMAKE_INSTALL_MANIFEST_CONTENT}")
+endif()

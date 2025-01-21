@@ -1,318 +1,315 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\collision\b2_broad_phase.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\collision\b2_broad_phase.cpp">
       <Filter>src\collision</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\collision\b2_chain_shape.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\collision\b2_chain_shape.cpp">
       <Filter>src\collision</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\collision\b2_circle_shape.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\collision\b2_circle_shape.cpp">
       <Filter>src\collision</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\collision\b2_collide_circle.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\collision\b2_collide_circle.cpp">
       <Filter>src\collision</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\collision\b2_collide_edge.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\collision\b2_collide_edge.cpp">
       <Filter>src\collision</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\collision\b2_collide_polygon.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\collision\b2_collide_polygon.cpp">
       <Filter>src\collision</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\collision\b2_collision.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\collision\b2_collision.cpp">
       <Filter>src\collision</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\collision\b2_distance.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\collision\b2_distance.cpp">
       <Filter>src\collision</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\collision\b2_dynamic_tree.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\collision\b2_dynamic_tree.cpp">
       <Filter>src\collision</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\collision\b2_edge_shape.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\collision\b2_edge_shape.cpp">
       <Filter>src\collision</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\collision\b2_polygon_shape.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\collision\b2_polygon_shape.cpp">
       <Filter>src\collision</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\collision\b2_time_of_impact.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\collision\b2_time_of_impact.cpp">
       <Filter>src\collision</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\common\b2_block_allocator.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\common\b2_block_allocator.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\common\b2_draw.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\common\b2_draw.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\common\b2_math.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\common\b2_math.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\common\b2_settings.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\common\b2_settings.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\common\b2_stack_allocator.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\common\b2_stack_allocator.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\common\b2_timer.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\common\b2_timer.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_body.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_body.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_chain_circle_contact.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_chain_circle_contact.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_chain_polygon_contact.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_chain_polygon_contact.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_circle_contact.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_circle_contact.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_contact.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_contact.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_contact_manager.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_contact_manager.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_contact_solver.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_contact_solver.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_distance_joint.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_distance_joint.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_edge_circle_contact.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_edge_circle_contact.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_edge_polygon_contact.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_edge_polygon_contact.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_fixture.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_fixture.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_friction_joint.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_friction_joint.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_gear_joint.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_gear_joint.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_island.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_island.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_joint.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_joint.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_motor_joint.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_motor_joint.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_mouse_joint.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_mouse_joint.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_polygon_circle_contact.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_polygon_circle_contact.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_polygon_contact.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_polygon_contact.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_prismatic_joint.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_prismatic_joint.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_pulley_joint.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_pulley_joint.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_revolute_joint.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_revolute_joint.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_weld_joint.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_weld_joint.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_wheel_joint.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_wheel_joint.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_world.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_world.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_world_callbacks.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_world_callbacks.cpp">
       <Filter>src\dynamics</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\rope\b2_rope.cpp">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\rope\b2_rope.cpp">
       <Filter>src\rope</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_chain_circle_contact.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_chain_circle_contact.h">
       <Filter>src\dynamics</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_chain_polygon_contact.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_chain_polygon_contact.h">
       <Filter>src\dynamics</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_circle_contact.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_circle_contact.h">
       <Filter>src\dynamics</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_contact_solver.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_contact_solver.h">
       <Filter>src\dynamics</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_edge_circle_contact.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_edge_circle_contact.h">
       <Filter>src\dynamics</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_edge_polygon_contact.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_edge_polygon_contact.h">
       <Filter>src\dynamics</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_island.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_island.h">
       <Filter>src\dynamics</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_polygon_circle_contact.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_polygon_circle_contact.h">
       <Filter>src\dynamics</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\dynamics\b2_polygon_contact.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\dynamics\b2_polygon_contact.h">
       <Filter>src\dynamics</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_api.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_api.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_block_allocator.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_block_allocator.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_body.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_body.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_broad_phase.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_broad_phase.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_chain_shape.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_chain_shape.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_circle_shape.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_circle_shape.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_collision.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_collision.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_common.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_common.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_contact.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_contact.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_contact_manager.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_contact_manager.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_distance.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_distance.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_distance_joint.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_distance_joint.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_draw.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_draw.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_dynamic_tree.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_dynamic_tree.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_edge_shape.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_edge_shape.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_fixture.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_fixture.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_friction_joint.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_friction_joint.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_gear_joint.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_gear_joint.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_growable_stack.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_growable_stack.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_joint.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_joint.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_math.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_math.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_motor_joint.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_motor_joint.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_mouse_joint.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_mouse_joint.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_polygon_shape.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_polygon_shape.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_prismatic_joint.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_prismatic_joint.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_pulley_joint.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_pulley_joint.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_revolute_joint.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_revolute_joint.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_rope.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_rope.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_settings.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_settings.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_shape.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_shape.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_stack_allocator.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_stack_allocator.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_time_of_impact.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_time_of_impact.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_timer.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_timer.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_time_step.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_time_step.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_types.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_types.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_weld_joint.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_weld_joint.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_wheel_joint.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_wheel_joint.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_world.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_world.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\b2_world_callbacks.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\b2_world_callbacks.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\include\box2d\box2d.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\include\box2d\box2d.h">
       <Filter>include\box2d</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\src\CMakeLists.txt" />
+    <CustomBuild Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\src\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
-      <UniqueIdentifier>{9353F467-0FB2-3E35-BEBC-7C64B5085186}</UniqueIdentifier>
+      <UniqueIdentifier>{04D8AF35-CD50-3460-A5E7-129B26BEE0A7}</UniqueIdentifier>
     </Filter>
     <Filter Include="include\box2d">
-      <UniqueIdentifier>{9EF527A0-F6F5-3501-B001-751637FB8BB3}</UniqueIdentifier>
+      <UniqueIdentifier>{5A7F27F0-52ED-3D6B-B78C-1E1259D1B851}</UniqueIdentifier>
     </Filter>
     <Filter Include="src">
-      <UniqueIdentifier>{A6571648-7356-31CC-A045-824336465987}</UniqueIdentifier>
+      <UniqueIdentifier>{1A794F8E-5DC8-3EFD-BBB3-1DDD2B06E2F2}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\collision">
-      <UniqueIdentifier>{19FBE602-602E-3D77-AD42-9487FD6C92CB}</UniqueIdentifier>
+      <UniqueIdentifier>{15BDAE15-D8A8-3F3C-A920-6805AEF4FDE1}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\common">
-      <UniqueIdentifier>{BDB50881-75BF-3866-8112-AC311FD7822D}</UniqueIdentifier>
+      <UniqueIdentifier>{DDF51FF0-6D5F-33D3-98E9-9868F0493882}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\dynamics">
-      <UniqueIdentifier>{53ECE5D1-F4BE-3BA3-8AD9-1D4CE6A6D105}</UniqueIdentifier>
+      <UniqueIdentifier>{08CEA414-CF85-3C3A-955D-5A9EFEBB51B8}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\rope">
-      <UniqueIdentifier>{E0A0EA74-48B9-375B-B88B-1A16042CBB9B}</UniqueIdentifier>
+      <UniqueIdentifier>{10136C92-CA1B-3119-8E75-C1D11A1B691A}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\..\..\Application\Application.vcxproj" />
   </ItemGroup>
 </Project>

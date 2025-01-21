@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\build\CMakeFiles\077972a08d64b4913414686c181db778\INSTALL_force.rule">
+    <CustomBuild Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\build\CMakeFiles\17c0e611f294c8b1a94d0559a67266da\INSTALL_force.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{AE41B76D-AE2A-38AE-BEC4-3B0378716B51}</UniqueIdentifier>
+      <UniqueIdentifier>{5971EB1B-C7F6-3139-85BA-D9A6C6CA3B66}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

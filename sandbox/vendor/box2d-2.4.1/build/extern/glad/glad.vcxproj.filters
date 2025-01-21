@@ -1,33 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glad\src\gl.c">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glad\src\gl.c">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glad\include\glad\gl.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glad\include\glad\gl.h">
       <Filter>include\glad</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glad\include\KHR\khrplatform.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glad\include\KHR\khrplatform.h">
       <Filter>include\KHR</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glad\CMakeLists.txt" />
+    <CustomBuild Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glad\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
-      <UniqueIdentifier>{9353F467-0FB2-3E35-BEBC-7C64B5085186}</UniqueIdentifier>
+      <UniqueIdentifier>{04D8AF35-CD50-3460-A5E7-129B26BEE0A7}</UniqueIdentifier>
     </Filter>
     <Filter Include="include\KHR">
-      <UniqueIdentifier>{81F03067-8064-3A2E-AD61-E268C4F7B4DC}</UniqueIdentifier>
+      <UniqueIdentifier>{5E5559EA-C29A-30DA-A83E-37A7945B3AD2}</UniqueIdentifier>
     </Filter>
     <Filter Include="include\glad">
-      <UniqueIdentifier>{FB9FD4DD-7B9F-336B-8FB3-FDE953A3F575}</UniqueIdentifier>
+      <UniqueIdentifier>{D6C713F2-75BC-35EC-BBA9-A493475AC078}</UniqueIdentifier>
     </Filter>
     <Filter Include="src">
-      <UniqueIdentifier>{A6571648-7356-31CC-A045-824336465987}</UniqueIdentifier>
+      <UniqueIdentifier>{1A794F8E-5DC8-3EFD-BBB3-1DDD2B06E2F2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

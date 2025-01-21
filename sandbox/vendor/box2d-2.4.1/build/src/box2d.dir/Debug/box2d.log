@@ -1,22 +1,52 @@
-﻿Build started 31-Mar-23 13:03:32.
-Logging verbosity is set to: Normal.     1>Project "C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\build\src\box2d.vcxproj" on node 3 (Build target(s)).
-     1>InitializeBuildStatus:
-         Creating "box2d.dir\Debug\box2d.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-       CustomBuild:
-         All outputs are up-to-date.
-       ClCompile:
-         All outputs are up-to-date.
-       Lib:
-         All outputs are up-to-date.
-         Copying file from "C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\build\src\Debug\box2d.pdb" to "C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\build\bin\Debug\box2d.pdb".
-         box2d.vcxproj -> C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\build\bin\Debug\box2d.lib
-       FinalizeBuildStatus:
-         Deleting file "box2d.dir\Debug\box2d.tlog\unsuccessfulbuild".
-         Touching "box2d.dir\Debug\box2d.tlog\box2d.lastbuildstate".
-     1>Done Building Project "C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\build\src\box2d.vcxproj" (Build target(s)).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.06
+﻿  Building Custom Rule C:/dev/Sandbox/sandbox/vendor/box2d-2.4.1/src/CMakeLists.txt
+  b2_broad_phase.cpp
+  b2_chain_shape.cpp
+  b2_circle_shape.cpp
+  b2_collide_circle.cpp
+  b2_collide_edge.cpp
+  b2_collide_polygon.cpp
+  b2_collision.cpp
+  b2_distance.cpp
+  b2_dynamic_tree.cpp
+  b2_edge_shape.cpp
+  b2_polygon_shape.cpp
+  b2_time_of_impact.cpp
+  b2_block_allocator.cpp
+  b2_draw.cpp
+  b2_math.cpp
+  b2_settings.cpp
+  b2_stack_allocator.cpp
+  b2_timer.cpp
+  b2_body.cpp
+  b2_chain_circle_contact.cpp
+  Generating Code...
+  Compiling...
+  b2_chain_polygon_contact.cpp
+  b2_circle_contact.cpp
+  b2_contact.cpp
+  b2_contact_manager.cpp
+  b2_contact_solver.cpp
+  b2_distance_joint.cpp
+  b2_edge_circle_contact.cpp
+  b2_edge_polygon_contact.cpp
+  b2_fixture.cpp
+  b2_friction_joint.cpp
+  b2_gear_joint.cpp
+  b2_island.cpp
+  b2_joint.cpp
+  b2_motor_joint.cpp
+  b2_mouse_joint.cpp
+  b2_polygon_circle_contact.cpp
+  b2_polygon_contact.cpp
+  b2_prismatic_joint.cpp
+  b2_pulley_joint.cpp
+  b2_revolute_joint.cpp
+  Generating Code...
+  Compiling...
+  b2_weld_joint.cpp
+  b2_wheel_joint.cpp
+  b2_world.cpp
+  b2_world_callbacks.cpp
+  b2_rope.cpp
+  Generating Code...
+  box2d.vcxproj -> C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\build\bin\Debug\box2d.lib

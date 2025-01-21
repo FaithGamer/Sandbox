@@ -1,93 +1,93 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\context.c">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\context.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\init.c">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\init.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\input.c">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\input.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\monitor.c">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\monitor.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\vulkan.c">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\vulkan.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\window.c">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\window.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\win32_init.c">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\win32_init.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\win32_joystick.c">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\win32_joystick.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\win32_monitor.c">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\win32_monitor.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\win32_time.c">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\win32_time.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\win32_thread.c">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\win32_thread.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\win32_window.c">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\win32_window.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\wgl_context.c">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\wgl_context.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\egl_context.c">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\egl_context.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\osmesa_context.c">
+    <ClCompile Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\osmesa_context.c">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\internal.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\internal.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\mappings.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\mappings.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\include\GLFW\glfw3.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\include\GLFW\glfw3.h">
       <Filter>include\GLFW</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\include\GLFW\glfw3native.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\include\GLFW\glfw3native.h">
       <Filter>include\GLFW</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\win32_platform.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\win32_platform.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\win32_joystick.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\win32_joystick.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\wgl_context.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\wgl_context.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\egl_context.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\egl_context.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\src\osmesa_context.h">
+    <ClInclude Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\src\osmesa_context.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\dev\Sandbox\Sandbox\vendor\box2d-2.4.1\extern\glfw\CMakeLists.txt" />
+    <CustomBuild Include="C:\dev\Sandbox\sandbox\vendor\box2d-2.4.1\extern\glfw\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
-      <UniqueIdentifier>{9353F467-0FB2-3E35-BEBC-7C64B5085186}</UniqueIdentifier>
+      <UniqueIdentifier>{04D8AF35-CD50-3460-A5E7-129B26BEE0A7}</UniqueIdentifier>
     </Filter>
     <Filter Include="include\GLFW">
-      <UniqueIdentifier>{9F1B585A-D6E6-30A9-A5EF-7C8860B08CDC}</UniqueIdentifier>
+      <UniqueIdentifier>{A8E3EE7D-9F61-3F05-A4CF-1DAFB696A1D1}</UniqueIdentifier>
     </Filter>
     <Filter Include="src">
-      <UniqueIdentifier>{A6571648-7356-31CC-A045-824336465987}</UniqueIdentifier>
+      <UniqueIdentifier>{1A794F8E-5DC8-3EFD-BBB3-1DDD2B06E2F2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
